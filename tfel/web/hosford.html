@@ -230,6 +230,7 @@
 		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
 		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
 		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -468,7 +469,7 @@ solver</a></li>
 <li><a href="#references" id="toc-references">References</a></li>
 </ul>
 </div>
-<p>This paper is dedicated to the implementation a perfect plastic
+<p>This paper is dedicated to the implementation of a perfect plastic
 behaviour based on the Hosford equivalent stress.</p>
 <p>The whole implementation is available <a
 href="./gallery/plasticity/HosfordPerfectPlasticity.mfront">here</a>.</p>
@@ -503,7 +504,7 @@ class="math inline">\(\sigma_{3}\)</span> are the eigenvalues of the
 stress.</p>
 <p>Therefore, when <span class="math inline">\(a\)</span> goes to
 infinity, the Hosford stress reduces to the Tresca stress. When <span
-class="math inline">\(n = 2\)</span> the Hosford stress reduces to the
+class="math inline">\(n = 2\)</span>, the Hosford stress reduces to the
 von Mises stress.</p>
 <figure>
 <img src="img/HosfordStress.svg"
@@ -542,8 +543,8 @@ post-processing purposes, we choose to keep it as a state variable.</p>
 <h2 id="elastic-prediction">Elastic prediction</h2>
 <p>First, an elastic prediction of the stress <span
 class="math inline">\(\underline{\sigma}^{\mathrm{tr}}\)</span> is made
-(The following expression is not valid in plane stress hypothesis, see
-below): <span class="math display">\[
+(the following expression is not valid in the plane stress hypothesis,
+see below): <span class="math display">\[
 \underline{\sigma}^{\mathrm{tr}}=\lambda\,{\mathrm{tr}{\left({\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t}}+\theta\,\Delta\,\underline{\varepsilon}^{\mathrm{to}}\right)}}\,\underline{I}+2\,\mu\,{\left({\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t}}+\theta\,\Delta\,\underline{\varepsilon}^{\mathrm{to}}\right)}
 \]</span></p>
 <ul>
@@ -639,9 +640,9 @@ brick</h2>
 behaviour integration.</li>
 <li>Automatic computation of the consistent tangent operator.</li>
 <li>Automatic support for plane stress and generalized plane stress
-modelling hypotheses (The axial strain is defined as an additional state
+modelling hypotheses (the axial strain is defined as an additional state
 variable and the associated equation in the implicit system is added to
-enforce the plane stess condition).</li>
+enforce the plane stress condition).</li>
 <li>Automatic addition of the standard terms associated with the elastic
 strain state variable.</li>
 </ul>
@@ -652,13 +653,13 @@ follows:</p>
 <div class="sourceCode" id="cb3"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElasticity<span class="op">;</span></span></code></pre></div>
 <h2 id="numerical-parameters">Numerical parameters</h2>
-<p>The following part of file give some default values for numerical
-parameters used by the integration algorithm:</p>
+<p>The following part of the file gives some default values for
+numerical parameters used by the integration algorithm:</p>
 <div class="sourceCode" id="cb4"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Epsilon <span class="fl">1.e-16</span><span class="op">;</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Theta <span class="dv">1</span><span class="op">;</span></span></code></pre></div>
 <h2 id="state-variables">State variables</h2>
-<p>The elastic strain is automatically declared the
+<p>The elastic strain is automatically declared by the
 <code>StandardElasticity</code> brick. The associated variable is
 <code>eel</code>.</p>
 <p>The following statement introduces the equivalent plastic strain
@@ -674,7 +675,7 @@ modulus and the Poisson ratio.</p>
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ElasticMaterialProperties <span class="op">{</span><span class="fl">150e9</span><span class="op">,</span><span class="fl">0.3</span><span class="op">};</span></span></code></pre></div>
 <p>In the <code>Implicit</code> scheme, the lame coefficients are
 automatically deduced from the Young modulus and the Poisson ratio. They
-are accessible though the <code>lambda</code> and <code>mu</code> local
+are accessible through the <code>lambda</code> and <code>mu</code> local
 variables which are automatically defined.</p>
 <p>The parameters associated with the plastic part of the behaviour are
 defined as follows:</p>
@@ -751,14 +752,14 @@ class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{el}}-\Delta\,\und
 by the <code>StandardElasticity</code> brick</li>
 <li><code>fp</code> has been initialized to <span
 class="math inline">\(\Delta\,p\)</span> following standard conventions
-defined in the the <code>Implicit</code> domain specific language.</li>
+defined in the <code>Implicit</code> domain specific language.</li>
 <li>the jacobian has been set to identity, following standard
 conventions defined in the <code>Implicit</code> domain specific
 language.</li>
 </ul>
 <p>Thus, all the variables have been set to describe a purely elastic
 behaviour. Hence, nothing is to be done if the boolean variable
-<code>b</code> is <code>false</code>. In this case, one just return
+<code>b</code> is <code>false</code>. In this case, one just returns
 <code>true</code>.</p>
 <p>If a plastic loading has been predicted, one uses the
 <code>computeHosfordStressSecondDerivative</code> function which
@@ -808,7 +809,7 @@ plane stress</h2>
 <p>The following script determines the yield stress under the plane
 stress assumption in the principal stress space by a brute force
 approach. It imposes strain paths in varying directions and a constraint
-the shear stress is null. The computations stops when the plastic
+that the shear stress is null. The computation stops when the plastic
 equivalent strain exceeds <span class="math inline">\(10^{-3}\)</span>.
 The current stress state is then printed.</p>
 <div class="sourceCode" id="cb13"><pre
@@ -855,8 +856,8 @@ The test is based on the following steps:</p>
 <ul>
 <li>A direction in the <span class="math inline">\(\pi\)</span>-plane,
 characterized by an angle <span class="math inline">\(\alpha\)</span>,
-is choosen. <span class="math inline">\(\alpha\)</span> varies from
-<span class="math inline">\(-\pi\)</span> to <span
+is chosen. <span class="math inline">\(\alpha\)</span> varies from <span
+class="math inline">\(-\pi\)</span> to <span
 class="math inline">\(\pi\)</span>: this range is discretized <span
 class="math inline">\(1000\)</span> times.</li>
 <li>A stress state <span
@@ -868,7 +869,7 @@ coordinates <span
 class="math inline">\(\tilde{\pi}{\left(\underline{\sigma}_{\alpha}\right)}\)</span>
 in the <span class="math inline">\(\pi\)</span>-plane and this
 projection determines its three eigenvalues. <span
-class="math inline">\(\underline{\sigma}_{\alpha}\)</span> is choosen
+class="math inline">\(\underline{\sigma}_{\alpha}\)</span> is chosen
 diagonal.</li>
 <li>The elastic strain <span
 class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}_{\alpha}\)</span>
@@ -885,19 +886,19 @@ where <span class="math inline">\(x\)</span> is increased from <span
 class="math inline">\(1\)</span> to a maximal value of <span
 class="math inline">\(30\)</span>. If the behaviour integration
 succeeds, <span class="math inline">\(x\)</span> is increased by an
-increment egal to <span class="math inline">\(30/1000\)</span>. This
+increment equal to <span class="math inline">\(30/1000\)</span>. This
 step is stopped if the behaviour integration fails or if <span
 class="math inline">\(x\)</span> reaches <span
 class="math inline">\(30\)</span>.</li>
 </ul>
-<p>For each values of <span class="math inline">\(\alpha\)</span> and
+<p>For each value of <span class="math inline">\(\alpha\)</span> and
 <span class="math inline">\(x\)</span>, the number of iterations needed
 to solve the implicit system is recorded.</p>
 <p>The implementation presented so far is modified to declare an
-additional state variable using to save the number of iterations
-required to reach the convergence.</p>
+additional state variable used to save the number of iterations required
+to reach the convergence.</p>
 <p>The <code>python</code> script which implements the test is the
-following, in the case of a Hosford exponent egal to <span
+following, in the case of a Hosford exponent equal to <span
 class="math inline">\(100\)</span>:</p>
 <div class="sourceCode" id="cb14"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> pi,cos,sin</span>
@@ -967,11 +968,11 @@ is greater than <span class="math inline">\(\beta\,\sigma_{Y}\)</span>,
 the Newton step is rejected: the direction is kept unchanged but the
 amplitude of the correction to the internal state variables increment is
 divided by two. In the following, <span
-class="math inline">\(\beta\)</span> is choosen equal to <span
+class="math inline">\(\beta\)</span> is chosen equal to <span
 class="math inline">\(\frac{3}{2}\)</span>. The test has to be made in
-the <code>@Integrator</code> code block: if the test fails, one just
-have to return the <code>false</code> value. This is obtained by adding
-the following line after the computation of the Hosford equivalent
+the <code>@Integrator</code> code block: if the test fails, one just has
+to return the <code>false</code> value. This is obtained by adding the
+following line after the computation of the Hosford equivalent
 stress:</li>
 </ul>
 <div class="sourceCode" id="cb15"><pre
@@ -990,7 +991,7 @@ keyword.</li>
 </ul>
 <h2 id="hosford-a6">Hosford <span
 class="math inline">\(a=6\)</span></h2>
-<p>The Hosford yield surface for an exponent egal to <span
+<p>The Hosford yield surface for an exponent equal to <span
 class="math inline">\(a=6\)</span> is smooth.</p>
 <figure id="fig:hosford6:alg1">
 <img src="img/Scherzinger/Hosford6/Newton.png"
@@ -1007,8 +1008,8 @@ class="math inline">\(100\)</span> by default. However, as stated by
 Scherzinger, if the convergence is not reached for <span
 class="math inline">\(30\)</span> iterations, most of the time the
 convergence will not be reached.</p>
-<p>The results depicted on Figure 1 confirms the ones of Scherzinger:
-the standard Newton algorithm conditionally converges. Indeed, it can be
+<p>The results depicted on Figure 1 confirm the ones of Scherzinger: the
+standard Newton algorithm conditionally converges. Indeed, it can be
 seen that the standard Newton algorithm converges for all values of
 <span class="math inline">\(\alpha\)</span> if <span
 class="math inline">\(x\)</span> is low enough. For large values of
@@ -1030,7 +1031,7 @@ class="math inline">\(x\)</span>.</p>
 <p>Results for the third and fourth algorithms are not shown but are
 very similar to the one obtained with the second algorithm. Indeed, in
 terms of robustness, differences between those three algorithms only
-arises for high values of the Hosford exponent <span
+arise for high values of the Hosford exponent <span
 class="math inline">\(a\)</span>.</p>
 <h2 id="hosford-a8">Hosford <span
 class="math inline">\(a=8\)</span></h2>
@@ -1077,7 +1078,7 @@ alt="Robustness of Algorithm 2 for a=100" />
 class="math inline">\(a=100\)</span></figcaption>
 </figure>
 <p>In this case, the second algorithm does not improve the robustness as
-shown on Figure 6. This algorithm performs almost as poorly than the
+shown on Figure 6. This algorithm performs almost as poorly as the
 standard Newton algorithm.</p>
 <figure id="fig:hosford100:alg3">
 <img
@@ -1089,7 +1090,7 @@ class="math inline">\(a=100\)</span></figcaption>
 </figure>
 <p>Figure 7 shows that the third algorithm clearly increases the
 robustness in some directions but the robustness remains low for angles
-close the edges of the yield surfaces.</p>
+close to the edges of the yield surfaces.</p>
 <figure id="fig:hosford100:alg4">
 <img src="img/Scherzinger/Hosford100/LevenbergMarquardt.png"
 title="Robustness of Algorithm 4 for (a=100)" style="width:70.0%"
@@ -1098,7 +1099,7 @@ alt="Robustness of Algorithm 4 for a=100" />
 class="math inline">\(a=100\)</span></figcaption>
 </figure>
 <p>Figure 7 shows that the Levenberg-Marquardt algorithm outperforms
-Algorithm 3. However, the robustness remains low for angles close the
+Algorithm 3. However, the robustness remains low for angles close to the
 edges of the yield surfaces.</p>
 <h3 id="influence-of-the-eigen-solver">Influence of the eigen
 solver</h3>
@@ -1106,9 +1107,9 @@ solver</h3>
 the previous tests, the default eigen solver was used. This analytical
 solver has been shown to provide a very interesting trade-off between
 accuracy and numerical efficiency. It was also shown that the Jacobi
-eigensolver provides very accurate results but is less efficient by our
-default eigen solver (about 2 times less efficient).</p>
-<p>Our tests, not reported here, shows that changing the eigen
+eigensolver provides very accurate results but is less efficient than
+our default eigen solver (about 2 times less efficient).</p>
+<p>Our tests, not reported here, show that changing the eigen
 solver:</p>
 <ul>
 <li>does not change the results presented for exponents <span
@@ -1139,16 +1140,17 @@ is reached for all tested values of <span
 class="math inline">\(\alpha\)</span> and <span
 class="math inline">\(x\)</span>.</p>
 <h2 id="conclusions">Conclusions</h2>
-<p>Our tests shows that for high values of the Hosford exponent,
+<p>Our tests show that for high values of the Hosford exponent,
 sophisticated algorithms and accurate eigen solvers are required to
 guarantee the convergence of the algorithm for large trial stress.</p>
 <p>However, for standard values of the Hosford exponent (<span
 class="math inline">\(a=6\)</span> and <span
-class="math inline">\(a=8\)</span>), our results shows that Algorithm 2,
-which a very simple modification of the standard Newton algorithm based
-on a simple and intuitive physical consideration, is very robust.</p>
-<p>Those results has to confirmed on real structural analyses. In
-particular, the impact of each algorithms on the overall efficiency of
+class="math inline">\(a=8\)</span>), our results show that Algorithm 2,
+which is a very simple modification of the standard Newton algorithm
+based on a simple and intuitive physical consideration, is very
+robust.</p>
+<p>Those results have to be confirmed on real structural analyses. In
+particular, the impact of each algorithm on the overall efficiency of
 the simulations has to be evaluated.</p>
 <h1 id="references">References</h1>
 <!-- Local IspellDict: english -->

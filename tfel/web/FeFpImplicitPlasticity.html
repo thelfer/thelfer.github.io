@@ -234,6 +234,7 @@
 		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
 		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
 		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -447,9 +448,9 @@ id="toc-consistent-tangent-operator"><span
 class="toc-section-number">3.3</span> Consistent tangent
 operator</a></li>
 </ul></li>
-<li><a href="#plastic-behaviour-implementation"
-id="toc-plastic-behaviour-implementation"><span
-class="toc-section-number">4</span> Plastic behaviour’
+<li><a href="#plastic-behaviours-implementation"
+id="toc-plastic-behaviours-implementation"><span
+class="toc-section-number">4</span> Plastic behaviour’s
 implementation</a></li>
 <li><a
 href="#sec:mfront:FeFpImplicitPlasticity:consistent_tangent_operators"
@@ -460,7 +461,7 @@ operators</a>
 <li><a href="#sec:mfront:FeFpImplicitPlasticity:dtau_dF"
 id="toc-sec:mfront:FeFpImplicitPlasticity:dtau_dF"><span
 class="toc-section-number">5.1</span> Another expression of the
-derivative of the Kirchhoff stress with respect ot the deformation
+derivative of the Kirchhoff stress with respect to the deformation
 gradient</a></li>
 <li><a
 href="#derivative-of-the-second-piola-kirchhoff-stress-in-the-initial-configuration-with-respect-to-the-right-cauchy-tensor-in-the-initial-configuration"
@@ -493,7 +494,7 @@ class="header-section-number">1</span> Thermodynamical approach</h1>
 class="header-section-number">1.1</span> Kinematics</h2>
 <p>Let <span class="math inline">\(\vec{x}\)</span> be the current
 position of a point located at <span
-class="math inline">\(\vec{X}\)</span> int the intial configuration.</p>
+class="math inline">\(\vec{X}\)</span> in the initial configuration.</p>
 <p>The displacement of this point is denoted <span
 class="math inline">\(\vec{u}\)</span>: <span class="math display">\[
   \vec{u}=\vec{x}-\vec{X}
@@ -538,7 +539,7 @@ class="math display">\[
 \vec{X}}{\displaystyle \partial
 \vec{x}}}}={\underset{\tilde{}}{\mathbf{\dot{F}}}}\,\cdot\,{{\underset{\tilde{}}{\mathbf{F}}}^{\mathrm{-1}}}
 \qquad{(2)}\]</span></span></p>
-<p>The rate of deformation is the symmetric part of is <span
+<p>The rate of deformation is the symmetric part of <span
 class="math inline">\({\underset{\tilde{}}{\mathbf{L}}}\)</span>: <span
 id="eq:mfront:FeFpImplicitPlasticity:D"><span class="math display">\[
 \underline{D}= {{\displaystyle \frac{\displaystyle 1}{\displaystyle
@@ -624,7 +625,7 @@ power</h2>
 <span class="math inline">\(p_{v}\)</span> is given by the contracted
 product of the Cauchy stress and the deformation gradient.</p>
 <p>Assuming the symmetry of the Cauchy stress, <span
-class="math inline">\(p_{v}\)</span> can be developped as follows:</p>
+class="math inline">\(p_{v}\)</span> can be developed as follows:</p>
 <p><span class="math display">\[
 \underline{\sigma}\,\colon\,\underline{D}=
 \underline{\sigma}\,\colon\,{\underset{\tilde{}}{\mathbf{L}}}=
@@ -632,8 +633,8 @@ class="math inline">\(p_{v}\)</span> can be developped as follows:</p>
 \]</span></p>
 <p>The term <span
 class="math inline">\(\underline{\sigma}\,\colon\,{\underset{\tilde{}}{\mathbf{L}}}_{e}\)</span>
-is assumed to be reversible and must derive from an convex free energy
-<span class="math inline">\(\Psi\)</span>, as developped in Section 1.4,
+is assumed to be reversible and must derive from a convex free energy
+<span class="math inline">\(\Psi\)</span>, as developed in Section 1.4,
 such that:</p>
 <p><span class="math display">\[
 \underline{\sigma}\,\colon\,{\underset{\tilde{}}{\mathbf{L}}}_{e}=
@@ -759,8 +760,8 @@ class="math display">\[
 class="math inline">\(A\)</span> and <span
 class="math inline">\(B\)</span>.</p>
 </blockquote>
-<p>The behaviour is hyperelastic if the the second Piola-Kirchhoff
-stress derives from a convex free energy <span
+<p>The behaviour is hyperelastic if the second Piola-Kirchhoff stress
+derives from a convex free energy <span
 class="math inline">\(\Psi\)</span>, such that:</p>
 <p><span class="math display">\[
 \underline{\sigma}\,\colon\,{\underset{\tilde{}}{\mathbf{L}}}_{e}=
@@ -772,11 +773,11 @@ J_{e}}}}\,\underline{S}_{e}\,\colon\,\underline{\dot{\varepsilon}}^{GL}_{e}
 \]</span></p>
 <p>For metals, the Green-Lagrange strain <span
 class="math inline">\(\underline{\varepsilon}^{GL}_{e}\)</span> is
-generally small in practice, the choice of the free energy <span
-class="math inline">\(\Psi\)</span> generally have little influence. The
-Saint-Venant Kirchhoff hyperelastic behaviour, which is the simpliest
+generally small in practice, so the choice of the free energy <span
+class="math inline">\(\Psi\)</span> generally has little influence. The
+Saint-Venant Kirchhoff hyperelastic behaviour, which is the simplest
 generalisation of the Hooke behaviour at finite strain, is thus
-generally choosen.</p>
+generally chosen.</p>
 <h3 data-number="1.4.1"
 id="the-saint-venant-kirchhoff-hyperelastic-behaviour"><span
 class="header-section-number">1.4.1</span> The Saint-Venant Kirchhoff
@@ -808,8 +809,8 @@ i.e. as the stress measure which satisfies:</p>
 J_{e}}}}\,{\underset{\tilde{}}{\mathbf{M}}}\,\colon{\underset{\tilde{}}{\mathbf{L}}}_{p}
 \]</span></p>
 <p>The Mandel stress <span
-class="math inline">\({\underset{\tilde{}}{\mathbf{M}}}\)</span> is egal
-to (see demonstration below):</p>
+class="math inline">\({\underset{\tilde{}}{\mathbf{M}}}\)</span> is
+equal to (see demonstration below):</p>
 <p><span id="eq:mfront:FeFpImplicitPlasticity:MandelStress"><span
 class="math display">\[
 {\underset{\tilde{}}{\mathbf{M}}}=
@@ -856,8 +857,7 @@ current configuration.</li>
 variables</li>
 </ul>
 <p>Let <span class="math inline">\(\Psi = e - T\,s\)</span> be the free
-energy in in the current configuration. Using Equation (6), one
-gets:</p>
+energy in the current configuration. Using Equation (6), one gets:</p>
 <p><span class="math display">\[
 \begin{aligned}
 -\rho\,{\left(\dot{\Psi} - s\,\dot{T}\right)} +
@@ -900,7 +900,7 @@ s = {{\displaystyle \frac{\displaystyle \partial \Psi}{\displaystyle
 <p>where <span class="math inline">\(\rho_{e}\)</span> is the density in
 the intermediate configuration (<span
 class="math inline">\(\rho_{e}=\rho\,J_{e}\)</span>).</p>
-<p>Assuming that the dissipation du to heat transfer <span
+<p>Assuming that the dissipation due to heat transfer <span
 class="math inline">\(D_{T}\)</span> and the mechanical dissipation
 <span class="math inline">\(D_{m}\)</span> are both positive, one gets:
 <span class="math display">\[
@@ -935,11 +935,11 @@ class="header-section-number">2.1</span> Isotropic incompressible
 <li>An isotropic incompressible viscoplastic behaviour.</li>
 <li>An isotropic incompressible plastic behaviour.</li>
 </ul>
-<p>Those examples shares the same hyperelastic behaviour and the same
+<p>Those examples share the same hyperelastic behaviour and the same
 stress criterion.</p>
 <h3 data-number="2.1.1" id="hyperelastic-behaviour"><span
 class="header-section-number">2.1.1</span> Hyperelastic behaviour</h3>
-<p>The simpliest isotropic hyperelastic behaviour is the Saint
+<p>The simplest isotropic hyperelastic behaviour is the Saint
 Venant-Kirchhoff law:</p>
 <p><span class="math display">\[
 \underline{S}_{e}=
@@ -951,7 +951,7 @@ Lamé coefficients.</p>
 <h3 data-number="2.1.2" id="choice-of-the-stress-criterion"><span
 class="header-section-number">2.1.2</span> Choice of the stress
 criterion</h3>
-<p>Du to isotropy, the dissipation potential must be a function of the
+<p>Due to isotropy, the dissipation potential must be a function of the
 invariants of the Mandel stress:</p>
 <ul>
 <li>the trace of the Mandel stress, <span
@@ -969,9 +969,9 @@ is the deviatoric part of the Mandel stress.</li>
 </ul>
 <p>Since the plastic flow is assumed to be isochoric, <span
 class="math inline">\(L_{p}\)</span> must be traceless, so the
-dissipation potentiel can’t be a function of <span
+dissipation potential can’t be a function of <span
 class="math inline">\(I_{1}\)</span>.</p>
-<p>In this section, we assume that the behaviour oly depends on <span
+<p>In this section, we assume that the behaviour only depends on <span
 class="math inline">\(M_{\mathrm{eq}}\)</span>. Thus,</p>
 <p><span class="math display">\[
 {\underset{\tilde{}}{\mathbf{L}}}_{p}={{\displaystyle
@@ -1017,24 +1017,24 @@ id="sec:mfront:FeFpImplicitPlasticity:single_crystal"><span
 class="header-section-number">2.2</span> Single crystal plasticity</h2>
 <p>It is assumed that the crystal deforms by gliding of dislocations on
 a set of <span class="math inline">\(N_{s}\)</span> prescribed
-cristallographic planes called <em>slip planes</em>, also called
+crystallographic planes called <em>slip planes</em>, also called
 <em>slip systems</em> or <em>gliding systems</em>.</p>
 <p>A slip plane is characterized by its normal <span
 class="math inline">\(\vec{n}_{s}\)</span> and a slip direction <span
 class="math inline">\(\vec{m}_{s}\)</span> in the plane (<span
 class="math inline">\(s\,\in\,\left[1, N_{s}\right]\)</span>). By
-definition, the vectors are <span
-class="math inline">\(\vec{n}_{s}\)</span> and <span
-class="math inline">\(\vec{m}_{s}\)</span> are orthogonal. A slip plane
-is also characterized by its orientation tensor <span
+definition, the vectors <span class="math inline">\(\vec{n}_{s}\)</span>
+and <span class="math inline">\(\vec{m}_{s}\)</span> are orthogonal. A
+slip plane is also characterized by its orientation tensor <span
 class="math inline">\({\underset{\tilde{}}{\mathbf{N}}}_{s}\)</span>
 such that: <span class="math display">\[
 {\underset{\tilde{}}{\mathbf{N}}}_{s}= \vec{m}_{s}\,\otimes\,\vec{n}_{s}
 \]</span></p>
-<p>The gliding of dislocations leave the crystal orientations unchanged,
-so the orientation tensors are the same in the initial configuration
-<span class="math inline">\(C_{0}\)</span> and in the intermediate
-configuration <span class="math inline">\(C_{i}\)</span>.</p>
+<p>The gliding of dislocations leaves the crystal orientations
+unchanged, so the orientation tensors are the same in the initial
+configuration <span class="math inline">\(C_{0}\)</span> and in the
+intermediate configuration <span
+class="math inline">\(C_{i}\)</span>.</p>
 <p>Finally, the plastic part of the velocity gradient is given by the
 sum of the glidings on all gliding planes, as follows: <span
 class="math display">\[
@@ -1149,7 +1149,7 @@ incompressiblity condition given by: <span class="math display">\[
 = 1
 \]</span></p>
 <p>Using an exponential mapping does ensure this condition, but is much
-more computationaly intensive and will not be considered in this
+more computationally intensive and will not be considered in this
 document.</p>
 </blockquote>
 <p><span
@@ -1193,7 +1193,7 @@ class="math display">\[
 \qquad{(12)}\]</span></span></p>
 <h3 data-number="3.1.1" id="plastic-case"><span
 class="header-section-number">3.1.1</span> Plastic case</h3>
-<p>The equation allowing to determine is value of the increment of the
+<p>The equation allowing to determine the value of the increment of the
 equivalent plastic strain is to impose that the stress state lies on the
 yield surface in case of plastic loading: <span
 id="eq:mfront:FeFpImplicitPlasticity:Meq"><span class="math display">\[
@@ -1215,12 +1215,12 @@ to find the zero of a function called the residual <span
 class="math inline">\(\vec{R}\)</span>. Let <span
 class="math inline">\(\Delta\,\vec{Y}^{n}\)</span> be a vector
 containing the current estimate of the increment of the integration
-variables (the Green-Lagrange strain in the viscoplatic case, the the
+variables (the Green-Lagrange strain in the viscoplastic case, the
 Green-Lagrange strain and the equivalent plastic strain in the plastic
 case).</p>
 <p>A new estimate <span
-class="math inline">\(\Delta\,\vec{Y}^{n+1}\)</span> is assumed to close
-be the solution searched, i.e. that: <span class="math display">\[
+class="math inline">\(\Delta\,\vec{Y}^{n+1}\)</span> is assumed to be
+close to the solution searched, i.e. that: <span class="math display">\[
 \vec{R}{\left(\Delta\,\vec{Y}^{n+1}\right)}\approx \vec{0}
 \]</span></p>
 <p>Taking the first order expansion of <span
@@ -1360,12 +1360,12 @@ E}}}\,{\left(M_{eq} - M_{0} - H\,{\left(p+\Delta\,p\right)}\right)}
 \right.
 \]</span> where normalisation factor <span
 class="math inline">\({{\displaystyle \frac{\displaystyle
-1}{\displaystyle E}}}\)</span> has be introduced so that <span
+1}{\displaystyle E}}}\)</span> has been introduced so that <span
 class="math inline">\(f_{p}\)</span> has the same magnitude as <span
 class="math inline">\(f_{\underline{\varepsilon}^{GL}_{e}}\)</span>.
-<span class="math inline">\(E\)</span> is generally choosen to be Young’
-modulus for isotropic behaviours and the first component of the siffness
-matrix for orthotropic behaviours.</p>
+<span class="math inline">\(E\)</span> is generally chosen to be Young’s
+modulus for isotropic behaviours and the first component of the
+stiffness matrix for orthotropic behaviours.</p>
 <h2 data-number="3.3" id="consistent-tangent-operator"><span
 class="header-section-number">3.3</span> Consistent tangent
 operator</h2>
@@ -1385,7 +1385,7 @@ class="math inline">\({\left.\underline{S}_{e}\right|_{t+\Delta\,t}}\)</span>:
 \]</span></p>
 <p>This definition of <span
 class="math inline">\({\left.\tau\right|_{t+\Delta\,t}}\)</span> differs
-from the one used in the previous section since we directly uses <span
+from the one used in the previous section since we directly use <span
 class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}_{e}\)</span> to
 compute <span class="math inline">\(\underline{S}_{e}\)</span> rather
 than <span
@@ -1439,8 +1439,8 @@ class="math display">\[
 \partial \Delta\,\vec{Y}}{\displaystyle \partial
 {\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}
 \]</span></p>
-<h1 data-number="4" id="plastic-behaviour-implementation"><span
-class="header-section-number">4</span> Plastic behaviour’
+<h1 data-number="4" id="plastic-behaviours-implementation"><span
+class="header-section-number">4</span> Plastic behaviour’s
 implementation</h1>
 <div class="sourceCode" id="cb1"><pre
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL ImplicitFiniteStrain<span class="op">;</span></span>
@@ -1672,7 +1672,7 @@ operators</h1>
 <h2 data-number="5.1"
 id="sec:mfront:FeFpImplicitPlasticity:dtau_dF"><span
 class="header-section-number">5.1</span> Another expression of the
-derivative of the Kirchhoff stress with respect ot the deformation
+derivative of the Kirchhoff stress with respect to the deformation
 gradient</h2>
 <p>The Kirchhoff stress <span
 class="math inline">\({\left.\tau\right|_{t+\Delta\,t}}\)</span> is
@@ -1680,8 +1680,9 @@ defined as the push-forward of the second Piola-Kirchhoff stress <span
 class="math inline">\({\left.\underline{S}_{e}\right|_{t+\Delta\,t}}\)</span>:
 <span class="math display">\[
 {\left.\tau\right|_{t+\Delta\,t}}={\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}\,\cdot\,{\left.\underline{S}_{e}\right|_{t+\Delta\,t}}\,\cdot\,{{\left.{\underset{\tilde{}}{\mathbf{F}}}_{e}\right|_{t+\Delta\,t}}^{\mathrm{T}}}
-\]</span> f his section is devoted to the computation of the derivative
-<span class="math inline">\({{\displaystyle \frac{\displaystyle \partial
+\]</span></p>
+<p>This section is devoted to the computation of the derivative <span
+class="math inline">\({{\displaystyle \frac{\displaystyle \partial
 {\left.\underline{\tau}\right|_{t+\Delta\,t}}}{\displaystyle \partial
 {\left.{\underset{\tilde{}}{\mathbf{F}}}\right|_{t+\Delta\,t}}}}}\)</span>
 which can be obtained by the chain rule, as follows: <span
@@ -1803,8 +1804,8 @@ J\,{{\displaystyle \frac{\displaystyle \partial
 <p>where <span class="math inline">\({{\displaystyle \frac{\displaystyle
 \partial \vec{R}}{\displaystyle \partial
 {\left.F\right|_{t+\Delta\,t}}}}}\)</span> must be computed assuming
-that the internal state variables are constant constant. Only the block
-<span class="math inline">\({{\displaystyle \frac{\displaystyle \partial
+that the internal state variables are constant. Only the block <span
+class="math inline">\({{\displaystyle \frac{\displaystyle \partial
 f_{\underline{\varepsilon}^{GL}_{e}}}{\displaystyle \partial
 {\left.F\right|_{t+\Delta\,t}}}}}\)</span> is not null and is given by:
 <span class="math display">\[
@@ -1908,7 +1909,7 @@ is constant.</li>
 &amp;={\left.{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-T}}}\right|_{t+\Delta\,t}}\,\cdot\,{\left.\underline{C}\right|_{t+\Delta\,t}}\,\cdot\,{\left.{{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}\right|_{t+\Delta\,t}}
 \end{aligned}
 \]</span></p>
-<p>Its derivative requires one again to compute <span
+<p>Its derivative requires once again computing <span
 class="math inline">\({{\displaystyle \frac{\displaystyle \partial
 {{\underset{\tilde{}}{\mathbf{F}}}_{p}^{\mathrm{-1}}}}{\displaystyle
 \partial {\left.\underline{C}\right|_{t+\Delta\,t}}}}}\)</span> which

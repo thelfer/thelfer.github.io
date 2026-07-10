@@ -230,6 +230,7 @@
 		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
 		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
 		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -451,7 +452,7 @@ stress.</p>
 infinity, the Hosford stress reduces to the Tresca stress. When <span
 class="math inline">\(n = 2\)</span> the Hosford stress reduces to the
 von Mises stress.</p>
-<p>The following functions has been implemented:</p>
+<p>The following functions have been implemented:</p>
 <ul>
 <li><code>computeHosfordStress</code>: return the Hosford equivalent
 stress</li>
@@ -499,7 +500,7 @@ class="math inline">\(s&#39;&#39;_{i}\)</span> are the eigenvalues of
 two transformed stresses <span
 class="math inline">\(\underline{s}&#39;\)</span> and <span
 class="math inline">\(\underline{s}&#39;&#39;\)</span> by two linear
-transformation <span
+transformations <span
 class="math inline">\(\underline{\underline{\mathbf{L}}}&#39;\)</span>
 and <span
 class="math inline">\(\underline{\underline{\mathbf{L}}}&#39;&#39;\)</span>:
@@ -518,7 +519,7 @@ class="math inline">\(\underline{\underline{\mathbf{L}}}&#39;\)</span>
 and <span
 class="math inline">\(\underline{\underline{\mathbf{L}}}&#39;&#39;\)</span>
 are defined by <span class="math inline">\(9\)</span> coefficients
-(each) which describe the material orthotropy. There are defined through
+(each) which describe the material orthotropy. They are defined through
 auxiliary linear transformations <span
 class="math inline">\(\underline{\underline{\mathbf{C}}}&#39;\)</span>
 and <span
@@ -581,7 +582,7 @@ normal) and the second derivative.</li>
 <h3 id="linear-transformations">Linear transformations</h3>
 <p>To define the linear transformations, the
 <code>makeBarlatLinearTransformation</code> function has been
-introduced. This function takes two template parameter:</p>
+introduced. This function takes two template parameters:</p>
 <ul>
 <li>the space dimension (<span class="math inline">\(1\)</span>, <span
 class="math inline">\(2\)</span>, and <span
@@ -594,7 +595,7 @@ coefficients as arguments, as follows:</p>
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> l1 <span class="op">=</span> makeBarlatLinearTransformation<span class="op">&lt;</span><span class="dv">3</span><span class="op">&gt;(</span>c_12<span class="op">,</span>c_21<span class="op">,</span>c_13<span class="op">,</span>c_31<span class="op">,</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                                                  c_23<span class="op">,</span>c_32<span class="op">,</span>c_44<span class="op">,</span>c_55<span class="op">,</span>c_66<span class="op">);</span></span></code></pre></div>
 <blockquote>
-<p><strong>Note</strong> In his paper, Barlat and coworkers uses the
+<p><strong>Note</strong> In his paper, Barlat and coworkers use the
 following convention for storing symmetric tensors:</p>
 <p><span class="math display">\[
 \begin{pmatrix}
@@ -616,8 +617,8 @@ this function as follows:</p>
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> l1 <span class="op">=</span> makeBarlatLinearTransformation<span class="op">&lt;</span><span class="dv">3</span><span class="op">&gt;(</span>cB_12<span class="op">,</span>cB_21<span class="op">,</span>cB_13<span class="op">,</span>cB_31<span class="op">,</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                                                  cB_23<span class="op">,</span>cB_32<span class="op">,</span>cB_66<span class="op">,</span>cBB_55<span class="op">,</span>cBB_44<span class="op">);</span></span></code></pre></div>
 </blockquote>
-<p>The <code>TFEL/Material</code> library also provide an overload of
-the <code>makeBarlatLinearTransformation</code> which template
+<p>The <code>TFEL/Material</code> library also provides an overload of
+the <code>makeBarlatLinearTransformation</code> whose template
 parameters are the modelling hypothesis and the orthotropic axis
 conventions. The purpose of this overload is to swap appropriate
 coefficients to get a consistent definition of the linear
@@ -640,18 +641,18 @@ the development of various approximations <span class="citation"
 data-cites="cohen_pade_1991 bergstrom_constitutive_1998 jedynak_approximation_2015">[2–4]</span>.</p>
 <figure id="fig:tfel_4.1:tfel_material:inverse_langevin_function">
 <img src="img/InverseLangevinFunction.svg" style="width:95.0%"
-alt="Comparison of various approximations of the inverse Langenvin function" />
+alt="Comparison of various approximations of the inverse Langevin function" />
 <figcaption>Figure 1: Comparison of various approximations of the
-inverse Langenvin function</figcaption>
+inverse Langevin function</figcaption>
 </figure>
 <p>Figure 1 compares those approximations. The approximations of
 Bergström and Boyce <span class="citation"
 data-cites="bergstrom_constitutive_1998">[3]</span> and Jedynak <span
 class="citation" data-cites="jedynak_approximation_2015">[4]</span> are
-undistinguishable. See Jedynak for a quantitative discussion of the
+indistinguishable. See Jedynak for a quantitative discussion of the
 error generated by those approximations <span class="citation"
 data-cites="jedynak_approximation_2015">[4]</span>. It is worth noting
-that all those approximations mostly differs near the pole of inverse
+that all those approximations mostly differ near the pole of the inverse
 Langevin function <span
 class="math inline">\(\mathcal{L}^{-1}\left(x\right)\)</span>.</p>
 <p>The <code>InverseLangevinFunctionApproximations</code> enumeration
@@ -673,7 +674,7 @@ y \, \displaystyle\frac{\displaystyle c_{0} + c_{1}\,y +
 c_{2}\,y^{2}}{\displaystyle 1 + d_{1}\,y + d_{2}\,y^{2}}
 \]</span></li>
 <li><code>KUHN_GRUN_1942</code> or <code>MORCH_2022</code> are
-associated with a taylor expansion of <span
+associated with a Taylor expansion of <span
 class="math inline">\(\mathcal{L}^{-1}\left(x\right)\)</span> at <span
 class="math inline">\(0\)</span>: <span class="math display">\[
 \mathcal{L}^{-1}\left(x\right) \approx
@@ -711,7 +712,7 @@ c_{1} \tan\left(c_{2} \, x\right) + c_{3} \, x &amp;\quad\text{if}\quad
 function computes this approximation and the
 <code>computeBergstromBoyce1998ApproximateInverseLangevinFunctionAndDerivative</code>
 function computes this function and its derivative. These functions
-can’t be declared <code>constexpr</code> because of tangent function is
+can’t be declared <code>constexpr</code> because the tangent function is
 not <code>constexpr</code>. These functions have one template parameter,
 the numeric type to be used. This template parameter can be
 automatically deduced from the type of the argument.</p>
@@ -762,7 +763,7 @@ defined by its three eigenvalues, from its coordinate in the <span
 class="math inline">\(\pi\)</span>-plane.</li>
 </ul>
 <h1 id="orthotropic-axes-convention">Orthotropic axes convention</h1>
-<p>Most finite element solver can’t have a unique definition of the
+<p>Most finite element solvers can’t have a unique definition of the
 orthotropic axes valid for all the modelling hypotheses.</p>
 <p>For example, one can define a pipe using the following axes
 definition:</p>
@@ -843,8 +844,8 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#c
 <div class="sourceCode" id="cb7"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> K <span class="op">=</span> KG<span class="op">.</span>kappa<span class="op">;</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> G <span class="op">=</span> KG<span class="op">.</span>mu<span class="op">;</span></span></code></pre></div>
-<p>It can be converted to the other describing isotropic moduli as
-follows:</p>
+<p>It can be converted to the other structures describing isotropic
+moduli as follows:</p>
 <div class="sourceCode" id="cb8"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> Enu <span class="op">=</span> KG<span class="op">.</span>ToYoungNu<span class="op">();</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> LambdaMu <span class="op">=</span> KG<span class="op">.</span>ToLambdaMu<span class="op">();</span></span></code></pre></div>
@@ -858,7 +859,7 @@ class="math inline">\(\underline{\underline{\mathbf{J}}}\)</span> and
 <span class="math inline">\(\underline{\underline{\mathbf{K}}}\)</span>
 if <span
 class="math inline">\(\underline{\underline{\mathbf{C}}}\)</span> is not
-isotropic. It can be check that <span
+isotropic. It can be checked that <span
 class="math inline">\(\underline{\underline{\mathbf{C}}}\)</span> is
 isotropic by doing</p>
 <div class="sourceCode" id="cb10"><pre
@@ -866,7 +867,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="dt">bool</span> <span class="op">=</span> isIsotropic<span class="op">(</span>C<span class="op">,</span>eps<span class="op">);</span></span></code></pre></div>
 <p>Here, <code>isIsotropic</code> first projects <span
 class="math inline">\(\underline{\underline{\mathbf{C}}}\)</span> on the
-isotropic basis, and constructs the isotropized of <span
+isotropic basis, and constructs the isotropized version of <span
 class="math inline">\(\underline{\underline{\mathbf{C}}}\)</span>. Then,
 it computes the relative difference between <span
 class="math inline">\(\underline{\underline{\mathbf{C}}}\)</span> and
@@ -898,8 +899,7 @@ the Eshelby tensor. The Hill tensor <span
 class="math inline">\(\underline{\underline{\mathbf{P}}}_0\)</span>
 gives the strain tensor inside the ellipsoid as a function of the
 polarization tensor <span class="math inline">\(\underline{\tau }=
--\underline{\underline{\mathbf{C}}}_0:\underline{\varepsilon}^\mathrm{T}\)</span>
-:</p>
+-\underline{\underline{\mathbf{C}}}_0:\underline{\varepsilon}^\mathrm{T}\)</span>:</p>
 <p><span
 class="math inline">\(\underline{\varepsilon}=-\underline{\underline{\mathbf{P}}}_0:\underline{\tau}\)</span>.</p>
 <p>Note that <span
@@ -918,7 +918,7 @@ alt="Ellipsoidal inclusion" />
 class="math inline">\(\underline{\underline{\mathbf{C}}}_i\)</span>,
 embedded in an infinite homogeneous medium whose elasticity is <span
 class="math inline">\(\underline{\underline{\mathbf{C}}}_0\)</span>,
-submitted to a external uniform strain field at infinity <span
+submitted to an external uniform strain field at infinity <span
 class="math inline">\(\underline{E}\)</span>, the strain field within
 the ellipsoid is uniform and given by</p>
 <p><span class="math inline">\(\underline{\varepsilon }=
@@ -941,9 +941,9 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> P0 <span class="op">=</span> computeSphereHillPolarisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">);</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> P0_axi <span class="op">=</span> computeAxisymmetricalHillPolarisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">,</span>n_a<span class="op">,</span>e<span class="op">);</span></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> P0_ellipsoid <span class="op">=</span> computeHillPolarisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>n_b<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span></code></pre></div>
-<p>Here, the first line compute the Hill tensor for a sphere. The second
-one computes the Hill tensor for an axisymmetrical ellipsoid (or
-spheroidal inclusion). The user must provides the normal vector
+<p>Here, the first line computes the Hill tensor for a sphere. The
+second one computes the Hill tensor for an axisymmetrical ellipsoid (or
+spheroidal inclusion). The user must provide the normal vector
 <code>n_a</code> for the axis, and <code>e</code> for the aspect ratio.
 The third line computes the Hill tensor of a more general ellipsoid
 whose semi-axis lengths are
@@ -997,7 +997,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb16-1"><a href="#
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> A_ellipsoid <span class="op">=</span> computeLocalisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>IMi<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>n_b<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span></code></pre></div>
 <p>Note that if the elasticity of the inclusion is not isotropic, an
 anisotropic elasticity <code>C_i</code> can be provided, assuming that
-this elasticiy is expressed in the same basis as the one defined by
+this elasticity is expressed in the same basis as the one defined by
 <code>n_a,n_b</code> (the local basis of the inclusion):</p>
 <div class="sourceCode" id="cb17"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> A_aniso <span class="op">=</span> computeLocalisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>C_i<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>n_b<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span></code></pre></div>
@@ -1024,9 +1024,9 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb19-1"><a href="#
 <p>The tensors are computed via an integration on a bi-dimensional
 domain. The integration is iterative, and the user can provide the
 number of iterations (basically, it corresponds to the number of
-subdivisions in each domain direction). Hence, more iterations lead to a
-more accurate results, but longer to compute. The default number of
-iterations is <code>12</code>, but is is recommended to increase it for
+subdivisions in each domain direction). Hence, more iterations lead to
+more accurate results, but take longer to compute. The default number of
+iterations is <code>12</code>, but it is recommended to increase it for
 sharp ellipsoids:</p>
 <div class="sourceCode" id="cb20"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="bu">std::</span>size_t it <span class="op">=</span> <span class="dv">10</span><span class="op">;</span> </span>
@@ -1063,7 +1063,7 @@ microstructures”).</p>
 <p>Each scheme is based on the average of the localisation tensor <span
 class="math inline">\(\underline{\underline{\mathbf{A}}}_i\)</span>
 defined above. This average is computed assuming different distributions
-of ellipsoids. Hence different cases are considered:</p>
+of ellipsoids. Hence, different cases are considered:</p>
 <ul>
 <li>spheres (no orientations)</li>
 <li>oriented ellipsoids (two vectors <span
@@ -1116,14 +1116,14 @@ alt="The three distributions of orientations can be considered with PCW scheme, 
 can be considered with PCW scheme, but a big ellipsoid defines the
 spatial distribution of inclusions</figcaption>
 </figure>
-<p>Indeed, in Ponte-Castaneda and Willis scheme, there is a difference
-between the ellipsoid which defines the distribution of the inclusions,
-and the ellipsoid which defines the shape of the inclusions (in the
-image above, we represent the distribution <code>D</code> of inclusions
-by a big ellipsoid, with colored axes). A bigger axis for <code>D</code>
-means that along this axis, the distribution of inclusions is more
-diluted. A short axis means that, on the contrary, the distribution is
-denser along this axis.</p>
+<p>Indeed, in the Ponte-Castaneda and Willis scheme, there is a
+difference between the ellipsoid which defines the distribution of the
+inclusions, and the ellipsoid which defines the shape of the inclusions
+(in the image above, we represent the distribution <code>D</code> of
+inclusions by a big ellipsoid, with colored axes). A bigger axis for
+<code>D</code> means that along this axis, the distribution of
+inclusions is more diluted. A short axis means that, on the contrary,
+the distribution is denser along this axis.</p>
 <p>For the isotropic distribution of ellipsoids, we can do:</p>
 <div class="sourceCode" id="cb25"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> KG_DS <span class="op">=</span> computeIsotropicDiluteScheme<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>f<span class="op">,</span>IMi<span class="op">,</span>a<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span>
@@ -1202,9 +1202,9 @@ dimension is 2 or 3.</p>
 strains</h2>
 <p>Some functions (defined in the header
 HomogenizationSecondMoments.hxx) allow to compute the second moments of
-the strains if considering a Hashin-Shtrikman type microstructure. More
-precisely, we consider isotropic spherical inclusions embedded in an
-isotropic matrix, and we compute the following moments:</p>
+the strains when considering a Hashin-Shtrikman type microstructure.
+More precisely, we consider isotropic spherical inclusions embedded in
+an isotropic matrix, and we compute the following moments:</p>
 <p><span
 class="math inline">\(\langle\varepsilon_{eq}^2\rangle_r\qquad\text{and}\qquad\langle\varepsilon_{m}^2\rangle_r\)</span></p>
 <p>on each phase <span class="math inline">\(r\)</span>, <span
@@ -1252,7 +1252,7 @@ alt="The ParticulateMicrostructure class is made of a matrix which embeds differ
 <code>ParticulateMicrostructure class</code> is made of a matrix which
 embeds different distributions of inclusions</figcaption>
 </figure>
-<p>A <code>ParticulateMicrostructure</code> consists on a matrix, in
+<p>A <code>ParticulateMicrostructure</code> consists of a matrix, in
 which are embedded several distributions of inclusions. The class has
 three (private) attributes:</p>
 <ul>
@@ -1287,10 +1287,10 @@ of <code>matrix_phase</code>)</li>
 <li><code>isIsotropicMatrix</code> (private attribute
 <code>isotropic</code> of <code>matrix_phase</code>)</li>
 </ul>
-<p>Last method returns a boolean which states if the matrix is
-considered isotropic or not. In fact, depending on how was instantiated
-the <code>ParticulateMicrostructure</code>, the matrix is considered
-isotropic or not. For example, by doing</p>
+<p>The last method returns a boolean which states if the matrix is
+considered isotropic or not. In fact, depending on how the
+<code>ParticulateMicrostructure</code> was instantiated, the matrix is
+considered isotropic or not. For example, by doing</p>
 <div class="sourceCode" id="cb31"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> val_1<span class="op">=</span>micro_1<span class="op">.</span>isIsotropicMatrix<span class="op">();</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> val_2<span class="op">=</span>micro_2<span class="op">.</span>isIsotropicMatrix<span class="op">();</span></span></code></pre></div>
@@ -1300,9 +1300,9 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb31-1"><a href="#
 <code>False</code>. Note that <code>False</code> does not mean that the
 matrix elasticity is not isotropic, but that it is CONSIDERED as not
 isotropic.</p>
-<p>Other methods allows to add/remove <code>InclusionDistribution</code>
+<p>Other methods allow to add/remove <code>InclusionDistribution</code>
 objects to the attribute <code>inclusion_phases</code>, and also to
-modifiy the properties of the phases:</p>
+modify the properties of the phases:</p>
 <ul>
 <li><code>getInclusionPhase</code></li>
 <li><code>addInclusionPhase</code></li>
@@ -1348,7 +1348,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb33-1"><a href="#
 instantiates a <code>Phase</code> object corresponding to the attribute
 <code>matrix_phase</code>. However, we note that the user can construct
 a microstructure without using <code>Phase</code> instantiation
-himself.</p>
+directly.</p>
 <h4 id="the-inclusion-class">The <code>Inclusion class</code></h4>
 <p>Before describing the <code>InclusionDistribution class</code>, we
 must describe the <code>Inclusion class</code>. This latter is
@@ -1399,7 +1399,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb35-1"><a href="#
 <span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>tfel<span class="op">::</span>math<span class="op">::</span>tvector<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span> real<span class="op">&gt;</span> n_b <span class="op">=</span> <span class="op">{</span><span class="fl">0.</span><span class="op">,</span> <span class="fl">1.</span><span class="op">,</span> <span class="fl">0.</span><span class="op">};</span></span>
 <span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>OrientedDistribution<span class="op">&lt;</span>stress<span class="op">&gt;</span> distrib_O<span class="op">(</span>ellipsoid1<span class="op">,</span>f<span class="op">,</span>KGi<span class="op">,</span>n_a<span class="op">,</span>n_b<span class="op">);</span></span></code></pre></div>
 <p>The <code>TransverseDistribution</code> is a special case which
-requires to precise which axis of the ellipsoid (or spheroid) will
+requires specifying which axis of the ellipsoid (or spheroid) will
 remain fixed when the two other axes rotate:</p>
 <div class="sourceCode" id="cb36"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="dt">unsigned</span> <span class="dt">short</span> <span class="dt">int</span> index <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
@@ -1457,7 +1457,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb39-1"><a href="#
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout<span class="op">&lt;&lt;</span> micro_1<span class="op">.</span>getMatrixFraction<span class="op">()&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span></code></pre></div>
 <p>At this stage, we have added the distribution of spheres
 <code>distrib_sph</code>, and added the isotropic distribution of
-ellipsoids <code>distrib_ell</code>. Afterthat, we have removed the
+ellipsoids <code>distrib_ell</code>. After that, we have removed the
 first inclusion distribution (number <code>0</code>), which is the
 distribution of spheres. Hence, only one
 <code>InclusionDistribution</code> object remains in the microstructure.
@@ -1483,7 +1483,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb42-1"><a href="#
 <p>Note that in the latter case, passing <code>C0</code>, a
 <code>Stensor4</code> object as an argument of the method will return an
 error, because it will be considered that the matrix is not isotropic,
-so that computing a average localisator of a distribution of ellipsoids
+so that computing an average localisator of a distribution of ellipsoids
 in an anisotropic matrix is impossible (too complicated). However, it
 can be done for other kinds of distributions, like sphere distributions
 or distributions of oriented inclusions:</p>
@@ -1513,7 +1513,7 @@ attributes:</p>
 <li><code>effective_polarisation</code></li>
 <li><code>mean_strain_localisation_tensors</code></li>
 </ul>
-<p>This is the object that return the functions listed below:</p>
+<p>This is the object that the functions listed below return:</p>
 <ul>
 <li><code>computeDilute</code> (dilute scheme)</li>
 <li><code>computeMoriTanaka</code> (Mori-Tanaka scheme)</li>
@@ -1550,12 +1550,12 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb46-1"><a href="#
 <span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>hmSC_aniso<span class="op">=</span>computeSelfConsistent<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>stress<span class="op">&gt;(</span>micro_2<span class="op">,</span><span class="dv">10</span><span class="op">,</span><span class="kw">false</span><span class="op">,</span><span class="dv">10</span><span class="op">);</span></span>
 <span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout<span class="op">&lt;&lt;</span> <span class="st">&quot;SC iso: &quot;</span><span class="op">&lt;&lt;</span> hmSC_iso<span class="op">.</span>homogenized_stiffness<span class="op">&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span>
 <span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout<span class="op">&lt;&lt;</span> <span class="st">&quot;SC aniso: &quot;</span><span class="op">&lt;&lt;</span> hmSC_aniso<span class="op">.</span>homogenized_stiffness<span class="op">&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span></code></pre></div>
-<p>(the “std::cout” does not work when using quantities). For the oter
+<p>(the “std::cout” does not work when using quantities). For the other
 schemes, the isotropic character of the matrix when computing the strain
-localisators will depend on what returns
-<code>micro_1.isIsotropicMatrix()</code>. Hence, it is important to
-initialized the matrix or the microstructure with the appropriate
-elastic moduli. If isotropic, it will works in all case, whereas if not
+localisators will depend on what
+<code>micro_1.isIsotropicMatrix()</code> returns. Hence, it is important
+to initialize the matrix or the microstructure with the appropriate
+elastic moduli. If isotropic, it will work in all cases, whereas if not
 isotropic, it will fail depending on the distributions that are present
 in the microstructure. Moreover, if anisotropic, another parameter can
 be passed to specify the number of subdivisions in the numerical
@@ -1577,7 +1577,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb49-1"><a href="#
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> Stensor<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>stress<span class="op">&gt;</span> P1 <span class="op">=</span> <span class="op">{</span>stress<span class="op">(</span><span class="fl">6.e8</span><span class="op">),</span>stress<span class="op">(</span><span class="fl">6.e8</span><span class="op">),</span>stress<span class="op">(</span><span class="fl">6.e8</span><span class="op">),</span>stress<span class="op">(</span><span class="fl">0.</span><span class="op">),</span>stress<span class="op">(</span><span class="fl">0.</span><span class="op">),</span>stress<span class="op">(</span><span class="fl">0.</span><span class="op">)};</span></span>
 <span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> pola<span class="op">={</span>P0<span class="op">,</span>P1<span class="op">};</span></span>
 <span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> hmDS_pola<span class="op">=</span>computeDilute<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>stress<span class="op">&gt;(</span>micro_1<span class="op">,</span><span class="dv">0</span><span class="op">,</span>pola<span class="op">);</span></span></code></pre></div>
-<p>Note that here we must also precise the parameter
+<p>Note that here we must also specify the parameter
 <code>max_iter_anisotropic_integration</code> before the optional
 argument <code>pola</code>. Here this integer is 0 because it will not
 be used, given that the matrix phase is isotropic (see first line). And

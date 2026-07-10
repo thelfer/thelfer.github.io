@@ -231,6 +231,7 @@
 		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
 		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
 		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -548,8 +549,8 @@ i\\ &amp;f_{\underline{\beta}_i} =\Delta\underline{\beta}_i -
 \Delta\underline{\epsilon}^{\mathrm{vp}}_i\left(\underline{\epsilon}^{\mathrm{to}}_i,\Delta\underline{\epsilon}^{\mathrm{to}}_i\right)+D\,||\Delta\underline{\epsilon}^{\mathrm{vp}}_i\left(\underline{\epsilon}^{\mathrm{to}}_i,\Delta\underline{\epsilon}^{\mathrm{to}}_i\right)||\,(\underline{\beta}_i+\theta\Delta\underline{\beta}_i)
 \qquad \forall i\\  \end{aligned}\right.\)</span></p>
 <p>where <span class="math inline">\(\sigma_{0}\)</span> is a parameter
-that give the same dimension and magnitude to the residues. The jacobian
-matrix is given by</p>
+that gives the same dimension and magnitude to the residues. The
+jacobian matrix is given by</p>
 <p><span class="math inline">\(\left\{ \begin{aligned}
 &amp;{\displaystyle \frac{\displaystyle \partial
 f_{\underline{E}}}{\displaystyle \partial \Delta{\underline{\sigma}}}} =
@@ -625,7 +626,7 @@ Moreover,</p>
 \partial \Delta\underline{\epsilon}^{\mathrm{to}}_j}}\)</span>, that
 will be provided by the local integration.</p>
 <h2 id="consistent-tangent-operator">Consistent tangent operator</h2>
-We can also compute the tangent operator with a method similar as the
+We can also compute the tangent operator with a method similar to the
 method explained in the <a href="./implicit-dsl.html">Implicit DSL</a>
 documentation. We define <span class="math inline">\(\Delta Y\)</span>
 such as
@@ -668,7 +669,7 @@ href="./MericCailletaudSingleCrystalPlasticity.html">here</a>.</p>
 <code>BetaRule.mfront</code> and <code>BetaRule.mtest</code> are
 available in the <code>MFrontGallery</code> project, <a
 href="https://github.com/thelfer/MFrontGallery/tree/master/generic-behaviours/homogenization/">here</a>.</p>
-<p>For the example, we assume that the composites is made of only 2
+<p>For the example, we assume that the composite is made of only 2
 phases. We hence define the integration variables:</p>
 <div class="sourceCode" id="BetaRule"><pre
 class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="BetaRule-1"><a href="#BetaRule-1"></a><span class="er">@</span>StateVariable Stensor Sig<span class="op">;</span></span>
@@ -757,12 +758,12 @@ class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><sp
 <span id="BetaRule-7"><a href="#BetaRule-7"></a>  getPartialJacobianInvert<span class="op">(</span>iJs<span class="op">);</span></span>
 <span id="BetaRule-8"><a href="#BetaRule-8"></a>  Dt<span class="op">=</span>iJs<span class="op">;</span></span>
 <span id="BetaRule-9"><a href="#BetaRule-9"></a><span class="op">}</span></span></code></pre></div>
-<p>Note that <code>getPartialJacobianInvert(iJs)</code> permits to
-obtain the 6x6 left-upper part of the inverse of the Jacobian. The
-left-upper part is associated with the first integration variable
-declared (here <code>Sig</code>).</p>
+<p>Note that <code>getPartialJacobianInvert(iJs)</code> allows obtaining
+the 6x6 left-upper part of the inverse of the Jacobian. The left-upper
+part is associated with the first integration variable declared (here
+<code>Sig</code>).</p>
 <h1 id="results">Results</h1>
-<p>We used <code>MTest</code> to carry out simulations of an uniaxial
+<p>We used <code>MTest</code> to carry out simulations of a uniaxial
 tensile test on a two-grain polycrystal. The first phase is stiffer than
 the second, and we also choose for the example a different Norton
 exponent between the phases. The following values are given by the
@@ -799,7 +800,7 @@ strain, uniaxial tensile test, Cailletaud-Pilvin beta rule</figcaption>
 static condensation</h1>
 <p>When a huge number of phases are involved in the microstructure, the
 non-linear system previously presented becomes huge and the static
-condensation permits to handle this high number of unknowns. Indeed, the
+condensation allows handling this high number of unknowns. Indeed, the
 linear system resolved at each step of the Newton algorithm is reduced
 by using only the macroscopic variables <span
 class="math inline">\(\Delta\underline{B}\)</span> and <span
@@ -828,7 +829,7 @@ c\,(\Delta\underline{B}-\Delta\underline{\beta}_i)\right]\qquad (\forall
 <p>Here we want to reduce our system and choose <span
 class="math inline">\(\Delta\underline{B}\)</span>, <span
 class="math inline">\(\Delta\underline{\Sigma}\)</span> as the main
-unkonwns.</p>
+unknowns.</p>
 <p>To that extent, we first express the Newton-Raphson increments <span
 class="math inline">\(\delta\Delta\underline{\epsilon}^{\mathrm{to}}_i\)</span>
 and <span class="math inline">\(\delta\Delta\underline{\beta}_i\)</span>
@@ -914,7 +915,7 @@ class="math inline">\(\underline{\mathbf{a}}_i=-\dfrac{\partial
 <p>Here, if <span
 class="math inline">\(\underline{\mathbf{a}}_i\)</span> is not
 invertible, this means that the Newton-Raphson algorithm will fail to
-solve the non-linear system, which is independent from the static
+solve the non-linear system, which is independent of the static
 condensation. Hence, we assume <span
 class="math inline">\(\underline{a}_i\)</span> is invertible and we
 write</p>
@@ -994,10 +995,10 @@ whose matrix is the jacobian matrix, noted <span
 class="math inline">\(\underline{J}\)</span> in the following. Here
 again, the existence of a unique solution to this system is strongly
 correlated to the convergence of the global Newton-Raphson algorithm,
-convergence which is independent to the static condensation.</p>
+convergence which is independent of the static condensation.</p>
 <h2 id="computation-of-the-macroscopic-tangent-operator">Computation of
 the macroscopic tangent operator</h2>
-<p>The computation of the tangent operator is similar as above. Indeed,
+<p>The computation of the tangent operator is similar to above. Indeed,
 we can define <span class="math inline">\(\Delta \underline{Y}=(\Delta
 \underline{\Sigma},\Delta \underline{B})\)</span>, and <span
 class="math inline">\(\underline{R}=(\underline{r}_{\underline{E}},\underline{r}_{\underline{B}})\)</span>

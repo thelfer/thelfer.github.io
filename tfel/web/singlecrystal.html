@@ -231,6 +231,7 @@
 		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
 		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
 		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -412,8 +413,8 @@ of the interaction matrix used to evaluate the effect of all the
 dislocation on the mean free path of dislocations of a specific
 system</a></li>
 </ul></li>
-<li><a href="#usage-in-pratice" id="toc-usage-in-pratice">Usage in
-pratice</a>
+<li><a href="#usage-in-practice" id="toc-usage-in-practice">Usage in
+practice</a>
 <ul>
 <li><a href="#number-of-slip-systems"
 id="toc-number-of-slip-systems">Number of slip systems</a></li>
@@ -432,21 +433,21 @@ slip systems families</a></li>
 <li><a href="#references" id="toc-references">References</a></li>
 </ul>
 </div>
-<p>This page’ purpose is twofold:</p>
+<p>This page’s purpose is twofold:</p>
 <ul>
 <li>it shows how to define:
 <ul>
 <li>the crystal structure.</li>
 <li>the slip systems. Once the slip systems are defined, the normals to
-the slips planes, the slip directions (normalized Burger’s vector), the
-orientations tensors and their symmetric parts are automatically
+the slip planes, the slip directions (normalized Burger’s vector), the
+orientation tensors and their symmetric parts are automatically
 defined.</li>
 <li>the interaction matrix (used to describe hardening).</li>
 <li>the interaction matrix used to evaluate the effect of all the
 dislocation on the mean free path of dislocations of a specific
 system.</li>
 </ul></li>
-<li>how to use to information in pratice.</li>
+<li>how to use the information in practice.</li>
 </ul>
 <h1
 id="description-of-the-slip-systems-orientation-tensors-and-of-the-interaction-matrices">Description
@@ -455,7 +456,7 @@ matrices</h1>
 <h2 id="crystal-structure">Crystal structure</h2>
 <p>The crystal structure must be defined through the
 <code>@CrystalStructure</code> keyword. This keyword is followed by one
-of the following value:</p>
+of the following values:</p>
 <ul>
 <li><code>Cubic</code>: cubic structure.</li>
 <li><code>BCC</code>: body centered cubic structure.</li>
@@ -466,7 +467,7 @@ of the following value:</p>
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>CrystalStructure FCC<span class="op">;</span></span></code></pre></div>
 <h2 id="definition-of-the-slip-systems">Definition of the slip
 systems</h2>
-<p>A single slip systems family can be defined by one of the following
+<p>A single slip system family can be defined by one of the following
 keywords: <code>@SlidingSystem</code>, <code>@GlidingSystem</code> or
 <code>@SlipSystem</code>. Those keywords are followed by the definition
 of one family of slip systems.</p>
@@ -474,12 +475,12 @@ of one family of slip systems.</p>
 keywords: <code>@SlidingSystems</code>, <code>@GlidingSystems</code> or
 <code>@SlipSystems</code>. Those keywords are followed by an array
 giving the definition of the families of slip systems.</p>
-<p>A slip system is defined by its Burgers’vector and its plane. In the
+<p>A slip system is defined by its Burgers’ vector and its plane. In the
 case of a cubic system, the syntax is as follows:</p>
 <div class="sourceCode" id="cb2"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span><span class="dv">1</span><span class="op">,-</span><span class="dv">1</span><span class="op">,</span><span class="dv">0</span><span class="op">&gt;{</span><span class="dv">1</span><span class="op">,</span><span class="dv">1</span><span class="op">,</span><span class="dv">1</span><span class="op">}</span></span></code></pre></div>
 <blockquote>
-<p><strong>Hexagonal systems</strong> For an hexagonal system, a fourth
+<p><strong>Hexagonal systems</strong> For a hexagonal system, a fourth
 indices notation is used.</p>
 </blockquote>
 <p>Thus, an example of the usage of the <code>@SlidingSystem</code>
@@ -502,7 +503,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#c
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick     FiniteStrainSingleCrystal<span class="op">;</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>CrystalStructure FCC<span class="op">;</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>SlidingSystem <span class="op">&lt;</span><span class="dv">1</span><span class="op">,-</span><span class="dv">1</span><span class="op">,</span><span class="dv">0</span><span class="op">&gt;{</span><span class="dv">1</span><span class="op">,</span><span class="dv">1</span><span class="op">,</span><span class="dv">1</span><span class="op">};</span></span></code></pre></div>
-<p>If the previous code is saved a file called
+<p>If the previous code is saved in a file called
 <code>SlipSystemGenerationTest.mfront</code>, one may use
 <code>mfront-query</code> as follows:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--slip-systems</span> SlipSystemGenerationTest.mfront</span>
@@ -515,7 +516,7 @@ symmetry.</p>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">--slip-systems</span>          : list all the slip systems, sorted by family</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">--slip-systems-by-index</span> : list all the slip systems</span></code></pre></div>
 <p>The <code>--slip-systems-by-index</code> query gives the index
-associated to a given slip system, which is helpfull for postprocessing
+associated to a given slip system, which is helpful for postprocessing
 purposes. For this example:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--slip-systems-by-index</span> SlipSystemGenerationTest.mfront</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> 0: <span class="pp">[</span><span class="ss">0,1,</span><span class="pp">-</span><span class="ss">1</span><span class="pp">]</span><span class="er">(</span><span class="ex">1,1,1</span><span class="kw">)</span></span>
@@ -536,7 +537,7 @@ information about the orientation tensors</h3>
 available:</p>
 <ul>
 <li><code>--orientation-tensors</code>: list all the orientation
-tensors, sorted by family”.</li>
+tensors, sorted by family.</li>
 <li><code>--orientation-tensors-by-index</code>: list all the
 orientation tensors.</li>
 <li><code>--orientation-tensors-by-slip-system</code>: list all the
@@ -548,7 +549,7 @@ about the climb tensors</h3>
 available:</p>
 <ul>
 <li><code>--climb-tensors</code>: list all the climb tensors, sorted by
-family”.</li>
+family.</li>
 <li><code>--climb-tensors-by-index</code>: list all the climb
 tensors.</li>
 <li><code>--climb-tensors-by-slip-system</code>: list all the climb
@@ -560,13 +561,13 @@ information about the Schmid factors</h3>
 available:</p>
 <ul>
 <li><code>--schmid-factors</code>: list all the Schmid factors, sorted
-by family”.</li>
+by family.</li>
 <li><code>--schmid-factors-by-index</code>: list all the Schmid
 factors.</li>
 </ul>
 <div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--schmid-factors-by-index</span><span class="op">=</span><span class="st">&#39;&lt;1,1,1&gt;&#39;</span> SlipSystemGenerationTest.mfront</span></code></pre></div>
 <p><strong>Note</strong> In this example, the direction must be
-surrounded by simple quote to avoid interpretation by the shell.</p>
+surrounded by simple quotes to avoid interpretation by the shell.</p>
 <h2 id="definition-of-the-interaction-matrix">Definition of the
 interaction matrix</h2>
 <h3 id="structure-of-the-interaction-matrix">Structure of the
@@ -627,9 +628,9 @@ used to describe hardening effects. Please refer to the previous
 paragraph for details.</p>
 <p>This second matrix can be defined using the
 <code>@DislocationsMeanFreePathInteractionMatrix</code> keywords.</p>
-<h1 id="usage-in-pratice">Usage in pratice</h1>
+<h1 id="usage-in-practice">Usage in practice</h1>
 <h2 id="number-of-slip-systems">Number of slip systems</h2>
-<p>Once the sliding system families has been defined, a static integer
+<p>Once the sliding system families have been defined, a static integer
 variable called <code>Nss</code> is available which contains the total
 number of slip systems defined. In the previous example,
 <code>Nss</code> value is <span class="math inline">\(12\)</span>.</p>
@@ -646,7 +647,7 @@ previous example, a unique slip systems family is defined and a variable
 <code>Nss0</code> is equal to <code>Nss</code>. Those variables may be
 useful to define variables specific to a slip system family.</p>
 <h2 id="data-structure-generated">Data structure generated</h2>
-<p>For performances reasons, it would be too costly to build the
+<p>For performance reasons, it would be too costly to build the
 information about slip systems and interaction matrices every time the
 behaviour is integrated.</p>
 <p>For this reason, an auxiliary data structure is generated. The name
@@ -654,10 +655,10 @@ of the data structure is the name of the behaviour, followed by
 <code>SlipSystems</code>. For example, if the behaviour name is
 <code>FCCSingleCrystal</code>, the name of this auxiliary data structure
 is <code>FCCSingleCrystalSlipSystems</code>.</p>
-<p>This data structure is build once for the whole duration of the
+<p>This data structure is built once for the whole duration of the
 execution following a technique called <code>singleton</code>.</p>
 <p>When using the <code>FiniteStrainSingleCrystal</code> brick, this
-uniq instance is available in <code>@Integrator</code> block through a
+unique instance is available in <code>@Integrator</code> block through a
 (reference) variable called <code>ss</code>.</p>
 <p>If this brick is not used or if this variable is needed in other
 blocks of the code, one may declare the <code>ss</code> variable as
@@ -675,7 +676,7 @@ climb tensors</h3>
 <li><code>np</code>: an array containing all the normals to the slip
 planes</li>
 <li><code>ns</code>: an array containing all the slip directions (unit
-vector based on the Burger’s vector)</li>
+vectors based on the Burger’s vector)</li>
 <li><code>mu</code>: an array containing all the orientation
 tensors</li>
 <li><code>mus</code>: an array containing all the symmetric part of the
@@ -696,7 +697,7 @@ to the interaction matrix defined through
 <div class="sourceCode" id="cb13"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">//! access to the interaction matrix</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span><span class="op">&amp;</span> m <span class="op">=</span> ss<span class="op">.</span>him<span class="op">;</span></span></code></pre></div>
-<p>For backward compatibility and ease the transition from previous
+<p>For backward compatibility and to ease the transition from previous
 implementations, this matrix is also accessible through the
 <code>mh</code> member.</p>
 <h3
@@ -714,7 +715,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#
 interaction matrix manually</h2>
 <p>The member function <code>buildInteractionMatrix</code> can be used
 to compute manually the interaction matrix.</p>
-<p>It allows to define the coefficients of the interaction matrix as
+<p>It allows defining the coefficients of the interaction matrix as
 parameters or as material properties:</p>
 <div class="sourceCode" id="cb15"><pre
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameters real im_coefficients<span class="op">[</span><span class="dv">7</span><span class="op">];</span></span>
@@ -745,15 +746,15 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb16-1"><a href="#
 <h2 id="handling-of-multiple-slip-systems-families">Handling of multiple
 slip systems families</h2>
 <p>The <code>FiniteStrainSingleCrystal</code> brick creates a huge
-vector of internal state variable describing the plastic slips along the
-slips systems. It is sometimes useful to be able to distinguish each
+vector of internal state variables describing the plastic slips along
+the slip systems. It is sometimes useful to be able to distinguish each
 slip systems’ family: for example to prescribe different constitutive
 equations for each family.</p>
-<p>The slips systems are sorted by family. So the <code>Nss0</code>
-first plastic slips correspond to the first family. One can thus use the
+<p>The slip systems are sorted by family. So the <code>Nss0</code> first
+plastic slips correspond to the first family. One can thus use the
 <code>Nss.+</code> variables to compute the offset of each family. For
 example, the plastic slip of the second system of the third family can
-be accessed as follows (remember that <code>C++</code> indices starts at
+be accessed as follows (remember that <code>C++</code> indices start at
 <code>0</code>, so the index of the second system is
 <code>1</code>):</p>
 <div class="sourceCode" id="cb17"><pre
@@ -764,9 +765,9 @@ loop, as follows:</p>
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span><span class="op">(</span><span class="at">const</span> <span class="dt">unsigned</span> <span class="dt">short</span> i<span class="op">=</span><span class="dv">0</span><span class="op">;</span>i<span class="op">!=</span>Nss2<span class="op">;++</span>i<span class="op">){</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  fg<span class="op">[</span>Nss0<span class="op">+</span>Nss1<span class="op">+</span>i<span class="op">]=...</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>However, this approach is error-prone, the data structure describing
+<p>However, this approach is error-prone; the data structure describing
 the slip systems provides methods to compute the offset of each family.
-There is one general method called <code>offset</code> and one methods
+There is one general method called <code>offset</code> and one method
 per family called <code>offset</code> plus the number of the family
 (e.g. <code>offset1</code> for the second family).</p>
 <p>Hence, the previous loop can be written with the <code>offset</code>

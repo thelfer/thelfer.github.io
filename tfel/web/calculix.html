@@ -231,6 +231,7 @@
 		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
 		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
 		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -426,27 +427,27 @@ rights to install the executable if it is meant to be deployed on a
 system-wide location.</p>
 <p>The second one does not require any modification to
 <code>CalculiX</code>, is generally easier to set up and is very
-flexible. There is no intrinsic limitations on the number of shared
+flexible. There is no intrinsic limitation on the number of shared
 libraries and functions that can be dynamically loaded. It is thus quite
 feasible to create mechanical behaviours databases by creating a shared
-library by specific material. Such libraries will only be loaded if
-needed. In such an approach, the mechanical behaviour is dedicated to a
-specific material and is self-contained: it has no external
+library for each specific material. Such libraries will only be loaded
+if needed. In such an approach, the mechanical behaviour is dedicated to
+a specific material and is self-contained: it has no external
 parameter.</p>
 <p>Shared libraries can be shared between co-workers by moving them on a
 shared folder.</p>
 <p>However, experience shows that using shared libraries can be
-confusing for some user as they have to update their environment
+confusing for some users as they have to update their environment
 variables (<code>PATH</code> on Windows or <code>LD_LIBRARY_PATH</code>
 on Unixes) for the libraries to be usable. Shared libraries can also be
-more sensible to system updates.</p>
+more sensitive to system updates.</p>
 <blockquote>
 <p><strong>Note</strong></p>
 <p>Calling external libraries from <code>CalculiX</code> for the
 <code>ABAQUS</code> and <code>ABAQUSNL</code> is supported in
 <code>CalculiX</code> since version <code>2.12</code>. If you are
 compiling <code>CalculiX</code> from the sources, you must use the
-<code>Makefile_MFront</code> file (which is part from the sources) to
+<code>Makefile_MFront</code> file (which is part of the sources) to
 enable it.</p>
 <p>Calling external libraries from <code>CalculiX</code> for the native
 interface requires a patch in version <code>2.12</code> that can be
@@ -529,9 +530,9 @@ procedure is equivalent to the <code>FiniteRotationSmallStrain</code>
 introduced by <code>MFront</code> in most interfaces. However, this
 procedure is said to be limited to small strain because the trace of the
 Green-Lagrange strain is not related to the change of volume, which is
-basis of most behaviours describing plasticity and viscoplasticity in
-small strain: indeed, even though the plastic strain is traceless, the
-plastic flow will not be <em>isochoric</em>.</p>
+the basis of most behaviours describing plasticity and viscoplasticity
+in small strain: indeed, even though the plastic strain is traceless,
+the plastic flow will not be <em>isochoric</em>.</p>
 <p>The situation is quite different in the <code>ABAQUSNL</code>
 interface where the Hencky strain (logarithmic strain) is used (see
 below): the trace of the logarithmic strain is directly linked to the
@@ -540,7 +541,7 @@ change of volume.</p>
 <code>Abaqus/Standard</code> which tries to integrate the behaviour in
 rate form and then uses the Jauman objective stress rate to ensure
 objectivity (see <span class="citation"
-data-cites="hughes_finite_1980">[1]</span>): this approach is based of
+data-cites="hughes_finite_1980">[1]</span>): this approach is based on
 the fact that the trace of the deformation rate is directly linked to
 the change of volume.</p>
 <p>To describe plasticity and viscoplasticity at finite strain using an
@@ -558,16 +559,17 @@ interfaces to <code>Abaqus/Standard</code>’s <code>umat</code>
 behaviours:</p>
 <ul>
 <li><code>ABAQUS</code> is meant to describe linear materials.</li>
-<li><code>ABAQUSNL</code> is meant to describe no linear materials. For
+<li><code>ABAQUSNL</code> is meant to describe nonlinear materials. For
 nonlinear materials the logarithmic strain and infinitesimal rotation
 are calculated, which slows down the calculation. Consequently, the
 nonlinear routine should only be used if necessary.</li>
 </ul>
-<p>Those two interface supports the call to behaviours in external
+<p>Those two interfaces support the call to behaviours in external
 shared libraries.</p>
 <p>Calling shared libraries is triggered by putting the <code>@</code>
-character in front material name. The material name is then decomposed
-into three parts, separated by the <code>_</code> character:</p>
+character in front of the material name. The material name is then
+decomposed into three parts, separated by the <code>_</code>
+character:</p>
 <ul>
 <li>The name of the interface (<code>ABAQUS</code> or
 <code>ABAQUSNL</code>).</li>
@@ -584,7 +586,7 @@ extension.), one would declare the following material name:</p>
 id="using-the-mfront-behaviours-generated-through-the-abaqus-interface">Using
 the <code>MFront</code> behaviours generated through the
 <code>abaqus</code> interface</h2>
-<p>As described in the previous section, calling shared libraries in
+<p>As described in the previous section, calling shared libraries is
 only supported for the <code>ABAQUS</code> or <code>ABAQUSNL</code>
 interfaces. This means that we can call mechanical behaviours generated
 by <code>MFront</code> through the <code>abaqus</code> interface quite
@@ -642,8 +644,8 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#c
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span></span></code></pre></div>
 </blockquote>
 <blockquote>
-<p>Another solution is to deactive checks (for <code>TFEL</code> greater
-than 3.1) like this:</p>
+<p>Another solution is to deactivate checks (for <code>TFEL</code>
+greater than 3.1) like this:</p>
 <div class="sourceCode" id="cb9"><pre
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">-D</span> MFRONT_ABAQUS_NORUNTIMECHECKS <span class="at">--interface</span><span class="op">=</span>abaqus SaintVenantKirchhoffElasticity.mfront</span></code></pre></div>
 </blockquote>
@@ -719,9 +721,9 @@ of states variables and number of material properties</h3>
 <p>In <code>CalculiX</code> 2.12, the value of the <code>NSTATV</code>
 argument passed to the <code>ABAQUS</code> and <code>ABAQUSNL</code>
 interfaces is the maximum number of state variables for all the
-materials. This is not what consistent with <code>Abaqus/Standard</code>
+materials. This is not consistent with <code>Abaqus/Standard</code>
 which passes the number of state variables of the material.</p>
-<p>The same remarks applies to the number of the material properties
+<p>The same remarks apply to the number of the material properties
 (<code>NPROPS</code> argument).</p>
 <p>This issue can be circumvented by disabling checks in
 <code>MFront</code>:</p>
@@ -779,16 +781,16 @@ framework, one can see that more time is spent in looking for function
 <code>calculix_searchExternalBehaviours</code> than in the behaviour
 integration: <span class="math inline">\(2.65\%\)</span> of the time vs
 <span class="math inline">\(1.66\%\)</span> !</p>
-<p>This is du to the mostly non-intrusive way of introducing external
+<p>This is due to the mostly non-intrusive way of introducing external
 behaviours in <code>CalculiX</code>. This additional cost could totally
 disappear with a more clever and intrusive development.</p>
 <p>If those 2.65% are removed from the total computational time, the
-<code>MFront</code> only causes to a <span
+<code>MFront</code> implementation only causes a <span
 class="math inline">\(2.3\%\)</span> slow down, which is acceptable.</p>
-<p>This slow down could be du to the fact that the <code>MFront</code>
-behaviours update the elastic strain and recomputes the stress (it does
+<p>This slow down could be due to the fact that the <code>MFront</code>
+behaviours update the elastic strain and recompute the stress (it does
 not simply update it by adding an increment, as this is done in most
-implementation). Using the elastic strain is mandatory to handle
+implementations). Using the elastic strain is mandatory to handle
 properly material properties changing with temperature and thermal
 expansion.</p>
 <h1 id="references">References</h1>

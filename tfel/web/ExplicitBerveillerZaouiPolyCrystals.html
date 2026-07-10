@@ -234,6 +234,7 @@
 		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
 		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
 		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -433,14 +434,14 @@ and the macroscopic applied stress. This model has been developed for
 microscopically isotropic elastic behaviour and macroscopically
 isotropic plastic behaviour.</p>
 <p>After a quick recall of the equations involved, an explicit
-implementation of a polycrystal behaviours based on this homogeneization
-scheme is presented in Sections 2. This choice is justified by the huge
+implementation of a polycrystal behaviour based on this homogeneization
+scheme is presented in Section 2. This choice is justified by the huge
 number of state variables involved which is <em>a priori</em>
 incompatible with an implicit resolution. The main trouble with explicit
-scheme is the lack of consistent tangent operator which degrades
+schemes is the lack of consistent tangent operator which degrades
 considerably the performance of most mechanical solvers at the
 structural scale, the <code>Cast3M</code> solver being a noticeable
-exception du to its specific resolution scheme <span class="citation"
+exception due to its specific resolution scheme <span class="citation"
 data-cites="verpeaux_algorithmes_2014 ramiere_iterative_2015">[<a
 href="#ref-verpeaux_algorithmes_2014" role="doc-biblioref">3</a>, <a
 href="#ref-ramiere_iterative_2015"
@@ -494,19 +495,20 @@ data-cites="berveiller_extension_1978">[<a
 href="#ref-berveiller_extension_1978"
 role="doc-biblioref">1</a>]</span>. The grains of the polycrystal have
 equiaxed shape and the texture of the material is isotropic. The
-elasticity is assumed homogeneous and istropic In the case of monotonous
-radial loadings Berveiller and Zaoui have shown that the local stress
-<span class="math inline">\({\underline{\sigma}}^{(k)}\)</span> applied
-in a crystallographic phase <span class="math inline">\((i)\)</span>
-(all the grains with nearly the same orientation) can be expressed
-explicitly as a function of the local plastic strain <span
+elasticity is assumed homogeneous and isotropic. In the case of
+monotonous radial loadings, Berveiller and Zaoui have shown that the
+local stress <span
+class="math inline">\({\underline{\sigma}}^{(k)}\)</span> applied in a
+crystallographic phase <span class="math inline">\((i)\)</span> (all the
+grains with nearly the same orientation) can be expressed explicitly as
+a function of the local plastic strain <span
 class="math inline">\({\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}\)</span>,
 the macroscopic stress <span
 class="math inline">\(\underline{\Sigma}\)</span> and the macroscopic
 plastic strain <span
 class="math inline">\(\underline{E}^{\mathrm{vp}}\)</span>.</p>
-<p>The macrosopic viscoplastic strain is linked to the microscopic local
-plastic strain <span
+<p>The macroscopic viscoplastic strain is linked to the microscopic
+local plastic strain <span
 class="math inline">\({\underline{\varepsilon}^{\mathrm{vp}}}^{(k)}\)</span>
 by a simple mixing rule:</p>
 <p><span id="eq:mfront:bz:Evp"><span class="math display">\[
@@ -553,19 +555,19 @@ the following form:</p>
 <p><span id="eq:mfront:bz:flow_rule"><span class="math display">\[
 {\underline{\dot{\varepsilon}}^{\mathrm{vp}}}^{(k)}={v}^{(k)}{\left({\underline{\sigma}}^{(k)}\right)}
 \qquad{(3)}\]</span></span></p>
-<p>In this report, the microscopic plastic strain may results from the
+<p>In this report, the microscopic plastic strain may result from the
 slips along the slip systems of the crystal following:</p>
 <p><span class="math display">\[
 {\underline{\dot{\varepsilon}}^{\mathrm{vp}}}^{(k)}=\sum_{i=1}^{N_{s}}{\dot{g}}^{(k,i)}\,{\mu}^{(k,i)}\quad\text{with}\quad{\dot{g}}^{(k,i)}=\left\langle\dfrac{{\sigma}^{(k)}\,\colon\,{\mu}^{(k,i)}-R_{0}}{K}\right\rangle^{n}
 \]</span></p>
 <p>This constitutive equation is very simple, but extensions of the
-proposed integration scheme to more complex ones , such as i.e. the
+proposed integration scheme to more complex ones, such as the
 Méric-Cailletaud behaviour <span class="citation"
 data-cites="meric_single_1991">[<a href="#ref-meric_single_1991"
-role="doc-biblioref">5</a>]</span>, is straightforward using the
+role="doc-biblioref">5</a>]</span>, are straightforward using the
 proposed explicit scheme.</p>
 <p>For the example, we will follow the work of Onimus et al. with
-sightly modified material coefficients <span class="citation"
+slightly modified material coefficients <span class="citation"
 data-cites="onimus_polycrystalline_2009">[<a
 href="#ref-onimus_polycrystalline_2009"
 role="doc-biblioref">2</a>]</span>.</p>
@@ -588,9 +590,9 @@ scheme.</p>
 <h2 id="mfront-implementation"><code>MFront</code>’ Implementation</h2>
 <h3 id="choice-of-the-domain-specific-language">Choice of the domain
 specific language</h3>
-<p>Domain specific languages (DSL) are of the main concept of
+<p>Domain specific languages (DSL) are one of the main concepts of
 <code>MFront</code>. It specifies a kind of material knowledge and a
-kind of numerical scheme . It also introduces a specific syntax for the
+kind of numerical scheme. It also introduces a specific syntax for the
 implementation to be both efficient and explicit.</p>
 <p>For a small strain behaviour integrated using an explicit scheme, the
 appropriate domain specific language is called <code>RungeKutta</code>.
@@ -608,9 +610,9 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#c
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Author F<span class="op">.</span> Onimus<span class="op">,</span> C<span class="op">.</span> Gicquel<span class="op">,</span> T<span class="op">.</span> Helfer<span class="op">;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Date <span class="bn">05</span><span class="op">/</span><span class="dv">2020</span><span class="op">;</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Description<span class="op">{</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  Implementation of a polycrystal of behaviour  <span class="cf">for</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  Implementation of a polycrystal of behaviour <span class="cf">for</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  zirconium alloys <span class="kw">using</span> the Berveiller<span class="op">-</span>Zaoui</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  homegeneization scheme<span class="op">.</span> The presented behaviour</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  homogeneization scheme<span class="op">.</span> The presented behaviour</span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  is inspired from Onimus <span class="dv">2009</span> which modified</span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  material coefficients<span class="op">.</span></span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
@@ -643,7 +645,7 @@ Runge-Kutta 5/4 algorithm (which is the default):</p>
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Algorithm rk54<span class="op">;</span></span></code></pre></div>
 <h3 id="sec:mfront:bz:slips_systems">Declaration of the slip
 systems</h3>
-<p>The considered material as an hexagonal close packed crystallographic
+<p>The considered material has a hexagonal close packed crystallographic
 structure and four families of slip systems:</p>
 <ul>
 <li>the first slip system corresponds to // systèmes prismatiques A</li>
@@ -666,10 +668,10 @@ href="https://thelfer.github.io/tfel/web/singlecrystal.html"
 class="uri">https://thelfer.github.io/tfel/web/singlecrystal.html</a>.</p>
 <p>They generate a class called
 <code>PolycrystalHCP_BZSlipSystems</code> which contains the orientation
-tensors of the all the slip systems.</p>
+tensors of all the slip systems.</p>
 <h3 id="sec:mfront:bz:slips_systems2">Handling textures</h3>
-<p>Altough, the <code>PolycrystalHCP_BZSlipSystems</code> class contains
-all the information for a single crystal, a polycrystaline behaviour
+<p>Although the <code>PolycrystalHCP_BZSlipSystems</code> class contains
+all the information for a single crystal, a polycrystalline behaviour
 must handle the texture of the material, i.e. the orientation and the
 volume fraction of each phase. It is not relevant to hard-code such
 information, so we rely on an external text file. For efficiency
@@ -690,7 +692,7 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb8-1"><a href="#c
 <p>The description of the implementation of this class is out of the
 scope of the present report, so we will only focus on the main points of
 interest for the rest of this report.</p>
-<p>The <code>ExtendedPolyCrystalsSlidingSystems</code> class has tree
+<p>The <code>ExtendedPolyCrystalsSlidingSystems</code> class has three
 template arguments:</p>
 <ul>
 <li>The number of phases.</li>
@@ -701,8 +703,8 @@ previously.</li>
 </ul>
 <p>This class provides the <code>getPolyCrystalsSlidingSystems</code>
 static method as the unique way to retrieve the unique instance of this
-class. This method takes the name of a external text file. Each line of
-this file describe a phase by three Euler angles (in degree) and a
+class. This method takes the name of an external text file. Each line of
+this file describes a phase by three Euler angles (in degree) and a
 volume fraction.</p>
 <p>The unique instance of the
 <code>ExtendedPolyCrystalsSlidingSystems</code> has two data members of
@@ -710,7 +712,7 @@ interest:</p>
 <ul>
 <li><code>mus</code>: the tensors of directional senses, sorted by
 phases. Those orientation tensors are expressed in the material frame,
-not in frame associated with the given phase.</li>
+not in the frame associated with the given phase.</li>
 <li><code>volume_fractions</code>: the volume fractions per phases.</li>
 </ul>
 <h3 id="sec:mfront:bz:nphases">Number of phases</h3>
@@ -730,7 +732,7 @@ stiffness tensor using the macroscopic Young modulus and the macroscopic
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ComputeStiffnessTensor <span class="op">{</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fl">80000.</span><span class="op">,</span> <span class="fl">0.4</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
-<p>This keywords automatically declares and initializes a fourth order
+<p>This keyword automatically declares and initializes a fourth order
 tensor named <span
 class="math inline">\(\underline{\underline{\mathbf{D}}}\)</span>.</p>
 <h3 id="sec:mfront:bz:parameters">Material coefficients</h3>
@@ -767,7 +769,7 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb13-1"><a href="#
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  sig <span class="op">=</span> D <span class="op">*</span> eel<span class="op">;</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>This code is used to compute the stress before each evaluation of the
-rate of the internal state variables and and the end of the time step to
+rate of the internal state variables and at the end of the time step to
 compute the final stress.</p>
 <h3 id="equations-of-the-system">Equations of the system</h3>
 <p>Using the <code>@Derivative</code> code block, the evolution of the
@@ -784,7 +786,7 @@ the details associated with the use of the
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>  <span class="kw">using</span> PCSlidingSystems <span class="op">=</span> </span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    ExtendedPolyCrystalsSlidingSystems<span class="op">&lt;</span>Np<span class="op">,</span> PolycrystalHCP_BZSlipSystems<span class="op">&lt;</span>real<span class="op">&gt;,</span> real<span class="op">&gt;;</span></span></code></pre></div>
 <p>The following line retrieves the unique instance of the
-<code>ExtendedPolyCrystalsSlidingSystems</code> class and give the name
+<code>ExtendedPolyCrystalsSlidingSystems</code> class and gives the name
 of the file containing the description of the phases.</p>
 <div class="sourceCode" id="cb16"><pre
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span><span class="op">&amp;</span> gs <span class="op">=</span> PCSlidingSystems<span class="op">::</span>getPolyCrystalsSlidingSystems<span class="op">(</span><span class="st">&quot;isotrope_240_normalise.csv&quot;</span><span class="op">);</span></span></code></pre></div>
@@ -891,8 +893,8 @@ behaviour on a simple tensile test</figcaption>
 <p>The stress-strain curve obtained with the polycrystal behaviour on a
 simple tensile test is reported in Figure 1.</p>
 <h1 id="conclusions">Conclusions</h1>
-<p>Extensions to the proposed implicit scheme to other well-known
-homogeneizations schemes are straightforward, including the work of
+<p>Extensions of the proposed implicit scheme to other well-known
+homogeneization schemes are straightforward, including the work of
 Taylor-Lin, Kröner, Cailletaud-Pilvin (<span
 class="math inline">\(\beta\)</span>-model) and their extension by
 Besson et al.</p>
@@ -972,7 +974,7 @@ role="doc-endnotes">
 <hr />
 <ol>
 <li id="fn1"><p>The <span
-class="math inline">\(\beta{\left(\nu\right)}\)</span> factor is closed
+class="math inline">\(\beta{\left(\nu\right)}\)</span> factor is close
 to <span class="math inline">\(\frac{1}{2}\)</span> for a macroscopic
 Poisson ratio close to <span class="math inline">\(0.3\)</span>. In this
 case, the Localisation Equation (2) may be simplified as: <span

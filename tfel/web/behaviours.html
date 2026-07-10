@@ -230,6 +230,7 @@
 		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
 		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
 		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -404,7 +405,7 @@ role="doc-biblioref">3</a>]</span>. One major difference between
 techniques used: <code>ZebFront</code> mostly relies on object-oriented
 techniques where <code>MFront</code> relies on generic programming
 leading to almost orthogonal design choices.</p>
-<p>Three kind of mechanical behaviours are currently considered with
+<p>Three kinds of mechanical behaviours are currently considered with
 <code>MFront</code>: small and finite strain behaviours and cohesive
 zone models.</p>
 <h2 id="mechanical-behaviour-role">Mechanical behaviour role</h2>
@@ -428,7 +429,7 @@ be handled by behaviour implementations made with
 <code>MFront</code>;</li>
 <li>an iterative process similar to the Newton-Raphson algorithm is used
 to find a displacement that will satisfy the mechanical equilibrium.
-Given an estimation of the displacement at the end the time step, one
+Given an estimation of the displacement at the end of the time step, one
 computes at each integration point an estimation of the increment of the
 deformation tensor <span
 class="math inline">\(\Delta\,\underline{\epsilon}^{\mathrm{to}}\)</span>.
@@ -452,7 +453,7 @@ which is used to estimate a more accurate displacement field.</li>
 \partial \Delta\,\underline{\epsilon}^{\mathrm{to}}}}\right)=
 \mathcal{F}\left(\left.\underline{\sigma}\right|_{t},\left.Y_{i}\right|_{t},\Delta\,\underline{\epsilon}^{\mathrm{to}},\Delta\,t,\ldots\right)
 \]</span></p>
-<p>The dots <span class="math inline">\(\ldots\)</span> means that the
+<p>The dots <span class="math inline">\(\ldots\)</span> mean that the
 behaviour may also depend on external state variables evolutions with
 time, namely the temperature, the irradiation damage, and so on.</p>
 <h2
@@ -496,7 +497,7 @@ equivalent plastic strain, <span class="math inline">\(H\)</span> the
 isotropic hardening slope and <span
 class="math inline">\(\sigma_{0}\)</span> the initial elasticity
 limit.</p>
-<p>The generated code represent a total amount of <span
+<p>The generated code represents a total amount of <span
 class="math inline">\(1\,512\)</span> lines of <code>̀C++</code> code
 and provides:</p>
 <ol type="1">
@@ -508,12 +509,12 @@ of the programming techniques used can be found in the description of
 the <a href="tfel-math.html">TFEL/Math library</a>.</li>
 <li>the computation of the prediction operator;</li>
 <li>meta-data about the required material properties, the number of
-states variables, etc… that can be retrieved dynamically (For the sake
-of simplicity, no glossary name was specified in this example). This
+state variables, etc… that can be retrieved dynamically (For the sake of
+simplicity, no glossary name was specified in this example). This
 mechanism is typically used by solvers based on the <a
 href="https://thelfer.github.io/mgis/web/index.html"><code>MGIS</code>
 libray</a> appropriately calling the behaviour;</li>
-<li>the computation of a tangent matrix operator (various choice are
+<li>the computation of a tangent matrix operator (various choices are
 possible: elastic, secant, consistent);</li>
 <li>dynamically loadable functions allowing the user to change various
 parameters of the behaviour (the convergence criterion of the implicit
@@ -527,7 +528,7 @@ manner to dynamically modify a behaviour (almost no runtime cost).</li>
 <h3 id="local-divergence">Local divergence</h3>
 <p>Local divergence of the implicit algorithm can be handled through an
 appropriate substepping procedure. This feature is not enabled by
-default, but appropriate keywords gives to the end user explicit control
+default, but appropriate keywords give the end user explicit control
 over this procedure.</p>
 <h3 id="finite-strain-strategies">Finite strain strategies</h3>
 <p>If not handled directly by the calling code, appropriate pre- and
@@ -535,13 +536,13 @@ post-processing allowing the use of small strain behaviours in finite
 strain computations can be generated. Two lagrangian finite strain
 strategies are currently available:</p>
 <ol type="1">
-<li>finite rotations, small strains. This method allows the re-use a
+<li>finite rotations, small strains. This method allows the re-use of a
 behaviour whose material parameters <span
 class="math inline">\(H\)</span> and <span
 class="math inline">\(\sigma_{0}\)</span> were identified through small
 strain computations in the context of finite rotations without any
 re-identification. The physical meaning of the pre- and post-processing
-stages are discussed by Doghri (see <span class="citation"
+stages is discussed by Doghri (see <span class="citation"
 data-cites="doghri_mechanics_2000">[<a href="#ref-doghri_mechanics_2000"
 role="doc-biblioref">10</a>]</span>);</li>
 <li>lagrangian logarithmic strains as proposed by Miehe, Apel and
@@ -624,7 +625,7 @@ class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><sp
 <span id="Tvergaard-20"><a href="#Tvergaard-20"></a>  <span class="op">}</span></span>
 <span id="Tvergaard-21"><a href="#Tvergaard-21"></a><span class="op">}</span> <span class="co">// end of @Integrator</span></span></code></pre></div>
 <p>Details about the computation of the consistent tangent operator were
-eluded. The opening displacement <span
+elided. The opening displacement <span
 class="math inline">\(\vec{u}\)</span> is automatically decomposed into
 the normal opening displacement <span
 class="math inline">\(u_{n}\)</span> and its tangential opening
@@ -735,7 +736,7 @@ href="#ref-besson_mecanique_2001" role="doc-biblioref">5</a>]</span>:
   \end{pmatrix}
 \]</span></p>
 <h3 id="time-independent-mechanisms">Time independent mechanisms</h3>
-<p>For state variable associated with time-independent mechanisms, the
+<p>For state variables associated with time-independent mechanisms, the
 implicit equation shall impose that the system lies on the yield surface
 when plastic loading occurs.</p>
 <h3 id="available-algorithms">Available algorithms</h3>
@@ -763,10 +764,10 @@ algorithm) at each iteration. The first Broyden algorithm can sometimes
 be interesting as one may compute analytically some part of the jacobian
 matrix and let the algorithm compute the other parts. If the computation
 of those other parts takes a significant amount of CPU time, this
-algorithm can in same cases outperform the Newton-Raphson
+algorithm can in some cases outperform the Newton-Raphson
 algorithm.</li>
 <li><code>PowellDogLeg_XX</code> algorithm, where <code>XX</code> is one
-of the previous algorithm. Those trust-region algorithms implement the
+of the previous algorithms. Those trust-region algorithms implement the
 classical Powell dogleg method <span class="citation"
 data-cites="chen_modification_1981">[see <a
 href="#ref-chen_modification_1981" role="doc-biblioref">15</a>]</span>

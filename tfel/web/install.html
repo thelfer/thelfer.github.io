@@ -230,6 +230,7 @@
 		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
 		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
 		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -495,10 +496,10 @@ sources and detailed in the <code>INSTALL</code> and the
 sources.</p>
 <p>This document describes the generic installation procedure for
 <code>TFEL</code> from the sources on posix-compliant systems. Please
-note that the main systems on which <code>TFEL</code> was developed is
+note that the main system on which <code>TFEL</code> was developed is
 <code>Linux</code>. Extensive testing on other posix-compliant operating
 systems, notably <code>FreeBSD</code>, is lacking, although compilation
-and unit testing is known to work. A page dedicated to
+and unit testing are known to work. A page dedicated to
 <code>FreeBSD</code> is available <a
 href="install-freebsd.html">here</a>.</p>
 <p>The installation on <a href="http://windows.microsoft.com">Windows
@@ -515,14 +516,14 @@ adapted to other versions of <code>MinGW</code>, without requiring
 [Windows](http://windows.microsoft.com) in the
 [<code>MSYS2</code>](https://www.msys2.org/) environment</a>.</li>
 </ul>
-<p>The creation of binary packages are detailed <a
+<p>The creation of binary packages is detailed <a
 href="packages.html">here</a>.</p>
 <p>A quick way of installing <code>TFEL</code> on <code>Ubuntu</code>
 systems is given in Section 8.</p>
 <p><code>TFEL</code> is known to work on standard architectures
 implemented by the Intel and AMD processors, either 32 or 64 bits. As no
-specific instructions relative to the underlying architecture is used in
-the code, other architectures shall work as well.</p>
+specific instructions relative to the underlying architecture are used
+in the code, other architectures shall work as well.</p>
 <p>You must have the <code>cmake</code> build system (version greater
 than <span class="math inline">\(2.8\)</span>) installed on your system,
 installing ̀<code>TFEL</code> basically boils down to the following
@@ -531,11 +532,11 @@ simple commands:</p>
 class="sourceCode bash"><code class="sourceCode bash"><span id="building1-1"><a href="#building1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake <span class="pp">[</span><span class="ss">options</span><span class="pp">]</span></span>
 <span id="building1-2"><a href="#building1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make </span>
 <span id="building1-3"><a href="#building1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make install</span></code></pre></div>
-<p>The optional parameters of <code>cmake</code> allows you to:</p>
+<p>The optional parameters of <code>cmake</code> allow you to:</p>
 <ul>
 <li>specify the source location</li>
 <li>specify the installation directory</li>
-<li><em>specify the interfaces to be build</em></li>
+<li><em>specify the interfaces to be built</em></li>
 </ul>
 <p>The rest of this document is dedicated to giving all the details
 related to the installation process. For completeness, we will break the
@@ -554,7 +555,7 @@ class="header-section-number">1</span> Prerequisites</h1>
 class="header-section-number">1.1</span> Compilers</h2>
 <p><code>TFEL</code> version 5.0 requires a <code>C++-20</code>
 compliant compiler, a <code>C</code> compiler and optionally a
-<code>fortran</code> compiler. The following compilers suite are
+<code>fortran</code> compiler. The following compiler suites are
 officially supported:</p>
 <ul>
 <li><a href="https://gcc.gnu.org/">The GNU Compiler Collection</a>. This
@@ -567,8 +568,8 @@ compilers suite</a>.</li>
 </ul>
 <h2 data-number="1.2" id="third-party-libraries"><span
 class="header-section-number">1.2</span> Third party libraries</h2>
-<p><code>TFEL</code> has been designed to have no dependencies to third
-parties libraries with the very exception of the <a
+<p><code>TFEL</code> has been designed to have no dependencies on
+third-party libraries with the very exception of the <a
 href="https://github.com/pybind/pybind11">pybind11</a> library used to
 create optional bindings for the <a
 href="https://www.python.org/"><code>Python</code></a> language.</p>
@@ -600,7 +601,7 @@ href="http://www.cmake.org/"><code>cmake</code></a> build-system.</p>
 <h2 data-number="3.1" id="creating-a-build-directory"><span
 class="header-section-number">3.1</span> Creating a <code>build</code>
 directory</h2>
-<p>We highly recommend to use a separate directory to build the
+<p>We highly recommend using a separate directory to build the
 sources.</p>
 <p>In the following, we use the following convention:</p>
 <ul>
@@ -698,8 +699,8 @@ number to the names of:</p>
 <li>The executables.</li>
 <li>The libraries.</li>
 <li>The python modules. Note that, to comply with <code>python</code>
-restriction on modules’ names, the characters <code>.</code> and
-<code>-</code> are replace by <code>_</code> and that only the first
+restrictions on modules’ names, the characters <code>.</code> and
+<code>-</code> are replaced by <code>_</code> and that only the first
 level modules are affected.</li>
 <li>The directories in the <code>share</code> folder.</li>
 </ul>
@@ -769,7 +770,7 @@ tool is available, code source documentation can be built through:</p>
 class="sourceCode bash"><code class="sourceCode bash"><span id="building-html-1"><a href="#building-html-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> make doc-html</span></code></pre></div>
 <p>If <a
 href="http://johnmacfarlane.net/pandoc/index.html"><code>pandoc</code></a>
-is build and if you are using the <code>cmake</code> build system, the
+is built and if you are using the <code>cmake</code> build system, the
 previous command will also install a local version of the
 <code>TFEL</code> website.</p>
 <div class="sourceCode" id="building-website"><pre
@@ -788,9 +789,9 @@ class="sourceCode bash"><code class="sourceCode bash"><span id="building-install
 id="scripts-to-define-environment-variables-for-tfel-to-work-properly"><span
 class="header-section-number">7</span> Scripts to define environment
 variables for <code>TFEL</code> to work properly</h1>
-<p>Depending on the system and compilation options, some of following
-variables shall be set for <code>TFEL</code> to work properly after the
-installation: <code>TFELHOME</code>, <code>PATH</code>,
+<p>Depending on the system and compilation options, some of the
+following variables shall be set for <code>TFEL</code> to work properly
+after the installation: <code>TFELHOME</code>, <code>PATH</code>,
 <code>LD_LIBRARY_PATH</code> and <code>PYTHONPATH</code>.</p>
 <p><code>TFEL</code> installs automatically the following files in the
 installation directory:</p>
@@ -842,7 +843,7 @@ project</a>, e.g. with <code>OpenGeoSys</code>, <code>FEniCS</code>,
 <code>ccmake</code>.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mkdir build <span class="kw">&amp;&amp;</span> <span class="bu">cd</span> build</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ccmake ../tfel</span></code></pre></div>
-<p><code>ccmake</code> allows to select various options. In this
+<p><code>ccmake</code> allows you to select various options. In this
 tutorial, we choose the following options:</p>
 <div class="sourceCode" id="cb10"><pre
 class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>  <span class="ex">CMAKE_INSTALL_PREFIX</span>    ~/.local</span>
@@ -850,8 +851,8 @@ class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="#
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">enable-numpy-support</span>          ON</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="ex">enable-python</span>                 ON</span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="ex">enable-python-bindings</span>        ON</span></code></pre></div>
-<p>The <code>TFEL_APPEND_VERSION</code> allows to install different
-versions of <code>TFEL</code> at the same location.</p>
+<p>The <code>TFEL_APPEND_VERSION</code> option allows you to install
+different versions of <code>TFEL</code> at the same location.</p>
 <p>Then configure twice <code>[c]</code>,<code>[c]</code> and generate
 <code>[g]</code>. Once done, just type:</p>
 <div class="sourceCode" id="cb11"><pre

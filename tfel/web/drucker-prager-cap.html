@@ -230,6 +230,7 @@
 		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
 		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
 		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -465,8 +466,8 @@ id="toc-elastic-prediction-initial-value-of-the-statuses">Elastic
 prediction, initial value of the statuses</a></li>
 <li><a href="#implicit-system" id="toc-implicit-system">Implicit
 system</a></li>
-<li><a href="#a-posterio-checks-validation-of-the-assumptions"
-id="toc-a-posterio-checks-validation-of-the-assumptions">A posterio
+<li><a href="#a-posteriori-checks-validation-of-the-assumptions"
+id="toc-a-posteriori-checks-validation-of-the-assumptions">A posteriori
 checks: validation of the assumptions</a></li>
 </ul></li>
 <li><a href="#evolution-of-the-porosity"
@@ -482,7 +483,7 @@ auxiliary state variable</a></li>
 <li><a href="#references" id="toc-references">References</a></li>
 </ul>
 </div>
-<p>This paper is dedicated to the implementation a multi-surface,
+<p>This paper is dedicated to the implementation of a multi-surface,
 compressible, perfect plastic behaviour.</p>
 <h1 id="description">Description</h1>
 <h2 id="elasticity">Elasticity</h2>
@@ -499,8 +500,8 @@ defined as follows: <span class="math display">\[
 \sigma_{\mathrm{eq}}^{\mathrm{DP}}=q+\tan{\left(\beta\right)}\,p
 \]</span> where:
 <ul>
-<li><span class="math inline">\(p\)</span> is the hydrostatique
-pressure: <span class="math display">\[
+<li><span class="math inline">\(p\)</span> is the hydrostatic pressure:
+<span class="math display">\[
 p = {{\displaystyle \frac{\displaystyle 1}{\displaystyle
 3}}}\,{\mathrm{tr}{\left(\underline{\sigma}\right)}}
 \]</span></li>
@@ -522,8 +523,8 @@ class="math display">\[
 class="math inline">\({\left(p,q\right)}\)</span> plane.</li>
 </ul></li>
 <li>The second surface forms a so-called cap which closes the first
-plastic surface. This plastic surface is based on a criterion close the
-Green one (See <span class="citation"
+plastic surface. This plastic surface is based on a criterion close to
+the Green one (See <span class="citation"
 data-cites="fritzen_computational_2013">[1]</span> and <a
 href="greenplasticity.html">this page</a> for details): <span
 class="math display">\[
@@ -536,12 +537,12 @@ class="math display">\[
 This surface is an ellipse in the <span
 class="math inline">\({\left(p,q\right)}\)</span> plane. The material
 parameter <span class="math inline">\(p_{a}\)</span> marks the
-transition between the two plastic surface. For the two surface to
+transition between the two plastic surfaces. For the two surfaces to
 intersect at <span class="math inline">\(p_{a}\)</span>, the following
 relation must hold: <span class="math display">\[
 R_{0}^{c}=R\,{\left(R_{0}^{\mathrm{DP}}-p_{a}\,\tan{\beta}\right)}
 \]</span> The material constants associated with the cap are <span
-class="math inline">\(p_{a}\)</span> and the ellipse exentricity <span
+class="math inline">\(p_{a}\)</span> and the ellipse eccentricity <span
 class="math inline">\(R\)</span>. Here, we prefer another material
 constant, denoted <span class="math inline">\(p_{b}\)</span>, which
 stands for the minimal pressure allowed. <span
@@ -569,10 +570,10 @@ differs from some authors who use the opposite. With our definition,
 compression (<span
 class="math inline">\({\mathrm{tr}{\left(\underline{\sigma}\right)}}&lt;0\)</span>).</p>
 </blockquote>
-<p>Both criterion <span
+<p>Both criteria <span
 class="math inline">\(\sigma_{\mathrm{eq}}^{\mathrm{DP}}\)</span> and
 <span class="math inline">\(\sigma_{\mathrm{eq}}^{c}\)</span> are
-homogeneous function of degree 1.</p>
+homogeneous functions of degree 1.</p>
 <p>In the following, the flow rule is assumed associated. For each
 mechanism <span class="math inline">\(i\)</span>, the plastic strain
 rate <span
@@ -712,17 +713,17 @@ class="math inline">\(p^{c}\)</span> associated with the cap.</li>
 <p>The elastic strain is automatically defined by the
 <code>Implicit</code> domain specific language.</p>
 <p><span class="math inline">\(p^{\mathrm{DP}}\)</span> and <span
-class="math inline">\(p^{c}\)</span>could be considered as an
-integration variables, but, for post-processing purposes, we choose to
-keep it as a state variables.</p>
+class="math inline">\(p^{c}\)</span> could be considered as integration
+variables, but, for post-processing purposes, we choose to keep them as
+state variables.</p>
 <h2 id="implicit-scheme">Implicit scheme</h2>
 <p>Let <span class="math inline">\({\left.\vec{Y}\right|_{t}}\)</span>
 be a vector containing the values of the state variables at the
 beginning of the time step and <span
 class="math inline">\(\Delta\,\vec{Y}\)</span> a vector holding the
-values of unknown increment of those state variables. Here, <span
+values of the unknown increment of those state variables. Here, <span
 class="math inline">\(\vec{Y}\)</span> and <span
-class="math inline">\(\Delta\,\vec{Y}\)</span> have the the following
+class="math inline">\(\Delta\,\vec{Y}\)</span> have the following
 form:</p>
 <p><span class="math display">\[
 {\left.\vec{Y}\right|_{t}} =
@@ -741,7 +742,7 @@ form:</p>
 \]</span></p>
 <p>The principle of implicit schemes is to discretize the constitutive
 equations so that the increment of the unknowns <span
-class="math inline">\(\Delta\,\vec{Y}\)</span> satisfy the following
+class="math inline">\(\Delta\,\vec{Y}\)</span> satisfies the following
 equation: <span class="math display">\[
 \vec{F}{\left(\Delta\,\vec{Y}\right)}=0
 \]</span> where <span class="math inline">\(\vec{F}\)</span> is a
@@ -820,14 +821,14 @@ equations:</p>
 (cap).</li>
 </ul>
 <p>The last two equations depend on whether the associated mechanism is
-assumed active or not. For each systems, a first guess will be made
-based on an elastic prediction of the stress, as discussed in the next
-paragraph. After a solution to the implicit systems will be found, the
+assumed active or not. For each system, a first guess will be made based
+on an elastic prediction of the stress, as discussed in the next
+paragraph. After a solution to the implicit systems has been found, the
 validity of those two assumptions will be checked. If one of the
-assumption is false, the resolution will be restarted by making the
+assumptions is false, the resolution will be restarted by making the
 opposite assumption.</p>
-<p>In pratice, the activation of a plastic mechanism is associated to a
-boolean value.</p>
+<p>In practice, the activation of a plastic mechanism is associated with
+a boolean value.</p>
 <h2 id="elastic-prediction">Elastic prediction</h2>
 <p>First, an elastic prediction of the stress <span
 class="math inline">\(\underline{\sigma}^{\mathrm{tr}}\)</span> is made
@@ -841,8 +842,8 @@ flow occurs.</li>
 <li>Otherwise, the material state at the end of the time step lies on at
 least one of the yield surfaces.</li>
 </ul>
-<p>As describe in the previous paragraph, this elastic prediction is
-used initialize the status associated with each mechanism.</p>
+<p>As described in the previous paragraph, this elastic prediction is
+used to initialize the status associated with each mechanism.</p>
 <h2 id="equation-associated-with-the-elastic-strain">Equation associated
 with the elastic strain</h2>
 <p>The equation associated with the evolution of the elastic strain is
@@ -922,7 +923,7 @@ f_{p^{\mathrm{DP}}}}{\displaystyle \partial \Delta\,p^{\mathrm{DP}}}}
 \right.
 \]</span></p>
 <p>If the Drucker-Prager mechanism is not active, the equation
-assoaciated with <span class="math inline">\(p^{\mathrm{DP}}\)</span> is
+associated with <span class="math inline">\(p^{\mathrm{DP}}\)</span> is
 simply:</p>
 <p><span class="math display">\[
 f_{p^{\mathrm{DP}}}=\Delta\,p^{\mathrm{DP}}
@@ -953,7 +954,7 @@ E}}}\,{\left.\underline{n}^{c}\right|_{t+\theta\,\Delta\,t}}\,\colon\,{\left.\un
 \end{aligned}
 \right.
 \]</span></p>
-<p>If the cap mechanism is not active, the equation assoaciated with
+<p>If the cap mechanism is not active, the equation associated with
 <span class="math inline">\(p^{c}\)</span> is simply:</p>
 <p><span class="math display">\[
 f_{p^{c}}=\Delta\,p^{c}
@@ -1000,7 +1001,7 @@ behaviour integration.</li>
 <li>Automatic support for plane stress and generalized plane stress
 modelling hypotheses (The axial strain is defined as an additional state
 variable and the associated equation in the implicit system is added to
-enforce the plane stess condition).</li>
+enforce the plane stress condition).</li>
 <li>Automatic addition of the standard terms associated with the elastic
 strain state variable.</li>
 </ul>
@@ -1035,8 +1036,8 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#c
 Drucker-Prager mechanism. The second entry <code>bpl[1]</code> will be
 associated to the cap mechanism.</p>
 <h2 id="local-variables">Local variables</h2>
-<p>Local variables are helpers variables that are accessible in each
-code blocks during the all the integration of the behaviour:</p>
+<p>Local variables are helper variables that are accessible in each code
+block during the whole integration of the behaviour:</p>
 <div class="sourceCode" id="cb7"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real tg<span class="op">;</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real R<span class="op">;</span></span></code></pre></div>
@@ -1072,7 +1073,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#
 <h2 id="elastic-prediction-initial-value-of-the-statuses">Elastic
 prediction, initial value of the statuses</h2>
 <p>The <code>@Predictor</code> code block is called just before the
-beginning of the Newton-Raphson algorihtm.</p>
+beginning of the Newton-Raphson algorithm.</p>
 <div class="sourceCode" id="cb12"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Predictor<span class="op">{</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> sigel <span class="op">=</span> computeElasticPrediction<span class="op">();</span></span>
@@ -1089,7 +1090,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#
 stress. This method takes the modelling hypothesis into account when
 required (plane stress, generalised plane stress).</p>
 <h2 id="implicit-system">Implicit system</h2>
-<p>The implicit system is build inside the <code>@Integrator</code> code
+<p>The implicit system is built inside the <code>@Integrator</code> code
 block:</p>
 <div class="sourceCode" id="cb13"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator <span class="op">{</span></span></code></pre></div>
@@ -1156,7 +1157,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb19-1"><a href="#
 <p>Finally, the <code>@Integrator</code> code block is closed:</p>
 <div class="sourceCode" id="cb20"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="co">// end of @Integrator</span></span></code></pre></div>
-<h2 id="a-posterio-checks-validation-of-the-assumptions">A posterio
+<h2 id="a-posteriori-checks-validation-of-the-assumptions">A posteriori
 checks: validation of the assumptions</h2>
 <p>The <code>@AdditionalConvergenceChecks</code> code block has been
 introduced in <code>TFEL-3.1</code> to have a better control on the
@@ -1167,11 +1168,11 @@ Newton-Raphson algorithm has converged (this is indicated by the
 <code>converged</code> boolean variable).</p>
 <p>If a mechanism is active, we check that <span
 class="math inline">\(\Delta\,p_{i}\)</span> is positive. Otherwise, the
-mechanism is desactivated and the <code>converged</code> flag is set to
+mechanism is deactivated and the <code>converged</code> flag is set to
 <code>false</code>.</p>
-<p>If a mechanism is not active, we check that the final solution remain
-below the yield surface. Otherwise, the mechanism is activated and the
-<code>converged</code> flag is set to <code>false</code>.</p>
+<p>If a mechanism is not active, we check that the final solution
+remains below the yield surface. Otherwise, the mechanism is activated
+and the <code>converged</code> flag is set to <code>false</code>.</p>
 <div class="sourceCode" id="cb21"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AdditionalConvergenceChecks <span class="op">{</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>converged<span class="op">){</span></span>
@@ -1206,7 +1207,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb21-1"><a href="#
 <span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <h1 id="evolution-of-the-porosity">Evolution of the porosity</h1>
 <p>In this paragraph, we will discuss how the evolution of the porosity
-of the material du to the plastic flow can be added.</p>
+of the material due to the plastic flow can be added.</p>
 <p>The porosity <span class="math inline">\(f\)</span> is defined as the
 ratio between the current mass density <span
 class="math inline">\(\rho\)</span> and the theoretical density <span
@@ -1238,7 +1239,7 @@ class="math display">\[
 \dot{f}={\left(1-f\right)}\,{\mathrm{tr}{\left(\underline{\dot{\varepsilon}}^{\mathrm{to}}\right)}}
 \]</span></p>
 <p>Following <span class="citation"
-data-cites="chaboche_endommagement_2001">[2]</span>, the elasic part of
+data-cites="chaboche_endommagement_2001">[2]</span>, the elastic part of
 the strain is neglected and the following evolution of <span
 class="math inline">\(f\)</span> is finally kept: <span
 class="math display">\[
@@ -1249,15 +1250,15 @@ class="math display">\[
 porosity</strong></p>
 <p>For simplicity, we don’t treat here the case where the elastic
 properties depend on the porosity. Indeed, in this case, the usage of
-the <code>StandardElasticity</code> brick is not more justified. In
-pratice, however, neglecting the additional terms du to such a
+the <code>StandardElasticity</code> brick is no longer justified. In
+practice, however, neglecting the additional terms due to such a
 dependency may work quite well.</p>
 </blockquote>
 <p>Assuming no dependency of elastic material properties with the
 porosity, two cases can be distinguished:</p>
 <ul>
 <li>The yield criteria and the isotropic hardening depend on the
-porosity. In this case, the simpliest approach is to consider the
+porosity. In this case, the simplest approach is to consider the
 porosity as a new state variable and to add the appropriate derivatives
 of the yield surface in the definition of the jacobian of the implicit
 system.</li>

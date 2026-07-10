@@ -231,6 +231,7 @@
 		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
 		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
 		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -625,7 +626,7 @@ id="support-for-c-digit-separator-in-cxxtokenizer"><span
 class="header-section-number">2.1</span> Support for <code>C++</code>
 digit separator in <code>CxxTokenizer</code></h2>
 <p>The <code>CxxTokenizer</code> class now supports <code>C++</code>
-digit separators in numbers, (integer of floatting point numbers), as
+digit separators in numbers, (integer or floating point numbers), as
 illustrated in the following example:</p>
 <div class="sourceCode" id="cb1"><pre
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL IsotropicMisesCreep<span class="op">;</span></span>
@@ -657,7 +658,7 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#c
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> m3 <span class="op">=</span> m1 <span class="op">*</span> m2<span class="op">;</span></span></code></pre></div>
 <h2 data-number="3.2" id="sec:tfel-5.0.0:tfel-math:eigensolvers"><span
 class="header-section-number">3.2</span> New solver eigen solver</h2>
-<p>A new eigen solver based on Harari’s analytical solution have been
+<p>A new eigen solver based on Harari’s analytical solution has been
 introduced for symmetric tensors. The computation of eigen values is
 done with Harari’s algorithm <span class="citation"
 data-cites="harari_computation_2023">[<a
@@ -998,7 +999,7 @@ components are in <span class="math inline">\([-1:1]\)</span>.</p>
 eigenvalues and eigenvectors failed if: <span class="math display">\[
 \Delta_{\infty}=\max_{i\in[1,2,3]}\left\|\underline{s}\,\cdot\,\vec{v}_{i}-\lambda_{i}\,\vec{v}_{i}\right\|&gt;10\,\varepsilon
 \]</span> where <span class="math inline">\(\varepsilon\)</span> is the
-accuracy of the floatting point considered.</p>
+accuracy of the floating point considered.</p>
 <p>The results of those tests are reported on Tables 2, 3 and 4. The
 Harari eigen solver offers a better compromise between accuracy and
 numerical efficiency than the default <code>TFEL</code> solver.</p>
@@ -1052,8 +1053,8 @@ class="header-section-number">5.1</span> Improvements to the
 <h3 data-number="5.1.1" id="the-data-keyword"><span
 class="header-section-number">5.1.1</span> The <code>@Data</code>
 keyword</h3>
-<p>The <code>@Data</code> keyword allow the definition of a material
-properties using the interpolation of a set of values.</p>
+<p>The <code>@Data</code> keyword allows the definition of a material
+property using the interpolation of a set of values.</p>
 <p>The <code>@Data</code> keyword is followed by a set of options
 defining:</p>
 <ul>
@@ -1121,8 +1122,8 @@ R_{0}{\left(p\right)}\,R_{rs}{\left(\dot{p}\right)},
 <p>where:</p>
 <ul>
 <li><span class="math inline">\(R_{0}{\left(p\right)}\)</span> is the
-yield radius corresponding to an infinitly slow loading. It can be built
-by summing any isotropic hardening rule already implemented in the
+yield radius corresponding to an infinitely slow loading. It can be
+built by summing any isotropic hardening rule already implemented in the
 `StandardElastoViscoPlasticity brick.</li>
 <li><span class="math inline">\(R_{rs}{\left(\dot{p}\right)}\)</span> is
 a correction describing the strain rate sensitivity. <span
@@ -1137,9 +1138,9 @@ introduces a contribution to <span
 class="math inline">\(R_{0}{\left(p\right)}\)</span>. This option can be
 repeated multiple times.</li>
 <li><code>rate_sensitivity_factor</code>: this option introduces the
-rate sensivity factor <span
+rate sensitivity factor <span
 class="math inline">\(R_{rs}{\left(\dot{p}\right)}\)</span>. The list of
-available rate sensivity factors is given in section 5.2.1.2.</li>
+available rate sensitivity factors is given in section 5.2.1.2.</li>
 </ul>
 <h4 data-number="5.2.1.1" id="example-of-usage-1"><span
 class="header-section-number">5.2.1.1</span> Example of usage</h4>
@@ -1201,7 +1202,7 @@ class="header-section-number">5.3</span> New DSL options</h2>
 class="header-section-number">5.3.1</span> The
 <code>disable_runtime_checks</code> option</h3>
 <p>If this option is set to <code>true</code>, interfaces may disable as
-much runtime checks as possible. Those runtime checks include checking
+many runtime checks as possible. Those runtime checks include checking
 standard bounds and physical bounds for instance.</p>
 <h2 data-number="5.4" id="generic-interface-improvements"><span
 class="header-section-number">5.4</span> <code>generic</code> interface
@@ -1212,8 +1213,8 @@ class="header-section-number">5.4.1</span> The
 <code>@SelectedModellingHypothesis</code> and
 <code>@SelectedModellingHypotheses</code> keywords</h3>
 <p>The <code>@SelectedModellingHypothesis</code> and
-<code>@SelectedModellingHypotheses</code> keywords allows to select
-which modelling hypotheses will be generated.</p>
+<code>@SelectedModellingHypotheses</code> keywords allow the selection
+of which modelling hypotheses will be generated.</p>
 <p>Their syntaxes are similar to the keywords
 <code>@ModellingHypothesis</code> and <code>@ModellingHypotheses</code>,
 respectively.</p>
@@ -1228,8 +1229,8 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb6-1"><a href="#c
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> libBehaviour<span class="op">.</span>so <span class="op">:</span>  Plasticity_PlaneStrain</span></code></pre></div>
 <h1 data-number="6" id="documentation"><span
 class="header-section-number">6</span> Documentation</h1>
-<p>The page <a href="libraries_usage.html">Libaries usage in C++</a>
-describe how to use the <code>TFEL</code> libraries in <code>C++</code>
+<p>The page <a href="libraries_usage.html">Libraries usage in C++</a>
+describes how to use the <code>TFEL</code> libraries in <code>C++</code>
 projects, using either the <code>tfel-config</code> utility or
 <code>cmake</code> packages.</p>
 <h1 data-number="7" id="issues-fixed"><span

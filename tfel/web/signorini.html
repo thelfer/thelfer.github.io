@@ -232,6 +232,7 @@
 		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
 		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
 		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -417,7 +418,7 @@ class="arrow previous"></span> <span class="arrow next"></span></p>
 </div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 <script src="js/slideshow.js"></script>
-<p>This page describe how to implement the Signorini hyperelastic
+<p>This page describes how to implement the Signorini hyperelastic
 behaviour (see <span class="citation"
 data-cites="edf_loi_2013">[1]</span>).</p>
 <p>The whole implementation is available here: <a
@@ -425,11 +426,11 @@ href="./gallery/hyperelasticity/Signorini.mfront">Signorini.mfront</a></p>
 <blockquote>
 <p><strong>Compatibility with previous versions of
 <code>TFEL</code></strong></p>
-<p>This implementation presented here is based on the version <span
+<p>The implementation presented here is based on the version <span
 class="math inline">\(3.0\)</span> of <code>TFEL</code>. However, only a
-few adaptations are required for used with previous versions:</p>
+few adaptations are required for use with previous versions:</p>
 <ul>
-<li>the first line of the file must be replace by:
+<li>the first line of the file must be replaced by:
 <code>@Parser DefaultFiniteStrainParser;</code></li>
 <li>the <code>power</code> function is not available. It can be replaced
 by explicit multiplications.</li>
@@ -488,10 +489,9 @@ class="math inline">\(\underline{\bar{C}}=J^{-2/3}\,\underline{C}=
 I_{3}^{-1/3}\,\underline{C}\)</span></li>
 </ul>
 <p><strong>A general derivation of the stress and the consistent tangent
-operator for this kind of hyperelastic behaviours is described <a
+operator for this kind of hyperelastic behaviour is described <a
 href="hyperelasticity.html">here</a>.</strong> The reader shall refer to
-this page for intermediate computations that won’t be detailled
-here.</p>
+this page for intermediate computations that won’t be detailed here.</p>
 <p>For our implementation, we choose <span
 class="math inline">\(W^{v}\)</span> as follows: <span
 class="math display">\[
@@ -514,7 +514,7 @@ W^{v}}{\displaystyle \partial \underline{C}}}+2{\displaystyle
 \]</span></p>
 <p>where <span class="math inline">\(\underline{S}^{v}=2\,{\displaystyle
 \frac{\displaystyle \partial W^{v}}{\displaystyle \partial
-\underline{C}}}\)</span> is the volumetric part of the the second
+\underline{C}}}\)</span> is the volumetric part of the second
 Piola-Kirchhoff stress and <span
 class="math inline">\(\underline{S}^{i}=2\,{\displaystyle
 \frac{\displaystyle \partial W^{i}}{\displaystyle \partial
@@ -559,10 +559,10 @@ class="math inline">\(\underline{C}\)</span>:</p>
 <div class="sourceCode" id="cb7"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> C  <span class="op">=</span> computeRightCauchyGreenTensor<span class="op">(</span>F1<span class="op">);</span></span></code></pre></div>
 <p>For the computation of the invariants of <span
-class="math inline">\(\underline{C}\)</span> and theirs derivatives, we
+class="math inline">\(\underline{C}\)</span> and their derivatives, we
 need to compute <span class="math inline">\(\underline{C}^{2}\)</span>.
 Since the multiplication of two symmetric tensors leads to a non
-symmetric tensors, we use the special function <code>square</code> which
+symmetric tensor, we use the special function <code>square</code> which
 is a more efficient equivalent of <code>syme(C*C)</code>:</p>
 <div class="sourceCode" id="cb8"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> C2 <span class="op">=</span> square<span class="op">(</span>C<span class="op">);</span></span></code></pre></div>
@@ -586,10 +586,10 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#
 \frac{\displaystyle \partial I_{2}}{\displaystyle \partial
 \underline{C}}}\)</span> is not evaluated: the associated variable
 <code>dI2_dC</code> is an evaluation tree that stores the computation
-that will be performed latter. This is an essential optimization
-techniques used in <code>MFront</code> to achieve optimal performances.
-If we wanted or needed to explicitly evaluate, we could either use the
-<code>eval</code> function or explicitly precise the type of
+that will be performed later. This is an essential optimization
+technique used in <code>MFront</code> to achieve optimal performance. If
+we wanted or needed to explicitly evaluate it, we could either use the
+<code>eval</code> function or explicitly specify the type of
 <code>dI2_dC</code>.</p>
 </blockquote>
 <p>The derivative <span class="math inline">\({\displaystyle
@@ -699,8 +699,8 @@ deformation gradient. It is used as follows:</p>
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>sig <span class="op">=</span> convertSecondPiolaKirchhoffStressToCauchyStress<span class="op">(</span>Sv<span class="op">+</span>Si<span class="op">,</span>F1<span class="op">);</span></span></code></pre></div>
 <h2 id="computation-of-the-consistent-tangent-operator">Computation of
 the consistent tangent operator</h2>
-<p>The most direct expression the consistent tangent operator is given
-by <span class="math inline">\({\displaystyle \frac{\displaystyle
+<p>The most direct expression of the consistent tangent operator is
+given by <span class="math inline">\({\displaystyle \frac{\displaystyle
 \partial \underline{S}}{\displaystyle \partial \underline{C}}}\)</span>.
 We let <code>MFront</code> make the appropriate conversion to the
 consistent tangent operator expected by the solver.</p>
@@ -821,7 +821,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb19-1"><a href="#
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> dSi_dC <span class="op">=</span> <span class="dv">2</span><span class="op">*(</span>d2Pi_dI1b2<span class="op">*(</span>dI1b_dC<span class="op">^</span>dI1b_dC<span class="op">)+</span>dPi_dI1b<span class="op">*</span>d2I1b_dC2<span class="op">+</span></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                                                   <span class="op">+</span>dPi_dI2b<span class="op">*</span>d2I2b_dC2<span class="op">);</span></span></code></pre></div>
 <h3 id="tests">Tests</h3>
-<p>The comparison of previous derivation of the consistent tangent
+<p>The comparison of the previous derivation of the consistent tangent
 operator to a numerical approximation is made in the
 <code>Hyperelasticity.cxx</code> test that can be found in the
 <code>tests/Material</code> directory of the <code>TFEL</code> sources.

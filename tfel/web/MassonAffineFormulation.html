@@ -230,6 +230,7 @@
 		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
 		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
 		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -434,17 +435,17 @@ id="toc-details-of-implementation">Details of implementation</a></li>
 <p>We present here an implementation of the affine formulation <span
 class="citation" data-cites="masson_affine_2000">[<a
 href="#ref-masson_affine_2000" role="doc-biblioref">1</a>]</span> for
-the homogenization of a viscoplastic polycrystal, example which is
+the homogenization of a viscoplastic polycrystal, an example which is
 treated in <span class="citation"
 data-cites="bornert_second-order_2001">[<a
 href="#ref-bornert_second-order_2001" role="doc-biblioref">2</a>]</span>
 but with Ponte-Castaneda second-order estimates.</p>
-<p>Here, the idea is to show that an implementation of that procedure
-based on morphological tensors computed by FFT, on a given geometry of
+<p>Here, the idea is to show an implementation of that procedure based
+on morphological tensors computed by FFT, on a given geometry of
 polycrystal.</p>
 <p>This tutorial first presents the homogenization problem, recalls the
-methodology of the affine formulation, presents different the possible
-implementations, and show the details of the <code>mfront</code>
+methodology of the affine formulation, presents the different possible
+implementations, and shows the details of the <code>mfront</code>
 file.</p>
 <h1 id="the-viscoplastic-polycrystal">The viscoplastic polycrystal</h1>
 <h2 id="behaviour">Behaviour</h2>
@@ -491,7 +492,7 @@ class="math inline">\(\psi\)</span>: <span class="math display">\[
   \end{aligned}
 \]</span> where <span class="math inline">\(N\)</span> is the number of
 phases (or crystals) and <span class="math inline">\(\chi_r\)</span> is
-characteristic function of phase <span
+the characteristic function of phase <span
 class="math inline">\(r\)</span>.</p>
 <p>In all the sequel, we just note <span
 class="math inline">\(\underline{\varepsilon}\)</span> for <span
@@ -561,7 +562,7 @@ class="math inline">\(\underline{\mathbf{A}}_r\left(\underline{\sigma}^1,...,\un
 and <span
 class="math inline">\(\underline{\mathbf{B}}_{rs}\left(\underline{\sigma}^1,...,\underline{\sigma}^N\right)\)</span>
 can be obtained by a homogenization procedure (mean-field scheme, FFT…).
-The stresses are obtained by substracting the strain <span
+The stresses are obtained by subtracting the strain <span
 class="math inline">\(\underline{e}^r\)</span> and multiplying by the
 moduli <span
 class="math inline">\(\underline{\mathbf{L}}_r=\left(\underline{\mathbf{M}}_r\right)^{-1}\)</span>,
@@ -668,7 +669,7 @@ strains <span class="math inline">\(\underline{e}^r\)</span>. It can be
 done analytically (as below) or via finite difference or automatic
 differentiation. Moreover, for both strategies, we could use a
 <code>BehaviourVariable</code>, defining the local behaviour in an
-external file (in our example, the potential is to simple to do
+external file (in our example, the potential is too simple to do
 that).</p>
 <p>The second step is the computation of the tensors <span
 class="math inline">\(\underline{\mathbf{A}}_r\)</span> and <span
@@ -697,7 +698,7 @@ We have <span
 class="math inline">\(\underline{\tau}=\underline{\mathbf{\delta}}\underline{\mathbf{L}}:\underline{\varepsilon}-\underline{\mathbf{L}}:\underline{e}\)</span>
 with <span
 class="math inline">\(\underline{\mathbf{\delta}}\underline{\mathbf{L}}=\underline{\mathbf{L}}-\underline{\mathbf{L}}_0\)</span>.
-We have, because, <span
+We have, because <span
 class="math inline">\(\mathrm{div}\,\underline{\sigma}=0\)</span>, <span
 class="math display">\[
 \begin{aligned}
@@ -730,8 +731,8 @@ tensor, and can be computed by FFT or FEM before the <code>mfront</code>
 integration. This tensor depends on the Green operator <span
 class="math inline">\(\underline{\mathbf{\Gamma}}_0\)</span>, relative
 to the elasticity <span
-class="math inline">\(\underline{\mathbf{L}}_0\)</span>, and a basis of
-symmetric second-order tensors <span
+class="math inline">\(\underline{\mathbf{L}}_0\)</span>, and on a basis
+of symmetric second-order tensors <span
 class="math inline">\((\underline{s}_1,...,\underline{s}_d)\)</span>
 (<span class="math inline">\(d=6\)</span> in 3D). Depending on the
 number of phases <span class="math inline">\(N\)</span>, the computation
@@ -792,8 +793,8 @@ to the shear modulus given by the projection of <span
 class="math inline">\(\underline{\mathbf{C}}_{\mathrm{hom}}\)</span> on
 <span class="math inline">\(\underline{\mathbf{K}}\)</span>, where <span
 class="math inline">\(\underline{\mathbf{C}}_{\mathrm{hom}}\)</span> is
-the homogenized tensors obtained at previous step of the Newton-Raphson
-algorithm.</p>
+the homogenized tensor obtained at the previous step of the
+Newton-Raphson algorithm.</p>
 <h1 id="implementation-in-mfront">Implementation in MFront</h1>
 <p>All the files are available in the <code>MFrontGallery</code>
 project, <a
@@ -803,7 +804,7 @@ under the name <code>MassonAffineFormulation</code>.</p>
 implementation</h2>
 <p>The geometry of our polycrystal is generated with <a
 href="https://github.com/MarcJos/Merope/"><code>merope</code></a>, with
-a Voronoi tesselation. This geometry is saved as an array and will be
+a Voronoi tessellation. This geometry is saved as an array and will be
 used only for the approach based on morphological tensors. The image
 below shows an example of such a polycrystal. There are here 10
 crystals. The volume fractions can also be computed on this
@@ -895,7 +896,7 @@ class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><sp
 <p>The compilation hence will be done like that:</p>
 <div class="sourceCode" id="Begin"><pre
 class="sourceCode numberSource sh numberLines"><code class="sourceCode bash"><span id="Begin-1"><a href="#Begin-1"></a><span class="ex">mfront</span> <span class="at">-I</span> ../extra-headers/TFEL/Material <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>generic Affine_tensors.mfront</span></code></pre></div>
-<p>Of cours the tensors are computed before via FFT as explained above
+<p>Of course the tensors are computed before via FFT as explained above
 (see the folder mentioned above for the computation).</p>
 <h3 id="sliding-systems">Sliding systems</h3>
 <p>The sliding systems will be generated using these lines (the same

@@ -231,6 +231,7 @@
 		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
 		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
 		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -545,9 +546,9 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#c
 <p>For the computation of the invariants of <span
 class="math inline">\(\underline{C}\)</span> and their derivatives, we
 need to compute <span class="math inline">\(\underline{C}^{2}\)</span>.
-Since the multiplication of two symmetric tensors leads to a non
-symmetric tensors, we use the special function <code>square</code> which
-is a more efficient equivalent of <code>syme(C*C)</code>:</p>
+Since the multiplication of two symmetric tensors leads to a
+non-symmetric tensor, we use the special function <code>square</code>
+which is a more efficient equivalent of <code>syme(C*C)</code>:</p>
 <div class="sourceCode" id="cb7"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> C2 <span class="op">=</span> square<span class="op">(</span>C<span class="op">);</span></span></code></pre></div>
 <p>The first invariant <span class="math inline">\(I_{1}\)</span> is the
@@ -666,7 +667,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="#
 </blockquote>
 <p>We can now evaluate <span class="math inline">\(f\)</span> and <span
 class="math inline">\({\displaystyle \frac{\displaystyle \partial
-f}{\displaystyle \partial \underline{C}}}\)</span>.:</p>
+f}{\displaystyle \partial \underline{C}}}\)</span>:</p>
 <div class="sourceCode" id="cb16"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> tvector<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>real<span class="op">&gt;</span> pwv  <span class="op">=</span> <span class="op">{</span>pow<span class="op">(</span>vp<span class="op">(</span><span class="dv">0</span><span class="op">),</span>a<span class="op">-</span><span class="dv">2</span><span class="op">),</span>pow<span class="op">(</span>vp<span class="op">(</span><span class="dv">1</span><span class="op">),</span>a<span class="op">-</span><span class="dv">2</span><span class="op">),</span>pow<span class="op">(</span>vp<span class="op">(</span><span class="dv">2</span><span class="op">),</span>a<span class="op">-</span><span class="dv">2</span><span class="op">)};</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> tvector<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>real<span class="op">&gt;</span> d2fv <span class="op">=</span> <span class="op">{</span>a<span class="op">*(</span>a<span class="op">-</span><span class="dv">1</span><span class="op">)*</span>pwv<span class="op">(</span><span class="dv">0</span><span class="op">),</span>a<span class="op">*(</span>a<span class="op">-</span><span class="dv">1</span><span class="op">)*</span>pwv<span class="op">(</span><span class="dv">1</span><span class="op">),</span>a<span class="op">*(</span>a<span class="op">-</span><span class="dv">1</span><span class="op">)*</span>pwv<span class="op">(</span><span class="dv">2</span><span class="op">)};</span></span>

@@ -230,6 +230,7 @@
 		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
 		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
 		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -437,7 +438,7 @@ system</a></li>
 </ul>
 </div>
 <p>This article discusses the implementation of the Yld2004-18p
-behaviour, as decribed by Barlat et al. (See <span class="citation"
+behaviour, as described by Barlat et al. (See <span class="citation"
 data-cites="barlat_linear_2005">[1]</span>).</p>
 <h1 id="description-of-the-behaviour">Description of the behaviour</h1>
 <h2 id="elasticity">Elasticity</h2>
@@ -480,7 +481,7 @@ class="math inline">\(s&#39;&#39;_{i}\)</span> are the eigenvalues of
 two transformed stresses <span
 class="math inline">\(\underline{s}&#39;\)</span> and <span
 class="math inline">\(\underline{s}&#39;&#39;\)</span> by two linear
-transformation <span
+transformations <span
 class="math inline">\(\underline{\underline{\mathbf{L}}}&#39;\)</span>
 and <span
 class="math inline">\(\underline{\underline{\mathbf{L}}}&#39;&#39;\)</span>:
@@ -499,7 +500,7 @@ class="math inline">\(\underline{\underline{\mathbf{L}}}&#39;\)</span>
 and <span
 class="math inline">\(\underline{\underline{\mathbf{L}}}&#39;&#39;\)</span>
 are defined by <span class="math inline">\(9\)</span> coefficients
-(each) which describe the material orthotropy. There are defined through
+(each) which describe the material orthotropy. They are defined through
 auxiliary linear transformations <span
 class="math inline">\(\underline{\underline{\mathbf{C}}}&#39;\)</span>
 and <span
@@ -571,10 +572,10 @@ class="math inline">\(p\)</span>.</li>
 <h2 id="elastic-prediction">Elastic prediction</h2>
 <p>First, an elastic prediction of the stress <span
 class="math inline">\(\underline{\sigma}^{\mathrm{tr}}\)</span> is made
-(The following expression is not valid in plane stress hypothesis, this
-is the reason why we will use the <code>computeElasticPrediction</code>
-method defined by the <code>StandardElasticity</code> brick, see
-below):</p>
+(the following expression is not valid in the plane stress hypothesis,
+which is the reason why we will use the
+<code>computeElasticPrediction</code> method defined by the
+<code>StandardElasticity</code> brick, see below):</p>
 <p><span class="math display">\[
 \underline{\sigma}^{\mathrm{tr}}=\lambda\,{\mathrm{tr}{\left({\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t}}+\theta\,\Delta\,\underline{\varepsilon}^{\mathrm{to}}\right)}}\,\underline{I}+2\,\mu\,{\left({\left.\underline{\varepsilon}^{\mathrm{el}}\right|_{t}}+\theta\,\Delta\,\underline{\varepsilon}^{\mathrm{to}}\right)}
 \]</span></p>
@@ -666,7 +667,7 @@ are available to the following list: <code>Tridimensional</code>,
 <code>PlaneStress</code>.</p>
 <p>Thanks to the <code>StandardElasticity</code> brick defined below,
 all those modelling hypotheses can be supported, but the support for the
-plane stress hypothesis as to be explicitly requested. The following
+plane stress hypothesis has to be explicitly requested. The following
 statement, starting with the <code>@ModellingHypotheses</code>, enables
 all the previously listed modelling hypotheses:</p>
 <div class="sourceCode" id="cb2"><pre
@@ -694,23 +695,23 @@ follows:</p>
 <div class="sourceCode" id="cb3"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElasticity<span class="op">;</span></span></code></pre></div>
 <h2 id="numerical-parameters">Numerical parameters</h2>
-<p>The following part of file give some default values for numerical
-parameters used by the integration algorithm:</p>
+<p>The following part of the file gives some default values for
+numerical parameters used by the integration algorithm:</p>
 <div class="sourceCode" id="cb4"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Epsilon <span class="fl">1.e-16</span><span class="op">;</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Theta   <span class="dv">1</span><span class="op">;</span></span></code></pre></div>
 <h2 id="elastic-properties-and-yield-stress">Elastic properties and
 yield stress</h2>
 <p>The material properties are hard-coded. The
-<code>@ElasticMaterialProperties</code> is used to declare the Young
-modulus and the Poisson ratio.</p>
+<code>@ElasticMaterialProperties</code> keyword is used to declare the
+Young modulus and the Poisson ratio.</p>
 <div class="sourceCode" id="cb5"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ElasticMaterialProperties <span class="op">{</span><span class="fl">150e9</span><span class="op">,</span><span class="fl">0.3</span><span class="op">};</span></span></code></pre></div>
 <p>This keyword automatically declares two parameters called
 <code>YoungModulus</code> and <code>PoissonRatio</code>.</p>
-<p>In the <code>Implicit</code> scheme, the lame coefficients are
+<p>In the <code>Implicit</code> scheme, the Lamé coefficients are
 automatically deduced from the Young modulus and the Poisson ratio. They
-are accessible though the <code>lambda</code> and <code>mu</code> local
+are accessible through the <code>lambda</code> and <code>mu</code> local
 variables which are automatically defined.</p>
 <p>The parameters associated with the plastic part of the behaviour are
 defined as follows:</p>
@@ -741,7 +742,7 @@ for details):</p>
 \left(c^{1}_{xy},c^{1}_{yx},c^{1}_{xz},c^{1}_{zx},c^{1}_{yz},c^{1}_{zy},c^{1}_{xy},c^{1}_{xz},c^{1}_{yz}\right)
 \]</span></p>
 <blockquote>
-<p><strong>Note</strong> In his paper, Barlat and coworkers seems to use
+<p><strong>Note</strong> In his paper, Barlat and coworkers seem to use
 the following convention for storing symmetric tensors:</p>
 <p><span class="math display">\[
 \begin{pmatrix}
@@ -756,12 +757,12 @@ conventions:</p>
 xx &amp; yy &amp; zz &amp; xy &amp; xz &amp; yz
 \end{pmatrix}
 \]</span></p>
-<p>Therefore, if one wants to uses coeficients <span
+<p>Therefore, if one wants to use coefficients <span
 class="math inline">\(c^{B}\)</span> given by Barlat et al., one shall
 “swap” the appropriate coefficients.</p>
 </blockquote>
 <h2 id="state-variables">State variables</h2>
-<p>The elastic strain is automatically declared the
+<p>The elastic strain is automatically declared by the
 <code>StandardElasticity</code> brick. The associated variable is
 <code>eel</code>.</p>
 <p>The following statement introduces the equivalent plastic strain
@@ -775,7 +776,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#c
 <li>a boolean <code>b</code>. This boolean will be <code>true</code> if
 a plastic loading occurs.</li>
 <li>two fourth order tensors <code>l1</code> and <code>l2</code> that
-stands for the linear transformation of the stress tensors.</li>
+stand for the linear transformation of the stress tensors.</li>
 </ul>
 <div class="sourceCode" id="cb8"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable <span class="dt">bool</span> b<span class="op">;</span></span>
@@ -787,7 +788,7 @@ elastic prediction of the stress lies inside the yield surface.</p>
 <div class="sourceCode" id="cb9"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>InitializeLocalVariables<span class="op">{</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// when using the `Plate` orthotropic axes convention, all the</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// modelling hypotheses uses the same convention, so we can just</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// modelling hypotheses use the same convention, so we can just</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">// use the `makeBarlatLinearTransformation` function with the</span></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">// space dimension N as the template parameter</span></span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  l1 <span class="op">=</span> makeBarlatLinearTransformation<span class="op">&lt;</span>N<span class="op">&gt;(</span>c1p<span class="op">[</span><span class="dv">0</span><span class="op">],</span>c1p<span class="op">[</span><span class="dv">1</span><span class="op">],</span>c1p<span class="op">[</span><span class="dv">2</span><span class="op">],</span></span>
@@ -807,7 +808,7 @@ of the stress and takes into account the modelling hypothesis. This
 prediction is thus valid under the plane stress hypothesis.</p>
 <p>The <code>makeBarlatLinearTransformation</code> and the
 <code>computeBarlatStress</code> functions are described in details <a
-href="tensors.hml">here</a></p>
+href="tensors.html">here</a></p>
 <h2 id="implicit-system">Implicit system</h2>
 <p>The code describing the implicit system is rather short:</p>
 <div class="sourceCode" id="cb10"><pre
@@ -840,14 +841,14 @@ class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{el}}-\Delta\,\und
 by the <code>StandardElasticity</code> brick</li>
 <li><code>fp</code> has been initialized to <span
 class="math inline">\(\Delta\,p\)</span> following standard conventions
-defined in the the <code>Implicit</code> domain specific language.</li>
+defined in the <code>Implicit</code> domain specific language.</li>
 <li>the jacobian has been set to identity, following standard
 conventions defined in the <code>Implicit</code> domain specific
 language.</li>
 </ul>
 <p>Thus, all the variables have been set to describe a purely elastic
 behaviour. Hence, nothing is to be done if the boolean variable
-<code>b</code> is <code>false</code>. In this case, one just return
+<code>b</code> is <code>false</code>. In this case, one just returns
 <code>true</code>.</p>
 <p>If a plastic loading has been predicted, one uses the
 <code>computeBarlatStressSecondDerivative</code> function which
@@ -861,8 +862,8 @@ the stress</li>
 </ul>
 <p>The implicit system is then readily written, using expressions given
 in the previous paragraph.</p>
-<p>In <code>C++17</code>, the previous code can be more simplier and
-smaller, using <em>structured bindings</em>:</p>
+<p>In <code>C++17</code>, the previous code can be simpler and smaller,
+using <em>structured bindings</em>:</p>
 <div class="sourceCode" id="cb11"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator<span class="op">{</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> stress seps <span class="op">=</span> <span class="fl">1.e-10</span><span class="op">*</span>young<span class="op">;</span></span>

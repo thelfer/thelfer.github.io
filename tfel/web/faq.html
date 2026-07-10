@@ -230,6 +230,7 @@
 		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
 		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
 		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -438,11 +439,11 @@ about mechanical behaviours</a>
 <ul>
 <li><a href="#where-can-i-find-examples-of-well-written-behaviours"
 id="toc-where-can-i-find-examples-of-well-written-behaviours">Where can
-I find examples of well written behaviours ?</a></li>
+I find examples of well written behaviours?</a></li>
 <li><a
 href="#my-newly-implemented-behaviour-does-not-converge-what-can-i-do"
 id="toc-my-newly-implemented-behaviour-does-not-converge-what-can-i-do">My
-newly implemented behaviour does not converge, what can I do ?</a></li>
+newly implemented behaviour does not converge, what can I do?</a></li>
 <li><a href="#what-are-the-variable-types-available-in-mfront"
 id="toc-what-are-the-variable-types-available-in-mfront">What are the
 variable types available in <code>MFront</code></a></li>
@@ -480,7 +481,7 @@ class="uri">https://thelfer.github.io/tfel/web/documentation.html</a></li>
 below): <a href="https://thelfer.github.io/tfel/web/documentation.html"
 class="uri">https://thelfer.github.io/tfel/web/documentation.html</a></li>
 </ul>
-<p>If none of the resources available is satisfying, one may want to
+<p>If none of the resources available are satisfying, one may want to
 use:</p>
 <ul>
 <li>the <code>TFEL</code> forums: <a
@@ -536,7 +537,7 @@ adapted to other versions of <code>MinGW</code>, without requiring
 <li><a href="install-windows-msys.html">Installation based on
 <code>MSYS</code></a>.</li>
 </ul></li>
-<li>The creation of binary packages are detailed <a
+<li>The creation of binary packages is detailed <a
 href="packages.html">here</a>.</li>
 </ul>
 <h2 id="which-build-systems-shall-i-use-autotools-or-cmake">Which build
@@ -553,10 +554,10 @@ functional state under <code>LinuX</code>. This can be used when
 the specific CPU of the host system (using flags such as
 <code>--march=native</code> with <code>clang</code> and
 <code>gcc</code>, <code>-xHost</code> with the <code>intel</code>
-compiler). However, the binaries generated can not:</p>
+compiler). However, the binaries generated cannot:</p>
 <ul>
-<li>be used to generated redistributable binary packages.</li>
-<li>be installed on a NFS-like shared folder to be shared on a network
+<li>be used to generate redistributable binary packages.</li>
+<li>be installed on an NFS-like shared folder to be shared on a network
 of computers.</li>
 </ul>
 <p>In both cases, the execution can fail with an
@@ -574,7 +575,7 @@ be used. For this reason, the default behaviour of <code>mfront</code>
 is to use flags like <code>-march=native</code> when compiling the
 libraries (This can be disabled by selecting
 <code>--obuild=level0</code>).</p>
-<p>Thus, we test the availability of this flag whether
+<p>Thus, we test the availability of this flag when
 <code>-Denable-portable-build=ON</code> is used. Thus, a message such as
 <code>--enabling flag 'march=native'</code> barely states that this
 option is supported by the compiler.</p>
@@ -588,13 +589,13 @@ check the flags used to compile TFEL, as follows:</p>
 <code>--march=native</code> flag twice: one time as a compiler flag, one
 time as part of the definition of the <code>OPTIMISATION_FLAGS</code>
 macro. With <code>-Denable-portable-build=ON</code>, you will see it
-only once, in the definition of the <code>OPTIMISATION</code>_FLAGS
+only once, in the definition of the <code>OPTIMISATION_FLAGS</code>
 macro.</p>
 <h1 id="mfront">MFront</h1>
 <h2 id="general-questions">General questions</h2>
 <h3 id="what-is-a-dsl-domain-specific-language">What is a DSL (domain
 specific language)</h3>
-<p><code>MFront</code> treats various kind of material knowledge:</p>
+<p><code>MFront</code> treats various kinds of material knowledge:</p>
 <ul>
 <li><a href="material-properties.html">material properties</a> (for
 instance the Young modulus, the thermal conductivity, etc.)</li>
@@ -614,16 +615,16 @@ specific language</em> which is meant to be simple and expressive.</p>
 explicit)</li>
 <li>mechanical solvers based on Fast Fourier Transform (FFT).</li>
 </ul>
-<p>Most solvers offers entry points to add user defined mechanical
+<p>Most solvers offer entry points to add user defined mechanical
 behaviours. The most common one is <code>UMAT</code>, which is part of
 the <code>Abaqus/Standard</code> solver. In this case, the process of
 supporting a new solver is fairly easy, and we are ready to help setting
 it up. However, extensive testing can be a long and tedious task: again,
 we are ready to help by providing advice, test cases and reference
 solutions.</p>
-<p>If no such entry point exist, then one may need to modify the solver.
-Again, we can provide valuable advice of how to do add support for user
-defined behaviours and even provide tight integration with
+<p>If no such entry point exists, then one may need to modify the
+solver. Again, we can provide valuable advice on how to add support for
+user defined behaviours and even provide tight integration with
 <code>MFront</code> (which can really ease user’s life).</p>
 <h2 id="documentation-2">Documentation</h2>
 <h3 id="keywords-available">Keywords available</h3>
@@ -649,21 +650,21 @@ keywords provided by the <code>Implicit DSL</code>:</p>
 <h2 id="general-questions-about-mechanical-behaviours">General questions
 about mechanical behaviours</h2>
 <h3 id="where-can-i-find-examples-of-well-written-behaviours">Where can
-I find examples of well written behaviours ?</h3>
+I find examples of well written behaviours?</h3>
 <p>The gallery has been created for that purpose. Various
 implementations of mechanical behaviour are covered in depth, including
 the description of the algorithm used. See <a href="gallery.html">this
 page</a> for details.</p>
 <h3
 id="my-newly-implemented-behaviour-does-not-converge-what-can-i-do">My
-newly implemented behaviour does not converge, what can I do ?</h3>
-<p>Let us point that, there are no general guidelines, most troubles are
-behaviour specific. However, here are some advises that may help you.
-Note that those advises are worth considering during the behaviour
+newly implemented behaviour does not converge, what can I do?</h3>
+<p>Let us point out that there are no general guidelines, most troubles
+are behaviour specific. However, here is some advice that may help you.
+Note that this advice is worth considering during the behaviour
 implementation, before “real-world tests”.</p>
 <p>The first thing to do is to identify the trouble.</p>
 <p>If your computations are very CPU intensive and if the divergence
-appends after a noticeable amount of time, it is worth enabling the
+appears after a noticeable amount of time, it is worth enabling the
 generation of a <code>MTest</code> file on failure. This feature is for
 example supported by the <code>castem</code> (<code>Cast3M</code>),
 <code>aster</code> and <code>cyrano</code> interfaces.</p>
@@ -679,7 +680,7 @@ residual.</li>
 </ul>
 <h4 id="large-values-of-the-residual">Large values of the residual</h4>
 <p>In this case, you may want to print some of your variables to see
-what is happening. If the large values appears due to unrealistic
+what is happening. If the large values appear due to unrealistic
 prediction of the stresses, in particular at the second iteration, the
 <code>Implicit</code> scheme allows you to limit the <code>Newton</code>
 steps or use more robust algorithms (<code>PowellDogLeg</code>,
@@ -693,7 +694,7 @@ scheme with analytical jacobian). In this case, it is worth comparing
 your jacobian to a numerical one (see
 <code>@CompareToNumericalJaobian</code>). As this comparison is CPU
 intensive, please consider specifying this keyword in the command line
-rather than in your implementation to avoid forgetting removing it in
+rather than in your implementation to avoid forgetting to remove it in
 your real-world tests:</p>
 <div class="sourceCode" id="cb7"><pre
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>castem <span class="at">--@CompareToNumericalJacobian</span><span class="op">=</span>true norton.mfront</span></code></pre></div>
@@ -727,7 +728,7 @@ you shall return to manual search of the problem.</p>
 <h3 id="what-are-the-variable-types-available-in-mfront">What are the
 variable types available in <code>MFront</code></h3>
 <p>For all domain specific languages, <code>MFront</code> defines the
-real <code>typedef</code> which is used to abstract to floating-point
+real <code>typedef</code> which is used to abstract the floating-point
 type used by the calling solver. For example, if the calling solver
 works in double precision, real will be a <code>typedef</code> to
 <code>double</code>. If the calling solver works in quadruple precision,
@@ -791,13 +792,13 @@ are the differences between the <code>Stensor</code>,
 <p>The difference between those types is currently purely informative:
 the user can use these types to improve the readability of their code
 which is strongly encouraged.</p>
-<p>The <code>TFEL</code> library has support for quantities (number
-associated with units) which allows to checks for the consistency of
+<p>The <code>TFEL</code> library has support for quantities (numbers
+associated with units) which allows checking for the consistency of
 operations at compile-time (no cost at runtime). However, support for
 this feature has not been enabled in <code>MFront</code> yet: for the
 moment, we only have introduced the associated types.</p>
 <h3 id="orthotropic-axes-convention">Orthotropic axes convention</h3>
-<p>Most finite element solver can’t have a unique definition of the
+<p>Most finite element solvers can’t have a unique definition of the
 orthotropic axes for all the modelling hypotheses.</p>
 <p>For example, one can define a pipe using the following axes
 definition:</p>

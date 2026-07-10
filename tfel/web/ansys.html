@@ -232,6 +232,7 @@
 		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
 		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
 		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -402,19 +403,19 @@ class="arrow next"></span></p>
 <h1 id="introduction">Introduction</h1>
 <p><code>MFront</code> version 3.1 provides an interface for the
 <code>ANSYS</code> <code>Mechanical  APDL</code> (<code>MAPDL</code>)
-finite element solver. This interface is fairly features complete:</p>
+finite element solver. This interface is fairly feature complete:</p>
 <ul>
 <li>Isotropic and orthotropic materials are supported.</li>
 <li>Small and finite strain behaviours are supported.</li>
 </ul>
-<p>It shall be pointed out that the <code>ANSYS</code> solvers has a
+<p>It shall be pointed out that the <code>ANSYS</code> solvers have a
 long history. In particular, the design choices made for the
 <code>USERMAT</code> interface were meant to allow the users to easily
 write finite-strain behaviours in rate-form.</p>
-<p><code>MFront</code> strives to provides behaviours that can be used
+<p><code>MFront</code> strives to provide behaviours that can be used
 “just-like” other <code>USERMAT</code> subroutines, but</p>
 <h2 id="limitations">Limitations</h2>
-<p>The <code>USERMAT</code> subroutines has a number of shortcomings
+<p>The <code>USERMAT</code> subroutines have a number of shortcomings
 compared with other interfaces:</p>
 <ul>
 <li>External state variables are <em>not</em> supported.</li>
@@ -433,19 +434,19 @@ behaviours is detailed below.</p>
 ones are the following:</p>
 <ul>
 <li>The modelling hypothesis is not passed to the mechanical behaviours.
-As a consequence, there is not way of distinguishing between the plane
+As a consequence, there is no way of distinguishing between the plane
 strain hypothesis and the axisymmetrical hypothesis, which is mandatory
 for consistent orthotropic axes management. Therefore, the user has to
 explicitly call the implementation of the behaviour corresponding to the
-modelling hypothesis he wants to use, but there is not way to ensure the
+modelling hypothesis he wants to use, but there is no way to ensure the
 consistency of this choice and the choice of the modelling hypothesis
-make for the mechanical computation.</li>
+made for the mechanical computation.</li>
 <li>Whether the computation takes into account finite strain
 transformation (non linear geometric effects according to the
 <code>ANSYS</code> wording) is not known to the behaviour, so some
 misuses of <code>MFront</code> behaviours can’t be prevented. For
 example, small strain behaviours can be used in finite strain
-transformation using the build-in Jauman corotational framework, which
+transformation using the built-in Jauman corotational framework, which
 is only valid for isotropic behaviours. Using this framework with
 orthotropic behaviours can’t be prevented.</li>
 <li>The user must respect the order of definition of the material
@@ -462,7 +463,7 @@ of the material properties.</li>
 <h2 id="current-status">Current status</h2>
 <p>The <code>ansys</code> interface is still in its early stage of
 development.</p>
-<h1 id="how-the-use-mfront-behaviours-in-ansys">How the use
+<h1 id="how-to-use-mfront-behaviours-in-ansys">How to use
 <code>MFront</code> behaviours in <code>ANSYS</code></h1>
 <p>When compiling mechanical behaviours with the <code>ansys</code>
 interface, <code>MFront</code> generates:</p>
@@ -480,7 +481,7 @@ behaviours per supported modelling hypotheses.</li>
 only the generic files needs to be recompiled at each run. This is very
 handy since compiling the <code>MFront</code> libraries can be
 time-consuming. Those libraries can be shared between computations
-and/or between users when placed in a shared folders.</li>
+and/or between users when placed in shared folders.</li>
 <li>The fact that <code>MFront</code> generates one implementation per
 modelling hypothesis allows the distinction between the plane strain
 hypothesis and the axisymmetrical hypothesis. This is mandatory to
@@ -493,23 +494,23 @@ compilation or by using the <code>@Library</code> keyword.</li>
 the runtime time. This means that the libraries must be found by the
 dynamic loader of the operating system.</p>
 <h4 id="under-linux">Under Linux</h4>
-<p>Under Linux, the search path for dynamic libraries are specified
-using the <code>LD_LIBRARY_PATH</code> variable environment. This
-variable defines a colon-separated set of directories where libraries
-should be searched for first, before the standard set of
-directories.</p>
+<p>Under Linux, the search path for dynamic libraries is specified using
+the <code>LD_LIBRARY_PATH</code> environment variable. This variable
+defines a colon-separated set of directories where libraries should be
+searched for first, before the standard set of directories.</p>
 <p>Depending on the configuration of the system, the current directory
 can be considered by default.</p>
 <h4 id="under-windows">Under Windows</h4>
 <p>Under Windows, the dynamic libraries are searched:</p>
 <ul>
 <li>in the current directory</li>
-<li>in the directories listed in the <code>PATH</code> environment. This
-variable defines a semicolon-separated set of directories.</li>
+<li>in the directories listed in the <code>PATH</code> environment
+variable. This variable defines a semicolon-separated set of
+directories.</li>
 </ul>
 <h2 id="generated-input-files">Generated input files</h2>
 <p>Here is an extract of the generated input file for a
-<code>MFront</code> behaviour named <code>Plasticitiy</code> for the
+<code>MFront</code> behaviour named <code>Plasticity</code> for the
 plane strain modelling hypothesis for the <code>ANSYS</code> solver:</p>
 <div class="sourceCode" id="cb1"><pre
 class="sourceCode pure"><code class="sourceCode pure"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>/com, Example for the &#39;PlaneStrain&#39; modelling hypothesis</span>
@@ -518,9 +519,9 @@ class="sourceCode pure"><code class="sourceCode pure"><span id="cb1-1"><a href="
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>/com, -PoissonRatio</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>/com, -H</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>/com, -s0</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>tb,user,&lt;mat_id&gt;,&lt;numer <span class="kw">of</span> temperatures&gt;,<span class="dv">4</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>tb,user,&lt;mat_id&gt;,&lt;number <span class="kw">of</span> temperatures&gt;,<span class="dv">4</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>/com, you shall now declare your material properties</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>/com, <span class="kw">using</span> the tbtemp an tbdata instructions.</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>/com, <span class="kw">using</span> the tbtemp and tbdata instructions.</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>/com, See the Ansys <span class="st">&quot;USER Material Subroutine&quot;</span> guide for details.</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>/com, Declaration <span class="kw">of</span> state variables</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>tb,state,&lt;mat_id&gt;,,<span class="dv">5</span></span></code></pre></div>
@@ -557,8 +558,8 @@ generated by <code>MFront</code>.</li>
 id="compilation-of-the-usermatlib-library-and-the-test-executable-executable">Compilation
 of the <code>usermatLib</code> library and the
 <code>test-executable</code> executable</h3>
-<p>This paragraph describe how to use the <code>cmake</code> to compile
-the <code>usermatLib</code> library and the <code>test-executable</code>
+<p>This paragraph describes how to use <code>cmake</code> to compile the
+<code>usermatLib</code> library and the <code>test-executable</code>
 executable.</p>
 <h4 id="using-visual-studio-2017">Using
 <code>Visual Studio 2017</code></h4>
@@ -678,7 +679,7 @@ standard prefix (<code>lib</code> under <code>UNIX</code>) and from the
 file extension (<code>.dll</code> under <code>Windows</code>,
 <code>.dylib</code> under <code>Mac Os</code>, <code>.so</code> under
 <code>LiNuX</code>). The <code>usermat</code> function delivered with
-<code>MFront</code> will try every combinaison until a suitable on is
+<code>MFront</code> will try every combination until a suitable one is
 found.</p>
 </blockquote>
 <h3 id="testing-an-mfront-usermat.dat-using-test-usermat">Testing an
@@ -690,13 +691,13 @@ to the following errors:</p>
 <li>The <code>TFEL</code> libraries can not be found.</li>
 <li>The functions implementing the behaviours can not be found.</li>
 </ul>
-<p>Although every warning and errors are redirected in the
+<p>Although every warning and error is redirected to the
 <code>mfront-usermat.log</code> file, those errors can be painful to
 analyse in <code>Ansys</code> because the generic <code>usermat</code>
 function closes <code>Ansys</code> on error.</p>
 <p>Thus, a simple executable called <code>test-usermat</code> is also
 provided. This executable reads the <code>mfront-usermat.dat</code> in
-the current directory. If its exists normally, then everything is
+the current directory. If it exists normally, then everything is
 <code>ok</code>.</p>
 <h1 id="main-features-of-the-ansys-interface">Main features of the
 <code>ANSYS</code> interface</h1>
@@ -704,12 +705,12 @@ the current directory. If its exists normally, then everything is
 interface. In this case, the behaviour shall compute:</p>
 <ul>
 <li>The evolution of the state variables.</li>
-<li>The value the Cauchy stress at the end of the time step.</li>
+<li>The value of the Cauchy stress at the end of the time step.</li>
 <li>The consistent tangent operator. The definition of the consistent
 tangent operator is given below.</li>
 </ul>
 <p>For finite strain analyses, small strain behaviours can be written in
-rate form. The behaviour in integrated in the Jauman framework,
+rate form. The behaviour is integrated in the Jauman framework,
 <strong>which is only suitable for isotropic behaviours</strong>.</p>
 <h2 id="supported-behaviours">Supported behaviours</h2>
 <p>Isotropic and orthotropic behaviours are both supported.</p>
@@ -751,10 +752,10 @@ the third axis, is implicitly given by the cross-product of the two
 first axes and does not have to be defined.</li>
 </ul>
 <p>The user shall use the input file example generated by
-<code>MFront</code> to see their relative positions of the material
+<code>MFront</code> to see the relative positions of the material
 properties associated to the definition of the orthotropic axes.</p>
 <p>Those definitions are only meaningful if the direction of orthotropy
-are constants.</p>
+is constant.</p>
 <h2 id="finite-strain-strategies">Finite strain strategies</h2>
 <p>Engineers are used to write behaviours based on an additive split of
 strains, as usual in small strain behaviours. Different strategies exist
@@ -765,7 +766,7 @@ to:</p>
 and objectivity.</li>
 </ul>
 <p>Through the <code>@ANSYSFiniteStrainStrategy</code>, the user can
-select on of various finite strain strategies supported by
+select one of various finite strain strategies supported by
 <code>MFront</code>, which are described in this paragraph.</p>
 <blockquote>
 <p><strong>Note</strong></p>
@@ -776,7 +777,7 @@ mostly deprecated since <code>MFront 3.1</code>: see the
 <h3 id="the-native-finite-strain-strategy">The <code>Native</code>
 finite strain strategy</h3>
 <p>Among them is the <code>Native</code> finite strain strategy which
-relies on build-in <code>ANSYS</code> facilities to integrate the
+relies on built-in <code>ANSYS</code> facilities to integrate the
 behaviours written in rate form. The <code>Native</code> finite strain
 strategy will use the Jauman rate.</p>
 <p>This strategy has some theoretical drawbacks (hypoelasticity,
@@ -801,7 +802,7 @@ data-cites="miehe_anisotropic_2002">[3]</span> and
 </ul>
 <p>Those two strategies use lagrangian tensors, which automatically
 ensures the objectivity of the behaviour.</p>
-<p>Each of these two strategies define an energetic conjugate pair of
+<p>Each of these two strategies defines an energetic conjugate pair of
 strain or stress tensors:</p>
 <ul>
 <li>For the <code>FiniteRotationSmallStrain</code> case, the strain
@@ -819,7 +820,7 @@ strain assumptions.</p>
 incompressible flows are characterized by a deviatoric logarithmic
 strain tensor, which is the exact transposition of the property used in
 small strain behaviours to handle plastic incompressibility. This means
-that all valid consistutive equations for small strain behaviours can be
+that all valid constitutive equations for small strain behaviours can be
 automatically reused in finite strain analysis. This does <em>not</em>
 mean that a behaviour identified under the small strain assumptions can
 be directly used in a finite strain analysis: the identification would
@@ -831,7 +832,7 @@ available (natively or via <code>MFront</code>) in <code>Cast3M</code>,
 <h2
 id="consistent-tangent-operator-for-finite-strain-behaviours">Consistent
 tangent operator for finite strain behaviours</h2>
-<p>The “ANSYS User Subroutines Reference Guide” gives indicates that the
+<p>The “ANSYS User Subroutines Reference Guide” indicates that the
 tangent moduli required by <code>ANSYS</code> <span
 class="math inline">\(\underline{\underline{\mathbf{C}}}^{MJ}\)</span>
 is closely related to <span
@@ -840,7 +841,7 @@ the moduli associated to the Jauman rate of the Kirchhoff stress :</p>
 <p><span class="math display">\[
 J\,\underline{\underline{\mathbf{C}}}^{MJ}=\underline{\underline{\mathbf{C}}}^{\tau\,J}
 \]</span></p>
-<p>where <span class="math inline">\(J\)</span> is the derterminant of
+<p>where <span class="math inline">\(J\)</span> is the determinant of
 the deformation gradient <span
 class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}\)</span>.</p>
 <p>By definition, <span
@@ -857,7 +858,7 @@ alt="“Relation between tangent operators”" />
 <figcaption aria-hidden="true">“Relation between tangent
 operators”</figcaption>
 </figure>
-<p>Most information reported here are extracted from the book of
+<p>Most information reported here is extracted from the book of
 Belytschko (<span class="citation"
 data-cites="belytschko_nonlinear_2000">[4]</span>).</p>
 <h2 id="relations-between-tangent-operator">Relations between tangent
@@ -1022,7 +1023,7 @@ F}}}^{kl}\)</span> is null.</p>
 <h4 id="relation-with-other-moduli">Relation with other moduli</h4>
 <p>The previous relation can be used to relate to other moduli. See the
 section describing the isotropic case for details.</p>
-<h1 id="biblography">Biblography</h1>
+<h1 id="bibliography">Bibliography</h1>
 <!-- Local IspellDict: english -->
 <div id="refs" class="references csl-bib-body" role="list">
 <div id="ref-doghri_mechanics_2000" class="csl-entry" role="listitem">

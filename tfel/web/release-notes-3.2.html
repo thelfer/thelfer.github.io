@@ -232,6 +232,7 @@
 		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
 		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
 		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -437,10 +438,10 @@ id="toc-new-functionalities-in-mtest"><span
 class="toc-section-number">4</span> New functionalities in
 <code>MTest</code></a>
 <ul>
-<li><a href="#events-activation-and-desactivation-of-constraints"
-id="toc-events-activation-and-desactivation-of-constraints"><span
+<li><a href="#events-activation-and-deactivation-of-constraints"
+id="toc-events-activation-and-deactivation-of-constraints"><span
 class="toc-section-number">4.1</span> Events, activation and
-desactivation of constraints</a></li>
+deactivation of constraints</a></li>
 </ul></li>
 <li><a href="#tickets-solved-during-the-development-of-this-version"
 id="toc-tickets-solved-during-the-development-of-this-version"><span
@@ -475,7 +476,7 @@ href="release-notes-3.1.3.html">this page</a> for details.</p>
 href="http://www.cea.fr/english-portal"
 title="Commissariat à l&#39;énergie atomique">CEA</a> and <a
 href="http://www.edf.com/" title="Électricité de France">EDF</a>
-dedicated to material knowledge manangement with special focus on
+dedicated to material knowledge management with special focus on
 mechanical behaviours. It provides a set of libraries (including
 <code>TFEL/Math</code> and <code>TFEL/Material</code>) and several
 executables, in particular <code>MFront</code> and
@@ -542,10 +543,10 @@ functions</h4>
 <ul>
 <li><code>exp2</code>: returns the base-2 exponential.</li>
 <li><code>expm1</code>: returns the base-e exponential minus one.</li>
-<li><code>cbrt</code>: returns the cubic root</li>
+<li><code>cbrt</code>: returns the cubic root.</li>
 <li><code>log2</code>: computes the base-2 logarithm of the
-argment.</li>
-<li><code>log1p</code>: computes the logarithm of the argment plus
+argument.</li>
+<li><code>log1p</code>: computes the logarithm of the argument plus
 one.</li>
 <li><code>acosh</code>: computes the inverse of the hyperbolic
 cosine.</li>
@@ -556,7 +557,7 @@ tangent.</li>
 <li><code>erf</code>: computes the error function.</li>
 <li><code>erfc</code>: computes the complementary error function.</li>
 <li><code>tgamma</code>: computes the Gamma function.</li>
-<li><code>lgamma</code>: compute the natural logarithm of the gamma
+<li><code>lgamma</code>: computes the natural logarithm of the gamma
 function.</li>
 <li><code>hypot</code>: returns the hypotenuse of a right-angled
 triangle whose legs are x and y, i.e. computes (.</li>
@@ -647,7 +648,7 @@ class="math inline">\(I_{3}\)</span> are the invariants of <span
 class="math inline">\(\underline{\sigma}\)</span>.</p>
 <p><span class="math inline">\(J_{2}\)</span> and <span
 class="math inline">\(J_{3}\)</span> are building blocks for many
-isotropic yield critera. Classically, <span
+isotropic yield criteria. Classically, <span
 class="math inline">\(J_{2}\)</span> is directly related to the von
 Mises stress <span
 class="math inline">\(\sigma_{\mathrm{eq}}\)</span>:</p>
@@ -779,8 +780,8 @@ following functions:</p>
 <code>computesJ3OSecondDerivative</code>.</li>
 </ul>
 <p>Those functions take the stress tensor as first argument and each
-orthotropic coefficients. Each of those functions has an overload taking
-the stress tensor as its firs arguments and a tiny vector
+orthotropic coefficient. Each of those functions has an overload taking
+the stress tensor as its first argument and a tiny vector
 (<code>tfel::math::tvector</code>) containing the orthotropic
 coefficients.</p>
 <h3 data-number="2.2.3" id="pi-plane"><span
@@ -824,7 +825,7 @@ vectors: <span class="math display">\[
 \end{pmatrix}
 \]</span></p>
 <p>This plane is used to characterize the iso-values of equivalent
-stresses which are not sensitive to the hydrostatic pression.</p>
+stresses which are not sensitive to the hydrostatic pressure.</p>
 <p>Various functions are available:</p>
 <ul>
 <li><code>projectOnPiPlane</code>: this function projects a stress state
@@ -846,10 +847,10 @@ class="header-section-number">2.3.1.1</span> Updated bindings for the
 <p>The following operations are supported:</p>
 <ul>
 <li>addition of two symmetric tensors.</li>
-<li>substraction of two symmetric tensors.</li>
+<li>subtraction of two symmetric tensors.</li>
 <li>multiplication by scalar.</li>
 <li>in-place addition by a symmetric tensor.</li>
-<li>in-place substraction by a symmetric tensor.</li>
+<li>in-place subtraction by a symmetric tensor.</li>
 <li>in-place multiplication by scalar.</li>
 <li>in-place division by scalar.</li>
 </ul>
@@ -899,7 +900,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a hr
 id="bindings-related-to-the-hosford-equivalent-stress"><span
 class="header-section-number">2.3.2.2</span> Bindings related to the
 Hosford equivalent stress</h4>
-<p>The <code>computeHosfordStress</code> function, which compute the
+<p>The <code>computeHosfordStress</code> function, which computes the
 Hosford equivalent stress, is available.</p>
 <p>The following script shows how to print an iso-surface of the Hosford
 equivalent stress in the <span
@@ -966,7 +967,7 @@ class="header-section-number">3.1</span> The
 behaviours based on an additive split of the total strain <span
 class="math inline">\(\underline{\epsilon}^{\mathrm{to}}\)</span> into
 an elastic part <span
-class="math inline">\(\underline{\epsilon}^{\mathrm{el}}\)</span> and an
+class="math inline">\(\underline{\epsilon}^{\mathrm{el}}\)</span> and
 one or several inelastic strains describing plastic (time-independent)
 flows and/or viscoplastic (time-dependent) flows: <span
 class="math display">\[
@@ -1038,7 +1039,7 @@ data-cites="thouvenin_edf_2010 petry_advanced_2015">[3, 4]</span>).</p>
 id="extension-of-cyrano-to-finite-strain-analysis"><span
 class="header-section-number">3.2.1</span> Extension of
 <code>Cyrano</code> to finite strain analysis</h3>
-<p>As Cyrano, provides a mono-dimensional description of the fuel rod,
+<p>As Cyrano provides a mono-dimensional description of the fuel rod,
 its extension to finite strain follows the same treatment used for:</p>
 <ul>
 <li>the extension of <code>MTest</code> to pipes.</li>
@@ -1084,9 +1085,8 @@ their code to take full advantage of <code>MFront</code> behaviours.</p>
 href="https://github.com/thelfer/MFrontGenericInterfaceSupport"
 class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport</a>.
 This project has a more liberal licence which allows it to be included
-in both commercial and open-source solvers/library. This licensing
-choice explains why this project is not part of the
-<code>TFEL</code>.</p>
+in both commercial and open-source solvers/libraries. This licensing
+choice explains why this project is not part of <code>TFEL</code>.</p>
 <h2 data-number="3.4" id="various-improvements"><span
 class="header-section-number">3.4</span> Various improvements</h2>
 <h3 data-number="3.4.1" id="sec:inline-mprops"><span
@@ -1094,7 +1094,7 @@ class="header-section-number">3.4.1</span> Inline material properties in
 mechanical behaviours</h3>
 <p>Various keywords (such as <code>@ElasticMaterialProperties</code>,
 <code>@ComputeThermalExpansion</code>, <code>@HillTensor</code>, etc.)
-expects one or more material properties. In previous versions, those
+expect one or more material properties. In previous versions, those
 material properties were constants or defined by an external
 <code>MFront</code> file.</p>
 <p>This new version allows those material properties to be defined by
@@ -1160,7 +1160,7 @@ class="sourceCode sh"><code class="sourceCode bash"><span id="cb17-1"><a href="#
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="ex">The</span> <span class="kw">`</span><span class="ex">Hooke</span><span class="kw">`</span> brick describes the linear elastic part of</span>
 <span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="ex">the</span> behaviour of an isotropic or orthotropic material.</span>
 <span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="ex">.....</span></span></code></pre></div>
-<p>The following arguments are thus avaiable:</p>
+<p>The following arguments are thus available:</p>
 <ul>
 <li><code>--list-isotropic-hardening-rules</code></li>
 <li><code>--list-kinematic-hardening-rules</code></li>
@@ -1175,10 +1175,10 @@ class="sourceCode sh"><code class="sourceCode bash"><span id="cb17-1"><a href="#
 class="header-section-number">4</span> New functionalities in
 <code>MTest</code></h1>
 <h2 data-number="4.1"
-id="events-activation-and-desactivation-of-constraints"><span
+id="events-activation-and-deactivation-of-constraints"><span
 class="header-section-number">4.1</span> Events, activation and
-desactivation of constraints</h2>
-<p>Defining an event is a way to active/desactivate a constraint, (see
+deactivation of constraints</h2>
+<p>Defining an event is a way to activate/deactivate a constraint (see
 <code>@ImposedStrain</code>, <code>@ImposedCohesiveForce</code>,
 <code>@ImposedOpeningDisplacement</code>, <code>@ImposedStrain</code>,
 <code>@ImposedDeformationGradient</code>,
@@ -1192,30 +1192,30 @@ class="header-section-number">4.1.1.1</span> Example</h4>
 <div class="sourceCode" id="cb18"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Event <span class="ch">&#39;S</span><span class="er">top</span><span class="ch">&#39;</span> <span class="dv">1</span><span class="op">;</span></span></code></pre></div>
 <h3 data-number="4.1.2"
-id="activation-and-desactivation-of-constraints"><span
-class="header-section-number">4.1.2</span> Activation and desactivation
+id="activation-and-deactivation-of-constraints"><span
+class="header-section-number">4.1.2</span> Activation and deactivation
 of constraints</h3>
-<p>At the end of the definition of a constraint, one may now optionnally
-set options on the active state of this contraint at the beginning of
-the computation, the activating events and desactivating events using a
+<p>At the end of the definition of a constraint, one may now optionally
+set options on the active state of this constraint at the beginning of
+the computation, the activating events and deactivating events using a
 JSON-like structure. This structure starts with an opening curly brace
 (<code>{</code>) and ends with a closing curly brace (<code>}</code>).
-An option is given by its name, an double-dot character (<code>:</code>)
-and the value of the option. Consecutive options are separated by a
-comma <code>,</code> (see below for an example). The following options
-are available:</p>
+An option is given by its name, a colon character (<code>:</code>) and
+the value of the option. Consecutive options are separated by a comma
+<code>,</code> (see below for an example). The following options are
+available:</p>
 <ul>
 <li><code>active</code>: states if the constraint is active at the
-beginning of the computation. This is a boolean, so the expected value
+beginning of the computation. This is a boolean, so the expected values
 are either <code>true</code> or <code>false</code>.</li>
 <li><code>activating_event</code>: gives the name of the event which
-activate the constraint. An array of string is expected.</li>
+activates the constraint. An array of strings is expected.</li>
 <li><code>activating_events</code>: gives the list of events which
-activate the constraint. An array of string is expected.</li>
+activate the constraint. An array of strings is expected.</li>
 <li><code>desactivating_event</code>: gives the name of the event which
-desactivate the constraint. An array of string is expected.</li>
+deactivates the constraint. An array of strings is expected.</li>
 <li><code>desactivating_events</code>: gives the list of events which
-desactivate the constraint. An array of string is expected.</li>
+deactivate the constraint. An array of strings is expected.</li>
 </ul>
 <h4 data-number="4.1.2.1" id="example-1"><span
 class="header-section-number">4.1.2.1</span> Example</h4>
@@ -1226,19 +1226,19 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb19-1"><a href="#
 <h3 data-number="4.1.3" id="user-defined-post-processings"><span
 class="header-section-number">4.1.3</span> User defined
 post-processings</h3>
-<p>The <code>@UserDefinedPostProcessing</code> lets the user define is
+<p>The <code>@UserDefinedPostProcessing</code> lets the user define his
 own post-processings.</p>
-<p>This keywords is followed by:</p>
+<p>This keyword is followed by:</p>
 <ul>
 <li>the name of the output file</li>
-<li>the list of post-processings given by a string or and an array of
-strings. Those strings defines formulae which are evaluated at the end
-of the time step. Those formulae may depend on:
+<li>the list of post-processings given by a string or an array of
+strings. Those strings define formulae which are evaluated at the end of
+the time step. Those formulae may depend on:
 <ul>
-<li>the behaviour’ driving variable</li>
-<li>the behaviour’ thermodynamic forces</li>
-<li>the behaviour’ internal state variables</li>
-<li>the behaviour’ external state variables</li>
+<li>the behaviour’s driving variable</li>
+<li>the behaviour’s thermodynamic forces</li>
+<li>the behaviour’s internal state variables</li>
+<li>the behaviour’s external state variables</li>
 <li>any evolution defined in the input file</li>
 </ul></li>
 </ul>
@@ -1265,27 +1265,27 @@ nstante [C:\Codes\tfel\sources\build-vs-2015\bindings\python\tfel\py_tfel_materi
 <p>The problem is that <code>constexpr</code> variables are poorly
 handled by <code>Visual Studio 2015</code>. The <code>constexpr</code>
 macro was introduced to handle this compiler (it boils down to
-<code>constexpr</code> for others compilers). The issue can be solved by
-changing the faulty line as as follows:</p>
+<code>constexpr</code> for other compilers). The issue can be solved by
+changing the faulty line as follows:</p>
 <pre><code>constexpr const auto isqrt6 = isqrt2 * isqrt3;</code></pre>
 <p>For more details, see: <a
 href="https://sourceforge.net/p/tfel/tickets/137/"
 class="uri">https://sourceforge.net/p/tfel/tickets/137/</a></p>
 <h2 data-number="5.2" id="ticket-112-mtest-outputs"><span
 class="header-section-number">5.2</span> Ticket #112: MTEST outputs</h2>
-<p>The <code>@UserDefinedPostProcessing</code> lets the user define is
+<p>The <code>@UserDefinedPostProcessing</code> lets the user define his
 own post-processings.</p>
-<p>This keywords is followed by:</p>
+<p>This keyword is followed by:</p>
 <ul>
 <li>the name of the output file</li>
-<li>the list of post-processings given by a string or and an array of
-strings. Those strings defines formulae which are evaluated at the end
-of the time step. Those formulae may depend on:
+<li>the list of post-processings given by a string or an array of
+strings. Those strings define formulae which are evaluated at the end of
+the time step. Those formulae may depend on:
 <ul>
-<li>the behaviour’ driving variable</li>
-<li>the behaviour’ thermodynamic forces</li>
-<li>the behaviour’ internal state variables</li>
-<li>the behaviour’ external state variables</li>
+<li>the behaviour’s driving variable</li>
+<li>the behaviour’s thermodynamic forces</li>
+<li>the behaviour’s internal state variables</li>
+<li>the behaviour’s external state variables</li>
 <li>any evolution defined in the input file</li>
 </ul></li>
 </ul>
@@ -1298,9 +1298,9 @@ class="header-section-number">6</span> Known incompatibilities</h1>
 class="header-section-number">6.1</span> Header files</h2>
 <p>The following header files have been renamed:</p>
 <ul>
-<li><code>Hosford.hxx</code> has been moved in
+<li><code>Hosford.hxx</code> has been moved to
 <code>Hosford1972YieldCriterion.hxx</code>.</li>
-<li><code>Barlat.hxx</code> has been moved in
+<li><code>Barlat.hxx</code> has been moved to
 <code>Barlat2004YieldCriterion.hxx</code>.</li>
 </ul>
 <h1 data-number="7" id="references"><span

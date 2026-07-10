@@ -231,6 +231,7 @@
 		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
 		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
 		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -415,10 +416,10 @@ id="toc-ticket-128-generation-of-mtest-files-throws-an-exception-which-cant-be-c
 can’t be caught by <code>Cast3M</code> in case of forced
 convergence</a></li>
 <li><a
-href="#ticket-127-substepping-in-the-cast3m-and-cyrano-interface-may-lead-to-a-invalid-convergence-du-to-integer-overflow"
-id="toc-ticket-127-substepping-in-the-cast3m-and-cyrano-interface-may-lead-to-a-invalid-convergence-du-to-integer-overflow">Ticket
+href="#ticket-127-substepping-in-the-cast3m-and-cyrano-interface-may-lead-to-an-invalid-convergence-due-to-integer-overflow"
+id="toc-ticket-127-substepping-in-the-cast3m-and-cyrano-interface-may-lead-to-an-invalid-convergence-due-to-integer-overflow">Ticket
 #127: Substepping in the <code>Cast3M</code> and <code>Cyrano</code>
-interface may lead to a invalid convergence du to integer
+interface may lead to an invalid convergence due to integer
 overflow</a></li>
 <li><a href="#ticket-126-jacobian-error-in-ddif2base.ixx"
 id="toc-ticket-126-jacobian-error-in-ddif2base.ixx">Ticket #126:
@@ -450,9 +451,9 @@ id="toc-ticket-121-modifying-the-reference-values-read-in-a-file-does-not-work-i
 #121: Modifying the reference values read in a file does not work in
 MTest</a></li>
 <li><a
-href="#ticket-120-direct-call-to-cast3m-umat-behaviours-in-mtest-is-broken"
-id="toc-ticket-120-direct-call-to-cast3m-umat-behaviours-in-mtest-is-broken">Ticket
-#120: Direct call to Cast3M’ umat behaviours in <code>MTest</code> is
+href="#ticket-120-direct-call-to-cast3ms-umat-behaviours-in-mtest-is-broken"
+id="toc-ticket-120-direct-call-to-cast3ms-umat-behaviours-in-mtest-is-broken">Ticket
+#120: Direct call to Cast3M’s umat behaviours in <code>MTest</code> is
 broken</a></li>
 <li><a
 href="#ticket-119-material-laws-are-not-declared-in-the-additionalconvergencechecks-code-block"
@@ -466,10 +467,10 @@ id="toc-ticket-118-the-behaviourdescriptionarematerialpropertiesdependantonstate
 <code>BehaviourDescription::areMaterialPropertiesDependantOnStateVariables</code>
 method always returns <code>true</code></a></li>
 <li><a
-href="#ticket-117-generated-source-fails-to-compile-if-one-ask-mtest-file-generation-with-array-of-internal-state-variables"
-id="toc-ticket-117-generated-source-fails-to-compile-if-one-ask-mtest-file-generation-with-array-of-internal-state-variables">Ticket
-#117: Generated source fails to compile if one ask MTest file generation
-with array of internal state variables</a></li>
+href="#ticket-117-generated-source-fails-to-compile-if-one-asks-for-mtest-file-generation-with-array-of-internal-state-variables"
+id="toc-ticket-117-generated-source-fails-to-compile-if-one-asks-for-mtest-file-generation-with-array-of-internal-state-variables">Ticket
+#117: Generated source fails to compile if one asks for MTest file
+generation with array of internal state variables</a></li>
 <li><a
 href="#ticket-115-the-stress-free-expansion-handler-shall-be-a-nullptr-for-true-finite-strain-behaviours"
 id="toc-ticket-115-the-stress-free-expansion-handler-shall-be-a-nullptr-for-true-finite-strain-behaviours">Ticket
@@ -488,13 +489,13 @@ broken</h2>
 <p>The documentation of the <code>vumat</code> interface has been badly
 understood in plane stress. In some cases (namely using the
 <code>Native</code> finite strain strategy), the conventions about
-tensors has not been transcribed appropriately (there have been a
+tensors have not been transcribed appropriately (there has been
 confusion with the <code>Abaqus/Standard</code> conventions).</p>
 <blockquote>
 <p><strong>Note</strong></p>
 <p>The <code>Native</code> finite strain strategy in
 <code>Abaqus/Explicit</code> (based on a corotational formulation) is
-not supported in <code>MTest</code>, so there is no unit-tests
+not supported in <code>MTest</code>, so there are no unit-tests
 associated.</p>
 </blockquote>
 <p>For more details, see: <a
@@ -511,14 +512,14 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#c
 <p>To solve this issue, a new method
 <code>readArrayOfVariablesSize</code> has been introduced in the
 <code>DSLBase</code> class. This method is now shared by all methods
-which reads the size of an array of variables.</p>
+which read the size of an array of variables.</p>
 <p>For more details, see: <a
 href="https://sourceforge.net/p/tfel/tickets/130/"
 class="uri">https://sourceforge.net/p/tfel/tickets/130/</a></p>
 <h2
 id="ticket-129-arrays-of-parameters-are-not-supported-in-simple-precision">Ticket
 #129: Arrays of parameters are not supported in simple precision</h2>
-<p>The trouble boils down to the fact that, du to intended limitations
+<p>The trouble boils down to the fact that, due to intended limitations
 of the <code>tvector</code> class, downcasting from double precision to
 single precision is not allowed by the assignment operator.</p>
 <p>The call to the assignment operator has been replaced by a call to
@@ -545,31 +546,33 @@ treated).</p>
 href="https://sourceforge.net/p/tfel/tickets/128/"
 class="uri">https://sourceforge.net/p/tfel/tickets/128/</a></p>
 <h2
-id="ticket-127-substepping-in-the-cast3m-and-cyrano-interface-may-lead-to-a-invalid-convergence-du-to-integer-overflow">Ticket
+id="ticket-127-substepping-in-the-cast3m-and-cyrano-interface-may-lead-to-an-invalid-convergence-due-to-integer-overflow">Ticket
 #127: Substepping in the <code>Cast3M</code> and <code>Cyrano</code>
-interface may lead to a invalid convergence du to integer overflow</h2>
-<p>Using substeping with a high number of substeps may lead to a to
+interface may lead to an invalid convergence due to integer
+overflow</h2>
+<p>Using substepping with a high number of substeps may lead to an
 integer overflow in the counter associated with the remaining steps that
 have to be performed.</p>
 <p>This counter was declared as an <code>unsigned short</code>. For more
 than 14 substeps, this counter would overflow and was automatically set
-egal to 0, leading to an erroneous convergence. This counter has been
+equal to 0, leading to an erroneous convergence. This counter has been
 changed to <code>unsigned int</code> to avoid the problem.</p>
 <p>For more details, see: <a
 href="https://sourceforge.net/p/tfel/tickets/127/"
 class="uri">https://sourceforge.net/p/tfel/tickets/127/</a></p>
 <h2 id="ticket-126-jacobian-error-in-ddif2base.ixx">Ticket #126:
 Jacobian error in <code>DDIF2Base.ixx</code></h2>
-<p>There was a mistake in the jacobian computed in
-<code>treatFracture</code> method of the <code>DDIF2Base</code> class du
-to the complex branching made.</p>
+<p>There was a mistake in the jacobian computed in the
+<code>treatFracture</code> method of the <code>DDIF2Base</code> class
+due to the complex branching made.</p>
 <p>For more details, see: <a
 href="https://sourceforge.net/p/tfel/tickets/126/"
 class="uri">https://sourceforge.net/p/tfel/tickets/126/</a></p>
 <h2 id="ticket-125-compiling-on-gcc-8.0.1-fedora-28-fails">Ticket #125:
 Compiling on gcc 8.0.1 (Fedora 28) fails</h2>
-<p>Compiling <code>TFEL\ with</code>gcc<code>8.0.1 (</code>Fedora
-28<code>) fails in</code>CastemGenericPlaneStressHandler.hxx`.</p>
+<p>Compiling <code>TFEL</code> with <code>gcc</code> 8.0.1
+(<code>Fedora 28</code>) fails in
+<code>CastemGenericPlaneStressHandler.hxx</code>.</p>
 <p>Reported errors <em>a priori</em> look like regressions in the
 compiler rather than actual bugs in the code. However, as the
 incriminated code is quite ambiguous, it was worth fixing it.</p>
@@ -590,9 +593,9 @@ id="ticket-123-implementation-mistakes-in-various-behaviours-based-on-implicit-d
 #123: Implementation mistakes in various behaviours based on Implicit
 DSL and using a numerical jacobian (use of perturbated values to update
 auxiliary state variables)</h2>
-<p>Various behaviours in the MFront’ tests base used local variables to
-compute the increment of auxiliary state variables (in order to safe
-some computational times and reduce the implementation size). This trick
+<p>Various behaviours in the MFront’s tests base used local variables to
+compute the increment of auxiliary state variables (in order to save
+some computational time and reduce the implementation size). This trick
 is quite often used with analytical jacobian but can cause various
 problems with numerical jacobian if the consistent tangent operator is
 requested (in this case, the system is perturbated once after
@@ -632,7 +635,7 @@ class="uri">https://sourceforge.net/p/tfel/tickets/122/</a></p>
 id="ticket-121-modifying-the-reference-values-read-in-a-file-does-not-work-in-mtest">Ticket
 #121: Modifying the reference values read in a file does not work in
 MTest</h2>
-<p>In <code>MTest</code>, the following lines was not parsed
+<p>In <code>MTest</code>, the following lines were not parsed
 appropriately:</p>
 <div class="sourceCode" id="cb2"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Test<span class="op">&lt;</span>file<span class="op">&gt;</span> <span class="er">@</span>reference_file<span class="er">@</span> <span class="op">{</span></span>
@@ -642,11 +645,11 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#c
 href="https://sourceforge.net/p/tfel/tickets/122/"
 class="uri">https://sourceforge.net/p/tfel/tickets/122/</a></p>
 <h2
-id="ticket-120-direct-call-to-cast3m-umat-behaviours-in-mtest-is-broken">Ticket
-#120: Direct call to Cast3M’ umat behaviours in <code>MTest</code> is
+id="ticket-120-direct-call-to-cast3ms-umat-behaviours-in-mtest-is-broken">Ticket
+#120: Direct call to Cast3M’s umat behaviours in <code>MTest</code> is
 broken</h2>
 <p>Since <code>TFEL</code> <code>3.1</code>, <code>MTest</code> is able
-to call raw Cast3M’ umat behaviours (not written using
+to call raw Cast3M’s umat behaviours (not written using
 <code>MFront</code>). However, the handling of external state variables
 was broken.</p>
 <p>For more details, see: <a
@@ -668,20 +671,20 @@ id="ticket-118-the-behaviourdescriptionarematerialpropertiesdependantonstatevari
 method always returns <code>true</code></h2>
 <p>The
 <code>BehaviourDescription::areMaterialPropertiesDependantOnStateVariables</code>
-method always returned <code>true</code>. This bugs led to unnecessary
+method always returned <code>true</code>. This bug led to unnecessary
 computations but did not affect the results.</p>
 <p>For more details, see: <a
 href="https://sourceforge.net/p/tfel/tickets/118/"
 class="uri">https://sourceforge.net/p/tfel/tickets/118/</a></p>
 <h2
-id="ticket-117-generated-source-fails-to-compile-if-one-ask-mtest-file-generation-with-array-of-internal-state-variables">Ticket
-#117: Generated source fails to compile if one ask MTest file generation
-with array of internal state variables</h2>
+id="ticket-117-generated-source-fails-to-compile-if-one-asks-for-mtest-file-generation-with-array-of-internal-state-variables">Ticket
+#117: Generated source fails to compile if one asks for MTest file
+generation with array of internal state variables</h2>
 <p>A <code>using namespace std;</code> statement has been removed in
 3.1.0 in the generated code, which led to a compile time error
 (<code>ostringstream</code> undeclared) when:</p>
 <ul>
-<li>generating a <code>MTest</code> file on failure</li>
+<li>generating an <code>MTest</code> file on failure</li>
 <li>there is an array of internal state variables (this case was not
 tested)</li>
 </ul>

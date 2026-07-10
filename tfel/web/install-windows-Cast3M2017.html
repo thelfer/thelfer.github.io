@@ -230,6 +230,7 @@
 		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
 		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
 		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -430,8 +431,8 @@ id="toc-a-simple-test-showing-how-to-perform-cast3m-2017-simulations-with-a-mfro
 simple test showing how to perform <code>Cast3M</code> <code>2017</code>
 simulations with a <code>MFront</code> behaviour</a>
 <ul>
-<li><a href="#compilation-the-mfront-behaviour"
-id="toc-compilation-the-mfront-behaviour">Compilation the
+<li><a href="#compiling-the-mfront-behaviour"
+id="toc-compiling-the-mfront-behaviour">Compiling the
 <code>MFront</code> behaviour</a></li>
 <li><a href="#launch-the-cast3m-2017-simulation"
 id="toc-launch-the-cast3m-2017-simulation">Launch the
@@ -445,11 +446,11 @@ more complex than on other systems for the following reasons:</p>
 <li>There is no default compiler on this platform.</li>
 <li>The usage of command line is less common.</li>
 </ul>
-<p>This page is dedicated to show how this issues can be overcome and
+<p>This page is dedicated to showing how this issue can be overcome and
 ease the <code>MFront</code> experience on <code>Windows</code>. We will
 focus on coupling with <code>Cast3M</code> <code>2017</code> which is
 packaged with a version of the <code>MinGW</code> compiler suite.
-<strong>This tutorial makes the assumption that the user have installed
+<strong>This tutorial makes the assumption that the user has installed
 the developer version of <code>Cast3M</code></strong>.</p>
 <p>This tutorial will show that:</p>
 <ul>
@@ -457,15 +458,15 @@ the developer version of <code>Cast3M</code></strong>.</p>
 <li>The main trick is to appropriately update the <code>PATH</code>
 variable so that the <code>MinGW</code> and <code>TFEL</code> libraries
 are found when needed. This can be done by creating small wrapper
-scripts as discussed bellow.</li>
+scripts as discussed below.</li>
 </ul>
 <p>This tutorial is mostly based on <code>bat</code> scripts that can be
 downloaded <a
 href="downloads/windows-install-scripts.tar.bz2">here</a>.</p>
 <h2 id="notes-on-the-installation-directory">Notes on the installation
 directory</h2>
-<p>For information, the author use the following convention: the scripts
-are decompressed in <code>C:\tfel-master\src</code>.</p>
+<p>For information, the author uses the following convention: the
+scripts are decompressed in <code>C:\tfel-master\src</code>.</p>
 <p>By default, the previous scripts will install <code>TFEL</code> and
 <code>MFront</code> in <code>C:\tfel-master\install-castem2017</code>.
 The user is, of course, free to choose another installation location: he
@@ -481,12 +482,12 @@ script in <code>Notepad</code>, but any text editor will do.</p>
 <h2 id="about-binary-packages">About binary packages</h2>
 <p>Various binary packages can be downloaded on the <code>github</code>
 website. Those binary packages are built against specific versions of
-<code>Cast3M</code>. When installing thoses packages, the user have the
+<code>Cast3M</code>. When installing those packages, the user has the
 choice to modify the <code>PATH</code> variable globally.</p>
-<p>This tutorial can nevertheless be usefull: small scripts wrapping
+<p>This tutorial can nevertheless be useful: small scripts wrapping
 calls to <code>MFront</code> can be a viable choice in the
 <code>Windows</code> environment, rather than relying on the command
-line. Be careful that modify the examples appropriately to reflect where
+line. Be careful to modify the examples appropriately to reflect where
 <code>TFEL</code> and <code>MFront</code> have been installed.</p>
 <h1 id="decompressing-the-archive">Decompressing the archive</h1>
 <p>As said before, this tutorial is mostly based on <code>bat</code>
@@ -506,7 +507,7 @@ with <code>Cast3M</code> <code>2017</code>.</li>
 download an archive from the github website (<a
 href="https://github.com/thelfer/tfel/releases"
 class="uri">https://github.com/thelfer/tfel/releases</a>).</p>
-<p>It also contains a directory called <code>test</code>. The usage is
+<p>It also contains a directory called <code>test</code>. The usage of
 those scripts is fully detailed in the following sections.</p>
 <p>The other files contained in the archive will not be used in this
 tutorial.</p>
@@ -570,9 +571,9 @@ update the following line:</p>
 class="sourceCode bat"><code class="sourceCode dosbat"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>cmake.exe ..\tfel <span class="at">-G</span> <span class="st">&quot;MinGW Makefiles&quot;</span> ...</span></code></pre></div>
 <p>For example, if you have downloaded version <code>3.0.1</code>, the
 name of the archive is <code>tfel-3.0.1.tar.bz2</code>. Assuming that
-this archive is decompressed in the same directory than the scripts, the
+this archive is decompressed in the same directory as the scripts, the
 name of the directory containing the sources will be
-<code>tfel-3.0.1</code>. The previous line can thus be udpated as
+<code>tfel-3.0.1</code>. The previous line can thus be updated as
 follows:</p>
 <div class="sourceCode" id="cb3"><pre
 class="sourceCode bat"><code class="sourceCode dosbat"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>cmake.exe ..\tfel-3.0.1 <span class="at">-G</span> <span class="st">&quot;MinGW Makefiles&quot;</span> ...</span></code></pre></div>
@@ -597,7 +598,7 @@ perform <code>Cast3M</code> <code>2017</code> simulations with a
 <li>a <code>Gibiane</code> script called
 <code>LogarithimcStrainPlasticity-ssna303.dgibi</code>.</li>
 </ul>
-<h2 id="compilation-the-mfront-behaviour">Compilation the
+<h2 id="compiling-the-mfront-behaviour">Compiling the
 <code>MFront</code> behaviour</h2>
 <p>Launch the <code>mfront.bat</code> script. This script is basically a
 wrapper around the following call to <code>MFront</code>:</p>
@@ -608,7 +609,7 @@ class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="
 <li>generates <code>C++</code> sources from the
 <code>LogarithmicStrainPlasticity.mfront</code> file and a
 <code>Makefile.mfront</code> file.</li>
-<li>calls the <code>make</code> utility to compile the sources an
+<li>calls the <code>make</code> utility to compile the sources and
 generate the <code>libUmatBehaviour.dll</code> library.</li>
 </ul>
 <p>There is one trick here: the name of <code>make</code> utility in the
@@ -620,8 +621,8 @@ script at the following line:</p>
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> MAKE=mingw32-make</span></code></pre></div>
 <h2 id="launch-the-cast3m-2017-simulation">Launch the
 <code>Cast3M</code> <code>2017</code> simulation</h2>
-<p>The <code>Cast3M</code> solver can be used directly because it can’t
-find the <code>TFEL</code> libraries automatically. The
+<p>The <code>Cast3M</code> solver can’t be used directly because it
+can’t find the <code>TFEL</code> libraries automatically. The
 <code>launch-castem.bat</code> script thus first updates the
 <code>PATH</code> variable and then launches the <code>Cast3M</code>
 solver script.</p>

@@ -229,6 +229,7 @@
 		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
 		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
 		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -705,11 +706,11 @@ documented yet</p>
 <h1 id="the-additionalconvergencechecks-keyword">The
 <code>@AdditionalConvergenceChecks</code> keyword</h1>
 <p>The <code>@AdditionalConvergenceChecks</code> keyword is meant to
-introduce a code block returning stating if convergence has been
-reached. More precisely, this code block is meant to modify a boolean
-variable called <code>converged</code>. This boolean is
-<code>true</code> if the standard convergence criterion has been
-reached, <code>false</code> otherwise.</p>
+introduce a code block stating if convergence has been reached. More
+precisely, this code block is meant to modify a boolean variable called
+<code>converged</code>. This boolean is <code>true</code> if the
+standard convergence criterion has been reached, <code>false</code>
+otherwise.</p>
 <p>One possible usage of this code block is multi-surfaces plasticity
 treated by activating or deactivating statuses, as described by Simo and
 Hughes.</p>
@@ -794,10 +795,10 @@ stress-free expansion:</p>
 <ul>
 <li>along the second direction of orthotropy if the default orthotropic
 axes convention has been selected.</li>
-<li>along the ‘z’ direction if the pipe orthotropic axes has been
-defined is defined. The ‘z’ direction is the second direction of
-orthotropy for all hypotheses except Generalised Plane Strain, Plane
-Strain and Plane Stress hypotheses.</li>
+<li>along the ‘z’ direction if the pipe orthotropic axes convention has
+been defined. The ‘z’ direction is the second direction of orthotropy
+for all hypotheses except Generalised Plane Strain, Plane Strain and
+Plane Stress hypotheses.</li>
 </ul>
 <p>This keyword is followed by:</p>
 <ul>
@@ -928,8 +929,8 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#c
 <p>The <code>ComputeStiffnessTensor</code> keyword is used to define the
 elastic stiffness tensor based on the elastic material properties given
 as an array of entries. After this array, a semicolon is expected.</p>
-<p>This array is used to automatically used to declare the elastic
-material properties of the behaviour (see the
+<p>This array is automatically used to declare the elastic material
+properties of the behaviour (see the
 <code>@ElasticMaterialProperties</code> keyword for details).</p>
 <p>An entry can be either a string referring to an external
 <code>MFront</code> file, a formula or a numerical value.</p>
@@ -960,8 +961,8 @@ class="math inline">\((nu_{12},nu_{23},nu_{13})\)</span></li>
 <li>three shear modulus <span
 class="math inline">\((G_{12},G_{23},G_{13})\)</span></li>
 </ul>
-<p>In the orthoropic case, computation of the stiffness tensor rely on
-the definition of an orthotropic convention. For example, the
+<p>In the orthotropic case, computation of the stiffness tensor relies
+on the definition of an orthotropic convention. For example, the
 <code>Pipe</code> orthotropic convention will lead to automatically
 exchange the second and first axes when computing the stiffness tensor
 for the plane strain, plane stress and generalised plane strain
@@ -995,10 +996,10 @@ provide an appropriate way of computing the stress at the end of the
 time step using the <code>@ComputeFinalStress</code> keyword.</li>
 </ul>
 <h2 id="note">Note</h2>
-<p>If the user provide a way of computing the stress at the end of the
+<p>If the user provides a way of computing the stress at the end of the
 time step through the <code>@ComputeFinalStress</code> keyword, we
 consider that the use of <code>@ComputeStress</code> is meaningless and
-advice the user to rather compute explicitly the stress as part of the
+advise the user to rather compute explicitly the stress as part of the
 integration step.</p>
 <h2 id="example-9">Example</h2>
 <div class="sourceCode" id="cb10"><pre

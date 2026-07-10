@@ -229,6 +229,7 @@
 		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
 		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
 		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -721,10 +722,10 @@ stress-free expansion:</p>
 <ul>
 <li>along the second direction of orthotropy if the default orthotropic
 axes convention has been selected.</li>
-<li>along the ‘z’ direction if the pipe orthotropic axes has been
-defined is defined. The ‘z’ direction is the second direction of
-orthotropy for all hypotheses except Generalised Plane Strain, Plane
-Strain and Plane Stress hypotheses.</li>
+<li>along the ‘z’ direction if the pipe orthotropic axes convention has
+been defined. The ‘z’ direction is the second direction of orthotropy
+for all hypotheses except Generalised Plane Strain, Plane Strain and
+Plane Stress hypotheses.</li>
 </ul>
 <p>This keyword is followed by:</p>
 <ul>
@@ -817,8 +818,8 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#c
 <p>The <code>ComputeStiffnessTensor</code> keyword is used to define the
 elastic stiffness tensor based on the elastic material properties given
 as an array of entries. After this array, a semicolon is expected.</p>
-<p>This array is used to automatically used to declare the elastic
-material properties of the behaviour (see the
+<p>This array is used to automatically declare the elastic material
+properties of the behaviour (see the
 <code>@ElasticMaterialProperties</code> keyword for details).</p>
 <p>An entry can be either a string referring to an external
 <code>MFront</code> file, a formula or a numerical value.</p>
@@ -835,22 +836,22 @@ formula, all the inputs of this material property must be either:</p>
 <p>In the isotropic case, two entries are expected in the array, in that
 order:</p>
 <ul>
-<li>the Young Modulus</li>
+<li>the Young modulus</li>
 <li>the Poisson ratio</li>
 </ul>
 <h2 id="orthotropic-case">Orthotropic case</h2>
 <p>In the orthotropic case, 9 entries are expected in the array, in that
 order:</p>
 <ul>
-<li>three Young modulus <span
+<li>three Young moduli <span
 class="math inline">\((E_{1},E_{2},E_{3})\)</span></li>
-<li>three Poisson ratio <span
+<li>three Poisson ratios <span
 class="math inline">\((nu_{12},nu_{23},nu_{13})\)</span></li>
-<li>three shear modulus <span
+<li>three shear moduli <span
 class="math inline">\((G_{12},G_{23},G_{13})\)</span></li>
 </ul>
-<p>In the orthoropic case, computation of the stiffness tensor rely on
-the definition of an orthotropic convention. For example, the
+<p>In the orthotropic case, computation of the stiffness tensor relies
+on the definition of an orthotropic convention. For example, the
 <code>Pipe</code> orthotropic convention will lead to automatically
 exchange the second and first axes when computing the stiffness tensor
 for the plane strain, plane stress and generalised plane strain
@@ -872,21 +873,21 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="ComputeStiffnessTe
 <span id="ComputeStiffnessTensor-3"><a href="#ComputeStiffnessTensor-3" aria-hidden="true" tabindex="-1"></a>    <span class="fl">4.8e+4</span><span class="op">,</span><span class="fl">1.16418e+5</span><span class="op">,</span><span class="fl">7.8e+4</span><span class="op">};</span></span></code></pre></div>
 <h1 id="the-computestressfreeexpansion-keyword">The
 <code>@ComputeStressFreeExpansion</code> keyword</h1>
-<p>The <code>ComputeStressFreeExansion</code> keyword introduces a code
+<p>The <code>ComputeStressFreeExpansion</code> keyword introduces a code
 block which allows the user to define an arbitrary expansion.</p>
 <p>The code block is meant to <strong>update</strong> two symmetric
 tensors <code>dl0_l0</code> and <code>dl1_l0</code> which respectively
-stands for the value of the expansion at the beginning and at the end of
+stand for the value of the expansion at the beginning and at the end of
 the time step.</p>
 <h2 id="note">Note</h2>
 <ul>
 <li>How <code>dl0_l0</code> and <code>dl1_l0</code> are treated depends
 on the behaviour type (small or finite strain, CZM) and on the finite
-strain strategies used, if any (in this case, the user have to refer the
-interface documentation).</li>
+strain strategies used, if any (in this case, the user has to refer to
+the interface documentation).</li>
 <li>Local variables can’t be used in a
 <code>@ComputeStressFreeExpansion</code> block, because stress-free
-expansion are computed before the initialisation of those
+expansions are computed before the initialisation of those
 variables.</li>
 </ul>
 <h2 id="example-8">Example</h2>
@@ -903,9 +904,9 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="ComputeStressFreeE
 <span id="ComputeStressFreeExpansion-10"><a href="#ComputeStressFreeExpansion-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <h1 id="the-computethermalexpansion-keyword">The
 <code>@ComputeThermalExpansion</code> keyword</h1>
-<p>The <code>ComputeThermalExansion</code> keyword is followed either by
-a material property description or an array of material descriptions
-(othotropic behaviours) giving the mean linear thermal expansion
+<p>The <code>ComputeThermalExpansion</code> keyword is followed either
+by a material property description or an array of material descriptions
+(orthotropic behaviours) giving the mean linear thermal expansion
 coefficient.</p>
 <p>A material description is either a floating point number, a formula
 or the name of an external MFront file.</p>
@@ -919,8 +920,8 @@ class="math display">\[
 <li><span class="math inline">\(T^{\alpha}\)</span> is the reference
 temperature for the thermal expansion.</li>
 <li><span class="math inline">\(T^{i}\)</span> is the reference
-temperature at which of the geometry has been measured which is
-generally assumed to be equal to the temperature at the beginning of the
+temperature at which the geometry has been measured, which is generally
+assumed to be equal to the temperature at the beginning of the
 computations, in the undeformed state.</li>
 </ul>
 <h2
@@ -954,7 +955,7 @@ class="math inline">\(293.15\,K\)</span> is used.</p>
 <h2
 id="parameter-associated-with-the-reference-temperature-for-the-geometry">Parameter
 associated with the reference temperature for the geometry</h2>
-<p>The reference temperature at which of the geometry has been measured,
+<p>The reference temperature at which the geometry has been measured,
 <span class="math inline">\(T^{i}\)</span>, has a default value of <span
 class="math inline">\(293.15\,K\)</span>. This can be changed using the
 automatically defined
@@ -1060,7 +1061,7 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb10-1"><a href="#
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <h3 id="defining-dsl-options-on-the-command-line">Defining
 <code>DSL</code> options on the command line:</h3>
-<p><code>MFront</code> have various command line arguments to define
+<p><code>MFront</code> has various command line arguments to define
 options passed to DSLs:</p>
 <ul>
 <li><code>--dsl-option</code>, which allows to define options passed to
@@ -1093,7 +1094,7 @@ states if parameters can be modified from an external state file. This
 feature is only implemented by a few interfaces and is enabled by
 default.</li>
 <li><code>default_out_of_bounds_policy</code> (string), which selects
-the default out of bounds policy. Allowed values ar <code>None</code>
+the default out of bounds policy. Allowed values are <code>None</code>
 (the default), <code>Warning</code> or <code>Strict</code>.</li>
 <li><code>out_of_bounds_policy_runtime_modification</code> (boolean),
 which states if the out-of-bounds policy can be changed at runtime. By
@@ -1106,8 +1107,8 @@ to all DSLs related to behaviours</h3>
 (boolean), which states if the temperature shall be automatically
 declared as an external state variable.</li>
 <li><code>overriding_parameters</code>, which allows to specify
-overriding parameters. This parameters must be a map associating
-variables names and default values of the overriding parameters.</li>
+overriding parameters. This parameter must be a map associating variable
+names and default values of the overriding parameters.</li>
 </ul>
 <h2 id="example-11">Example</h2>
 <div class="sourceCode" id="cb12"><pre
@@ -1169,13 +1170,13 @@ configuration.</p>
 convergence was reached, after that:</p>
 <ul>
 <li>Internal state variables have been updated.</li>
-<li>The stress at the end of the time step have been computed.</li>
+<li>The stress at the end of the time step has been computed.</li>
 </ul>
 <h2 id="example-14">Example</h2>
 <div class="sourceCode" id="DissipatedEnergy"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="DissipatedEnergy-1"><a href="#DissipatedEnergy-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DissipatedEnergy<span class="op">{</span></span>
 <span id="DissipatedEnergy-2"><a href="#DissipatedEnergy-2" aria-hidden="true" tabindex="-1"></a>    Psi_d <span class="op">+=</span> sig<span class="op">|(</span>deto<span class="op">-</span>deel<span class="op">)</span></span>
-<span id="DissipatedEnergy-3"><a href="#DissipatedEnergy-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// If would have been better to store the initial value of the</span></span>
+<span id="DissipatedEnergy-3"><a href="#DissipatedEnergy-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// It would have been better to store the initial value of the</span></span>
 <span id="DissipatedEnergy-4"><a href="#DissipatedEnergy-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">// stress in a local variable sig0 and then used </span></span>
 <span id="DissipatedEnergy-5"><a href="#DissipatedEnergy-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="DissipatedEnergy-6"><a href="#DissipatedEnergy-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
@@ -1281,7 +1282,7 @@ keyword</h1>
 <code>@InitializeFunction</code> keyword</h1>
 <p>The <code>@InitializeFunction</code> keyword introduces a code block
 that can be used to initialize internal state variables at the very
-beginning of the computation. Initialize functions may have user
+beginning of the computation. Initialize functions may have user-defined
 so-called <em>initialize function variables</em>.</p>
 <p>In this version, only the <code>generic</code> interface generates
 functions associated with initialize functions (See Section <span
@@ -1293,7 +1294,7 @@ to see how to retrieve the initialize functions generated by the
 integration, special care to the meaning of the variables must be
 taken:</p>
 <ul>
-<li>The gradients and external state variable will have their values at
+<li>The gradients and external state variables will have their values at
 the beginning of the time step and their increments will be null.</li>
 <li>The thermodynamic forces will have their values at the beginning of
 the time step.</li>
@@ -1325,13 +1326,13 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb18-1"><a href="#
 <code>@InitializeFunctionVariable</code> keyword.</p>
 <p>Initialize function variables are only defined in initialize
 functions, and can’t be used in the other code blocks.</p>
-<p>Contrary most variables (internal state variables, external state
+<p>Contrary to most variables (internal state variables, external state
 variables, etc.), initialize function variables can be defined after the
 first code block. However, care must be taken to declare initialize
 function variables <strong>before</strong> their use in an initialize
 function.</p>
 <p>Note that an initialize function variable can be used in different
-initialize function.</p>
+initialize functions.</p>
 <h1 id="the-initializelocalvariables-keyword">The
 <code>@InitializeLocalVariables</code> keyword</h1>
 <p>The <code>@InitializeLocalVariables</code> introduces a code block
@@ -1443,7 +1444,7 @@ configuration.</p>
 convergence was reached, after that:</p>
 <ul>
 <li>Internal state variables have been updated.</li>
-<li>The stress at the end of the time step have been computed.</li>
+<li>The stress at the end of the time step has been computed.</li>
 </ul>
 <h2 id="example-20">Example</h2>
 <div class="sourceCode" id="InternalEnergy"><pre
@@ -1476,7 +1477,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb24-1"><a href="#
 <h1 id="the-isotropicelasticbehaviour-keyword">The
 <code>@IsotropicElasticBehaviour</code> keyword</h1>
 <p>The <code>@IsotropicElasticBehaviour</code> is used to declare that
-the elastic behaviour is isotropic even though the material as been
+the elastic behaviour is isotropic even though the material has been
 declared orthotropic. This declaration affects the
 <code>@RequireStiffnessTensor</code> behaviour.</p>
 <h2 id="example-22">Example</h2>
@@ -1515,13 +1516,13 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb26-1"><a href="#
 <p>The <code>@Link</code> keyword let the user specify additional linker
 flags used to build their shared library/executables. This keyword must
 be followed by a string or an array of strings.</p>
-<p>Usage of the <code>@Link</code> keyword is deprecated a linker flags
+<p>Usage of the <code>@Link</code> keyword is deprecated as linker flags
 are not portable. The user may prefer using the <code>LDFLAGS</code>
 environment variable.</p>
 <h2 id="example-24">Example</h2>
 <div class="sourceCode" id="cb27"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">// explicit link with libm.so</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co">// (not necessary in pratice)</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co">// (not necessary in practice)</span></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Link <span class="st">&quot;-lm&quot;</span><span class="op">;</span></span></code></pre></div>
 <h1 id="the-localvar-keyword">The <code>@LocalVar</code> keyword</h1>
 <p>The <code>@LocalVar</code> keyword is a deprecated synonymous of
@@ -1567,7 +1568,7 @@ material law defined in a mfront file and compiles, as part of the
 current library, a function using the <code>mfront</code> interface.
 This function is available in every standard code blocks.</p>
 <p>The <code>@MaterialLaw</code> keyword is followed by a string or an
-array of string identifying <code>mfront</code> files.</p>
+array of strings identifying <code>mfront</code> files.</p>
 <h2 id="search-paths-1">Search paths</h2>
 <p>Files to be imported are searched, in that order:</p>
 <ul>
@@ -1579,8 +1580,8 @@ array of string identifying <code>mfront</code> files.</p>
 <code>MFRONT_INCLUDE_PATH</code> environment variable.</li>
 </ul>
 <h2 id="note-1">Note</h2>
-<p>The <code>mfront</code> interface has been created to avoid names
-conflict.</p>
+<p>The <code>mfront</code> interface has been created to avoid name
+conflicts.</p>
 <p>For internal reasons, <code>mfront</code> reports the creation of an
 auxiliary library which is of no use.</p>
 <h2 id="example-26">Example</h2>
@@ -1672,8 +1673,8 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="MinimalTimeStepSca
 <p>The <code>@Model</code> keyword is used to call an external model
 from a behaviour. This model is called before any code block defining
 the behaviour.</p>
-<p>This model is meant to make evolve one or more state variables of the
-material.</p>
+<p>This model is meant to make one or more state variables of the
+material evolve.</p>
 <p>From the behaviour point of view, those state variables are declared
 as additional auxiliary state variables, but their values and their
 increments over the time step are known. <em>Those variables are meant
@@ -1700,7 +1701,7 @@ yet</p>
 <p>The <code>@OrthotropicBehaviour</code> declares the behaviour to be
 orthotropic.</p>
 <p>As an option, the orthotropic behaviour can be followed by an
-orthotropic axes convention. Three orthotropic axes convention are
+orthotropic axes convention. Three orthotropic axes conventions are
 currently supported:</p>
 <ul>
 <li><code>Default</code>: no specific treatment. This can lead to
@@ -1708,7 +1709,7 @@ serious difficulties as there is no way of ensuring the consistency of
 the definition of the orthotropic axes in most solvers.</li>
 <li><code>Pipe</code>: the behaviour has been written using the Pipe
 convention described in the MFront behaviour manual. With this
-convention, the results of various keywords depends on the modelling
+convention, the results of various keywords depend on the modelling
 hypothesis. For example, this option allows a consistent definition of
 the elastic material properties (see <code>@StiffnessTensor</code>,
 <code>@ElasticProperties</code>), thermal expansion coefficients (see
@@ -1751,7 +1752,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb33-1"><a href="#
 <code>@DSL</code>.</p>
 <h1 id="the-physicalbounds-keyword">The <code>@PhysicalBounds</code>
 keyword</h1>
-<p>The <code>@PhysicalBounds</code> keyword let the use define the
+<p>The <code>@PhysicalBounds</code> keyword let the user define the
 physical domain of a variable.</p>
 <p>The <code>@PhysicalBounds</code> keyword is followed by a variable
 name, the keyword in and an interval. The interval may contain the
@@ -1792,10 +1793,10 @@ state variables at the beginning of the time step are available in a
 special data structure named <code>initial_state</code>.</p>
 <p>Concerning material properties, they have their values at the end of
 the time step as usual.</p>
-<p>For the gradients and external state variables have their values at
-the end of the time step. Their values at the beginning of the time step
-are available in the <code>initial_state</code> data structure (if
-defined). Their increments have their usual values.</p>
+<p>The gradients and external state variables have their values at the
+end of the time step. Their values at the beginning of the time step are
+available in the <code>initial_state</code> data structure (if defined).
+Their increments have their usual values.</p>
 <blockquote>
 <p><strong>About initialisation of local variables</strong></p>
 <p>The code block defined by the <code>@InitLocalVariables</code> code
@@ -1821,7 +1822,7 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb35-1"><a href="#
 <code>@PostProcessingVariable</code> keyword.</p>
 <p>Post-processing variables are only defined in post-processing, and
 can’t be used in the other code blocks.</p>
-<p>Contrary most variables (internal state variables, external state
+<p>Contrary to most variables (internal state variables, external state
 variables, etc.), post-processing variables can be defined after the
 first code block. However, care must be taken to declare post-processing
 variables <strong>before</strong> their use in a post-processing.</p>
@@ -1839,7 +1840,7 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb36-1"><a href="#
 yet</p>
 <h1 id="the-private-keyword">The <code>@Private</code> keyword</h1>
 <p>The <code>@Private</code> keyword let the user define private methods
-or members of in the generated behaviour class.</p>
+or members in the generated behaviour class.</p>
 <h2 id="example-33">Example</h2>
 <div class="sourceCode" id="cb37"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Private<span class="op">{</span></span>
@@ -1850,7 +1851,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb37-1"><a href="#
 <h1 id="the-profiling-keyword">The <code>@Profiling</code> keyword</h1>
 <p>The <code>@Profiling</code> keyword is followed by a boolean. If
 true, several high resolutions clocks will be introduced in the
-generated code to profile performance bottlenecks. The total time spend
+generated code to profile performance bottlenecks. The total time spent
 in various portions of the generated code will be stored and displayed
 when the calling process exits.</p>
 <h2 id="example-34">Example</h2>
@@ -1867,8 +1868,8 @@ yet</p>
 <h1 id="the-relocation-keyword">The <code>@Relocation</code>
 keyword</h1>
 <p>The <code>@Relocation</code> keyword can be used to impose a boundary
-condition specific the fuel performances describing the rigid body
-translation of fuel pellet fragment as an additional strain.</p>
+condition specific to the fuel performances describing the rigid body
+translation of fuel pellet fragments as an additional strain.</p>
 <ul>
 <li>an external state variable name.</li>
 <li>a string giving an mfront file implementing a relocation model.</li>
@@ -1883,7 +1884,7 @@ affected</h2>
 <li>plane strain.</li>
 <li>plane stress.</li>
 </ul>
-<p>No expansion are added in the tridimensional and axisymmetrical
+<p>No expansion is added in the tridimensional and axisymmetrical
 modelling hypotheses.</p>
 <h2 id="physical-description-1">Physical description</h2>
 <p>The value of the relocation expansion <span
@@ -1955,8 +1956,8 @@ keyword</h1>
 keywords: <code>@SlidingSystem</code>, <code>@GlidingSystem</code> or
 <code>@SlipSystem</code>. Those keywords are followed by the definition
 of one family of slip systems.</p>
-<p>A slip system is defined by its plane and its Burgers’vector as
-follows, for a <code>Cubic</code> and <code>FCC</code> crystal
+<p>A slip system is defined by its plane and its Burgers’ vector as
+follows, for the <code>Cubic</code> and <code>FCC</code> crystal
 structures:</p>
 <div class="sourceCode" id="cb41"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span><span class="dv">1</span><span class="op">,-</span><span class="dv">1</span><span class="op">,</span><span class="dv">0</span><span class="op">&gt;{</span><span class="dv">1</span><span class="op">,</span><span class="dv">1</span><span class="op">,</span><span class="dv">1</span><span class="op">}</span></span></code></pre></div>
@@ -1967,11 +1968,11 @@ indices notation.</p>
 keyword is:</p>
 <div class="sourceCode" id="cb42"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>SlidingSystem <span class="op">&lt;</span><span class="dv">1</span><span class="op">,-</span><span class="dv">1</span><span class="op">,</span><span class="dv">0</span><span class="op">&gt;{</span><span class="dv">1</span><span class="op">,</span><span class="dv">1</span><span class="op">,</span><span class="dv">1</span><span class="op">};</span></span></code></pre></div>
-<p>For a given slip systems family, a set of slip systems are generated
+<p>For a given slip systems family, a set of slip systems is generated
 by symmetry using code extracted from the <code>NUMODIS</code> code. The
 previous example defines <span class="math inline">\(12\)</span> slip
 systems.</p>
-<p>Once the sliding system families has been defined, a static integer
+<p>Once the sliding system families have been defined, a static integer
 variable called <code>Nss</code> is available which contains the total
 number of slip systems defined. In the previous example,
 <code>Nss</code> value is <span class="math inline">\(12\)</span>.</p>
@@ -2001,7 +2002,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb44-1"><a href="#
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick     FiniteStrainSingleCrystal<span class="op">;</span></span>
 <span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>CrystalStructure FCC<span class="op">;</span></span>
 <span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>SlidingSystem <span class="op">&lt;</span><span class="dv">1</span><span class="op">,-</span><span class="dv">1</span><span class="op">,</span><span class="dv">0</span><span class="op">&gt;{</span><span class="dv">1</span><span class="op">,</span><span class="dv">1</span><span class="op">,</span><span class="dv">1</span><span class="op">};</span></span></code></pre></div>
-<p>If the previous code is saved a file called
+<p>If the previous code is saved in a file called
 <code>SlipSystemGenerationTest.mfront</code>, one may use
 <code>mfront-query</code> as follows:</p>
 <div class="sourceCode" id="cb45"><pre
@@ -2067,7 +2068,7 @@ various slip systems. The user can refer to the description of the
 <h1 id="the-sources-keyword">The <code>@Sources</code> keyword</h1>
 <p>The <code>@Sources</code> keyword let the user define a code block
 that will be integrated in the generated sources of a behaviour. This
-allows the user to implement their own classes or functions. These
+allows the user to implement their own classes or functions. The
 declarations of such classes or functions can be made in a code block
 introduced by the <code>@Includes</code> keyword.</p>
 <div class="sourceCode" id="cb49"><pre
@@ -2162,8 +2163,8 @@ an equal sign and its value.</p>
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>StaticVariable real A <span class="op">=</span> <span class="fl">1.234e56</span><span class="op">;</span></span></code></pre></div>
 <h1 id="the-strainmeasure-keyword">The <code>@StrainMeasure</code>
 keyword</h1>
-<p>This keyword let the user choose to the strain measure. This choice
-also defines the meaning of the stress tensor by energetic duality.</p>
+<p>This keyword let the user choose the strain measure. This choice also
+defines the meaning of the stress tensor by energetic duality.</p>
 <p>The following values are supported:</p>
 <ul>
 <li><code>LINEARISED</code> (or <code>LINEARISED</code>, or
@@ -2173,7 +2174,7 @@ analysis.</li>
 finite strain analysis. The dual stress is the second Piola-Kirchhoff
 stress.</li>
 <li><code>Hencky</code>: the behaviour is meant to be used in a finite
-strain analysis. The dual stress has now specific name.</li>
+strain analysis. The dual stress has no specific name.</li>
 </ul>
 <p>Two options can be specified:</p>
 <ul>
@@ -2193,8 +2194,8 @@ the material frame.</p>
 <h2 id="note-5">Note</h2>
 <ol type="1">
 <li>The computation of the strain measure and its dual and the
-convertion of the tangent operator is delegated to the interface,
-because several finite element solver already provides those operations
+conversion of the tangent operator is delegated to the interface,
+because several finite element solvers already provide those operations
 natively (<code>Code_Aster</code>, <code>ZebuloN</code>, etc…)</li>
 </ol>
 <h2 id="example-39">Example</h2>
@@ -2206,7 +2207,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="StrainMeasure2-1">
 <span id="StrainMeasure2-3"><a href="#StrainMeasure2-3" aria-hidden="true" tabindex="-1"></a>  save_stress<span class="op">:</span> <span class="kw">true</span></span>
 <span id="StrainMeasure2-4"><a href="#StrainMeasure2-4" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <h1 id="the-swelling-keyword">The <code>@Swelling</code> keyword</h1>
-<p>The <code>@Swelling</code> keyword allow the user to specify that an
+<p>The <code>@Swelling</code> keyword allows the user to specify that an
 additional stress-free expansion must be taken into account.</p>
 <p>This keyword has the following options:</p>
 <ul>
@@ -2235,13 +2236,13 @@ s =
 <p>A stress-free expansion is either defined by:</p>
 <ul>
 <li>A string pointing to a mfront model.</li>
-<li><code>0</code>, which allow the definition of a null swelling.</li>
+<li><code>0</code>, which allows the definition of a null swelling.</li>
 <li>The name of an external state variable.</li>
 </ul>
 <h2 id="notes-1">Notes</h2>
 <p>A null swelling is not allowed when only one stress-free
 expansion</p>
-<p>The definition of three stress-free expansion is only valid for
+<p>The definition of three stress-free expansions is only valid for
 orthotropic behaviours and is not compatible with the
 <code>Volume</code> option.</p>
 <h2 id="examples-3">Examples</h2>
@@ -2296,9 +2297,9 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb52-1"><a href="#
 <p>The <code>@TangentOperatorBlock</code> keyword allows defining the
 tangent operator defined by a unique block.</p>
 <p>This keyword disables the automatic declaration of the default
-tangent operator block,s namely, the derivatives of all the fluxes with
+tangent operator blocks, namely, the derivatives of all the fluxes with
 respect to all the gradients.</p>
-<p>Other tangent operator blocks still can be added using the
+<p>Other tangent operator blocks can still be added using the
 <code>@AdditionalTangentOperatorBlock</code>
 <code>@AdditionalTangentOperatorBlocks</code> keywords, although we
 recommend using the <code>@TangentOperatorBlocks</code> to define all
@@ -2330,9 +2331,9 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb53-1"><a href="#
 <p>The <code>@TangentOperatorBlocks</code> keyword allows explicitly
 defining the tangent operator blocks.</p>
 <p>This keyword disables the automatic declaration of the default
-tangent operator block,s namely, the derivatives of all the fluxes with
+tangent operator blocks, namely, the derivatives of all the fluxes with
 respect to all the gradients</p>
-<p>Other tangent operator blocks still can be added using the
+<p>Other tangent operator blocks can still be added using the
 <code>@AdditionalTangentOperatorBlock</code>
 <code>@AdditionalTangentOperatorBlocks</code> keywords.</p>
 <p>The tangent operator blocks can be:</p>
@@ -2359,7 +2360,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb54-1"><a href="#
 <h1 id="the-unitsystem-keyword">The <code>@UnitSystem</code>
 keyword</h1>
 <p>The <code>@UnitSystem</code> keyword declares that the state
-variables, external state variables a parameters are expressed in a
+variables, external state variables and parameters are expressed in a
 given unit system. In the current version of <code>MFront</code>, the
 only supported unit system is the international system of units, denoted
 <code>SI</code>.</p>
@@ -2385,8 +2386,8 @@ external state variables are not updated.</p>
 <p>In Runge-Kutta domain specific languages, the code declared by
 <code>UpdateAuxiliaryStateVariables</code> is called after each
 successful time step. Keep in mind that most Runge-Kutta algorithms
-performs internal substepping: in this case, the code declared by
-<code>UpdateAuxiliaryStateVariables</code> may be called several time
+perform internal substepping: in this case, the code declared by
+<code>UpdateAuxiliaryStateVariables</code> may be called several times
 during the behaviour integration. An additional variable called
 <code>dt_</code>, which is lower than the total time step increment
 <code>dt</code> if substepping is performed, gives the current time
@@ -2411,7 +2412,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb57-1"><a href="#
 <p>The <code>@UpdateAuxiliaryStateVars</code> keyword is a deprecated
 synonymous of <code>@UpdateAuxiliaryStateVariables</code>.</p>
 <h1 id="the-useqt-keyword">The <code>@UseQt</code> keyword</h1>
-<p>The <code>UseQt</code> keyword (use quantities) specify if the
+<p>The <code>UseQt</code> keyword (use quantities) specifies if the
 behaviour compilation should perform compile-time units checks. It is
 followed by a boolean.</p>
 <h2 id="note-6">Note</h2>

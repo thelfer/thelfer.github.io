@@ -166,6 +166,7 @@
 		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
 		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
 		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -349,7 +350,7 @@ examination and validation results.</p>
 <h1 data-number="1" id="material-properties"><span
 class="header-section-number">1</span> Material properties</h1>
 <p>The <code>cyrano</code> interface for material properties generates
-function having the following prototype:</p>
+functions having the following prototype:</p>
 <p>~~<del>{.c++} CyranoRealType (<em>)(CyranoOutputStatus</em> const,
 const CyranoRealType* const, const CyranoIntegerType, const
 CyranoOutOfBoundsPolicy);</del>~~</p>
@@ -358,7 +359,7 @@ details).</p>
 <p>The second argument contains the arguments of the material
 property.</p>
 <p>The third argument gives the number of arguments.</p>
-<p>The fourth argument specify the policy used when an argument or the
+<p>The fourth argument specifies the policy used when an argument or the
 output is out of these bounds.</p>
 <h2 data-number="1.1" id="sec:error_handling"><span
 class="header-section-number">1.1</span> Error handling</h2>
@@ -427,8 +428,8 @@ hypotheses concerning the axial direction are supported:</p>
 class="header-section-number">2.2</span> Finite strain modelling</h2>
 <p><code>Cyrano3</code> finite strain modelling is based on the approach
 described by T. Helfer (See <span class="citation"
-data-cites="helfer_extension_2015">[3]</span>) which allows to easily
-extend small strain mono-dimensional code to support finite strain
+data-cites="helfer_extension_2015">[3]</span>) which allows easy
+extension of small strain mono-dimensional code to support finite strain
 modelling.</p>
 <h3 data-number="2.2.1" id="kinematic-and-mechanical-equilibrium"><span
 class="header-section-number">2.2.1</span> Kinematic and mechanical
@@ -472,7 +473,7 @@ the following property:</p>
 <p><span class="math display">\[
 {{\mathrm{d}}}\,\vec{f}={\underset{\tilde{}}{\mathbf{\Pi}}}\,\colon\,{{\mathrm{d}}}\,\vec{S}_{0}  
 \]</span></p>
-<p>For pressure loading, one have: <span class="math display">\[
+<p>For pressure loading, one has: <span class="math display">\[
 {{\mathrm{d}}}\,\vec{f}=-P\,{{\mathrm{d}}}\,\vec{s}
 \]</span></p>
 <h4 data-number="2.2.2.1" id="radial-boundary-conditions"><span
@@ -536,8 +537,8 @@ class="math inline">\(S^{c}_{i}=\pi\,R_{i}^{2}\)</span>.</li>
 surface of the upper cap in the current geometry, defined by <span
 class="math inline">\(S^{c}_{e}=\pi\,R_{e}^{2}\)</span>.</li>
 </ul>
-<p>Here, the pressure is assumed constant over the time step : the
-sensibility with the geometrical changes is neglected. Dependency of the
+<p>Here, the pressure is assumed constant over the time step: the
+sensitivity to the geometrical changes is neglected. Dependency of the
 pressure with the volume can also be taken into account, as in
 <code>MTest</code> if all the slices are homogeneous, which is almost
 never the case.</p>
@@ -545,7 +546,7 @@ never the case.</p>
 class="header-section-number">2.2.2.2.1</span> Generalised plane
 stress</h5>
 <p>In generalised plane stress, <span
-class="math inline">\(\Pi_{zz}\)</span> is assumed uniform and can
+class="math inline">\(\Pi_{zz}\)</span> is assumed uniform and can be
 determined by:</p>
 <p><span class="math display">\[
 F =
@@ -564,7 +565,7 @@ strain</h5>
 F = 2\,\pi\,\int_{R_{i}^{0}}^{R_{e}^{0}}\Pi_{zz}\,R\,dR =
 P_{i}\,S^{c}_{i} - P_{e}\,S^{c}_{e}
 \]</span></p>
-<p>This is exactly the same relation as in same strain analysis, except
+<p>This is exactly the same relation as in small strain analysis, except
 for the dependency of <span class="math inline">\(S^{c}_{i}\)</span> and
 <span class="math inline">\(S^{c}_{e}\)</span> with the actual inner and
 outer radius which adds additional terms to the stiffness matrix</p>

@@ -167,6 +167,7 @@
 		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
 		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
 		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -404,7 +405,7 @@ id="ticket-154-the-enable-portable-build-option-does-not-work-with-visual-studio
 #154: The <code>enable-portable-build</code> option does not work with
 <code>Visual Studio</code></h2>
 <p>The issue is related to the <code>cmake</code> build system.</p>
-<p>The processor’ optimized flags were not separed from the other
+<p>The processor’s optimized flags were not separated from the other
 optimisation flags and stored in the generic
 <code>OPTIMISATION_FLAGS</code> variable.</p>
 <p>Those are now appropriately placed in the
@@ -419,7 +420,7 @@ defined as follows:</p>
 <pre><code>install(TARGETS py_${package}_${name}
         DESTINATION lib${LIB_SUFFIX}/${PYTHON_LIBRARY}/sitepackages/${package}_${TFEL_SUFFIX_FOR_PYTHON_MODULES}
         COMPONENT python_bindings)</code></pre>
-<p>In Python 3.x under linux, this led to install the module in
+<p>In Python 3.x under linux, this led to installing the module in
 <code>python3.xm</code>. The <code>m</code> suffix is not standard and
 had to be removed. The install path definition has been corrected as
 follows:</p>

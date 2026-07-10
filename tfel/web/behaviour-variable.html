@@ -231,6 +231,7 @@
 		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
 		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
 		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -393,10 +394,10 @@
 situations and allows, for instance, to</p>
 <ul>
 <li>write a macroscopic behaviour that calls microscopic behaviours
-inside an homogeneization scheme.</li>
+inside a homogenization scheme.</li>
 <li>implement a simple switch from one behaviour to another based on
 some criteria in a wrapper behaviour. This technique is often used in
-nuclear fuel performance codes since the behaviour of materials are
+nuclear fuel performance codes since the behaviour of materials is
 described by distinct constitutive equations in normal and off-normal
 operating conditions.</li>
 <li>calling complex models based on any of the following DSLs:
@@ -424,7 +425,8 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#c
 behaviour variable. The main reason for this complexity is due to the
 fact that the calling behaviour is responsible for declaring and
 managing the variables associated with <code>b1</code> (material
-properties, internal state variables, external state variable), etc.</p>
+properties, internal state variables, external state variables),
+etc.</p>
 <p>In particular, the behaviour variable and the calling behaviour may
 share some variables (material properties, external state
 variables).</p>
@@ -433,7 +435,7 @@ the calling behaviour will create one material property for each
 material property declared in the behaviour <code>Plasticity</code> (see
 the <code>shared_material_properties</code> option below for details on
 how to declare shared material properties). To avoid conflicts, the
-names and external names of this new material properties are modified
+names and external names of these new material properties are modified
 using the options <code>variables_prefix</code>,
 <code>variables_suffix</code>, <code>external_names_prefix</code> or
 <code>external_names_suffix</code>.</p>
@@ -453,7 +455,7 @@ class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> ElasticStrain <span class="er">(</span><span class="ex">eel</span><span class="kw">)</span><span class="bu">:</span> The elastic strain</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> EquivalentPlasticStrain <span class="er">(</span><span class="ex">p</span><span class="kw">)</span><span class="bu">:</span> the equivalent plastic strain</span></code></pre></div>
 <p>Those state variables are automatically declared as auxiliary state
-variables by the calling behaviour, but their names is changed, as
+variables by the calling behaviour, but their names are changed, as
 follows:</p>
 <div class="sourceCode" id="cb3"><pre
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--unicode-output</span><span class="op">=</span>false <span class="at">--auxiliary-state-variables</span> MacroscopicBehaviour.mfront </span>
@@ -484,7 +486,7 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#c
 <p>where <code>smflag</code> and <code>smt</code> are parameters
 associated with the computation of the consistent tangent operator (see
 below).</p>
-<h3 id="retrieveing-the-tangent-operator">Retrieveing the tangent
+<h3 id="retrieving-the-tangent-operator">Retrieving the tangent
 operator</h3>
 <p>The tangent operator can be retrieved using the
 <code>getTangentOperator</code> method as follows:</p>
@@ -538,13 +540,13 @@ the calling behaviour for each gradient of the behaviour variable. These
 auxiliary state variables are obtained by applying the transformation
 rules on names and external names.</li>
 <li>the <code>initialize/reset</code> methods associated with this
-behaviour variable (see bellow) will automatically initialize the
+behaviour variable (see below) will automatically initialize the
 gradients using the associated auxiliary state variables. Note that the
 <code>initialize</code> method associated with this behaviour variable
 is automatically called by the main <code>initialize</code> method of
 the calling behaviour (which is always called).</li>
 <li>the <code>updateAuxiliaryStateVariables</code> method associated
-with this behaviour variable (see bellow) stores the values of the
+with this behaviour variable (see below) stores the values of the
 gradients at the end of the time step in the associated auxiliary state
 variables. Note that if the
 <code>automatically_save_associated_auxiliary_state_variables</code>
@@ -574,9 +576,9 @@ thermodynamic forces (in particular if
 <code>store_thermodynamic_forces</code> is set to <code>false</code>)
 and the strain increment.</p>
 <h3 id="note-on-stress-free-strains">Note on stress free strains</h3>
-<p>Strain based Behaviours requires special care if the called behaviour
+<p>Strain based behaviours require special care if the called behaviour
 declares stress free expansions (volumetric swelling, thermal expansion,
-etc.). In the case, the called behaviour exposes a method called
+etc.). In this case, the called behaviour exposes a method called
 <code>computeStressFreeStrain</code> that shall only be called
 <strong>after</strong> the initialization of the behaviour. This method
 returns a pair containing the stress free strains at the beginning of
@@ -597,7 +599,7 @@ variable.</li>
 <h2
 id="treatment-of-the-persistent-variables-of-the-behaviour-variable">Treatment
 of the persistent variables of the behaviour variable</h2>
-<p>A behaviour variable may declares persistent variables, i.e. state
+<p>A behaviour variable may declare persistent variables, i.e. state
 variables or auxiliary state variables. Those persistent variables are
 automatically declared as auxiliary state variables by the calling
 behaviour. The transformation rules on the names and external names are
@@ -630,7 +632,8 @@ the names and external names are <strong>not</strong> applied.</p>
 <p>When a material property (or an external state variable) of the
 behaviour variable is <strong>not</strong> declared as shared (the
 default), a new material property (or an external state variable) is
-automatically declaring applying the transformation rules on names.</p>
+automatically declared by applying the transformation rules on
+names.</p>
 <h2 id="access-to-the-variables-of-the-behaviour-variable">Access to the
 variables of the behaviour variable</h2>
 <p>The calling behaviour has access to all the variables of the
@@ -666,25 +669,25 @@ this behaviour variable several times.</p>
 <p>However, this does not guarantee that calling the integration of the
 behaviour variable will lead to the same result as some internal
 variables may have evolved.</p>
-<p>In particular, the increment of the integration variables will not
-zeroed. Not zeroing those increment may accelerate the integration when
+<p>In particular, the increment of the integration variables will not be
+zeroed. Not zeroing those increments may accelerate the integration when
 the behaviour integration is called multiple times as the solution of
 the previous call may be a good estimate for the new resolution.</p>
 <p>To initialize the behaviour and zero the increment of the integration
-variables , one may call the <code>reset</code> method instead:</p>
+variables, one may call the <code>reset</code> method instead:</p>
 <div class="sourceCode" id="cb9"><pre
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>reset<span class="op">(</span>b1<span class="op">);</span> <span class="co">// calls initialize and zeros integration variable increments</span></span></code></pre></div>
 <blockquote>
 <p>Note that even the <code>reset</code> method does not absolutely
 guarantee that calling the integration of the behaviour variable will
 lead to the same result as some internal variables may have evolved.
-This will probably be the case assuming that the implementation of the
-called behaviour does not make any strange things internally.</p>
+This will probably not be the case assuming that the implementation of
+the called behaviour does not make any strange things internally.</p>
 </blockquote>
 <h2 id="integration">Integration</h2>
 <p>The <code>integrate</code> method performs the integration of the
 behaviour variable.</p>
-<p>Note that this method must be called after having the gradients at
+<p>Note that this method must be called after setting the gradients at
 the beginning of the time step (see also the
 <code>store_gradients</code> option for details), the thermodynamic
 forces at the beginning of the time step (see also the
@@ -730,7 +733,7 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb10-1"><a href="#
 <code>IntegrationResult</code> object which is implicitly convertible to
 a boolean. This boolean is <code>true</code> if the integration
 succeeded.</p>
-<h2 id="retrieving-the-tangent-operator">Retrieving the tangent
+<h2 id="retrieving-the-tangent-operator-1">Retrieving the tangent
 operator</h2>
 <p>The tangent operator computed by the <code>integrate</code> method
 can be retrieved using the <code>getTangentOperator</code> method. If
@@ -757,7 +760,7 @@ option controls if the auxiliary state variables associated with a
 behaviour variable are automatically saved.</p>
 <p>If this option is <code>false</code>, the author of the calling
 behaviour is responsible for updating those state variables by hand.
-This task can be deleguated to a specialized version of the
+This task can be delegated to a specialized version of the
 <code>updateAuxiliaryStateVariables</code> method which takes the
 behaviour variable as its only argument, as follows:</p>
 <div class="sourceCode" id="cb11"><pre

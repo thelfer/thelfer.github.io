@@ -230,6 +230,7 @@
 		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
 		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
 		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -397,9 +398,9 @@ class="toc-section-number">2</span> Defining a parameter</a></li>
 id="toc-modifying-a-parameter-at-runtime"><span
 class="toc-section-number">3</span> Modifying a parameter at runtime</a>
 <ul>
-<li><a href="#examples-of-modify-the-calling-solver-input-file"
-id="toc-examples-of-modify-the-calling-solver-input-file"><span
-class="toc-section-number">3.1</span> Examples of modify the calling
+<li><a href="#examples-of-modifying-the-calling-solver-input-file"
+id="toc-examples-of-modifying-the-calling-solver-input-file"><span
+class="toc-section-number">3.1</span> Examples of modifying the calling
 solver input file</a>
 <ul>
 <li><a href="#mtest" id="toc-mtest"><span
@@ -447,15 +448,15 @@ properties, declared with the <code>@MaterialProperty</code> keyword in
 passed to the behaviour. The main idea behind material properties is to
 write generic behaviours that can be used to describe a wide range of
 materials.</p>
-<p>There are a important shortcomings associated with the use of
-material properties:</p>
+<p>There are important shortcomings associated with the use of material
+properties:</p>
 <ul>
 <li>For Assurance Quality reasons, we consider that the usage of generic
 behaviours shall be avoided, mainly because part of the definition of
 the behaviour is put in the user input file: we do think that the whole
 description of the behaviour shall be included in the
 <code>MFront</code> implementation. This can not be achieved with
-material properties since their is no easy cross-solver way to define
+material properties since there is no easy cross-solver way to define
 their default values from the behaviour implementation.</li>
 <li>The use of material properties can have significant numerical impact
 in some finite element solver: those costs are associated to the
@@ -503,9 +504,9 @@ runtime</h1>
 <p>From our point of view, the first method is preferable but is not
 always available. Some examples are provided below.</p>
 <h2 data-number="3.1"
-id="examples-of-modify-the-calling-solver-input-file"><span
-class="header-section-number">3.1</span> Examples of modify the calling
-solver input file</h2>
+id="examples-of-modifying-the-calling-solver-input-file"><span
+class="header-section-number">3.1</span> Examples of modifying the
+calling solver input file</h2>
 <h3 data-number="3.1.1" id="mtest"><span
 class="header-section-number">3.1.1</span> <code>MTest</code></h3>
 <p>The keyword <code>@Parameter</code> is available in <a
@@ -529,7 +530,7 @@ behaviour defines a parameter whose entry name is
 directory, it is automatically read at the first behaviour call. This
 file must contain lines beginning with a parameter name and its value.
 No comments are allowed.</p>
-<p>If our case, this file may contain the following line:</p>
+<p>In our case, this file may contain the following line:</p>
 <div class="sourceCode" id="external-file"><pre
 class="sourceCode txt"><code class="sourceCode default"><span id="external-file-1"><a href="#external-file-1" aria-hidden="true" tabindex="-1"></a>DamageThreshold 0.95</span></code></pre></div>
 <p>If a parameter is not defined in this file, it will have its default

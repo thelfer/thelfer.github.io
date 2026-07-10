@@ -230,6 +230,7 @@
 		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
 		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
 		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -429,13 +430,12 @@ data-cites="fichant_endommagement_1996 gangnant_etude_2016 torelli_confinement-d
 href="#ref-fichant_endommagement_1996" role="doc-biblioref">1</a>–<a
 href="#ref-draup_development_2019" role="doc-biblioref">4</a>]</span>
 for details).</p>
-<p>We strongly advice readers to refer to the following documents before
+<p>We strongly advise readers to refer to the following documents before
 continuing:</p>
 <ul>
 <li>The implementation of the Fichant-La Borderie damage behaviour is
-detailled <a href="FichantLaBorderieDamageBehaviour.html">here</a>.</li>
-<li>The implementation of the the load induced thermal strain is
-detailled <a
+detailed <a href="FichantLaBorderieDamageBehaviour.html">here</a>.</li>
+<li>The implementation of the load induced thermal strain is detailed <a
 href="LoadInducedThermalStrainBehaviourTorelli2018.html">here</a>.</li>
 </ul>
 <h1 id="description-of-the-coupled-behaviour">Description of the coupled
@@ -451,7 +451,7 @@ class="math inline">\(\underline{\varepsilon}^{\mathrm{LITS}}\)</span>:</p>
 \qquad{(1)}\]</span></span></p>
 <h2 id="damage-behaviour">Damage behaviour</h2>
 <p>The stress <span class="math inline">\(\underline{\sigma}\)</span> is
-related to the the elastic strain <span
+related to the elastic strain <span
 class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span> by
 the Fichant-La Borderie damage behaviour:</p>
 <p><span id="eq:FLB"><span class="math display">\[
@@ -592,7 +592,7 @@ temperature rate defined as follows:</p>
 <p>where <span class="math inline">\(T_{\mathrm{max}}\)</span> is the
 maximal temperature seen by the material over time.</p>
 <h1 id="implicit-algorithm">Implicit algorithm</h1>
-<p>Following the implementation of Torelli’ LITS behaviour (see <a
+<p>Following the implementation of Torelli’s LITS behaviour (see <a
 href="LoadInducedThermalStrainBehaviourTorelli2018.html">here</a> for
 details), the implicit scheme can be reduced to one non linear equation
 whose only unknown is the elastic strain increment:</p>
@@ -636,10 +636,11 @@ allows specifying the domain specific language to be used:</p>
 <div class="sourceCode" id="cb1"><pre
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL Implicit<span class="op">;</span></span></code></pre></div>
 <h2 id="choice-of-the-behaviour-name">Choice of the behaviour name</h2>
-<p>The <code>@Behaviour</code> allows giving a name the behaviour:</p>
+<p>The <code>@Behaviour</code> allows giving a name to the
+behaviour:</p>
 <div class="sourceCode" id="cb2"><pre
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Behaviour FichantLaBorderieDamageAndTorelliLoadInducedThermalStrainBehaviour<span class="op">;</span></span></code></pre></div>
-<p>Defining the name of behaviour is required.</p>
+<p>Defining the name of the behaviour is required.</p>
 <h2 id="metadata">Metadata</h2>
 <p>The <code>@Author</code>, <code>@Date</code> and
 <code>@Description</code> keywords allows adding metadata to the
@@ -658,7 +659,7 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#c
 scheme:</p>
 <ul>
 <li>the <span class="math inline">\(\theta\)</span> parameter (default
-value is <span class="math inline">\(1/2\)</span>). In pratice, we set
+value is <span class="math inline">\(1/2\)</span>). In practice, we set
 to <span class="math inline">\(1\)</span> to indicate that the
 resolution is purely implicit, but we won’t use this value in the
 implementation.</li>

@@ -232,6 +232,7 @@
 		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
 		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
 		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -411,7 +412,7 @@ class="arrow next"></span></p>
 <h1 id="introduction">Introduction</h1>
 <p><code>MFront</code> version 3.0 provides two interfaces for the
 <code>Abaqus/Standard</code> and <code>Abaqus/Explicit</code> finite
-element solvers. Those interfaces are fairly features complete:</p>
+element solvers. Those interfaces are fairly feature complete:</p>
 <ul>
 <li>Isotropic and orthotropic materials are supported.</li>
 <li>Small and finite strain behaviours are supported.</li>
@@ -425,7 +426,7 @@ As a consequence, those interfaces are not compatible “out of the box”:
 i.e. one cannot restart a simulation with <code>Abaqus/Explicit</code>
 after a computation with <code>Abaqus/Standard</code> without
 precautions.</p>
-<p><code>MFront</code> strives to provides behaviours that can be used
+<p><code>MFront</code> strives to provide behaviours that can be used
 “just-like” other <code>UMAT</code> and <code>VUMAT</code> subroutines,
 but there are some cases (namely finite strain orthotropic behaviours)
 where we were obliged to make some unusual choices that are described in
@@ -451,10 +452,11 @@ The <code>Native</code> finite strain strategy will use the
 in “rate-form” and also adds a correction to the tangent operator (see
 below for details). <em>The user must then be aware that when using the
 <code>Native</code> finite strain strategy, results will depend on the
-fact that an orientation is defined or not</em>. Futhermore, behaviours
+fact that an orientation is defined or not</em>. Furthermore, behaviours
 using the <code>Native</code> finite strain strategy (or no strategy at
-all) can not be ported to other solver. If portability is an issue,
-consider using one of the other finite strain strategy (see below).</li>
+all) can not be ported to other solvers. If portability is an issue,
+consider using one of the other finite strain strategies (see
+below).</li>
 <li>For <code>Abaqus/Standard</code>, the usage of the
 <code>Native</code> finite strain strategy is <strong>not</strong>
 compatible with <code>Abaqus/Explicit</code> because the latter always
@@ -468,19 +470,19 @@ not be checked.</li>
 <li>For <code>Abaqus/Standard</code>, one shall <em>not</em> combine the
 <code>MFront</code> orthotropy policy with the definition of an
 orientation.</li>
-<li>For <code>Abaqus/Standard</code>, one have to use the
+<li>For <code>Abaqus/Standard</code>, one has to use the
 <code>MFront</code> orthotropy policy to handle orthotropic finite
 strain behaviours (see below for details).</li>
 </ul>
 <h2 id="current-status">Current status</h2>
 <p>These interfaces have been extensively tested through
 <code>MTest</code>. Tests on <code>Abaqus/Standard</code> and
-<code>Abaqus/Explicit</code> shows that MFront behaviours are efficient
+<code>Abaqus/Explicit</code> show that MFront behaviours are efficient
 (to the extent allowed by the <code>UMAT</code> and <code>VUMAT</code>
 interfaces respectively) and reliable.</p>
 <h1
-id="how-the-use-mfront-behaviours-in-abaqusstandard-and-abaqusexplicit">How
-the use <code>MFront</code> behaviours in <code>Abaqus/Standard</code>
+id="how-to-use-mfront-behaviours-in-abaqusstandard-and-abaqusexplicit">How
+to use <code>MFront</code> behaviours in <code>Abaqus/Standard</code>
 and <code>Abaqus/Explicit</code></h1>
 <p>When compiling mechanical behaviours with the
 <code>Abaqus/Standard</code> and/or <code>Abaqus/Explicit</code>
@@ -504,7 +506,7 @@ the name of the material shall thus define the function to be called and
 the library in which this function is implemented.</p>
 <p>The function name includes the modelling hypothesis, see below. An
 identifier can <em>optionally</em> be added to reuse the same behaviour
-for several material (with different material properties for instance).
+for several materials (with different material properties for instance).
 The identifier is discarded in the <code>umat.cpp</code>,
 <code>vumat-sp.cpp</code> and <code>vumat-dp.cpp</code> files.</p>
 <p>Thus, the material name in <code>Abaqus/Standard</code> and
@@ -514,7 +516,7 @@ The identifier is discarded in the <code>umat.cpp</code>,
 (<code>lib</code>) or suffix (<code>.dll</code> or <code>.so</code>
 depending on the system). <em>This convention implies that the library
 name does not contain an underscore character</em>.</p>
-<p>For example, on <code>UNIX</code> systems, if one want to call the
+<p>For example, on <code>UNIX</code> systems, if one wants to call the
 <code>ELASTICITY_3D</code> behaviour in
 <code>libABAQUSBEHAVIOUR.so</code> library, the name of the material in
 the <code>Abaqus/Standard</code> input file has to be:
@@ -534,7 +536,7 @@ libraries using lower-case letters</em>.</p>
 only the generic files needs to be recompiled at each run. This is very
 handy since compiling the <code>MFront</code> libraries can be
 time-consuming. Those libraries can be shared between computations
-and/or between users when placed in a shared folders.</li>
+and/or between users when placed in shared folders.</li>
 <li>The fact that <code>MFront</code> generates one implementation per
 modelling hypothesis allows the distinction between the plane strain
 hypothesis and the axisymmetrical hypothesis. This is mandatory to
@@ -547,19 +549,19 @@ compilation or by using the <code>@Library</code> keyword.</li>
 the runtime time. This means that the libraries must be found by the
 dynamic loader of the operating system.</p>
 <h4 id="under-linux">Under Linux</h4>
-<p>Under Linux, the search path for dynamic libraries are specified
-using the <code>LD_LIBRARY_PATH</code> variable environment. This
-variable defines a colon-separated set of directories where libraries
-should be searched for first, before the standard set of
-directories.</p>
+<p>Under Linux, the search path for dynamic libraries is specified using
+the <code>LD_LIBRARY_PATH</code> environment variable. This variable
+defines a colon-separated set of directories where libraries should be
+searched for first, before the standard set of directories.</p>
 <p>Depending on the configuration of the system, the current directory
 can be considered by default.</p>
 <h4 id="under-windows">Under Windows</h4>
 <p>Under Windows, the dynamic libraries are searched:</p>
 <ul>
 <li>in the current directory</li>
-<li>in the directories listed in the <code>PATH</code> environment. This
-variable defines a semicolon-separated set of directories.</li>
+<li>in the directories listed in the <code>PATH</code> environment
+variable. This variable defines a semicolon-separated set of
+directories.</li>
 </ul>
 <h2
 id="compilation-of-the-generic-umat.cpp-or-vumat-.cpp-files">Compilation
@@ -609,10 +611,10 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a hr
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>               <span class="co"># &#39;-g&#39;,  # &lt;-- Debug symbols</span></span>
 <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>               <span class="st">&#39;-I%I&#39;</span>]</span>
 <span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>usub_lib_dir<span class="op">=</span><span class="st">&#39;&lt;path_to_mfront_generated_libraries&gt;:&lt;path_to_mfront&gt;/lib&#39;</span></span></code></pre></div>
-<p>The last line define a set of paths where shared libraries will be
+<p>The last line defines a set of paths where shared libraries will be
 searched for, which is useful if one does not want to install
-<code>TFEL</code> and <code>MFront</code> on in system-wide path (such
-as <code>/usr/</code>) or modify the <code>LD_LIBRARY_PATH</code>
+<code>TFEL</code> and <code>MFront</code> in a system-wide path (such as
+<code>/usr/</code>) or modify the <code>LD_LIBRARY_PATH</code>
 environment variable. One can also specify a shared directory (on a NFS
 file system for example) to access material behaviours shared among a
 team of colleagues.</p>
@@ -620,7 +622,7 @@ team of colleagues.</p>
 <code>Abaqus v2017</code></h3>
 <p>The appropriate flags can be defined in the
 <code>abaqus_v6.env</code> file that can be overridden by the user.</p>
-<p>For the <code>gcc</code> compiler, one have to add the
+<p>For the <code>gcc</code> compiler, one has to add the
 <code>--std=c++11</code> flag. The modifications to be made to the
 <code>abaqus_v6.env</code> are the following:</p>
 <div class="sourceCode" id="cb4"><pre
@@ -672,8 +674,8 @@ variables.</li>
 <p>For <code>Abaqus/Standard</code>, small and finite strain behaviours
 are supported. <strong>For orthotropic finite strain behaviours, one
 must use the <code>MFront</code> orthotropy management policy</strong>.
-The reason of these choices is given below.</p>
-<p>For <code>Abaqus/Explicit</code>, only finite strain are supported.
+The reasons for these choices are given below.</p>
+<p>For <code>Abaqus/Explicit</code>, only finite strain is supported.
 Small strain behaviours can be used using one of the finite strain
 strategies available.</p>
 <h2 id="modelling-hypotheses">Modelling hypotheses</h2>
@@ -693,12 +695,12 @@ interface</h1>
 compute:</p>
 <ul>
 <li>The evolution of the state variables.</li>
-<li>The value the Cauchy stress at the end of the time step.</li>
+<li>The value of the Cauchy stress at the end of the time step.</li>
 <li>The consistent tangent operator. The definition of the consistent
 tangent operator is given below.</li>
 </ul>
 <p>For finite strain analyses, small strain behaviours can be written in
-rate form. The behaviour in integrated in the Jauman framework. This is
+rate form. The behaviour is integrated in the Jauman framework. This is
 different from <code>Abaqus/Explicit</code> which uses a corotational
 basis based on the Green-Nagdi rate.</p>
 <h2
@@ -718,7 +720,7 @@ to:</p>
 and objectivity.</li>
 </ul>
 <p>Through the <code>@AbaqusFiniteStrainStrategy</code>, the user can
-select on of various finite strain strategies supported by
+select one of various finite strain strategies supported by
 <code>MFront</code>, which are described in this paragraph.</p>
 <blockquote>
 <p><strong>Note</strong></p>
@@ -729,7 +731,7 @@ mostly deprecated since <code>MFront 3.1</code>: see the
 <h3 id="the-native-finite-strain-strategy">The <code>Native</code>
 finite strain strategy</h3>
 <p>Among them is the <code>Native</code> finite strain strategy which
-relies on build-in <code>Abaqus/Standard</code> facilities to integrate
+relies on built-in <code>Abaqus/Standard</code> facilities to integrate
 the behaviours written in rate form. The <code>Native</code> finite
 strain strategy will use the Jauman rate.</p>
 <p>Those strategies have some theoretical drawbacks (hypoelasticity,
@@ -753,7 +755,7 @@ data-cites="miehe_anisotropic_2002">[3]</span> and
 </ul>
 <p>Those two strategies use lagrangian tensors, which automatically
 ensures the objectivity of the behaviour.</p>
-<p>Each of these two strategies define an energetic conjugate pair of
+<p>Each of these two strategies defines an energetic conjugate pair of
 strain or stress tensors:</p>
 <ul>
 <li>For the ‘FiniteRotationSmallStrain’ case, the strain tensor is the
@@ -829,10 +831,10 @@ corruption (segmentation error)</strong>.</p>
 finite strain strategies available through <code>MFront</code>.</p>
 <h3 id="the-native-finite-strain-strategy-1">The <code>Native</code>
 finite strain strategy</h3>
-<p>The <code>Native</code> finite strain strategy relies on build-in
+<p>The <code>Native</code> finite strain strategy relies on built-in
 <code>Abaqus/Explicit</code> facilities to integrate the behaviours
 written in rate form, i.e. it will integrate the behaviour using a
-corotationnal approach based on the polar decomposition of the
+corotational approach based on the polar decomposition of the
 deformation gradient.</p>
 <h3 id="recommended-finite-strain-strategies-1">Recommended finite
 strain strategies</h3>
@@ -864,7 +866,7 @@ alt="“Relation between tangent operators”" />
 <figcaption aria-hidden="true">“Relation between tangent
 operators”</figcaption>
 </figure>
-<p>Most information reported here are extracted from the book of
+<p>Most information reported here is extracted from the book of
 Belytschko (<span class="citation"
 data-cites="belytschko_nonlinear_2000">[4]</span>).</p>
 <h2 id="relations-between-tangent-operator">Relations between tangent

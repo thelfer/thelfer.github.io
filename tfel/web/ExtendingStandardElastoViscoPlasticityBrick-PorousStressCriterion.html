@@ -230,6 +230,7 @@
 		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
 		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
 		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -407,8 +408,8 @@ proposed by Michel and Suquet</a></li>
 <li><a
 href="#implementing-the-michel-and-suquet-hollow-sphere-stress-criterion"
 id="toc-implementing-the-michel-and-suquet-hollow-sphere-stress-criterion"><span
-class="toc-section-number">1.3</span> Implementing the Michel and
-Suquet’ hollow sphere stress criterion</a></li>
+class="toc-section-number">1.3</span> Implementing the Michel and Suquet
+hollow sphere stress criterion</a></li>
 <li><a href="#testing-the-derivatives-advanced-and-optional"
 id="toc-testing-the-derivatives-advanced-and-optional"><span
 class="toc-section-number">1.4</span> Testing the derivatives (advanced
@@ -438,19 +439,19 @@ class="toc-section-number">2.3</span> Compilation of the
 <li><a href="#testing-the-plugin" id="toc-testing-the-plugin"><span
 class="toc-section-number">2.4</span> Testing the plugin</a></li>
 </ul></li>
-<li><a href="#applications-to-uranimum-dioxyde-viscoplastic-behaviours"
-id="toc-applications-to-uranimum-dioxyde-viscoplastic-behaviours"><span
-class="toc-section-number">3</span> Applications to uranimum dioxyde
+<li><a href="#applications-to-uranium-dioxide-viscoplastic-behaviours"
+id="toc-applications-to-uranium-dioxide-viscoplastic-behaviours"><span
+class="toc-section-number">3</span> Applications to uranium dioxide
 viscoplastic behaviours</a>
 <ul>
-<li><a href="#implementation-of-salvo-viscoplastic-behaviour"
-id="toc-implementation-of-salvo-viscoplastic-behaviour"><span
-class="toc-section-number">3.1</span> Implementation of Salvo’
+<li><a href="#implementation-of-salvos-viscoplastic-behaviour"
+id="toc-implementation-of-salvos-viscoplastic-behaviour"><span
+class="toc-section-number">3.1</span> Implementation of Salvo’s
 viscoplastic behaviour</a></li>
 <li><a
-href="#coupling-of-the-salvo-viscoplastic-behaviour-with-the-ddif2-damage-law"
-id="toc-coupling-of-the-salvo-viscoplastic-behaviour-with-the-ddif2-damage-law"><span
-class="toc-section-number">3.2</span> Coupling of the Salvo’
+href="#coupling-of-the-salvos-viscoplastic-behaviour-with-the-ddif2-damage-law"
+id="toc-coupling-of-the-salvos-viscoplastic-behaviour-with-the-ddif2-damage-law"><span
+class="toc-section-number">3.2</span> Coupling of the Salvo’s
 viscoplastic behaviour with the <code>DDIF2</code> damage law</a></li>
 </ul></li>
 <li><a href="#references" id="toc-references">References</a></li>
@@ -471,16 +472,17 @@ href="StandardElastoViscoPlasticityBrick.html">here</a>.</p>
 <blockquote>
 <p><strong>Note</strong></p>
 <p>This tutorial only covers <em>isotropic</em> stress criteria.
-Orthotropic stress criteria requires to take care of the orthotropic
-axes convention.</p>
+Orthotropic stress criteria require taking care of the orthotropic axes
+convention.</p>
 <p>See the documentation of the <code>@OrthotropicBehaviour</code>
 keyword for details:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mfront</span> <span class="at">--help-keyword</span><span class="op">=</span>Implicit:@OrthotropicBehaviour</span></code></pre></div>
 </blockquote>
-<p>Those steps are illustrated by the implementation so-called hollow
-sphere criterion proposed by Michel and Suquet which describe the
-macroscopic viscoplasticty of a porous material by the following law
-(see <span class="citation" data-cites="michel_constitutive_1992">[<a
+<p>Those steps are illustrated by the implementation of the so-called
+hollow sphere criterion proposed by Michel and Suquet which describes
+the macroscopic viscoplasticity of a porous material by the following
+law (see <span class="citation"
+data-cites="michel_constitutive_1992">[<a
 href="#ref-michel_constitutive_1992"
 role="doc-biblioref">1</a>]</span>):</p>
 <p>The viscoplastic strain rate is defined by:</p>
@@ -522,14 +524,14 @@ class="math inline">\(B{\left(f\right)}={\left(1+{{\displaystyle
 <li><span class="math inline">\(n\)</span> is the Norton exponent of the
 matrix</li>
 </ul>
-<p>This flow is associated, to the flow direction is given by:</p>
+<p>This flow is associated; the flow direction is given by:</p>
 <p><span class="math display">\[
 \underline{n}^{MS}={\displaystyle \frac{\displaystyle \partial
 \sigma_{\mathrm{eq}}^{MS}}{\displaystyle \partial \underline{\sigma}}}
 \]</span></p>
 <blockquote>
 <p><strong>Implicit schemes</strong></p>
-<p>This document assumes that the reader has prior knowledge on how the
+<p>This document assumes that the reader has prior knowledge on how to
 integrate a behaviour using an implicit scheme with
 <code>MFront</code>.</p>
 <p>Appropriate introductory materials are given in the <a
@@ -565,12 +567,12 @@ given stress state.</li>
 derivatives for the given stress state.</li>
 </ul></li>
 </ul>
-<p>The second file give a skeleton required to implement those three
+<p>The second file gives a skeleton required to implement those three
 functions.</p>
 <p>Implementing a new stress criterion boils down to the following
 steps:</p>
 <ol type="1">
-<li>Rename those file to explicitly indicate the name of the stress
+<li>Rename those files to explicitly indicate the name of the stress
 criterion.</li>
 <li>Replace the following strings by the appropriate values as described
 below:</li>
@@ -591,13 +593,12 @@ id="creating-a-proper-working-directory-for-the-example-of-the-so-called-hollow-
 class="header-section-number">1.2</span> Creating a proper working
 directory for the example of the so-called hollow sphere criterion
 proposed by Michel and Suquet</h2>
-<p>In this paragraph, we detail Steps 1 and 2. for the case of the
-so-called hollow sphere criterion proposed by Michel and Suquet
-criterion (see <span class="citation"
-data-cites="michel_constitutive_1992">[<a
+<p>In this paragraph, we detail Steps 1 and 2 for the case of the
+so-called hollow sphere criterion proposed by Michel and Suquet (see
+<span class="citation" data-cites="michel_constitutive_1992">[<a
 href="#ref-michel_constitutive_1992" role="doc-biblioref">1</a>]</span>)
 which will be used as an illustrative example throughout this document.
-We describe all those steps in details and finally gives a shell script
+We describe all those steps in detail and finally give a shell script
 that automates the whole process for <code>LiNuX</code> users. When
 providing command line examples, we assume that the shell is
 <code>bash</code>.</p>
@@ -609,7 +610,7 @@ respectively
 and
 <code>MichelAndSuquet1992HollowPorousStressCriterionTest.ixx</code>.</p>
 <p>The <code>MFront</code> template files must be copied in the working
-directory and renamed appropriatly.</p>
+directory and renamed appropriately.</p>
 <p>This can be done by taping the following commands in the terminal
 (under <code>LiNuX</code> or <code>Mac Os</code>):</p>
 <div class="sourceCode" id="cb2"><pre
@@ -648,29 +649,29 @@ following command (for <code>LiNuX</code> users) :</p>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code></pre></div>
 <p>All those steps are summarized in the following script, which can be
 downloaded <a href="scripts/generate-porous.sh">here</a>.</p>
-<p>In conclusion, a recommended for starting the development of the a
+<p>In conclusion, a recommended way for starting the development of a
 new stress criterion is to download the previous script, modify
 appropriately the first lines to match your need and run it.</p>
 <blockquote>
 <p><strong>Note</strong></p>
 <p>At this stage, you shall already be able to verify that the provided
-<code>MFront</code> implementations barely compiles by typing in the
+<code>MFront</code> implementations barely compile by typing in the
 <code>tests/test1</code> directory:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mfront</span> <span class="at">-I</span> <span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>/../../include <span class="at">--obuild</span> <span class="dt">\</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">--interface</span><span class="op">=</span>generic        <span class="dt">\</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>       MichelAndSuquet1992HollowSphereTestPerfectPlasticity.mfront</span></code></pre></div>
-<p>Note the <code>-I $(pwd)/../../include</code> flags which allows
+<p>Note the <code>-I $(pwd)/../../include</code> flags which allow
 <code>MFront</code> to find the header files implementing the stress
-criterion (In <code>bash</code>, <code>$(pwd)</code> return the current
+criterion (In <code>bash</code>, <code>$(pwd)</code> returns the current
 directory).</p>
 </blockquote>
 <h2 data-number="1.3"
 id="implementing-the-michel-and-suquet-hollow-sphere-stress-criterion"><span
 class="header-section-number">1.3</span> Implementing the Michel and
-Suquet’ hollow sphere stress criterion</h2>
+Suquet hollow sphere stress criterion</h2>
 <p>In this paragraph, we detail all the steps required to implement the
-Michel and Suquet’ hollow sphere stress criterion. In a new directory,
-we just follow the steps given by the previous paragraph:</p>
+Michel and Suquet hollow sphere stress criterion. In a new directory, we
+just follow the steps given by the previous paragraph:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://thelfer.github.io/tfel/web/scripts/generate-porous.sh</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> +x generate-porous.sh</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">./generate-porous.sh</span></span></code></pre></div>
@@ -689,8 +690,8 @@ class="math inline">\(n\)</span>.</p>
 values:</p>
 <ul>
 <li><code>feps</code>, which will be used to tell if the porosity is
-closed to its physical bounds, <span class="math inline">\(0\)</span>
-and <span class="math inline">\(1\)</span>.</li>
+close to its physical bounds, <span class="math inline">\(0\)</span> and
+<span class="math inline">\(1\)</span>.</li>
 <li><code>feps2</code>, which will be used to regularise the derivative
 <span class="math inline">\({\displaystyle \frac{\displaystyle \partial
 A}{\displaystyle \partial f}}\)</span> as described below.</li>
@@ -751,7 +752,7 @@ function is implemented in the
 <code>MichelAndSuquet1992HollowSphereTestStressCriterion.ixx</code>
 file.</p>
 <p>The main difficulty is the computation of <span
-class="math inline">\(A{\left(f\right)}\)</span> when the porosity ends
+class="math inline">\(A{\left(f\right)}\)</span> when the porosity tends
 toward <span class="math inline">\(0\)</span>. The limit is well
 defined, but the intermediate expression <span
 class="math inline">\(f^{-1/n}\)</span> is undefined. To avoid this
@@ -1418,9 +1419,9 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb23-1"><a href="#
 <span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> opts<span class="op">;</span></span>
 <span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="co">// end of MichelAndSuquet1992HollowSphereTestStressCriterion::getOptions()</span></span></code></pre></div>
 <p>The <code>getPorosityEffectOnEquivalentPlasticStrain</code> method
-must be modified. But default, its returns the
+must be modified. By default, it returns the
 <code>STANDARD_POROSITY_CORRECTION_ON_EQUIVALENT_PLASTIC_STRAIN</code>
-value which would define define the increment of the viscoplastic strain
+value which would define the increment of the viscoplastic strain
 as:</p>
 <p><span class="math display">\[
 \Delta\,\underline{\varepsilon}^{\mathrm{vp}}=
@@ -1455,9 +1456,9 @@ class="sourceCode sh"><code class="sourceCode bash"><span id="cb25-1"><a href="#
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>      <span class="kw">`</span><span class="ex">tfel-config</span> <span class="at">--libs</span><span class="kw">`</span> <span class="at">-lTFELMFront</span>                   <span class="dt">\</span></span>
 <span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">--shared</span> <span class="at">-fPIC</span> MichelAndSuquet1992HollowSphereTestStressCriterion.cxx         <span class="dt">\</span></span>
 <span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">-o</span> libAdditionalStressCriteria.so</span></code></pre></div>
-<p>The calls to <code>tfel-config</code> allows retrieving the paths to
+<p>The calls to <code>tfel-config</code> allow retrieving the paths to
 the <code>TFEL</code> headers and libraries. The
-<code>MFRONT_ADITIONNAL_LIBRARY</code> flag activate a portion of the
+<code>MFRONT_ADITIONNAL_LIBRARY</code> flag activates a portion of the
 source file whose only purpose is to register the
 <code>MichelAndSuquet1992HollowSphereTest</code> stress criterion in an
 abstract factory.</p>
@@ -1510,14 +1511,14 @@ class="sourceCode sh"><code class="sourceCode bash"><span id="cb27-1"><a href="#
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  mfront <span class="at">-I</span> <span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>/../../include/ <span class="at">--obuild</span> <span class="at">--interface</span><span class="op">=</span>generic                <span class="dt">\</span></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  MichelAndSuquet1992HollowSphereTestViscoPlasticity.mfront</span></code></pre></div>
 <p>This implementation can be checked with the same <code>MTest</code>
-file than in the first part of this tutorial.</p>
+file as in the first part of this tutorial.</p>
 <h1 data-number="3"
-id="applications-to-uranimum-dioxyde-viscoplastic-behaviours"><span
-class="header-section-number">3</span> Applications to uranimum dioxyde
+id="applications-to-uranium-dioxide-viscoplastic-behaviours"><span
+class="header-section-number">3</span> Applications to uranium dioxide
 viscoplastic behaviours</h1>
 <h2 data-number="3.1"
-id="implementation-of-salvo-viscoplastic-behaviour"><span
-class="header-section-number">3.1</span> Implementation of Salvo’
+id="implementation-of-salvos-viscoplastic-behaviour"><span
+class="header-section-number">3.1</span> Implementation of Salvo’s
 viscoplastic behaviour</h2>
 <p>This behaviour has been described in <span class="citation"
 data-cites="salvo_experimental_2015-1">[<a
@@ -1573,16 +1574,16 @@ stage and shall be carefully verified before any usage in a fuel
 performance code.</p>
 </blockquote>
 <h2 data-number="3.2"
-id="coupling-of-the-salvo-viscoplastic-behaviour-with-the-ddif2-damage-law"><span
-class="header-section-number">3.2</span> Coupling of the Salvo’
+id="coupling-of-the-salvos-viscoplastic-behaviour-with-the-ddif2-damage-law"><span
+class="header-section-number">3.2</span> Coupling of the Salvo’s
 viscoplastic behaviour with the <code>DDIF2</code> damage law</h2>
 <p>The <code>DDIF2</code> damage law is currently the standard damage
-law used in <code>CEA</code>’ fuel performance codes (see <span
+law used in <code>CEA</code>’s fuel performance codes (see <span
 class="citation"
 data-cites="michel_3d_2008 michel_3d_2016 michel_new_2017">[<a
 href="#ref-michel_3d_2008" role="doc-biblioref">3</a>–<a
 href="#ref-michel_new_2017" role="doc-biblioref">5</a>]</span> for a
-complete description). Coupling of the Salvo’ viscoplastic behaviour
+complete description). Coupling of the Salvo’s viscoplastic behaviour
 with the <code>DDIF2</code> damage law boils downs to replacing the
 <code>Hooke</code> stress potential with the <code>DDIF2</code> stress
 potential, as follows:</p>

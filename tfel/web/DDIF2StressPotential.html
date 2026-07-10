@@ -166,6 +166,7 @@
 		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
 		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
 		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -342,7 +343,7 @@ id="toc-resolution-algorithm">Resolution algorithm</a></li>
 </ul>
 </div>
 <p>This page describes the <code>DDIF2</code> stress potential which
-describes a damaging law used in CEA’ fuel performance codes. See <span
+describes a damaging law used in CEA’s fuel performance codes. See <span
 class="citation"
 data-cites="michel_3d_2008 michel_3d_2016 michel_new_2017">[1–3]</span>.</p>
 <p>The <code>DDIF2</code> behaviour is used to describe the brittle
@@ -369,18 +370,18 @@ associated with damage</h1>
 properties:</p>
 <ul>
 <li>the fracture stresses in each direction. Two options can be used to
-described them:
+describe them:
 <ul>
 <li>if the <code>fracture_stress</code> option is used, the fracture
-stresses are equal in each directions.</li>
+stresses are equal in each direction.</li>
 <li>otherwise, the <code>fracture_stresses</code> keyword can be used to
 describe the fracture stresses in each of the three directions.</li>
 </ul></li>
 <li>the softening slopes stresses in each direction. Two options can be
-used to described them:
+used to describe them:
 <ul>
 <li>if the <code>softening_slope</code> option is used, the softening
-slopes are equal in each directions.</li>
+slopes are equal in each direction.</li>
 <li>otherwise, the <code>softening_slopes</code> keyword can be used to
 describe the softening slopes in each of the three directions.</li>
 </ul></li>
@@ -404,7 +405,7 @@ an external state variable called <code>pr</code>, which external name
 is <code>PressureOnCrackSurface</code>, is automatically declared.</p>
 <h1 id="resolution-algorithm">Resolution algorithm</h1>
 <p>By default, the <code>DDIF2</code> damage behaviour is treated using
-an algorithm based on statuses. In each damage directions, the damage
+an algorithm based on statuses. In each damage direction, the damage
 state is kept constant during the Newton iterations. Once converged, the
 consistency of the damage state with the solution found is tested. If
 the state is inconsistent, the iterations are restarted with a new
@@ -420,7 +421,7 @@ restarted.</p>
 has two options to change this behaviour:</p>
 <ul>
 <li><code>use_status_algorithm</code> (boolean value, true by default).
-If false, the damage state is updated at each iterations.</li>
+If false, the damage state is updated at each iteration.</li>
 <li><code>first_converge_on_damage</code> (boolean value, true by
 default). If false, the time step is not set to zero at the prediction
 stage.</li>

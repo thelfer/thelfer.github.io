@@ -230,6 +230,7 @@
 		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
 		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
 		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -445,9 +446,9 @@ class="math inline">\(\underline{\varepsilon}^{\mathrm{p}}\)</span>:</p>
 \]</span></p>
 <h2 id="elastic-behaviour">Elastic behaviour</h2>
 <p>The stress <span class="math inline">\(\underline{\sigma}\)</span> is
-related to the the elastic strain <span
+related to the elastic strain <span
 class="math inline">\(\underline{\varepsilon}^{\mathrm{el}}\)</span> by
-a the orthotropic elastic stiffness <span
+the orthotropic elastic stiffness <span
 class="math inline">\(\underline{\underline{\mathbf{D}}}\)</span>:</p>
 <p><span class="math display">\[
 \underline{\sigma}=
@@ -503,9 +504,9 @@ the following, the first (tensorial) equation is noted <span
 class="math inline">\(f_{\underline{\varepsilon}^{\mathrm{el}}}\)</span>
 and the second (scalar) equation is noted <span
 class="math inline">\(f_{p}\)</span>.</p>
-<p>In practice, it is physically sound to make satisfy exactly the yield
+<p>In practice, it is physically sound to satisfy exactly the yield
 condition at the end of the time step (otherwise, stress extrapolation
-can lead to stress state outside the yield surface and spurious
+can lead to a stress state outside the yield surface and spurious
 oscillations can also be observed). This leads to the choice <span
 class="math inline">\(\theta=1\)</span>.</p>
 <h3 id="computation-of-the-jacobian">Computation of the jacobian</h3>
@@ -561,10 +562,10 @@ trivially: <span class="math display">\[
 <h1 id="implementation">Implementation</h1>
 <p>In the plastic loading case, the system of equations to be solved is
 <em>non-linear</em>. We choose the Newton-Raphson algorithm with an
-analytical jacobian. Compared to other algorithm available in
+analytical jacobian. Compared to other algorithms available in
 <code>MFront</code> (Runge-Kutta, Broyden, Newton-Raphson with numerical
 jacobian, etc..), this algorithm is generally the <em>most
-efficient</em> in pratice.</p>
+efficient</em> in practice.</p>
 <h2 id="preamble">Preamble</h2>
 <p>The implementation begins with the choice of the
 <code>Implicit</code> domain specific language (dsl):</p>
@@ -572,7 +573,7 @@ efficient</em> in pratice.</p>
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DSL Implicit<span class="op">;</span></span></code></pre></div>
 <p>Note that this dsl automatically declares the elastic strain
 <code>eel</code> as a state variable.</p>
-<p>As discussed before, we explicit state that a fully implicit
+<p>As discussed before, we explicitly state that a fully implicit
 integration will be used by default:</p>
 <div class="sourceCode" id="cb2"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Theta <span class="dv">1</span><span class="op">;</span></span></code></pre></div>
@@ -596,7 +597,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#c
 hypotheses:</p>
 <div class="sourceCode" id="cb5"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ModellingHypotheses <span class="op">{</span><span class="st">&quot;.+&quot;</span><span class="op">};</span></span></code></pre></div>
-<p>The support of plane stress modelling hypotheses are handled by the
+<p>The support of plane stress modelling hypotheses is handled by the
 <code>StandardElasticity</code> brick and will not be discussed
 here.</p>
 <h3 id="usage-of-the-standardelasticity-brick">Usage of the
@@ -637,18 +638,19 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#c
 second variable <code>D_tdt</code> is also introduced. As the material
 properties are constants, <code>D_tdt</code> is an alias to
 <code>D</code>.</p>
-<p>The elastic material properties can be changed at runtime time by
+<p>The elastic material properties can be changed at runtime by
 modifying the following parameters: <code>YoungModulus1</code>,
 <code>YoungModulus2</code>,<code>YoungModulus3</code>,
 <code>PoissonRatio12</code>, <code>PoissonRatio23</code>,
 <code>PoissonRatio13</code>, <code>ShearModulus12</code>,
 <code>ShearModulus23</code> and <code>ShearModulus13</code>.</p>
 <p>Rather than constants, one can also use correlations implemented in
-seperate <code>MFront</code> files. This allows to take into account the
-dependency of the material properties with the temperature for example.
-In this case, the variable <code>D</code> contains the stiffness tensor
-at <span class="math inline">\(t+\theta\,\Delta\,t\)</span> and the
-variable <code>D_tdt</code> contains the stiffness tensor at <span
+separate <code>MFront</code> files. This allows one to take into account
+the dependency of the material properties with the temperature for
+example. In this case, the variable <code>D</code> contains the
+stiffness tensor at <span
+class="math inline">\(t+\theta\,\Delta\,t\)</span> and the variable
+<code>D_tdt</code> contains the stiffness tensor at <span
 class="math inline">\(t+\Delta\,t\)</span>.</p>
 <p>Another possibility is to use the
 <code>@RequireStiffnessTensor</code> keyword. In this case, the elastic

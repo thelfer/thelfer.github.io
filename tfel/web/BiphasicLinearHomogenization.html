@@ -231,6 +231,7 @@
 		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
 		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
 		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -433,7 +434,7 @@ assumptions are made:</p>
 <ul>
 <li>the microstructure is biphasic</li>
 <li>the phases are locally isotropic</li>
-<li>one phase is a matrix, the other is made by inclusions</li>
+<li>one phase is a matrix, the other is made of inclusions</li>
 <li>the shape of inclusions can be spherical, spheroidal, ellipsoidal,
 otherwise the mean strain localisator (for a single inclusion problem)
 can be provided by the user</li>
@@ -532,8 +533,8 @@ contains the Young homogenized modulus and the homogenized Poisson
 ratio. The computation of dilute scheme and Mori-Tanaka scheme are
 straightforward.</p>
 <p>The function <code>computeIsotropicHashinShtrikmanBounds</code>
-necessitates to give the arrays of volume fractions <code>tab_f</code>,
-bulk moduli <code>tab_k</code> and shear moduli <code>tab_mu</code>. The
+requires giving the arrays of volume fractions <code>tab_f</code>, bulk
+moduli <code>tab_k</code> and shear moduli <code>tab_mu</code>. The
 function returns a <code>std::pair</code> of <code>std::pair</code>. The
 first pair is lower HS bound, the second is upper HS bound (that we want
 here). Each bound is <code>std::pair</code> whose first attribute is the
@@ -603,9 +604,9 @@ class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><sp
 <span id="biphasic-18"><a href="#biphasic-18"></a>c<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;ThirdSemiLength&quot;</span><span class="op">);</span></span></code></pre></div>
 <p>Note that the orientation for the oriented case will be fixed in the
 <code>mfront</code> file, and it will be the same for the transverse
-isotropic case which necessitates to gives the direction of one of the
-axes of the ellipsoid. But those orientations could also be inputs of
-the law.</p>
+isotropic case which requires giving the direction of one of the axes of
+the ellipsoid. But those orientations could also be inputs of the
+law.</p>
 <p>Here is the <code>Function</code> block:</p>
 <div class="sourceCode" id="biphasic"><pre
 class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="biphasic-1"><a href="#biphasic-1"></a><span class="er">@</span>Function<span class="op">{</span></span>

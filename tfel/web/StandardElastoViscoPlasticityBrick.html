@@ -231,6 +231,7 @@
 		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
 		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
 		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -391,8 +392,8 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#a-detailled-example" id="toc-a-detailled-example"><span
-class="toc-section-number">0.1</span> A detailled Example</a></li>
+<li><a href="#a-detailed-example" id="toc-a-detailed-example"><span
+class="toc-section-number">0.1</span> A detailed Example</a></li>
 <li><a href="#list-of-available-stress-potentials"
 id="toc-list-of-available-stress-potentials"><span
 class="toc-section-number">1</span> List of available stress
@@ -476,8 +477,8 @@ evolution of porosity is described on a <a
 href="StandardElastoViscoPlasticityBrick-PorousPlasticity.html">dedicated
 page</a>.</p>
 </blockquote>
-<h2 data-number="0.1" id="a-detailled-example"><span
-class="header-section-number">0.1</span> A detailled Example</h2>
+<h2 data-number="0.1" id="a-detailed-example"><span
+class="header-section-number">0.1</span> A detailed Example</h2>
 <div class="sourceCode" id="cb1"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick <span class="st">&quot;StandardElastoViscoPlasticity&quot;</span> <span class="op">{</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Here the stress potential is given by the Hooke law. We define:</span></span>
@@ -495,7 +496,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#c
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Here we define only one viscplastic flow defined by the Norton law,</span></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="co">// which is based:</span></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="co">// - the von Mises stress criterion</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="co">// - one isotorpic hardening rule based on Voce formalism</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="co">// - one isotropic hardening rule based on Voce formalism</span></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="co">// - one kinematic hardening rule following the Armstrong-Frederick law</span></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  inelastic_flow <span class="op">:</span> <span class="st">&quot;Norton&quot;</span> <span class="op">{</span></span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    criterion <span class="op">:</span> <span class="st">&quot;Mises&quot;</span><span class="op">,</span></span>
@@ -548,7 +549,7 @@ href="HookeStressPotential.html">here</a>.</p>
 class="header-section-number">1.2</span> The
 <code>IsotropicDamage</code> stress potential</h2>
 <p>This stress potential adds to the Hooke stress potential the
-description of an isotropioc damage. The relation <span
+description of an isotropic damage. The relation <span
 class="math display">\[
 \underline{\sigma}=\left(1-d\right)\,\underline{\mathbf{D}}\,\colon\,\underline{\epsilon}^{\mathrm{el}}
 \]</span> where <span
@@ -582,15 +583,15 @@ class="header-section-number">2.1</span> Generalities</h2>
 <h3 data-number="2.1.1" id="about-the-equivalent-strain"><span
 class="header-section-number">2.1.1</span> About the equivalent
 strain</h3>
-<p>Most inelastic flows introduces an equivalent strain as a measure of
+<p>Most inelastic flows introduce an equivalent strain as a measure of
 the material’s hardening.</p>
 <p>This state variable is named <code>p</code>+<code>id</code> where
 <code>id</code> is an identifier associated with the inelastic flow.
-<code>id</code> is empty if only one inelastic flows is defined and
-contain a number otherwise. More precisely, when several inelastic flows
-are defined, <code>0</code> is the <code>id</code> of the first inelatic
-flow, <code>1</code> is the <code>id</code> of the second inelatic flow,
-etc..</p>
+<code>id</code> is empty if only one inelastic flow is defined and
+contains a number otherwise. More precisely, when several inelastic
+flows are defined, <code>0</code> is the <code>id</code> of the first
+inelastic flow, <code>1</code> is the <code>id</code> of the second
+inelastic flow, etc.</p>
 <p>The default external name of the equivalent strain depends on the
 inelastic flow selected:</p>
 <ul>
@@ -600,7 +601,7 @@ plastic flows,</li>
 viscoplastic flows.</li>
 </ul>
 <p>See Section 2.3.1 for how to change the external name of the
-equilavent strain.</p>
+equivalent strain.</p>
 <h2 data-number="2.2" id="list-of-available-inelastic-flows"><span
 class="header-section-number">2.2</span> List of available inelastic
 flows</h2>
@@ -626,7 +627,7 @@ class="math display">\[
 \end{aligned}
 \right.
 \]</span></p>
-<p>The flow is associated is <span class="math inline">\(f\)</span> is
+<p>The flow is associated if <span class="math inline">\(f\)</span> is
 equal to <span class="math inline">\(g\)</span>. In practice <span
 class="math inline">\(f\)</span> is defined by a stress criterion <span
 class="math inline">\(\phi\)</span>, a set of kinematic hardening rules,
@@ -661,7 +662,7 @@ by the <code>maximum_equivalent_stress_factor</code> option.</p>
 <p>In some cases, rejecting steps may also lead to a divergence of the
 Newton algorithm, so one may specify a relative threshold <span
 class="math inline">\(\beta\)</span> on the iteration number which
-desactivate this check, i.e. the check is performed only if the current
+deactivates this check, i.e. the check is performed only if the current
 iteration number is below <span
 class="math inline">\(\beta\,\cdot\,i_{\max{}}\)</span> where <span
 class="math inline">\(i_{\max{}}\)</span> is the maximum number of
@@ -726,7 +727,7 @@ class="math inline">\(\dot{p}\)</span> is defined as:</p>
 \dfrac{1}{\dot{p}}=\sum_{i=1}^{N}\dfrac{1}{\dot{p}_{i}}
 \]</span></p>
 <p>where <span class="math inline">\(\dot{p}_{i}\)</span> has an
-expression similar to the the Norton-Hoff viscoplastic flow:</p>
+expression similar to the Norton-Hoff viscoplastic flow:</p>
 <p><span class="math display">\[
 \dot{p}_{i}=A_{i}\,{\left(\dfrac{\left&lt;\phi{\left(\underline{\sigma}-\sum_{j}\underline{X}_{j}\right)}-\sum_{j}R_{j}{\left(p\right)}\right&gt;}{K_{i}}\right)}^{n_{i}}
 \]</span></p>
@@ -772,8 +773,8 @@ criterion.</li>
 <li><code>p</code> is the equivalent viscoplastic strain.</li>
 </ul>
 <p>This function shall be given by a string option named
-<code>vp</code>. This function must depend on <code>f</code>. Dependance
-to <code>p</code> is optional.</p>
+<code>vp</code>. This function must depend on <code>f</code>. Dependence
+on <code>p</code> is optional.</p>
 <p>The function may also depend on other variables. Let <code>A</code>
 be such a variable. The <code>UserDefinedViscoplasticity</code> flow
 will look if an option named <code>A</code> has been given to the
@@ -820,8 +821,8 @@ options</h2>
 id="sec:StandardElastoViscoPlasticity:equivalent_strain_external_name"><span
 class="header-section-number">2.3.1</span> External name of the
 equivalent strain</h3>
-<p>All inelastic flows allows to change the external name of the
-equilvaent strain with the <code>equivalent_strain_external_name</code>
+<p>All inelastic flows allow changing the external name of the
+equivalent strain with the <code>equivalent_strain_external_name</code>
 option.</p>
 <h4 data-number="2.3.1.1" id="example-of-usage-1"><span
 class="header-section-number">2.3.1.1</span> Example of usage</h4>
@@ -838,15 +839,15 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#c
 class="header-section-number">2.3.2</span> Newton steps rejections based
 on the change of the flow direction between two successive
 estimates</h3>
-<p>Some stress criteria (Hosford 1972, Barlat 2004, Mohr-Coulomb) shows
+<p>Some stress criteria (Hosford 1972, Barlat 2004, Mohr-Coulomb) show
 sharp edges that may cause the failure of the standard Newton algorithm,
 due to oscillations in the prediction of the flow direction.</p>
 <p>Rejecting Newton steps leading to a too large variation of the flow
 direction between the new estimate of the flow direction and the
 previous estimate is a cheap and efficient method to overcome this
 issue. This method can be viewed as a bisectional linesearch based on
-the Newton prediction: the Newton steps magnitude is divided by two if
-its results to a too large change in the flow direction.</p>
+the Newton prediction: the Newton step’s magnitude is divided by two if
+it results in a too large change in the flow direction.</p>
 <p>More precisely, the change of the flow direction is estimated by the
 computation of the cosine of the angle between the two previous
 estimates:</p>

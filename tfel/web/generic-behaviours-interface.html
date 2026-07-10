@@ -167,6 +167,7 @@
 		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
 		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
 		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -365,12 +366,12 @@ choice explains why this project is not part of the
 <h2 id="supported-behaviours">Supported behaviours</h2>
 <p>The generic behaviour interface supports:</p>
 <ul>
-<li>strain based behaviours. The definition of the strain depends of the
+<li>strain based behaviours. The definition of the strain depends on the
 strain measure used (see the
 <code>MFront</code>’<code>@StrainMeasure</code> keyword).</li>
 <li>finite strain behaviours.</li>
 <li>cohesive zone models</li>
-<li>general behaviours which relates a set of gradients to a set of
+<li>general behaviours which relate a set of gradients to a set of
 thermodynamic forces.</li>
 </ul>
 <h2 id="supported-modelling-hypotheses">Supported modelling
@@ -405,12 +406,12 @@ the Green-Lagrange strain.</li>
 </ul>
 <h2 id="support-of-orthotropic-behaviours">Support of orthotropic
 behaviours</h2>
-<p>Orthotropic behaviours requires to:</p>
+<p>Orthotropic behaviours require to:</p>
 <ul>
-<li>rotate the gradients in the material frame in the global frame
+<li>rotate the gradients in the material frame to the global frame
 before the behaviour integration.</li>
 <li>rotate the thermodynamic forces and the tangent operator blocks from
-the material frame in the global frame.</li>
+the material frame to the global frame.</li>
 </ul>
 <p>By design, the <code>generic</code> behaviour interface does not
 automatically perform those rotations as part of the behaviour
@@ -438,21 +439,21 @@ and the tangent operators blocks, this rotation matrix is transposed
 internally to get the rotation matrix from the material frame to the
 global frame.</li>
 </ul>
-<p>In place rotations is explicitly allowed, i.e. the first and second
+<p>In place rotations are explicitly allowed, i.e. the first and second
 arguments can be a pointer to the same location.</p>
-<p>The three previous functions works for an integration point. Three
+<p>The three previous functions work for an integration point. Three
 other functions are also generated:</p>
 <ul>
 <li><code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateArrayOfGradients</code></li>
 <li><code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateArrayOfThermodynamicForces</code></li>
 <li><code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateArrayOfTangentOperatorBlocks</code></li>
 </ul>
-<p>Those functions takes an additional arguments which is the number of
+<p>Those functions take an additional argument which is the number of
 integration points to be treated.</p>
 <h3 id="finite-strain-behaviours">Finite strain behaviours</h3>
 <p>As devised in Section 1.3, finite strain behaviours are a special
 case, because the returned stress measure and the returned tangent
-operator can be chosen at runtime time. A specific rotation function is
+operator can be chosen at run time. A specific rotation function is
 generated for each supported stress measure and each supported tangent
 operator.</p>
 <p>Here is the list of the generated functions:</p>

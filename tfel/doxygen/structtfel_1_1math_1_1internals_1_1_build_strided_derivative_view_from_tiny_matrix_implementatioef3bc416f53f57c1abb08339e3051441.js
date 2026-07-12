@@ -1,0 +1,4 @@
+var structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix_implementatioef3bc416f53f57c1abb08339e3051441 =
+[
+    [ "type", "structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix_implementatioef3bc416f53f57c1abb08339e3051441.html#ab511aac0c5417ad91da01312ce8c24b2", null ]
+];

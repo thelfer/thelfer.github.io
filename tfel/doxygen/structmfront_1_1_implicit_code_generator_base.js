@@ -1,7 +1,7 @@
 var structmfront_1_1_implicit_code_generator_base =
 [
     [ "DerivativeViewDescription", "structmfront_1_1_implicit_code_generator_base_1_1_derivative_view_description.html", "structmfront_1_1_implicit_code_generator_base_1_1_derivative_view_description" ],
-    [ "ImplicitCodeGeneratorBase", "structmfront_1_1_implicit_code_generator_base.html#ae72c36235929512d74a9c292c24a7c3a", null ],
+    [ "ImplicitCodeGeneratorBase", "structmfront_1_1_implicit_code_generator_base.html#a85a01be33ee767ed4d22ded514acf128", null ],
     [ "~ImplicitCodeGeneratorBase", "structmfront_1_1_implicit_code_generator_base.html#aa7f73636d120e1b5f4462a150a815367", null ],
     [ "getIntegrationVariablesIncrementsInitializers", "structmfront_1_1_implicit_code_generator_base.html#a2b6f6296e1059b2f853721f274893f03", null ],
     [ "getLocalVariablesInitializers", "structmfront_1_1_implicit_code_generator_base.html#ab33aadb1db0afde7015a74058ca01d4f", null ],
@@ -10,6 +10,5 @@ var structmfront_1_1_implicit_code_generator_base =
     [ "writeBehaviourParserSpecificInitializeMethodPart", "structmfront_1_1_implicit_code_generator_base.html#a0e6067b31501f2fcca38117ce296557b", null ],
     [ "writeComputePartialJacobianInvert", "structmfront_1_1_implicit_code_generator_base.html#a0ccf88acd88445bd39a0c76837043f71", null ],
     [ "writeDerivativeView", "structmfront_1_1_implicit_code_generator_base.html#a7ef21daaab20bdca5a7629060fbda161", null ],
-    [ "linear_solver", "structmfront_1_1_implicit_code_generator_base.html#a730e057d03be3154d7e64455c2e50201", null ],
-    [ "solver", "structmfront_1_1_implicit_code_generator_base.html#ab77aab54767a477b28f96bfd7513fbb4", null ]
+    [ "solver", "structmfront_1_1_implicit_code_generator_base.html#a32775990d05e8730d07f299a198ec80b", null ]
 ];

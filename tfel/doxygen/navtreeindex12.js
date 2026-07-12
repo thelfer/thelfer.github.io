@@ -1,10 +1,7 @@
 var NAVTREEINDEX12 =
 {
-"classtfel_1_1math_1_1internals_1_1_power_impl_selector_3_01_n_00_012u_01_4.html":[7,0,14,6,2,48],
-"classtfel_1_1math_1_1internals_1_1_power_pos.html":[5,0,9,1,1,50],
-"classtfel_1_1math_1_1internals_1_1_power_pos.html":[7,0,14,6,2,50],
-"classtfel_1_1math_1_1internals_1_1_power_sqrt_pos.html":[5,0,9,1,1,60],
-"classtfel_1_1math_1_1internals_1_1_power_sqrt_pos.html":[7,0,14,6,2,60],
+"classtfel_1_1math_1_1internals_1_1_power_sqrt_pos.html":[5,0,9,1,1,63],
+"classtfel_1_1math_1_1internals_1_1_power_sqrt_pos.html":[7,0,14,6,2,63],
 "classtfel_1_1meta_1_1_has_random_access_const_iterator.html":[7,0,14,7,8],
 "classtfel_1_1meta_1_1_has_random_access_iterator.html":[7,0,14,7,9],
 "classtfel_1_1meta_1_1_t_l_compute_align_bound.html":[7,0,14,7,16],
@@ -249,5 +246,8 @@ var NAVTREEINDEX12 =
 "functions_type_k.html":[7,3,3,9],
 "functions_type_l.html":[7,3,3,10],
 "functions_type_m.html":[7,3,3,11],
-"functions_type_n.html":[7,3,3,12]
+"functions_type_n.html":[7,3,3,12],
+"functions_type_o.html":[7,3,3,13],
+"functions_type_p.html":[7,3,3,14],
+"functions_type_q.html":[7,3,3,15]
 };

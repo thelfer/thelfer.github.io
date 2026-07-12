@@ -38,7 +38,7 @@ var searchData=
   ['behaviourworkspace_35',['BehaviourWorkSpace',['../structmtest_1_1_behaviour_work_space.html',1,'mtest']]],
   ['behaviourwrapperbase_36',['BehaviourWrapperBase',['../structmtest_1_1_behaviour_wrapper_base.html',1,'mtest']]],
   ['binaryfunction_37',['BinaryFunction',['../structtfel_1_1math_1_1parser_1_1_binary_function.html',1,'tfel::math::parser']]],
-  ['binaryoperation_38',['binaryoperation',['../structtfel_1_1math_1_1parser_1_1_binary_operation.html',1,'tfel::math::parser::BinaryOperation&lt; Op &gt;'],['../structtfel_1_1math_1_1_binary_operation.html',1,'tfel::math::BinaryOperation&lt; T1, T2, Op &gt;'],['../structtfel_1_1math_1_1_integer_evaluator_1_1_t_binary_operation_1_1_binary_operation.html',1,'tfel::math::IntegerEvaluator::TBinaryOperation::BinaryOperation&lt; Op &gt;']]],
+  ['binaryoperation_38',['binaryoperation',['../structtfel_1_1math_1_1_binary_operation.html',1,'tfel::math::BinaryOperation&lt; T1, T2, Op &gt;'],['../structtfel_1_1math_1_1_integer_evaluator_1_1_t_binary_operation_1_1_binary_operation.html',1,'tfel::math::IntegerEvaluator::TBinaryOperation::BinaryOperation&lt; Op &gt;'],['../structtfel_1_1math_1_1parser_1_1_binary_operation.html',1,'tfel::math::parser::BinaryOperation&lt; Op &gt;']]],
   ['binaryoperationbase_39',['BinaryOperationBase',['../structtfel_1_1math_1_1parser_1_1_binary_operation_base.html',1,'tfel::math::parser']]],
   ['binaryreader_40',['BinaryReader',['../structtfel_1_1system_1_1_binary_reader.html',1,'tfel::system']]],
   ['binaryreader_3c_20std_3a_3abasic_5fstring_3c_20chart_2c_20traits_2c_20alloc_20_3e_20_3e_41',['BinaryReader&lt; std::basic_string&lt; charT, traits, Alloc &gt; &gt;',['../structtfel_1_1system_1_1_binary_reader_3_01std_1_1basic__string_3_01char_t_00_01traits_00_01_alloc_01_4_01_4.html',1,'tfel::system']]],
@@ -78,5 +78,8 @@ var searchData=
   ['buildfromrotationmatrix_3c_202u_2c_20t_20_3e_75',['BuildFromRotationMatrix&lt; 2u, T &gt;',['../structtfel_1_1math_1_1st2tost2__internals_1_1_build_from_rotation_matrix_3_012u_00_01_t_01_4.html',1,'tfel::math::st2tost2_internals']]],
   ['buildfromrotationmatrix_3c_203u_2c_20t_20_3e_76',['BuildFromRotationMatrix&lt; 3u, T &gt;',['../structtfel_1_1math_1_1st2tost2__internals_1_1_build_from_rotation_matrix_3_013u_00_01_t_01_4.html',1,'tfel::math::st2tost2_internals']]],
   ['buildmaterialpropertieslistoptions_77',['BuildMaterialPropertiesListOptions',['../structmfront_1_1_build_material_properties_list_options.html',1,'mfront']]],
-  ['burletcailletaudkinematichardeningrule_78',['BurletCailletaudKinematicHardeningRule',['../structmfront_1_1bbrick_1_1_burlet_cailletaud_kinematic_hardening_rule.html',1,'mfront::bbrick']]]
+  ['buildstridedderivativeviewfromtinymatrix_78',['BuildStridedDerivativeViewFromTinyMatrix',['../structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix.html',1,'tfel::math::internals']]],
+  ['buildstridedderivativeviewfromtinymatriximplementation_79',['BuildStridedDerivativeViewFromTinyMatrixImplementation',['../structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix_implementation.html',1,'tfel::math::internals']]],
+  ['buildstridedderivativeviewfromtinymatriximplementation_3c_20true_2c_20m_2c_20functiontype_2c_20variabletype_20_3e_80',['BuildStridedDerivativeViewFromTinyMatrixImplementation&lt; true, M, FunctionType, VariableType &gt;',['../structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix_implementatioef3bc416f53f57c1abb08339e3051441.html',1,'tfel::math::internals']]],
+  ['burletcailletaudkinematichardeningrule_81',['BurletCailletaudKinematicHardeningRule',['../structmfront_1_1bbrick_1_1_burlet_cailletaud_kinematic_hardening_rule.html',1,'mfront::bbrick']]]
 ];

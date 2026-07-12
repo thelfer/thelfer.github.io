@@ -184,6 +184,12 @@ var hierarchy =
         ] ]
       ] ]
     ] ],
+    [ "mfront::AbstractLinearSystemSolver", "structmfront_1_1_abstract_linear_system_solver.html", [
+      [ "mfront::LinearSystemSolverBase", "structmfront_1_1_linear_system_solver_base.html", [
+        [ "mfront::DefaultLinearSystemSolver", "structmfront_1_1_default_linear_system_solver.html", null ],
+        [ "mfront::TDLSLinearSystemSolver", "structmfront_1_1_t_d_l_s_linear_system_solver.html", null ]
+      ] ]
+    ] ],
     [ "mfront::AbstractMaterialPropertyInterface", "structmfront_1_1_abstract_material_property_interface.html", [
       [ "mfront::CMaterialPropertyInterfaceBase", "structmfront_1_1_c_material_property_interface_base.html", [
         [ "mfront::CMaterialPropertyInterface", "structmfront_1_1_c_material_property_interface.html", [
@@ -216,6 +222,26 @@ var hierarchy =
         [ "mfront::MFrontGerminalModelInterface", "structmfront_1_1_m_front_germinal_model_interface.html", null ]
       ] ],
       [ "mfront::PleiadesModelInterface", "structmfront_1_1_pleiades_model_interface.html", null ]
+    ] ],
+    [ "mfront::AbstractNonLinearSystemSolver", "structmfront_1_1_abstract_non_linear_system_solver.html", [
+      [ "mfront::NonLinearSystemSolverBase", "structmfront_1_1_non_linear_system_solver_base.html", [
+        [ "mfront::BroydenSolverBase", "structmfront_1_1_broyden_solver_base.html", [
+          [ "mfront::BroydenSolver", "structmfront_1_1_broyden_solver.html", null ],
+          [ "mfront::PowellDogLegBroydenSolver", "structmfront_1_1_powell_dog_leg_broyden_solver.html", null ]
+        ] ],
+        [ "mfront::LevenbergMarquardtSolverBase", "structmfront_1_1_levenberg_marquardt_solver_base.html", [
+          [ "mfront::LevenbergMarquardtNumericalJacobianSolver", "structmfront_1_1_levenberg_marquardt_numerical_jacobian_solver.html", null ],
+          [ "mfront::LevenbergMarquardtSolver", "structmfront_1_1_levenberg_marquardt_solver.html", null ]
+        ] ],
+        [ "mfront::NewtonRaphsonSolverBase", "structmfront_1_1_newton_raphson_solver_base.html", [
+          [ "mfront::NewtonRaphsonNumericalJacobianSolver", "structmfront_1_1_newton_raphson_numerical_jacobian_solver.html", null ],
+          [ "mfront::NewtonRaphsonSolver", "structmfront_1_1_newton_raphson_solver.html", null ],
+          [ "mfront::PowellDogLegNewtonRaphsonNumericalJacobianSolver", "structmfront_1_1_powell_dog_leg_newton_raphson_numerical_jacobian_solver.html", null ],
+          [ "mfront::PowellDogLegNewtonRaphsonSolver", "structmfront_1_1_powell_dog_leg_newton_raphson_solver.html", null ]
+        ] ],
+        [ "mfront::SecondBroydenSolver", "structmfront_1_1_second_broyden_solver.html", null ],
+        [ "mfront::UserDefinedNonLinearSystemSolver", "structmfront_1_1_user_defined_non_linear_system_solver.html", null ]
+      ] ]
     ] ],
     [ "mfmtg::AbstractTestCase", "structmfmtg_1_1_abstract_test_case.html", [
       [ "mfmtg::TestCaseBase", "structmfmtg_1_1_test_case_base.html", [
@@ -2381,6 +2407,7 @@ var hierarchy =
     [ "LinearInterpolation", "class_linear_interpolation.html", null ],
     [ "Linearization", "class_linearization.html", null ],
     [ "tfel::check::Linearization", "structtfel_1_1check_1_1_linearization.html", null ],
+    [ "mfront::AbstractLinearSystemSolver::LinearSystemVariables", "structmfront_1_1_abstract_linear_system_solver_1_1_linear_system_variables.html", null ],
     [ "mfront::LocalDataStructure", "structmfront_1_1_local_data_structure.html", null ],
     [ "tfel::material::LogarithmicStrainHandler< N, StressType >", "structtfel_1_1material_1_1_logarithmic_strain_handler.html", null ],
     [ "tfel::material::LogarithmicStrainHandlerBase", "structtfel_1_1material_1_1_logarithmic_strain_handler_base.html", [
@@ -2629,26 +2656,6 @@ var hierarchy =
     [ "NoInterpolation", "class_no_interpolation.html", null ],
     [ "tfel::system::NonBlockingStreamReader", "structtfel_1_1system_1_1_non_blocking_stream_reader.html", null ],
     [ "tfel::system::NonBlockingStreamWriter", "structtfel_1_1system_1_1_non_blocking_stream_writer.html", null ],
-    [ "mfront::NonLinearSystemSolver", "structmfront_1_1_non_linear_system_solver.html", [
-      [ "mfront::NonLinearSystemSolverBase", "structmfront_1_1_non_linear_system_solver_base.html", [
-        [ "mfront::BroydenSolverBase", "structmfront_1_1_broyden_solver_base.html", [
-          [ "mfront::BroydenSolver", "structmfront_1_1_broyden_solver.html", null ],
-          [ "mfront::PowellDogLegBroydenSolver", "structmfront_1_1_powell_dog_leg_broyden_solver.html", null ]
-        ] ],
-        [ "mfront::LevenbergMarquardtSolverBase", "structmfront_1_1_levenberg_marquardt_solver_base.html", [
-          [ "mfront::LevenbergMarquardtNumericalJacobianSolver", "structmfront_1_1_levenberg_marquardt_numerical_jacobian_solver.html", null ],
-          [ "mfront::LevenbergMarquardtSolver", "structmfront_1_1_levenberg_marquardt_solver.html", null ]
-        ] ],
-        [ "mfront::NewtonRaphsonSolverBase", "structmfront_1_1_newton_raphson_solver_base.html", [
-          [ "mfront::NewtonRaphsonNumericalJacobianSolver", "structmfront_1_1_newton_raphson_numerical_jacobian_solver.html", null ],
-          [ "mfront::NewtonRaphsonSolver", "structmfront_1_1_newton_raphson_solver.html", null ],
-          [ "mfront::PowellDogLegNewtonRaphsonNumericalJacobianSolver", "structmfront_1_1_powell_dog_leg_newton_raphson_numerical_jacobian_solver.html", null ],
-          [ "mfront::PowellDogLegNewtonRaphsonSolver", "structmfront_1_1_powell_dog_leg_newton_raphson_solver.html", null ]
-        ] ],
-        [ "mfront::SecondBroydenSolver", "structmfront_1_1_second_broyden_solver.html", null ],
-        [ "mfront::UserDefinedNonLinearSystemSolver", "structmfront_1_1_user_defined_non_linear_system_solver.html", null ]
-      ] ]
-    ] ],
     [ "mfront::NonLinearSystemSolverFactory", "structmfront_1_1_non_linear_system_solver_factory.html", null ],
     [ "mfront::BehaviourData::NullExpansion", "structmfront_1_1_behaviour_data_1_1_null_expansion.html", null ],
     [ "std::numeric_limits< tfel::math::Quantity< UnitType, ValueType, OwnershipPolicy > >", "structstd_1_1numeric__limits_3_01tfel_1_1math_1_1_quantity_3_01_unit_type_00_01_value_type_00_01_ownership_policy_01_4_01_4.html", null ],

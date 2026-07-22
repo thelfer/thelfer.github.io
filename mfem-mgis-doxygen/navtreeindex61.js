@@ -1,5 +1,12 @@
 var NAVTREEINDEX61 =
 {
+"structtfel_1_1math_1_1parser_1_1_op_minus.html":[5,0,16,5,3,90],
+"structtfel_1_1math_1_1parser_1_1_op_mult.html":[5,0,16,5,3,91],
+"structtfel_1_1math_1_1parser_1_1_op_or.html":[5,0,16,5,3,92],
+"structtfel_1_1math_1_1parser_1_1_op_plus.html":[5,0,16,5,3,93],
+"structtfel_1_1math_1_1parser_1_1_op_power.html":[5,0,16,5,3,94],
+"structtfel_1_1math_1_1parser_1_1_power_function.html":[5,0,16,5,3,95],
+"structtfel_1_1math_1_1parser_1_1_power_function.html#a3daab8a4df45c941aa333357cf27f179":[5,0,16,5,3,95,3],
 "structtfel_1_1math_1_1parser_1_1_power_function.html#a61f35edfa7d92a75768e44dee1658103":[5,0,16,5,3,95,1],
 "structtfel_1_1math_1_1parser_1_1_power_function.html#ae05112ddb6fa62af43f1401f00527f7a":[5,0,16,5,3,95,0],
 "structtfel_1_1math_1_1parser_1_1_power_function.html#aebea572ed3663567dfd3518b08425a1f":[5,0,16,5,3,95,2],
@@ -242,12 +249,5 @@ var NAVTREEINDEX61 =
 "structtfel_1_1system_1_1_enum_binary_writer.html#a4af67e5782ef184dcdab2e2d137a4755":[5,0,16,7,26,0],
 "structtfel_1_1system_1_1_external_behaviour_description.html":[5,0,16,7,27],
 "structtfel_1_1system_1_1_external_behaviour_description.html#a0d38599c21ae391253bd353183d050eb":[5,0,16,7,27,45],
-"structtfel_1_1system_1_1_external_behaviour_description.html#a16ce543291e5c149bf8d7d2085b9af4d":[5,0,16,7,27,44],
-"structtfel_1_1system_1_1_external_behaviour_description.html#a1a1e740090ab0e4bdfa1ef38cbbed065":[5,0,16,7,27,3],
-"structtfel_1_1system_1_1_external_behaviour_description.html#a1d6b0c14c911e6cd7e71ea9927249cc5":[5,0,16,7,27,39],
-"structtfel_1_1system_1_1_external_behaviour_description.html#a205e9e2753212ce487576b300bf858f9":[5,0,16,7,27,42],
-"structtfel_1_1system_1_1_external_behaviour_description.html#a22a32e318be7cef6ef15a7618984027d":[5,0,16,7,27,30],
-"structtfel_1_1system_1_1_external_behaviour_description.html#a2401cbf71b42e0c97510c374a747c0ec":[5,0,16,7,27,5],
-"structtfel_1_1system_1_1_external_behaviour_description.html#a2bd76d91f9d081be98149951a42dff2c":[5,0,16,7,27,7],
-"structtfel_1_1system_1_1_external_behaviour_description.html#a2d0d2d2db99ea8951f30e52ab0b800b8":[5,0,16,7,27,18]
+"structtfel_1_1system_1_1_external_behaviour_description.html#a16ce543291e5c149bf8d7d2085b9af4d":[5,0,16,7,27,44]
 };

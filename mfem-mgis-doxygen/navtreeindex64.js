@@ -1,5 +1,12 @@
 var NAVTREEINDEX64 =
 {
+"structtfel_1_1typetraits_1_1_real_part_type_3_01tfel_1_1math_1_1_quantity_3_01_unit_type_00_01_v9b5beb0e49f0989314db31a07b38bc9b.html":[5,0,16,9,69],
+"structtfel_1_1typetraits_1_1_real_part_type_3_01tfel_1_1math_1_1_quantity_3_01_unit_type_00_01_v9b5beb0e49f0989314db31a07b38bc9b.html#aef885f673444bdde6ab7a4cc46c98c8a":[5,0,16,9,69,0],
+"structtfel_1_1typetraits_1_1internals_1_1_choose_type.html":[5,0,16,9,0,0],
+"structtfel_1_1typetraits_1_1internals_1_1_choose_type_3_01_a_00_01_b_00_01false_00_01false_01_4.html":[5,0,16,9,0,1],
+"structtfel_1_1typetraits_1_1internals_1_1_choose_type_3_01_a_00_01_b_00_01false_00_01false_01_4.html#a708adb25d2ac0d488e0fc59ae561a041":[5,0,16,9,0,1,0],
+"structtfel_1_1typetraits_1_1internals_1_1_choose_type_3_01_a_00_01_b_00_01false_00_01true_01_4.html":[5,0,16,9,0,2],
+"structtfel_1_1typetraits_1_1internals_1_1_choose_type_3_01_a_00_01_b_00_01false_00_01true_01_4.html#a21623c5f7720a86bafe733e4d533b56a":[5,0,16,9,0,2,0],
 "structtfel_1_1typetraits_1_1internals_1_1_choose_type_3_01_a_00_01_b_00_01true_00_01false_01_4.html":[5,0,16,9,0,3],
 "structtfel_1_1typetraits_1_1internals_1_1_choose_type_3_01_a_00_01_b_00_01true_00_01false_01_4.html#a39530e337d6126e8a151f69f79df7ffc":[5,0,16,9,0,3,0],
 "structtfel_1_1typetraits_1_1internals_1_1_choose_type_3_01_a_00_01_b_00_01true_00_01true_01_4.html":[5,0,16,9,0,4],
@@ -242,12 +249,5 @@ var NAVTREEINDEX64 =
 "structtfel_1_1utilities_1_1_test_documentation.html#a5c5d9804c8e9590595be7b3033a42bae":[5,0,16,11,21,0],
 "structtfel_1_1utilities_1_1_test_documentation.html#a61bfea6f88603ffbae1968bb46b3d23b":[5,0,16,11,21,3],
 "structtfel_1_1utilities_1_1_test_documentation.html#a69f641be332f9b0274e8a5e84b81d622":[5,0,16,11,21,8],
-"structtfel_1_1utilities_1_1_test_documentation.html#ad033422eb70350bbbb7bbb5562c30aad":[5,0,16,11,21,1],
-"structtfel_1_1utilities_1_1_test_documentation.html#af875ec367103a979629c99d73645e4ff":[5,0,16,11,21,5],
-"structtfel_1_1utilities_1_1_text_data.html":[5,0,16,11,22],
-"structtfel_1_1utilities_1_1_text_data.html#a08de199a3c8a1a7f0332f5c0ec4fead8":[5,0,16,11,22,1],
-"structtfel_1_1utilities_1_1_text_data.html#a232f26495e05503e49ce600fb4465d34":[5,0,16,11,22,4],
-"structtfel_1_1utilities_1_1_text_data.html#a35697f0ef82cdd95a3e6cc597ad9f6eb":[5,0,16,11,22,10],
-"structtfel_1_1utilities_1_1_text_data.html#a4473edb2f0cc69951442330e489be989":[5,0,16,11,22,9],
-"structtfel_1_1utilities_1_1_text_data.html#a5525460b13b78f1bcf1c9249e54d842e":[5,0,16,11,22,7]
+"structtfel_1_1utilities_1_1_test_documentation.html#ad033422eb70350bbbb7bbb5562c30aad":[5,0,16,11,21,1]
 };

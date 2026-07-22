@@ -124,6 +124,7 @@ $(document).ready(function(){initNavTree('tmatrix_8hxx.html',''); initResizable(
 <code>#include &quot;<a class="el" href="_derivative_type_8hxx.html">TFEL/Math/General/DerivativeType.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_generic_fixed_size_array_8hxx.html">TFEL/Math/Array/GenericFixedSizeArray.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_view_8hxx.html">TFEL/Math/Array/View.hxx</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_strided_coalesced_view_8hxx.html">TFEL/Math/Array/StridedCoalescedView.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_matrix_concept_8hxx.html">TFEL/Math/Matrix/MatrixConcept.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_matrix_concept_operations_8hxx.html">TFEL/Math/Matrix/MatrixConceptOperations.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="tvector_8hxx.html">TFEL/Math/tvector.hxx</a>&quot;</code><br />
@@ -147,6 +148,15 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1internals_1_1_build_derivative_view_from_tiny_matrix.html">tfel::math::internals::BuildDerivativeViewFromTinyMatrix&lt; M, FunctionType, VariableType &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">a metafunction returning a view type on a derivative in tiny matrix ordered in row major format of M columns.  <a href="structtfel_1_1math_1_1internals_1_1_build_derivative_view_from_tiny_matrix.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix_implementation.html">tfel::math::internals::BuildStridedDerivativeViewFromTinyMatrixImplementation&lt; are_both_scalars, M, FunctionType, VariableType &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">a metafunction returning a strided coalesced view type on a derivative in tiny matrix ordered of M columns.  <a href="structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix_implementation.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix_implementatioef3bc416f53f57c1abb08339e3051441.html">tfel::math::internals::BuildStridedDerivativeViewFromTinyMatrixImplementation&lt; true, M, FunctionType, VariableType &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">partial specialisation when both the function and the variable types are scalar types.  <a href="structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix_implementatioef3bc416f53f57c1abb08339e3051441.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix.html">tfel::math::internals::BuildStridedDerivativeViewFromTinyMatrix&lt; M, FunctionType, VariableType &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">a metafunction returning a strided coalesced view type on a derivative in tiny matrix ordered in row major format of M columns.  <a href="structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1_derivative_type_dispatcher_3_01_matrix_tag_00_01_scalar_tag_00_01tmatrix_9c0deb987762f79ef485bf0cb61816fc.html">tfel::math::DerivativeTypeDispatcher&lt; MatrixTag, ScalarTag, tmatrix&lt; N, M, TMatrixNumericType &gt;, ScalarType &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">partial specialisation of the <code><a class="el" href="structtfel_1_1math_1_1_derivative_type_dispatcher.html" title="an helper metafunction used to determine the type representing the derivative of an object of type Fu...">DerivativeTypeDispatcher</a></code> metafunction.  <a href="structtfel_1_1math_1_1_derivative_type_dispatcher_3_01_matrix_tag_00_01_scalar_tag_00_01tmatrix_9c0deb987762f79ef485bf0cb61816fc.html#details">More...</a><br /></td></tr>
@@ -177,6 +187,10 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a01ca08095dda1754ec1294f599a9e042"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="tmatrix_8hxx.html#a01ca08095dda1754ec1294f599a9e042">tfel::math::derivative_view_from_tiny_matrix</a> = typename <a class="el" href="structtfel_1_1math_1_1internals_1_1_build_derivative_view_from_tiny_matrix.html">tfel::math::internals::BuildDerivativeViewFromTinyMatrix</a>&lt; M, FunctionType, VariableType &gt;::type</td></tr>
 <tr class="memdesc:a01ca08095dda1754ec1294f599a9e042"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple alias to a view type on a derivative in tiny matrix of M columns.  <br /></td></tr>
 <tr class="separator:a01ca08095dda1754ec1294f599a9e042"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93bc12ce65b2dc3643cd19cea0c68996" id="r_a93bc12ce65b2dc3643cd19cea0c68996"><td class="memTemplParams" colspan="2">template&lt;unsigned short M, typename FunctionType , typename VariableType &gt; </td></tr>
+<tr class="memitem:a93bc12ce65b2dc3643cd19cea0c68996"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="tmatrix_8hxx.html#a93bc12ce65b2dc3643cd19cea0c68996">tfel::math::strided_derivative_view_from_tiny_matrix</a> = typename <a class="el" href="structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix.html">tfel::math::internals::BuildStridedDerivativeViewFromTinyMatrix</a>&lt; M, FunctionType, VariableType &gt;::type</td></tr>
+<tr class="memdesc:a93bc12ce65b2dc3643cd19cea0c68996"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple alias to a strided coalesced view type on a derivative in tiny matrix of M columns.  <br /></td></tr>
+<tr class="separator:a93bc12ce65b2dc3643cd19cea0c68996"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -212,6 +226,14 @@ template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a243f92f9b599479973f5bcc2d3002a7b"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr <a class="el" href="tmatrix_8hxx.html#a01ca08095dda1754ec1294f599a9e042">derivative_view_from_tiny_matrix</a>&lt; M, FunctionType, VariableType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="tmatrix_8hxx.html#a243f92f9b599479973f5bcc2d3002a7b">tfel::math::map_derivative</a> (<a class="el" href="structtfel_1_1math_1_1tmatrix.html">tmatrix</a>&lt; N, M, <a class="el" href="_math_object_traits_8hxx.html#aee110500aba43bd0fc73c7a5ecd510e9">base_type</a>&lt; <a class="el" href="_math_object_traits_8hxx.html#a269ae6d80236c1e3a8f97af7c50997e9">numeric_type</a>&lt; <a class="el" href="_derivative_type_8hxx.html#a8a8691d8234e536cdd0d357a2bc5d10c">derivative_type</a>&lt; FunctionType, VariableType &gt; &gt; &gt; &gt; &amp;, const unsigned short, const unsigned short)</td></tr>
 <tr class="memdesc:a243f92f9b599479973f5bcc2d3002a7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">an helper function to create a derivative view from a tiny matrix  <br /></td></tr>
 <tr class="separator:a243f92f9b599479973f5bcc2d3002a7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29e30e34ab940e301cab5a8b460ab6ab" id="r_a29e30e34ab940e301cab5a8b460ab6ab"><td class="memTemplParams" colspan="2">template&lt;unsigned short I, unsigned short J, typename FunctionType , typename VariableType , unsigned short N, unsigned short M&gt; </td></tr>
+<tr class="memitem:a29e30e34ab940e301cab5a8b460ab6ab"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr <a class="el" href="tmatrix_8hxx.html#a93bc12ce65b2dc3643cd19cea0c68996">strided_derivative_view_from_tiny_matrix</a>&lt; M, FunctionType, VariableType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="tmatrix_8hxx.html#a29e30e34ab940e301cab5a8b460ab6ab">tfel::math::map_derivative_strided</a> (<a class="el" href="_math_object_traits_8hxx.html#aee110500aba43bd0fc73c7a5ecd510e9">base_type</a>&lt; <a class="el" href="_math_object_traits_8hxx.html#a269ae6d80236c1e3a8f97af7c50997e9">numeric_type</a>&lt; <a class="el" href="_derivative_type_8hxx.html#a8a8691d8234e536cdd0d357a2bc5d10c">derivative_type</a>&lt; FunctionType, VariableType &gt; &gt; &gt; *const, const std::size_t)</td></tr>
+<tr class="memdesc:a29e30e34ab940e301cab5a8b460ab6ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">an helper function to create a strided coalesced derivative view from a structure of arrays memory area.  <br /></td></tr>
+<tr class="separator:a29e30e34ab940e301cab5a8b460ab6ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08016cd5f7c681806e60096b214a445e" id="r_a08016cd5f7c681806e60096b214a445e"><td class="memTemplParams" colspan="2">template&lt;typename FunctionType , typename VariableType , unsigned short N, unsigned short M&gt; </td></tr>
+<tr class="memitem:a08016cd5f7c681806e60096b214a445e"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr <a class="el" href="tmatrix_8hxx.html#a93bc12ce65b2dc3643cd19cea0c68996">strided_derivative_view_from_tiny_matrix</a>&lt; M, FunctionType, VariableType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="tmatrix_8hxx.html#a08016cd5f7c681806e60096b214a445e">tfel::math::map_derivative_strided</a> (<a class="el" href="_math_object_traits_8hxx.html#aee110500aba43bd0fc73c7a5ecd510e9">base_type</a>&lt; <a class="el" href="_math_object_traits_8hxx.html#a269ae6d80236c1e3a8f97af7c50997e9">numeric_type</a>&lt; <a class="el" href="_derivative_type_8hxx.html#a8a8691d8234e536cdd0d357a2bc5d10c">derivative_type</a>&lt; FunctionType, VariableType &gt; &gt; &gt; *const, const std::size_t, const unsigned short, const unsigned short)</td></tr>
+<tr class="memdesc:a08016cd5f7c681806e60096b214a445e"><td class="mdescLeft">&#160;</td><td class="mdescRight">an helper function to create a strided coalesced derivative view from a structure of arrays memory area.  <br /></td></tr>
+<tr class="separator:a08016cd5f7c681806e60096b214a445e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Thomas Helfer </dd></dl>
@@ -258,6 +280,33 @@ template&lt;unsigned short M, typename FunctionType , typename VariableType &gt;
 </div><div class="memdoc">
 
 <p>a simple alias to a view type on a derivative in tiny matrix of M columns. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">M</td><td>number of columns of the matrix. </td></tr>
+    <tr><td class="paramname">FunctionType</td><td>function type. </td></tr>
+    <tr><td class="paramname">VariableType</td><td>variable type.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>a simple alias </p>
+
+</div>
+</div>
+<a id="a93bc12ce65b2dc3643cd19cea0c68996" name="a93bc12ce65b2dc3643cd19cea0c68996"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93bc12ce65b2dc3643cd19cea0c68996">&#9670;&#160;</a></span>strided_derivative_view_from_tiny_matrix</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned short M, typename FunctionType , typename VariableType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="tmatrix_8hxx.html#a93bc12ce65b2dc3643cd19cea0c68996">tfel::math::strided_derivative_view_from_tiny_matrix</a> = typedef typename <a class="el" href="structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix.html">tfel::math::internals::BuildStridedDerivativeViewFromTinyMatrix</a>&lt; M, FunctionType, VariableType&gt;::type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>a simple alias to a strided coalesced view type on a derivative in tiny matrix of M columns. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">M</td><td>number of columns of the matrix. </td></tr>
@@ -400,6 +449,134 @@ template&lt;typename FunctionType , typename VariableType , unsigned short N, un
 
 </div>
 </div>
+<a id="a29e30e34ab940e301cab5a8b460ab6ab" name="a29e30e34ab940e301cab5a8b460ab6ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29e30e34ab940e301cab5a8b460ab6ab">&#9670;&#160;</a></span>map_derivative_strided() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned short I, unsigned short J, typename FunctionType , typename VariableType , unsigned short N, unsigned short M&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TFEL_HOST_DEVICE constexpr strided_derivative_view_from_tiny_matrix&lt; M, FunctionType, VariableType &gt; tfel::math::map_derivative_strided </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_math_object_traits_8hxx.html#aee110500aba43bd0fc73c7a5ecd510e9">base_type</a>&lt; <a class="el" href="_math_object_traits_8hxx.html#a269ae6d80236c1e3a8f97af7c50997e9">numeric_type</a>&lt; <a class="el" href="_derivative_type_8hxx.html#a8a8691d8234e536cdd0d357a2bc5d10c">derivative_type</a>&lt; FunctionType, VariableType &gt; &gt; &gt; * const&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::size_t&#160;</td>
+          <td class="paramname"><em>stride</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>an helper function to create a strided coalesced derivative view from a structure of arrays memory area. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">I</td><td>row index. </td></tr>
+    <tr><td class="paramname">J</td><td>column index. </td></tr>
+    <tr><td class="paramname">FunctionType</td><td>function type. </td></tr>
+    <tr><td class="paramname">VariableType</td><td>variable type. </td></tr>
+    <tr><td class="paramname">N</td><td>number of rows of the matrix. </td></tr>
+    <tr><td class="paramname">M</td><td>number of columns of the matrix. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td>pointer to the (0, 0) component of the current matrix. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">stride</td><td>stride between two successive components. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a08016cd5f7c681806e60096b214a445e" name="a08016cd5f7c681806e60096b214a445e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08016cd5f7c681806e60096b214a445e">&#9670;&#160;</a></span>map_derivative_strided() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename FunctionType , typename VariableType , unsigned short N, unsigned short M&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TFEL_HOST_DEVICE constexpr strided_derivative_view_from_tiny_matrix&lt; M, FunctionType, VariableType &gt; tfel::math::map_derivative_strided </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_math_object_traits_8hxx.html#aee110500aba43bd0fc73c7a5ecd510e9">base_type</a>&lt; <a class="el" href="_math_object_traits_8hxx.html#a269ae6d80236c1e3a8f97af7c50997e9">numeric_type</a>&lt; <a class="el" href="_derivative_type_8hxx.html#a8a8691d8234e536cdd0d357a2bc5d10c">derivative_type</a>&lt; FunctionType, VariableType &gt; &gt; &gt; * const&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::size_t&#160;</td>
+          <td class="paramname"><em>stride</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned short&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned short&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>an helper function to create a strided coalesced derivative view from a structure of arrays memory area. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">FunctionType</td><td>function type. </td></tr>
+    <tr><td class="paramname">VariableType</td><td>variable type. </td></tr>
+    <tr><td class="paramname">N</td><td>number of rows of the matrix. </td></tr>
+    <tr><td class="paramname">M</td><td>number of columns of the matrix. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td>pointer to the (0, 0) component of the current matrix. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">stride</td><td>stride between two successive components. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">I</td><td>row index. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">J</td><td>column index. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="aaba6ea982aec09dec9c7adf3960603a0" name="aaba6ea982aec09dec9c7adf3960603a0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaba6ea982aec09dec9c7adf3960603a0">&#9670;&#160;</a></span>tmatrix()</h2>
 
@@ -446,7 +623,7 @@ template&lt;typename ValueType , std::size_t M, std::size_t... d&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_19f2334cefedab4bca7d00c996a0e590.html">spack</a></li><li class="navelem"><a class="el" href="dir_4819441dfd5ac14987c44814feffea1f.html">opt</a></li><li class="navelem"><a class="el" href="dir_e09d68ea3582e9b52bc2ab165a9fdd0a.html">spack</a></li><li class="navelem"><a class="el" href="dir_ffdec7cc29a5f6597048472df1d5e993.html">linux-zen2</a></li><li class="navelem"><a class="el" href="dir_6588c5e0d40325e8eb1481d010e339b7.html">tfel-master-me6xjku4m4xxjr3awglstcdnsqufet5w</a></li><li class="navelem"><a class="el" href="dir_c50b429bc1df79ed8293fb669771f5fc.html">include</a></li><li class="navelem"><a class="el" href="dir_65ae2d2fe2c789130f43272dbb198603.html">TFEL</a></li><li class="navelem"><a class="el" href="dir_8a0125d98895ba30149478cb9f245d63.html">Math</a></li><li class="navelem"><a class="el" href="tmatrix_8hxx.html">tmatrix.hxx</a></li>
-    <li class="footer">Generated on Wed Jul 1 2026 16:14:31 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Jul 22 2026 14:39:15 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

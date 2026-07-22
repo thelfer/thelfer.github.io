@@ -113,5 +113,8 @@ var searchData=
   ['buildfromrotationmatrix_3c_202u_2c_20t_20_3e_110',['BuildFromRotationMatrix&lt; 2u, T &gt;',['../structtfel_1_1math_1_1st2tost2__internals_1_1_build_from_rotation_matrix_3_012u_00_01_t_01_4.html',1,'tfel::math::st2tost2_internals']]],
   ['buildfromrotationmatrix_3c_203u_2c_20t_20_3e_111',['BuildFromRotationMatrix&lt; 3u, T &gt;',['../structtfel_1_1math_1_1st2tost2__internals_1_1_build_from_rotation_matrix_3_013u_00_01_t_01_4.html',1,'tfel::math::st2tost2_internals']]],
   ['buildmaterialpropertieslistoptions_112',['BuildMaterialPropertiesListOptions',['../structmfront_1_1_build_material_properties_list_options.html',1,'mfront']]],
-  ['burletcailletaudkinematichardeningrule_113',['BurletCailletaudKinematicHardeningRule',['../structmfront_1_1bbrick_1_1_burlet_cailletaud_kinematic_hardening_rule.html',1,'mfront::bbrick']]]
+  ['buildstridedderivativeviewfromtinymatrix_113',['BuildStridedDerivativeViewFromTinyMatrix',['../structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix.html',1,'tfel::math::internals']]],
+  ['buildstridedderivativeviewfromtinymatriximplementation_114',['BuildStridedDerivativeViewFromTinyMatrixImplementation',['../structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix_implementation.html',1,'tfel::math::internals']]],
+  ['buildstridedderivativeviewfromtinymatriximplementation_3c_20true_2c_20m_2c_20functiontype_2c_20variabletype_20_3e_115',['BuildStridedDerivativeViewFromTinyMatrixImplementation&lt; true, M, FunctionType, VariableType &gt;',['../structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix_implementatioef3bc416f53f57c1abb08339e3051441.html',1,'tfel::math::internals']]],
+  ['burletcailletaudkinematichardeningrule_116',['BurletCailletaudKinematicHardeningRule',['../structmfront_1_1bbrick_1_1_burlet_cailletaud_kinematic_hardening_rule.html',1,'mfront::bbrick']]]
 ];

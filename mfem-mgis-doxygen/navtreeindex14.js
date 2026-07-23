@@ -1,5 +1,6 @@
 var NAVTREEINDEX14 =
 {
+"stensor_8ixx.html#a2d8088702632c5c28ff41368981c0edf":[6,0,1,0,0,0,1,0,6,5,18,3,10],
 "stensor_8ixx.html#a33134e4f16ef5d92d860023e9b229888":[6,0,1,0,0,0,1,0,6,5,18,3,2],
 "stensor_8ixx.html#a4978c2c4e0ea0cc29e643c13efc6f9f8":[6,0,1,0,0,0,1,0,6,5,18,3,1],
 "stensor_8ixx.html#a5943258c1642815c562d79ca9fe91644":[6,0,1,0,0,0,1,0,6,5,18,3,7],
@@ -248,6 +249,5 @@ var NAVTREEINDEX14 =
 "structaster_1_1_aster_behaviour_handler_1_1_gradient_initialiser_without_stress_free_expansion.html":[5,0,2,0,2],
 "structaster_1_1_aster_behaviour_handler_1_1_gradient_initialiser_without_stress_free_expansion.html#a2ab397c4315c85141c14b680ea4abbbd":[5,0,2,0,2,0],
 "structaster_1_1_aster_behaviour_handler_1_1_integrator.html":[5,0,2,0,4],
-"structaster_1_1_aster_behaviour_handler_1_1_stiffness_operator_initializer.html":[5,0,2,0,5],
-"structaster_1_1_aster_behaviour_handler_1_1_thermal_expansion_coefficient_tensor_initializer.html":[5,0,2,0,6]
+"structaster_1_1_aster_behaviour_handler_1_1_stiffness_operator_initializer.html":[5,0,2,0,5]
 };

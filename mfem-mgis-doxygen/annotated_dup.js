@@ -621,6 +621,7 @@ var annotated_dup =
       [ "PartialQuadratureSpace", "structmfem__mgis_1_1_partial_quadrature_space.html", "structmfem__mgis_1_1_partial_quadrature_space" ],
       [ "PeriodicNonLinearEvolutionProblem", "structmfem__mgis_1_1_periodic_non_linear_evolution_problem.html", "structmfem__mgis_1_1_periodic_non_linear_evolution_problem" ],
       [ "PhysicalSystem", "structmfem__mgis_1_1_physical_system.html", "structmfem__mgis_1_1_physical_system" ],
+      [ "PointWiseModel", "structmfem__mgis_1_1_point_wise_model.html", "structmfem__mgis_1_1_point_wise_model" ],
       [ "PostProcessing", "structmfem__mgis_1_1_post_processing.html", null ],
       [ "PostProcessing< false >", "structmfem__mgis_1_1_post_processing_3_01false_01_4.html", "structmfem__mgis_1_1_post_processing_3_01false_01_4" ],
       [ "PostProcessing< true >", "structmfem__mgis_1_1_post_processing_3_01true_01_4.html", "structmfem__mgis_1_1_post_processing_3_01true_01_4" ],

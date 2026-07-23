@@ -193,7 +193,8 @@ var hierarchy =
       ] ],
       [ "mfem_mgis::AbstractModel", "structmfem__mgis_1_1_abstract_model.html", [
         [ "mfem_mgis::ModelBase", "structmfem__mgis_1_1_model_base.html", [
-          [ "mfem_mgis::NonLinearModel", "structmfem__mgis_1_1_non_linear_model.html", null ]
+          [ "mfem_mgis::NonLinearModel", "structmfem__mgis_1_1_non_linear_model.html", null ],
+          [ "mfem_mgis::PointWiseModel", "structmfem__mgis_1_1_point_wise_model.html", null ]
         ] ]
       ] ]
     ] ],
@@ -2690,7 +2691,8 @@ var hierarchy =
     [ "mfront::bbrick::PorosityNucleationModelBase::MaterialCoefficientDescription", "structmfront_1_1bbrick_1_1_porosity_nucleation_model_base_1_1_material_coefficient_description.html", null ],
     [ "mgis::behaviour::MaterialDataManager", "structmgis_1_1behaviour_1_1_material_data_manager.html", [
       [ "mfem_mgis::Material", "structmfem__mgis_1_1_material.html", [
-        [ "mfem_mgis::BehaviourIntegratorBase", "structmfem__mgis_1_1_behaviour_integrator_base.html", null ]
+        [ "mfem_mgis::BehaviourIntegratorBase", "structmfem__mgis_1_1_behaviour_integrator_base.html", null ],
+        [ "mfem_mgis::PointWiseModel", "structmfem__mgis_1_1_point_wise_model.html", null ]
       ] ]
     ] ],
     [ "mgis::behaviour::MaterialDataManagerInitializer", "structmgis_1_1behaviour_1_1_material_data_manager_initializer.html", null ],

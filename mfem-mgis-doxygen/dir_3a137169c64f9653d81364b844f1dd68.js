@@ -90,6 +90,7 @@ var dir_3a137169c64f9653d81364b844f1dd68 =
     [ "PartialQuadratureSpace.ixx", "_partial_quadrature_space_8ixx.html", null ],
     [ "PeriodicNonLinearEvolutionProblem.hxx", "_periodic_non_linear_evolution_problem_8hxx.html", "_periodic_non_linear_evolution_problem_8hxx" ],
     [ "PhysicalSystem.hxx", "_physical_system_8hxx.html", "_physical_system_8hxx" ],
+    [ "PointWiseModel.hxx", "_point_wise_model_8hxx.html", "_point_wise_model_8hxx" ],
     [ "PostProcessing.hxx", "_post_processing_8hxx.html", "_post_processing_8hxx" ],
     [ "PostProcessingFactory.hxx", "_post_processing_factory_8hxx.html", "_post_processing_factory_8hxx" ],
     [ "Provider.hxx", "_provider_8hxx.html", "_provider_8hxx" ],

@@ -1,5 +1,0 @@
-var spack_2opt_2spack_2linux_icelake_2mgis_master_acp2afy4eg4bnesyzoyil7qna2hm2vcx_2include_2_m_g_i_s_2_function_2_algorithms_8hxx =
-[
-    [ "assign", "spack_2opt_2spack_2linux-icelake_2mgis-master-acp2afy4eg4bnesyzoyil7qna2hm2vcx_2include_2_m_g_i_s_2_function_2_algorithms_8hxx.html#a3f5b4ca6a30cc265c2cb491d61ad13ca", null ],
-    [ "scalar_reduce", "spack_2opt_2spack_2linux-icelake_2mgis-master-acp2afy4eg4bnesyzoyil7qna2hm2vcx_2include_2_m_g_i_s_2_function_2_algorithms_8hxx.html#a932a34e7734bd624edfe1d5496376e3e", null ]
-];

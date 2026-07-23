@@ -1,5 +1,7 @@
 var NAVTREEINDEX87 =
 {
+"structtfel_1_1system_1_1_external_material_property_description.html#a7a36b750f0b0644cfb1082b4dbd7f726":[7,0,14,8,30,19],
+"structtfel_1_1system_1_1_external_material_property_description.html#a7a7c80b12b1f25f109691ae98bf6f71c":[7,0,14,8,30,9],
 "structtfel_1_1system_1_1_external_material_property_description.html#a82fb16cbd574a204456b40abd8f521c0":[7,0,14,8,30,21],
 "structtfel_1_1system_1_1_external_material_property_description.html#a8aa5f0282b6519ebe6ce2b2f0657565b":[7,0,14,8,30,12],
 "structtfel_1_1system_1_1_external_material_property_description.html#a9f2e320ff04c2daef46e55358dd0ff56":[7,0,14,8,30,10],
@@ -247,7 +249,5 @@ var NAVTREEINDEX87 =
 "structtfel_1_1typetraits_1_1_is_scalar_3_01const_01tfel_1_1math_1_1_quantity_3_01_unit_type_00_0e41a5e6e0c62506e82362dacd4e964dd.html":[7,0,14,10,53],
 "structtfel_1_1typetraits_1_1_is_scalar_3_01tfel_1_1math_1_1_quantity_3_01_unit_type_00_01_value_d7b61431ac3449656341dd697681d648.html":[7,0,14,10,54],
 "structtfel_1_1typetraits_1_1_is_unary_operator.html":[7,0,14,10,55],
-"structtfel_1_1typetraits_1_1_is_unary_operator_3_01tfel_1_1math_1_1_op_neg_01_4.html":[7,0,14,10,56],
-"structtfel_1_1typetraits_1_1_promote.html":[7,0,14,10,57],
-"structtfel_1_1typetraits_1_1_promote.html#a45535796b03c90ce9226a2cc04beba58":[7,0,14,10,57,0]
+"structtfel_1_1typetraits_1_1_is_unary_operator_3_01tfel_1_1math_1_1_op_neg_01_4.html":[7,0,14,10,56]
 };

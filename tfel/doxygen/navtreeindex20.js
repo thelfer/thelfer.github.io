@@ -1,5 +1,7 @@
 var NAVTREEINDEX20 =
 {
+"structansys_1_1_ansys_tangent_operator_type.html":[5,0,1,48],
+"structansys_1_1_ansys_traits.html":[5,0,1,49],
 "structansys_1_1_ansys_traits.html":[7,0,1,49],
 "structansys_1_1_ansys_un_supported_case_handler.html":[5,0,1,50],
 "structansys_1_1_ansys_un_supported_case_handler.html":[7,0,1,50],
@@ -247,7 +249,5 @@ var NAVTREEINDEX20 =
 "structcalculix_1_1_calculi_x_data.html#a773691e6aa0e6671df1a7f8540d575dc":[7,0,3,7,0],
 "structcalculix_1_1_calculi_x_exception.html":[7,0,3,8],
 "structcalculix_1_1_calculi_x_exception.html":[5,0,3,8],
-"structcalculix_1_1_calculi_x_exception.html#a2b6943c27bb554f47fc043d5a38036e3":[7,0,3,8,2],
-"structcalculix_1_1_calculi_x_exception.html#a2b6943c27bb554f47fc043d5a38036e3":[5,0,3,8,2],
-"structcalculix_1_1_calculi_x_exception.html#a3cea861f96e4860bd37a598abad58ff7":[7,0,3,8,1]
+"structcalculix_1_1_calculi_x_exception.html#a2b6943c27bb554f47fc043d5a38036e3":[7,0,3,8,2]
 };

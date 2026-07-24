@@ -1,5 +1,6 @@
 var NAVTREEINDEX43 =
 {
+"structmgis_1_1behaviour_1_1_rotation_matrix3_d.html#acc4382f58190c41271f8d37fd0a72e3f":[5,0,12,1,18,1],
 "structmgis_1_1behaviour_1_1_rotation_matrix3_d.html#ad1f6e87fb85e613adea47377ece117db":[5,0,12,1,18,3],
 "structmgis_1_1behaviour_1_1_state.html":[5,0,12,1,19],
 "structmgis_1_1behaviour_1_1_state.html#a090f39129257645f22c705087c9214c1":[5,0,12,1,19,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX43 =
 "structmgis_1_1function_1_1_strided_coalesced_memory_access_tensor_view.html#a2da2d9dbc4ac0665f785cff56509dfb6":[5,0,12,2,43,2],
 "structmgis_1_1function_1_1_strided_coalesced_memory_access_tensor_view.html#a6655b24eb22dfcb4fa980fa61873c3a5":[5,0,12,2,43,3],
 "structmgis_1_1function_1_1_tensor_modifier.html":[5,0,12,2,44],
-"structmgis_1_1function_1_1_tensor_modifier.html#a1525bc233c43e8895bd8f9d73648a36b":[5,0,12,2,44,0],
-"structmgis_1_1function_1_1_tensor_modifier.html#acd241eec7b44cb36eab94758c2ce3b3f":[5,0,12,2,44,1]
+"structmgis_1_1function_1_1_tensor_modifier.html#a1525bc233c43e8895bd8f9d73648a36b":[5,0,12,2,44,0]
 };

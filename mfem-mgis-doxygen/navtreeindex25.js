@@ -1,5 +1,6 @@
 var NAVTREEINDEX25 =
 {
+"structmfem__mgis_1_1_orthotropic_plane_strain_stationary_non_linear_heat_transfer_behaviour_integrator.html#aee96456cd56e3345ddb7ad5a74ca460e":[5,0,9,95,8],
 "structmfem__mgis_1_1_orthotropic_plane_stress_standard_finite_strain_mechanics_behaviour_integrator.html":[5,0,9,96],
 "structmfem__mgis_1_1_orthotropic_plane_stress_standard_finite_strain_mechanics_behaviour_integrator.html":[3,0,0,94],
 "structmfem__mgis_1_1_orthotropic_plane_stress_standard_finite_strain_mechanics_behaviour_integrator.html#a081cb07b74c6c6d4d28d8fbf0c824307":[3,0,0,94,8],
@@ -248,6 +249,5 @@ var NAVTREEINDEX25 =
 "structmfem__mgis_1_1_parameters.html#ab27134464f62530e99f5bf17df413867":[3,0,0,101,3],
 "structmfem__mgis_1_1_parameters.html#abc35eff1b2a3b5d1ce2c62726290d1ea":[5,0,9,103,16],
 "structmfem__mgis_1_1_parameters.html#abc35eff1b2a3b5d1ce2c62726290d1ea":[3,0,0,101,16],
-"structmfem__mgis_1_1_parameters.html#abd7f5a1ba1b055cd26986a033ebf3d70":[5,0,9,103,18],
-"structmfem__mgis_1_1_parameters.html#abd7f5a1ba1b055cd26986a033ebf3d70":[3,0,0,101,18]
+"structmfem__mgis_1_1_parameters.html#abd7f5a1ba1b055cd26986a033ebf3d70":[5,0,9,103,18]
 };

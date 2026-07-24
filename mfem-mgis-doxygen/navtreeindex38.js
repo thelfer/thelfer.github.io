@@ -1,5 +1,6 @@
 var NAVTREEINDEX38 =
 {
+"structmfront_1_1_symbols_generator.html#ae5f3e58bbdb83cdf6c88713eab948738":[5,0,11,108,30],
 "structmfront_1_1_symbols_generator.html#ae62fc409b4bb00ce2f3e793222f5236d":[5,0,11,108,2],
 "structmfront_1_1_symbols_generator.html#afb6e374947065bc976b84d22a36832ac":[5,0,11,108,37],
 "structmfront_1_1_targets_description.html":[5,0,11,109],
@@ -248,6 +249,5 @@ var NAVTREEINDEX38 =
 "structmfront_1_1bbrick_1_1_chu_needleman1980_stress_based_porosity_nucleation_model.html#a87904379e9f4d0c7e345553d62b40cad":[5,0,11,0,8,0],
 "structmfront_1_1bbrick_1_1_cowper_symonds_strain_rate_sensitivity_factor.html":[5,0,11,0,9],
 "structmfront_1_1bbrick_1_1_cowper_symonds_strain_rate_sensitivity_factor.html#a139af6ddd08a70ca6e95adccc7f9902e":[5,0,11,0,9,0],
-"structmfront_1_1bbrick_1_1_cowper_symonds_strain_rate_sensitivity_factor.html#a1bea01155d5f21a1a85498ee35bc6c56":[5,0,11,0,9,4],
-"structmfront_1_1bbrick_1_1_cowper_symonds_strain_rate_sensitivity_factor.html#a689611e5df7b2b40fb52dba88015b289":[5,0,11,0,9,7]
+"structmfront_1_1bbrick_1_1_cowper_symonds_strain_rate_sensitivity_factor.html#a1bea01155d5f21a1a85498ee35bc6c56":[5,0,11,0,9,4]
 };

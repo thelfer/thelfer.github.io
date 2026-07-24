@@ -81,7 +81,7 @@ var searchData=
   ['tfel_2fmaterial_2fharmonicsumofnortonhoffviscoplasticflows_2ehxx_78',['HarmonicSumOfNortonHoffViscoplasticFlows.hxx',['../_t_f_e_l_2_material_2_harmonic_sum_of_norton_hoff_viscoplastic_flows_8hxx.html',1,'']]],
   ['tfel_2fmaterial_2fmichelandsuquet1992hollowspherestresscriterion_2ehxx_79',['MichelAndSuquet1992HollowSphereStressCriterion.hxx',['../_t_f_e_l_2_material_2_michel_and_suquet1992_hollow_sphere_stress_criterion_8hxx.html',1,'']]],
   ['tfel_2fmaterial_2frousseliertanguybesson2002stresscriterion_2ehxx_80',['RousselierTanguyBesson2002StressCriterion.hxx',['../_t_f_e_l_2_material_2_rousselier_tanguy_besson2002_stress_criterion_8hxx.html',1,'']]],
-  ['tfel_2fmath_2ftypes_2ehxx_81',['types.hxx',['../_t_f_e_l_2_math_2_types_8hxx.html',1,'']]],
+  ['tfel_2fmath_2ftypes_2ehxx_81',['types.hxx',['../_t_f_e_l_2_math_2types_8hxx.html',1,'']]],
   ['tfel_5fmath_5fconfig_2ehxx_82',['TFEL_MATH_Config.hxx',['../_t_f_e_l___m_a_t_h___config_8hxx.html',1,'']]],
   ['tfelconfig_2ehxx_83',['TFELConfig.hxx',['../_t_f_e_l_config_8hxx.html',1,'']]],
   ['tfelexception_2ehxx_84',['TFELException.hxx',['../_t_f_e_l_exception_8hxx.html',1,'']]],

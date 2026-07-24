@@ -1,5 +1,6 @@
 var NAVTREEINDEX60 =
 {
+"structtfel_1_1math_1_1internals_1_1_stensor_compute_eigen_tensors_derivatives_base.html":[5,0,16,5,2,101],
 "structtfel_1_1math_1_1internals_1_1_stensor_compute_eigen_values.html":[5,0,16,5,2,102],
 "structtfel_1_1math_1_1internals_1_1_stensor_compute_eigen_values_3_011u_01_4.html":[5,0,16,5,2,103],
 "structtfel_1_1math_1_1internals_1_1_stensor_compute_eigen_values_3_012u_01_4.html":[5,0,16,5,2,104],
@@ -248,6 +249,5 @@ var NAVTREEINDEX60 =
 "structtfel_1_1math_1_1parser_1_1_neg_logical_expression.html#a95bde0ef56cc159e5902e14eee043e16":[5,0,16,5,3,81,3],
 "structtfel_1_1math_1_1parser_1_1_neg_logical_expression.html#ac6e5d780691510c26e7051a240335969":[5,0,16,5,3,81,0],
 "structtfel_1_1math_1_1parser_1_1_neg_logical_expression.html#adc2ea87814cbd72056d6a485df8410cb":[5,0,16,5,3,81,1],
-"structtfel_1_1math_1_1parser_1_1_negation.html":[5,0,16,5,3,80],
-"structtfel_1_1math_1_1parser_1_1_negation.html#a214888a24dbaab2378e28485e8d2e42d":[5,0,16,5,3,80,3]
+"structtfel_1_1math_1_1parser_1_1_negation.html":[5,0,16,5,3,80]
 };

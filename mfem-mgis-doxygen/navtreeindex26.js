@@ -1,5 +1,6 @@
 var NAVTREEINDEX26 =
 {
+"structmfem__mgis_1_1_parameters.html#abd7f5a1ba1b055cd26986a033ebf3d70":[3,0,0,101,18],
 "structmfem__mgis_1_1_parameters.html#ac63c13f5f8ef69eb3153dc1c9a761aa6":[3,0,0,101,13],
 "structmfem__mgis_1_1_parameters.html#ac63c13f5f8ef69eb3153dc1c9a761aa6":[5,0,9,103,13],
 "structmfem__mgis_1_1_parameters.html#acf63c1390d05c6fd7012d5f3623b5ad0":[5,0,9,103,17],
@@ -248,6 +249,5 @@ var NAVTREEINDEX26 =
 "structmfem__mgis_1_1_partial_quadrature_space.html#a7a005353725efa2d14f98208f4154060":[3,0,0,113,2],
 "structmfem__mgis_1_1_partial_quadrature_space.html#abda233c582d752f3e99ba002f7dc79e3":[5,0,9,115,4],
 "structmfem__mgis_1_1_partial_quadrature_space.html#abda233c582d752f3e99ba002f7dc79e3":[3,0,0,113,4],
-"structmfem__mgis_1_1_partial_quadrature_space.html#abeb53f7e128c580c2e8f96748829dc5e":[5,0,9,115,3],
-"structmfem__mgis_1_1_partial_quadrature_space.html#abeb53f7e128c580c2e8f96748829dc5e":[3,0,0,113,3]
+"structmfem__mgis_1_1_partial_quadrature_space.html#abeb53f7e128c580c2e8f96748829dc5e":[5,0,9,115,3]
 };

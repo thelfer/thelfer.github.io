@@ -1,5 +1,6 @@
 var NAVTREEINDEX19 =
 {
+"structmfem__mgis_1_1_compute_next_state_output.html#a2fee3caa4d197b43c4aaee4889512666":[5,0,9,38,4],
 "structmfem__mgis_1_1_compute_next_state_output.html#a7819261c1832ff75ae4e1b2ce0c8bf48":[5,0,9,38,0],
 "structmfem__mgis_1_1_compute_next_state_output.html#a7819261c1832ff75ae4e1b2ce0c8bf48":[3,0,0,36,0],
 "structmfem__mgis_1_1_compute_next_state_output.html#aa1545854f7ce2b1dc40fefbd7a1ed787":[3,0,0,36,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX19 =
 "structmfem__mgis_1_1_finite_element_discretization.html#add984e545b7b9906d62f419f989b13df":[5,0,9,58,8],
 "structmfem__mgis_1_1_finite_element_discretization.html#ae0dbeaaef7bfc5f4f4b588be44ea9f09":[3,0,0,56,14],
 "structmfem__mgis_1_1_finite_element_discretization.html#ae0dbeaaef7bfc5f4f4b588be44ea9f09":[5,0,9,58,14],
-"structmfem__mgis_1_1_finite_element_discretization.html#ae362027451421b49e837177acd0022a0":[5,0,9,58,30],
-"structmfem__mgis_1_1_finite_element_discretization.html#ae362027451421b49e837177acd0022a0":[3,0,0,56,30]
+"structmfem__mgis_1_1_finite_element_discretization.html#ae362027451421b49e837177acd0022a0":[5,0,9,58,30]
 };

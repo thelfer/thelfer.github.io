@@ -1,5 +1,6 @@
 var NAVTREEINDEX53 =
 {
+"structtfel_1_1math_1_1_bissection_algorithm_data.html#a19d2425667584dc356d49ec086d1546d":[5,0,16,5,14,0],
 "structtfel_1_1math_1_1_bissection_algorithm_data.html#a681036cabbc40d1b8bb26a7b2e51701f":[5,0,16,5,14,1],
 "structtfel_1_1math_1_1_bissection_algorithm_data.html#ad7983fcb42b50323cc660683620329c0":[5,0,16,5,14,2],
 "structtfel_1_1math_1_1_check_unit_compatibility.html":[5,0,16,5,15],
@@ -248,6 +249,5 @@ var NAVTREEINDEX53 =
 "structtfel_1_1math_1_1_difference_random_access_iterator.html#abd339c2dfb01aa4df22e2b7c7ff451e2":[5,0,16,5,190,9],
 "structtfel_1_1math_1_1_difference_random_access_iterator.html#ac9c802b9f32f8d4194bf0c191d2879b2":[5,0,16,5,190,1],
 "structtfel_1_1math_1_1_difference_random_access_iterator.html#ad6fd0259eb374935a97c232a103188f7":[5,0,16,5,190,13],
-"structtfel_1_1math_1_1_difference_random_access_iterator.html#ae48e079fc87bee5e674690d1f6530419":[5,0,16,5,190,2],
-"structtfel_1_1math_1_1_difference_random_access_iterator_1_1proxy.html":[5,0,16,5,190,0]
+"structtfel_1_1math_1_1_difference_random_access_iterator.html#ae48e079fc87bee5e674690d1f6530419":[5,0,16,5,190,2]
 };

@@ -1,5 +1,6 @@
 var NAVTREEINDEX52 =
 {
+"structtfel_1_1material_1_1_modelling_hypothesis_to_stensor_size.html":[5,0,16,4,76],
 "structtfel_1_1material_1_1_modelling_hypothesis_to_stensor_size_3_01_modelling_hypothesis_1_1_a_0480ac891f310535c3b2fa0b37f9820c.html":[5,0,16,4,78],
 "structtfel_1_1material_1_1_modelling_hypothesis_to_stensor_size_3_01_modelling_hypothesis_1_1_a_93fac92e7580cb1dc3e60a247c8633ba.html":[5,0,16,4,79],
 "structtfel_1_1material_1_1_modelling_hypothesis_to_stensor_size_3_01_modelling_hypothesis_1_1_a_x_i_s_y_m_m_e_t_r_i_c_a_l_01_4.html":[5,0,16,4,77],
@@ -248,6 +249,5 @@ var NAVTREEINDEX52 =
 "structtfel_1_1math_1_1_bissection_algorithm_base.html#a87843549911fd2c85fd26dd72fb3424d":[5,0,16,5,13,0],
 "structtfel_1_1math_1_1_bissection_algorithm_base.html#a94703f95d3c680ed1941bc651c00d0f3":[5,0,16,5,13,2],
 "structtfel_1_1math_1_1_bissection_algorithm_data.html":[5,0,16,5,14],
-"structtfel_1_1math_1_1_bissection_algorithm_data.html#a01fd45700d65fd8f53e9fa18ae74c58f":[5,0,16,5,14,3],
-"structtfel_1_1math_1_1_bissection_algorithm_data.html#a19d2425667584dc356d49ec086d1546d":[5,0,16,5,14,0]
+"structtfel_1_1math_1_1_bissection_algorithm_data.html#a01fd45700d65fd8f53e9fa18ae74c58f":[5,0,16,5,14,3]
 };

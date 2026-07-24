@@ -1,5 +1,6 @@
 var NAVTREEINDEX51 =
 {
+"structtfel_1_1material_1_1_compute_altered_elastic_stiffness_base.html":[5,0,16,4,12],
 "structtfel_1_1material_1_1_compute_altered_elastic_stiffness_base_3_01_modelling_hypothesis_1_1_0ec8e13bb73aea11752b1ff74af2a7e3.html":[5,0,16,4,13],
 "structtfel_1_1material_1_1_compute_altered_elastic_stiffness_base_3_01_modelling_hypothesis_1_1_4e3119c6f4f1ef5da0c029651fb7a8d7.html":[5,0,16,4,14],
 "structtfel_1_1material_1_1_compute_altered_stiffness_tensor.html":[5,0,16,4,15],
@@ -248,6 +249,5 @@ var NAVTREEINDEX51 =
 "structtfel_1_1material_1_1_modelling_hypothesis_to_space_dimension_3_01_modelling_hypothesis_1_1_p_l_a_n_e_s_t_r_a_i_n_01_4.html":[5,0,16,4,73],
 "structtfel_1_1material_1_1_modelling_hypothesis_to_space_dimension_3_01_modelling_hypothesis_1_1_p_l_a_n_e_s_t_r_e_s_s_01_4.html":[5,0,16,4,74],
 "structtfel_1_1material_1_1_modelling_hypothesis_to_space_dimension_3_01_modelling_hypothesis_1_1a82380955733212de6c87eeb5c69c3fb.html":[5,0,16,4,69],
-"structtfel_1_1material_1_1_modelling_hypothesis_to_space_dimension_3_01_modelling_hypothesis_1_1f0b6d96c0643de74a73d3bdd3ac935f1.html":[5,0,16,4,75],
-"structtfel_1_1material_1_1_modelling_hypothesis_to_stensor_size.html":[5,0,16,4,76]
+"structtfel_1_1material_1_1_modelling_hypothesis_to_space_dimension_3_01_modelling_hypothesis_1_1f0b6d96c0643de74a73d3bdd3ac935f1.html":[5,0,16,4,75]
 };

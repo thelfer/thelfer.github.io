@@ -1,5 +1,6 @@
 var NAVTREEINDEX57 =
 {
+"structtfel_1_1math_1_1_l_u_matrix_not_square.html#ab1214c7aa33a21d3f1c05954d0ce1c66":[5,0,16,5,348,0],
 "structtfel_1_1math_1_1_l_u_null_determinant.html":[5,0,16,5,349],
 "structtfel_1_1math_1_1_l_u_null_determinant.html#ad8850e5f22cb76481cc2d4a330e9f1c9":[5,0,16,5,349,1],
 "structtfel_1_1math_1_1_l_u_null_determinant.html#af60580ce18b41a83525a7335c972742c":[5,0,16,5,349,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX57 =
 "structtfel_1_1math_1_1_standard_array_policy.html":[5,0,16,5,522],
 "structtfel_1_1math_1_1_standard_array_policy.html#a7f984f93bbb12a13734e7eed65938a2a":[5,0,16,5,522,0],
 "structtfel_1_1math_1_1_standard_array_policy.html#abdb5f3ff3f3910f1a4892872d047480f":[5,0,16,5,522,1],
-"structtfel_1_1math_1_1_standard_array_policy_aliases.html":[5,0,16,5,523],
-"structtfel_1_1math_1_1_standard_array_policy_aliases.html#a0db0ad4fc82b8a27d34389a1be424dd3":[5,0,16,5,523,0]
+"structtfel_1_1math_1_1_standard_array_policy_aliases.html":[5,0,16,5,523]
 };

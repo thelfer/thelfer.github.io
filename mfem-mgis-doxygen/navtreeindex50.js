@@ -1,5 +1,6 @@
 var NAVTREEINDEX50 =
 {
+"structmtest_1_1_u_anderson_acceleration_algorithm.html#a4ca1cee259bb819d6c5b2f78e769180e":[5,0,13,86,8],
 "structmtest_1_1_u_anderson_acceleration_algorithm.html#a593b3ce19d868c45a6840446180e9441":[5,0,13,86,10],
 "structmtest_1_1_u_anderson_acceleration_algorithm.html#a5db9c23524493e24404c2967efe2c8fe":[5,0,13,86,11],
 "structmtest_1_1_u_anderson_acceleration_algorithm.html#a6ec606958fa6541bffbc910a570b0f27":[5,0,13,86,7],
@@ -248,6 +249,5 @@ var NAVTREEINDEX50 =
 "structtfel_1_1material_1_1_chu_needleman1980_stress_based_nucleation_model_parameters.html":[5,0,16,4,10],
 "structtfel_1_1material_1_1_chu_needleman1980_stress_based_nucleation_model_parameters.html#a4c8c6d6aba68d4c549a3984a72e370c3":[5,0,16,4,10,0],
 "structtfel_1_1material_1_1_chu_needleman1980_stress_based_nucleation_model_parameters.html#aa5bb39297fa2377c05640f307379e522":[5,0,16,4,10,1],
-"structtfel_1_1material_1_1_chu_needleman1980_stress_based_nucleation_model_parameters.html#ac52ba2b556faa5d7adf06dcf3b496744":[5,0,16,4,10,2],
-"structtfel_1_1material_1_1_compute_altered_elastic_stiffness_base.html":[5,0,16,4,12]
+"structtfel_1_1material_1_1_chu_needleman1980_stress_based_nucleation_model_parameters.html#ac52ba2b556faa5d7adf06dcf3b496744":[5,0,16,4,10,2]
 };

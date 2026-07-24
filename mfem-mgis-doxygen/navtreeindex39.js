@@ -1,5 +1,6 @@
 var NAVTREEINDEX39 =
 {
+"structmfront_1_1bbrick_1_1_cowper_symonds_strain_rate_sensitivity_factor.html#a689611e5df7b2b40fb52dba88015b289":[5,0,11,0,9,7],
 "structmfront_1_1bbrick_1_1_cowper_symonds_strain_rate_sensitivity_factor.html#a6aaaa4b51ed1a09459ca7baf2c09bf5f":[5,0,11,0,9,8],
 "structmfront_1_1bbrick_1_1_cowper_symonds_strain_rate_sensitivity_factor.html#a8c2bb0682ca8fa34577806ee50d38601":[5,0,11,0,9,1],
 "structmfront_1_1bbrick_1_1_cowper_symonds_strain_rate_sensitivity_factor.html#a928d99c99f8ae9be911c844ed95d9b1e":[5,0,11,0,9,6],
@@ -248,6 +249,5 @@ var NAVTREEINDEX39 =
 "structmfront_1_1bbrick_1_1_kinematic_hardening_rule.html#a74037f13de8df75c01e0b1e706debd2d":[5,0,11,0,27,6],
 "structmfront_1_1bbrick_1_1_kinematic_hardening_rule.html#a83a499a2b010620e09d4ead1324ee41c":[5,0,11,0,27,7],
 "structmfront_1_1bbrick_1_1_kinematic_hardening_rule.html#aaabd1a8a57c885acb8e952bba93b99dc":[5,0,11,0,27,11],
-"structmfront_1_1bbrick_1_1_kinematic_hardening_rule.html#aac526e98046cf06c97c435a4b4b83e0a":[5,0,11,0,27,12],
-"structmfront_1_1bbrick_1_1_kinematic_hardening_rule.html#ab3c9fb9b3a0626f518d7fc885c68b981":[5,0,11,0,27,2]
+"structmfront_1_1bbrick_1_1_kinematic_hardening_rule.html#aac526e98046cf06c97c435a4b4b83e0a":[5,0,11,0,27,12]
 };

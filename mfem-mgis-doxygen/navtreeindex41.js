@@ -1,5 +1,6 @@
 var NAVTREEINDEX41 =
 {
+"structmfront_1_1bbrick_1_1_stress_based_porosity_nucleation_model_base.html#a2b35d1f41514ccf66e060d2a9b646909":[5,0,11,0,53,0],
 "structmfront_1_1bbrick_1_1_stress_based_porosity_nucleation_model_base.html#a3c4fcc633ec42a1eb1538e754d9c07a1":[5,0,11,0,53,1],
 "structmfront_1_1bbrick_1_1_stress_based_porosity_nucleation_model_base.html#a3dbdc2c79e5d1746df81919559e18512":[5,0,11,0,53,3],
 "structmfront_1_1bbrick_1_1_stress_based_porosity_nucleation_model_base.html#a68f856bb9df1062a6fcce34baddf7cb7":[5,0,11,0,53,5],
@@ -248,6 +249,5 @@ var NAVTREEINDEX41 =
 "structmgis_1_1_libraries_manager.html#af9c1e6d1d2d89acdf9568577152c829d":[5,0,12,12,62],
 "structmgis_1_1_libraries_manager.html#afc824e5ddc2e29f56307d7a25726808e":[5,0,12,12,50],
 "structmgis_1_1_libraries_manager.html#afd06b7ae7a8429381f3732631ee6b6f0":[5,0,12,12,70],
-"structmgis_1_1_libraries_manager.html#afe0128add6472f8048443c8d9f293227":[5,0,12,12,37],
-"structmgis_1_1_optional_reference.html":[5,0,12,13]
+"structmgis_1_1_libraries_manager.html#afe0128add6472f8048443c8d9f293227":[5,0,12,12,37]
 };

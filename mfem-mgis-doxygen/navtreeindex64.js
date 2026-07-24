@@ -1,5 +1,6 @@
 var NAVTREEINDEX64 =
 {
+"structtfel_1_1typetraits_1_1_is_unary_operator_3_01tfel_1_1math_1_1_op_neg_01_4.html":[5,0,16,9,56],
 "structtfel_1_1typetraits_1_1_promote.html":[5,0,16,9,57],
 "structtfel_1_1typetraits_1_1_promote.html#a45535796b03c90ce9226a2cc04beba58":[5,0,16,9,57,0],
 "structtfel_1_1typetraits_1_1_promote_3_01_a_00_01_a_01_4.html":[5,0,16,9,58],
@@ -248,6 +249,5 @@ var NAVTREEINDEX64 =
 "structtfel_1_1utilities_1_1_m_test_doc_parser.html#a83630a836670a04be092c2869894673e":[5,0,16,11,16,2],
 "structtfel_1_1utilities_1_1_m_test_doc_parser.html#a8856d297ed72db26953340e2be12ae59":[5,0,16,11,16,1],
 "structtfel_1_1utilities_1_1_parser_base.html":[5,0,16,11,17],
-"structtfel_1_1utilities_1_1_parser_base.html#a0d3421be530db99fcf453c49b9459c9a":[5,0,16,11,17,2],
-"structtfel_1_1utilities_1_1_parser_base.html#a27ea73c5a55c0f272288e6cb3604470a":[5,0,16,11,17,3]
+"structtfel_1_1utilities_1_1_parser_base.html#a0d3421be530db99fcf453c49b9459c9a":[5,0,16,11,17,2]
 };

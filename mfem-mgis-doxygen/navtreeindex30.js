@@ -1,5 +1,6 @@
 var NAVTREEINDEX30 =
 {
+"structmfront_1_1_behaviour_brick_base.html#ae157b35f4bcf26d69ed8a4f1c3d3f367":[5,0,11,9,4],
 "structmfront_1_1_behaviour_brick_base.html#ae21d1785fe956534f85f456f9dde3de3":[5,0,11,9,1],
 "structmfront_1_1_behaviour_brick_base.html#af3baa93a7a9ae533f17302cc865bb6e2":[5,0,11,9,3],
 "structmfront_1_1_behaviour_brick_description.html":[5,0,11,10],
@@ -248,6 +249,5 @@ var NAVTREEINDEX30 =
 "structmfront_1_1_behaviour_d_s_l_common.html#ad2f46647d859544a421f22dd6fdf8574":[5,0,11,16,59],
 "structmfront_1_1_behaviour_d_s_l_common.html#ad3d3fa59746edd7fac90378c70d12f06":[5,0,11,16,15],
 "structmfront_1_1_behaviour_d_s_l_common.html#ad4d1dc64ea9415b082edbf3d24bfb568":[5,0,11,16,177],
-"structmfront_1_1_behaviour_d_s_l_common.html#ad579395fd78a9dab0f462471d7764e47":[5,0,11,16,132],
-"structmfront_1_1_behaviour_d_s_l_common.html#ad713d150c2198fe28eed9a7686f18d6c":[5,0,11,16,18]
+"structmfront_1_1_behaviour_d_s_l_common.html#ad579395fd78a9dab0f462471d7764e47":[5,0,11,16,132]
 };

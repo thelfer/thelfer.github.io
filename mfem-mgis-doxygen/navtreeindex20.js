@@ -1,5 +1,6 @@
 var NAVTREEINDEX20 =
 {
+"structmfem__mgis_1_1_finite_element_discretization.html#ae362027451421b49e837177acd0022a0":[3,0,0,56,30],
 "structmfem__mgis_1_1_finite_element_discretization.html#ae4c5d4ad638bc88dba66c6d3539da073":[5,0,9,58,10],
 "structmfem__mgis_1_1_finite_element_discretization.html#ae4c5d4ad638bc88dba66c6d3539da073":[3,0,0,56,10],
 "structmfem__mgis_1_1_finite_element_discretization.html#aea9fc430c35eb46a8d0ac68950ca7f49":[5,0,9,58,20],
@@ -248,6 +249,5 @@ var NAVTREEINDEX20 =
 "structmfem__mgis_1_1_isotropic_plane_stress_standard_small_strain_mechanics_behaviour_integrator.html#a9e1b4a5f0cab8db1c205763dd9d5cf9d":[5,0,9,66,7],
 "structmfem__mgis_1_1_isotropic_plane_stress_standard_small_strain_mechanics_behaviour_integrator.html#ac155cfc3a0fb0226ccc38c6b15c78fd9":[3,0,0,64,5],
 "structmfem__mgis_1_1_isotropic_plane_stress_standard_small_strain_mechanics_behaviour_integrator.html#ac155cfc3a0fb0226ccc38c6b15c78fd9":[5,0,9,66,5],
-"structmfem__mgis_1_1_isotropic_plane_stress_standard_small_strain_mechanics_behaviour_integrator.html#acf99c9427abf900256ee14297ab9a0e4":[3,0,0,64,10],
-"structmfem__mgis_1_1_isotropic_plane_stress_standard_small_strain_mechanics_behaviour_integrator.html#acf99c9427abf900256ee14297ab9a0e4":[5,0,9,66,10]
+"structmfem__mgis_1_1_isotropic_plane_stress_standard_small_strain_mechanics_behaviour_integrator.html#acf99c9427abf900256ee14297ab9a0e4":[3,0,0,64,10]
 };

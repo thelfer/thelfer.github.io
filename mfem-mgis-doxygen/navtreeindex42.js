@@ -1,5 +1,6 @@
 var NAVTREEINDEX42 =
 {
+"structmgis_1_1_optional_reference.html":[5,0,12,13],
 "structmgis_1_1_preconditions_check.html":[5,0,12,14],
 "structmgis_1_1_preconditions_checker.html":[5,0,12,15],
 "structmgis_1_1_thread_pool.html":[5,0,12,19],
@@ -248,6 +249,5 @@ var NAVTREEINDEX42 =
 "structmgis_1_1behaviour_1_1_rotation_matrix3_d.html":[5,0,12,1,18],
 "structmgis_1_1behaviour_1_1_rotation_matrix3_d.html#a067631751c9b4ba40b313443edf942db":[5,0,12,1,18,0],
 "structmgis_1_1behaviour_1_1_rotation_matrix3_d.html#a1b32fe197254b58eacb63e95eb388ccb":[5,0,12,1,18,2],
-"structmgis_1_1behaviour_1_1_rotation_matrix3_d.html#a7c1ba0d9d8b967dbea14dc75124a48e1":[5,0,12,1,18,4],
-"structmgis_1_1behaviour_1_1_rotation_matrix3_d.html#acc4382f58190c41271f8d37fd0a72e3f":[5,0,12,1,18,1]
+"structmgis_1_1behaviour_1_1_rotation_matrix3_d.html#a7c1ba0d9d8b967dbea14dc75124a48e1":[5,0,12,1,18,4]
 };

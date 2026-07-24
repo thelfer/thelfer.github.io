@@ -1,5 +1,6 @@
 var NAVTREEINDEX63 =
 {
+"structtfel_1_1system_1_1_external_material_property_description.html#a443db2004aa70991fd7f42b2d0e51e55":[5,0,16,7,30,5],
 "structtfel_1_1system_1_1_external_material_property_description.html#a7a36b750f0b0644cfb1082b4dbd7f726":[5,0,16,7,30,19],
 "structtfel_1_1system_1_1_external_material_property_description.html#a7a7c80b12b1f25f109691ae98bf6f71c":[5,0,16,7,30,9],
 "structtfel_1_1system_1_1_external_material_property_description.html#a82fb16cbd574a204456b40abd8f521c0":[5,0,16,7,30,21],
@@ -248,6 +249,5 @@ var NAVTREEINDEX63 =
 "structtfel_1_1typetraits_1_1_is_scalar_3_01cadna_1_1numeric__type_3_01_t_01_4_01_4.html":[5,0,16,9,52],
 "structtfel_1_1typetraits_1_1_is_scalar_3_01const_01tfel_1_1math_1_1_quantity_3_01_unit_type_00_0e41a5e6e0c62506e82362dacd4e964dd.html":[5,0,16,9,53],
 "structtfel_1_1typetraits_1_1_is_scalar_3_01tfel_1_1math_1_1_quantity_3_01_unit_type_00_01_value_d7b61431ac3449656341dd697681d648.html":[5,0,16,9,54],
-"structtfel_1_1typetraits_1_1_is_unary_operator.html":[5,0,16,9,55],
-"structtfel_1_1typetraits_1_1_is_unary_operator_3_01tfel_1_1math_1_1_op_neg_01_4.html":[5,0,16,9,56]
+"structtfel_1_1typetraits_1_1_is_unary_operator.html":[5,0,16,9,55]
 };

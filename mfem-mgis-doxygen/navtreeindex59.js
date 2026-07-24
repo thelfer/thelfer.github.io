@@ -1,5 +1,6 @@
 var NAVTREEINDEX59 =
 {
+"structtfel_1_1math_1_1_unary_result_type_3_01long_01double_00_01_power_3_01_n_00_01_d_01_4_01_4.html":[5,0,16,5,621],
 "structtfel_1_1math_1_1_unary_result_type_3_01runtime__array_3_01_t_01_4_00_01_op_neg_01_4.html":[5,0,16,5,622],
 "structtfel_1_1math_1_1_unary_result_type_3_01tvector_3_01_n_00_01_t_01_4_00_01_op_neg_01_4.html":[5,0,16,5,630],
 "structtfel_1_1math_1_1_unary_result_type_3_01vector_3_01_t_01_4_00_01_op_neg_01_4.html":[5,0,16,5,631],
@@ -248,6 +249,5 @@ var NAVTREEINDEX59 =
 "structtfel_1_1math_1_1internals_1_1_stensor_compute_eigen_tensors_derivatives.html":[5,0,16,5,2,97],
 "structtfel_1_1math_1_1internals_1_1_stensor_compute_eigen_tensors_derivatives_3_011u_01_4.html":[5,0,16,5,2,98],
 "structtfel_1_1math_1_1internals_1_1_stensor_compute_eigen_tensors_derivatives_3_012u_01_4.html":[5,0,16,5,2,99],
-"structtfel_1_1math_1_1internals_1_1_stensor_compute_eigen_tensors_derivatives_3_013u_01_4.html":[5,0,16,5,2,100],
-"structtfel_1_1math_1_1internals_1_1_stensor_compute_eigen_tensors_derivatives_base.html":[5,0,16,5,2,101]
+"structtfel_1_1math_1_1internals_1_1_stensor_compute_eigen_tensors_derivatives_3_013u_01_4.html":[5,0,16,5,2,100]
 };

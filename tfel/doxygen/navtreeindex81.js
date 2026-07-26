@@ -1,5 +1,6 @@
 var NAVTREEINDEX81 =
 {
+"structtfel_1_1math_1_1_tiny_powell_dog_leg_broyden_solver.html#aa844779335e554aeccdbb2e57cdb855b":[7,0,14,6,596,8],
 "structtfel_1_1math_1_1_tiny_powell_dog_leg_broyden_solver.html#ad2164f11276111ec23195fd2bcfd1469":[5,0,9,1,593,7],
 "structtfel_1_1math_1_1_tiny_powell_dog_leg_broyden_solver.html#ad2164f11276111ec23195fd2bcfd1469":[7,0,14,6,596,7],
 "structtfel_1_1math_1_1_tiny_powell_dog_leg_broyden_solver.html#ae25cec28b25b5ad443e4155e46bd85ae":[5,0,9,1,593,5],
@@ -248,6 +249,5 @@ var NAVTREEINDEX81 =
 "structtfel_1_1math_1_1fsarray.html#af77d882b152796d8c003d6d1c3007f6a":[5,0,9,1,294,4],
 "structtfel_1_1math_1_1internal_1_1_unit_concept_implementation.html":[7,0,14,6,1,0],
 "structtfel_1_1math_1_1internal_1_1_unit_concept_implementation_3_01_unit_3_01std_1_1integral__co6b985afcf3d7c717feb87ca5c848a021.html":[7,0,14,6,1,1],
-"structtfel_1_1math_1_1internals_1_1_add_unit.html":[7,0,14,6,2,0],
-"structtfel_1_1math_1_1internals_1_1_add_unit.html":[5,0,9,1,1,0]
+"structtfel_1_1math_1_1internals_1_1_add_unit.html":[7,0,14,6,2,0]
 };

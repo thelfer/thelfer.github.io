@@ -1,7 +1,7 @@
 var structmfmtg_1_1_behaviour_data =
 [
     [ "BehaviourData", "structmfmtg_1_1_behaviour_data.html#ad26982d8cc29ae611e95c1148e2722b3", null ],
-    [ "BehaviourData", "structmfmtg_1_1_behaviour_data.html#adfb90d54989c86e9177a187e91ebd713", null ],
+    [ "BehaviourData", "structmfmtg_1_1_behaviour_data.html#a32759ecfc5a862301a6cfe03aaef31bb", null ],
     [ "BehaviourData", "structmfmtg_1_1_behaviour_data.html#a749e0021c76cb9b1fa507b017eda69ec", null ],
     [ "~BehaviourData", "structmfmtg_1_1_behaviour_data.html#a722a24c3f7b8a4943278affdd03b7c58", null ],
     [ "external_state_variables", "structmfmtg_1_1_behaviour_data.html#a6efea4655e4217e95e39ed8338d8fd9b", null ],

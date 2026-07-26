@@ -9,10 +9,10 @@ var structmfront_1_1_query_handler_base =
     [ "generateLibrariesDependenciesQuery", "structmfront_1_1_query_handler_base.html#a91080601220e811d29cf45c44e6a6862", null ],
     [ "generateSpecificTargetGeneratedSourcesQuery", "structmfront_1_1_query_handler_base.html#a4567be75763e136dc7c56f4d111dab97", null ],
     [ "generateSpecificTargetsQuery", "structmfront_1_1_query_handler_base.html#a91bda4a54f4628afe99c0cb4c9176b52", null ],
-    [ "getCurrentCommandLineArgument", "structmfront_1_1_query_handler_base.html#ab6cb384f4c5bd7c2edacc0b51bd20a55", null ],
+    [ "getCurrentCommandLineArgument", "structmfront_1_1_query_handler_base.html#acce9f12102df9246de8475c15da7fd25", null ],
     [ "getDSL", "structmfront_1_1_query_handler_base.html#ad05d5e269fac1da8432b3b283d456d74", null ],
-    [ "getUsageDescription", "structmfront_1_1_query_handler_base.html#a18bb2d2e4273ee56252db4849e2e5fd2", null ],
-    [ "getVersionDescription", "structmfront_1_1_query_handler_base.html#a2fca20f38fe4f25d5042ba20f63c5f4b", null ],
+    [ "getUsageDescription", "structmfront_1_1_query_handler_base.html#ad5f96ab2b860427b05cd19c1d4ac36a1", null ],
+    [ "getVersionDescription", "structmfront_1_1_query_handler_base.html#a0e78474180c39d0136de8bab64d3b4fc", null ],
     [ "registerCommandLineCallBacks", "structmfront_1_1_query_handler_base.html#a4dcc8055fd7b263ac63d359a9091d349", null ],
     [ "treatAllSpecificTargetsGeneratedSources", "structmfront_1_1_query_handler_base.html#a63ebbbe604e21aac5dd5d63fe17ec609", null ],
     [ "treatCppFlags", "structmfront_1_1_query_handler_base.html#ab0cbd70c77e95cca4ed62ecd4be9720b", null ],
@@ -22,7 +22,7 @@ var structmfront_1_1_query_handler_base =
     [ "treatLibrariesDependencies", "structmfront_1_1_query_handler_base.html#aee84af1596a680486991b0331d61efdf", null ],
     [ "treatSpecificTargetGeneratedSources", "structmfront_1_1_query_handler_base.html#adefff1a211168e207603b2a9b395b823", null ],
     [ "treatSpecificTargets", "structmfront_1_1_query_handler_base.html#a6330ca54d94b72f6417101aaa222fc99", null ],
-    [ "treatUnknownArgument", "structmfront_1_1_query_handler_base.html#a9ce1953a30d6501cfc34fd54426cad21", null ],
+    [ "treatUnknownArgument", "structmfront_1_1_query_handler_base.html#a3ca19e47eb1560805eca64a95fa0603a", null ],
     [ "tfel::utilities::ArgumentParserBase< QueryHandlerBase >", "structmfront_1_1_query_handler_base.html#a05d37ab3685cbdf73679bbfa997499db", null ],
     [ "melt_sources", "structmfront_1_1_query_handler_base.html#a72d24e6be736b248272eb9e1b7db98f2", null ]
 ];

@@ -10,6 +10,6 @@ var structmfront_1_1bbrick_1_1_standard_porous_stress_criterion_base =
     [ "generateMissingMaterialPropertyInitializationCode", "structmfront_1_1bbrick_1_1_standard_porous_stress_criterion_base.html#a3efc13dfa37365dfdddc98c39a6b7fa4", null ],
     [ "initialize", "structmfront_1_1bbrick_1_1_standard_porous_stress_criterion_base.html#a4e590bdc0ca47b7d8418033025f3c241", null ],
     [ "initializeMissingMaterialProperty", "structmfront_1_1bbrick_1_1_standard_porous_stress_criterion_base.html#af6a744b5097728abbb0b69fcff06a362", null ],
-    [ "isCoupledWithPorosityEvolution", "structmfront_1_1bbrick_1_1_standard_porous_stress_criterion_base.html#a099a37abe5e11963d85e5df8e2c34b2b", null ],
-    [ "isNormalDeviatoric", "structmfront_1_1bbrick_1_1_standard_porous_stress_criterion_base.html#a6ee88f07c0803e080dcdb39846af1951", null ]
+    [ "isCoupledWithPorosityEvolution", "structmfront_1_1bbrick_1_1_standard_porous_stress_criterion_base.html#a9659178d95b5a7320958386cd81f843b", null ],
+    [ "isNormalDeviatoric", "structmfront_1_1bbrick_1_1_standard_porous_stress_criterion_base.html#a29cf70eb04cc2974455f4ac837065ef5", null ]
 ];

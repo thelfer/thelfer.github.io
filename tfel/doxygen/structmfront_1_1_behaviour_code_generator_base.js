@@ -49,8 +49,8 @@ var structmfront_1_1_behaviour_code_generator_base =
     [ "writeSrcFile", "structmfront_1_1_behaviour_code_generator_base.html#a14f4c1cde9d8c7404999288f356733eb", null ],
     [ "writeStiffnessTensorComputation", "structmfront_1_1_behaviour_code_generator_base.html#a2138528bf259d2aee5ccaf1c4379f1ad", null ],
     [ "writeThermalExpansionCoefficientComputation", "structmfront_1_1_behaviour_code_generator_base.html#ac77c255ee7a05a7a1f33f454fd829cfe", null ],
-    [ "writeVariableDeclaration", "structmfront_1_1_behaviour_code_generator_base.html#abfa1f264a2f9a8fc5e0cd28095670b38", null ],
-    [ "writeVariablesDeclarations", "structmfront_1_1_behaviour_code_generator_base.html#a187b21ed0c71782b9de9486394847c00", null ],
+    [ "writeVariableDeclaration", "structmfront_1_1_behaviour_code_generator_base.html#aa7cc964441e49e798eaddede24cf7780", null ],
+    [ "writeVariablesDeclarations", "structmfront_1_1_behaviour_code_generator_base.html#af481d9a10c532e6b905f8d898d77290f", null ],
     [ "bd", "structmfront_1_1_behaviour_code_generator_base.html#a0eae2555dc5f785c911f1a319e4013d2", null ],
     [ "fd", "structmfront_1_1_behaviour_code_generator_base.html#aaa27351071c1cebcb6dece2195b62bc8", null ],
     [ "interfaces", "structmfront_1_1_behaviour_code_generator_base.html#aced345ee0e262ca1f43fa34a994e8f0d", null ]

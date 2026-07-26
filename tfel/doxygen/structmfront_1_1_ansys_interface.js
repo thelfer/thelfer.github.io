@@ -1,14 +1,14 @@
 var structmfront_1_1_ansys_interface =
 [
     [ "~AnsysInterface", "structmfront_1_1_ansys_interface.html#a548e2d6201fcb53988fee647e7119ade", null ],
-    [ "areExternalStateVariablesSupported", "structmfront_1_1_ansys_interface.html#a9b14acb899dc151ea8b36628b8841744", null ],
+    [ "areExternalStateVariablesSupported", "structmfront_1_1_ansys_interface.html#adeaf434d202b5adcc0528348dfba406d", null ],
     [ "completeBehaviourDataConstructor", "structmfront_1_1_ansys_interface.html#a995c8f88586d2cf80b225af2d679a597", null ],
     [ "endTreatment", "structmfront_1_1_ansys_interface.html#a7250757ccc400de937015d2a16cb2bc2", null ],
     [ "exportThermodynamicForce", "structmfront_1_1_ansys_interface.html#a9a82ad730c47a90c705781a64d44fe03", null ],
     [ "getBehaviourDataConstructorAdditionalVariables", "structmfront_1_1_ansys_interface.html#a17b611b53b81c9a62caf0c884331bdbf", null ],
     [ "getFunctionNameBasis", "structmfront_1_1_ansys_interface.html#ab902961c6138493c147c96c1f0d2a32d", null ],
     [ "getFunctionNameForHypothesis", "structmfront_1_1_ansys_interface.html#a2eb15e6f4cf37a91eebbff9d7d8c8224", null ],
-    [ "getInterfaceName", "structmfront_1_1_ansys_interface.html#af530c42df0282231b0069b801c863235", null ],
+    [ "getInterfaceName", "structmfront_1_1_ansys_interface.html#a816debf573d77d408dbc4ffb6a71fe6b", null ],
     [ "getLibraryName", "structmfront_1_1_ansys_interface.html#a34bca876c421dddb147476045db4e90f", null ],
     [ "getModellingHypothesesToBeTreated", "structmfront_1_1_ansys_interface.html#a82b8954e617871478edf9be64725ea49", null ],
     [ "getStateVariablesOffset", "structmfront_1_1_ansys_interface.html#a9abda8226099c19ad2d637cae2beb2e3", null ],

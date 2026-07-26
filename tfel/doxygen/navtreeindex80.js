@@ -1,5 +1,6 @@
 var NAVTREEINDEX80 =
 {
+"structtfel_1_1math_1_1_t_matrix_t_matrix_expr.html":[5,0,9,1,597],
 "structtfel_1_1math_1_1_t_matrix_t_matrix_expr_1_1_column_const_iterator.html":[7,0,14,6,600,0],
 "structtfel_1_1math_1_1_t_matrix_t_matrix_expr_1_1_column_const_iterator.html":[5,0,9,1,597,0],
 "structtfel_1_1math_1_1_t_matrix_t_matrix_expr_1_1_row_const_iterator.html":[7,0,14,6,600,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX80 =
 "structtfel_1_1math_1_1_tiny_powell_dog_leg_broyden_solver.html#a4977ec1e246496bffe773b13b5440588":[5,0,9,1,593,6],
 "structtfel_1_1math_1_1_tiny_powell_dog_leg_broyden_solver.html#a55a72a96bfc85b894425c8e8e6eca590":[7,0,14,6,596,4],
 "structtfel_1_1math_1_1_tiny_powell_dog_leg_broyden_solver.html#a55a72a96bfc85b894425c8e8e6eca590":[5,0,9,1,593,4],
-"structtfel_1_1math_1_1_tiny_powell_dog_leg_broyden_solver.html#aa844779335e554aeccdbb2e57cdb855b":[5,0,9,1,593,8],
-"structtfel_1_1math_1_1_tiny_powell_dog_leg_broyden_solver.html#aa844779335e554aeccdbb2e57cdb855b":[7,0,14,6,596,8]
+"structtfel_1_1math_1_1_tiny_powell_dog_leg_broyden_solver.html#aa844779335e554aeccdbb2e57cdb855b":[5,0,9,1,593,8]
 };

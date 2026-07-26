@@ -12,7 +12,7 @@ var structmfront_1_1_castem_interface =
     [ "getInterfaceName", "structmfront_1_1_castem_interface.html#ae8ff216531f326390900b89cfc317f2e", null ],
     [ "getLibraryName", "structmfront_1_1_castem_interface.html#a70b27cb061ea31df2a35c61cc59f85c3", null ],
     [ "getMaterialPropertiesOffsetForBehaviourTraits", "structmfront_1_1_castem_interface.html#a78588669a746ca9326650f25b634ac29", null ],
-    [ "getModellingHypothesesToBeTreated", "structmfront_1_1_castem_interface.html#a2060603ad7bf8464b3695641b68c7570", null ],
+    [ "getModellingHypothesesToBeTreated", "structmfront_1_1_castem_interface.html#a18412f924a5300add9be7a8363324f40", null ],
     [ "getModellingHypothesisTest", "structmfront_1_1_castem_interface.html#ad0506ba4a14ca9e0a7d21df826822964", null ],
     [ "getTargetsDescription", "structmfront_1_1_castem_interface.html#a844e1750b55638ed349843dbb2cd9f6f", null ],
     [ "isModellingHypothesisSupported", "structmfront_1_1_castem_interface.html#a46bd38576ad31d482e1eb8594ce78148", null ],

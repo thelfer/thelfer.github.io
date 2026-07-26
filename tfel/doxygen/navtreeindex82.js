@@ -1,5 +1,6 @@
 var NAVTREEINDEX82 =
 {
+"structtfel_1_1math_1_1internals_1_1_add_unit.html":[5,0,9,1,1,0],
 "structtfel_1_1math_1_1internals_1_1_add_unit_3_01_unit_3_01std_1_1integral__constant_3_01int_00_9b0816f3a9416e6f4d4151af6875e21b.html":[7,0,14,6,2,2],
 "structtfel_1_1math_1_1internals_1_1_add_unit_3_01_unit_3_01std_1_1integral__constant_3_01int_00_9b0816f3a9416e6f4d4151af6875e21b.html":[5,0,9,1,1,2],
 "structtfel_1_1math_1_1internals_1_1_add_unit_3_01_unit_3_01std_1_1integral__constant_3_01int_00_d0756212a6604fd858b959f2049c3f93.html":[7,0,14,6,2,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX82 =
 "structtfel_1_1math_1_1internals_1_1_result_type1_3_01_t1_00_01_t2_00_01tfel_1_1math_1_1_op_mult_01_4.html":[7,0,14,6,2,71],
 "structtfel_1_1math_1_1internals_1_1_result_type1_3_01_t1_00_01_t2_00_01tfel_1_1math_1_1_op_plus_01_4.html":[5,0,9,1,1,72],
 "structtfel_1_1math_1_1internals_1_1_result_type1_3_01_t1_00_01_t2_00_01tfel_1_1math_1_1_op_plus_01_4.html":[7,0,14,6,2,72],
-"structtfel_1_1math_1_1internals_1_1_result_type2.html":[5,0,9,1,1,73],
-"structtfel_1_1math_1_1internals_1_1_result_type2.html":[7,0,14,6,2,73]
+"structtfel_1_1math_1_1internals_1_1_result_type2.html":[5,0,9,1,1,73]
 };

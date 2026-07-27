@@ -14,7 +14,7 @@ var structtfel_1_1tests_1_1_test_result =
     [ "getDescription", "structtfel_1_1tests_1_1_test_result.html#a8e1471f9413f50a957793290c163e2f9", null ],
     [ "getFailureDescription", "structtfel_1_1tests_1_1_test_result.html#a57ad4cbe6fe8b41800730e4a930a340d", null ],
     [ "operator=", "structtfel_1_1tests_1_1_test_result.html#a5e5bd108f32c09d7f45b04d2fa221807", null ],
-    [ "operator=", "structtfel_1_1tests_1_1_test_result.html#ad1665c670a02c59609663b5da0ab4f1f", null ],
+    [ "operator=", "structtfel_1_1tests_1_1_test_result.html#a718c3a541f28cc07154390927134a820", null ],
     [ "setTestDuration", "structtfel_1_1tests_1_1_test_result.html#a46ade35b6a8c7d1e2e53b8e46c5c16e6", null ],
     [ "success", "structtfel_1_1tests_1_1_test_result.html#a9d84a3768ef9e0bfd367538c023dc4cc", null ]
 ];

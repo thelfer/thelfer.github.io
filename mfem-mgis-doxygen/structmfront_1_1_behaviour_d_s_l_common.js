@@ -37,7 +37,7 @@ var structmfront_1_1_behaviour_d_s_l_common =
     [ "endsInputFileProcessing", "structmfront_1_1_behaviour_d_s_l_common.html#a5ba987c071bcd562fd7397ef5f79a157", null ],
     [ "extractMaterialProperty", "structmfront_1_1_behaviour_d_s_l_common.html#a13572108ce7dec1e3e2293941f7a15d3", null ],
     [ "generateOutputFiles", "structmfront_1_1_behaviour_d_s_l_common.html#a84c04e88d6e88336a8f99c7a50dec134", null ],
-    [ "getBehaviourDescription", "structmfront_1_1_behaviour_d_s_l_common.html#a51b30bf95e0a52494e0d992981263bf0", null ],
+    [ "getBehaviourDescription", "structmfront_1_1_behaviour_d_s_l_common.html#a948a8998dff10f4f5b4ab5fb2bfdd962", null ],
     [ "getBehaviourDescription", "structmfront_1_1_behaviour_d_s_l_common.html#a801b53e4d519895797320b2db501a2c0", null ],
     [ "getBehaviourInterfaces", "structmfront_1_1_behaviour_d_s_l_common.html#a92f3e0aed1ee99541c13401f6b182c00", null ],
     [ "getClassName", "structmfront_1_1_behaviour_d_s_l_common.html#a6b37594d554a4c38ce49af17734dcd51", null ],

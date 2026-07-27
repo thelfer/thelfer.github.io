@@ -7,6 +7,6 @@ var structmfront_1_1bbrick_1_1_data_isotropic_hardening_rule =
     [ "endTreatment", "structmfront_1_1bbrick_1_1_data_isotropic_hardening_rule.html#a63ba456176ba28e2fa376fd4441d2065", null ],
     [ "getOptions", "structmfront_1_1bbrick_1_1_data_isotropic_hardening_rule.html#af1a072555f6b746a4b1e28d52e94f001", null ],
     [ "initialize", "structmfront_1_1bbrick_1_1_data_isotropic_hardening_rule.html#ae13c68b42e333c27e4ca0b411b6a088b", null ],
-    [ "writeCubicSplineInterpolationOfYieldRadius", "structmfront_1_1bbrick_1_1_data_isotropic_hardening_rule.html#a345ffe6c05a51df57e86b2b2faff4f2e", null ],
-    [ "writeLinearInterpolationOfYieldRadius", "structmfront_1_1bbrick_1_1_data_isotropic_hardening_rule.html#a36499455956f39333e7fb81ad290fb06", null ]
+    [ "writeCubicSplineInterpolationOfYieldRadius", "structmfront_1_1bbrick_1_1_data_isotropic_hardening_rule.html#a7c1adb4855d1e54bb7c1676004706e86", null ],
+    [ "writeLinearInterpolationOfYieldRadius", "structmfront_1_1bbrick_1_1_data_isotropic_hardening_rule.html#a5e2313f9548a2030aa88d2a21f168b14", null ]
 ];

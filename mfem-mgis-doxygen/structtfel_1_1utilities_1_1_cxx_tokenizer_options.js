@@ -2,10 +2,10 @@ var structtfel_1_1utilities_1_1_cxx_tokenizer_options =
 [
     [ "CxxTokenizerOptions", "structtfel_1_1utilities_1_1_cxx_tokenizer_options.html#a760ee09211ced4432b303670d3560d6c", null ],
     [ "CxxTokenizerOptions", "structtfel_1_1utilities_1_1_cxx_tokenizer_options.html#aa61272d247ee9ad8b70ff8f20b4c3df8", null ],
-    [ "CxxTokenizerOptions", "structtfel_1_1utilities_1_1_cxx_tokenizer_options.html#ad42c9bac493d5306695023c5ea10ce5a", null ],
+    [ "CxxTokenizerOptions", "structtfel_1_1utilities_1_1_cxx_tokenizer_options.html#adcffc7b25b2a9b7294a702189a523fd3", null ],
     [ "~CxxTokenizerOptions", "structtfel_1_1utilities_1_1_cxx_tokenizer_options.html#a6d9ae5c9f9b44a93139314d14fc27fca", null ],
     [ "operator=", "structtfel_1_1utilities_1_1_cxx_tokenizer_options.html#a757ded55dd42f9f0ef3825ff42731a78", null ],
-    [ "operator=", "structtfel_1_1utilities_1_1_cxx_tokenizer_options.html#a71fc9b22755ccaf6ba6b41b0b02ef700", null ],
+    [ "operator=", "structtfel_1_1utilities_1_1_cxx_tokenizer_options.html#a51ddb9af89aa3e4ed5f0d74a4454df34", null ],
     [ "addCurlyBraces", "structtfel_1_1utilities_1_1_cxx_tokenizer_options.html#a981b5b3440e8cb6da2f0f48eef059733", null ],
     [ "allowStrayBackSlash", "structtfel_1_1utilities_1_1_cxx_tokenizer_options.html#a90766089a86f33c0256010578fd2f681", null ],
     [ "allowStrayHashCharacter", "structtfel_1_1utilities_1_1_cxx_tokenizer_options.html#a7949795dfda86221ede28ecd7bee253a", null ],

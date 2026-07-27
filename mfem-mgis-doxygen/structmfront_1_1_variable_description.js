@@ -2,7 +2,7 @@ var structmfront_1_1_variable_description =
 [
     [ "VariableDescription", "structmfront_1_1_variable_description.html#aefb28a3c34b77d2b9a98ddc51ba34b3a", null ],
     [ "VariableDescription", "structmfront_1_1_variable_description.html#a7f99b02c4cb88a1cf14b5c61b277cf06", null ],
-    [ "VariableDescription", "structmfront_1_1_variable_description.html#abef678bfe9dd0dbd1b476919d7d5d670", null ],
+    [ "VariableDescription", "structmfront_1_1_variable_description.html#a9863650910060311eae19829b83bd9ef", null ],
     [ "VariableDescription", "structmfront_1_1_variable_description.html#abf2e8c5e2e2eb1f4f21ff5220b5c3b37", null ],
     [ "VariableDescription", "structmfront_1_1_variable_description.html#a8d3db8bcb67ff6536c9ca3ad2f8565ab", null ],
     [ "~VariableDescription", "structmfront_1_1_variable_description.html#a1ea23ea50258296505c0ca3005d9581b", null ],
@@ -24,7 +24,7 @@ var structmfront_1_1_variable_description =
     [ "hasPhysicalBounds", "structmfront_1_1_variable_description.html#a94ee2a62ea84222e25432662f3531acc", null ],
     [ "isScalar", "structmfront_1_1_variable_description.html#ac31c42c52ac1614075a5056d4795e669", null ],
     [ "operator=", "structmfront_1_1_variable_description.html#a9c531077dcaf7f663a9d32ab8f3bbafd", null ],
-    [ "operator=", "structmfront_1_1_variable_description.html#a200f93856b8915f9d8758397ad084d6f", null ],
+    [ "operator=", "structmfront_1_1_variable_description.html#a9c3e127b7eb919aad4ebb6a44f1ad78c", null ],
     [ "resetEntryName", "structmfront_1_1_variable_description.html#a5c9fee1134b0077b4fd18272ee103d5e", null ],
     [ "resetGlossaryName", "structmfront_1_1_variable_description.html#a21f476033e9b26ce6e37f801a4e37aa1", null ],
     [ "setAttribute", "structmfront_1_1_variable_description.html#a498d049dd2a9b00d9303105869188f3b", null ],

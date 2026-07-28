@@ -93,6 +93,7 @@ var dir_3a137169c64f9653d81364b844f1dd68 =
     [ "PointWiseModel.hxx", "_point_wise_model_8hxx.html", "_point_wise_model_8hxx" ],
     [ "PostProcessing.hxx", "_post_processing_8hxx.html", "_post_processing_8hxx" ],
     [ "PostProcessingFactory.hxx", "_post_processing_factory_8hxx.html", "_post_processing_factory_8hxx" ],
+    [ "Profiler.hxx", "_profiler_8hxx.html", "_profiler_8hxx" ],
     [ "Provider.hxx", "_provider_8hxx.html", "_provider_8hxx" ],
     [ "RotationMatrix.hxx", "include_2_m_f_e_m_m_g_i_s_2_rotation_matrix_8hxx.html", "include_2_m_f_e_m_m_g_i_s_2_rotation_matrix_8hxx" ],
     [ "SolverUtilities.hxx", "_solver_utilities_8hxx.html", "_solver_utilities_8hxx" ],

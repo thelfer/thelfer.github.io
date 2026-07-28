@@ -3125,7 +3125,6 @@ var hierarchy =
     [ "cyrano::CyranoBehaviourHandler< H, Behaviour >::PredictionOperatorIsNotAvalaible", "structcyrano_1_1_cyrano_behaviour_handler_1_1_prediction_operator_is_not_avalaible.html", null ],
     [ "mfem_mgis::PredictionPolicy", "structmfem__mgis_1_1_prediction_policy.html", null ],
     [ "tfel::system::ProcessManager", "structtfel_1_1system_1_1_process_manager.html", null ],
-    [ "mfem_mgis::Profiler::timers::ProfilerTimeSection", "classmfem__mgis_1_1_profiler_1_1timers_1_1_profiler_time_section.html", null ],
     [ "tfel::typetraits::Promote< A, B >", "structtfel_1_1typetraits_1_1_promote.html", null ],
     [ "tfel::typetraits::Promote< A, A >", "structtfel_1_1typetraits_1_1_promote_3_01_a_00_01_a_01_4.html", null ],
     [ "tfel::typetraits::Promote< A, tfel::math::Complex< B > >", "structtfel_1_1typetraits_1_1_promote_3_01_a_00_01tfel_1_1math_1_1_complex_3_01_b_01_4_01_4.html", null ],

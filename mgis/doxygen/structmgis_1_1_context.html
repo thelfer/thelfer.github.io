@@ -106,7 +106,7 @@ $(document).ready(function(){initNavTree('structmgis_1_1_context.html',''); init
 </div><!--header-->
 <div class="contents">
 
-<p>a class used to pass an execution context to most methods of <code>MGIS</code> and gather information (error, logs).  
+<p>a class used to pass an execution context to most methods of <code>MGIS</code> and gather information (error, logs, profiling).  
  <a href="structmgis_1_1_context.html#details">More...</a></p>
 
 <p><code>#include &lt;/home/runner/work/MFrontGenericInterfaceSupport/MFrontGenericInterfaceSupport/include/MGIS/Context.hxx&gt;</code></p>
@@ -154,6 +154,22 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aedc92dc25254053dd9a944640bb54f31" id="r_aedc92dc25254053dd9a944640bb54f31"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1_context.html#aedc92dc25254053dd9a944640bb54f31">setVerbosityLevel</a> (const <a class="el" href="namespacemgis.html#ae27c067cd94c99251df4640e86ecd3a9">VerbosityLevel</a>) noexcept</td></tr>
 <tr class="memdesc:aedc92dc25254053dd9a944640bb54f31"><td class="mdescLeft">&#160;</td><td class="mdescRight">change the level of verbosity  <br /></td></tr>
 <tr class="separator:aedc92dc25254053dd9a944640bb54f31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68e368cd8829bd79fd5e16fcdc400490" id="r_a68e368cd8829bd79fd5e16fcdc400490"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1_context.html#a68e368cd8829bd79fd5e16fcdc400490">enableProfiling</a> (const bool b) noexcept</td></tr>
+<tr class="memdesc:a68e368cd8829bd79fd5e16fcdc400490"><td class="mdescLeft">&#160;</td><td class="mdescRight">enable or disable profiling  <br /></td></tr>
+<tr class="separator:a68e368cd8829bd79fd5e16fcdc400490"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0784f7b4fb5edf325b1c38f632dfb6d3" id="r_a0784f7b4fb5edf325b1c38f632dfb6d3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1_context.html#a0784f7b4fb5edf325b1c38f632dfb6d3">isProfilingEnabled</a> () const noexcept</td></tr>
+<tr class="separator:a0784f7b4fb5edf325b1c38f632dfb6d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa122f4ad614467924a83ac13ca95f4ca" id="r_aa122f4ad614467924a83ac13ca95f4ca"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmgis_1_1_profiling_section.html">ProfilingSection</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1_context.html#aa122f4ad614467924a83ac13ca95f4ca">startNewProfiling</a> (std::string name, bool enabled) noexcept</td></tr>
+<tr class="memdesc:aa122f4ad614467924a83ac13ca95f4ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">start a new profiling section  <br /></td></tr>
+<tr class="separator:aa122f4ad614467924a83ac13ca95f4ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a773527e94fe446f24b4d983099ffdbe7" id="r_a773527e94fe446f24b4d983099ffdbe7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1_context.html#a773527e94fe446f24b4d983099ffdbe7">pushProfilingNode</a> (std::string name) noexcept</td></tr>
+<tr class="memdesc:a773527e94fe446f24b4d983099ffdbe7"><td class="mdescLeft">&#160;</td><td class="mdescRight">push a new profiling node into the current execution stack  <br /></td></tr>
+<tr class="separator:a773527e94fe446f24b4d983099ffdbe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa28f1395bb997b586839fe66f46681e2" id="r_aa28f1395bb997b586839fe66f46681e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1_context.html#aa28f1395bb997b586839fe66f46681e2">popProfilingNode</a> (double dt) noexcept</td></tr>
+<tr class="memdesc:aa28f1395bb997b586839fe66f46681e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">pop the current profiling node from the execution stack and accumulate time  <br /></td></tr>
+<tr class="separator:aa28f1395bb997b586839fe66f46681e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83ce8bb2cd6bc70893b9a6394be47e14" id="r_a83ce8bb2cd6bc70893b9a6394be47e14"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structmgis_1_1_profiling_data.html">ProfilingData</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1_context.html#a83ce8bb2cd6bc70893b9a6394be47e14">getProfilingResultTree</a> () const noexcept</td></tr>
+<tr class="separator:a83ce8bb2cd6bc70893b9a6394be47e14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab68e10aad399870b9e959ffdd508a028" id="r_ab68e10aad399870b9e959ffdd508a028"><td class="memTemplParams" colspan="2">template&lt;FailureHandlerPolicy policy = FailureHandlerPolicy::RAISE&gt; </td></tr>
 <tr class="memitem:ab68e10aad399870b9e959ffdd508a028"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structmgis_1_1_context_1_1_failure_handler.html">FailureHandler</a>&lt; policy &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structmgis_1_1_context.html#ab68e10aad399870b9e959ffdd508a028">getFailureHandler</a> ()</td></tr>
 <tr class="separator:ab68e10aad399870b9e959ffdd508a028"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -249,7 +265,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>unsetErrorRepo
 <tr class="separator:a7a0a0ddcc4754c6125b0b48d27c4d409 inherit pub_static_methods_structmgis_1_1_error_backtrace"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>a class used to pass an execution context to most methods of <code>MGIS</code> and gather information (error, logs). </p>
+<div class="textblock"><p>a class used to pass an execution context to most methods of <code>MGIS</code> and gather information (error, logs, profiling). </p>
 <p>The <code><a class="el" href="structmgis_1_1_context.html" title="a class used to pass an execution context to most methods of MGIS and gather information (error,...">Context</a></code> may be changed at various stage of the computation. For example, the verbosity level or the logging stream can be changed when calling a new model: this is can useful to debug a specific rm.</p>
 <p>The default logging stream is the one returned by the <code><a class="el" href="namespacemgis.html#a45e2adc7ff0a023a90a1dabb59ceb269">mgis::getDefaultLogStream</a></code> free function. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -387,6 +403,41 @@ template&lt;typename... Args&gt; </div>
 
 </div>
 </div>
+<a id="a68e368cd8829bd79fd5e16fcdc400490" name="a68e368cd8829bd79fd5e16fcdc400490"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68e368cd8829bd79fd5e16fcdc400490">&#9670;&#160;</a></span>enableProfiling()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mgis::Context::enableProfiling </td>
+          <td>(</td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>b</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>enable or disable profiling </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>a boolean value stating whether profiling shall be enabled</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>when profiling is disabled, profiling sections introduce almost no overhead. </dd></dl>
+
+</div>
+</div>
 <a id="ab68e10aad399870b9e959ffdd508a028" name="ab68e10aad399870b9e959ffdd508a028"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab68e10aad399870b9e959ffdd508a028">&#9670;&#160;</a></span>getFailureHandler()</h2>
 
@@ -474,6 +525,32 @@ template&lt;FailureHandlerPolicy policy = FailureHandlerPolicy::RAISE&gt; </div>
 
 </div>
 </div>
+<a id="a83ce8bb2cd6bc70893b9a6394be47e14" name="a83ce8bb2cd6bc70893b9a6394be47e14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83ce8bb2cd6bc70893b9a6394be47e14">&#9670;&#160;</a></span>getProfilingResultTree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structmgis_1_1_profiling_data.html">ProfilingData</a> &amp; mgis::Context::getProfilingResultTree </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the root node of the profiling results tree gathered during execution </dd></dl>
+
+</div>
+</div>
 <a id="a5a674a4bd79b990cfe8e3d7d6921ca5b" name="a5a674a4bd79b990cfe8e3d7d6921ca5b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5a674a4bd79b990cfe8e3d7d6921ca5b">&#9670;&#160;</a></span>getThrowingFailureHandler()</h2>
 
@@ -523,6 +600,32 @@ template&lt;FailureHandlerPolicy policy = FailureHandlerPolicy::RAISE&gt; </div>
 </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>the verbosity level </dd></dl>
+
+</div>
+</div>
+<a id="a0784f7b4fb5edf325b1c38f632dfb6d3" name="a0784f7b4fb5edf325b1c38f632dfb6d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0784f7b4fb5edf325b1c38f632dfb6d3">&#9670;&#160;</a></span>isProfilingEnabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool mgis::Context::isProfilingEnabled </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>true if profiling is enabled, false otherwise </dd></dl>
 
 </div>
 </div>
@@ -605,6 +708,76 @@ template&lt;typename... Args&gt; </div>
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>note nothing is displayed if the current verbositiy level is below the first argument </dd></dl>
+
+</div>
+</div>
+<a id="aa28f1395bb997b586839fe66f46681e2" name="aa28f1395bb997b586839fe66f46681e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa28f1395bb997b586839fe66f46681e2">&#9670;&#160;</a></span>popProfilingNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mgis::Context::popProfilingNode </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>dt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>pop the current profiling node from the execution stack and accumulate time </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">dt</td><td>execution time of the section in seconds</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>this method is meant to be called internally by the <code>Profiling</code> class during its destruction. </dd></dl>
+
+</div>
+</div>
+<a id="a773527e94fe446f24b4d983099ffdbe7" name="a773527e94fe446f24b4d983099ffdbe7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a773527e94fe446f24b4d983099ffdbe7">&#9670;&#160;</a></span>pushProfilingNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mgis::Context::pushProfilingNode </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>push a new profiling node into the current execution stack </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>name of the profiling section</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>this method is meant to be called internally by the <code>Profiling</code> class during its construction. </dd></dl>
 
 </div>
 </div>
@@ -712,6 +885,53 @@ template&lt;typename... Args&gt; </div>
 
 </div>
 </div>
+<a id="aa122f4ad614467924a83ac13ca95f4ca" name="aa122f4ad614467924a83ac13ca95f4ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa122f4ad614467924a83ac13ca95f4ca">&#9670;&#160;</a></span>startNewProfiling()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmgis_1_1_profiling_section.html">ProfilingSection</a> mgis::Context::startNewProfiling </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enabled</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>start a new profiling section </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>name of the profiling section </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">enabled</td><td>boolean stating whether this profiling section shall effectively collect timing information</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a profiling section object</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>the returned object relies on RAII semantics: timing starts during construction and stops during destruction. </dd></dl>
+
+</div>
+</div>
 <a id="a9677e54014a855642fbcd953a857b531" name="a9677e54014a855642fbcd953a857b531"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9677e54014a855642fbcd953a857b531">&#9670;&#160;</a></span>warning()</h2>
 
@@ -764,7 +984,7 @@ template&lt;typename... Args&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemgis.html">mgis</a></li><li class="navelem"><a class="el" href="structmgis_1_1_context.html">Context</a></li>
-    <li class="footer">Generated on Wed Jul 1 2026 12:38:10 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Jul 28 2026 11:56:46 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

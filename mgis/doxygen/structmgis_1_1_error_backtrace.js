@@ -7,7 +7,7 @@ var structmgis_1_1_error_backtrace =
     [ "empty", "structmgis_1_1_error_backtrace.html#a03f7f3892b321fb64ecfadd6a330e575", null ],
     [ "getErrorMessage", "structmgis_1_1_error_backtrace.html#a0ba4d23e662a1cb766bed3b30af00e72", null ],
     [ "getRawErrorMessage", "structmgis_1_1_error_backtrace.html#a499487000b939f4779f5a43903abf3b0", null ],
-    [ "registerErrorMessage", "structmgis_1_1_error_backtrace.html#ada60818b45b08eb10e4b07a11f96dfdd", null ],
+    [ "registerErrorMessage", "structmgis_1_1_error_backtrace.html#a7b9a2c1da5c99fccddeaee1ac5bf6bf0", null ],
     [ "registerErrorMessage", "structmgis_1_1_error_backtrace.html#a329da9ce51514264a965c74067c59f2e", null ],
     [ "registerErrorMessageWithoutSourceLocation", "structmgis_1_1_error_backtrace.html#a91f7895e794122ce8772f4c47c14659d", null ]
 ];

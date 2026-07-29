@@ -15,7 +15,7 @@ var namespacemgis =
     [ "ThreadedTaskResult< void >", "structmgis_1_1_threaded_task_result_3_01void_01_4.html", "structmgis_1_1_threaded_task_result_3_01void_01_4" ],
     [ "ThreadedTaskResultBase", "structmgis_1_1_threaded_task_result_base.html", null ],
     [ "ThreadPool", "structmgis_1_1_thread_pool.html", "structmgis_1_1_thread_pool" ],
-    [ "ExceptionHandler", "namespacemgis.html#ac0d898c82fab21a0e65fd75290e66903", null ],
+    [ "ExceptionHandler", "namespacemgis.html#ac0044a002b8fdba8da5c4fc9173d3e99", null ],
     [ "invoke_result_t", "namespacemgis.html#acb639271daea2a4852ad11f6f8c5fcd9", null ],
     [ "real", "namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4", null ],
     [ "size_type", "namespacemgis.html#a184723b5d743b58169be89d3b04265fc", null ],

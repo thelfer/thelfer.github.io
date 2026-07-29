@@ -1,6 +1,5 @@
 var structtfel_1_1utilities_1_1_cxx_tokenizer =
 [
-    [ "IsValidIdentifierOptions", "structtfel_1_1utilities_1_1_cxx_tokenizer_1_1_is_valid_identifier_options.html", "structtfel_1_1utilities_1_1_cxx_tokenizer_1_1_is_valid_identifier_options" ],
     [ "const_iterator", "structtfel_1_1utilities_1_1_cxx_tokenizer.html#a7ca60bfe4f249af5a37344bd54854c00", null ],
     [ "size_type", "structtfel_1_1utilities_1_1_cxx_tokenizer.html#a4205c19510f23eb6f5595b508b6fcc68", null ],
     [ "TokensContainer", "structtfel_1_1utilities_1_1_cxx_tokenizer.html#a157cd97bc77ad93d8e1861e7f12129e9", null ],
@@ -35,11 +34,9 @@ var structtfel_1_1utilities_1_1_cxx_tokenizer =
     [ "size", "structtfel_1_1utilities_1_1_cxx_tokenizer.html#aa176d66f291e9b5a8f66887c01deabee", null ],
     [ "splitLine", "structtfel_1_1utilities_1_1_cxx_tokenizer.html#a86ba1b2b57c5dfb646f2fff4bea5c244", null ],
     [ "stripComments", "structtfel_1_1utilities_1_1_cxx_tokenizer.html#a360dc386535505472b0b691e732bf9f3", null ],
-    [ "substitute", "structtfel_1_1utilities_1_1_cxx_tokenizer.html#a9883c621f894888f57639c8024d1859d", null ],
     [ "treatCharAsString", "structtfel_1_1utilities_1_1_cxx_tokenizer.html#a0ba937df603efecb52ff20b7d75dec37", null ],
     [ "treatDotAsSeparator", "structtfel_1_1utilities_1_1_cxx_tokenizer.html#aabb7cdc725ba8669dde9e36b469e4d4b", null ],
     [ "treatMinusAsSeparator", "structtfel_1_1utilities_1_1_cxx_tokenizer.html#a8803f1744e65fca35d352d2247717246", null ],
-    [ "treatPlusAsSeparator", "structtfel_1_1utilities_1_1_cxx_tokenizer.html#a8d15c42e1519707b9a48d9865da34da5", null ],
     [ "comments", "structtfel_1_1utilities_1_1_cxx_tokenizer.html#ad22f5b89671572ea252ec016d44347ca", null ],
     [ "cStyleCommentOpened", "structtfel_1_1utilities_1_1_cxx_tokenizer.html#a86ce336dafb417798c26d304fa7923f4", null ],
     [ "currentRawStringDelimiter", "structtfel_1_1utilities_1_1_cxx_tokenizer.html#ae049413c6193cdad39b1f521fa3f275d", null ],

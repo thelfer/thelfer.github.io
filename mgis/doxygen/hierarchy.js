@@ -256,8 +256,6 @@ var hierarchy =
       ] ],
       [ "mgis::function::TensorView< FunctionType, TensorType >", "structmgis_1_1function_1_1_tensor_view.html", null ]
     ] ],
-    [ "mgis::ProfilingData", "structmgis_1_1_profiling_data.html", null ],
-    [ "mgis::ProfilingSection", "classmgis_1_1_profiling_section.html", null ],
     [ "mgis::julia::Ptr< T >", "structmgis_1_1julia_1_1_ptr.html", null ],
     [ "mgis::function::internals::QuadraturePointIndexTypeSelector< true, Space >", "structmgis_1_1function_1_1internals_1_1_quadrature_point_index_type_selector_3_01true_00_01_space_01_4.html", null ],
     [ "mgis::function::internals::RotateBackwardsModifier", "structmgis_1_1function_1_1internals_1_1_rotate_backwards_modifier.html", null ],

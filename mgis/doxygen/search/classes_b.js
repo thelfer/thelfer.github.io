@@ -13,7 +13,5 @@ var searchData=
   ['preconditionschecker_3c_20stridedcoalescedmemoryaccessfunctionviewbase_3c_20space_2c_20n_2c_20is_5fmutable_20_3e_20_3e_10',['PreconditionsChecker&lt; StridedCoalescedMemoryAccessFunctionViewBase&lt; Space, N, is_mutable &gt; &gt;',['../structmgis_1_1_preconditions_checker.html',1,'mgis']]],
   ['preconditionschecker_3c_20tensorialfunction_3c_20space_2c_20tensortype_20_3e_20_3e_11',['PreconditionsChecker&lt; TensorialFunction&lt; Space, TensorType &gt; &gt;',['../structmgis_1_1_preconditions_checker.html',1,'mgis']]],
   ['preconditionschecker_3c_20tensorview_3c_20functiontype_2c_20tensortype_20_3e_20_3e_12',['PreconditionsChecker&lt; TensorView&lt; FunctionType, TensorType &gt; &gt;',['../structmgis_1_1_preconditions_checker.html',1,'mgis']]],
-  ['profilingdata_13',['ProfilingData',['../structmgis_1_1_profiling_data.html',1,'mgis']]],
-  ['profilingsection_14',['ProfilingSection',['../classmgis_1_1_profiling_section.html',1,'mgis']]],
-  ['ptr_15',['Ptr',['../structmgis_1_1julia_1_1_ptr.html',1,'mgis::julia']]]
+  ['ptr_13',['Ptr',['../structmgis_1_1julia_1_1_ptr.html',1,'mgis::julia']]]
 ];

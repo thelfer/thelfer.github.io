@@ -1,5 +1,6 @@
 var NAVTREEINDEX14 =
 {
+"namespacecyrano.html#a13d0fbe13280dcc7db5e66ed8f95d9e7":[5,0,5,24],
 "namespacecyrano.html#a58eaa98b94ec51fe186fb1da18c5232f":[5,0,5,26],
 "namespacecyrano.html#a6b94726e44ba7b3d36c9152a2c6d93b2":[5,0,5,25],
 "namespacecyrano.html#a860f4aa64c291a6c55b42976e0c9da09":[5,0,5,23],
@@ -248,6 +249,5 @@ var NAVTREEINDEX14 =
 "namespacemfront.html#ac978189af6e0f182c8cc7653d8a3e0f9":[5,0,7,323],
 "namespacemfront.html#ac9d8554b970063d0c647c81a5060571b":[5,0,7,367],
 "namespacemfront.html#acb89ff87fa4b9b0bc1870c00e262e092":[5,0,7,312],
-"namespacemfront.html#acdd13959929e294d2c99d294d1f33ac4":[5,0,7,360],
-"namespacemfront.html#ad025dfa2bf6f9ac6710cb8a43ea4b367":[5,0,7,356]
+"namespacemfront.html#acdd13959929e294d2c99d294d1f33ac4":[5,0,7,360]
 };

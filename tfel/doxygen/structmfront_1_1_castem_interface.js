@@ -21,7 +21,7 @@ var structmfront_1_1_castem_interface =
     [ "writeCastemFunction", "structmfront_1_1_castem_interface.html#a6d7197a0d1d704f243c8caeba44f0ce6", null ],
     [ "writeFiniteRotationSmallStrainCastemFunction", "structmfront_1_1_castem_interface.html#a427d31a473d41ac5e93f84ed4a54018e", null ],
     [ "writeFiniteStrainStrategiesPlaneStressSpecificCall", "structmfront_1_1_castem_interface.html#affbc56dab1329a0d0208825dfafec190", null ],
-    [ "writeInitializeAxialStrain", "structmfront_1_1_castem_interface.html#ad5535852929ea7cd8484bd9b3eaf3edd", null ],
+    [ "writeInitializeAxialStrain", "structmfront_1_1_castem_interface.html#a92e27abb0bfbbaac024315f0d3746e86", null ],
     [ "writeInterfaceSpecificIncludes", "structmfront_1_1_castem_interface.html#ad9e4b6cd458e8186d4b7a63258077aac", null ],
     [ "writeLogarithmicStrain1DCastemFunction", "structmfront_1_1_castem_interface.html#a0cc1005d87681155f36cf4da7cfebd67", null ],
     [ "writeMieheApelLambrechtLogarithmicStrainCastemFunction", "structmfront_1_1_castem_interface.html#a3fa0e5a87133b9d67e81bc5a5a1aafac", null ],

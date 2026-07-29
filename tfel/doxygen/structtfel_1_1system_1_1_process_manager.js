@@ -10,5 +10,6 @@ var structtfel_1_1system_1_1_process_manager =
     [ "createProcess", "structtfel_1_1system_1_1_process_manager.html#a60a788a473cf32c2c62972bcf4b4ae83", null ],
     [ "createProcess", "structtfel_1_1system_1_1_process_manager.html#a3d94a6eec452c2bd725df380d5c202c7", null ],
     [ "execute", "structtfel_1_1system_1_1_process_manager.html#a68a638fc687a0df638c235441c577e8b", null ],
-    [ "execute", "structtfel_1_1system_1_1_process_manager.html#a3c08ce1a8d02b213c1a85bfad9c0f603", null ]
+    [ "execute", "structtfel_1_1system_1_1_process_manager.html#a3c08ce1a8d02b213c1a85bfad9c0f603", null ],
+    [ "stopOnSignals", "structtfel_1_1system_1_1_process_manager.html#a81b17a6b69346a4b85008237ee84bc33", null ]
 ];

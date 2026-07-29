@@ -7,7 +7,7 @@ var structtfel_1_1math_1_1_quantity =
     [ "operator*=", "structtfel_1_1math_1_1_quantity.html#aba20147bbd209ba72af37b66b24581db", null ],
     [ "operator+=", "structtfel_1_1math_1_1_quantity.html#a7988ad4b46feda163bc74c89b7546528", null ],
     [ "operator-", "structtfel_1_1math_1_1_quantity.html#a04dc5974ffd382536c77d3bb8415bf4c", null ],
-    [ "operator-=", "structtfel_1_1math_1_1_quantity.html#a32cf011a1b68b5aca89bdef104e59a69", null ],
+    [ "operator-=", "structtfel_1_1math_1_1_quantity.html#ab3a8b92c2e7ce5530a3215ae1b4d2535", null ],
     [ "operator/=", "structtfel_1_1math_1_1_quantity.html#ae34d030ab7f039ce66240a4510a9be13", null ],
     [ "operator/=", "structtfel_1_1math_1_1_quantity.html#a605ee30f367e86df1c9792878bf02d4a", null ],
     [ "operator=", "structtfel_1_1math_1_1_quantity.html#a0b6bd288e73c69f936cc9c3a4aee6508", null ]

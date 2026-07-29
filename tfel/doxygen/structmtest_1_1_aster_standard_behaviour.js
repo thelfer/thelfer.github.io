@@ -5,7 +5,7 @@ var structmtest_1_1_aster_standard_behaviour =
     [ "allocateWorkSpace", "structmtest_1_1_aster_standard_behaviour.html#a5e2c24a8e6fd4d64ee9ab4df0613c386", null ],
     [ "call_behaviour", "structmtest_1_1_aster_standard_behaviour.html#a68b91157377291e343dcf1c979453483", null ],
     [ "computePredictionOperator", "structmtest_1_1_aster_standard_behaviour.html#a60a06e59cf39e92441d74f9ca5d9f69a", null ],
-    [ "getDefaultStiffnessMatrixType", "structmtest_1_1_aster_standard_behaviour.html#ad92fad5dfac1875d27a080510ae4c6bf", null ],
+    [ "getDefaultStiffnessMatrixType", "structmtest_1_1_aster_standard_behaviour.html#aa14eeb8948e71c55c05d28234f999bd7", null ],
     [ "getInternalStateVariablesDescriptions", "structmtest_1_1_aster_standard_behaviour.html#a1c90c2745396f7aa02414be1b9013c11", null ],
     [ "getInternalStateVariablesSize", "structmtest_1_1_aster_standard_behaviour.html#aabcbebd96563aa542f29e9bc75bb3bf9", null ],
     [ "getRotationMatrix", "structmtest_1_1_aster_standard_behaviour.html#a52564b48d9c50a500efea8e04073316c", null ],

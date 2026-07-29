@@ -34,6 +34,9 @@ var concepts =
       ] ],
       [ "meta", null, [
         [ "ReferenceConcept", "concepttfel_1_1meta_1_1_reference_concept.html", null ]
+      ] ],
+      [ "typetraits", null, [
+        [ "IsFundamentalNumericTypeConcept", "concepttfel_1_1typetraits_1_1_is_fundamental_numeric_type_concept.html", null ]
       ] ]
     ] ]
 ];

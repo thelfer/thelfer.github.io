@@ -7,7 +7,7 @@ var structmtest_1_1_castem_cohesive_zone_model =
     [ "computePredictionOperator", "structmtest_1_1_castem_cohesive_zone_model.html#a88317e076ace93dd32a499dc05343b35", null ],
     [ "getCastemInterfaceVersion", "structmtest_1_1_castem_cohesive_zone_model.html#a17e81522d0940f9db41729d03d66e91a", null ],
     [ "getDefaultStiffnessMatrixType", "structmtest_1_1_castem_cohesive_zone_model.html#ad525cbf320e1e7dbab489844cf78a922", null ],
-    [ "getGradientsDefaultInitialValues", "structmtest_1_1_castem_cohesive_zone_model.html#a42b307d1ccafb73d910c29518ecd65af", null ],
+    [ "getGradientsDefaultInitialValues", "structmtest_1_1_castem_cohesive_zone_model.html#a7d0dd486e3299e46a1f9e53ae995c286", null ],
     [ "getOptionalMaterialProperties", "structmtest_1_1_castem_cohesive_zone_model.html#a75a74aaed0cbf3dea10104ae7150c791", null ],
     [ "getRotationMatrix", "structmtest_1_1_castem_cohesive_zone_model.html#a95dba6aafc81ca23d3394134d37db2f5", null ],
     [ "integrate", "structmtest_1_1_castem_cohesive_zone_model.html#a4733e2ffa5aeb8d3327d12af0f0875a8", null ],

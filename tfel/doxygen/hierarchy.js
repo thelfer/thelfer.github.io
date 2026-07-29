@@ -973,6 +973,7 @@ var hierarchy =
           [ "tfel::math::GenericFixedSizeConstArrayView< ArrayPolicy >", "structtfel_1_1math_1_1_generic_fixed_size_const_array_view.html", null ]
         ] ]
       ] ],
+      [ "tfel::math::Cste< T >", "structtfel_1_1math_1_1_cste.html", null ],
       [ "tfel::math::MutableArraySTLCompatibilityLayer< Child, ArrayPolicy >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", [
         [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< tvector< N, T >, FixedSizeVectorPolicy< N, T >, getArrayPolicySize< FixedSizeVectorPolicy< N, T > >() >, FixedSizeVectorPolicy< N, T > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
         [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< FixedSizeArrayDerivative< Array1, Array2 >, FixedSizeArrayDerivativePolicy< Array1::array_policy, Array2::array_policy >, getArrayPolicySize< FixedSizeArrayDerivativePolicy< Array1::array_policy, Array2::array_policy > >() >, FixedSizeArrayDerivativePolicy< Array1::array_policy, Array2::array_policy > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
@@ -1054,7 +1055,9 @@ var hierarchy =
           [ "tfel::math::GenericRuntimeArray< vector< std::shared_ptr< tfel::math::parser::ExternalFunction > >, RuntimeVectorArrayPolicy< std::shared_ptr< tfel::math::parser::ExternalFunction > > >", "structtfel_1_1math_1_1_generic_runtime_array.html", null ]
         ] ]
       ] ],
-      [ "tfel::math::internals::CheckUnitCompatibilityImplementation< Unit, NumericType >", "structtfel_1_1math_1_1internals_1_1_check_unit_compatibility_implementation_3_01_unit_00_01_numeric_type_01_4.html", null ]
+      [ "tfel::math::internals::CheckUnitCompatibilityImplementation< Unit, NumericType >", "structtfel_1_1math_1_1internals_1_1_check_unit_compatibility_implementation_3_01_unit_00_01_numeric_type_01_4.html", null ],
+      [ "tfel::system::BinaryReader< T >", "structtfel_1_1system_1_1_binary_reader.html", null ],
+      [ "tfel::system::BinaryWriter< T >", "structtfel_1_1system_1_1_binary_writer.html", null ]
     ] ],
     [ "tfel::check::Configuration", "structtfel_1_1check_1_1_configuration.html", null ],
     [ "tfel::check::ConfigurationManager", "structtfel_1_1check_1_1_configuration_manager.html", null ],
@@ -1537,8 +1540,8 @@ var hierarchy =
     [ "dianafea::DianaFEABehaviourHandler< H, Behaviour >::DoNothingInitializer", "structdianafea_1_1_diana_f_e_a_behaviour_handler_1_1_do_nothing_initializer.html", null ],
     [ "lsdyna::LSDYNABehaviourHandler< H, Behaviour >::DoNothingInitializer", "structlsdyna_1_1_l_s_d_y_n_a_behaviour_handler_1_1_do_nothing_initializer.html", null ],
     [ "lsdyna::LSDYNAExplicitInterface< H, T, Behaviour >::DoNothingInitializer", "structlsdyna_1_1_l_s_d_y_n_a_explicit_interface_1_1_do_nothing_initializer.html", null ],
-    [ "tfel::math::dotProduct< N >", "structtfel_1_1math_1_1dot_product.html", null ],
     [ "tfel::math::DotProduct< N, M >", "structtfel_1_1math_1_1_dot_product.html", null ],
+    [ "tfel::math::dotProduct< N >", "structtfel_1_1math_1_1dot_product.html", null ],
     [ "tfel::math::dotProduct< 0u >", "structtfel_1_1math_1_1dot_product_3_010u_01_4.html", null ],
     [ "tfel::math::DotProduct< 0u, M >", "structtfel_1_1math_1_1_dot_product_3_010u_00_01_m_01_4.html", null ],
     [ "tfel::math::internals::DPK1_DF_to_DTAU_DF_Converter< N >", "structtfel_1_1math_1_1internals_1_1_d_p_k1___d_f__to___d_t_a_u___d_f___converter.html", null ],
@@ -3747,15 +3750,6 @@ var hierarchy =
     ] ],
     [ "ConceptRebind::type", null, [
       [ "tfel::math::CoalescedViewBase< MappedType, IndexingPolicyType, CoalescedAccessPolicy >", "structtfel_1_1math_1_1_coalesced_view_base.html", null ]
-    ] ],
-    [ "std::conditional::type", null, [
-      [ "tfel::system::BinaryReader< T >", "structtfel_1_1system_1_1_binary_reader.html", null ]
-    ] ],
-    [ "std::conditional::type", null, [
-      [ "tfel::system::BinaryWriter< T >", "structtfel_1_1system_1_1_binary_writer.html", null ]
-    ] ],
-    [ "std::conditional::type", null, [
-      [ "tfel::math::Cste< T >", "structtfel_1_1math_1_1_cste.html", null ]
     ] ],
     [ "tfel::utilities::internals::StdVariantFromTypeList< List, Types >::type", null, [
       [ "tfel::utilities::GenTypeBase< BehaviourType >", "structtfel_1_1utilities_1_1_gen_type_base.html", null ]

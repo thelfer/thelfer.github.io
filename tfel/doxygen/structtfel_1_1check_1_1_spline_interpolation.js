@@ -1,5 +1,6 @@
 var structtfel_1_1check_1_1_spline_interpolation =
 [
+    [ "~SplineInterpolation", "structtfel_1_1check_1_1_spline_interpolation.html#ab95a4125279dfd215f4bcd4575d693ce", null ],
     [ "getType", "structtfel_1_1check_1_1_spline_interpolation.html#a465f34aa36ddb2d64074e8164f791ddc", null ],
     [ "getValue", "structtfel_1_1check_1_1_spline_interpolation.html#a6345aed8b2d6e63c56b4b52b409cd702", null ],
     [ "interpolate", "structtfel_1_1check_1_1_spline_interpolation.html#a4242c401b4bb1f7a15ba52f706d65431", null ],

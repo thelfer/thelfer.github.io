@@ -29,5 +29,6 @@ var searchData=
   ['tfel_3a_3amath_3a_3atensorconcept_26',['TensorConcept',['../concepttfel_1_1math_1_1_tensor_concept.html',1,'tfel::math']]],
   ['tfel_3a_3amath_3a_3aunitconcept_27',['UnitConcept',['../concepttfel_1_1math_1_1_unit_concept.html',1,'tfel::math']]],
   ['tfel_3a_3amath_3a_3avectorconcept_28',['VectorConcept',['../concepttfel_1_1math_1_1_vector_concept.html',1,'tfel::math']]],
-  ['tfel_3a_3ameta_3a_3areferenceconcept_29',['ReferenceConcept',['../concepttfel_1_1meta_1_1_reference_concept.html',1,'tfel::meta']]]
+  ['tfel_3a_3ameta_3a_3areferenceconcept_29',['ReferenceConcept',['../concepttfel_1_1meta_1_1_reference_concept.html',1,'tfel::meta']]],
+  ['tfel_3a_3atypetraits_3a_3aisfundamentalnumerictypeconcept_30',['IsFundamentalNumericTypeConcept',['../concepttfel_1_1typetraits_1_1_is_fundamental_numeric_type_concept.html',1,'tfel::typetraits']]]
 ];

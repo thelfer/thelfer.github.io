@@ -8,7 +8,7 @@ var structmfront_1_1_material_knowledge_description =
     [ "getAttribute", "structmfront_1_1_material_knowledge_description.html#ac41dc44926141bea4e8ca735d5a99a69", null ],
     [ "getAttribute", "structmfront_1_1_material_knowledge_description.html#a3dac6f949e36551b91b68cc7a175b891", null ],
     [ "getAttribute", "structmfront_1_1_material_knowledge_description.html#a45c7a4ae0855f8010610899aab287d04", null ],
-    [ "getAttributes", "structmfront_1_1_material_knowledge_description.html#aaa7703e2ae15653f364c7faca5fa327c", null ],
+    [ "getAttributes", "structmfront_1_1_material_knowledge_description.html#a616983b603dfae8c273b70bef5872e7c", null ],
     [ "getExternalMFrontFiles", "structmfront_1_1_material_knowledge_description.html#a4b093d278965b69f82b0ee03217302fa", null ],
     [ "getUnitSystem", "structmfront_1_1_material_knowledge_description.html#a866bd591ccc69169b3c92272e456244b", null ],
     [ "hasAttribute", "structmfront_1_1_material_knowledge_description.html#a790a8cecf41f2bb428903ba8fadff233", null ],

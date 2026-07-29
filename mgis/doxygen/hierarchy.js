@@ -7,6 +7,7 @@ var hierarchy =
     [ "mgis::function::customization_points::AbsoluteValue< std::span< const real, N > >", "structmgis_1_1function_1_1customization__points_1_1_absolute_value_3_01std_1_1span_3_01const_01real_00_01_n_01_4_01_4.html", null ],
     [ "mgis::function::customization_points::AbsoluteValue< TensorType >", "structmgis_1_1function_1_1customization__points_1_1_absolute_value_3_01_tensor_type_01_4.html", null ],
     [ "mgis::function::customization_points::AbsoluteValue< tfel::math::View< const TensorType > >", "structmgis_1_1function_1_1customization__points_1_1_absolute_value_3_01tfel_1_1math_1_1_view_3_01const_01_tensor_type_01_4_01_4.html", null ],
+    [ "mgis::function::internals::AbsoluteValueOperator", "structmgis_1_1function_1_1internals_1_1_absolute_value_operator.html", null ],
     [ "mgis::AbstractErrorHandler", "structmgis_1_1_abstract_error_handler.html", [
       [ "mgis::ContractViolationHandler", "structmgis_1_1_contract_violation_handler.html", null ],
       [ "mgis::ErrorBacktrace", "structmgis_1_1_error_backtrace.html", [
@@ -71,6 +72,7 @@ var hierarchy =
     [ "mgis::function::internals::ConvertFiniteStrainStiffnessEvaluator< N, ResultFlag, SourceFlag, StiffnessEvaluator, DeformationGradientEvaluatorType0, DeformationGradientEvaluatorType1, CauchyStressEvaluatorType >", "structmgis_1_1function_1_1internals_1_1_convert_finite_strain_stiffness_evaluator.html", null ],
     [ "mgis::function::internals::ConvertFiniteStrainStiffnessModifierGenerator< N, ResultFlag, SourceFlag, DeformationGradientEvaluatorType0, DeformationGradientEvaluatorType1, CauchyStressEvaluatorType >", "structmgis_1_1function_1_1internals_1_1_convert_finite_strain_stiffness_modifier_generator.html", null ],
     [ "mgis::Cste", "structmgis_1_1_cste.html", null ],
+    [ "mgis::function::CUDAExecutionConfiguration", "structmgis_1_1function_1_1_c_u_d_a_execution_configuration.html", null ],
     [ "mgis::function::BasicLinearQuadratureSpace< N >::DummyCellWorkspace", "structmgis_1_1function_1_1_basic_linear_quadrature_space_1_1_dummy_cell_workspace.html", null ],
     [ "mgis::function::internals::ElementIndexTypeSelector< true, Space >", "structmgis_1_1function_1_1internals_1_1_element_index_type_selector_3_01true_00_01_space_01_4.html", null ],
     [ "mgis::function::internals::ElementWorkspaceSelector< true, Space >", "structmgis_1_1function_1_1internals_1_1_element_workspace_selector_3_01true_00_01_space_01_4.html", null ],
@@ -105,6 +107,7 @@ var hierarchy =
       [ "mgis::function::internals::IsTensor< T >", "structmgis_1_1function_1_1internals_1_1_is_tensor.html", null ]
     ] ],
     [ "mgis::behaviour::FiniteStrainBehaviourOptions", "structmgis_1_1behaviour_1_1_finite_strain_behaviour_options.html", null ],
+    [ "mgis::function::internals::FirstPiolaKirchhoffStressToCauchyStressOperator", "structmgis_1_1function_1_1internals_1_1_first_piola_kirchhoff_stress_to_cauchy_stress_operator.html", null ],
     [ "mgis::function::internals::fixed_size_modifier< N >", "structmgis_1_1function_1_1internals_1_1fixed__size__modifier.html", null ],
     [ "mgis::function::FunctionDataLayoutDescription", "structmgis_1_1function_1_1_function_data_layout_description.html", null ],
     [ "mgis::function::FunctionDataSize< data_size >", "structmgis_1_1function_1_1_function_data_size.html", null ],
@@ -156,6 +159,7 @@ var hierarchy =
         [ "mgis::fenics::NonLinearMaterialThermodynamicForcesFunction", "structmgis_1_1fenics_1_1_non_linear_material_thermodynamic_forces_function.html", null ]
       ] ]
     ] ],
+    [ "mgis::function::internals::HydrostaticStressOperator", "structmgis_1_1function_1_1internals_1_1_hydrostatic_stress_operator.html", null ],
     [ "mgis::InvalidResult", "structmgis_1_1_invalid_result.html", null ],
     [ "mgis::internal::InvalidValueTraits< Type >", "structmgis_1_1internal_1_1_invalid_value_traits.html", null ],
     [ "mgis::internal::InvalidValueTraits< bool >", "structmgis_1_1internal_1_1_invalid_value_traits_3_01bool_01_4.html", null ],
@@ -186,6 +190,7 @@ var hierarchy =
     [ "mgis::function::customization_points::MaximumComponent< std::span< const real, N > >", "structmgis_1_1function_1_1customization__points_1_1_maximum_component_3_01std_1_1span_3_01const_01real_00_01_n_01_4_01_4.html", null ],
     [ "mgis::function::customization_points::MaximumComponent< TensorType >", "structmgis_1_1function_1_1customization__points_1_1_maximum_component_3_01_tensor_type_01_4.html", null ],
     [ "mgis::function::customization_points::MaximumComponent< tfel::math::View< const TensorType > >", "structmgis_1_1function_1_1customization__points_1_1_maximum_component_3_01tfel_1_1math_1_1_view_295d5db76c83edbe342d8755fb9a663b.html", null ],
+    [ "mgis::function::internals::MaximumComponentOperator", "structmgis_1_1function_1_1internals_1_1_maximum_component_operator.html", null ],
     [ "mgis_bv_BehaviourDataView", "structmgis__bv___behaviour_data_view.html", null ],
     [ "mgis_bv_InitialStateView", "structmgis__bv___initial_state_view.html", null ],
     [ "mgis_bv_StateView", "structmgis__bv___state_view.html", null ],
@@ -196,6 +201,7 @@ var hierarchy =
     [ "mgis::function::customization_points::MinimumComponent< std::span< const real, N > >", "structmgis_1_1function_1_1customization__points_1_1_minimum_component_3_01std_1_1span_3_01const_01real_00_01_n_01_4_01_4.html", null ],
     [ "mgis::function::customization_points::MinimumComponent< TensorType >", "structmgis_1_1function_1_1customization__points_1_1_minimum_component_3_01_tensor_type_01_4.html", null ],
     [ "mgis::function::customization_points::MinimumComponent< tfel::math::View< const TensorType > >", "structmgis_1_1function_1_1customization__points_1_1_minimum_component_3_01tfel_1_1math_1_1_view_b80741af4806089a2b3b63f445aea5ed.html", null ],
+    [ "mgis::function::internals::MinimumComponentOperator", "structmgis_1_1function_1_1internals_1_1_minimum_component_operator.html", null ],
     [ "mgis::behaviour::MultiThreadedBehaviourIntegrationResult", "structmgis_1_1behaviour_1_1_multi_threaded_behaviour_integration_result.html", null ],
     [ "mgis::behaviour::MaterialStateManager::MutableFieldHolder", "structmgis_1_1behaviour_1_1_material_state_manager_1_1_mutable_field_holder.html", null ],
     [ "dolfin::NonlinearProblem", null, [
@@ -342,5 +348,6 @@ var hierarchy =
       [ "mgis::behaviour::MaterialStateManager::FieldHolder", "structmgis_1_1behaviour_1_1_material_state_manager_1_1_field_holder.html", null ]
     ] ],
     [ "mgis::function::internals::ViewResultType< bool, FunctionType >", "structmgis_1_1function_1_1internals_1_1_view_result_type.html", null ],
-    [ "mgis::function::internals::ViewResultType< false, FunctionType >", "structmgis_1_1function_1_1internals_1_1_view_result_type_3_01false_00_01_function_type_01_4.html", null ]
+    [ "mgis::function::internals::ViewResultType< false, FunctionType >", "structmgis_1_1function_1_1internals_1_1_view_result_type_3_01false_00_01_function_type_01_4.html", null ],
+    [ "mgis::function::internals::VonMisesStressOperator", "structmgis_1_1function_1_1internals_1_1_von_mises_stress_operator.html", null ]
 ];

@@ -71,6 +71,7 @@ var annotated_dup =
           [ "MinimumComponent< tfel::math::View< const TensorType > >", "structmgis_1_1function_1_1customization__points_1_1_minimum_component_3_01tfel_1_1math_1_1_view_b80741af4806089a2b3b63f445aea5ed.html", null ]
         ] ],
         [ "internals", null, [
+          [ "AbsoluteValueOperator", "structmgis_1_1function_1_1internals_1_1_absolute_value_operator.html", null ],
           [ "binary_operation_modifier", "structmgis_1_1function_1_1internals_1_1binary__operation__modifier.html", null ],
           [ "binary_operation_modifier2_impl", "structmgis_1_1function_1_1internals_1_1binary__operation__modifier2__impl.html", null ],
           [ "BinaryOperationModifierBase", "structmgis_1_1function_1_1internals_1_1_binary_operation_modifier_base.html", null ],
@@ -115,6 +116,7 @@ var annotated_dup =
           [ "EvaluatorResultQueryImplementation4", "structmgis_1_1function_1_1internals_1_1_evaluator_result_query_implementation4.html", null ],
           [ "EvaluatorResultQueryImplementation4< true, EvaluatorType >", "structmgis_1_1function_1_1internals_1_1_evaluator_result_query_implementation4_3_01true_00_01_evaluator_type_01_4.html", null ],
           [ "EvaluatorResultQueryImplementation< true, EvaluatorType >", "structmgis_1_1function_1_1internals_1_1_evaluator_result_query_implementation_3_01true_00_01_evaluator_type_01_4.html", null ],
+          [ "FirstPiolaKirchhoffStressToCauchyStressOperator", "structmgis_1_1function_1_1internals_1_1_first_piola_kirchhoff_stress_to_cauchy_stress_operator.html", null ],
           [ "fixed_size_modifier", "structmgis_1_1function_1_1internals_1_1fixed__size__modifier.html", "structmgis_1_1function_1_1internals_1_1fixed__size__modifier" ],
           [ "FunctionResultQuery", "structmgis_1_1function_1_1internals_1_1_function_result_query.html", null ],
           [ "FunctionResultQueryImplementation", "structmgis_1_1function_1_1internals_1_1_function_result_query_implementation.html", null ],
@@ -133,6 +135,7 @@ var annotated_dup =
           [ "FunctionResultTypeTraits< std::span< real, N > >", "structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01std_1_1span_3_01real_00_01_n_01_4_01_4.html", null ],
           [ "FunctionResultTypeTraits< TensorType & >", "structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01_tensor_type_01_6_01_4.html", null ],
           [ "FunctionResultTypeTraits< tfel::math::View< TensorType > >", "structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01tfel_1_1math_1_1_view_3_01_tensor_type_01_4_01_4.html", null ],
+          [ "HydrostaticStressOperator", "structmgis_1_1function_1_1internals_1_1_hydrostatic_stress_operator.html", null ],
           [ "IsTensor", "structmgis_1_1function_1_1internals_1_1_is_tensor.html", null ],
           [ "IsTensor< tfel::math::fsarray< N, real > >", "structmgis_1_1function_1_1internals_1_1_is_tensor_3_01tfel_1_1math_1_1fsarray_3_01_n_00_01real_01_4_01_4.html", null ],
           [ "IsTensor< tfel::math::st2tost2< N, real > >", "structmgis_1_1function_1_1internals_1_1_is_tensor_3_01tfel_1_1math_1_1st2tost2_3_01_n_00_01real_01_4_01_4.html", null ],
@@ -143,6 +146,8 @@ var annotated_dup =
           [ "IsTensor< tfel::math::tensor< N, real > >", "structmgis_1_1function_1_1internals_1_1_is_tensor_3_01tfel_1_1math_1_1tensor_3_01_n_00_01real_01_4_01_4.html", null ],
           [ "IsTensor< tfel::math::tmatrix< N, M, real > >", "structmgis_1_1function_1_1internals_1_1_is_tensor_3_01tfel_1_1math_1_1tmatrix_3_01_n_00_01_m_00_01real_01_4_01_4.html", null ],
           [ "IsTensor< tfel::math::tvector< N, real > >", "structmgis_1_1function_1_1internals_1_1_is_tensor_3_01tfel_1_1math_1_1tvector_3_01_n_00_01real_01_4_01_4.html", null ],
+          [ "MaximumComponentOperator", "structmgis_1_1function_1_1internals_1_1_maximum_component_operator.html", null ],
+          [ "MinimumComponentOperator", "structmgis_1_1function_1_1internals_1_1_minimum_component_operator.html", null ],
           [ "NumberOfComponents", "structmgis_1_1function_1_1internals_1_1_number_of_components.html", null ],
           [ "NumberOfComponents< EvaluatorType >", "structmgis_1_1function_1_1internals_1_1_number_of_components_3_01_evaluator_type_01_4.html", null ],
           [ "NumberOfComponents< FunctionType >", "structmgis_1_1function_1_1internals_1_1_number_of_components_3_01_function_type_01_4.html", null ],
@@ -168,7 +173,8 @@ var annotated_dup =
           [ "UnaryOperationBase", "structmgis_1_1function_1_1internals_1_1_unary_operation_base.html", null ],
           [ "UndefinedTypeSelector", "structmgis_1_1function_1_1internals_1_1_undefined_type_selector.html", "structmgis_1_1function_1_1internals_1_1_undefined_type_selector" ],
           [ "ViewResultType", "structmgis_1_1function_1_1internals_1_1_view_result_type.html", null ],
-          [ "ViewResultType< false, FunctionType >", "structmgis_1_1function_1_1internals_1_1_view_result_type_3_01false_00_01_function_type_01_4.html", null ]
+          [ "ViewResultType< false, FunctionType >", "structmgis_1_1function_1_1internals_1_1_view_result_type_3_01false_00_01_function_type_01_4.html", null ],
+          [ "VonMisesStressOperator", "structmgis_1_1function_1_1internals_1_1_von_mises_stress_operator.html", null ]
         ] ],
         [ "BasicLinearQuadratureSpace", "structmgis_1_1function_1_1_basic_linear_quadrature_space.html", "structmgis_1_1function_1_1_basic_linear_quadrature_space" ],
         [ "BasicLinearSpace", "structmgis_1_1function_1_1_basic_linear_space.html", "structmgis_1_1function_1_1_basic_linear_space" ],
@@ -182,6 +188,7 @@ var annotated_dup =
         [ "CoalescedMemoryAccessCompositeTensorsViewMutableValue< real >", "structmgis_1_1function_1_1_coalesced_memory_access_composite_tensors_view_mutable_value_3_01real_01_4.html", null ],
         [ "CoalescedMemoryAccessFunctionViewBase", "structmgis_1_1function_1_1_coalesced_memory_access_function_view_base.html", "structmgis_1_1function_1_1_coalesced_memory_access_function_view_base" ],
         [ "CoalescedMemoryAccessTensorView", "structmgis_1_1function_1_1_coalesced_memory_access_tensor_view.html", "structmgis_1_1function_1_1_coalesced_memory_access_tensor_view" ],
+        [ "CUDAExecutionConfiguration", "structmgis_1_1function_1_1_c_u_d_a_execution_configuration.html", "structmgis_1_1function_1_1_c_u_d_a_execution_configuration" ],
         [ "EvaluatorModifierBase", "structmgis_1_1function_1_1_evaluator_modifier_base.html", "structmgis_1_1function_1_1_evaluator_modifier_base" ],
         [ "EvaluatorModifiersGroup", "structmgis_1_1function_1_1_evaluator_modifiers_group.html", "structmgis_1_1function_1_1_evaluator_modifiers_group" ],
         [ "EvaluatorModifierTag", "structmgis_1_1function_1_1_evaluator_modifier_tag.html", null ],

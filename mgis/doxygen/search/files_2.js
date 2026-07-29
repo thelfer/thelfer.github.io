@@ -15,5 +15,7 @@ var searchData=
   ['context_2eixx_12',['Context.ixx',['../_context_8ixx.html',1,'']]],
   ['contract_2ehxx_13',['Contract.hxx',['../_contract_8hxx.html',1,'']]],
   ['contract_2eixx_14',['Contract.ixx',['../_contract_8ixx.html',1,'']]],
-  ['cste_2ehxx_15',['Cste.hxx',['../_cste_8hxx.html',1,'']]]
+  ['cste_2ehxx_15',['Cste.hxx',['../_cste_8hxx.html',1,'']]],
+  ['cuda_2falgorithms_2ehxx_16',['Algorithms.hxx',['../_c_u_d_a_2_algorithms_8hxx.html',1,'']]],
+  ['cuda_2falgorithms_2eixx_17',['Algorithms.ixx',['../_c_u_d_a_2_algorithms_8ixx.html',1,'']]]
 ];

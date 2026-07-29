@@ -262,6 +262,8 @@ var annotated_dup =
       [ "OptionalReference", "structmgis_1_1_optional_reference.html", null ],
       [ "PreconditionsCheck", "structmgis_1_1_preconditions_check.html", null ],
       [ "PreconditionsChecker", "structmgis_1_1_preconditions_checker.html", null ],
+      [ "ProfilingData", "structmgis_1_1_profiling_data.html", null ],
+      [ "ProfilingSection", "classmgis_1_1_profiling_section.html", "classmgis_1_1_profiling_section" ],
       [ "ThreadedTaskResult", "structmgis_1_1_threaded_task_result.html", "structmgis_1_1_threaded_task_result" ],
       [ "ThreadedTaskResult< void >", "structmgis_1_1_threaded_task_result_3_01void_01_4.html", "structmgis_1_1_threaded_task_result_3_01void_01_4" ],
       [ "ThreadedTaskResultBase", "structmgis_1_1_threaded_task_result_base.html", null ],

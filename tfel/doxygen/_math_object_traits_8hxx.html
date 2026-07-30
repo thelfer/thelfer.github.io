@@ -114,6 +114,7 @@ $(document).ready(function(){initNavTree('_math_object_traits_8hxx.html',''); in
 <code>#include &quot;<a class="el" href="_is_invalid_8hxx.html">TFEL/TypeTraits/IsInvalid.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_is_fundamental_numeric_type_8hxx.html">TFEL/TypeTraits/IsFundamentalNumericType.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_is_assignable_to_8hxx.html">TFEL/TypeTraits/IsAssignableTo.hxx</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_general_8hxx.html">TFEL/Math/Forward/General.hxx</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -122,6 +123,9 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1_math_object_traits.html">tfel::math::MathObjectTraits&lt; MathObjectType &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">a traits class describing a mathematical object  <a href="structtfel_1_1math_1_1_math_object_traits.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1_base_type_3_01_t_01_4.html">tfel::math::BaseType&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">partial specialisation for math objects  <a href="structtfel_1_1math_1_1_base_type_3_01_t_01_4.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -135,8 +139,6 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="concepts" name="concepts"></a>
 Concepts</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="concepttfel_1_1math_1_1_scalar_concept.html">tfel::math::ScalarConcept</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="concepttfel_1_1math_1_1_math_object_concept.html">tfel::math::MathObjectConcept</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -152,36 +154,19 @@ template&lt;<a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6b
 <tr class="memitem:acf42373bf172e38d879a8eb8666402fd"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tfel::math::index_type</b> = <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">typename</a> <a class="el" href="structtfel_1_1math_1_1_math_object_traits.html">MathObjectTraits</a>&lt; std::decay_t&lt; <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">MathObjectType</a> &gt; &gt;::size_type</td></tr>
 <tr class="memdesc:acf42373bf172e38d879a8eb8666402fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple alias <br /></td></tr>
 <tr class="separator:acf42373bf172e38d879a8eb8666402fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee110500aba43bd0fc73c7a5ecd510e9" id="r_aee110500aba43bd0fc73c7a5ecd510e9"><td class="memTemplParams" colspan="2"><a id="aee110500aba43bd0fc73c7a5ecd510e9" name="aee110500aba43bd0fc73c7a5ecd510e9"></a>
-template&lt;<a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">typename</a> T &gt; </td></tr>
-<tr class="memitem:aee110500aba43bd0fc73c7a5ecd510e9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tfel::math::base_type</b> = std::conditional_t&lt; <a class="el" href="_is_scalar_8hxx.html#ad412eaabed7de89a18cebf049a487968">tfel::typetraits::isScalar</a>&lt; T &gt;(), <a class="el" href="_base_type_8hxx.html#a30eeb1d2ba39137579bef92548c75bef">tfel::typetraits::base_type</a>&lt; T &gt;, <a class="el" href="_base_type_8hxx.html#a30eeb1d2ba39137579bef92548c75bef">tfel::typetraits::base_type</a>&lt; <a class="el" href="namespacetfel_1_1math.html#a269ae6d80236c1e3a8f97af7c50997e9">numeric_type</a>&lt; T &gt; &gt; &gt;</td></tr>
-<tr class="memdesc:aee110500aba43bd0fc73c7a5ecd510e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple alias <br /></td></tr>
-<tr class="separator:aee110500aba43bd0fc73c7a5ecd510e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a85d3bc4b0b73d18b36b8c9012b3c1bdd" id="r_a85d3bc4b0b73d18b36b8c9012b3c1bdd"><td class="memTemplParams" colspan="2"><a id="a85d3bc4b0b73d18b36b8c9012b3c1bdd" name="a85d3bc4b0b73d18b36b8c9012b3c1bdd"></a>
-template&lt;<a class="el" href="concepttfel_1_1typetraits_1_1_is_fundamental_numeric_type_concept.html">tfel::typetraits::IsFundamentalNumericTypeConcept</a> T&gt; </td></tr>
+template&lt;StandardArithmeticTypeConcept T&gt; </td></tr>
 <tr class="memitem:a85d3bc4b0b73d18b36b8c9012b3c1bdd"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">constexpr</a> T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tfel::math::base_type_cast</b> (T &amp;v) <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">noexcept</a></td></tr>
 <tr class="memdesc:a85d3bc4b0b73d18b36b8c9012b3c1bdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">cast the value to the base type <br /></td></tr>
 <tr class="separator:a85d3bc4b0b73d18b36b8c9012b3c1bdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52e96cb6f52d7049c8db861063271108" id="r_a52e96cb6f52d7049c8db861063271108"><td class="memTemplParams" colspan="2"><a id="a52e96cb6f52d7049c8db861063271108" name="a52e96cb6f52d7049c8db861063271108"></a>
-template&lt;<a class="el" href="concepttfel_1_1typetraits_1_1_is_fundamental_numeric_type_concept.html">tfel::typetraits::IsFundamentalNumericTypeConcept</a> T&gt; </td></tr>
+template&lt;StandardArithmeticTypeConcept T&gt; </td></tr>
 <tr class="memitem:a52e96cb6f52d7049c8db861063271108"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">constexpr</a> const T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tfel::math::base_type_cast</b> (const T &amp;v) <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">noexcept</a></td></tr>
 <tr class="memdesc:a52e96cb6f52d7049c8db861063271108"><td class="mdescLeft">&#160;</td><td class="mdescRight">cast the value to the base type <br /></td></tr>
 <tr class="separator:a52e96cb6f52d7049c8db861063271108"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9dd945af79cb6d4c0fdb9df4e254ede" id="r_aa9dd945af79cb6d4c0fdb9df4e254ede"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">typename</a> A , <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">typename</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">B</a> &gt; </td></tr>
-<tr class="memitem:aa9dd945af79cb6d4c0fdb9df4e254ede"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">constexpr</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">bool</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetfel_1_1math.html#aa9dd945af79cb6d4c0fdb9df4e254ede">tfel::math::isAssignableTo</a> ()</td></tr>
-<tr class="memdesc:aa9dd945af79cb6d4c0fdb9df4e254ede"><td class="mdescLeft">&#160;</td><td class="mdescRight">an helper function around <code>isAssignableTo</code>  <br /></td></tr>
-<tr class="separator:aa9dd945af79cb6d4c0fdb9df4e254ede"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c9156ac8d742a281779507ea5533f3e" id="r_a6c9156ac8d742a281779507ea5533f3e"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">typename</a> T &gt; </td></tr>
-<tr class="memitem:a6c9156ac8d742a281779507ea5533f3e"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">constexpr</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetfel_1_1math.html#a6c9156ac8d742a281779507ea5533f3e">tfel::math::isInvalid</a> ()</td></tr>
-<tr class="memdesc:a6c9156ac8d742a281779507ea5533f3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple wrapper around <code><a class="el" href="structtfel_1_1typetraits_1_1_is_invalid.html" title="Traits class which says if its argument is invalid.">tfel::typetraits::IsInvalid</a></code>  <br /></td></tr>
-<tr class="separator:a6c9156ac8d742a281779507ea5533f3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0196d3aa4f78bb5e2b9c9b460742c349" id="r_a0196d3aa4f78bb5e2b9c9b460742c349"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">typename</a> T &gt; </td></tr>
-<tr class="memitem:a0196d3aa4f78bb5e2b9c9b460742c349"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">constexpr</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetfel_1_1math.html#a0196d3aa4f78bb5e2b9c9b460742c349">tfel::math::isScalar</a> ()</td></tr>
-<tr class="memdesc:a0196d3aa4f78bb5e2b9c9b460742c349"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple wrapper around <code><a class="el" href="structtfel_1_1typetraits_1_1_is_scalar.html" title="Traits class which says if its argument stands for a scalar.">tfel::typetraits::IsScalar</a></code>  <br /></td></tr>
-<tr class="separator:a0196d3aa4f78bb5e2b9c9b460742c349"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78e6e124b6c3ec6286d482b8856be7ec" id="r_a78e6e124b6c3ec6286d482b8856be7ec"><td class="memTemplParams" colspan="2">template&lt;MathObjectConcept MathObjectType&gt; </td></tr>
 <tr class="memitem:a78e6e124b6c3ec6286d482b8856be7ec"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">constexpr</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">unsigned</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">short</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetfel_1_1math.html#a78e6e124b6c3ec6286d482b8856be7ec">tfel::math::getSpaceDimension</a> ()</td></tr>
 <tr class="memdesc:a78e6e124b6c3ec6286d482b8856be7ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">an helper function to retrieve the space dimension associated with a math object.  <br /></td></tr>
@@ -208,7 +193,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_f1614b9bfb736e18e5ccdeb7e67f6541.html">TFEL</a></li><li class="navelem"><a class="el" href="dir_a2e59eb61bdee22280b7d9c8cef44a72.html">Math</a></li><li class="navelem"><a class="el" href="dir_a4ff1bf6cca5bca8a84d768b26ab1d1d.html">General</a></li><li class="navelem"><a class="el" href="_math_object_traits_8hxx.html">MathObjectTraits.hxx</a></li>
-    <li class="footer">Generated on Thu Jul 30 2026 12:57:14 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu Jul 30 2026 14:24:21 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

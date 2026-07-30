@@ -4,7 +4,9 @@ var qt_8hxx =
     [ "tfel::math::internals::QuantityReferenceOwnershipPolicy< ValueType, AllowImplicitConversion >", "structtfel_1_1math_1_1internals_1_1_quantity_reference_ownership_policy.html", "structtfel_1_1math_1_1internals_1_1_quantity_reference_ownership_policy" ],
     [ "tfel::math::Quantity< UnitType, ValueType, OwnershipPolicy >", "structtfel_1_1math_1_1_quantity.html", "structtfel_1_1math_1_1_quantity" ],
     [ "tfel::math::Quantity< UnitType, ValueType, OwnershipPolicy >::IsQtScalarOperationValid< T, T2 >", "structtfel_1_1math_1_1_quantity_1_1_is_qt_scalar_operation_valid.html", null ],
-    [ "fpclassify", "qt_8hxx.html#a51dbb0ef2cc470cd9fcb7764b7d20ddb", null ],
-    [ "isfinite", "qt_8hxx.html#a3d1080e4d60778e509a795409294414b", null ],
-    [ "isnan", "qt_8hxx.html#acd9f9eff2db99fab9adde0b56a2cae54", null ]
+    [ "base_type_cast", "qt_8hxx.html#a09bd31412cfbb3165a8bdae121eb8718", null ],
+    [ "base_type_cast", "qt_8hxx.html#a098418e9c354f455bc15d62742e9ecc1", null ],
+    [ "fpclassify", "qt_8hxx.html#a32e8329a1f3c8276f6dfad5507e8032e", null ],
+    [ "isfinite", "qt_8hxx.html#a4a89e5251d6f08d73bd5a6893a99513d", null ],
+    [ "isnan", "qt_8hxx.html#a90e8e9457a4f25088959ef445a550cd7", null ]
 ];

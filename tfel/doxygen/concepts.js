@@ -8,8 +8,12 @@ var concepts =
         [ "MappableMathObjectUsingCoalescedViewConcept", "concepttfel_1_1math_1_1_mappable_math_object_using_coalesced_view_concept.html", null ],
         [ "FixedSizeArrayTypeDefininigArrayViewConcept", "concepttfel_1_1math_1_1_fixed_size_array_type_defininig_array_view_concept.html", null ],
         [ "ExpressionConcept", "concepttfel_1_1math_1_1_expression_concept.html", null ],
-        [ "UnitConcept", "concepttfel_1_1math_1_1_unit_concept.html", null ],
+        [ "StandardArithmeticTypeConcept", "concepttfel_1_1math_1_1_standard_arithmetic_type_concept.html", null ],
+        [ "FundamentalNumericTypeConcept", "concepttfel_1_1math_1_1_fundamental_numeric_type_concept.html", null ],
         [ "ScalarConcept", "concepttfel_1_1math_1_1_scalar_concept.html", null ],
+        [ "UnitConcept", "concepttfel_1_1math_1_1_unit_concept.html", null ],
+        [ "QuantityConcept", "concepttfel_1_1math_1_1_quantity_concept.html", null ],
+        [ "NoUnitQuantityConcept", "concepttfel_1_1math_1_1_no_unit_quantity_concept.html", null ],
         [ "MathObjectConcept", "concepttfel_1_1math_1_1_math_object_concept.html", null ],
         [ "MatrixConcept", "concepttfel_1_1math_1_1_matrix_concept.html", null ],
         [ "ST2toST2Concept", "concepttfel_1_1math_1_1_s_t2to_s_t2_concept.html", null ],
@@ -36,7 +40,13 @@ var concepts =
         [ "ReferenceConcept", "concepttfel_1_1meta_1_1_reference_concept.html", null ]
       ] ],
       [ "typetraits", null, [
-        [ "IsFundamentalNumericTypeConcept", "concepttfel_1_1typetraits_1_1_is_fundamental_numeric_type_concept.html", null ]
+        [ "StandardArithmeticTypeConcept", "concepttfel_1_1typetraits_1_1_standard_arithmetic_type_concept.html", null ],
+        [ "FundamentalNumericTypeConcept", "concepttfel_1_1typetraits_1_1_fundamental_numeric_type_concept.html", null ]
+      ] ]
+    ] ],
+    [ "tfel ", null, [
+      [ "math", null, [
+        [ "BasicScalarBinaryOperationConcept", "concepttfel_01_1_1math_1_1_basic_scalar_binary_operation_concept.html", null ]
       ] ]
     ] ]
 ];

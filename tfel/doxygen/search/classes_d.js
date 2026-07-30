@@ -19,6 +19,6 @@ var searchData=
   ['nortonhoffviscoplasticflow_16',['NortonHoffViscoplasticFlow',['../structmfront_1_1bbrick_1_1_norton_hoff_viscoplastic_flow.html',1,'mfront::bbrick']]],
   ['nullexpansion_17',['NullExpansion',['../structmfront_1_1_behaviour_data_1_1_null_expansion.html',1,'mfront::BehaviourData']]],
   ['number_18',['number',['../structtfel_1_1math_1_1_integer_evaluator_1_1_t_number_1_1_number.html',1,'tfel::math::IntegerEvaluator::TNumber::Number'],['../structtfel_1_1math_1_1parser_1_1_number.html',1,'tfel::math::parser::Number']]],
-  ['numeric_5flimits_3c_20tfel_3a_3amath_3a_3aquantity_3c_20unittype_2c_20valuetype_2c_20ownershippolicy_20_3e_20_3e_19',['numeric_limits&lt; tfel::math::Quantity&lt; UnitType, ValueType, OwnershipPolicy &gt; &gt;',['../structstd_1_1numeric__limits_3_01tfel_1_1math_1_1_quantity_3_01_unit_type_00_01_value_type_00_01_ownership_policy_01_4_01_4.html',1,'std']]],
+  ['numeric_5flimits_3c_20quantitytype_20_3e_19',['numeric_limits&lt; QuantityType &gt;',['../structstd_1_1numeric__limits_3_01_quantity_type_01_4.html',1,'std']]],
   ['numericalparameters_20',['NumericalParameters',['../structtfel_1_1math_1_1_gauss_kronrod_quadrature_1_1_numerical_parameters.html',1,'tfel::math::GaussKronrodQuadrature']]]
 ];

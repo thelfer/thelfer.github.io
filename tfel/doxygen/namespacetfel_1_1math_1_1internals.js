@@ -40,8 +40,6 @@ var namespacetfel_1_1math_1_1internals =
     [ "HasIndexingPolicyTraits", "structtfel_1_1math_1_1internals_1_1_has_indexing_policy_traits.html", null ],
     [ "HasIndexingPolicyTraits< T, std::void_t< typename T::indexing_policy > >", "structtfel_1_1math_1_1internals_1_1_has_indexing_policy_traits_3_01_t_00_01std_1_1void__t_3_01tya780bbb1c3ba45843bb44c873f7fbb6d.html", null ],
     [ "InvalidResult", "structtfel_1_1math_1_1internals_1_1_invalid_result.html", null ],
-    [ "IsQuantity", "structtfel_1_1math_1_1internals_1_1_is_quantity.html", null ],
-    [ "IsQuantity< Quantity< UnitType, ValueType, OwnershipPolicy > >", "structtfel_1_1math_1_1internals_1_1_is_quantity_3_01_quantity_3_01_unit_type_00_01_value_type_00_01_ownership_policy_01_4_01_4.html", null ],
     [ "MakeConstViewReference", "structtfel_1_1math_1_1internals_1_1_make_const_view_reference.html", "structtfel_1_1math_1_1internals_1_1_make_const_view_reference" ],
     [ "MakeConstViewReference< Quantity< UnitType, ValueType, OwnershipPolicy > >", "structtfel_1_1math_1_1internals_1_1_make_const_view_reference_3_01_quantity_3_01_unit_type_00_0186076dae8a7dab984498ac418c8262f1.html", "structtfel_1_1math_1_1internals_1_1_make_const_view_reference_3_01_quantity_3_01_unit_type_00_0186076dae8a7dab984498ac418c8262f1" ],
     [ "MakeQuantityValueType", "structtfel_1_1math_1_1internals_1_1_make_quantity_value_type.html", "structtfel_1_1math_1_1internals_1_1_make_quantity_value_type" ],

@@ -168,7 +168,7 @@ var searchData=
   ['hcp_2ehxx_165',['HCP.hxx',['../_h_c_p_8hxx.html',1,'']]],
   ['header_5ffile_166',['header_file',['../structmfront_1_1_user_defined_non_linear_system_solver.html#ad168a6807bf283dd1245963409d4514c',1,'mfront::UserDefinedNonLinearSystemSolver']]],
   ['headers_167',['headers',['../structmfront_1_1_targets_description.html#ab346bc0afb151df2c7e99e9c83b80e03',1,'mfront::TargetsDescription']]],
-  ['heatfluxdensity_168',['HeatFluxDensity',['../_forward_2qt_8hxx.html#aa3e9f75f4d21d7ab7984374789f7e2d7',1,'tfel::math::unit']]],
+  ['heatfluxdensity_168',['HeatFluxDensity',['../_forward_2qt_8hxx.html#aa347d7d04e1fef151e57725ac2ed61eb',1,'tfel::math::unit']]],
   ['heatfluxvectortype_169',['HeatFluxVectorType',['../structtfel_1_1config_1_1internals_1_1_heat_flux_vector_type.html',1,'tfel::config::internals']]],
   ['heatfluxvectortype_3c_20n_2c_20t_2c_20false_20_3e_170',['HeatFluxVectorType&lt; N, T, false &gt;',['../structtfel_1_1config_1_1internals_1_1_heat_flux_vector_type_3_01_n_00_01_t_00_01false_01_4.html',1,'tfel::config::internals']]],
   ['hill_2ehxx_171',['Hill.hxx',['../_hill_8hxx.html',1,'']]],

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['newton_0',['Newton',['../_forward_2qt_8hxx.html#af97f0755b24b481f56b94824f0c9bca1',1,'tfel::math::unit']]],
+  ['newton_0',['Newton',['../_forward_2qt_8hxx.html#a4e733f98994e1924cac903bb8e2641df',1,'tfel::math::unit']]],
   ['next_1',['Next',['../structtfel_1_1meta_1_1_t_l_node.html#ab0fa6abdb6d1fbaeb705f14d68acebde',1,'tfel::meta::TLNode']]],
   ['nounit_2',['NoUnit',['../_forward_2qt_8hxx.html#aa333deb5149d1a74b6703d21e02ea53b',1,'tfel::math::unit']]],
   ['numeric_5ftype_3',['numeric_type',['../namespacetfel_1_1math.html#a269ae6d80236c1e3a8f97af7c50997e9',1,'tfel::math']]],

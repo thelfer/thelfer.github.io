@@ -73,7 +73,7 @@ var searchData=
   ['abstracttestcase_70',['AbstractTestCase',['../structmfmtg_1_1_abstract_test_case.html',1,'mfmtg']]],
   ['abstracttestcasefactory_71',['AbstractTestCaseFactory',['../structmfmtg_1_1_abstract_test_case_factory.html',1,'mfmtg']]],
   ['abstype_72',['AbsType',['../structtfel_1_1typetraits_1_1_abs_type.html',1,'tfel::typetraits']]],
-  ['abstype_3c_20tfel_3a_3amath_3a_3aquantity_3c_20unittype_2c_20valuetype_2c_20ownershippolicy_20_3e_20_3e_73',['AbsType&lt; tfel::math::Quantity&lt; UnitType, ValueType, OwnershipPolicy &gt; &gt;',['../structtfel_1_1typetraits_1_1_abs_type_3_01tfel_1_1math_1_1_quantity_3_01_unit_type_00_01_value_tf421ad894c0e59cc432cbd78397469b4.html',1,'tfel::typetraits']]],
+  ['abstype_3c_20quantitytype_20_3e_73',['AbsType&lt; QuantityType &gt;',['../structtfel_1_1typetraits_1_1_abs_type_3_01_quantity_type_01_4.html',1,'tfel::typetraits']]],
   ['accelerationalgorithm_74',['AccelerationAlgorithm',['../structmtest_1_1_acceleration_algorithm.html',1,'mtest']]],
   ['accelerationalgorithmfactory_75',['AccelerationAlgorithmFactory',['../structmtest_1_1_acceleration_algorithm_factory.html',1,'mtest']]],
   ['accumulate_76',['accumulate',['../structtfel_1_1fsalgo_1_1accumulate.html',1,'tfel::fsalgo']]],

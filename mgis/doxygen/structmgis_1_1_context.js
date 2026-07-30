@@ -17,11 +17,11 @@ var structmgis_1_1_context =
     [ "log", "structmgis_1_1_context.html#a94fb00e8b6c3bb73dbdd0fa9bf01e31d", null ],
     [ "log", "structmgis_1_1_context.html#add08821a97dee2fefb4ded20d1e1566f", null ],
     [ "popProfilingNode", "structmgis_1_1_context.html#aa28f1395bb997b586839fe66f46681e2", null ],
-    [ "pushProfilingNode", "structmgis_1_1_context.html#a773527e94fe446f24b4d983099ffdbe7", null ],
+    [ "pushProfilingNode", "structmgis_1_1_context.html#a0a021acfe6344b2db0d22486c1517cd3", null ],
     [ "resetLogStream", "structmgis_1_1_context.html#a6232144156fb286697dd064bd7011b2e", null ],
     [ "setLogStream", "structmgis_1_1_context.html#ad669e943bc59e186b23c2447ff9d3af1", null ],
     [ "setLogStream", "structmgis_1_1_context.html#a134999458c77cd54cd95a0733e58dca5", null ],
     [ "setVerbosityLevel", "structmgis_1_1_context.html#aedc92dc25254053dd9a944640bb54f31", null ],
-    [ "startNewProfiling", "structmgis_1_1_context.html#aa122f4ad614467924a83ac13ca95f4ca", null ],
+    [ "startNewProfiling", "structmgis_1_1_context.html#adee29d05d5d039edff40ad66a9cadb57", null ],
     [ "warning", "structmgis_1_1_context.html#a9677e54014a855642fbcd953a857b531", null ]
 ];

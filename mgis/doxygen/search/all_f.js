@@ -23,5 +23,5 @@ var searchData=
   ['profilingsection_20',['profilingsection',['../classmgis_1_1_profiling_section.html',1,'mgis::ProfilingSection'],['../classmgis_1_1_profiling_section.html#a975d1f898fcdd78e8f8dd725de490b2a',1,'mgis::ProfilingSection::ProfilingSection() noexcept'],['../classmgis_1_1_profiling_section.html#a2c65747fb1a2abb4a7cfa9169cb64896',1,'mgis::ProfilingSection::ProfilingSection(Context &amp;ctx, std::string name, bool enabled) noexcept']]],
   ['project_21',['The MGIS project',['../index.html',1,'']]],
   ['ptr_22',['Ptr',['../structmgis_1_1julia_1_1_ptr.html',1,'mgis::julia']]],
-  ['pushprofilingnode_23',['pushProfilingNode',['../structmgis_1_1_context.html#a773527e94fe446f24b4d983099ffdbe7',1,'mgis::Context']]]
+  ['pushprofilingnode_23',['pushProfilingNode',['../structmgis_1_1_context.html#a0a021acfe6344b2db0d22486c1517cd3',1,'mgis::Context']]]
 ];

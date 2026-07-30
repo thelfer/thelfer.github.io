@@ -6,7 +6,7 @@ var structmgis_1_1_context =
     [ "~Context", "structmgis_1_1_context.html#a225fdf19cee3ea8fae0b65cfb4e409f1", null ],
     [ "debug", "structmgis_1_1_context.html#ab3afdf58b2caeff4f48977d624960b57", null ],
     [ "disableLogStream", "structmgis_1_1_context.html#a0abd9c15e9cc7681021676c865b21429", null ],
-    [ "enableProfiling", "structmgis_1_1_context.html#a68e368cd8829bd79fd5e16fcdc400490", null ],
+    [ "enableProfiling", "structmgis_1_1_context.html#a6439793b8fb4dce1a83878f329b95ed4", null ],
     [ "getFailureHandler", "structmgis_1_1_context.html#ab68e10aad399870b9e959ffdd508a028", null ],
     [ "getFatalFailureHandler", "structmgis_1_1_context.html#a26af12540b4c2ca64fa1c4387362018a", null ],
     [ "getLogStreamPointer", "structmgis_1_1_context.html#a34ebaea2d19f072315bdfb1ce2c29a45", null ],

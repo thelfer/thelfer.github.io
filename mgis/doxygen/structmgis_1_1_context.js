@@ -16,7 +16,7 @@ var structmgis_1_1_context =
     [ "isProfilingEnabled", "structmgis_1_1_context.html#a0784f7b4fb5edf325b1c38f632dfb6d3", null ],
     [ "log", "structmgis_1_1_context.html#a94fb00e8b6c3bb73dbdd0fa9bf01e31d", null ],
     [ "log", "structmgis_1_1_context.html#add08821a97dee2fefb4ded20d1e1566f", null ],
-    [ "popProfilingNode", "structmgis_1_1_context.html#aa28f1395bb997b586839fe66f46681e2", null ],
+    [ "popProfilingNode", "structmgis_1_1_context.html#a6fa973d1662a2042d1c29f77d8329862", null ],
     [ "pushProfilingNode", "structmgis_1_1_context.html#a0a021acfe6344b2db0d22486c1517cd3", null ],
     [ "resetLogStream", "structmgis_1_1_context.html#a6232144156fb286697dd064bd7011b2e", null ],
     [ "setLogStream", "structmgis_1_1_context.html#ad669e943bc59e186b23c2447ff9d3af1", null ],

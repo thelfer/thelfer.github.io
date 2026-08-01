@@ -17,7 +17,7 @@ var searchData=
   ['newexternalbehaviourdata_14',['newExternalBehaviourData',['../_external_behaviour_description_8hxx.html#a66403395ce13d68574f5aacf33fd5add',1,'ExternalBehaviourDescription.hxx']]],
   ['newexternalmaterialpropertydata_15',['newExternalMaterialPropertyData',['../_external_material_property_description_8hxx.html#a7712ea726f3efe827a2b0c9fdc482c3d',1,'ExternalMaterialPropertyDescription.hxx']]],
   ['newiter_16',['newiter',['../structtfel_1_1math_1_1_f_anderson.html#a3788d7eabe6078957dab64233a2b63d9',1,'tfel::math::FAnderson::newIter()'],['../structtfel_1_1math_1_1_u_anderson.html#a1e30267901c9d8c2d575c7e8a1561ecf',1,'tfel::math::UAnderson::newIter()']]],
-  ['newton_17',['Newton',['../_forward_2qt_8hxx.html#a902c24593cc60d3bd9d78026d68b99f5',1,'tfel::math::unit']]],
+  ['newton_17',['Newton',['../_forward_2_unit_8hxx.html#a609b8ba45241ab45f5ce38727bab5b5d',1,'tfel::math::unit']]],
   ['newtonraphsonnumericaljacobiansolver_18',['NewtonRaphsonNumericalJacobianSolver',['../structmfront_1_1_newton_raphson_numerical_jacobian_solver.html',1,'mfront']]],
   ['newtonraphsonsolver_19',['NewtonRaphsonSolver',['../structmfront_1_1_newton_raphson_solver.html',1,'mfront']]],
   ['newtonraphsonsolverbase_20',['newtonraphsonsolverbase',['../structmfront_1_1_newton_raphson_solver_base.html',1,'mfront::NewtonRaphsonSolverBase'],['../structmfront_1_1_newton_raphson_solver_base.html#affcc462d869917bcae8cafd33eec3892',1,'mfront::NewtonRaphsonSolverBase::NewtonRaphsonSolverBase()']]],

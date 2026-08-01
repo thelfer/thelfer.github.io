@@ -15,5 +15,6 @@ var dir_faa9444da59c33c9d7b5fd082f48c875 =
     [ "TinyNewtonRaphson.hxx", "_tiny_newton_raphson_8hxx.html", null ],
     [ "tmatrix.hxx", "_forward_2tmatrix_8hxx.html", "_forward_2tmatrix_8hxx" ],
     [ "tvector.hxx", "_forward_2tvector_8hxx.html", "_forward_2tvector_8hxx" ],
+    [ "Unit.hxx", "_forward_2_unit_8hxx.html", "_forward_2_unit_8hxx" ],
     [ "vector.hxx", "_forward_2vector_8hxx.html", "_forward_2vector_8hxx" ]
 ];

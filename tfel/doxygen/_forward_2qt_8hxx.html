@@ -102,14 +102,18 @@ $(document).ready(function(){initNavTree('_forward_2qt_8hxx.html',''); initResiz
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#concepts">Concepts</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">qt.hxx File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>03 jan. 2012  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;concepts&gt;</code><br />
+<div class="textblock"><code>#include &lt;array&gt;</code><br />
+<code>#include &lt;numeric&gt;</code><br />
+<code>#include &lt;concepts&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
 <code>#include &lt;type_traits&gt;</code><br />
 <code>#include &quot;<a class="el" href="_t_f_e_l_config_8hxx.html">TFEL/Config/TFELConfig.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_invalid_type_8hxx.html">TFEL/Metaprogramming/InvalidType.hxx</a>&quot;</code><br />
@@ -118,11 +122,31 @@ $(document).ready(function(){initNavTree('_forward_2qt_8hxx.html',''); initResiz
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1_generate_unit.html">tfel::math::GenerateUnit&lt; N1, N2, N3, N4, N5, N6, N7, D1, D2, D3, D4, D5, D6, D7 &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1_unit_exponent.html">tfel::math::UnitExponent</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1internal_1_1_unit_concept_implementation.html">tfel::math::internal::UnitConceptImplementation&lt; T &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1_unit_exponents.html">tfel::math::UnitExponents</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1internal_1_1_unit_concept_implementation_3_01_unit_3_01std_1_1integral__co6b985afcf3d7c717feb87ca5c848a021.html">tfel::math::internal::UnitConceptImplementation&lt; Unit&lt; std::integral_constant&lt; int, N1 &gt;, std::integral_constant&lt; int, N2 &gt;, std::integral_constant&lt; int, N3 &gt;, std::integral_constant&lt; int, N4 &gt;, std::integral_constant&lt; int, N5 &gt;, std::integral_constant&lt; int, N6 &gt;, std::integral_constant&lt; int, N7 &gt;, std::integral_constant&lt; unsigned int, D1 &gt;, std::integral_constant&lt; unsigned int, D2 &gt;, std::integral_constant&lt; unsigned int, D3 &gt;, std::integral_constant&lt; unsigned int, D4 &gt;, std::integral_constant&lt; unsigned int, D5 &gt;, std::integral_constant&lt; unsigned int, D6 &gt;, std::integral_constant&lt; unsigned int, D7 &gt; &gt; &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1_unit_base.html">tfel::math::UnitBase&lt; e &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">brief base class inherited by all unit classes  <a href="structtfel_1_1math_1_1_unit_base.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1_unit.html">tfel::math::Unit&lt; N1, N2, N3, N4, N5, N6, N7, D1, D2, D3, D4, D5, D6, D7 &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1_standard_unit.html">tfel::math::StandardUnit&lt; N1, N2, N3, N4, N5, N6, N7 &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1internals_1_1_extract_unit_base.html">tfel::math::internals::ExtractUnitBase</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1internals_1_1_extract_unit.html">tfel::math::internals::ExtractUnit&lt; T &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1internals_1_1_extract_unit_3_01tfel_1_1meta_1_1_invalid_type_01_4.html">tfel::math::internals::ExtractUnit&lt; tfel::meta::InvalidType &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1unit_1_1_no_unit.html">tfel::math::unit::NoUnit</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1unit_1_1_unit_rebind.html">tfel::math::unit::UnitRebind&lt; e &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code><a class="el" href="structtfel_1_1math_1_1unit_1_1_unit_rebind.html" title="UnitRebind is a way to simply rebind some unit types from the unit exponents.">UnitRebind</a></code> is a way to simply rebind some unit types from the unit exponents.  <a href="structtfel_1_1math_1_1unit_1_1_unit_rebind.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1unit_1_1_unit_rebind_3_01exponents_3_01_no_unit_01_4_01_4.html">tfel::math::unit::UnitRebind&lt; exponents&lt; NoUnit &gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1unit_1_1_unit_rebind_3_01exponents_3_01_length_01_4_01_4.html">tfel::math::unit::UnitRebind&lt; exponents&lt; Length &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1_quantity_traits.html">tfel::math::QuantityTraits&lt; typename &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">an helper structure to retrieve the underlying numeric type and unit from a type when this is meaningful.  <a href="structtfel_1_1math_1_1_quantity_traits.html#details">More...</a><br /></td></tr>
@@ -167,111 +191,107 @@ Concepts</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:aa333deb5149d1a74b6703d21e02ea53b" id="r_aa333deb5149d1a74b6703d21e02ea53b"><td class="memItemLeft" align="right" valign="top"><a id="aa333deb5149d1a74b6703d21e02ea53b" name="aa333deb5149d1a74b6703d21e02ea53b"></a>
-<a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><b>tfel::math::unit::NoUnit</b> = <a class="el" href="structtfel_1_1math_1_1_unit.html">Unit</a>&lt; std::integral_constant&lt; <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a>, 0 &gt;, std::integral_constant&lt; <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a>, 0 &gt;, std::integral_constant&lt; <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a>, 0 &gt;, std::integral_constant&lt; <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a>, 0 &gt;, std::integral_constant&lt; <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a>, 0 &gt;, std::integral_constant&lt; <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a>, 0 &gt;, std::integral_constant&lt; <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a>, 0 &gt;, std::integral_constant&lt; <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">unsigned</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a>, 1u &gt;, std::integral_constant&lt; <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">unsigned</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a>, 1u &gt;, std::integral_constant&lt; <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">unsigned</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a>, 1u &gt;, std::integral_constant&lt; <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">unsigned</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a>, 1u &gt;, std::integral_constant&lt; <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">unsigned</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a>, 1u &gt;, std::integral_constant&lt; <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">unsigned</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a>, 1u &gt;, std::integral_constant&lt; <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">unsigned</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a>, 1u &gt; &gt;</td></tr>
-<tr class="memdesc:aa333deb5149d1a74b6703d21e02ea53b"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple alias <br /></td></tr>
-<tr class="separator:aa333deb5149d1a74b6703d21e02ea53b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a368af1a0dc9f6737b77873d41f8b5b6f" id="r_a368af1a0dc9f6737b77873d41f8b5b6f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#a368af1a0dc9f6737b77873d41f8b5b6f">tfel::math::unit::Mass</a> = <a class="el" href="structtfel_1_1math_1_1_generate_unit.html">GenerateUnit</a>&lt; 1, 0, 0, 0, 0, 0, 0 &gt;::type</td></tr>
-<tr class="memdesc:a368af1a0dc9f6737b77873d41f8b5b6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the Mass unit.  <br /></td></tr>
-<tr class="separator:a368af1a0dc9f6737b77873d41f8b5b6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a697963a53ea1fb5af8618a24a151f98f" id="r_a697963a53ea1fb5af8618a24a151f98f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#a697963a53ea1fb5af8618a24a151f98f">tfel::math::unit::Length</a> = <a class="el" href="structtfel_1_1math_1_1_generate_unit.html">GenerateUnit</a>&lt; 0, 1, 0, 0, 0, 0, 0 &gt;::type</td></tr>
-<tr class="memdesc:a697963a53ea1fb5af8618a24a151f98f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the Length unit.  <br /></td></tr>
-<tr class="separator:a697963a53ea1fb5af8618a24a151f98f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad67e037bbd16045f36d482692a826885" id="r_ad67e037bbd16045f36d482692a826885"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#ad67e037bbd16045f36d482692a826885">tfel::math::unit::Time</a> = <a class="el" href="structtfel_1_1math_1_1_generate_unit.html">GenerateUnit</a>&lt; 0, 0, 1, 0, 0, 0, 0 &gt;::type</td></tr>
-<tr class="memdesc:ad67e037bbd16045f36d482692a826885"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the Time unit.  <br /></td></tr>
-<tr class="separator:ad67e037bbd16045f36d482692a826885"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a026be3fd82aab5c2a300e273a4a355de" id="r_a026be3fd82aab5c2a300e273a4a355de"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#a026be3fd82aab5c2a300e273a4a355de">tfel::math::unit::Ampere</a> = <a class="el" href="structtfel_1_1math_1_1_generate_unit.html">GenerateUnit</a>&lt; 0, 0, 0, 1, 0, 0, 0 &gt;::type</td></tr>
-<tr class="memdesc:a026be3fd82aab5c2a300e273a4a355de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the Ampere unit.  <br /></td></tr>
-<tr class="separator:a026be3fd82aab5c2a300e273a4a355de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaba2f8829290509b96859d3cabb2faba" id="r_aaba2f8829290509b96859d3cabb2faba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#aaba2f8829290509b96859d3cabb2faba">tfel::math::unit::Temperature</a> = <a class="el" href="structtfel_1_1math_1_1_generate_unit.html">GenerateUnit</a>&lt; 0, 0, 0, 0, 1, 0, 0 &gt;::type</td></tr>
-<tr class="memdesc:aaba2f8829290509b96859d3cabb2faba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the Temperature unit.  <br /></td></tr>
-<tr class="separator:aaba2f8829290509b96859d3cabb2faba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72f6169851853c343bd57ea6ee013363" id="r_a72f6169851853c343bd57ea6ee013363"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#a72f6169851853c343bd57ea6ee013363">tfel::math::unit::Kelvin</a> = <a class="el" href="structtfel_1_1math_1_1_generate_unit.html">GenerateUnit</a>&lt; 0, 0, 0, 0, 1, 0, 0 &gt;::type</td></tr>
-<tr class="memdesc:a72f6169851853c343bd57ea6ee013363"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the Kelvin unit.  <br /></td></tr>
-<tr class="separator:a72f6169851853c343bd57ea6ee013363"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a88393a262cf952947f8b63200be222" id="r_a3a88393a262cf952947f8b63200be222"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#a3a88393a262cf952947f8b63200be222">tfel::math::unit::Candela</a> = <a class="el" href="structtfel_1_1math_1_1_generate_unit.html">GenerateUnit</a>&lt; 0, 0, 0, 0, 0, 1, 0 &gt;::type</td></tr>
-<tr class="memdesc:a3a88393a262cf952947f8b63200be222"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the Candela unit.  <br /></td></tr>
-<tr class="separator:a3a88393a262cf952947f8b63200be222"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5972601a51f7181f028ffd968d690f9a" id="r_a5972601a51f7181f028ffd968d690f9a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#a5972601a51f7181f028ffd968d690f9a">tfel::math::unit::Mole</a> = <a class="el" href="structtfel_1_1math_1_1_generate_unit.html">GenerateUnit</a>&lt; 0, 0, 0, 0, 0, 0, 1 &gt;::type</td></tr>
-<tr class="memdesc:a5972601a51f7181f028ffd968d690f9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the Mole unit.  <br /></td></tr>
-<tr class="separator:a5972601a51f7181f028ffd968d690f9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36cfe4405d6b84bf1c0a773cb2a7607b" id="r_a36cfe4405d6b84bf1c0a773cb2a7607b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#a36cfe4405d6b84bf1c0a773cb2a7607b">tfel::math::unit::InvLength</a> = <a class="el" href="structtfel_1_1math_1_1_generate_unit.html">GenerateUnit</a>&lt; 0, -1, 0, 0, 0, 0, 0 &gt;::type</td></tr>
-<tr class="memdesc:a36cfe4405d6b84bf1c0a773cb2a7607b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the InvLength unit.  <br /></td></tr>
-<tr class="separator:a36cfe4405d6b84bf1c0a773cb2a7607b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a703d8d793a45d073a01cceb73dcefcec" id="r_a703d8d793a45d073a01cceb73dcefcec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#a703d8d793a45d073a01cceb73dcefcec">tfel::math::unit::InvTemperature</a> = <a class="el" href="structtfel_1_1math_1_1_generate_unit.html">GenerateUnit</a>&lt; 0, 0, 0, 0, -1, 0, 0 &gt;::type</td></tr>
-<tr class="memdesc:a703d8d793a45d073a01cceb73dcefcec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the InvTemperature unit.  <br /></td></tr>
-<tr class="separator:a703d8d793a45d073a01cceb73dcefcec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f90a6c85fe01258accf3b252017e3c7" id="r_a9f90a6c85fe01258accf3b252017e3c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#a9f90a6c85fe01258accf3b252017e3c7">tfel::math::unit::Frequency</a> = <a class="el" href="structtfel_1_1math_1_1_generate_unit.html">GenerateUnit</a>&lt; 0, 0, -1, 0, 0, 0, 0 &gt;::type</td></tr>
-<tr class="memdesc:a9f90a6c85fe01258accf3b252017e3c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the Frequency unit.  <br /></td></tr>
-<tr class="separator:a9f90a6c85fe01258accf3b252017e3c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52f6d13468fd3fe149f7e5602ff0ad6c" id="r_a52f6d13468fd3fe149f7e5602ff0ad6c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#a52f6d13468fd3fe149f7e5602ff0ad6c">tfel::math::unit::Speed</a> = <a class="el" href="structtfel_1_1math_1_1_generate_unit.html">GenerateUnit</a>&lt; 0, 1, -1, 0, 0, 0, 0 &gt;::type</td></tr>
-<tr class="memdesc:a52f6d13468fd3fe149f7e5602ff0ad6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the Speed unit.  <br /></td></tr>
-<tr class="separator:a52f6d13468fd3fe149f7e5602ff0ad6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a417096337fa038998fabf7a403dee92e" id="r_a417096337fa038998fabf7a403dee92e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#a417096337fa038998fabf7a403dee92e">tfel::math::unit::Acceleration</a> = <a class="el" href="structtfel_1_1math_1_1_generate_unit.html">GenerateUnit</a>&lt; 0, 1, -2, 0, 0, 0, 0 &gt;::type</td></tr>
-<tr class="memdesc:a417096337fa038998fabf7a403dee92e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the Acceleration unit.  <br /></td></tr>
-<tr class="separator:a417096337fa038998fabf7a403dee92e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ff961efed74387ac4be4e9f02c1dfd0" id="r_a2ff961efed74387ac4be4e9f02c1dfd0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#a2ff961efed74387ac4be4e9f02c1dfd0">tfel::math::unit::Momentum</a> = <a class="el" href="structtfel_1_1math_1_1_generate_unit.html">GenerateUnit</a>&lt; 1, 1, -1, 0, 0, 0, 0 &gt;::type</td></tr>
-<tr class="memdesc:a2ff961efed74387ac4be4e9f02c1dfd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the Momentum unit.  <br /></td></tr>
-<tr class="separator:a2ff961efed74387ac4be4e9f02c1dfd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3cf91ddfc47d97a84d403c416d02be14" id="r_a3cf91ddfc47d97a84d403c416d02be14"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#a3cf91ddfc47d97a84d403c416d02be14">tfel::math::unit::Force</a> = <a class="el" href="structtfel_1_1math_1_1_generate_unit.html">GenerateUnit</a>&lt; 1, 1, -2, 0, 0, 0, 0 &gt;::type</td></tr>
-<tr class="memdesc:a3cf91ddfc47d97a84d403c416d02be14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the Momentum unit.  <br /></td></tr>
-<tr class="separator:a3cf91ddfc47d97a84d403c416d02be14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e733f98994e1924cac903bb8e2641df" id="r_a4e733f98994e1924cac903bb8e2641df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#a4e733f98994e1924cac903bb8e2641df">tfel::math::unit::Newton</a> = <a class="el" href="structtfel_1_1math_1_1_generate_unit.html">GenerateUnit</a>&lt; 1, 1, -2, 0, 0, 0, 0 &gt;::type</td></tr>
-<tr class="memdesc:a4e733f98994e1924cac903bb8e2641df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the Newton unit.  <br /></td></tr>
-<tr class="separator:a4e733f98994e1924cac903bb8e2641df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6957f3e8ea4b24230e5eb09c2fa38ea5" id="r_a6957f3e8ea4b24230e5eb09c2fa38ea5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#a6957f3e8ea4b24230e5eb09c2fa38ea5">tfel::math::unit::Stress</a> = <a class="el" href="structtfel_1_1math_1_1_generate_unit.html">GenerateUnit</a>&lt; 1, -1, -2, 0, 0, 0, 0 &gt;::type</td></tr>
-<tr class="memdesc:a6957f3e8ea4b24230e5eb09c2fa38ea5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the Stress unit.  <br /></td></tr>
-<tr class="separator:a6957f3e8ea4b24230e5eb09c2fa38ea5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5396c0502fc6a6f8ce7048b80ef55592" id="r_a5396c0502fc6a6f8ce7048b80ef55592"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#a5396c0502fc6a6f8ce7048b80ef55592">tfel::math::unit::StressRate</a> = <a class="el" href="structtfel_1_1math_1_1_generate_unit.html">GenerateUnit</a>&lt; 1, -1, -3, 0, 0, 0, 0 &gt;::type</td></tr>
-<tr class="memdesc:a5396c0502fc6a6f8ce7048b80ef55592"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the StressRate unit.  <br /></td></tr>
-<tr class="separator:a5396c0502fc6a6f8ce7048b80ef55592"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67eeff836065848e69a0a0b98b5e30a2" id="r_a67eeff836065848e69a0a0b98b5e30a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#a67eeff836065848e69a0a0b98b5e30a2">tfel::math::unit::Pressure</a> = <a class="el" href="structtfel_1_1math_1_1_generate_unit.html">GenerateUnit</a>&lt; 1, -1, -2, 0, 0, 0, 0 &gt;::type</td></tr>
-<tr class="memdesc:a67eeff836065848e69a0a0b98b5e30a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the Pressure unit.  <br /></td></tr>
-<tr class="separator:a67eeff836065848e69a0a0b98b5e30a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a060347f18ac00e9017e637f20d2d507b" id="r_a060347f18ac00e9017e637f20d2d507b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#a060347f18ac00e9017e637f20d2d507b">tfel::math::unit::Energy</a> = <a class="el" href="structtfel_1_1math_1_1_generate_unit.html">GenerateUnit</a>&lt; 1, 2, -2, 0, 0, 0, 0 &gt;::type</td></tr>
-<tr class="memdesc:a060347f18ac00e9017e637f20d2d507b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the Energy unit.  <br /></td></tr>
-<tr class="separator:a060347f18ac00e9017e637f20d2d507b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4bd6b6b7a24d3ff157a45d195cf6dea" id="r_ae4bd6b6b7a24d3ff157a45d195cf6dea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#ae4bd6b6b7a24d3ff157a45d195cf6dea">tfel::math::unit::EnergyDensity</a> = <a class="el" href="structtfel_1_1math_1_1_generate_unit.html">GenerateUnit</a>&lt; 1, -1, -2, 0, 0, 0, 0 &gt;::type</td></tr>
-<tr class="memdesc:ae4bd6b6b7a24d3ff157a45d195cf6dea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the EnergyDensity unit.  <br /></td></tr>
-<tr class="separator:ae4bd6b6b7a24d3ff157a45d195cf6dea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8c79386d62792bd7753b5a323c37130" id="r_ab8c79386d62792bd7753b5a323c37130"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#ab8c79386d62792bd7753b5a323c37130">tfel::math::unit::Density</a> = <a class="el" href="structtfel_1_1math_1_1_generate_unit.html">GenerateUnit</a>&lt; 1, -3, 0, 0, 0, 0, 0 &gt;::type</td></tr>
-<tr class="memdesc:ab8c79386d62792bd7753b5a323c37130"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the Density unit.  <br /></td></tr>
-<tr class="separator:ab8c79386d62792bd7753b5a323c37130"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a244a290cc6e14f81228d8b21af7c2be9" id="r_a244a290cc6e14f81228d8b21af7c2be9"><td class="memItemLeft" align="right" valign="top"><a id="a244a290cc6e14f81228d8b21af7c2be9" name="a244a290cc6e14f81228d8b21af7c2be9"></a>
-<a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><b>tfel::math::unit::TemperatureGradient</b> = <a class="el" href="structtfel_1_1math_1_1_generate_unit.html">GenerateUnit</a>&lt; 0, -1, 0, 0, 1, 0, 0 &gt;::type</td></tr>
-<tr class="memdesc:a244a290cc6e14f81228d8b21af7c2be9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the TemperatureGradient unit. <br /></td></tr>
-<tr class="separator:a244a290cc6e14f81228d8b21af7c2be9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeff3f1c91a0cdceafcc969ca33d09de7" id="r_aeff3f1c91a0cdceafcc969ca33d09de7"><td class="memItemLeft" align="right" valign="top"><a id="aeff3f1c91a0cdceafcc969ca33d09de7" name="aeff3f1c91a0cdceafcc969ca33d09de7"></a>
-<a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><b>tfel::math::unit::ThermalConductivity</b> = <a class="el" href="structtfel_1_1math_1_1_generate_unit.html">GenerateUnit</a>&lt; 1, 1, -3, 0, -1, 0, 0 &gt;::type</td></tr>
-<tr class="memdesc:aeff3f1c91a0cdceafcc969ca33d09de7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the ThermalConductivity unit. <br /></td></tr>
-<tr class="separator:aeff3f1c91a0cdceafcc969ca33d09de7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa347d7d04e1fef151e57725ac2ed61eb" id="r_aa347d7d04e1fef151e57725ac2ed61eb"><td class="memItemLeft" align="right" valign="top"><a id="aa347d7d04e1fef151e57725ac2ed61eb" name="aa347d7d04e1fef151e57725ac2ed61eb"></a>
-<a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><b>tfel::math::unit::HeatFluxDensity</b> = <a class="el" href="structtfel_1_1math_1_1_generate_unit.html">GenerateUnit</a>&lt; 1, 0, -3, 0, 0, 0, 0 &gt;::type</td></tr>
-<tr class="memdesc:aa347d7d04e1fef151e57725ac2ed61eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the HeatFluxDensity unit. <br /></td></tr>
-<tr class="separator:aa347d7d04e1fef151e57725ac2ed61eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc2ded437cfb88e487937b9a40a68b89" id="r_abc2ded437cfb88e487937b9a40a68b89"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#abc2ded437cfb88e487937b9a40a68b89">tfel::math::unit::Mass</a> = <a class="el" href="structtfel_1_1math_1_1_standard_unit.html">StandardUnit</a>&lt; 1, 0, 0, 0, 0, 0, 0 &gt;</td></tr>
+<tr class="memdesc:abc2ded437cfb88e487937b9a40a68b89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the Mass unit.  <br /></td></tr>
+<tr class="separator:abc2ded437cfb88e487937b9a40a68b89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae792a59d1dcbabb903b4bb353c308d97" id="r_ae792a59d1dcbabb903b4bb353c308d97"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#ae792a59d1dcbabb903b4bb353c308d97">tfel::math::unit::Length</a> = <a class="el" href="structtfel_1_1math_1_1_standard_unit.html">StandardUnit</a>&lt; 0, 1, 0, 0, 0, 0, 0 &gt;</td></tr>
+<tr class="memdesc:ae792a59d1dcbabb903b4bb353c308d97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the Length unit.  <br /></td></tr>
+<tr class="separator:ae792a59d1dcbabb903b4bb353c308d97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d5cf971a828377fd61a66735fccb374" id="r_a0d5cf971a828377fd61a66735fccb374"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#a0d5cf971a828377fd61a66735fccb374">tfel::math::unit::Time</a> = <a class="el" href="structtfel_1_1math_1_1_standard_unit.html">StandardUnit</a>&lt; 0, 0, 1, 0, 0, 0, 0 &gt;</td></tr>
+<tr class="memdesc:a0d5cf971a828377fd61a66735fccb374"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the Time unit.  <br /></td></tr>
+<tr class="separator:a0d5cf971a828377fd61a66735fccb374"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b5786aae5ad217961f899ee13aa9a70" id="r_a4b5786aae5ad217961f899ee13aa9a70"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#a4b5786aae5ad217961f899ee13aa9a70">tfel::math::unit::Ampere</a> = <a class="el" href="structtfel_1_1math_1_1_standard_unit.html">StandardUnit</a>&lt; 0, 0, 0, 1, 0, 0, 0 &gt;</td></tr>
+<tr class="memdesc:a4b5786aae5ad217961f899ee13aa9a70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the Ampere unit.  <br /></td></tr>
+<tr class="separator:a4b5786aae5ad217961f899ee13aa9a70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a397de476d55d9bf612ffcbacd1ca1dcf" id="r_a397de476d55d9bf612ffcbacd1ca1dcf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#a397de476d55d9bf612ffcbacd1ca1dcf">tfel::math::unit::Temperature</a> = <a class="el" href="structtfel_1_1math_1_1_standard_unit.html">StandardUnit</a>&lt; 0, 0, 0, 0, 1, 0, 0 &gt;</td></tr>
+<tr class="memdesc:a397de476d55d9bf612ffcbacd1ca1dcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the Temperature unit.  <br /></td></tr>
+<tr class="separator:a397de476d55d9bf612ffcbacd1ca1dcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac88b07d7524529c98a7627ffed9592a6" id="r_ac88b07d7524529c98a7627ffed9592a6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#ac88b07d7524529c98a7627ffed9592a6">tfel::math::unit::Kelvin</a> = <a class="el" href="structtfel_1_1math_1_1_standard_unit.html">StandardUnit</a>&lt; 0, 0, 0, 0, 1, 0, 0 &gt;</td></tr>
+<tr class="memdesc:ac88b07d7524529c98a7627ffed9592a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the Kelvin unit.  <br /></td></tr>
+<tr class="separator:ac88b07d7524529c98a7627ffed9592a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90fb0b43c6666598e28fb6be959b069d" id="r_a90fb0b43c6666598e28fb6be959b069d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#a90fb0b43c6666598e28fb6be959b069d">tfel::math::unit::Candela</a> = <a class="el" href="structtfel_1_1math_1_1_standard_unit.html">StandardUnit</a>&lt; 0, 0, 0, 0, 0, 1, 0 &gt;</td></tr>
+<tr class="memdesc:a90fb0b43c6666598e28fb6be959b069d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the Candela unit.  <br /></td></tr>
+<tr class="separator:a90fb0b43c6666598e28fb6be959b069d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab88652683f9d3dfa9c2975c322faab02" id="r_ab88652683f9d3dfa9c2975c322faab02"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#ab88652683f9d3dfa9c2975c322faab02">tfel::math::unit::Mole</a> = <a class="el" href="structtfel_1_1math_1_1_standard_unit.html">StandardUnit</a>&lt; 0, 0, 0, 0, 0, 0, 1 &gt;</td></tr>
+<tr class="memdesc:ab88652683f9d3dfa9c2975c322faab02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the Mole unit.  <br /></td></tr>
+<tr class="separator:ab88652683f9d3dfa9c2975c322faab02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac807a320250048ac96426ddc376726f5" id="r_ac807a320250048ac96426ddc376726f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#ac807a320250048ac96426ddc376726f5">tfel::math::unit::InvLength</a> = <a class="el" href="structtfel_1_1math_1_1_standard_unit.html">StandardUnit</a>&lt; 0, -1, 0, 0, 0, 0, 0 &gt;</td></tr>
+<tr class="memdesc:ac807a320250048ac96426ddc376726f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the InvLength unit.  <br /></td></tr>
+<tr class="separator:ac807a320250048ac96426ddc376726f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af762d009364960bd40ee6d56df9a42ba" id="r_af762d009364960bd40ee6d56df9a42ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#af762d009364960bd40ee6d56df9a42ba">tfel::math::unit::InvTemperature</a> = <a class="el" href="structtfel_1_1math_1_1_standard_unit.html">StandardUnit</a>&lt; 0, 0, 0, 0, -1, 0, 0 &gt;</td></tr>
+<tr class="memdesc:af762d009364960bd40ee6d56df9a42ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the InvTemperature unit.  <br /></td></tr>
+<tr class="separator:af762d009364960bd40ee6d56df9a42ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadc880f938227e75952dcd90cf7050cc" id="r_aadc880f938227e75952dcd90cf7050cc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#aadc880f938227e75952dcd90cf7050cc">tfel::math::unit::Frequency</a> = <a class="el" href="structtfel_1_1math_1_1_standard_unit.html">StandardUnit</a>&lt; 0, 0, -1, 0, 0, 0, 0 &gt;</td></tr>
+<tr class="memdesc:aadc880f938227e75952dcd90cf7050cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the Frequency unit.  <br /></td></tr>
+<tr class="separator:aadc880f938227e75952dcd90cf7050cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1aa70fce0fd80837f2e2b6b40b9ed2c0" id="r_a1aa70fce0fd80837f2e2b6b40b9ed2c0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#a1aa70fce0fd80837f2e2b6b40b9ed2c0">tfel::math::unit::Speed</a> = <a class="el" href="structtfel_1_1math_1_1_standard_unit.html">StandardUnit</a>&lt; 0, 1, -1, 0, 0, 0, 0 &gt;</td></tr>
+<tr class="memdesc:a1aa70fce0fd80837f2e2b6b40b9ed2c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the Speed unit.  <br /></td></tr>
+<tr class="separator:a1aa70fce0fd80837f2e2b6b40b9ed2c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fe0c6d68d9d17b8bb78198e70a1aca1" id="r_a5fe0c6d68d9d17b8bb78198e70a1aca1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#a5fe0c6d68d9d17b8bb78198e70a1aca1">tfel::math::unit::Acceleration</a> = <a class="el" href="structtfel_1_1math_1_1_standard_unit.html">StandardUnit</a>&lt; 0, 1, -2, 0, 0, 0, 0 &gt;</td></tr>
+<tr class="memdesc:a5fe0c6d68d9d17b8bb78198e70a1aca1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the Acceleration unit.  <br /></td></tr>
+<tr class="separator:a5fe0c6d68d9d17b8bb78198e70a1aca1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae38a0a6c0f6d78700c545a55c675a712" id="r_ae38a0a6c0f6d78700c545a55c675a712"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#ae38a0a6c0f6d78700c545a55c675a712">tfel::math::unit::Momentum</a> = <a class="el" href="structtfel_1_1math_1_1_standard_unit.html">StandardUnit</a>&lt; 1, 1, -1, 0, 0, 0, 0 &gt;</td></tr>
+<tr class="memdesc:ae38a0a6c0f6d78700c545a55c675a712"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the Momentum unit.  <br /></td></tr>
+<tr class="separator:ae38a0a6c0f6d78700c545a55c675a712"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00d2a2cb39ac476d3204e0e2a0e2f241" id="r_a00d2a2cb39ac476d3204e0e2a0e2f241"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#a00d2a2cb39ac476d3204e0e2a0e2f241">tfel::math::unit::Force</a> = <a class="el" href="structtfel_1_1math_1_1_standard_unit.html">StandardUnit</a>&lt; 1, 1, -2, 0, 0, 0, 0 &gt;</td></tr>
+<tr class="memdesc:a00d2a2cb39ac476d3204e0e2a0e2f241"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the Momentum unit.  <br /></td></tr>
+<tr class="separator:a00d2a2cb39ac476d3204e0e2a0e2f241"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a902c24593cc60d3bd9d78026d68b99f5" id="r_a902c24593cc60d3bd9d78026d68b99f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#a902c24593cc60d3bd9d78026d68b99f5">tfel::math::unit::Newton</a> = <a class="el" href="structtfel_1_1math_1_1_standard_unit.html">StandardUnit</a>&lt; 1, 1, -2, 0, 0, 0, 0 &gt;</td></tr>
+<tr class="memdesc:a902c24593cc60d3bd9d78026d68b99f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the Newton unit.  <br /></td></tr>
+<tr class="separator:a902c24593cc60d3bd9d78026d68b99f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fde41d9b3d74d8cbb7059372e2ea2b6" id="r_a1fde41d9b3d74d8cbb7059372e2ea2b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#a1fde41d9b3d74d8cbb7059372e2ea2b6">tfel::math::unit::Stress</a> = <a class="el" href="structtfel_1_1math_1_1_standard_unit.html">StandardUnit</a>&lt; 1, -1, -2, 0, 0, 0, 0 &gt;</td></tr>
+<tr class="memdesc:a1fde41d9b3d74d8cbb7059372e2ea2b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the Stress unit.  <br /></td></tr>
+<tr class="separator:a1fde41d9b3d74d8cbb7059372e2ea2b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af30ad251f67d6ca2cbeb465066610adc" id="r_af30ad251f67d6ca2cbeb465066610adc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#af30ad251f67d6ca2cbeb465066610adc">tfel::math::unit::StressRate</a> = <a class="el" href="structtfel_1_1math_1_1_standard_unit.html">StandardUnit</a>&lt; 1, -1, -3, 0, 0, 0, 0 &gt;</td></tr>
+<tr class="memdesc:af30ad251f67d6ca2cbeb465066610adc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the StressRate unit.  <br /></td></tr>
+<tr class="separator:af30ad251f67d6ca2cbeb465066610adc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c81f76c30204d7a5a75e49cd5c86e3f" id="r_a3c81f76c30204d7a5a75e49cd5c86e3f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#a3c81f76c30204d7a5a75e49cd5c86e3f">tfel::math::unit::Pressure</a> = <a class="el" href="structtfel_1_1math_1_1_standard_unit.html">StandardUnit</a>&lt; 1, -1, -2, 0, 0, 0, 0 &gt;</td></tr>
+<tr class="memdesc:a3c81f76c30204d7a5a75e49cd5c86e3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the Pressure unit.  <br /></td></tr>
+<tr class="separator:a3c81f76c30204d7a5a75e49cd5c86e3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36874f6d33bc0c1cc6e7af107061f107" id="r_a36874f6d33bc0c1cc6e7af107061f107"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#a36874f6d33bc0c1cc6e7af107061f107">tfel::math::unit::Energy</a> = <a class="el" href="structtfel_1_1math_1_1_standard_unit.html">StandardUnit</a>&lt; 1, 2, -2, 0, 0, 0, 0 &gt;</td></tr>
+<tr class="memdesc:a36874f6d33bc0c1cc6e7af107061f107"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the Energy unit.  <br /></td></tr>
+<tr class="separator:a36874f6d33bc0c1cc6e7af107061f107"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a054cf306eb89542c5e6bb0bfe653c7e0" id="r_a054cf306eb89542c5e6bb0bfe653c7e0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#a054cf306eb89542c5e6bb0bfe653c7e0">tfel::math::unit::EnergyDensity</a> = <a class="el" href="structtfel_1_1math_1_1_standard_unit.html">StandardUnit</a>&lt; 1, -1, -2, 0, 0, 0, 0 &gt;</td></tr>
+<tr class="memdesc:a054cf306eb89542c5e6bb0bfe653c7e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the EnergyDensity unit.  <br /></td></tr>
+<tr class="separator:a054cf306eb89542c5e6bb0bfe653c7e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ee2eb702be9388461fd4753d9346007" id="r_a7ee2eb702be9388461fd4753d9346007"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_forward_2qt_8hxx.html#a7ee2eb702be9388461fd4753d9346007">tfel::math::unit::Density</a> = <a class="el" href="structtfel_1_1math_1_1_standard_unit.html">StandardUnit</a>&lt; 1, -3, 0, 0, 0, 0, 0 &gt;</td></tr>
+<tr class="memdesc:a7ee2eb702be9388461fd4753d9346007"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the Density unit.  <br /></td></tr>
+<tr class="separator:a7ee2eb702be9388461fd4753d9346007"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bf70b2fe72bf7b9c2561d8464e0ef5e" id="r_a5bf70b2fe72bf7b9c2561d8464e0ef5e"><td class="memItemLeft" align="right" valign="top"><a id="a5bf70b2fe72bf7b9c2561d8464e0ef5e" name="a5bf70b2fe72bf7b9c2561d8464e0ef5e"></a>
+<a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><b>tfel::math::unit::TemperatureGradient</b> = <a class="el" href="structtfel_1_1math_1_1_standard_unit.html">StandardUnit</a>&lt; 0, -1, 0, 0, 1, 0, 0 &gt;</td></tr>
+<tr class="memdesc:a5bf70b2fe72bf7b9c2561d8464e0ef5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the TemperatureGradient unit. <br /></td></tr>
+<tr class="separator:a5bf70b2fe72bf7b9c2561d8464e0ef5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05a0a6d74f8e449ec59a9723b897bac2" id="r_a05a0a6d74f8e449ec59a9723b897bac2"><td class="memItemLeft" align="right" valign="top"><a id="a05a0a6d74f8e449ec59a9723b897bac2" name="a05a0a6d74f8e449ec59a9723b897bac2"></a>
+<a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><b>tfel::math::unit::ThermalConductivity</b> = <a class="el" href="structtfel_1_1math_1_1_standard_unit.html">StandardUnit</a>&lt; 1, 1, -3, 0, -1, 0, 0 &gt;</td></tr>
+<tr class="memdesc:a05a0a6d74f8e449ec59a9723b897bac2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the ThermalConductivity unit. <br /></td></tr>
+<tr class="separator:a05a0a6d74f8e449ec59a9723b897bac2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5c9b0656062c36ab46cee9bfad29d0c" id="r_aa5c9b0656062c36ab46cee9bfad29d0c"><td class="memItemLeft" align="right" valign="top"><a id="aa5c9b0656062c36ab46cee9bfad29d0c" name="aa5c9b0656062c36ab46cee9bfad29d0c"></a>
+<a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memItemRight" valign="bottom"><b>tfel::math::unit::HeatFluxDensity</b> = <a class="el" href="structtfel_1_1math_1_1_standard_unit.html">StandardUnit</a>&lt; 1, 0, -3, 0, 0, 0, 0 &gt;</td></tr>
+<tr class="memdesc:aa5c9b0656062c36ab46cee9bfad29d0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the HeatFluxDensity unit. <br /></td></tr>
+<tr class="separator:aa5c9b0656062c36ab46cee9bfad29d0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3f6a2b6fd43605cbd137447c18f655c" id="r_af3f6a2b6fd43605cbd137447c18f655c"><td class="memTemplParams" colspan="2"><a id="af3f6a2b6fd43605cbd137447c18f655c" name="af3f6a2b6fd43605cbd137447c18f655c"></a>
 template&lt;UnitConcept UnitType, StandardArithmeticTypeConcept ValueType = double&gt; </td></tr>
-<tr class="memitem:af3f6a2b6fd43605cbd137447c18f655c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tfel::math::qt</b> = <a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a>&lt; UnitType, ValueType, <a class="el" href="structtfel_1_1math_1_1internals_1_1_quantity_value_ownership_policy.html">tfel::math::internals::QuantityValueOwnershipPolicy</a>&lt; ValueType, std::is_same_v&lt; UnitType, <a class="el" href="_forward_2qt_8hxx.html#aa333deb5149d1a74b6703d21e02ea53b">unit::NoUnit</a> &gt; &gt; &gt;</td></tr>
+<tr class="memitem:af3f6a2b6fd43605cbd137447c18f655c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tfel::math::qt</b> = <a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a>&lt; UnitType, ValueType, <a class="el" href="structtfel_1_1math_1_1internals_1_1_quantity_value_ownership_policy.html">tfel::math::internals::QuantityValueOwnershipPolicy</a>&lt; ValueType, std::is_same_v&lt; UnitType, <a class="el" href="structtfel_1_1math_1_1unit_1_1_no_unit.html">unit::NoUnit</a> &gt; &gt; &gt;</td></tr>
 <tr class="memdesc:af3f6a2b6fd43605cbd137447c18f655c"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple alias <br /></td></tr>
 <tr class="separator:af3f6a2b6fd43605cbd137447c18f655c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aede2949e5f97d6f3b90912d5644eb645" id="r_aede2949e5f97d6f3b90912d5644eb645"><td class="memTemplParams" colspan="2"><a id="aede2949e5f97d6f3b90912d5644eb645" name="aede2949e5f97d6f3b90912d5644eb645"></a>
 template&lt;UnitConcept UnitType, StandardArithmeticTypeConcept ValueType = double&gt; </td></tr>
-<tr class="memitem:aede2949e5f97d6f3b90912d5644eb645"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tfel::math::qt_ref</b> = <a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a>&lt; UnitType, ValueType, <a class="el" href="structtfel_1_1math_1_1internals_1_1_quantity_reference_ownership_policy.html">tfel::math::internals::QuantityReferenceOwnershipPolicy</a>&lt; ValueType, std::is_same_v&lt; UnitType, <a class="el" href="_forward_2qt_8hxx.html#aa333deb5149d1a74b6703d21e02ea53b">unit::NoUnit</a> &gt; &gt; &gt;</td></tr>
+<tr class="memitem:aede2949e5f97d6f3b90912d5644eb645"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tfel::math::qt_ref</b> = <a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a>&lt; UnitType, ValueType, <a class="el" href="structtfel_1_1math_1_1internals_1_1_quantity_reference_ownership_policy.html">tfel::math::internals::QuantityReferenceOwnershipPolicy</a>&lt; ValueType, std::is_same_v&lt; UnitType, <a class="el" href="structtfel_1_1math_1_1unit_1_1_no_unit.html">unit::NoUnit</a> &gt; &gt; &gt;</td></tr>
 <tr class="memdesc:aede2949e5f97d6f3b90912d5644eb645"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple alias <br /></td></tr>
 <tr class="separator:aede2949e5f97d6f3b90912d5644eb645"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0d1de358db3ae29415e990810ed145e" id="r_ae0d1de358db3ae29415e990810ed145e"><td class="memTemplParams" colspan="2"><a id="ae0d1de358db3ae29415e990810ed145e" name="ae0d1de358db3ae29415e990810ed145e"></a>
 template&lt;UnitConcept UnitType, StandardArithmeticTypeConcept ValueType = double&gt; </td></tr>
-<tr class="memitem:ae0d1de358db3ae29415e990810ed145e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tfel::math::const_qt_ref</b> = <a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a>&lt; UnitType, ValueType, <a class="el" href="structtfel_1_1math_1_1internals_1_1_quantity_reference_ownership_policy.html">tfel::math::internals::QuantityReferenceOwnershipPolicy</a>&lt; const ValueType, std::is_same_v&lt; UnitType, <a class="el" href="_forward_2qt_8hxx.html#aa333deb5149d1a74b6703d21e02ea53b">unit::NoUnit</a> &gt; &gt; &gt;</td></tr>
+<tr class="memitem:ae0d1de358db3ae29415e990810ed145e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tfel::math::const_qt_ref</b> = <a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a>&lt; UnitType, ValueType, <a class="el" href="structtfel_1_1math_1_1internals_1_1_quantity_reference_ownership_policy.html">tfel::math::internals::QuantityReferenceOwnershipPolicy</a>&lt; const ValueType, std::is_same_v&lt; UnitType, <a class="el" href="structtfel_1_1math_1_1unit_1_1_no_unit.html">unit::NoUnit</a> &gt; &gt; &gt;</td></tr>
 <tr class="memdesc:ae0d1de358db3ae29415e990810ed145e"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple alias <br /></td></tr>
 <tr class="separator:ae0d1de358db3ae29415e990810ed145e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae52e34b6e4b09c86550e97e37098d013" id="r_ae52e34b6e4b09c86550e97e37098d013"><td class="memTemplParams" colspan="2"><a id="ae52e34b6e4b09c86550e97e37098d013" name="ae52e34b6e4b09c86550e97e37098d013"></a>
+<tr class="memitem:a323363fe6f90f0a0ab7d1ff936d27c80" id="r_a323363fe6f90f0a0ab7d1ff936d27c80"><td class="memTemplParams" colspan="2"><a id="a323363fe6f90f0a0ab7d1ff936d27c80" name="a323363fe6f90f0a0ab7d1ff936d27c80"></a>
 template&lt;StandardArithmeticTypeConcept ValueType, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> N1 = 0, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> N2 = 0, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> N3 = 0, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> N4 = 0, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> N5 = 0, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> N6 = 0, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> N7 = 0, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">unsigned</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> D1 = 1, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">unsigned</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> D2 = 1, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">unsigned</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> D3 = 1, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">unsigned</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> D4 = 1, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">unsigned</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> D5 = 1, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">unsigned</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> D6 = 1, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">unsigned</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> D7 = 1&gt; </td></tr>
-<tr class="memitem:ae52e34b6e4b09c86550e97e37098d013"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tfel::math::quantity</b> = <a class="el" href="namespacetfel_1_1math.html#af3f6a2b6fd43605cbd137447c18f655c">qt</a>&lt; <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">typename</a> <a class="el" href="structtfel_1_1math_1_1_generate_unit.html">GenerateUnit</a>&lt; <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">N1</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">N2</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">N3</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">N4</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">N5</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">N6</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">N7</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">D1</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">D2</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">D3</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">D4</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">D5</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">D6</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">D7</a> &gt;::type, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">typename</a> <a class="el" href="structtfel_1_1math_1_1internals_1_1_make_quantity_value_type.html">tfel::math::internals::MakeQuantityValueType</a>&lt; ValueType &gt;::type &gt;</td></tr>
-<tr class="memdesc:ae52e34b6e4b09c86550e97e37098d013"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple alias <br /></td></tr>
-<tr class="separator:ae52e34b6e4b09c86550e97e37098d013"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a323363fe6f90f0a0ab7d1ff936d27c80"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tfel::math::quantity</b> = <a class="el" href="namespacetfel_1_1math.html#af3f6a2b6fd43605cbd137447c18f655c">qt</a>&lt; <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">typename</a> <a class="el" href="structtfel_1_1math_1_1unit_1_1_unit_rebind.html">unit::UnitRebind</a>&lt; makeUnitExponents&lt; <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">N1</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">N2</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">N3</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">N4</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">N5</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">N6</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">N7</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">D1</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">D2</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">D3</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">D4</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">D5</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">D6</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">D7</a> &gt;()&gt;::type, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">typename</a> <a class="el" href="structtfel_1_1math_1_1internals_1_1_make_quantity_value_type.html">tfel::math::internals::MakeQuantityValueType</a>&lt; ValueType &gt;::type &gt;</td></tr>
+<tr class="memdesc:a323363fe6f90f0a0ab7d1ff936d27c80"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple alias <br /></td></tr>
+<tr class="separator:a323363fe6f90f0a0ab7d1ff936d27c80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9816babdfeb52d5223f9e5dabd977fd1" id="r_a9816babdfeb52d5223f9e5dabd977fd1"><td class="memTemplParams" colspan="2"><a id="a9816babdfeb52d5223f9e5dabd977fd1" name="a9816babdfeb52d5223f9e5dabd977fd1"></a>
 template&lt;<a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">bool</a> use_qt, StandardArithmeticTypeConcept ValueType, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> N1 = 0, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> N2 = 0, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> N3 = 0, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> N4 = 0, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> N5 = 0, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> N6 = 0, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> N7 = 0, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">unsigned</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> D1 = 1, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">unsigned</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> D2 = 1, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">unsigned</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> D3 = 1, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">unsigned</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> D4 = 1, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">unsigned</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> D5 = 1, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">unsigned</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> D6 = 1, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">unsigned</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> D7 = 1&gt; </td></tr>
-<tr class="memitem:a9816babdfeb52d5223f9e5dabd977fd1"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tfel::math::quantity_or_base_type</b> = std::conditional_t&lt; use_qt, <a class="el" href="namespacetfel_1_1math.html#ae52e34b6e4b09c86550e97e37098d013">quantity</a>&lt; ValueType, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">N1</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">N2</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">N3</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">N4</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">N5</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">N6</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">N7</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">D1</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">D2</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">D3</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">D4</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">D5</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">D6</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">D7</a> &gt;, ValueType &gt;</td></tr>
+<tr class="memitem:a9816babdfeb52d5223f9e5dabd977fd1"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tfel::math::quantity_or_base_type</b> = std::conditional_t&lt; use_qt, <a class="el" href="namespacetfel_1_1math.html#a323363fe6f90f0a0ab7d1ff936d27c80">quantity</a>&lt; ValueType, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">N1</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">N2</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">N3</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">N4</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">N5</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">N6</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">N7</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">D1</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">D2</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">D3</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">D4</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">D5</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">D6</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">D7</a> &gt;, ValueType &gt;</td></tr>
 <tr class="memdesc:a9816babdfeb52d5223f9e5dabd977fd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple alias <br /></td></tr>
 <tr class="separator:a9816babdfeb52d5223f9e5dabd977fd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a316aba6f19cff9c1b46647b0fd84f09e" id="r_a316aba6f19cff9c1b46647b0fd84f09e"><td class="memTemplParams" colspan="2"><a id="a316aba6f19cff9c1b46647b0fd84f09e" name="a316aba6f19cff9c1b46647b0fd84f09e"></a>
@@ -285,6 +305,31 @@ template&lt;QuantityConcept T&gt; </td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a386b42263d5d0c8d0928573c50fb4eef" id="r_a386b42263d5d0c8d0928573c50fb4eef"><td class="memItemLeft" align="right" valign="top"><a id="a386b42263d5d0c8d0928573c50fb4eef" name="a386b42263d5d0c8d0928573c50fb4eef"></a>
+<a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">constexpr</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><b>tfel::math::isValid</b> (const <a class="el" href="structtfel_1_1math_1_1_unit_exponent.html">UnitExponent</a> &amp;e) <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">noexcept</a></td></tr>
+<tr class="separator:a386b42263d5d0c8d0928573c50fb4eef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0e646e81e49323192ed4c9d7785dd61" id="r_ac0e646e81e49323192ed4c9d7785dd61"><td class="memItemLeft" align="right" valign="top"><a id="ac0e646e81e49323192ed4c9d7785dd61" name="ac0e646e81e49323192ed4c9d7785dd61"></a>
+<a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">constexpr</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><b>tfel::math::isIrreductible</b> (const <a class="el" href="structtfel_1_1math_1_1_unit_exponent.html">UnitExponent</a> &amp;e) <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">noexcept</a></td></tr>
+<tr class="separator:ac0e646e81e49323192ed4c9d7785dd61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab227c3344dfc52e8e2722604867327f9" id="r_ab227c3344dfc52e8e2722604867327f9"><td class="memItemLeft" align="right" valign="top"><a id="ab227c3344dfc52e8e2722604867327f9" name="ab227c3344dfc52e8e2722604867327f9"></a>
+<a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">constexpr</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><b>tfel::math::isValid</b> (const <a class="el" href="structtfel_1_1math_1_1_unit_exponents.html">UnitExponents</a> &amp;e) <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">noexcept</a></td></tr>
+<tr class="separator:ab227c3344dfc52e8e2722604867327f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13cd74fc137da98d7dd23ce8013dfcfc" id="r_a13cd74fc137da98d7dd23ce8013dfcfc"><td class="memTemplParams" colspan="2"><a id="a13cd74fc137da98d7dd23ce8013dfcfc" name="a13cd74fc137da98d7dd23ce8013dfcfc"></a>
+template&lt;<a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> N1 = 0, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> N2 = 0, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> N3 = 0, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> N4 = 0, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> N5 = 0, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> N6 = 0, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> N7 = 0, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">unsigned</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> D1 = 1, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">unsigned</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> D2 = 1, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">unsigned</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> D3 = 1, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">unsigned</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> D4 = 1, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">unsigned</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> D5 = 1, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">unsigned</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> D6 = 1, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">unsigned</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">int</a> D7 = 1&gt; </td></tr>
+<tr class="memitem:a13cd74fc137da98d7dd23ce8013dfcfc"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">constexpr</a> <a class="el" href="structtfel_1_1math_1_1_unit_exponents.html">UnitExponents</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tfel::math::makeUnitExponents</b> () <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">noexcept</a></td></tr>
+<tr class="separator:a13cd74fc137da98d7dd23ce8013dfcfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e8823c64d83b0af23043e95c97da677" id="r_a6e8823c64d83b0af23043e95c97da677"><td class="memTemplParams" colspan="2"><a id="a6e8823c64d83b0af23043e95c97da677" name="a6e8823c64d83b0af23043e95c97da677"></a>
+template&lt;<a class="el" href="structtfel_1_1math_1_1_unit_exponents.html">UnitExponents</a> e&gt; <br />
+requires (isValid(e))</td></tr>
+<tr class="memitem:a6e8823c64d83b0af23043e95c97da677"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">constexpr</a> <a class="el" href="structtfel_1_1math_1_1_unit_exponents.html">UnitExponents</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tfel::math::get_unit_exponents</b> (const <a class="el" href="structtfel_1_1math_1_1_unit_base.html">UnitBase</a>&lt; e &gt; &amp;) <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">noexcept</a></td></tr>
+<tr class="separator:a6e8823c64d83b0af23043e95c97da677"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cf6e3a94746868945d77dfd17dd39ba" id="r_a6cf6e3a94746868945d77dfd17dd39ba"><td class="memTemplParams" colspan="2"><a id="a6cf6e3a94746868945d77dfd17dd39ba" name="a6cf6e3a94746868945d77dfd17dd39ba"></a>
+template&lt;UnitConcept UnitType&gt; </td></tr>
+<tr class="memitem:a6cf6e3a94746868945d77dfd17dd39ba"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">constexpr</a> <a class="el" href="structtfel_1_1math_1_1_unit_exponents.html">UnitExponents</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tfel::math::get_unit_exponents</b> () <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">noexcept</a></td></tr>
+<tr class="separator:a6cf6e3a94746868945d77dfd17dd39ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53ea57cb5e73b7572053abca865f2e09" id="r_a53ea57cb5e73b7572053abca865f2e09"><td class="memItemLeft" align="right" valign="top"><a id="a53ea57cb5e73b7572053abca865f2e09" name="a53ea57cb5e73b7572053abca865f2e09"></a>
+<a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">constexpr</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><b>tfel::math::unit::areAllDenominatorsOne</b> (const <a class="el" href="structtfel_1_1math_1_1_unit_exponents.html">UnitExponents</a> &amp;e) <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">noexcept</a></td></tr>
+<tr class="separator:a53ea57cb5e73b7572053abca865f2e09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a098418e9c354f455bc15d62742e9ecc1" id="r_a098418e9c354f455bc15d62742e9ecc1"><td class="memTemplParams" colspan="2"><a id="a098418e9c354f455bc15d62742e9ecc1" name="a098418e9c354f455bc15d62742e9ecc1"></a>
 template&lt;UnitConcept UnitType, StandardArithmeticTypeConcept ValueType, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">typename</a> OwnershipPolicy &gt; </td></tr>
 <tr class="memitem:a098418e9c354f455bc15d62742e9ecc1"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">constexpr</a> ValueType &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tfel::math::base_type_cast</b> (<a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a>&lt; UnitType, ValueType, OwnershipPolicy &gt; &amp;) <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">noexcept</a></td></tr>
@@ -299,383 +344,393 @@ template&lt;UnitConcept UnitType, StandardArithmeticTypeConcept ValueType, <a cl
 <tr class="memitem:a1ef4abcf30f9272dc07ff17db64dd95f"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">constexpr</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">bool</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetfel_1_1math.html#a1ef4abcf30f9272dc07ff17db64dd95f">tfel::math::isQuantity</a> ()</td></tr>
 <tr class="memdesc:a1ef4abcf30f9272dc07ff17db64dd95f"><td class="mdescLeft">&#160;</td><td class="mdescRight">a function testing if a type is a quantity  <br /></td></tr>
 <tr class="separator:a1ef4abcf30f9272dc07ff17db64dd95f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a9e6188297568c7aa34b124618ce53020" id="r_a9e6188297568c7aa34b124618ce53020"><td class="memTemplParams" colspan="2"><a id="a9e6188297568c7aa34b124618ce53020" name="a9e6188297568c7aa34b124618ce53020"></a>
+template&lt;UnitConcept UnitType&gt; </td></tr>
+<tr class="memitem:a9e6188297568c7aa34b124618ce53020"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">constexpr</a> <a class="el" href="structtfel_1_1math_1_1_unit_exponents.html">UnitExponents</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tfel::math::exponents</b> = get_unit_exponents&lt;UnitType&gt;()</td></tr>
+<tr class="separator:a9e6188297568c7aa34b124618ce53020"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf1397bfc06b018d25190756b42949aa" id="r_aaf1397bfc06b018d25190756b42949aa"><td class="memTemplParams" colspan="2">template&lt;UnitConcept UnitType1, UnitConcept UnitType2&gt; </td></tr>
+<tr class="memitem:aaf1397bfc06b018d25190756b42949aa"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">constexpr</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">bool</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetfel_1_1math.html#aaf1397bfc06b018d25190756b42949aa">tfel::math::areUnitsEqual</a></td></tr>
+<tr class="separator:aaf1397bfc06b018d25190756b42949aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>03 jan. 2012 </p>
 <dl class="section author"><dt>Author</dt><dd>Thomas Helfer </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (C) 2006-2025 CEA/DEN, EDF R&amp;D. All rights reserved. This project is publicly released under either the GNU GPL Licence with linking exception or the CECILL-A licence. A copy of thoses licences are delivered with the sources of TFEL. CEA or EDF may also distribute this project under specific licensing conditions. </dd></dl>
 </div><h2 class="groupheader">Typedef Documentation</h2>
-<a id="a417096337fa038998fabf7a403dee92e" name="a417096337fa038998fabf7a403dee92e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a417096337fa038998fabf7a403dee92e">&#9670;&#160;</a></span>Acceleration</h2>
+<a id="a5fe0c6d68d9d17b8bb78198e70a1aca1" name="a5fe0c6d68d9d17b8bb78198e70a1aca1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fe0c6d68d9d17b8bb78198e70a1aca1">&#9670;&#160;</a></span>Acceleration</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#a417096337fa038998fabf7a403dee92e">tfel::math::unit::Acceleration</a> = typedef GenerateUnit&lt;0, 1, -2, 0, 0, 0, 0&gt;::type</td>
+          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#a5fe0c6d68d9d17b8bb78198e70a1aca1">tfel::math::unit::Acceleration</a> = typedef StandardUnit&lt;0, 1, -2, 0, 0, 0, 0&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Declares the Acceleration unit. </p>
-<dl class="section see"><dt>See also</dt><dd>GenerateUnit </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>StandardUnit </dd></dl>
 
 </div>
 </div>
-<a id="a026be3fd82aab5c2a300e273a4a355de" name="a026be3fd82aab5c2a300e273a4a355de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a026be3fd82aab5c2a300e273a4a355de">&#9670;&#160;</a></span>Ampere</h2>
+<a id="a4b5786aae5ad217961f899ee13aa9a70" name="a4b5786aae5ad217961f899ee13aa9a70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b5786aae5ad217961f899ee13aa9a70">&#9670;&#160;</a></span>Ampere</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#a026be3fd82aab5c2a300e273a4a355de">tfel::math::unit::Ampere</a> = typedef GenerateUnit&lt;0, 0, 0, 1, 0, 0, 0&gt;::type</td>
+          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#a4b5786aae5ad217961f899ee13aa9a70">tfel::math::unit::Ampere</a> = typedef StandardUnit&lt;0, 0, 0, 1, 0, 0, 0&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Declares the Ampere unit. </p>
-<dl class="section see"><dt>See also</dt><dd>GenerateUnit </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>StandardUnit </dd></dl>
 
 </div>
 </div>
-<a id="a3a88393a262cf952947f8b63200be222" name="a3a88393a262cf952947f8b63200be222"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a88393a262cf952947f8b63200be222">&#9670;&#160;</a></span>Candela</h2>
+<a id="a90fb0b43c6666598e28fb6be959b069d" name="a90fb0b43c6666598e28fb6be959b069d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90fb0b43c6666598e28fb6be959b069d">&#9670;&#160;</a></span>Candela</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#a3a88393a262cf952947f8b63200be222">tfel::math::unit::Candela</a> = typedef GenerateUnit&lt;0, 0, 0, 0, 0, 1, 0&gt;::type</td>
+          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#a90fb0b43c6666598e28fb6be959b069d">tfel::math::unit::Candela</a> = typedef StandardUnit&lt;0, 0, 0, 0, 0, 1, 0&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Declares the Candela unit. </p>
-<dl class="section see"><dt>See also</dt><dd>GenerateUnit </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>StandardUnit </dd></dl>
 
 </div>
 </div>
-<a id="ab8c79386d62792bd7753b5a323c37130" name="ab8c79386d62792bd7753b5a323c37130"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab8c79386d62792bd7753b5a323c37130">&#9670;&#160;</a></span>Density</h2>
+<a id="a7ee2eb702be9388461fd4753d9346007" name="a7ee2eb702be9388461fd4753d9346007"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ee2eb702be9388461fd4753d9346007">&#9670;&#160;</a></span>Density</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#ab8c79386d62792bd7753b5a323c37130">tfel::math::unit::Density</a> = typedef GenerateUnit&lt;1, -3, 0, 0, 0, 0, 0&gt;::type</td>
+          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#a7ee2eb702be9388461fd4753d9346007">tfel::math::unit::Density</a> = typedef StandardUnit&lt;1, -3, 0, 0, 0, 0, 0&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Declares the Density unit. </p>
-<dl class="section see"><dt>See also</dt><dd>GenerateUnit </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>StandardUnit </dd></dl>
 
 </div>
 </div>
-<a id="a060347f18ac00e9017e637f20d2d507b" name="a060347f18ac00e9017e637f20d2d507b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a060347f18ac00e9017e637f20d2d507b">&#9670;&#160;</a></span>Energy</h2>
+<a id="a36874f6d33bc0c1cc6e7af107061f107" name="a36874f6d33bc0c1cc6e7af107061f107"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36874f6d33bc0c1cc6e7af107061f107">&#9670;&#160;</a></span>Energy</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#a060347f18ac00e9017e637f20d2d507b">tfel::math::unit::Energy</a> = typedef GenerateUnit&lt;1, 2, -2, 0, 0, 0, 0&gt;::type</td>
+          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#a36874f6d33bc0c1cc6e7af107061f107">tfel::math::unit::Energy</a> = typedef StandardUnit&lt;1, 2, -2, 0, 0, 0, 0&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Declares the Energy unit. </p>
-<dl class="section see"><dt>See also</dt><dd>GenerateUnit </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>StandardUnit </dd></dl>
 
 </div>
 </div>
-<a id="ae4bd6b6b7a24d3ff157a45d195cf6dea" name="ae4bd6b6b7a24d3ff157a45d195cf6dea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae4bd6b6b7a24d3ff157a45d195cf6dea">&#9670;&#160;</a></span>EnergyDensity</h2>
+<a id="a054cf306eb89542c5e6bb0bfe653c7e0" name="a054cf306eb89542c5e6bb0bfe653c7e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a054cf306eb89542c5e6bb0bfe653c7e0">&#9670;&#160;</a></span>EnergyDensity</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#ae4bd6b6b7a24d3ff157a45d195cf6dea">tfel::math::unit::EnergyDensity</a> = typedef GenerateUnit&lt;1, -1, -2, 0, 0, 0, 0&gt;::type</td>
+          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#a054cf306eb89542c5e6bb0bfe653c7e0">tfel::math::unit::EnergyDensity</a> = typedef StandardUnit&lt;1, -1, -2, 0, 0, 0, 0&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Declares the EnergyDensity unit. </p>
-<dl class="section see"><dt>See also</dt><dd>GenerateUnit </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>StandardUnit </dd></dl>
 
 </div>
 </div>
-<a id="a3cf91ddfc47d97a84d403c416d02be14" name="a3cf91ddfc47d97a84d403c416d02be14"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3cf91ddfc47d97a84d403c416d02be14">&#9670;&#160;</a></span>Force</h2>
+<a id="a00d2a2cb39ac476d3204e0e2a0e2f241" name="a00d2a2cb39ac476d3204e0e2a0e2f241"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00d2a2cb39ac476d3204e0e2a0e2f241">&#9670;&#160;</a></span>Force</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#a3cf91ddfc47d97a84d403c416d02be14">tfel::math::unit::Force</a> = typedef GenerateUnit&lt;1, 1, -2, 0, 0, 0, 0&gt;::type</td>
+          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#a00d2a2cb39ac476d3204e0e2a0e2f241">tfel::math::unit::Force</a> = typedef StandardUnit&lt;1, 1, -2, 0, 0, 0, 0&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Declares the Momentum unit. </p>
-<dl class="section see"><dt>See also</dt><dd>GenerateUnit </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>StandardUnit </dd></dl>
 
 </div>
 </div>
-<a id="a9f90a6c85fe01258accf3b252017e3c7" name="a9f90a6c85fe01258accf3b252017e3c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f90a6c85fe01258accf3b252017e3c7">&#9670;&#160;</a></span>Frequency</h2>
+<a id="aadc880f938227e75952dcd90cf7050cc" name="aadc880f938227e75952dcd90cf7050cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadc880f938227e75952dcd90cf7050cc">&#9670;&#160;</a></span>Frequency</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#a9f90a6c85fe01258accf3b252017e3c7">tfel::math::unit::Frequency</a> = typedef GenerateUnit&lt;0, 0, -1, 0, 0, 0, 0&gt;::type</td>
+          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#aadc880f938227e75952dcd90cf7050cc">tfel::math::unit::Frequency</a> = typedef StandardUnit&lt;0, 0, -1, 0, 0, 0, 0&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Declares the Frequency unit. </p>
-<dl class="section see"><dt>See also</dt><dd>GenerateUnit </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>StandardUnit </dd></dl>
 
 </div>
 </div>
-<a id="a36cfe4405d6b84bf1c0a773cb2a7607b" name="a36cfe4405d6b84bf1c0a773cb2a7607b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a36cfe4405d6b84bf1c0a773cb2a7607b">&#9670;&#160;</a></span>InvLength</h2>
+<a id="ac807a320250048ac96426ddc376726f5" name="ac807a320250048ac96426ddc376726f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac807a320250048ac96426ddc376726f5">&#9670;&#160;</a></span>InvLength</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#a36cfe4405d6b84bf1c0a773cb2a7607b">tfel::math::unit::InvLength</a> = typedef GenerateUnit&lt;0, -1, 0, 0, 0, 0, 0&gt;::type</td>
+          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#ac807a320250048ac96426ddc376726f5">tfel::math::unit::InvLength</a> = typedef StandardUnit&lt;0, -1, 0, 0, 0, 0, 0&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Declares the InvLength unit. </p>
-<dl class="section see"><dt>See also</dt><dd>GenerateUnit </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>StandardUnit </dd></dl>
 
 </div>
 </div>
-<a id="a703d8d793a45d073a01cceb73dcefcec" name="a703d8d793a45d073a01cceb73dcefcec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a703d8d793a45d073a01cceb73dcefcec">&#9670;&#160;</a></span>InvTemperature</h2>
+<a id="af762d009364960bd40ee6d56df9a42ba" name="af762d009364960bd40ee6d56df9a42ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af762d009364960bd40ee6d56df9a42ba">&#9670;&#160;</a></span>InvTemperature</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#a703d8d793a45d073a01cceb73dcefcec">tfel::math::unit::InvTemperature</a> = typedef GenerateUnit&lt;0, 0, 0, 0, -1, 0, 0&gt;::type</td>
+          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#af762d009364960bd40ee6d56df9a42ba">tfel::math::unit::InvTemperature</a> = typedef StandardUnit&lt;0, 0, 0, 0, -1, 0, 0&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Declares the InvTemperature unit. </p>
-<dl class="section see"><dt>See also</dt><dd>GenerateUnit </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>StandardUnit </dd></dl>
 
 </div>
 </div>
-<a id="a72f6169851853c343bd57ea6ee013363" name="a72f6169851853c343bd57ea6ee013363"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a72f6169851853c343bd57ea6ee013363">&#9670;&#160;</a></span>Kelvin</h2>
+<a id="ac88b07d7524529c98a7627ffed9592a6" name="ac88b07d7524529c98a7627ffed9592a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac88b07d7524529c98a7627ffed9592a6">&#9670;&#160;</a></span>Kelvin</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#a72f6169851853c343bd57ea6ee013363">tfel::math::unit::Kelvin</a> = typedef GenerateUnit&lt;0, 0, 0, 0, 1, 0, 0&gt;::type</td>
+          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#ac88b07d7524529c98a7627ffed9592a6">tfel::math::unit::Kelvin</a> = typedef StandardUnit&lt;0, 0, 0, 0, 1, 0, 0&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Declares the Kelvin unit. </p>
-<dl class="section see"><dt>See also</dt><dd>GenerateUnit </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>StandardUnit </dd></dl>
 
 </div>
 </div>
-<a id="a697963a53ea1fb5af8618a24a151f98f" name="a697963a53ea1fb5af8618a24a151f98f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a697963a53ea1fb5af8618a24a151f98f">&#9670;&#160;</a></span>Length</h2>
+<a id="ae792a59d1dcbabb903b4bb353c308d97" name="ae792a59d1dcbabb903b4bb353c308d97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae792a59d1dcbabb903b4bb353c308d97">&#9670;&#160;</a></span>Length</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#a697963a53ea1fb5af8618a24a151f98f">tfel::math::unit::Length</a> = typedef GenerateUnit&lt;0, 1, 0, 0, 0, 0, 0&gt;::type</td>
+          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#ae792a59d1dcbabb903b4bb353c308d97">tfel::math::unit::Length</a> = typedef StandardUnit&lt;0, 1, 0, 0, 0, 0, 0&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Declares the Length unit. </p>
-<dl class="section see"><dt>See also</dt><dd>GenerateUnit </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>StandardUnit </dd></dl>
 
 </div>
 </div>
-<a id="a368af1a0dc9f6737b77873d41f8b5b6f" name="a368af1a0dc9f6737b77873d41f8b5b6f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a368af1a0dc9f6737b77873d41f8b5b6f">&#9670;&#160;</a></span>Mass</h2>
+<a id="abc2ded437cfb88e487937b9a40a68b89" name="abc2ded437cfb88e487937b9a40a68b89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc2ded437cfb88e487937b9a40a68b89">&#9670;&#160;</a></span>Mass</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#a368af1a0dc9f6737b77873d41f8b5b6f">tfel::math::unit::Mass</a> = typedef GenerateUnit&lt;1, 0, 0, 0, 0, 0, 0&gt;::type</td>
+          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#abc2ded437cfb88e487937b9a40a68b89">tfel::math::unit::Mass</a> = typedef StandardUnit&lt;1, 0, 0, 0, 0, 0, 0&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Declares the Mass unit. </p>
-<dl class="section see"><dt>See also</dt><dd>GenerateUnit </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>StandardUnit </dd></dl>
 
 </div>
 </div>
-<a id="a5972601a51f7181f028ffd968d690f9a" name="a5972601a51f7181f028ffd968d690f9a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5972601a51f7181f028ffd968d690f9a">&#9670;&#160;</a></span>Mole</h2>
+<a id="ab88652683f9d3dfa9c2975c322faab02" name="ab88652683f9d3dfa9c2975c322faab02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab88652683f9d3dfa9c2975c322faab02">&#9670;&#160;</a></span>Mole</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#a5972601a51f7181f028ffd968d690f9a">tfel::math::unit::Mole</a> = typedef GenerateUnit&lt;0, 0, 0, 0, 0, 0, 1&gt;::type</td>
+          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#ab88652683f9d3dfa9c2975c322faab02">tfel::math::unit::Mole</a> = typedef StandardUnit&lt;0, 0, 0, 0, 0, 0, 1&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Declares the Mole unit. </p>
-<dl class="section see"><dt>See also</dt><dd>GenerateUnit </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>StandardUnit </dd></dl>
 
 </div>
 </div>
-<a id="a2ff961efed74387ac4be4e9f02c1dfd0" name="a2ff961efed74387ac4be4e9f02c1dfd0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ff961efed74387ac4be4e9f02c1dfd0">&#9670;&#160;</a></span>Momentum</h2>
+<a id="ae38a0a6c0f6d78700c545a55c675a712" name="ae38a0a6c0f6d78700c545a55c675a712"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae38a0a6c0f6d78700c545a55c675a712">&#9670;&#160;</a></span>Momentum</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#a2ff961efed74387ac4be4e9f02c1dfd0">tfel::math::unit::Momentum</a> = typedef GenerateUnit&lt;1, 1, -1, 0, 0, 0, 0&gt;::type</td>
+          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#ae38a0a6c0f6d78700c545a55c675a712">tfel::math::unit::Momentum</a> = typedef StandardUnit&lt;1, 1, -1, 0, 0, 0, 0&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Declares the Momentum unit. </p>
-<dl class="section see"><dt>See also</dt><dd>GenerateUnit </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>StandardUnit </dd></dl>
 
 </div>
 </div>
-<a id="a4e733f98994e1924cac903bb8e2641df" name="a4e733f98994e1924cac903bb8e2641df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e733f98994e1924cac903bb8e2641df">&#9670;&#160;</a></span>Newton</h2>
+<a id="a902c24593cc60d3bd9d78026d68b99f5" name="a902c24593cc60d3bd9d78026d68b99f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a902c24593cc60d3bd9d78026d68b99f5">&#9670;&#160;</a></span>Newton</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#a4e733f98994e1924cac903bb8e2641df">tfel::math::unit::Newton</a> = typedef GenerateUnit&lt;1, 1, -2, 0, 0, 0, 0&gt;::type</td>
+          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#a902c24593cc60d3bd9d78026d68b99f5">tfel::math::unit::Newton</a> = typedef StandardUnit&lt;1, 1, -2, 0, 0, 0, 0&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Declares the Newton unit. </p>
-<dl class="section see"><dt>See also</dt><dd>GenerateUnit </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>StandardUnit </dd></dl>
 
 </div>
 </div>
-<a id="a67eeff836065848e69a0a0b98b5e30a2" name="a67eeff836065848e69a0a0b98b5e30a2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67eeff836065848e69a0a0b98b5e30a2">&#9670;&#160;</a></span>Pressure</h2>
+<a id="a3c81f76c30204d7a5a75e49cd5c86e3f" name="a3c81f76c30204d7a5a75e49cd5c86e3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c81f76c30204d7a5a75e49cd5c86e3f">&#9670;&#160;</a></span>Pressure</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#a67eeff836065848e69a0a0b98b5e30a2">tfel::math::unit::Pressure</a> = typedef GenerateUnit&lt;1, -1, -2, 0, 0, 0, 0&gt;::type</td>
+          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#a3c81f76c30204d7a5a75e49cd5c86e3f">tfel::math::unit::Pressure</a> = typedef StandardUnit&lt;1, -1, -2, 0, 0, 0, 0&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Declares the Pressure unit. </p>
-<dl class="section see"><dt>See also</dt><dd>GenerateUnit </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>StandardUnit </dd></dl>
 
 </div>
 </div>
-<a id="a52f6d13468fd3fe149f7e5602ff0ad6c" name="a52f6d13468fd3fe149f7e5602ff0ad6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52f6d13468fd3fe149f7e5602ff0ad6c">&#9670;&#160;</a></span>Speed</h2>
+<a id="a1aa70fce0fd80837f2e2b6b40b9ed2c0" name="a1aa70fce0fd80837f2e2b6b40b9ed2c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1aa70fce0fd80837f2e2b6b40b9ed2c0">&#9670;&#160;</a></span>Speed</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#a52f6d13468fd3fe149f7e5602ff0ad6c">tfel::math::unit::Speed</a> = typedef GenerateUnit&lt;0, 1, -1, 0, 0, 0, 0&gt;::type</td>
+          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#a1aa70fce0fd80837f2e2b6b40b9ed2c0">tfel::math::unit::Speed</a> = typedef StandardUnit&lt;0, 1, -1, 0, 0, 0, 0&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Declares the Speed unit. </p>
-<dl class="section see"><dt>See also</dt><dd>GenerateUnit </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>StandardUnit </dd></dl>
 
 </div>
 </div>
-<a id="a6957f3e8ea4b24230e5eb09c2fa38ea5" name="a6957f3e8ea4b24230e5eb09c2fa38ea5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6957f3e8ea4b24230e5eb09c2fa38ea5">&#9670;&#160;</a></span>Stress</h2>
+<a id="a1fde41d9b3d74d8cbb7059372e2ea2b6" name="a1fde41d9b3d74d8cbb7059372e2ea2b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fde41d9b3d74d8cbb7059372e2ea2b6">&#9670;&#160;</a></span>Stress</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#a6957f3e8ea4b24230e5eb09c2fa38ea5">tfel::math::unit::Stress</a> = typedef GenerateUnit&lt;1, -1, -2, 0, 0, 0, 0&gt;::type</td>
+          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#a1fde41d9b3d74d8cbb7059372e2ea2b6">tfel::math::unit::Stress</a> = typedef StandardUnit&lt;1, -1, -2, 0, 0, 0, 0&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Declares the Stress unit. </p>
-<dl class="section see"><dt>See also</dt><dd>GenerateUnit </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>StandardUnit </dd></dl>
 
 </div>
 </div>
-<a id="a5396c0502fc6a6f8ce7048b80ef55592" name="a5396c0502fc6a6f8ce7048b80ef55592"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5396c0502fc6a6f8ce7048b80ef55592">&#9670;&#160;</a></span>StressRate</h2>
+<a id="af30ad251f67d6ca2cbeb465066610adc" name="af30ad251f67d6ca2cbeb465066610adc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af30ad251f67d6ca2cbeb465066610adc">&#9670;&#160;</a></span>StressRate</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#a5396c0502fc6a6f8ce7048b80ef55592">tfel::math::unit::StressRate</a> = typedef GenerateUnit&lt;1, -1, -3, 0, 0, 0, 0&gt;::type</td>
+          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#af30ad251f67d6ca2cbeb465066610adc">tfel::math::unit::StressRate</a> = typedef StandardUnit&lt;1, -1, -3, 0, 0, 0, 0&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Declares the StressRate unit. </p>
-<dl class="section see"><dt>See also</dt><dd>GenerateUnit </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>StandardUnit </dd></dl>
 
 </div>
 </div>
-<a id="aaba2f8829290509b96859d3cabb2faba" name="aaba2f8829290509b96859d3cabb2faba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaba2f8829290509b96859d3cabb2faba">&#9670;&#160;</a></span>Temperature</h2>
+<a id="a397de476d55d9bf612ffcbacd1ca1dcf" name="a397de476d55d9bf612ffcbacd1ca1dcf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a397de476d55d9bf612ffcbacd1ca1dcf">&#9670;&#160;</a></span>Temperature</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#aaba2f8829290509b96859d3cabb2faba">tfel::math::unit::Temperature</a> = typedef GenerateUnit&lt;0, 0, 0, 0, 1, 0, 0&gt;::type</td>
+          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#a397de476d55d9bf612ffcbacd1ca1dcf">tfel::math::unit::Temperature</a> = typedef StandardUnit&lt;0, 0, 0, 0, 1, 0, 0&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Declares the Temperature unit. </p>
-<dl class="section see"><dt>See also</dt><dd>GenerateUnit </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>StandardUnit </dd></dl>
 
 </div>
 </div>
-<a id="ad67e037bbd16045f36d482692a826885" name="ad67e037bbd16045f36d482692a826885"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad67e037bbd16045f36d482692a826885">&#9670;&#160;</a></span>Time</h2>
+<a id="a0d5cf971a828377fd61a66735fccb374" name="a0d5cf971a828377fd61a66735fccb374"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d5cf971a828377fd61a66735fccb374">&#9670;&#160;</a></span>Time</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#ad67e037bbd16045f36d482692a826885">tfel::math::unit::Time</a> = typedef GenerateUnit&lt;0, 0, 1, 0, 0, 0, 0&gt;::type</td>
+          <td class="memname">using <a class="el" href="_forward_2qt_8hxx.html#a0d5cf971a828377fd61a66735fccb374">tfel::math::unit::Time</a> = typedef StandardUnit&lt;0, 0, 1, 0, 0, 0, 0&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Declares the Time unit. </p>
-<dl class="section see"><dt>See also</dt><dd>GenerateUnit </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>StandardUnit </dd></dl>
 
 </div>
 </div>
@@ -685,7 +740,7 @@ template&lt;UnitConcept UnitType, StandardArithmeticTypeConcept ValueType, <a cl
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_f1614b9bfb736e18e5ccdeb7e67f6541.html">TFEL</a></li><li class="navelem"><a class="el" href="dir_a2e59eb61bdee22280b7d9c8cef44a72.html">Math</a></li><li class="navelem"><a class="el" href="dir_faa9444da59c33c9d7b5fd082f48c875.html">Forward</a></li><li class="navelem"><a class="el" href="_forward_2qt_8hxx.html">qt.hxx</a></li>
-    <li class="footer">Generated on Thu Jul 30 2026 19:40:01 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Aug 1 2026 14:51:06 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

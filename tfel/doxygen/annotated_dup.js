@@ -597,19 +597,6 @@ var annotated_dup =
         [ "ThermoElasticMaterialPropertiesNumber< H, true, es, false, bs >", "structmfront_1_1gb_1_1_thermo_elastic_material_properties_number_3_01_h_00_01true_00_01es_00_01false_00_01bs_01_4.html", null ],
         [ "ThermoElasticMaterialPropertiesNumber< H, true, es, true, bs >", "structmfront_1_1gb_1_1_thermo_elastic_material_properties_number_3_01_h_00_01true_00_01es_00_01true_00_01bs_01_4.html", null ]
       ] ],
-      [ "generic_parallel", null, [
-        [ "material_property", null, [
-          [ "AbstractBackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_abstract_backend.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_abstract_backend" ],
-          [ "BackendBase", "structmfront_1_1generic__parallel_1_1material__property_1_1_backend_base.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_backend_base" ],
-          [ "BackendFactory", "structmfront_1_1generic__parallel_1_1material__property_1_1_backend_factory.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_backend_factory" ],
-          [ "CUDABackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend" ],
-          [ "CUDABackendBase", "structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend_base.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend_base" ],
-          [ "CxxProgrammingModelBackendBase", "structmfront_1_1generic__parallel_1_1material__property_1_1_cxx_programming_model_backend_base.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_cxx_programming_model_backend_base" ],
-          [ "HIPBackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_h_i_p_backend.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_h_i_p_backend" ],
-          [ "ParallelSTLBackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_parallel_s_t_l_backend.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_parallel_s_t_l_backend" ],
-          [ "SYCLBackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_s_y_c_l_backend.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_s_y_c_l_backend" ]
-        ] ]
-      ] ],
       [ "AbaqusExplicitInterface", "structmfront_1_1_abaqus_explicit_interface.html", "structmfront_1_1_abaqus_explicit_interface" ],
       [ "AbaqusExplicitSymbolsGenerator", "structmfront_1_1_abaqus_explicit_symbols_generator.html", "structmfront_1_1_abaqus_explicit_symbols_generator" ],
       [ "AbaqusInterface", "structmfront_1_1_abaqus_interface.html", "structmfront_1_1_abaqus_interface" ],
@@ -650,8 +637,6 @@ var annotated_dup =
       [ "CalculiXInterface", "structmfront_1_1_calculi_x_interface.html", "structmfront_1_1_calculi_x_interface" ],
       [ "CalculiXSymbolsGenerator", "structmfront_1_1_calculi_x_symbols_generator.html", "structmfront_1_1_calculi_x_symbols_generator" ],
       [ "Castem21Interface", "structmfront_1_1_castem21_interface.html", "structmfront_1_1_castem21_interface" ],
-      [ "Castem21MaterialPropertyInterface", "structmfront_1_1_castem21_material_property_interface.html", "structmfront_1_1_castem21_material_property_interface" ],
-      [ "Castem21ModelInterface", "structmfront_1_1_castem21_model_interface.html", "structmfront_1_1_castem21_model_interface" ],
       [ "CastemInterface", "structmfront_1_1_castem_interface.html", "structmfront_1_1_castem_interface" ],
       [ "CastemMaterialPropertyInterface", "structmfront_1_1_castem_material_property_interface.html", "structmfront_1_1_castem_material_property_interface" ],
       [ "CastemModelInterface", "structmfront_1_1_castem_model_interface.html", "structmfront_1_1_castem_model_interface" ],
@@ -662,7 +647,6 @@ var annotated_dup =
       [ "CodeBlock", "structmfront_1_1_code_block.html", "structmfront_1_1_code_block" ],
       [ "CompiledTargetDescriptionBase", "structmfront_1_1_compiled_target_description_base.html", "structmfront_1_1_compiled_target_description_base" ],
       [ "ComsolInterface", "structmfront_1_1_comsol_interface.html", "structmfront_1_1_comsol_interface" ],
-      [ "ConfigurationManager", "structmfront_1_1_configuration_manager.html", "structmfront_1_1_configuration_manager" ],
       [ "CppMaterialPropertyInterface", "structmfront_1_1_cpp_material_property_interface.html", "structmfront_1_1_cpp_material_property_interface" ],
       [ "CppTestMaterialPropertyInterface", "structmfront_1_1_cpp_test_material_property_interface.html", "structmfront_1_1_cpp_test_material_property_interface" ],
       [ "CyranoInterface", "structmfront_1_1_cyrano_interface.html", "structmfront_1_1_cyrano_interface" ],
@@ -702,7 +686,6 @@ var annotated_dup =
       [ "GenericMaterialPropertyInterface", "structmfront_1_1_generic_material_property_interface.html", "structmfront_1_1_generic_material_property_interface" ],
       [ "GenericMaterialPropertyInterfaceBase", "structmfront_1_1_generic_material_property_interface_base.html", "structmfront_1_1_generic_material_property_interface_base" ],
       [ "GenericModelInterface", "structmfront_1_1_generic_model_interface.html", "structmfront_1_1_generic_model_interface" ],
-      [ "GenericParallelMaterialPropertyInterface", "structmfront_1_1_generic_parallel_material_property_interface.html", "structmfront_1_1_generic_parallel_material_property_interface" ],
       [ "GlobalDomainSpecificLanguageOptionsManager", "structmfront_1_1_global_domain_specific_language_options_manager.html", "structmfront_1_1_global_domain_specific_language_options_manager" ],
       [ "GnuplotMaterialPropertyInterface", "structmfront_1_1_gnuplot_material_property_interface.html", "structmfront_1_1_gnuplot_material_property_interface" ],
       [ "Gradient", "structmfront_1_1_gradient.html", "structmfront_1_1_gradient" ],
@@ -806,8 +789,6 @@ var annotated_dup =
       [ "VariableDescription", "structmfront_1_1_variable_description.html", "structmfront_1_1_variable_description" ],
       [ "VariableDescriptionBase", "structmfront_1_1_variable_description_base.html", "structmfront_1_1_variable_description_base" ],
       [ "VariableDescriptionContainer", "structmfront_1_1_variable_description_container.html", "structmfront_1_1_variable_description_container" ],
-      [ "WriteMaterialPropertyParametersHandlerArguments", "structmfront_1_1_write_material_property_parameters_handler_arguments.html", "structmfront_1_1_write_material_property_parameters_handler_arguments" ],
-      [ "WriteMaterialPropertyParametersSetterFunctionArguments", "structmfront_1_1_write_material_property_parameters_setter_function_arguments.html", "structmfront_1_1_write_material_property_parameters_setter_function_arguments" ],
       [ "ZMATInterface", "structmfront_1_1_z_m_a_t_interface.html", "structmfront_1_1_z_m_a_t_interface" ]
     ] ],
     [ "mtest", "namespacemtest.html", [
@@ -1245,10 +1226,6 @@ var annotated_dup =
         [ "anderson", null, [
           [ "CovarianceMatrix", "structtfel_1_1math_1_1anderson_1_1_covariance_matrix.html", "structtfel_1_1math_1_1anderson_1_1_covariance_matrix" ]
         ] ],
-        [ "internal", null, [
-          [ "UnitConceptImplementation", "structtfel_1_1math_1_1internal_1_1_unit_concept_implementation.html", null ],
-          [ "UnitConceptImplementation< Unit< std::integral_constant< int, N1 >, std::integral_constant< int, N2 >, std::integral_constant< int, N3 >, std::integral_constant< int, N4 >, std::integral_constant< int, N5 >, std::integral_constant< int, N6 >, std::integral_constant< int, N7 >, std::integral_constant< unsigned int, D1 >, std::integral_constant< unsigned int, D2 >, std::integral_constant< unsigned int, D3 >, std::integral_constant< unsigned int, D4 >, std::integral_constant< unsigned int, D5 >, std::integral_constant< unsigned int, D6 >, std::integral_constant< unsigned int, D7 > > >", "structtfel_1_1math_1_1internal_1_1_unit_concept_implementation_3_01_unit_3_01std_1_1integral__co6b985afcf3d7c717feb87ca5c848a021.html", null ]
-        ] ],
         [ "internals", "namespacetfel_1_1math_1_1internals.html", [
           [ "AddUnit", "structtfel_1_1math_1_1internals_1_1_add_unit.html", null ],
           [ "AddUnit< Unit< std::integral_constant< int, N1 >, std::integral_constant< int, N2 >, std::integral_constant< int, N3 >, std::integral_constant< int, N4 >, std::integral_constant< int, N5 >, std::integral_constant< int, N6 >, std::integral_constant< int, N7 >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u > >, Unit< std::integral_constant< int, O1 >, std::integral_constant< int, O2 >, std::integral_constant< int, O3 >, std::integral_constant< int, O4 >, std::integral_constant< int, O5 >, std::integral_constant< int, O6 >, std::integral_constant< int, O7 >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u > > >", "structtfel_1_1math_1_1internals_1_1_add_unit_3_01_unit_3_01std_1_1integral__constant_3_01int_00_d0756212a6604fd858b959f2049c3f93.html", null ],
@@ -1281,6 +1258,9 @@ var annotated_dup =
           [ "DSIG_DF_to_DPK1_DF_Converter< 3u >", "structtfel_1_1math_1_1internals_1_1_d_s_i_g___d_f__to___d_p_k1___d_f___converter_3_013u_01_4.html", null ],
           [ "ExpressionTest", "structtfel_1_1math_1_1internals_1_1_expression_test.html", null ],
           [ "ExpressionTest< Expr< ResultType, Operation > >", "structtfel_1_1math_1_1internals_1_1_expression_test_3_01_expr_3_01_result_type_00_01_operation_01_4_01_4.html", null ],
+          [ "ExtractUnit", "structtfel_1_1math_1_1internals_1_1_extract_unit.html", null ],
+          [ "ExtractUnit< tfel::meta::InvalidType >", "structtfel_1_1math_1_1internals_1_1_extract_unit_3_01tfel_1_1meta_1_1_invalid_type_01_4.html", null ],
+          [ "ExtractUnitBase", "structtfel_1_1math_1_1internals_1_1_extract_unit_base.html", null ],
           [ "FSESAnalyticalSymmetricEigensolver2x2", "structtfel_1_1math_1_1internals_1_1_f_s_e_s_analytical_symmetric_eigensolver2x2.html", null ],
           [ "FSESAnalyticalSymmetricEigensolver3x3", "structtfel_1_1math_1_1internals_1_1_f_s_e_s_analytical_symmetric_eigensolver3x3.html", null ],
           [ "GteSymmetricEigensolver3x3", "structtfel_1_1math_1_1internals_1_1_gte_symmetric_eigensolver3x3.html", null ],
@@ -1388,6 +1368,7 @@ var annotated_dup =
           [ "SubstractUnit", "structtfel_1_1math_1_1internals_1_1_substract_unit.html", null ],
           [ "SubstractUnit< Unit< std::integral_constant< int, N1 >, std::integral_constant< int, N2 >, std::integral_constant< int, N3 >, std::integral_constant< int, N4 >, std::integral_constant< int, N5 >, std::integral_constant< int, N6 >, std::integral_constant< int, N7 >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u > >, Unit< std::integral_constant< int, O1 >, std::integral_constant< int, O2 >, std::integral_constant< int, O3 >, std::integral_constant< int, O4 >, std::integral_constant< int, O5 >, std::integral_constant< int, O6 >, std::integral_constant< int, O7 >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u > > >", "structtfel_1_1math_1_1internals_1_1_substract_unit_3_01_unit_3_01std_1_1integral__constant_3_01i23443c3c87c84051bc526a4b4737a44b.html", null ],
           [ "SubstractUnit< Unit< std::integral_constant< int, N1 >, std::integral_constant< int, N2 >, std::integral_constant< int, N3 >, std::integral_constant< int, N4 >, std::integral_constant< int, N5 >, std::integral_constant< int, N6 >, std::integral_constant< int, N7 >, std::integral_constant< unsigned int, D1 >, std::integral_constant< unsigned int, D2 >, std::integral_constant< unsigned int, D3 >, std::integral_constant< unsigned int, D4 >, std::integral_constant< unsigned int, D5 >, std::integral_constant< unsigned int, D6 >, std::integral_constant< unsigned int, D7 > >, Unit< std::integral_constant< int, O1 >, std::integral_constant< int, O2 >, std::integral_constant< int, O3 >, std::integral_constant< int, O4 >, std::integral_constant< int, O5 >, std::integral_constant< int, O6 >, std::integral_constant< int, O7 >, std::integral_constant< unsigned int, AP1 >, std::integral_constant< unsigned int, AP2 >, std::integral_constant< unsigned int, AP3 >, std::integral_constant< unsigned int, AP4 >, std::integral_constant< unsigned int, AP5 >, std::integral_constant< unsigned int, AP6 >, std::integral_constant< unsigned int, AP7 > > >", "structtfel_1_1math_1_1internals_1_1_substract_unit_3_01_unit_3_01std_1_1integral__constant_3_01ibae819fde495b5554f73bedc97efa35b.html", null ],
+          [ "SubtractUnit", "structtfel_1_1math_1_1internals_1_1_subtract_unit.html", null ],
           [ "tag", "structtfel_1_1math_1_1internals_1_1tag.html", null ],
           [ "TensorConceptMatrixAccessOperator", "structtfel_1_1math_1_1internals_1_1_tensor_concept_matrix_access_operator.html", null ],
           [ "TensorConceptMatrixAccessOperator< 1u >", "structtfel_1_1math_1_1internals_1_1_tensor_concept_matrix_access_operator_3_011u_01_4.html", null ],
@@ -1505,6 +1486,12 @@ var annotated_dup =
           [ "BuildFromRotationMatrix< 1u, T >", "structtfel_1_1math_1_1st2tost2__internals_1_1_build_from_rotation_matrix_3_011u_00_01_t_01_4.html", null ],
           [ "BuildFromRotationMatrix< 2u, T >", "structtfel_1_1math_1_1st2tost2__internals_1_1_build_from_rotation_matrix_3_012u_00_01_t_01_4.html", null ],
           [ "BuildFromRotationMatrix< 3u, T >", "structtfel_1_1math_1_1st2tost2__internals_1_1_build_from_rotation_matrix_3_013u_00_01_t_01_4.html", null ]
+        ] ],
+        [ "unit", null, [
+          [ "NoUnit", "structtfel_1_1math_1_1unit_1_1_no_unit.html", null ],
+          [ "UnitRebind", "structtfel_1_1math_1_1unit_1_1_unit_rebind.html", null ],
+          [ "UnitRebind< exponents< Length > >", "structtfel_1_1math_1_1unit_1_1_unit_rebind_3_01exponents_3_01_length_01_4_01_4.html", null ],
+          [ "UnitRebind< exponents< NoUnit > >", "structtfel_1_1math_1_1unit_1_1_unit_rebind_3_01exponents_3_01_no_unit_01_4_01_4.html", null ]
         ] ],
         [ "absCompare", "structtfel_1_1math_1_1abs_compare.html", "structtfel_1_1math_1_1abs_compare" ],
         [ "AbsSum", "structtfel_1_1math_1_1_abs_sum.html", "structtfel_1_1math_1_1_abs_sum" ],
@@ -1805,7 +1792,6 @@ var annotated_dup =
         [ "FSLevenbergMarquardtVariable", "structtfel_1_1math_1_1_f_s_levenberg_marquardt_variable.html", "structtfel_1_1math_1_1_f_s_levenberg_marquardt_variable" ],
         [ "FSLevenbergMarquardtVariable< 1u, T >", "structtfel_1_1math_1_1_f_s_levenberg_marquardt_variable_3_011u_00_01_t_01_4.html", "structtfel_1_1math_1_1_f_s_levenberg_marquardt_variable_3_011u_00_01_t_01_4" ],
         [ "GaussKronrodQuadrature", "structtfel_1_1math_1_1_gauss_kronrod_quadrature.html", "structtfel_1_1math_1_1_gauss_kronrod_quadrature" ],
-        [ "GenerateUnit", "structtfel_1_1math_1_1_generate_unit.html", "structtfel_1_1math_1_1_generate_unit" ],
         [ "GenericFixedSizeArray", "structtfel_1_1math_1_1_generic_fixed_size_array.html", "structtfel_1_1math_1_1_generic_fixed_size_array" ],
         [ "GenericFixedSizeConstArrayView", "structtfel_1_1math_1_1_generic_fixed_size_const_array_view.html", "structtfel_1_1math_1_1_generic_fixed_size_const_array_view" ],
         [ "GenericRuntimeArray", "structtfel_1_1math_1_1_generic_runtime_array.html", "structtfel_1_1math_1_1_generic_runtime_array" ],
@@ -2036,6 +2022,7 @@ var annotated_dup =
         [ "StackAllocatedTinyPowellDogLegNewtonRaphsonSolverWorkspace", "structtfel_1_1math_1_1_stack_allocated_tiny_powell_dog_leg_newton_raphson_solver_workspace.html", "structtfel_1_1math_1_1_stack_allocated_tiny_powell_dog_leg_newton_raphson_solver_workspace" ],
         [ "StandardArrayPolicy", "structtfel_1_1math_1_1_standard_array_policy.html", "structtfel_1_1math_1_1_standard_array_policy" ],
         [ "StandardArrayPolicyAliases", "structtfel_1_1math_1_1_standard_array_policy_aliases.html", "structtfel_1_1math_1_1_standard_array_policy_aliases" ],
+        [ "StandardUnit", "structtfel_1_1math_1_1_standard_unit.html", null ],
         [ "stensor", "structtfel_1_1math_1_1stensor.html", "structtfel_1_1math_1_1stensor" ],
         [ "stensor_common", "structtfel_1_1math_1_1stensor__common.html", "structtfel_1_1math_1_1stensor__common" ],
         [ "StensorConceptBase", "structtfel_1_1math_1_1_stensor_concept_base.html", "structtfel_1_1math_1_1_stensor_concept_base" ],
@@ -2146,7 +2133,9 @@ var annotated_dup =
         [ "UnaryResultType< tvector< N, T >, OpNeg >", "structtfel_1_1math_1_1_unary_result_type_3_01tvector_3_01_n_00_01_t_01_4_00_01_op_neg_01_4.html", null ],
         [ "UnaryResultType< vector< T >, OpNeg >", "structtfel_1_1math_1_1_unary_result_type_3_01vector_3_01_t_01_4_00_01_op_neg_01_4.html", null ],
         [ "Unit", "structtfel_1_1math_1_1_unit.html", null ],
-        [ "Unit< std::integral_constant< int, N1 >, std::integral_constant< int, N2 >, std::integral_constant< int, N3 >, std::integral_constant< int, N4 >, std::integral_constant< int, N5 >, std::integral_constant< int, N6 >, std::integral_constant< int, N7 >, std::integral_constant< unsigned int, D1 >, std::integral_constant< unsigned int, D2 >, std::integral_constant< unsigned int, D3 >, std::integral_constant< unsigned int, D4 >, std::integral_constant< unsigned int, D5 >, std::integral_constant< unsigned int, D6 >, std::integral_constant< unsigned int, D7 > >", "structtfel_1_1math_1_1_unit_3_01std_1_1integral__constant_3_01int_00_01_n1_01_4_00_01std_1_1inte22245c37637fc2ae3e1f4d95f396757e.html", null ],
+        [ "UnitBase", "structtfel_1_1math_1_1_unit_base.html", null ],
+        [ "UnitExponent", "structtfel_1_1math_1_1_unit_exponent.html", null ],
+        [ "UnitExponents", "structtfel_1_1math_1_1_unit_exponents.html", null ],
         [ "vector", "structtfel_1_1math_1_1vector.html", "structtfel_1_1math_1_1vector" ],
         [ "VectorConceptBase", "structtfel_1_1math_1_1_vector_concept_base.html", null ],
         [ "VectorDotProductHandle", "structtfel_1_1math_1_1_vector_dot_product_handle.html", null ],

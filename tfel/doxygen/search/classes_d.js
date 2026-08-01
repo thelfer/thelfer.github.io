@@ -17,8 +17,9 @@ var searchData=
   ['nonlinearsystemsolverbase_14',['NonLinearSystemSolverBase',['../structmfront_1_1_non_linear_system_solver_base.html',1,'mfront']]],
   ['nonlinearsystemsolverfactory_15',['NonLinearSystemSolverFactory',['../structmfront_1_1_non_linear_system_solver_factory.html',1,'mfront']]],
   ['nortonhoffviscoplasticflow_16',['NortonHoffViscoplasticFlow',['../structmfront_1_1bbrick_1_1_norton_hoff_viscoplastic_flow.html',1,'mfront::bbrick']]],
-  ['nullexpansion_17',['NullExpansion',['../structmfront_1_1_behaviour_data_1_1_null_expansion.html',1,'mfront::BehaviourData']]],
-  ['number_18',['number',['../structtfel_1_1math_1_1_integer_evaluator_1_1_t_number_1_1_number.html',1,'tfel::math::IntegerEvaluator::TNumber::Number'],['../structtfel_1_1math_1_1parser_1_1_number.html',1,'tfel::math::parser::Number']]],
-  ['numeric_5flimits_3c_20quantitytype_20_3e_19',['numeric_limits&lt; QuantityType &gt;',['../structstd_1_1numeric__limits_3_01_quantity_type_01_4.html',1,'std']]],
-  ['numericalparameters_20',['NumericalParameters',['../structtfel_1_1math_1_1_gauss_kronrod_quadrature_1_1_numerical_parameters.html',1,'tfel::math::GaussKronrodQuadrature']]]
+  ['nounit_17',['NoUnit',['../structtfel_1_1math_1_1unit_1_1_no_unit.html',1,'tfel::math::unit']]],
+  ['nullexpansion_18',['NullExpansion',['../structmfront_1_1_behaviour_data_1_1_null_expansion.html',1,'mfront::BehaviourData']]],
+  ['number_19',['number',['../structtfel_1_1math_1_1_integer_evaluator_1_1_t_number_1_1_number.html',1,'tfel::math::IntegerEvaluator::TNumber::Number'],['../structtfel_1_1math_1_1parser_1_1_number.html',1,'tfel::math::parser::Number']]],
+  ['numeric_5flimits_3c_20quantitytype_20_3e_20',['numeric_limits&lt; QuantityType &gt;',['../structstd_1_1numeric__limits_3_01_quantity_type_01_4.html',1,'std']]],
+  ['numericalparameters_21',['NumericalParameters',['../structtfel_1_1math_1_1_gauss_kronrod_quadrature_1_1_numerical_parameters.html',1,'tfel::math::GaussKronrodQuadrature']]]
 ];

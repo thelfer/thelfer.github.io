@@ -84,18 +84,6 @@ var hierarchy =
     [ "tfel::math::absCompare< T >", "structtfel_1_1math_1_1abs_compare.html", null ],
     [ "AbsoluteComparison", "class_absolute_comparison.html", null ],
     [ "tfel::math::AbsSum< T >", "structtfel_1_1math_1_1_abs_sum.html", null ],
-    [ "mfront::generic_parallel::material_property::AbstractBackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_abstract_backend.html", [
-      [ "mfront::generic_parallel::material_property::BackendBase", "structmfront_1_1generic__parallel_1_1material__property_1_1_backend_base.html", [
-        [ "mfront::generic_parallel::material_property::CUDABackendBase", "structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend_base.html", [
-          [ "mfront::generic_parallel::material_property::CUDABackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend.html", null ],
-          [ "mfront::generic_parallel::material_property::HIPBackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_h_i_p_backend.html", null ]
-        ] ],
-        [ "mfront::generic_parallel::material_property::CxxProgrammingModelBackendBase", "structmfront_1_1generic__parallel_1_1material__property_1_1_cxx_programming_model_backend_base.html", [
-          [ "mfront::generic_parallel::material_property::ParallelSTLBackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_parallel_s_t_l_backend.html", null ],
-          [ "mfront::generic_parallel::material_property::SYCLBackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_s_y_c_l_backend.html", null ]
-        ] ]
-      ] ]
-    ] ],
     [ "mfront::AbstractBehaviourBrick", "structmfront_1_1_abstract_behaviour_brick.html", [
       [ "mfront::BehaviourBrickBase", "structmfront_1_1_behaviour_brick_base.html", [
         [ "mfront::DDIF2Brick", "structmfront_1_1_d_d_i_f2_brick.html", null ],
@@ -205,9 +193,7 @@ var hierarchy =
         [ "mfront::FortranMaterialPropertyInterface", "structmfront_1_1_fortran_material_property_interface.html", null ],
         [ "mfront::MFrontMaterialPropertyInterface", "structmfront_1_1_m_front_material_property_interface.html", null ]
       ] ],
-      [ "mfront::CastemMaterialPropertyInterface", "structmfront_1_1_castem_material_property_interface.html", [
-        [ "mfront::Castem21MaterialPropertyInterface", "structmfront_1_1_castem21_material_property_interface.html", null ]
-      ] ],
+      [ "mfront::CastemMaterialPropertyInterface", "structmfront_1_1_castem_material_property_interface.html", null ],
       [ "mfront::CppMaterialPropertyInterface", "structmfront_1_1_cpp_material_property_interface.html", null ],
       [ "mfront::CppTestMaterialPropertyInterface", "structmfront_1_1_cpp_test_material_property_interface.html", null ],
       [ "mfront::ExcelMaterialPropertyInterface", "structmfront_1_1_excel_material_property_interface.html", null ],
@@ -215,7 +201,6 @@ var hierarchy =
         [ "mfront::CyranoMaterialPropertyInterface", "structmfront_1_1_cyrano_material_property_interface.html", null ],
         [ "mfront::GenericMaterialPropertyInterface", "structmfront_1_1_generic_material_property_interface.html", null ]
       ] ],
-      [ "mfront::GenericParallelMaterialPropertyInterface", "structmfront_1_1_generic_parallel_material_property_interface.html", null ],
       [ "mfront::GnuplotMaterialPropertyInterface", "structmfront_1_1_gnuplot_material_property_interface.html", null ],
       [ "mfront::JavaMaterialPropertyInterface", "structmfront_1_1_java_material_property_interface.html", null ],
       [ "mfront::OctaveMaterialPropertyInterface", "structmfront_1_1_octave_material_property_interface.html", null ],
@@ -223,9 +208,7 @@ var hierarchy =
       [ "mfront::PythonMaterialPropertyInterface", "structmfront_1_1_python_material_property_interface.html", null ]
     ] ],
     [ "mfront::AbstractModelInterface", "structmfront_1_1_abstract_model_interface.html", [
-      [ "mfront::CastemModelInterface", "structmfront_1_1_castem_model_interface.html", [
-        [ "mfront::Castem21ModelInterface", "structmfront_1_1_castem21_model_interface.html", null ]
-      ] ],
+      [ "mfront::CastemModelInterface", "structmfront_1_1_castem_model_interface.html", null ],
       [ "mfront::GenericModelInterface", "structmfront_1_1_generic_model_interface.html", null ],
       [ "mfront::MFrontModelInterface", "structmfront_1_1_m_front_model_interface.html", null ],
       [ "mfront::MFrontModelInterface", "structmfront_1_1_m_front_model_interface.html", null ],
@@ -260,7 +243,7 @@ var hierarchy =
     ] ],
     [ "mtest::AccelerationAlgorithmFactory", "structmtest_1_1_acceleration_algorithm_factory.html", null ],
     [ "tfel::fsalgo::accumulate< N >", "structtfel_1_1fsalgo_1_1accumulate.html", null ],
-    [ "tfel::math::internals::AddUnit< A, B >", "structtfel_1_1math_1_1internals_1_1_add_unit.html", null ],
+    [ "tfel::math::internals::AddUnit< UnitType1, UnitType2 >", "structtfel_1_1math_1_1internals_1_1_add_unit.html", null ],
     [ "tfel::math::internals::AddUnit< Unit< std::integral_constant< int, N1 >, std::integral_constant< int, N2 >, std::integral_constant< int, N3 >, std::integral_constant< int, N4 >, std::integral_constant< int, N5 >, std::integral_constant< int, N6 >, std::integral_constant< int, N7 >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u > >, Unit< std::integral_constant< int, O1 >, std::integral_constant< int, O2 >, std::integral_constant< int, O3 >, std::integral_constant< int, O4 >, std::integral_constant< int, O5 >, std::integral_constant< int, O6 >, std::integral_constant< int, O7 >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u > > >", "structtfel_1_1math_1_1internals_1_1_add_unit_3_01_unit_3_01std_1_1integral__constant_3_01int_00_d0756212a6604fd858b959f2049c3f93.html", null ],
     [ "tfel::math::internals::AddUnit< Unit< std::integral_constant< int, N1 >, std::integral_constant< int, N2 >, std::integral_constant< int, N3 >, std::integral_constant< int, N4 >, std::integral_constant< int, N5 >, std::integral_constant< int, N6 >, std::integral_constant< int, N7 >, std::integral_constant< unsigned int, D1 >, std::integral_constant< unsigned int, D2 >, std::integral_constant< unsigned int, D3 >, std::integral_constant< unsigned int, D4 >, std::integral_constant< unsigned int, D5 >, std::integral_constant< unsigned int, D6 >, std::integral_constant< unsigned int, D7 > >, Unit< std::integral_constant< int, O1 >, std::integral_constant< int, O2 >, std::integral_constant< int, O3 >, std::integral_constant< int, O4 >, std::integral_constant< int, O5 >, std::integral_constant< int, O6 >, std::integral_constant< int, O7 >, std::integral_constant< unsigned int, AP1 >, std::integral_constant< unsigned int, AP2 >, std::integral_constant< unsigned int, AP3 >, std::integral_constant< unsigned int, AP4 >, std::integral_constant< unsigned int, AP5 >, std::integral_constant< unsigned int, AP6 >, std::integral_constant< unsigned int, AP7 > > >", "structtfel_1_1math_1_1internals_1_1_add_unit_3_01_unit_3_01std_1_1integral__constant_3_01int_00_9b0816f3a9416e6f4d4151af6875e21b.html", null ],
     [ "tfel::math::AitkenAccelerationAlgorithm< NumericType, IndexType >", "structtfel_1_1math_1_1_aitken_acceleration_algorithm.html", null ],
@@ -436,7 +419,6 @@ var hierarchy =
       [ "aster::AsterOrthotropicBehaviourHandler< type, H, Behaviour >", "structaster_1_1_aster_orthotropic_behaviour_handler.html", null ]
     ] ],
     [ "mfront::BehaviourData::AxialGrowth", "structmfront_1_1_behaviour_data_1_1_axial_growth.html", null ],
-    [ "mfront::generic_parallel::material_property::BackendFactory", "structmfront_1_1generic__parallel_1_1material__property_1_1_backend_factory.html", null ],
     [ "tfel::material::BarlatStressAndDerivativesWithRespectToEigenvalues< StressStensor >", "structtfel_1_1material_1_1_barlat_stress_and_derivatives_with_respect_to_eigenvalues.html", null ],
     [ "tfel::math::BaseType< T >", "structtfel_1_1math_1_1_base_type.html", null ],
     [ "tfel::typetraits::BaseType< T >", "structtfel_1_1typetraits_1_1_base_type.html", null ],
@@ -1941,7 +1923,6 @@ var hierarchy =
     [ "mfront::BehaviourDescription::ExternalMFrontMaterialProperty", "structmfront_1_1_behaviour_description_1_1_external_m_front_material_property.html", null ],
     [ "mfront::BehaviourDescription::ExternalModelBasedOnBehaviourVariableFactory", "structmfront_1_1_behaviour_description_1_1_external_model_based_on_behaviour_variable_factory.html", null ],
     [ "mfront::MTestFileGeneratorBase::ExternalStateVariable", "structmfront_1_1_m_test_file_generator_base_1_1_external_state_variable.html", null ],
-    [ "mfront::generic_parallel::material_property::BackendBase::ExtraArgumentOfCFunctions", "structmfront_1_1generic__parallel_1_1material__property_1_1_backend_base_1_1_extra_argument_of_c_functions.html", null ],
     [ "abaqus::ExtractAndConvertTangentOperator< H >", "structabaqus_1_1_extract_and_convert_tangent_operator.html", null ],
     [ "ansys::ExtractAndConvertTangentOperator< H >", "structansys_1_1_extract_and_convert_tangent_operator.html", null ],
     [ "dianafea::ExtractAndConvertTangentOperator< H >", "structdianafea_1_1_extract_and_convert_tangent_operator.html", null ],
@@ -1951,6 +1932,10 @@ var hierarchy =
     [ "dianafea::ExtractAndConvertTangentOperator< tfel::material::ModellingHypothesis::PLANESTRESS >", "structdianafea_1_1_extract_and_convert_tangent_operator_3_01tfel_1_1material_1_1_modelling_hypot40607908a4df715540cdcd479274d229.html", null ],
     [ "lsdyna::ExtractAndConvertTangentOperator< tfel::material::ModellingHypothesis::PLANESTRESS >", "structlsdyna_1_1_extract_and_convert_tangent_operator_3_01tfel_1_1material_1_1_modelling_hypothe3b47d0ccb840ae8a308e3c524894fab1.html", null ],
     [ "calculix::ExtractTangentOperator", "structcalculix_1_1_extract_tangent_operator.html", null ],
+    [ "tfel::math::internals::ExtractUnit< tfel::meta::InvalidType >", "structtfel_1_1math_1_1internals_1_1_extract_unit_3_01tfel_1_1meta_1_1_invalid_type_01_4.html", null ],
+    [ "tfel::math::internals::ExtractUnitBase", "structtfel_1_1math_1_1internals_1_1_extract_unit_base.html", [
+      [ "tfel::math::internals::ExtractUnit< T >", "structtfel_1_1math_1_1internals_1_1_extract_unit.html", null ]
+    ] ],
     [ "tfel::math::FactorizedKriging< N, M, T, Model1, Model2 >", "structtfel_1_1math_1_1_factorized_kriging.html", null ],
     [ "tfel::math::FactorizedKriging< 1u, 1u, double, KrigingPieceWiseLinearModel1D< double >, KrigingModelAdaptator< KrigingDefaultModel< 1u, double > > >", "structtfel_1_1math_1_1_factorized_kriging.html", [
       [ "tfel::math::FactorizedKriging1D1D", "structtfel_1_1math_1_1_factorized_kriging1_d1_d.html", null ]
@@ -1962,7 +1947,6 @@ var hierarchy =
       [ "tfel::math::FactorizedKriging1D3D", "structtfel_1_1math_1_1_factorized_kriging1_d3_d.html", null ]
     ] ],
     [ "std::false_type", null, [
-      [ "tfel::math::internal::UnitConceptImplementation< T >", "structtfel_1_1math_1_1internal_1_1_unit_concept_implementation.html", null ],
       [ "tfel::math::internals::ExpressionTest< Type >", "structtfel_1_1math_1_1internals_1_1_expression_test.html", null ],
       [ "tfel::math::internals::HasConceptTag< T, typename >", "structtfel_1_1math_1_1internals_1_1_has_concept_tag.html", null ],
       [ "tfel::math::internals::HasIndexingPolicyTraits< T, typename >", "structtfel_1_1math_1_1internals_1_1_has_indexing_policy_traits.html", null ],
@@ -2029,7 +2013,6 @@ var hierarchy =
     [ "GenerateTypeList", "class_generate_type_list.html", null ],
     [ "tfel::meta::GenerateTypeList< CurrentType, Types... >", "structtfel_1_1meta_1_1_generate_type_list_3_01_current_type_00_01_types_8_8_8_01_4.html", null ],
     [ "tfel::meta::GenerateTypeList<>", "structtfel_1_1meta_1_1_generate_type_list_3_4.html", null ],
-    [ "tfel::math::GenerateUnit< N1, N2, N3, N4, N5, N6, N7, D1, D2, D3, D4, D5, D6, D7 >", "structtfel_1_1math_1_1_generate_unit.html", null ],
     [ "mfront::GeneratorOptions", "structmfront_1_1_generator_options.html", null ],
     [ "tfel::utilities::GeneratorOptions", "structtfel_1_1utilities_1_1_generator_options.html", null ],
     [ "mfront::gb::GenericBehaviourTraits< Behaviour >", "structmfront_1_1gb_1_1_generic_behaviour_traits.html", null ],
@@ -2055,9 +2038,7 @@ var hierarchy =
     [ "fses::GetVectorNumericType< std::array< real, N > >", "structfses_1_1_get_vector_numeric_type_3_01std_1_1array_3_01real_00_01_n_01_4_01_4.html", null ],
     [ "fses::GetVectorNumericType< VectorNumericType * >", "structfses_1_1_get_vector_numeric_type_3_01_vector_numeric_type_01_5_01_4.html", null ],
     [ "fses::GetVectorNumericType< VectorNumericType[N]>", "structfses_1_1_get_vector_numeric_type_3_01_vector_numeric_type_0f_n_0e_4.html", null ],
-    [ "mfront::GlobalDomainSpecificLanguageOptionsManager", "structmfront_1_1_global_domain_specific_language_options_manager.html", [
-      [ "mfront::ConfigurationManager", "structmfront_1_1_configuration_manager.html", null ]
-    ] ],
+    [ "mfront::GlobalDomainSpecificLanguageOptionsManager", "structmfront_1_1_global_domain_specific_language_options_manager.html", null ],
     [ "tfel::glossary::Glossary", "structtfel_1_1glossary_1_1_glossary.html", null ],
     [ "tfel::glossary::GlossaryEntry", "structtfel_1_1glossary_1_1_glossary_entry.html", null ],
     [ "abaqus::AbaqusBehaviourHandler< H, Behaviour >::GradientInitialiserWithoutStressFreeExpansion", "structabaqus_1_1_abaqus_behaviour_handler_1_1_gradient_initialiser_without_stress_free_expansion.html", null ],
@@ -2341,7 +2322,6 @@ var hierarchy =
     [ "tfel::math::IsTVectorScalarOperationValid< T, T2, Op >", "structtfel_1_1math_1_1_is_t_vector_scalar_operation_valid.html", null ],
     [ "tfel::typetraits::IsUnaryOperator< T >", "structtfel_1_1typetraits_1_1_is_unary_operator.html", null ],
     [ "tfel::typetraits::IsUnaryOperator< tfel::math::OpNeg >", "structtfel_1_1typetraits_1_1_is_unary_operator_3_01tfel_1_1math_1_1_op_neg_01_4.html", null ],
-    [ "tfel::utilities::CxxTokenizer::IsValidIdentifierOptions", "structtfel_1_1utilities_1_1_cxx_tokenizer_1_1_is_valid_identifier_options.html", null ],
     [ "tfel::math::IterateOverMultipleIndices< TypeSize, CurrentIndex, Arity, UnrollLoop >", "structtfel_1_1math_1_1_iterate_over_multiple_indices.html", null ],
     [ "tfel::config::internals::JacobianType< N, T, use_qt >", "structtfel_1_1config_1_1internals_1_1_jacobian_type.html", null ],
     [ "tfel::config::internals::JacobianType< 1u, T, false >", "structtfel_1_1config_1_1internals_1_1_jacobian_type_3_011u_00_01_t_00_01false_01_4.html", null ],
@@ -2846,7 +2826,7 @@ var hierarchy =
     ] ],
     [ "tfel::math::internals::PowerSqrtNeg< N >", "structtfel_1_1math_1_1internals_1_1_power_sqrt_neg.html", null ],
     [ "tfel::math::internals::PowerSqrtPos< N >", "classtfel_1_1math_1_1internals_1_1_power_sqrt_pos.html", null ],
-    [ "tfel::math::internals::PowerUnit< N, D, A >", "structtfel_1_1math_1_1internals_1_1_power_unit.html", null ],
+    [ "tfel::math::internals::PowerUnit< N, D, UnitType1 >", "structtfel_1_1math_1_1internals_1_1_power_unit.html", null ],
     [ "tfel::math::internals::PowerUnit< N, D, Unit< std::integral_constant< int, N1 >, std::integral_constant< int, N2 >, std::integral_constant< int, N3 >, std::integral_constant< int, N4 >, std::integral_constant< int, N5 >, std::integral_constant< int, N6 >, std::integral_constant< int, N7 >, std::integral_constant< unsigned int, D1 >, std::integral_constant< unsigned int, D2 >, std::integral_constant< unsigned int, D3 >, std::integral_constant< unsigned int, D4 >, std::integral_constant< unsigned int, D5 >, std::integral_constant< unsigned int, D6 >, std::integral_constant< unsigned int, D7 > > >", "structtfel_1_1math_1_1internals_1_1_power_unit_3_01_n_00_01_d_00_01_unit_3_01std_1_1integral__cocf03ca1ea834c3fa0d060e6a404c9a7a.html", null ],
     [ "castem::CastemBehaviourHandler< type, H, Behaviour >::PredictionOperatorIsNotAvalaible", "structcastem_1_1_castem_behaviour_handler_1_1_prediction_operator_is_not_avalaible.html", null ],
     [ "cyrano::CyranoBehaviourHandler< H, Behaviour >::PredictionOperatorIsNotAvalaible", "structcyrano_1_1_cyrano_behaviour_handler_1_1_prediction_operator_is_not_avalaible.html", null ],
@@ -3410,6 +3390,7 @@ var hierarchy =
     [ "tfel::math::internals::SubstractUnit< A, B >", "structtfel_1_1math_1_1internals_1_1_substract_unit.html", null ],
     [ "tfel::math::internals::SubstractUnit< Unit< std::integral_constant< int, N1 >, std::integral_constant< int, N2 >, std::integral_constant< int, N3 >, std::integral_constant< int, N4 >, std::integral_constant< int, N5 >, std::integral_constant< int, N6 >, std::integral_constant< int, N7 >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u > >, Unit< std::integral_constant< int, O1 >, std::integral_constant< int, O2 >, std::integral_constant< int, O3 >, std::integral_constant< int, O4 >, std::integral_constant< int, O5 >, std::integral_constant< int, O6 >, std::integral_constant< int, O7 >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u > > >", "structtfel_1_1math_1_1internals_1_1_substract_unit_3_01_unit_3_01std_1_1integral__constant_3_01i23443c3c87c84051bc526a4b4737a44b.html", null ],
     [ "tfel::math::internals::SubstractUnit< Unit< std::integral_constant< int, N1 >, std::integral_constant< int, N2 >, std::integral_constant< int, N3 >, std::integral_constant< int, N4 >, std::integral_constant< int, N5 >, std::integral_constant< int, N6 >, std::integral_constant< int, N7 >, std::integral_constant< unsigned int, D1 >, std::integral_constant< unsigned int, D2 >, std::integral_constant< unsigned int, D3 >, std::integral_constant< unsigned int, D4 >, std::integral_constant< unsigned int, D5 >, std::integral_constant< unsigned int, D6 >, std::integral_constant< unsigned int, D7 > >, Unit< std::integral_constant< int, O1 >, std::integral_constant< int, O2 >, std::integral_constant< int, O3 >, std::integral_constant< int, O4 >, std::integral_constant< int, O5 >, std::integral_constant< int, O6 >, std::integral_constant< int, O7 >, std::integral_constant< unsigned int, AP1 >, std::integral_constant< unsigned int, AP2 >, std::integral_constant< unsigned int, AP3 >, std::integral_constant< unsigned int, AP4 >, std::integral_constant< unsigned int, AP5 >, std::integral_constant< unsigned int, AP6 >, std::integral_constant< unsigned int, AP7 > > >", "structtfel_1_1math_1_1internals_1_1_substract_unit_3_01_unit_3_01std_1_1integral__constant_3_01ibae819fde495b5554f73bedc97efa35b.html", null ],
+    [ "tfel::math::internals::SubtractUnit< UnitType1, UnitType2 >", "structtfel_1_1math_1_1internals_1_1_subtract_unit.html", null ],
     [ "mfront::SupportedTypes", "structmfront_1_1_supported_types.html", [
       [ "mfront::BehaviourDSLCommon", "structmfront_1_1_behaviour_d_s_l_common.html", null ],
       [ "mfront::BehaviourData", "structmfront_1_1_behaviour_data.html", null ],
@@ -3749,7 +3730,6 @@ var hierarchy =
     [ "tfel::math::TransverseIsotropicWalpoleBasis< real >", "structtfel_1_1math_1_1_transverse_isotropic_walpole_basis.html", null ],
     [ "numodis::TripleNode", "structnumodis_1_1_triple_node.html", null ],
     [ "std::true_type", null, [
-      [ "tfel::math::internal::UnitConceptImplementation< Unit< std::integral_constant< int, N1 >, std::integral_constant< int, N2 >, std::integral_constant< int, N3 >, std::integral_constant< int, N4 >, std::integral_constant< int, N5 >, std::integral_constant< int, N6 >, std::integral_constant< int, N7 >, std::integral_constant< unsigned int, D1 >, std::integral_constant< unsigned int, D2 >, std::integral_constant< unsigned int, D3 >, std::integral_constant< unsigned int, D4 >, std::integral_constant< unsigned int, D5 >, std::integral_constant< unsigned int, D6 >, std::integral_constant< unsigned int, D7 > > >", "structtfel_1_1math_1_1internal_1_1_unit_concept_implementation_3_01_unit_3_01std_1_1integral__co6b985afcf3d7c717feb87ca5c848a021.html", null ],
       [ "tfel::math::internals::ExpressionTest< Expr< ResultType, Operation > >", "structtfel_1_1math_1_1internals_1_1_expression_test_3_01_expr_3_01_result_type_00_01_operation_01_4_01_4.html", null ],
       [ "tfel::math::internals::HasConceptTag< T, std::void_t< typename T::ConceptTag > >", "structtfel_1_1math_1_1internals_1_1_has_concept_tag_3_01_t_00_01std_1_1void__t_3_01typename_01_t_1_1_concept_tag_01_4_01_4.html", null ],
       [ "tfel::math::internals::HasIndexingPolicyTraits< T, std::void_t< typename T::indexing_policy > >", "structtfel_1_1math_1_1internals_1_1_has_indexing_policy_traits_3_01_t_00_01std_1_1void__t_3_01tya780bbb1c3ba45843bb44c873f7fbb6d.html", null ],
@@ -3823,7 +3803,6 @@ var hierarchy =
     ] ],
     [ "mfront::SupportedTypes::TypeParsingOptions", "structmfront_1_1_supported_types_1_1_type_parsing_options.html", null ],
     [ "mfront::GenericMaterialPropertyInterfaceBase::TypesDescription", "structmfront_1_1_generic_material_property_interface_base_1_1_types_description.html", null ],
-    [ "mfront::GenericParallelMaterialPropertyInterface::TypesDescription", "structmfront_1_1_generic_parallel_material_property_interface_1_1_types_description.html", null ],
     [ "mfront::SupportedTypes::TypeSize", "structmfront_1_1_supported_types_1_1_type_size.html", null ],
     [ "abaqus::UMATExportThermodynamicForces< H >", "structabaqus_1_1_u_m_a_t_export_thermodynamic_forces.html", null ],
     [ "lsdyna::UMATExportThermodynamicForces< H >", "structlsdyna_1_1_u_m_a_t_export_thermodynamic_forces.html", null ],
@@ -3867,8 +3846,20 @@ var hierarchy =
     [ "tfel::math::UnaryResultType< tvector< N, T >, OpNeg >", "structtfel_1_1math_1_1_unary_result_type_3_01tvector_3_01_n_00_01_t_01_4_00_01_op_neg_01_4.html", null ],
     [ "tfel::math::UnaryResultType< vector< T >, OpNeg >", "structtfel_1_1math_1_1_unary_result_type_3_01vector_3_01_t_01_4_00_01_op_neg_01_4.html", null ],
     [ "tfel::unicode::UnicodeCharacterDescription", "structtfel_1_1unicode_1_1_unicode_character_description.html", null ],
-    [ "tfel::math::Unit< N1, N2, N3, N4, N5, N6, N7, D1, D2, D3, D4, D5, D6, D7 >", "structtfel_1_1math_1_1_unit.html", null ],
-    [ "tfel::math::Unit< std::integral_constant< int, N1 >, std::integral_constant< int, N2 >, std::integral_constant< int, N3 >, std::integral_constant< int, N4 >, std::integral_constant< int, N5 >, std::integral_constant< int, N6 >, std::integral_constant< int, N7 >, std::integral_constant< unsigned int, D1 >, std::integral_constant< unsigned int, D2 >, std::integral_constant< unsigned int, D3 >, std::integral_constant< unsigned int, D4 >, std::integral_constant< unsigned int, D5 >, std::integral_constant< unsigned int, D6 >, std::integral_constant< unsigned int, D7 > >", "structtfel_1_1math_1_1_unit_3_01std_1_1integral__constant_3_01int_00_01_n1_01_4_00_01std_1_1inte22245c37637fc2ae3e1f4d95f396757e.html", null ],
+    [ "tfel::math::UnitBase< e >", "structtfel_1_1math_1_1_unit_base.html", [
+      [ "tfel::math::Unit< 0, 0, 0, 0, 0, 0, 0 >", "structtfel_1_1math_1_1_unit.html", null ],
+      [ "tfel::math::Unit< N1, N2, N3, N4, N5, N6, N7, D1, D2, D3, D4, D5, D6, D7 >", "structtfel_1_1math_1_1_unit.html", [
+        [ "tfel::math::StandardUnit< N1, N2, N3, N4, N5, N6, N7 >", "structtfel_1_1math_1_1_standard_unit.html", [
+          [ "tfel::math::unit::NoUnit", "structtfel_1_1math_1_1unit_1_1_no_unit.html", null ]
+        ] ]
+      ] ]
+    ] ],
+    [ "tfel::math::UnitBase< makeUnitExponents< N1, N2, N3, N4, N5, N6, N7, 1, 1, 1, 1, 1, 1, 1 >()>", "structtfel_1_1math_1_1_unit_base.html", null ],
+    [ "tfel::math::UnitExponent", "structtfel_1_1math_1_1_unit_exponent.html", null ],
+    [ "tfel::math::UnitExponents", "structtfel_1_1math_1_1_unit_exponents.html", null ],
+    [ "tfel::math::unit::UnitRebind< e >", "structtfel_1_1math_1_1unit_1_1_unit_rebind.html", null ],
+    [ "tfel::math::unit::UnitRebind< exponents< Length > >", "structtfel_1_1math_1_1unit_1_1_unit_rebind_3_01exponents_3_01_length_01_4_01_4.html", null ],
+    [ "tfel::math::unit::UnitRebind< exponents< NoUnit > >", "structtfel_1_1math_1_1unit_1_1_unit_rebind_3_01exponents_3_01_no_unit_01_4_01_4.html", null ],
     [ "mtest::UserDefinedPostProcessing", "structmtest_1_1_user_defined_post_processing.html", null ],
     [ "mtest::MTest::UTest", "structmtest_1_1_m_test_1_1_u_test.html", [
       [ "mtest::AnalyticalTest", "structmtest_1_1_analytical_test.html", null ],
@@ -3967,7 +3958,5 @@ var hierarchy =
     ] ],
     [ "mfront::SingleVariableInterpolatedData::WriteCollocationPointsArguments", "structmfront_1_1_single_variable_interpolated_data_1_1_write_collocation_points_arguments.html", null ],
     [ "mfront::SingleVariableInterpolatedData::WriteLinearInterpolationValuesArguments", "structmfront_1_1_single_variable_interpolated_data_1_1_write_linear_interpolation_values_arguments.html", null ],
-    [ "mfront::WriteMaterialPropertyParametersHandlerArguments", "structmfront_1_1_write_material_property_parameters_handler_arguments.html", null ],
-    [ "mfront::WriteMaterialPropertyParametersSetterFunctionArguments", "structmfront_1_1_write_material_property_parameters_setter_function_arguments.html", null ],
     [ "zmat::ZMATInterface", "structzmat_1_1_z_m_a_t_interface.html", null ]
 ];

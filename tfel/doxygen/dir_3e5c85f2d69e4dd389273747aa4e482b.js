@@ -5,7 +5,7 @@ var dir_3e5c85f2d69e4dd389273747aa4e482b =
     [ "Column.hxx", "_column_8hxx.html", "_column_8hxx" ],
     [ "Comparison.hxx", "_comparison_8hxx.html", "_comparison_8hxx" ],
     [ "Configuration.hxx", "_configuration_8hxx.html", "_configuration_8hxx" ],
-    [ "ConfigurationManager.hxx", "tfel-check_2include_2_t_f_e_l_2_check_2_configuration_manager_8hxx.html", "tfel-check_2include_2_t_f_e_l_2_check_2_configuration_manager_8hxx" ],
+    [ "ConfigurationManager.hxx", "_configuration_manager_8hxx.html", "_configuration_manager_8hxx" ],
     [ "Interpolation.hxx", "_interpolation_8hxx.html", "_interpolation_8hxx" ],
     [ "LinearInterpolation.hxx", "tfel-check_2include_2_t_f_e_l_2_check_2_linear_interpolation_8hxx.html", "tfel-check_2include_2_t_f_e_l_2_check_2_linear_interpolation_8hxx" ],
     [ "Linearization.hxx", "_linearization_8hxx.html", "_linearization_8hxx" ],

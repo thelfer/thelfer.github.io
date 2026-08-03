@@ -69,8 +69,8 @@ var NAVTREEINDEX =
 "_abstract_error_handler_8hxx.html",
 "_h_d_f5_support_8hxx.html#af0fa8d78617794a262dcac911baca357",
 "_state_8hxx.html#a9f9aed900686ab0f9783e55327d428a5",
-"namespacemgis.html#a1a8dddcd5f308fe41d179fec4e9e1820",
-"structmgis_1_1_libraries_manager.html#a9c19133ce174f53dc466995dad9876d5",
+"namespacemgis.html#a408b9199459fbde44b73b6dbedd0d204",
+"structmgis_1_1_libraries_manager.html#aa2bd300a57c35aa4bc1b7cce5ef94b68",
 "structmgis_1_1behaviour_1_1_behaviour_integration_work_space.html#ac58d995d86fb15dd65b6f671bb90619b",
 "structmgis_1_1function_1_1_evaluator_modifier_base.html#af4532678d4893363c571d06fe6933b9d",
 "structmgis_1_1function_1_1internals_1_1_evaluator_result_query_implementation3.html"

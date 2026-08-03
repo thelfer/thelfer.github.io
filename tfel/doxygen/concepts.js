@@ -2,6 +2,9 @@ var concepts =
 [
     [ "tfel", "namespacetfel.html", [
       [ "math", "namespacetfel_1_1math.html", [
+        [ "unit", null, [
+          [ "UnitConcept", "concepttfel_1_1math_1_1unit_1_1_unit_concept.html", null ]
+        ] ],
         [ "ArrayConcept", "concepttfel_1_1math_1_1_array_concept.html", null ],
         [ "MappableMutableMathObjectUsingCoalescedViewConcept", "concepttfel_1_1math_1_1_mappable_mutable_math_object_using_coalesced_view_concept.html", null ],
         [ "MappableImmutableMathObjectUsingCoalescedViewConcept", "concepttfel_1_1math_1_1_mappable_immutable_math_object_using_coalesced_view_concept.html", null ],
@@ -13,7 +16,6 @@ var concepts =
         [ "ScalarConcept", "concepttfel_1_1math_1_1_scalar_concept.html", null ],
         [ "QuantityConcept", "concepttfel_1_1math_1_1_quantity_concept.html", null ],
         [ "NoUnitQuantityConcept", "concepttfel_1_1math_1_1_no_unit_quantity_concept.html", null ],
-        [ "UnitConcept", "concepttfel_1_1math_1_1_unit_concept.html", null ],
         [ "MathObjectConcept", "concepttfel_1_1math_1_1_math_object_concept.html", null ],
         [ "MatrixConcept", "concepttfel_1_1math_1_1_matrix_concept.html", null ],
         [ "ST2toST2Concept", "concepttfel_1_1math_1_1_s_t2to_s_t2_concept.html", null ],

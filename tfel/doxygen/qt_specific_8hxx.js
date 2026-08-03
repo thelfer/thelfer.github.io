@@ -10,6 +10,6 @@ var qt_specific_8hxx =
     [ "tfel::typetraits::RealPartType< const QuantityType >", "structtfel_1_1typetraits_1_1_real_part_type_3_01const_01_quantity_type_01_4.html", "structtfel_1_1typetraits_1_1_real_part_type_3_01const_01_quantity_type_01_4" ],
     [ "tfel::typetraits::IsAssignableTo< QuantityType1, QuantityType2 >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01_quantity_type1_00_01_quantity_type2_01_4.html", null ],
     [ "tfel::typetraits::IsAssignableTo< QuantityType, ScalarType >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01_quantity_type_00_01_scalar_type_01_4.html", null ],
-    [ "tfel::typetraits::IsAssignableTo< ScalarType, tfel::math::Quantity< tfel::math::unit::NoUnit, ValueType, OwnershipPolicy > >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01_scalar_type_00_01tfel_1_1math_1_1_quantity_3_1f392de7bfd8c584cd97126f1c5bde63.html", null ],
+    [ "tfel::typetraits::IsAssignableTo< ScalarType, QuantityType >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01_scalar_type_00_01_quantity_type_01_4.html", null ],
     [ "tfel::typetraits::AbsType< QuantityType >", "structtfel_1_1typetraits_1_1_abs_type_3_01_quantity_type_01_4.html", null ]
 ];

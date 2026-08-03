@@ -224,7 +224,7 @@ var searchData=
   ['tmatrixtvectorexpr_221',['TMatrixTVectorExpr',['../structtfel_1_1math_1_1_t_matrix_t_vector_expr.html',1,'tfel::math']]],
   ['tnegation_222',['tnegation',['../structtfel_1_1math_1_1_evaluator_1_1_t_negation.html',1,'tfel::math::Evaluator::TNegation'],['../structtfel_1_1math_1_1_integer_evaluator_1_1_t_negation.html',1,'tfel::math::IntegerEvaluator::TNegation']]],
   ['tneglogicalexpr_223',['TNegLogicalExpr',['../structtfel_1_1math_1_1_evaluator_1_1_t_neg_logical_expr.html',1,'tfel::math::Evaluator']]],
-  ['tnumber_224',['tnumber',['../structtfel_1_1math_1_1_integer_evaluator_1_1_t_number.html',1,'tfel::math::IntegerEvaluator::TNumber'],['../structtfel_1_1math_1_1_evaluator_1_1_t_number.html',1,'tfel::math::Evaluator::TNumber']]],
+  ['tnumber_224',['tnumber',['../structtfel_1_1math_1_1_evaluator_1_1_t_number.html',1,'tfel::math::Evaluator::TNumber'],['../structtfel_1_1math_1_1_integer_evaluator_1_1_t_number.html',1,'tfel::math::IntegerEvaluator::TNumber']]],
   ['token_225',['Token',['../structtfel_1_1utilities_1_1_token.html',1,'tfel::utilities']]],
   ['toperator_226',['toperator',['../structtfel_1_1math_1_1_evaluator_1_1_t_operator.html',1,'tfel::math::Evaluator::TOperator'],['../structtfel_1_1math_1_1_integer_evaluator_1_1_t_operator.html',1,'tfel::math::IntegerEvaluator::TOperator']]],
   ['transform_227',['transform',['../structtfel_1_1fsalgo_1_1transform.html',1,'tfel::fsalgo']]],
@@ -254,6 +254,6 @@ var searchData=
   ['types_251',['Types',['../structtfel_1_1config_1_1_types.html',1,'tfel::config']]],
   ['types_3c_20mathobjecttraits_3c_20type_20_3e_3a_3adime_2c_20base_5ftype_3c_20numeric_5ftype_3c_20type_20_3e_20_3e_2c_20isquantity_3c_20numeric_5ftype_3c_20type_20_3e_20_3e_28_29_3e_252',['Types&lt; MathObjectTraits&lt; Type &gt;::dime, base_type&lt; numeric_type&lt; Type &gt; &gt;, isQuantity&lt; numeric_type&lt; Type &gt; &gt;()&gt;',['../structtfel_1_1config_1_1_types.html',1,'tfel::config']]],
   ['types_3c_20n_2c_20t_2c_20false_20_3e_253',['Types&lt; N, T, false &gt;',['../structtfel_1_1config_1_1_types_3_01_n_00_01_t_00_01false_01_4.html',1,'tfel::config']]],
-  ['typesdescription_254',['typesdescription',['../structmfront_1_1_generic_material_property_interface_base_1_1_types_description.html',1,'mfront::GenericMaterialPropertyInterfaceBase::TypesDescription'],['../structmfront_1_1_generic_parallel_material_property_interface_1_1_types_description.html',1,'mfront::GenericParallelMaterialPropertyInterface::TypesDescription']]],
+  ['typesdescription_254',['TypesDescription',['../structmfront_1_1_generic_material_property_interface_base_1_1_types_description.html',1,'mfront::GenericMaterialPropertyInterfaceBase']]],
   ['typesize_255',['TypeSize',['../structmfront_1_1_supported_types_1_1_type_size.html',1,'mfront::SupportedTypes']]]
 ];

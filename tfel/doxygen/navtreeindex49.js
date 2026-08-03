@@ -1,5 +1,12 @@
 var NAVTREEINDEX49 =
 {
+"structmfront_1_1bbrick_1_1_barlat2004_stress_criterion.html#a79ddc9141abe9557cc09c6e3a72e4cca":[7,0,10,0,1,0],
+"structmfront_1_1bbrick_1_1_barlat2004_stress_criterion.html#a9dc705950ade68486784b1d768f7aaeb":[7,0,10,0,1,9],
+"structmfront_1_1bbrick_1_1_barlat2004_stress_criterion.html#ac7e2d881d8261b17f6d743c5890df9c0":[7,0,10,0,1,2],
+"structmfront_1_1bbrick_1_1_barlat2004_stress_criterion.html#ad470df7673d63c2b56bb251790618df7":[7,0,10,0,1,11],
+"structmfront_1_1bbrick_1_1_barlat2004_stress_criterion.html#adcc6162e08e5696ad7b14ba5fb0d92bd":[7,0,10,0,1,10],
+"structmfront_1_1bbrick_1_1_barlat2004_stress_criterion.html#aebcae5a25dbbe145938451869dcc5175":[7,0,10,0,1,5],
+"structmfront_1_1bbrick_1_1_barlat2004_stress_criterion.html#af3481466294f85a01301e1b36be78c06":[7,0,10,0,1,3],
 "structmfront_1_1bbrick_1_1_burlet_cailletaud_kinematic_hardening_rule.html":[7,0,10,0,2],
 "structmfront_1_1bbrick_1_1_burlet_cailletaud_kinematic_hardening_rule.html#a145fb99e2d484e5fca83ce6de39e997b":[7,0,10,0,2,0],
 "structmfront_1_1bbrick_1_1_burlet_cailletaud_kinematic_hardening_rule.html#a5e99ef4830c084918a020ee1cb56002e":[7,0,10,0,2,5],
@@ -242,12 +249,5 @@ var NAVTREEINDEX49 =
 "structmfront_1_1bbrick_1_1_inelastic_flow.html#ad551a41c7edfce515a443b33dbd9bf5d":[7,0,10,0,21,2],
 "structmfront_1_1bbrick_1_1_inelastic_flow.html#ad58e81ab4d945bf1beb1ff74af998adf":[7,0,10,0,21,10],
 "structmfront_1_1bbrick_1_1_inelastic_flow.html#ad7414457b0b1f9ec378bba4ec9bd4821":[7,0,10,0,21,5],
-"structmfront_1_1bbrick_1_1_inelastic_flow.html#afe764e77f95ccc495394706df95f7b8b":[7,0,10,0,21,15],
-"structmfront_1_1bbrick_1_1_inelastic_flow_base.html":[7,0,10,0,22],
-"structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a0e1e55991752aaea3456a72c5f430231":[7,0,10,0,22,16],
-"structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a12ab89f6f086be8f4ecd600aae2e2835":[7,0,10,0,22,30],
-"structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a1402aa8057b9e05df27582ca45be36b6":[7,0,10,0,22,2],
-"structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a2b9e704556e401c25156db403b843c4a":[7,0,10,0,22,10],
-"structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a3571c21511caa65a17e7344d9dbaf1d5":[7,0,10,0,22,29],
-"structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a495cc378185d87671beaa0b64f1d7c90":[7,0,10,0,22,18]
+"structmfront_1_1bbrick_1_1_inelastic_flow.html#afe764e77f95ccc495394706df95f7b8b":[7,0,10,0,21,15]
 };

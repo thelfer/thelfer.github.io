@@ -2,11 +2,11 @@ var searchData=
 [
   ['madnexpath_0',['MadnexPath',['../structmfront_1_1_search_paths_handler_1_1_madnex_path.html',1,'mfront::SearchPathsHandler']]],
   ['makeconstviewreference_1',['MakeConstViewReference',['../structtfel_1_1math_1_1internals_1_1_make_const_view_reference.html',1,'tfel::math::internals']]],
-  ['makeconstviewreference_3c_20qt_3c_20unittype_2c_20valuetype_20_3e_20_3e_2',['MakeConstViewReference&lt; qt&lt; UnitType, ValueType &gt; &gt;',['../structtfel_1_1math_1_1internals_1_1_make_const_view_reference_3_01qt_3_01_unit_type_00_01_value_type_01_4_01_4.html',1,'tfel::math::internals']]],
+  ['makeconstviewreference_3c_20quantity_3c_20unittype_2c_20valuetype_2c_20ownershippolicy_20_3e_20_3e_2',['MakeConstViewReference&lt; Quantity&lt; UnitType, ValueType, OwnershipPolicy &gt; &gt;',['../structtfel_1_1math_1_1internals_1_1_make_const_view_reference_3_01_quantity_3_01_unit_type_00_0186076dae8a7dab984498ac418c8262f1.html',1,'tfel::math::internals']]],
   ['makequantityreferencetype_3',['MakeQuantityReferenceType',['../structtfel_1_1math_1_1_make_quantity_reference_type.html',1,'tfel::math']]],
   ['makequantityreferencetype_3c_20qt_3c_20unittype_2c_20valuetype_20_3e_20_3e_4',['MakeQuantityReferenceType&lt; qt&lt; UnitType, ValueType &gt; &gt;',['../structtfel_1_1math_1_1_make_quantity_reference_type_3_01qt_3_01_unit_type_00_01_value_type_01_4_01_4.html',1,'tfel::math']]],
   ['makeviewreference_5',['MakeViewReference',['../structtfel_1_1math_1_1internals_1_1_make_view_reference.html',1,'tfel::math::internals']]],
-  ['makeviewreference_3c_20qt_3c_20unittype_2c_20valuetype_20_3e_20_3e_6',['MakeViewReference&lt; qt&lt; UnitType, ValueType &gt; &gt;',['../structtfel_1_1math_1_1internals_1_1_make_view_reference_3_01qt_3_01_unit_type_00_01_value_type_01_4_01_4.html',1,'tfel::math::internals']]],
+  ['makeviewreference_3c_20quantity_3c_20unittype_2c_20valuetype_2c_20ownershippolicy_20_3e_20_3e_6',['MakeViewReference&lt; Quantity&lt; UnitType, ValueType, OwnershipPolicy &gt; &gt;',['../structtfel_1_1math_1_1internals_1_1_make_view_reference_3_01_quantity_3_01_unit_type_00_01_value608ffc369e636736ceaafcbeb12f1dfd.html',1,'tfel::math::internals']]],
   ['mass_7',['Mass',['../structtfel_1_1math_1_1unit_1_1_mass.html',1,'tfel::math::unit']]],
   ['materialcoefficientdescription_8',['MaterialCoefficientDescription',['../structmfront_1_1bbrick_1_1_porosity_nucleation_model_base_1_1_material_coefficient_description.html',1,'mfront::bbrick::PorosityNucleationModelBase']]],
   ['materialexception_9',['MaterialException',['../structtfel_1_1material_1_1_material_exception.html',1,'tfel::material']]],

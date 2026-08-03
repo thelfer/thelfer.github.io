@@ -1,9 +1,9 @@
 var _view_8hxx =
 [
     [ "tfel::math::internals::MakeViewReference< T >", "structtfel_1_1math_1_1internals_1_1_make_view_reference.html", "structtfel_1_1math_1_1internals_1_1_make_view_reference" ],
-    [ "tfel::math::internals::MakeViewReference< qt< UnitType, ValueType > >", "structtfel_1_1math_1_1internals_1_1_make_view_reference_3_01qt_3_01_unit_type_00_01_value_type_01_4_01_4.html", "structtfel_1_1math_1_1internals_1_1_make_view_reference_3_01qt_3_01_unit_type_00_01_value_type_01_4_01_4" ],
+    [ "tfel::math::internals::MakeViewReference< Quantity< UnitType, ValueType, OwnershipPolicy > >", "structtfel_1_1math_1_1internals_1_1_make_view_reference_3_01_quantity_3_01_unit_type_00_01_value608ffc369e636736ceaafcbeb12f1dfd.html", "structtfel_1_1math_1_1internals_1_1_make_view_reference_3_01_quantity_3_01_unit_type_00_01_value608ffc369e636736ceaafcbeb12f1dfd" ],
     [ "tfel::math::internals::MakeConstViewReference< T >", "structtfel_1_1math_1_1internals_1_1_make_const_view_reference.html", "structtfel_1_1math_1_1internals_1_1_make_const_view_reference" ],
-    [ "tfel::math::internals::MakeConstViewReference< qt< UnitType, ValueType > >", "structtfel_1_1math_1_1internals_1_1_make_const_view_reference_3_01qt_3_01_unit_type_00_01_value_type_01_4_01_4.html", "structtfel_1_1math_1_1internals_1_1_make_const_view_reference_3_01qt_3_01_unit_type_00_01_value_type_01_4_01_4" ],
+    [ "tfel::math::internals::MakeConstViewReference< Quantity< UnitType, ValueType, OwnershipPolicy > >", "structtfel_1_1math_1_1internals_1_1_make_const_view_reference_3_01_quantity_3_01_unit_type_00_0186076dae8a7dab984498ac418c8262f1.html", "structtfel_1_1math_1_1internals_1_1_make_const_view_reference_3_01_quantity_3_01_unit_type_00_0186076dae8a7dab984498ac418c8262f1" ],
     [ "tfel::math::ViewArrayPolicy< ValueType, IndexingPolicyType >", "structtfel_1_1math_1_1_view_array_policy.html", "structtfel_1_1math_1_1_view_array_policy" ],
     [ "tfel::math::View< MappedType, IndexingPolicyType >", "structtfel_1_1math_1_1_view.html", "structtfel_1_1math_1_1_view" ],
     [ "tfel::math::MathObjectTraits< View< MappedType, ArrayPolicy > >", "structtfel_1_1math_1_1_math_object_traits_3_01_view_3_01_mapped_type_00_01_array_policy_01_4_01_4.html", null ],

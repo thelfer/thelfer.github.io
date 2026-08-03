@@ -1,5 +1,8 @@
 var NAVTREEINDEX7 =
 {
+"_n_u_m_o_d_i_s_2_math_2_utilities_8hxx.html#a14724e95b6e2e403d5b8f8f7cf11499e":[8,0,0,2,0,0,10],
+"_n_u_m_o_d_i_s_2_math_2_utilities_8hxx.html#a32ae679f518ec4119dafbeb195ae1075":[8,0,0,2,0,0,5],
+"_n_u_m_o_d_i_s_2_math_2_utilities_8hxx.html#a53f4bbd14782c577659125468b8a184a":[8,0,0,2,0,0,3],
 "_n_u_m_o_d_i_s_2_math_2_utilities_8hxx.html#a5d9b913e2ebb7553a09c87a7e07fc5e7":[8,0,0,2,0,0,2],
 "_n_u_m_o_d_i_s_2_math_2_utilities_8hxx.html#a631a44829692cd58c9d73945a77fd5e2":[8,0,0,2,0,0,11],
 "_n_u_m_o_d_i_s_2_math_2_utilities_8hxx.html#a644cc570c69f29c6d5f14f653d5661da":[8,0,0,2,0,0,12],
@@ -246,8 +249,5 @@ var NAVTREEINDEX7 =
 "_recursive_find_8hxx.html#ad3fb667b475c440737cce2535eb2242a":[8,0,0,3,7,14,0],
 "_recursive_find_8hxx.html#af326ba8272e5fc5e5aae74c816411b42":[8,0,0,3,7,14,1],
 "_reference_file_comparison_test_8hxx.html":[8,0,5,0,0,80],
-"_relative_and_absolute_comparison_8hxx.html":[8,0,7,0,0,0,15],
-"_relative_comparison_8hxx.html":[8,0,7,0,0,0,16],
-"_result_type_8hxx.html":[8,0,0,3,5,5,24],
-"_result_type_8hxx.html#a148d63c9fac3faf5a99af96ffdb36664":[8,0,0,3,5,5,24,6]
+"_relative_and_absolute_comparison_8hxx.html":[8,0,7,0,0,0,15]
 };

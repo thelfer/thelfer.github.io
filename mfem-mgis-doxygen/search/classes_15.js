@@ -61,5 +61,6 @@ var searchData=
   ['viewsfixedsizevectorindexingpolicy_58',['ViewsFixedSizeVectorIndexingPolicy',['../structtfel_1_1math_1_1_views_fixed_size_vector_indexing_policy.html',1,'tfel::math']]],
   ['viscoplasticflowbase_59',['ViscoplasticFlowBase',['../structmfront_1_1bbrick_1_1_viscoplastic_flow_base.html',1,'mfront::bbrick']]],
   ['voceisotropichardeningrule_60',['VoceIsotropicHardeningRule',['../structmfront_1_1bbrick_1_1_voce_isotropic_hardening_rule.html',1,'mfront::bbrick']]],
-  ['volumeswellingstressfreeexpansion_61',['VolumeSwellingStressFreeExpansion',['../structmfront_1_1_behaviour_data_1_1_volume_swelling_stress_free_expansion.html',1,'mfront::BehaviourData']]]
+  ['volumeswellingstressfreeexpansion_61',['VolumeSwellingStressFreeExpansion',['../structmfront_1_1_behaviour_data_1_1_volume_swelling_stress_free_expansion.html',1,'mfront::BehaviourData']]],
+  ['vonmisesstressoperator_62',['VonMisesStressOperator',['../structmgis_1_1function_1_1internals_1_1_von_mises_stress_operator.html',1,'mgis::function::internals']]]
 ];

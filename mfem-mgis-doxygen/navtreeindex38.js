@@ -1,11 +1,5 @@
 var NAVTREEINDEX38 =
 {
-"structmfront_1_1_symbols_generator.html#a3a7e4168cee22d94c0d204b4e2f0d8b1":[5,0,11,108,0],
-"structmfront_1_1_symbols_generator.html#a3e485ba4b7b77ef71eac868dc7170013":[5,0,11,108,12],
-"structmfront_1_1_symbols_generator.html#a45ece2a84c4b6aea3412482748bf4243":[5,0,11,108,4],
-"structmfront_1_1_symbols_generator.html#a49a533c8ef8fef65bf74f12323870b8c":[5,0,11,108,10],
-"structmfront_1_1_symbols_generator.html#a4d7a2baf9417f5873c12f41a6e2ad560":[5,0,11,108,40],
-"structmfront_1_1_symbols_generator.html#a4e4e50ad45a3f80c48d4abedd80f85ea":[5,0,11,108,15],
 "structmfront_1_1_symbols_generator.html#a4f04c1b7468731b161d5eaa424100cc3":[5,0,11,108,19],
 "structmfront_1_1_symbols_generator.html#a5304772387f99c021447909090c05e87":[5,0,11,108,35],
 "structmfront_1_1_symbols_generator.html#a5674e6beaf1d8d98a7373cda0cc26430":[5,0,11,108,6],
@@ -18,10 +12,10 @@ var NAVTREEINDEX38 =
 "structmfront_1_1_symbols_generator.html#a7e4178b00d90ce8e549b42c9e1fa67a9":[5,0,11,108,28],
 "structmfront_1_1_symbols_generator.html#a80985f8e13d3d924825db818c4191c38":[5,0,11,108,33],
 "structmfront_1_1_symbols_generator.html#a80b36eae8e113dc7a1227789813d413a":[5,0,11,108,38],
-"structmfront_1_1_symbols_generator.html#a9ed265d1edd488bacc62536b4bd5e35b":[5,0,11,108,39],
 "structmfront_1_1_symbols_generator.html#aa1ca8f131876fd5bfcd11097bd348133":[5,0,11,108,3],
 "structmfront_1_1_symbols_generator.html#aa98dcabb536fb9a9ee1177ad30e63573":[5,0,11,108,13],
 "structmfront_1_1_symbols_generator.html#aaeea7afb6ea3cff7612b3a4d350713f7":[5,0,11,108,17],
+"structmfront_1_1_symbols_generator.html#ab083964c9e1e054417336cec46cebc2d":[5,0,11,108,39],
 "structmfront_1_1_symbols_generator.html#ab2cdb5af25c6c683edddfd72fecb6cdf":[5,0,11,108,24],
 "structmfront_1_1_symbols_generator.html#abb3ae9e91e78d3c9d29dfcf525ec43e0":[5,0,11,108,8],
 "structmfront_1_1_symbols_generator.html#abbf78dcbf92c450784fdfd71798dce5d":[5,0,11,108,16],
@@ -128,7 +122,6 @@ var NAVTREEINDEX38 =
 "structmfront_1_1_variable_bounds_description.html#af52c5bce2524212882302e90343a69ae":[5,0,11,114,4],
 "structmfront_1_1_variable_description.html":[5,0,11,115],
 "structmfront_1_1_variable_description.html#a09e9c451029f5b568a9bac9cc43b144a":[5,0,11,115,12],
-"structmfront_1_1_variable_description.html#a0baac460bc11e19a2306389e1812f7f3":[5,0,11,115,6],
 "structmfront_1_1_variable_description.html#a13408064b3774ecb20fe07b8568863d9":[5,0,11,115,7],
 "structmfront_1_1_variable_description.html#a1420058cdaaf791a0bf0b0c455234962":[5,0,11,115,28],
 "structmfront_1_1_variable_description.html#a1c258d78e5cc412ebe65442ff92a79e7":[5,0,11,115,29],
@@ -159,6 +152,7 @@ var NAVTREEINDEX38 =
 "structmfront_1_1_variable_description.html#acb51d6cccf629cbdd006798375dedfa4":[5,0,11,115,11],
 "structmfront_1_1_variable_description.html#ad28cc07cae9d1b7b176869804d53cea8":[5,0,11,115,32],
 "structmfront_1_1_variable_description.html#ae1cb021ebb5ec4937fd0049751201d43":[5,0,11,115,16],
+"structmfront_1_1_variable_description.html#ae7463e0cf8478c36a25e15e12e782e75":[5,0,11,115,6],
 "structmfront_1_1_variable_description.html#ae9271d2935275531ae3aaf4b146c6fc8":[5,0,11,115,19],
 "structmfront_1_1_variable_description.html#aefb28a3c34b77d2b9a98ddc51ba34b3a":[5,0,11,115,0],
 "structmfront_1_1_variable_description_base.html":[5,0,11,116],
@@ -249,5 +243,11 @@ var NAVTREEINDEX38 =
 "structmfront_1_1bbrick_1_1_cazacu2004_isotropic_stress_criterion.html#af06cdfd09c13d1d6087ab95788d95883":[5,0,11,0,4,4],
 "structmfront_1_1bbrick_1_1_cazacu2004_isotropic_stress_criterion.html#af1d65b86c20e0a813f49561e0ac84e2c":[5,0,11,0,4,8],
 "structmfront_1_1bbrick_1_1_cazacu2004_orthotropic_stress_criterion.html":[5,0,11,0,5],
-"structmfront_1_1bbrick_1_1_cazacu2004_orthotropic_stress_criterion.html#a0352598689c046a6f15b1d4f21e9b4f7":[5,0,11,0,5,2]
+"structmfront_1_1bbrick_1_1_cazacu2004_orthotropic_stress_criterion.html#a0352598689c046a6f15b1d4f21e9b4f7":[5,0,11,0,5,2],
+"structmfront_1_1bbrick_1_1_cazacu2004_orthotropic_stress_criterion.html#a0a266f23b6d196b2c68f04e617b725a2":[5,0,11,0,5,9],
+"structmfront_1_1bbrick_1_1_cazacu2004_orthotropic_stress_criterion.html#a2283697269db5b2ece7785ae5385d20e":[5,0,11,0,5,7],
+"structmfront_1_1bbrick_1_1_cazacu2004_orthotropic_stress_criterion.html#a35fb9187317d8c0aa8fa10777a1513c5":[5,0,11,0,5,0],
+"structmfront_1_1bbrick_1_1_cazacu2004_orthotropic_stress_criterion.html#a3c72feed3b30cf3bf50d8ec6315ef012":[5,0,11,0,5,13],
+"structmfront_1_1bbrick_1_1_cazacu2004_orthotropic_stress_criterion.html#a3f4e9ed659f1c6bead74522c3e9810e5":[5,0,11,0,5,12],
+"structmfront_1_1bbrick_1_1_cazacu2004_orthotropic_stress_criterion.html#a53b43a21272a4c69efd35e7fdcd61c10":[5,0,11,0,5,1]
 };

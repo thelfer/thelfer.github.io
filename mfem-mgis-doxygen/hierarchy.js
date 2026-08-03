@@ -89,6 +89,7 @@ var hierarchy =
     [ "mgis::function::customization_points::AbsoluteValue< std::span< const real, N > >", "structmgis_1_1function_1_1customization__points_1_1_absolute_value_3_01std_1_1span_3_01const_01real_00_01_n_01_4_01_4.html", null ],
     [ "mgis::function::customization_points::AbsoluteValue< TensorType >", "structmgis_1_1function_1_1customization__points_1_1_absolute_value_3_01_tensor_type_01_4.html", null ],
     [ "mgis::function::customization_points::AbsoluteValue< tfel::math::View< const TensorType > >", "structmgis_1_1function_1_1customization__points_1_1_absolute_value_3_01tfel_1_1math_1_1_view_3_01const_01_tensor_type_01_4_01_4.html", null ],
+    [ "mgis::function::internals::AbsoluteValueOperator", "structmgis_1_1function_1_1internals_1_1_absolute_value_operator.html", null ],
     [ "tfel::math::AbsSum< T >", "structtfel_1_1math_1_1_abs_sum.html", null ],
     [ "mfront::AbstractBehaviourBrick", "structmfront_1_1_abstract_behaviour_brick.html", [
       [ "mfront::BehaviourBrickBase", "structmfront_1_1_behaviour_brick_base.html", null ]
@@ -298,7 +299,7 @@ var hierarchy =
       ] ]
     ] ],
     [ "tfel::typetraits::AbsType< T >", "structtfel_1_1typetraits_1_1_abs_type.html", null ],
-    [ "tfel::typetraits::AbsType< tfel::math::Quantity< UnitType, ValueType, OwnershipPolicy > >", "structtfel_1_1typetraits_1_1_abs_type_3_01tfel_1_1math_1_1_quantity_3_01_unit_type_00_01_value_tf421ad894c0e59cc432cbd78397469b4.html", null ],
+    [ "tfel::typetraits::AbsType< QuantityType >", "structtfel_1_1typetraits_1_1_abs_type_3_01_quantity_type_01_4.html", null ],
     [ "mtest::AccelerationAlgorithm", "structmtest_1_1_acceleration_algorithm.html", [
       [ "mtest::CastemAccelerationAlgorithm", "structmtest_1_1_castem_acceleration_algorithm.html", null ],
       [ "mtest::FAndersonAccelerationAlgorithm", "structmtest_1_1_f_anderson_acceleration_algorithm.html", null ],
@@ -309,9 +310,7 @@ var hierarchy =
     ] ],
     [ "mtest::AccelerationAlgorithmFactory", "structmtest_1_1_acceleration_algorithm_factory.html", null ],
     [ "tfel::fsalgo::accumulate< N >", "structtfel_1_1fsalgo_1_1accumulate.html", null ],
-    [ "tfel::math::internals::AddUnit< A, B >", "structtfel_1_1math_1_1internals_1_1_add_unit.html", null ],
-    [ "tfel::math::internals::AddUnit< Unit< std::integral_constant< int, N1 >, std::integral_constant< int, N2 >, std::integral_constant< int, N3 >, std::integral_constant< int, N4 >, std::integral_constant< int, N5 >, std::integral_constant< int, N6 >, std::integral_constant< int, N7 >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u > >, Unit< std::integral_constant< int, O1 >, std::integral_constant< int, O2 >, std::integral_constant< int, O3 >, std::integral_constant< int, O4 >, std::integral_constant< int, O5 >, std::integral_constant< int, O6 >, std::integral_constant< int, O7 >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u > > >", "structtfel_1_1math_1_1internals_1_1_add_unit_3_01_unit_3_01std_1_1integral__constant_3_01int_00_d0756212a6604fd858b959f2049c3f93.html", null ],
-    [ "tfel::math::internals::AddUnit< Unit< std::integral_constant< int, N1 >, std::integral_constant< int, N2 >, std::integral_constant< int, N3 >, std::integral_constant< int, N4 >, std::integral_constant< int, N5 >, std::integral_constant< int, N6 >, std::integral_constant< int, N7 >, std::integral_constant< unsigned int, D1 >, std::integral_constant< unsigned int, D2 >, std::integral_constant< unsigned int, D3 >, std::integral_constant< unsigned int, D4 >, std::integral_constant< unsigned int, D5 >, std::integral_constant< unsigned int, D6 >, std::integral_constant< unsigned int, D7 > >, Unit< std::integral_constant< int, O1 >, std::integral_constant< int, O2 >, std::integral_constant< int, O3 >, std::integral_constant< int, O4 >, std::integral_constant< int, O5 >, std::integral_constant< int, O6 >, std::integral_constant< int, O7 >, std::integral_constant< unsigned int, AP1 >, std::integral_constant< unsigned int, AP2 >, std::integral_constant< unsigned int, AP3 >, std::integral_constant< unsigned int, AP4 >, std::integral_constant< unsigned int, AP5 >, std::integral_constant< unsigned int, AP6 >, std::integral_constant< unsigned int, AP7 > > >", "structtfel_1_1math_1_1internals_1_1_add_unit_3_01_unit_3_01std_1_1integral__constant_3_01int_00_9b0816f3a9416e6f4d4151af6875e21b.html", null ],
+    [ "tfel::math::internals::AddUnit< UnitType1, UnitType2 >", "structtfel_1_1math_1_1internals_1_1_add_unit.html", null ],
     [ "tfel::math::AitkenAccelerationAlgorithm< NumericType, IndexType >", "structtfel_1_1math_1_1_aitken_acceleration_algorithm.html", null ],
     [ "mfront::MFrontDatabase::AnalyseDirectoryOptions", "structmfront_1_1_m_front_database_1_1_analyse_directory_options.html", null ],
     [ "mfront::MFrontDatabase::AnalyseDirectoryResults", "structmfront_1_1_m_front_database_1_1_analyse_directory_results.html", null ],
@@ -482,8 +481,11 @@ var hierarchy =
     ] ],
     [ "mfront::BehaviourData::AxialGrowth", "structmfront_1_1_behaviour_data_1_1_axial_growth.html", null ],
     [ "tfel::material::BarlatStressAndDerivativesWithRespectToEigenvalues< StressStensor >", "structtfel_1_1material_1_1_barlat_stress_and_derivatives_with_respect_to_eigenvalues.html", null ],
+    [ "tfel::math::BaseType< T >", "structtfel_1_1math_1_1_base_type.html", null ],
     [ "tfel::typetraits::BaseType< T >", "structtfel_1_1typetraits_1_1_base_type.html", null ],
     [ "tfel::typetraits::BaseType< cadna::numeric_type< T > >", "structtfel_1_1typetraits_1_1_base_type_3_01cadna_1_1numeric__type_3_01_t_01_4_01_4.html", null ],
+    [ "tfel::typetraits::BaseType< QuantityType >", "structtfel_1_1typetraits_1_1_base_type_3_01_quantity_type_01_4.html", null ],
+    [ "tfel::math::BaseType< T >", "structtfel_1_1math_1_1_base_type_3_01_t_01_4.html", null ],
     [ "tfel::system::basic_rstream< Child, Traits >", "structtfel_1_1system_1_1basic__rstream.html", null ],
     [ "tfel::system::basic_rstream< rfstream, stream_traits< rfstream > >", "structtfel_1_1system_1_1basic__rstream.html", [
       [ "tfel::system::rfstream", "structtfel_1_1system_1_1rfstream.html", null ]
@@ -959,7 +961,7 @@ var hierarchy =
       [ "mfem_mgis::ComputeResultantForceOnBoundary< true >", "structmfem__mgis_1_1_compute_resultant_force_on_boundary_3_01true_01_4.html", null ]
     ] ],
     [ "tfel::math::ComputeUnaryOperationResult< TagA, TagOp, A, Op >", "structtfel_1_1math_1_1_compute_unary_operation_result.html", null ],
-    [ "tfel::math::ComputeUnaryOperationResult< ScalarTag, UnaryOperatorTag, Quantity< UnitType, ValueType, OwnershipPolicy >, OpNeg >", "structtfel_1_1math_1_1_compute_unary_operation_result_3_01_scalar_tag_00_01_unary_operator_tag_0fa876882e5124a3c55170380c0c41e1d.html", null ],
+    [ "tfel::math::ComputeUnaryOperationResult< ScalarTag, UnaryOperatorTag, T, OpNeg >", "structtfel_1_1math_1_1_compute_unary_operation_result_3_01_scalar_tag_00_01_unary_operator_tag_00_01_t_00_01_op_neg_01_4.html", null ],
     [ "tfel::math::ComputeUnaryResult< A, Op >", "classtfel_1_1math_1_1_compute_unary_result.html", null ],
     [ "tfel::math::ComputeUnaryResult_< TagA, TagOp, A, Op >", "structtfel_1_1math_1_1_compute_unary_result__.html", null ],
     [ "tfel::math::ComputeUnaryResult_< ArrayTag, UnaryOperatorTag, A, OpNeg >", "classtfel_1_1math_1_1_compute_unary_result___3_01_array_tag_00_01_unary_operator_tag_00_01_a_00_01_op_neg_01_4.html", null ],
@@ -1103,6 +1105,7 @@ var hierarchy =
       [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericFixedSizeArray< tmatrix< N, M, NumericType >, FixedSizeRowMajorMatrixPolicy< N, M, NumericType >, getArrayPolicySize< FixedSizeRowMajorMatrixPolicy< N, M, NumericType > >() >, FixedSizeRowMajorMatrixPolicy< N, M, NumericType > >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
       [ "tfel::math::MutableArraySTLCompatibilityLayer< GenericRuntimeArray< vector< std::shared_ptr< tfel::math::parser::ExternalFunction > >, RuntimeVectorArrayPolicy< std::shared_ptr< tfel::math::parser::ExternalFunction > > >, RuntimeVectorArrayPolicy< std::shared_ptr< tfel::math::parser::ExternalFunction > > >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", null ],
       [ "tfel::math::ConstArraySTLCompatibilityLayer< Child, ArrayPolicy >", "structtfel_1_1math_1_1_const_array_s_t_l_compatibility_layer.html", null ],
+      [ "tfel::math::Cste< T >", "structtfel_1_1math_1_1_cste.html", null ],
       [ "tfel::math::MutableArraySTLCompatibilityLayer< Child, ArrayPolicy >", "structtfel_1_1math_1_1_mutable_array_s_t_l_compatibility_layer.html", [
         [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< FixedSizeArrayDerivative< Array1, Array2 >, FixedSizeArrayDerivativePolicy< Array1::array_policy, Array2::array_policy >, getArrayPolicySize< FixedSizeArrayDerivativePolicy< Array1::array_policy, Array2::array_policy > >() >, FixedSizeArrayDerivativePolicy< Array1::array_policy, Array2::array_policy > >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
         [ "tfel::math::MutableFixedSizeArrayBase< GenericFixedSizeArray< Child, ArrayPolicy, getArrayPolicySize< ArrayPolicy >() >, ArrayPolicy >", "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html", null ],
@@ -1184,7 +1187,9 @@ var hierarchy =
           [ "tfel::math::GenericRuntimeArray< vector< std::shared_ptr< tfel::math::parser::ExternalFunction > >, RuntimeVectorArrayPolicy< std::shared_ptr< tfel::math::parser::ExternalFunction > > >", "structtfel_1_1math_1_1_generic_runtime_array.html", null ]
         ] ]
       ] ],
-      [ "tfel::math::internals::CheckUnitCompatibilityImplementation< Unit, NumericType >", "structtfel_1_1math_1_1internals_1_1_check_unit_compatibility_implementation_3_01_unit_00_01_numeric_type_01_4.html", null ]
+      [ "tfel::math::internals::CheckUnitCompatibilityImplementation< Unit, NumericType >", "structtfel_1_1math_1_1internals_1_1_check_unit_compatibility_implementation_3_01_unit_00_01_numeric_type_01_4.html", null ],
+      [ "tfel::system::BinaryReader< T >", "structtfel_1_1system_1_1_binary_reader.html", null ],
+      [ "tfel::system::BinaryWriter< T >", "structtfel_1_1system_1_1_binary_writer.html", null ]
     ] ],
     [ "castem::CastemBehaviourHandler< type, H, Behaviour >::ConsistentTangentOperatorComputer", "structcastem_1_1_castem_behaviour_handler_1_1_consistent_tangent_operator_computer.html", null ],
     [ "castem::CastemBehaviourHandler< type, H, Behaviour >::ConsistentTangentOperatorIsNotAvalaible", "structcastem_1_1_castem_behaviour_handler_1_1_consistent_tangent_operator_is_not_avalaible.html", null ],
@@ -1666,8 +1671,8 @@ var hierarchy =
     [ "dianafea::DianaFEABehaviourHandler< H, Behaviour >::DoNothingInitializer", "structdianafea_1_1_diana_f_e_a_behaviour_handler_1_1_do_nothing_initializer.html", null ],
     [ "lsdyna::LSDYNABehaviourHandler< H, Behaviour >::DoNothingInitializer", "structlsdyna_1_1_l_s_d_y_n_a_behaviour_handler_1_1_do_nothing_initializer.html", null ],
     [ "lsdyna::LSDYNAExplicitInterface< H, T, Behaviour >::DoNothingInitializer", "structlsdyna_1_1_l_s_d_y_n_a_explicit_interface_1_1_do_nothing_initializer.html", null ],
-    [ "tfel::math::DotProduct< N, M >", "structtfel_1_1math_1_1_dot_product.html", null ],
     [ "tfel::math::dotProduct< N >", "structtfel_1_1math_1_1dot_product.html", null ],
+    [ "tfel::math::DotProduct< N, M >", "structtfel_1_1math_1_1_dot_product.html", null ],
     [ "tfel::math::dotProduct< 0u >", "structtfel_1_1math_1_1dot_product_3_010u_01_4.html", null ],
     [ "tfel::math::DotProduct< 0u, M >", "structtfel_1_1math_1_1_dot_product_3_010u_00_01_m_01_4.html", null ],
     [ "tfel::math::internals::DPK1_DF_to_DTAU_DF_Converter< N >", "structtfel_1_1math_1_1internals_1_1_d_p_k1___d_f__to___d_t_a_u___d_f___converter.html", null ],
@@ -2083,6 +2088,10 @@ var hierarchy =
     [ "dianafea::ExtractAndConvertTangentOperator< tfel::material::ModellingHypothesis::PLANESTRESS >", "structdianafea_1_1_extract_and_convert_tangent_operator_3_01tfel_1_1material_1_1_modelling_hypot40607908a4df715540cdcd479274d229.html", null ],
     [ "lsdyna::ExtractAndConvertTangentOperator< tfel::material::ModellingHypothesis::PLANESTRESS >", "structlsdyna_1_1_extract_and_convert_tangent_operator_3_01tfel_1_1material_1_1_modelling_hypothe3b47d0ccb840ae8a308e3c524894fab1.html", null ],
     [ "calculix::ExtractTangentOperator", "structcalculix_1_1_extract_tangent_operator.html", null ],
+    [ "tfel::math::internals::ExtractUnit< tfel::meta::InvalidType >", "structtfel_1_1math_1_1internals_1_1_extract_unit_3_01tfel_1_1meta_1_1_invalid_type_01_4.html", null ],
+    [ "tfel::math::internals::ExtractUnitBase", "structtfel_1_1math_1_1internals_1_1_extract_unit_base.html", [
+      [ "tfel::math::internals::ExtractUnit< T >", "structtfel_1_1math_1_1internals_1_1_extract_unit.html", null ]
+    ] ],
     [ "tfel::math::FactorizedKriging< N, M, T, Model1, Model2 >", "structtfel_1_1math_1_1_factorized_kriging.html", null ],
     [ "tfel::math::FactorizedKriging< 1u, 1u, double, KrigingPieceWiseLinearModel1D< double >, KrigingModelAdaptator< KrigingDefaultModel< 1u, double > > >", "structtfel_1_1math_1_1_factorized_kriging.html", [
       [ "tfel::math::FactorizedKriging1D1D", "structtfel_1_1math_1_1_factorized_kriging1_d1_d.html", null ]
@@ -2097,11 +2106,9 @@ var hierarchy =
     [ "std::false_type", null, [
       [ "mgis::function::LightweightViewTraits< FunctionType >", "structmgis_1_1function_1_1_lightweight_view_traits.html", null ],
       [ "mgis::function::internals::IsTensor< T >", "structmgis_1_1function_1_1internals_1_1_is_tensor.html", null ],
-      [ "tfel::math::internal::UnitConceptImplementation< T >", "structtfel_1_1math_1_1internal_1_1_unit_concept_implementation.html", null ],
       [ "tfel::math::internals::ExpressionTest< Type >", "structtfel_1_1math_1_1internals_1_1_expression_test.html", null ],
       [ "tfel::math::internals::HasConceptTag< T, typename >", "structtfel_1_1math_1_1internals_1_1_has_concept_tag.html", null ],
       [ "tfel::math::internals::HasIndexingPolicyTraits< T, typename >", "structtfel_1_1math_1_1internals_1_1_has_indexing_policy_traits.html", null ],
-      [ "tfel::math::internals::IsQuantity< T >", "structtfel_1_1math_1_1internals_1_1_is_quantity.html", null ],
       [ "tfel::meta::HasConstIterator< T, typename >", "structtfel_1_1meta_1_1_has_const_iterator.html", null ],
       [ "tfel::meta::HasIterator< T, typename >", "structtfel_1_1meta_1_1_has_iterator.html", null ]
     ] ],
@@ -2136,6 +2143,7 @@ var hierarchy =
     [ "tfel::material::FiniteStrainBehaviourTangentOperatorType< FiniteStrainBehaviourTangentOperatorBase::DTAU_DDF, N, StressType >", "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_type_3_01_finite_strain_beha9d494347caf585e8b3532a9c80585c1d.html", null ],
     [ "tfel::material::FiniteStrainBehaviourTangentOperatorType< FiniteStrainBehaviourTangentOperatorBase::DTAU_DF, N, StressType >", "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_type_3_01_finite_strain_behaaa3df3dc91bf14662a3810f7df12fcd2.html", null ],
     [ "tfel::material::FiniteStrainBehaviourTangentOperatorType< FiniteStrainBehaviourTangentOperatorBase::SPATIAL_MODULI, N, StressType >", "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_type_3_01_finite_strain_beha51d3fb62253fc4e23d7f30225c5d26b3.html", null ],
+    [ "mgis::function::internals::FirstPiolaKirchhoffStressToCauchyStressOperator", "structmgis_1_1function_1_1internals_1_1_first_piola_kirchhoff_stress_to_cauchy_stress_operator.html", null ],
     [ "mgis::function::internals::fixed_size_modifier< N >", "structmgis_1_1function_1_1internals_1_1fixed__size__modifier.html", null ],
     [ "tfel::math::FixedSizeArrayDerivativeConcept< ArrayDerivativeType >", "structtfel_1_1math_1_1_fixed_size_array_derivative_concept.html", null ],
     [ "tfel::math::FixedSizeArrayDerivativeConcept< FixedSizeArrayDerivative< Array1, Array2 > >", "structtfel_1_1math_1_1_fixed_size_array_derivative_concept.html", [
@@ -2213,7 +2221,6 @@ var hierarchy =
     [ "GenerateTypeList", "class_generate_type_list.html", null ],
     [ "tfel::meta::GenerateTypeList< CurrentType, Types... >", "structtfel_1_1meta_1_1_generate_type_list_3_01_current_type_00_01_types_8_8_8_01_4.html", null ],
     [ "tfel::meta::GenerateTypeList<>", "structtfel_1_1meta_1_1_generate_type_list_3_4.html", null ],
-    [ "tfel::math::GenerateUnit< N1, N2, N3, N4, N5, N6, N7, D1, D2, D3, D4, D5, D6, D7 >", "structtfel_1_1math_1_1_generate_unit.html", null ],
     [ "mfront::GeneratorOptions", "structmfront_1_1_generator_options.html", null ],
     [ "tfel::utilities::GeneratorOptions", "structtfel_1_1utilities_1_1_generator_options.html", null ],
     [ "mfront::gb::GenericBehaviourTraits< Behaviour >", "structmfront_1_1gb_1_1_generic_behaviour_traits.html", null ],
@@ -2262,6 +2269,7 @@ var hierarchy =
     [ "tfel::config::internals::HeatFluxVectorType< N, T, false >", "structtfel_1_1config_1_1internals_1_1_heat_flux_vector_type_3_01_n_00_01_t_00_01false_01_4.html", null ],
     [ "mfront::BehaviourDescription::HillTensor", "structmfront_1_1_behaviour_description_1_1_hill_tensor.html", null ],
     [ "tfel::material::homogenization::elasticity::HomogenizationScheme< N, StressType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_homogenization_scheme.html", null ],
+    [ "mgis::function::internals::HydrostaticStressOperator", "structmgis_1_1function_1_1internals_1_1_hydrostatic_stress_operator.html", null ],
     [ "numodis::IBurgers", "structnumodis_1_1_i_burgers.html", null ],
     [ "numodis::IDirection", "structnumodis_1_1_i_direction.html", null ],
     [ "tfel::meta::Implements< T, Concept >", "structtfel_1_1meta_1_1_implements.html", null ],
@@ -2447,6 +2455,9 @@ var hierarchy =
     [ "tfel::typetraits::IsAssignableTo< cadna::numeric_type< T1 >, cadna::numeric_type< T2 > >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01cadna_1_1numeric__type_3_01_t1_01_4_00_01cadna00080c0aa566ae1242c1236099e0c74b.html", null ],
     [ "tfel::typetraits::IsAssignableTo< MathObject, tfel::math::CoalescedViewBase< MathObject2, IndexingPolicyType2, CoalescedAccessPolicy2 > >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01_math_object_00_01tfel_1_1math_1_1_coalesced_vcefbceb19857cc3fa92dd1f3d652b031.html", null ],
     [ "tfel::typetraits::IsAssignableTo< MathObject, tfel::math::View< MathObject2, IndexingPolicyType2 > >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01_math_object_00_01tfel_1_1math_1_1_view_3_01_md0266b3485fe6ba56cf4c6589c821b29.html", null ],
+    [ "tfel::typetraits::IsAssignableTo< QuantityType, ScalarType >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01_quantity_type_00_01_scalar_type_01_4.html", null ],
+    [ "tfel::typetraits::IsAssignableTo< QuantityType1, QuantityType2 >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01_quantity_type1_00_01_quantity_type2_01_4.html", null ],
+    [ "tfel::typetraits::IsAssignableTo< ScalarType, tfel::math::Quantity< tfel::math::unit::NoUnit, ValueType, OwnershipPolicy > >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01_scalar_type_00_01tfel_1_1math_1_1_quantity_3_1f392de7bfd8c584cd97126f1c5bde63.html", null ],
     [ "tfel::typetraits::IsAssignableTo< T1, cadna::numeric_type< T2 > >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01_t1_00_01cadna_1_1numeric__type_3_01_t2_01_4_01_4.html", null ],
     [ "tfel::typetraits::IsAssignableTo< tfel::math::CoalescedViewBase< MathObject, IndexingPolicyType, CoalescedAccessPolicy >, MathObject2 >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1_coalesced_view_base_3_01_math4ad81ce017d8ad0d08733a3d4f513dbd.html", null ],
     [ "tfel::typetraits::IsAssignableTo< tfel::math::CoalescedViewBase< MathObject, IndexingPolicyType, CoalescedAccessPolicy >, tfel::math::CoalescedViewBase< MathObject2, IndexingPolicyType2, CoalescedAccessPolicy2 > >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1_coalesced_view_base_3_01_mathb5c6ce3185391dbba214237b5c4df4cb.html", null ],
@@ -2458,7 +2469,6 @@ var hierarchy =
     [ "tfel::typetraits::IsAssignableTo< tfel::math::FixedSizeArrayDerivative< Array11, Array12 >, tfel::math::FixedSizeArrayDerivative< Array21, Array22 > >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1_fixed_size_array_derivative_3b0616bd542046a5e9a12fb67c2512da4.html", null ],
     [ "tfel::typetraits::IsAssignableTo< tfel::math::fsarray< N, ValueType >, tfel::math::fsarray< N, ValueType2 > >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1fsarray_3_01_n_00_01_value_typ94196d0bcac94dbae23cc17573410fb5.html", null ],
     [ "tfel::typetraits::IsAssignableTo< tfel::math::matrix< ValueType >, tfel::math::matrix< ValueType2 > >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1matrix_3_01_value_type_01_4_00be66bc97738563babb38df53d65f1d6b.html", null ],
-    [ "tfel::typetraits::IsAssignableTo< tfel::math::Quantity< UnitType, ValueType, OwnershipPolicy >, tfel::math::Quantity< UnitType, ValueType2, OwnershipPolicy2 > >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1_quantity_3_01_unit_type_00_0198e5f4304007184574e9329d3e06200f.html", null ],
     [ "tfel::typetraits::IsAssignableTo< tfel::math::runtime_array< ValueType >, tfel::math::runtime_array< ValueType2 > >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1runtime__array_3_01_value_typed0747bc3066024ac662b292de9cd4ac3.html", null ],
     [ "tfel::typetraits::IsAssignableTo< tfel::math::st2tost2< N, T2 >, tfel::math::st2tost2< N, T > >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1st2tost2_3_01_n_00_01_t2_01_4_c68021afd225ebb23ff0c7b255412629.html", null ],
     [ "tfel::typetraits::IsAssignableTo< tfel::math::st2tot2< N, T2 >, tfel::math::st2tot2< N, T > >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1st2tot2_3_01_n_00_01_t2_01_4_0b4e019f86d9e66cc3f94f958ccbe7436.html", null ],
@@ -2475,15 +2485,16 @@ var hierarchy =
     [ "tfel::typetraits::IsAssignableTo< tfel::math::ViewsArray< MappedType, MemoryIndexingPolicyType, ViewIndexingPolicyType >, tfel::math::runtime_array< ValueType > >", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1_views_array_3_01_mapped_type_9d41c19b61cd3dc8b324b6f56c30a411.html", null ],
     [ "tfel::typetraits::IsComplex< T >", "structtfel_1_1typetraits_1_1_is_complex.html", null ],
     [ "tfel::typetraits::IsComplex< cadna::numeric_type< T > >", "structtfel_1_1typetraits_1_1_is_complex_3_01cadna_1_1numeric__type_3_01_t_01_4_01_4.html", null ],
-    [ "tfel::typetraits::IsComplex< const tfel::math::Quantity< UnitType, ValueType, OwnershipPolicy > >", "structtfel_1_1typetraits_1_1_is_complex_3_01const_01tfel_1_1math_1_1_quantity_3_01_unit_type_00_9fd8c359fa1e177fd9761aced08a4d85.html", null ],
-    [ "tfel::typetraits::IsComplex< tfel::math::Quantity< UnitType, ValueType, OwnershipPolicy > >", "structtfel_1_1typetraits_1_1_is_complex_3_01tfel_1_1math_1_1_quantity_3_01_unit_type_00_01_value7c6858bd12954d6b4e61fbfbec95cda6.html", null ],
+    [ "tfel::typetraits::IsComplex< const QuantityType >", "structtfel_1_1typetraits_1_1_is_complex_3_01const_01_quantity_type_01_4.html", null ],
+    [ "tfel::typetraits::IsComplex< QuantityType >", "structtfel_1_1typetraits_1_1_is_complex_3_01_quantity_type_01_4.html", null ],
     [ "tfel::utilities::internals::isDataTypeCheck< T >", "structtfel_1_1utilities_1_1internals_1_1is_data_type_check.html", null ],
     [ "tfel::typetraits::IsFundamentalNumericType< T >", "structtfel_1_1typetraits_1_1_is_fundamental_numeric_type.html", null ],
     [ "tfel::typetraits::IsFundamentalNumericType< cadna::numeric_type< T > >", "structtfel_1_1typetraits_1_1_is_fundamental_numeric_type_3_01cadna_1_1numeric__type_3_01_t_01_4_01_4.html", null ],
+    [ "tfel::typetraits::IsFundamentalNumericType< const QuantityType >", "structtfel_1_1typetraits_1_1_is_fundamental_numeric_type_3_01const_01_quantity_type_01_4.html", null ],
     [ "tfel::typetraits::IsFundamentalNumericType< const tfel::math::Complex< T > >", "structtfel_1_1typetraits_1_1_is_fundamental_numeric_type_3_01const_01tfel_1_1math_1_1_complex_3_01_t_01_4_01_4.html", null ],
-    [ "tfel::typetraits::IsFundamentalNumericType< const tfel::math::qt< tfel::math::unit::NoUnit, T > >", "structtfel_1_1typetraits_1_1_is_fundamental_numeric_type_3_01const_01tfel_1_1math_1_1qt_3_01tfel392f5dbabc02ef1f296e19d9746970f5.html", null ],
+    [ "tfel::typetraits::IsFundamentalNumericType< QuantityType >", "structtfel_1_1typetraits_1_1_is_fundamental_numeric_type_3_01_quantity_type_01_4.html", null ],
+    [ "tfel::typetraits::IsFundamentalNumericType< T >", "structtfel_1_1typetraits_1_1_is_fundamental_numeric_type_3_01_t_01_4.html", null ],
     [ "tfel::typetraits::IsFundamentalNumericType< tfel::math::Complex< T > >", "structtfel_1_1typetraits_1_1_is_fundamental_numeric_type_3_01tfel_1_1math_1_1_complex_3_01_t_01_4_01_4.html", null ],
-    [ "tfel::typetraits::IsFundamentalNumericType< tfel::math::qt< tfel::math::unit::NoUnit, T > >", "structtfel_1_1typetraits_1_1_is_fundamental_numeric_type_3_01tfel_1_1math_1_1qt_3_01tfel_1_1matha70a27cd4dd8b740dea47e830aefb106.html", null ],
     [ "tfel::typetraits::IsInvalid< T >", "structtfel_1_1typetraits_1_1_is_invalid.html", null ],
     [ "mfront::bbrick::IsotropicHardeningRule", "structmfront_1_1bbrick_1_1_isotropic_hardening_rule.html", [
       [ "mfront::bbrick::DataIsotropicHardeningRule", "structmfront_1_1bbrick_1_1_data_isotropic_hardening_rule.html", null ],
@@ -2512,12 +2523,12 @@ var hierarchy =
     [ "tfel::typetraits::IsRandomAccessIterator< T >", "structtfel_1_1typetraits_1_1_is_random_access_iterator.html", null ],
     [ "tfel::typetraits::IsReal< T >", "structtfel_1_1typetraits_1_1_is_real.html", null ],
     [ "tfel::typetraits::IsReal< cadna::numeric_type< T > >", "structtfel_1_1typetraits_1_1_is_real_3_01cadna_1_1numeric__type_3_01_t_01_4_01_4.html", null ],
-    [ "tfel::typetraits::IsReal< const tfel::math::Quantity< UnitType, ValueType, OwnershipPolicy > >", "structtfel_1_1typetraits_1_1_is_real_3_01const_01tfel_1_1math_1_1_quantity_3_01_unit_type_00_01_70c7e0c6c36d3018ac20d280ac3f4f64.html", null ],
-    [ "tfel::typetraits::IsReal< tfel::math::Quantity< UnitType, ValueType, OwnershipPolicy > >", "structtfel_1_1typetraits_1_1_is_real_3_01tfel_1_1math_1_1_quantity_3_01_unit_type_00_01_value_ty8f103752b34c3f7c834978ba67073180.html", null ],
+    [ "tfel::typetraits::IsReal< const QuantityType >", "structtfel_1_1typetraits_1_1_is_real_3_01const_01_quantity_type_01_4.html", null ],
+    [ "tfel::typetraits::IsReal< QuantityType >", "structtfel_1_1typetraits_1_1_is_real_3_01_quantity_type_01_4.html", null ],
     [ "tfel::typetraits::IsScalar< T >", "structtfel_1_1typetraits_1_1_is_scalar.html", null ],
     [ "tfel::typetraits::IsScalar< cadna::numeric_type< T > >", "structtfel_1_1typetraits_1_1_is_scalar_3_01cadna_1_1numeric__type_3_01_t_01_4_01_4.html", null ],
-    [ "tfel::typetraits::IsScalar< const tfel::math::Quantity< UnitType, ValueType, OwnershipPolicy > >", "structtfel_1_1typetraits_1_1_is_scalar_3_01const_01tfel_1_1math_1_1_quantity_3_01_unit_type_00_0e41a5e6e0c62506e82362dacd4e964dd.html", null ],
-    [ "tfel::typetraits::IsScalar< tfel::math::Quantity< UnitType, ValueType, OwnershipPolicy > >", "structtfel_1_1typetraits_1_1_is_scalar_3_01tfel_1_1math_1_1_quantity_3_01_unit_type_00_01_value_d7b61431ac3449656341dd697681d648.html", null ],
+    [ "tfel::typetraits::IsScalar< const QuantityType >", "structtfel_1_1typetraits_1_1_is_scalar_3_01const_01_quantity_type_01_4.html", null ],
+    [ "tfel::typetraits::IsScalar< QuantityType >", "structtfel_1_1typetraits_1_1_is_scalar_3_01_quantity_type_01_4.html", null ],
     [ "tfel::math::IsTVectorScalarOperationValid< T, T2, Op >", "structtfel_1_1math_1_1_is_t_vector_scalar_operation_valid.html", null ],
     [ "tfel::typetraits::IsUnaryOperator< T >", "structtfel_1_1typetraits_1_1_is_unary_operator.html", null ],
     [ "tfel::typetraits::IsUnaryOperator< tfel::math::OpNeg >", "structtfel_1_1typetraits_1_1_is_unary_operator_3_01tfel_1_1math_1_1_op_neg_01_4.html", null ],
@@ -2674,8 +2685,6 @@ var hierarchy =
     [ "tfel::math::internals::MakeConstViewReference< Quantity< UnitType, ValueType, OwnershipPolicy > >", "structtfel_1_1math_1_1internals_1_1_make_const_view_reference_3_01_quantity_3_01_unit_type_00_0186076dae8a7dab984498ac418c8262f1.html", null ],
     [ "tfel::math::MakeQuantityReferenceType< QuantityType >", "structtfel_1_1math_1_1_make_quantity_reference_type.html", null ],
     [ "tfel::math::MakeQuantityReferenceType< qt< UnitType, ValueType > >", "structtfel_1_1math_1_1_make_quantity_reference_type_3_01qt_3_01_unit_type_00_01_value_type_01_4_01_4.html", null ],
-    [ "tfel::math::internals::MakeQuantityValueType< ValueType >", "structtfel_1_1math_1_1internals_1_1_make_quantity_value_type.html", null ],
-    [ "tfel::math::internals::MakeQuantityValueType< qt< unit::NoUnit, ValueType > >", "structtfel_1_1math_1_1internals_1_1_make_quantity_value_type_3_01qt_3_01unit_1_1_no_unit_00_01_value_type_01_4_01_4.html", null ],
     [ "tfel::math::internals::MakeViewReference< T >", "structtfel_1_1math_1_1internals_1_1_make_view_reference.html", null ],
     [ "tfel::math::internals::MakeViewReference< Quantity< UnitType, ValueType, OwnershipPolicy > >", "structtfel_1_1math_1_1internals_1_1_make_view_reference_3_01_quantity_3_01_unit_type_00_01_value608ffc369e636736ceaafcbeb12f1dfd.html", null ],
     [ "std::map", null, [
@@ -2784,6 +2793,7 @@ var hierarchy =
     [ "mgis::function::customization_points::MaximumComponent< std::span< const real, N > >", "structmgis_1_1function_1_1customization__points_1_1_maximum_component_3_01std_1_1span_3_01const_01real_00_01_n_01_4_01_4.html", null ],
     [ "mgis::function::customization_points::MaximumComponent< TensorType >", "structmgis_1_1function_1_1customization__points_1_1_maximum_component_3_01_tensor_type_01_4.html", null ],
     [ "mgis::function::customization_points::MaximumComponent< tfel::math::View< const TensorType > >", "structmgis_1_1function_1_1customization__points_1_1_maximum_component_3_01tfel_1_1math_1_1_view_295d5db76c83edbe342d8755fb9a663b.html", null ],
+    [ "mgis::function::internals::MaximumComponentOperator", "structmgis_1_1function_1_1internals_1_1_maximum_component_operator.html", null ],
     [ "tfel::material::MechanicalBehaviourBase", "structtfel_1_1material_1_1_mechanical_behaviour_base.html", [
       [ "tfel::material::MechanicalBehaviour< N, NumType, use_qt >", "structtfel_1_1material_1_1_mechanical_behaviour.html", [
         [ "tfel::material::ThermoMechanicalBehaviour< N, NumType, use_qt >", "classtfel_1_1material_1_1_thermo_mechanical_behaviour.html", null ]
@@ -2828,6 +2838,7 @@ var hierarchy =
     [ "mgis::function::customization_points::MinimumComponent< std::span< const real, N > >", "structmgis_1_1function_1_1customization__points_1_1_minimum_component_3_01std_1_1span_3_01const_01real_00_01_n_01_4_01_4.html", null ],
     [ "mgis::function::customization_points::MinimumComponent< TensorType >", "structmgis_1_1function_1_1customization__points_1_1_minimum_component_3_01_tensor_type_01_4.html", null ],
     [ "mgis::function::customization_points::MinimumComponent< tfel::math::View< const TensorType > >", "structmgis_1_1function_1_1customization__points_1_1_minimum_component_3_01tfel_1_1math_1_1_view_b80741af4806089a2b3b63f445aea5ed.html", null ],
+    [ "mgis::function::internals::MinimumComponentOperator", "structmgis_1_1function_1_1internals_1_1_minimum_component_operator.html", null ],
     [ "Model", null, [
       [ "tfel::math::KrigingModelAdaptator< Model >", "structtfel_1_1math_1_1_kriging_model_adaptator.html", null ]
     ] ],
@@ -2897,7 +2908,7 @@ var hierarchy =
     [ "mgis::function::internals::NumberOfComponents< FunctionOrEvaluatorType >", "structmgis_1_1function_1_1internals_1_1_number_of_components.html", null ],
     [ "mgis::function::internals::NumberOfComponents< EvaluatorType >", "structmgis_1_1function_1_1internals_1_1_number_of_components_3_01_evaluator_type_01_4.html", null ],
     [ "mgis::function::internals::NumberOfComponents< FunctionType >", "structmgis_1_1function_1_1internals_1_1_number_of_components_3_01_function_type_01_4.html", null ],
-    [ "std::numeric_limits< tfel::math::Quantity< UnitType, ValueType, OwnershipPolicy > >", "structstd_1_1numeric__limits_3_01tfel_1_1math_1_1_quantity_3_01_unit_type_00_01_value_type_00_01_ownership_policy_01_4_01_4.html", null ],
+    [ "std::numeric_limits< QuantityType >", "structstd_1_1numeric__limits_3_01_quantity_type_01_4.html", null ],
     [ "tfel::math::GaussKronrodQuadrature::NumericalParameters< real >", "structtfel_1_1math_1_1_gauss_kronrod_quadrature_1_1_numerical_parameters.html", null ],
     [ "tfel::math::ObjectScalarOperation< T1, T2, Op >", "structtfel_1_1math_1_1_object_scalar_operation.html", null ],
     [ "tfel::math::OpAnd< a, b >", "structtfel_1_1math_1_1_op_and.html", null ],
@@ -3084,8 +3095,7 @@ var hierarchy =
     ] ],
     [ "tfel::math::internals::PowerSqrtNeg< N >", "structtfel_1_1math_1_1internals_1_1_power_sqrt_neg.html", null ],
     [ "tfel::math::internals::PowerSqrtPos< N >", "classtfel_1_1math_1_1internals_1_1_power_sqrt_pos.html", null ],
-    [ "tfel::math::internals::PowerUnit< N, D, A >", "structtfel_1_1math_1_1internals_1_1_power_unit.html", null ],
-    [ "tfel::math::internals::PowerUnit< N, D, Unit< std::integral_constant< int, N1 >, std::integral_constant< int, N2 >, std::integral_constant< int, N3 >, std::integral_constant< int, N4 >, std::integral_constant< int, N5 >, std::integral_constant< int, N6 >, std::integral_constant< int, N7 >, std::integral_constant< unsigned int, D1 >, std::integral_constant< unsigned int, D2 >, std::integral_constant< unsigned int, D3 >, std::integral_constant< unsigned int, D4 >, std::integral_constant< unsigned int, D5 >, std::integral_constant< unsigned int, D6 >, std::integral_constant< unsigned int, D7 > > >", "structtfel_1_1math_1_1internals_1_1_power_unit_3_01_n_00_01_d_00_01_unit_3_01std_1_1integral__cocf03ca1ea834c3fa0d060e6a404c9a7a.html", null ],
+    [ "tfel::math::internals::PowerUnit< N, D, UnitType1 >", "structtfel_1_1math_1_1internals_1_1_power_unit.html", null ],
     [ "mgis::PreconditionsCheck< bool >", "structmgis_1_1_preconditions_check.html", null ],
     [ "mgis::PreconditionsChecker< Child >", "structmgis_1_1_preconditions_checker.html", [
       [ "mgis::function::Function< Space, N >", "structmgis_1_1function_1_1_function.html", null ],
@@ -3125,6 +3135,8 @@ var hierarchy =
     [ "cyrano::CyranoBehaviourHandler< H, Behaviour >::PredictionOperatorIsNotAvalaible", "structcyrano_1_1_cyrano_behaviour_handler_1_1_prediction_operator_is_not_avalaible.html", null ],
     [ "mfem_mgis::PredictionPolicy", "structmfem__mgis_1_1_prediction_policy.html", null ],
     [ "tfel::system::ProcessManager", "structtfel_1_1system_1_1_process_manager.html", null ],
+    [ "mgis::ProfilingData", "structmgis_1_1_profiling_data.html", null ],
+    [ "mgis::ProfilingSection", "structmgis_1_1_profiling_section.html", null ],
     [ "tfel::typetraits::Promote< A, B >", "structtfel_1_1typetraits_1_1_promote.html", null ],
     [ "tfel::typetraits::Promote< A, A >", "structtfel_1_1typetraits_1_1_promote_3_01_a_00_01_a_01_4.html", null ],
     [ "tfel::typetraits::Promote< A, tfel::math::Complex< B > >", "structtfel_1_1typetraits_1_1_promote_3_01_a_00_01tfel_1_1math_1_1_complex_3_01_b_01_4_01_4.html", null ],
@@ -3163,8 +3175,8 @@ var hierarchy =
     [ "tfel::math::internals::QuantityValueOwnershipPolicy< ValueType, AllowImplicitConversion >", "structtfel_1_1math_1_1internals_1_1_quantity_value_ownership_policy.html", null ],
     [ "mfront::MFrontDatabase::Query", "structmfront_1_1_m_front_database_1_1_query.html", null ],
     [ "tfel::typetraits::RealPartType< T >", "structtfel_1_1typetraits_1_1_real_part_type.html", null ],
-    [ "tfel::typetraits::RealPartType< const tfel::math::Quantity< UnitType, ValueType, OwnershipPolicy > >", "structtfel_1_1typetraits_1_1_real_part_type_3_01const_01tfel_1_1math_1_1_quantity_3_01_unit_type06bfe17f8b9907e94370130dabd28a13.html", null ],
-    [ "tfel::typetraits::RealPartType< tfel::math::Quantity< UnitType, ValueType, OwnershipPolicy > >", "structtfel_1_1typetraits_1_1_real_part_type_3_01tfel_1_1math_1_1_quantity_3_01_unit_type_00_01_v9b5beb0e49f0989314db31a07b38bc9b.html", null ],
+    [ "tfel::typetraits::RealPartType< const QuantityType >", "structtfel_1_1typetraits_1_1_real_part_type_3_01const_01_quantity_type_01_4.html", null ],
+    [ "tfel::typetraits::RealPartType< QuantityType >", "structtfel_1_1typetraits_1_1_real_part_type_3_01_quantity_type_01_4.html", null ],
     [ "mfront::BehaviourData::Relocation", "structmfront_1_1_behaviour_data_1_1_relocation.html", null ],
     [ "mfem_mgis::AbstractTimeStepValidator::Result", "structmfem__mgis_1_1_abstract_time_step_validator_1_1_result.html", null ],
     [ "tfel::math::ResultOfEvaluation< ObjectType >", "structtfel_1_1math_1_1_result_of_evaluation.html", null ],
@@ -3188,12 +3200,16 @@ var hierarchy =
     [ "tfel::math::ResultType< cadna::numeric_type< T1 >, T2, Op >", "structtfel_1_1math_1_1_result_type_3_01cadna_1_1numeric__type_3_01_t1_01_4_00_01_t2_00_01_op_01_4.html", null ],
     [ "tfel::math::ResultType< fsarray< N, T >, fsarray< N, T2 >, OpMinus >", "classtfel_1_1math_1_1_result_type_3_01fsarray_3_01_n_00_01_t_01_4_00_01fsarray_3_01_n_00_01_t2_01_4_00_01_op_minus_01_4.html", null ],
     [ "tfel::math::ResultType< fsarray< N, T >, fsarray< N, T2 >, OpPlus >", "classtfel_1_1math_1_1_result_type_3_01fsarray_3_01_n_00_01_t_01_4_00_01fsarray_3_01_n_00_01_t2_01_4_00_01_op_plus_01_4.html", null ],
-    [ "tfel::math::ResultType< Quantity< UnitType, ValueType, OwnershipPolicy >, Quantity< UnitType, ValueType2, OwnershipPolicy2 >, OpMinus >", "structtfel_1_1math_1_1_result_type_3_01_quantity_3_01_unit_type_00_01_value_type_00_01_ownership5351a0fa7c5e44e9399482d760dfd419.html", null ],
-    [ "tfel::math::ResultType< Quantity< UnitType, ValueType, OwnershipPolicy >, Quantity< UnitType, ValueType2, OwnershipPolicy2 >, OpPlus >", "structtfel_1_1math_1_1_result_type_3_01_quantity_3_01_unit_type_00_01_value_type_00_01_ownershipa72b6dced6862bfdb76c80f28cc56335.html", null ],
-    [ "tfel::math::ResultType< Quantity< UnitType, ValueType, OwnershipPolicy >, Quantity< UnitType2, ValueType2, OwnershipPolicy2 >, OpDiv >", "structtfel_1_1math_1_1_result_type_3_01_quantity_3_01_unit_type_00_01_value_type_00_01_ownership73d45feb931368ef50f5532812f46f8d.html", null ],
-    [ "tfel::math::ResultType< Quantity< UnitType, ValueType, OwnershipPolicy >, Quantity< UnitType2, ValueType2, OwnershipPolicy2 >, OpMult >", "structtfel_1_1math_1_1_result_type_3_01_quantity_3_01_unit_type_00_01_value_type_00_01_ownership05c8ae73377b5d6ab444cda441ff7b47.html", null ],
+    [ "tfel::math::ResultType< QuantityType, ScalarType, OpDiv >", "structtfel_1_1math_1_1_result_type_3_01_quantity_type_00_01_scalar_type_00_01_op_div_01_4.html", null ],
+    [ "tfel::math::ResultType< QuantityType, ScalarType, OpMinus >", "structtfel_1_1math_1_1_result_type_3_01_quantity_type_00_01_scalar_type_00_01_op_minus_01_4.html", null ],
+    [ "tfel::math::ResultType< QuantityType, ScalarType, OpMult >", "structtfel_1_1math_1_1_result_type_3_01_quantity_type_00_01_scalar_type_00_01_op_mult_01_4.html", null ],
+    [ "tfel::math::ResultType< QuantityType, ScalarType, OpPlus >", "structtfel_1_1math_1_1_result_type_3_01_quantity_type_00_01_scalar_type_00_01_op_plus_01_4.html", null ],
     [ "tfel::math::ResultType< runtime_array< T >, runtime_array< T2 >, OpMinus >", "classtfel_1_1math_1_1_result_type_3_01runtime__array_3_01_t_01_4_00_01runtime__array_3_01_t2_01_4_00_01_op_minus_01_4.html", null ],
     [ "tfel::math::ResultType< runtime_array< T >, runtime_array< T2 >, OpPlus >", "classtfel_1_1math_1_1_result_type_3_01runtime__array_3_01_t_01_4_00_01runtime__array_3_01_t2_01_4_00_01_op_plus_01_4.html", null ],
+    [ "tfel::math::ResultType< ScalarType, QuantityType, OpDiv >", "structtfel_1_1math_1_1_result_type_3_01_scalar_type_00_01_quantity_type_00_01_op_div_01_4.html", null ],
+    [ "tfel::math::ResultType< ScalarType, QuantityType, OpMinus >", "structtfel_1_1math_1_1_result_type_3_01_scalar_type_00_01_quantity_type_00_01_op_minus_01_4.html", null ],
+    [ "tfel::math::ResultType< ScalarType, QuantityType, OpMult >", "structtfel_1_1math_1_1_result_type_3_01_scalar_type_00_01_quantity_type_00_01_op_mult_01_4.html", null ],
+    [ "tfel::math::ResultType< ScalarType, QuantityType, OpPlus >", "structtfel_1_1math_1_1_result_type_3_01_scalar_type_00_01_quantity_type_00_01_op_plus_01_4.html", null ],
     [ "tfel::math::ResultType< st2tost2< N, T >, st2tost2< N, T2 >, OpMinus >", "classtfel_1_1math_1_1_result_type_3_01st2tost2_3_01_n_00_01_t_01_4_00_01st2tost2_3_01_n_00_01_t2_01_4_00_01_op_minus_01_4.html", null ],
     [ "tfel::math::ResultType< st2tost2< N, T >, st2tost2< N, T2 >, OpMult >", "classtfel_1_1math_1_1_result_type_3_01st2tost2_3_01_n_00_01_t_01_4_00_01st2tost2_3_01_n_00_01_t2_01_4_00_01_op_mult_01_4.html", null ],
     [ "tfel::math::ResultType< st2tost2< N, T >, st2tost2< N, T2 >, OpPlus >", "classtfel_1_1math_1_1_result_type_3_01st2tost2_3_01_n_00_01_t_01_4_00_01st2tost2_3_01_n_00_01_t2_01_4_00_01_op_plus_01_4.html", null ],
@@ -3216,6 +3232,10 @@ var hierarchy =
     [ "tfel::math::ResultType< stensor< N, T2 >, tensor< N, T >, OpMinus >", "classtfel_1_1math_1_1_result_type_3_01stensor_3_01_n_00_01_t2_01_4_00_01tensor_3_01_n_00_01_t_01_4_00_01_op_minus_01_4.html", null ],
     [ "tfel::math::ResultType< stensor< N, T2 >, tensor< N, T >, OpPlus >", "classtfel_1_1math_1_1_result_type_3_01stensor_3_01_n_00_01_t2_01_4_00_01tensor_3_01_n_00_01_t_01_4_00_01_op_plus_01_4.html", null ],
     [ "tfel::math::ResultType< T1, cadna::numeric_type< T2 >, Op >", "structtfel_1_1math_1_1_result_type_3_01_t1_00_01cadna_1_1numeric__type_3_01_t2_01_4_00_01_op_01_4.html", null ],
+    [ "tfel::math::ResultType< T1, T2, OpDiv >", "structtfel_1_1math_1_1_result_type_3_01_t1_00_01_t2_00_01_op_div_01_4.html", null ],
+    [ "tfel::math::ResultType< T1, T2, OpMinus >", "structtfel_1_1math_1_1_result_type_3_01_t1_00_01_t2_00_01_op_minus_01_4.html", null ],
+    [ "tfel::math::ResultType< T1, T2, OpMult >", "structtfel_1_1math_1_1_result_type_3_01_t1_00_01_t2_00_01_op_mult_01_4.html", null ],
+    [ "tfel::math::ResultType< T1, T2, OpPlus >", "structtfel_1_1math_1_1_result_type_3_01_t1_00_01_t2_00_01_op_plus_01_4.html", null ],
     [ "tfel::math::ResultType< t2tost2< N, T >, st2tot2< N, T2 >, OpMult >", "classtfel_1_1math_1_1_result_type_3_01t2tost2_3_01_n_00_01_t_01_4_00_01st2tot2_3_01_n_00_01_t2_01_4_00_01_op_mult_01_4.html", null ],
     [ "tfel::math::ResultType< t2tost2< N, T >, t2tost2< N, T2 >, OpMinus >", "classtfel_1_1math_1_1_result_type_3_01t2tost2_3_01_n_00_01_t_01_4_00_01t2tost2_3_01_n_00_01_t2_01_4_00_01_op_minus_01_4.html", null ],
     [ "tfel::math::ResultType< t2tost2< N, T >, t2tost2< N, T2 >, OpPlus >", "classtfel_1_1math_1_1_result_type_3_01t2tost2_3_01_n_00_01_t_01_4_00_01t2tost2_3_01_n_00_01_t2_01_4_00_01_op_plus_01_4.html", null ],
@@ -3718,9 +3738,7 @@ var hierarchy =
       ] ]
     ] ],
     [ "mtest::StudyCurrentState", "structmtest_1_1_study_current_state.html", null ],
-    [ "tfel::math::internals::SubstractUnit< A, B >", "structtfel_1_1math_1_1internals_1_1_substract_unit.html", null ],
-    [ "tfel::math::internals::SubstractUnit< Unit< std::integral_constant< int, N1 >, std::integral_constant< int, N2 >, std::integral_constant< int, N3 >, std::integral_constant< int, N4 >, std::integral_constant< int, N5 >, std::integral_constant< int, N6 >, std::integral_constant< int, N7 >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u > >, Unit< std::integral_constant< int, O1 >, std::integral_constant< int, O2 >, std::integral_constant< int, O3 >, std::integral_constant< int, O4 >, std::integral_constant< int, O5 >, std::integral_constant< int, O6 >, std::integral_constant< int, O7 >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u >, std::integral_constant< unsigned int, 1u > > >", "structtfel_1_1math_1_1internals_1_1_substract_unit_3_01_unit_3_01std_1_1integral__constant_3_01i23443c3c87c84051bc526a4b4737a44b.html", null ],
-    [ "tfel::math::internals::SubstractUnit< Unit< std::integral_constant< int, N1 >, std::integral_constant< int, N2 >, std::integral_constant< int, N3 >, std::integral_constant< int, N4 >, std::integral_constant< int, N5 >, std::integral_constant< int, N6 >, std::integral_constant< int, N7 >, std::integral_constant< unsigned int, D1 >, std::integral_constant< unsigned int, D2 >, std::integral_constant< unsigned int, D3 >, std::integral_constant< unsigned int, D4 >, std::integral_constant< unsigned int, D5 >, std::integral_constant< unsigned int, D6 >, std::integral_constant< unsigned int, D7 > >, Unit< std::integral_constant< int, O1 >, std::integral_constant< int, O2 >, std::integral_constant< int, O3 >, std::integral_constant< int, O4 >, std::integral_constant< int, O5 >, std::integral_constant< int, O6 >, std::integral_constant< int, O7 >, std::integral_constant< unsigned int, AP1 >, std::integral_constant< unsigned int, AP2 >, std::integral_constant< unsigned int, AP3 >, std::integral_constant< unsigned int, AP4 >, std::integral_constant< unsigned int, AP5 >, std::integral_constant< unsigned int, AP6 >, std::integral_constant< unsigned int, AP7 > > >", "structtfel_1_1math_1_1internals_1_1_substract_unit_3_01_unit_3_01std_1_1integral__constant_3_01ibae819fde495b5554f73bedc97efa35b.html", null ],
+    [ "tfel::math::internals::SubtractUnit< UnitType1, UnitType2 >", "structtfel_1_1math_1_1internals_1_1_subtract_unit.html", null ],
     [ "mfront::SupportedTypes", "structmfront_1_1_supported_types.html", [
       [ "mfront::BehaviourDSLCommon", "structmfront_1_1_behaviour_d_s_l_common.html", null ],
       [ "mfront::BehaviourData", "structmfront_1_1_behaviour_data.html", null ],
@@ -4068,11 +4086,9 @@ var hierarchy =
       [ "mgis::function::internals::IsTensor< tfel::math::tensor< N, real > >", "structmgis_1_1function_1_1internals_1_1_is_tensor_3_01tfel_1_1math_1_1tensor_3_01_n_00_01real_01_4_01_4.html", null ],
       [ "mgis::function::internals::IsTensor< tfel::math::tmatrix< N, M, real > >", "structmgis_1_1function_1_1internals_1_1_is_tensor_3_01tfel_1_1math_1_1tmatrix_3_01_n_00_01_m_00_01real_01_4_01_4.html", null ],
       [ "mgis::function::internals::IsTensor< tfel::math::tvector< N, real > >", "structmgis_1_1function_1_1internals_1_1_is_tensor_3_01tfel_1_1math_1_1tvector_3_01_n_00_01real_01_4_01_4.html", null ],
-      [ "tfel::math::internal::UnitConceptImplementation< Unit< std::integral_constant< int, N1 >, std::integral_constant< int, N2 >, std::integral_constant< int, N3 >, std::integral_constant< int, N4 >, std::integral_constant< int, N5 >, std::integral_constant< int, N6 >, std::integral_constant< int, N7 >, std::integral_constant< unsigned int, D1 >, std::integral_constant< unsigned int, D2 >, std::integral_constant< unsigned int, D3 >, std::integral_constant< unsigned int, D4 >, std::integral_constant< unsigned int, D5 >, std::integral_constant< unsigned int, D6 >, std::integral_constant< unsigned int, D7 > > >", "structtfel_1_1math_1_1internal_1_1_unit_concept_implementation_3_01_unit_3_01std_1_1integral__co6b985afcf3d7c717feb87ca5c848a021.html", null ],
       [ "tfel::math::internals::ExpressionTest< Expr< ResultType, Operation > >", "structtfel_1_1math_1_1internals_1_1_expression_test_3_01_expr_3_01_result_type_00_01_operation_01_4_01_4.html", null ],
       [ "tfel::math::internals::HasConceptTag< T, std::void_t< typename T::ConceptTag > >", "structtfel_1_1math_1_1internals_1_1_has_concept_tag_3_01_t_00_01std_1_1void__t_3_01typename_01_t_1_1_concept_tag_01_4_01_4.html", null ],
       [ "tfel::math::internals::HasIndexingPolicyTraits< T, std::void_t< typename T::indexing_policy > >", "structtfel_1_1math_1_1internals_1_1_has_indexing_policy_traits_3_01_t_00_01std_1_1void__t_3_01tya780bbb1c3ba45843bb44c873f7fbb6d.html", null ],
-      [ "tfel::math::internals::IsQuantity< Quantity< UnitType, ValueType, OwnershipPolicy > >", "structtfel_1_1math_1_1internals_1_1_is_quantity_3_01_quantity_3_01_unit_type_00_01_value_type_00_01_ownership_policy_01_4_01_4.html", null ],
       [ "tfel::meta::HasConstIterator< T, std::void_t< typename T::const_iterator > >", "structtfel_1_1meta_1_1_has_const_iterator_3_01_t_00_01std_1_1void__t_3_01typename_01_t_1_1const__iterator_01_4_01_4.html", null ],
       [ "tfel::meta::HasIterator< T, std::void_t< typename T::iterator > >", "structtfel_1_1meta_1_1_has_iterator_3_01_t_00_01std_1_1void__t_3_01typename_01_t_1_1iterator_01_4_01_4.html", null ]
     ] ],
@@ -4104,15 +4120,6 @@ var hierarchy =
     ] ],
     [ "ConceptRebind::type", null, [
       [ "tfel::math::CoalescedViewBase< MappedType, IndexingPolicyType, CoalescedAccessPolicy >", "structtfel_1_1math_1_1_coalesced_view_base.html", null ]
-    ] ],
-    [ "std::conditional::type", null, [
-      [ "tfel::system::BinaryReader< T >", "structtfel_1_1system_1_1_binary_reader.html", null ]
-    ] ],
-    [ "std::conditional::type", null, [
-      [ "tfel::system::BinaryWriter< T >", "structtfel_1_1system_1_1_binary_writer.html", null ]
-    ] ],
-    [ "std::conditional::type", null, [
-      [ "tfel::math::Cste< T >", "structtfel_1_1math_1_1_cste.html", null ]
     ] ],
     [ "tfel::utilities::internals::StdVariantFromTypeList< List, Types >::type", null, [
       [ "tfel::utilities::GenTypeBase< BehaviourType >", "structtfel_1_1utilities_1_1_gen_type_base.html", null ]
@@ -4209,8 +4216,103 @@ var hierarchy =
     ] ],
     [ "mfem_mgis::unit_tests::UniaxialTestResults", "structmfem__mgis_1_1unit__tests_1_1_uniaxial_test_results.html", null ],
     [ "tfel::unicode::UnicodeCharacterDescription", "structtfel_1_1unicode_1_1_unicode_character_description.html", null ],
-    [ "tfel::math::Unit< N1, N2, N3, N4, N5, N6, N7, D1, D2, D3, D4, D5, D6, D7 >", "structtfel_1_1math_1_1_unit.html", null ],
-    [ "tfel::math::Unit< std::integral_constant< int, N1 >, std::integral_constant< int, N2 >, std::integral_constant< int, N3 >, std::integral_constant< int, N4 >, std::integral_constant< int, N5 >, std::integral_constant< int, N6 >, std::integral_constant< int, N7 >, std::integral_constant< unsigned int, D1 >, std::integral_constant< unsigned int, D2 >, std::integral_constant< unsigned int, D3 >, std::integral_constant< unsigned int, D4 >, std::integral_constant< unsigned int, D5 >, std::integral_constant< unsigned int, D6 >, std::integral_constant< unsigned int, D7 > >", "structtfel_1_1math_1_1_unit_3_01std_1_1integral__constant_3_01int_00_01_n1_01_4_00_01std_1_1inte22245c37637fc2ae3e1f4d95f396757e.html", null ],
+    [ "tfel::math::UnitBase< e >", "structtfel_1_1math_1_1_unit_base.html", [
+      [ "tfel::math::Unit< 0, 0, 0, 0, 0, 0, 0 >", "structtfel_1_1math_1_1_unit.html", null ],
+      [ "tfel::math::Unit< N1, N2, N3, N4, N5, N6, N7, D1, D2, D3, D4, D5, D6, D7 >", "structtfel_1_1math_1_1_unit.html", [
+        [ "tfel::math::StandardUnit< 0, 1, -2, 0, 0, 0, 0 >", "structtfel_1_1math_1_1_standard_unit.html", [
+          [ "tfel::math::unit::Acceleration", "structtfel_1_1math_1_1unit_1_1_acceleration.html", null ]
+        ] ],
+        [ "tfel::math::StandardUnit< 0, 0, 0, 1, 0, 0, 0 >", "structtfel_1_1math_1_1_standard_unit.html", [
+          [ "tfel::math::unit::Ampere", "structtfel_1_1math_1_1unit_1_1_ampere.html", null ]
+        ] ],
+        [ "tfel::math::StandardUnit< 0, 0, 0, 0, 0, 1, 0 >", "structtfel_1_1math_1_1_standard_unit.html", [
+          [ "tfel::math::unit::Candela", "structtfel_1_1math_1_1unit_1_1_candela.html", null ]
+        ] ],
+        [ "tfel::math::StandardUnit< 1, -3, 0, 0, 0, 0, 0 >", "structtfel_1_1math_1_1_standard_unit.html", [
+          [ "tfel::math::unit::Density", "structtfel_1_1math_1_1unit_1_1_density.html", null ]
+        ] ],
+        [ "tfel::math::StandardUnit< 1, 2, -2, 0, 0, 0, 0 >", "structtfel_1_1math_1_1_standard_unit.html", [
+          [ "tfel::math::unit::Energy", "structtfel_1_1math_1_1unit_1_1_energy.html", null ]
+        ] ],
+        [ "tfel::math::StandardUnit< 1, 1, -2, 0, 0, 0, 0 >", "structtfel_1_1math_1_1_standard_unit.html", [
+          [ "tfel::math::unit::Force", "structtfel_1_1math_1_1unit_1_1_force.html", null ]
+        ] ],
+        [ "tfel::math::StandardUnit< 0, 0, -1, 0, 0, 0, 0 >", "structtfel_1_1math_1_1_standard_unit.html", [
+          [ "tfel::math::unit::Frequency", "structtfel_1_1math_1_1unit_1_1_frequency.html", null ]
+        ] ],
+        [ "tfel::math::StandardUnit< 1, 0, -3, 0, 0, 0, 0 >", "structtfel_1_1math_1_1_standard_unit.html", [
+          [ "tfel::math::unit::HeatFluxDensity", "structtfel_1_1math_1_1unit_1_1_heat_flux_density.html", null ]
+        ] ],
+        [ "tfel::math::StandardUnit< 0, -1, 0, 0, 0, 0, 0 >", "structtfel_1_1math_1_1_standard_unit.html", [
+          [ "tfel::math::unit::InvLength", "structtfel_1_1math_1_1unit_1_1_inv_length.html", null ]
+        ] ],
+        [ "tfel::math::StandardUnit< 0, 0, 0, 0, -1, 0, 0 >", "structtfel_1_1math_1_1_standard_unit.html", [
+          [ "tfel::math::unit::InvTemperature", "structtfel_1_1math_1_1unit_1_1_inv_temperature.html", null ]
+        ] ],
+        [ "tfel::math::StandardUnit< 0, 1, 0, 0, 0, 0, 0 >", "structtfel_1_1math_1_1_standard_unit.html", [
+          [ "tfel::math::unit::Length", "structtfel_1_1math_1_1unit_1_1_length.html", null ]
+        ] ],
+        [ "tfel::math::StandardUnit< 1, 0, 0, 0, 0, 0, 0 >", "structtfel_1_1math_1_1_standard_unit.html", [
+          [ "tfel::math::unit::Mass", "structtfel_1_1math_1_1unit_1_1_mass.html", null ]
+        ] ],
+        [ "tfel::math::StandardUnit< 0, 0, 0, 0, 0, 0, 1 >", "structtfel_1_1math_1_1_standard_unit.html", [
+          [ "tfel::math::unit::Mole", "structtfel_1_1math_1_1unit_1_1_mole.html", null ]
+        ] ],
+        [ "tfel::math::StandardUnit< 1, 1, -1, 0, 0, 0, 0 >", "structtfel_1_1math_1_1_standard_unit.html", [
+          [ "tfel::math::unit::Momentum", "structtfel_1_1math_1_1unit_1_1_momentum.html", null ]
+        ] ],
+        [ "tfel::math::StandardUnit< 0, 1, -1, 0, 0, 0, 0 >", "structtfel_1_1math_1_1_standard_unit.html", [
+          [ "tfel::math::unit::Speed", "structtfel_1_1math_1_1unit_1_1_speed.html", null ]
+        ] ],
+        [ "tfel::math::StandardUnit< 1, -1, -2, 0, 0, 0, 0 >", "structtfel_1_1math_1_1_standard_unit.html", [
+          [ "tfel::math::unit::Stress", "structtfel_1_1math_1_1unit_1_1_stress.html", null ]
+        ] ],
+        [ "tfel::math::StandardUnit< 1, -1, -3, 0, 0, 0, 0 >", "structtfel_1_1math_1_1_standard_unit.html", [
+          [ "tfel::math::unit::StressRate", "structtfel_1_1math_1_1unit_1_1_stress_rate.html", null ]
+        ] ],
+        [ "tfel::math::StandardUnit< 0, 0, 0, 0, 1, 0, 0 >", "structtfel_1_1math_1_1_standard_unit.html", [
+          [ "tfel::math::unit::Temperature", "structtfel_1_1math_1_1unit_1_1_temperature.html", null ]
+        ] ],
+        [ "tfel::math::StandardUnit< 0, -1, 0, 0, 1, 0, 0 >", "structtfel_1_1math_1_1_standard_unit.html", [
+          [ "tfel::math::unit::TemperatureGradient", "structtfel_1_1math_1_1unit_1_1_temperature_gradient.html", null ]
+        ] ],
+        [ "tfel::math::StandardUnit< 1, 1, -3, 0, -1, 0, 0 >", "structtfel_1_1math_1_1_standard_unit.html", [
+          [ "tfel::math::unit::ThermalConductivity", "structtfel_1_1math_1_1unit_1_1_thermal_conductivity.html", null ]
+        ] ],
+        [ "tfel::math::StandardUnit< 0, 0, 1, 0, 0, 0, 0 >", "structtfel_1_1math_1_1_standard_unit.html", [
+          [ "tfel::math::unit::Time", "structtfel_1_1math_1_1unit_1_1_time.html", null ]
+        ] ],
+        [ "tfel::math::StandardUnit< N1, N2, N3, N4, N5, N6, N7 >", "structtfel_1_1math_1_1_standard_unit.html", [
+          [ "tfel::math::unit::NoUnit", "structtfel_1_1math_1_1unit_1_1_no_unit.html", null ]
+        ] ]
+      ] ]
+    ] ],
+    [ "tfel::math::UnitBase< makeUnitExponents< N1, N2, N3, N4, N5, N6, N7, 1, 1, 1, 1, 1, 1, 1 >()>", "structtfel_1_1math_1_1_unit_base.html", null ],
+    [ "tfel::math::UnitExponent", "structtfel_1_1math_1_1_unit_exponent.html", null ],
+    [ "tfel::math::UnitExponents", "structtfel_1_1math_1_1_unit_exponents.html", null ],
+    [ "tfel::math::unit::UnitRebind< e >", "structtfel_1_1math_1_1unit_1_1_unit_rebind.html", null ],
+    [ "tfel::math::unit::UnitRebind< exponents< Acceleration > >", "structtfel_1_1math_1_1unit_1_1_unit_rebind_3_01exponents_3_01_acceleration_01_4_01_4.html", null ],
+    [ "tfel::math::unit::UnitRebind< exponents< Ampere > >", "structtfel_1_1math_1_1unit_1_1_unit_rebind_3_01exponents_3_01_ampere_01_4_01_4.html", null ],
+    [ "tfel::math::unit::UnitRebind< exponents< Candela > >", "structtfel_1_1math_1_1unit_1_1_unit_rebind_3_01exponents_3_01_candela_01_4_01_4.html", null ],
+    [ "tfel::math::unit::UnitRebind< exponents< Density > >", "structtfel_1_1math_1_1unit_1_1_unit_rebind_3_01exponents_3_01_density_01_4_01_4.html", null ],
+    [ "tfel::math::unit::UnitRebind< exponents< Energy > >", "structtfel_1_1math_1_1unit_1_1_unit_rebind_3_01exponents_3_01_energy_01_4_01_4.html", null ],
+    [ "tfel::math::unit::UnitRebind< exponents< Force > >", "structtfel_1_1math_1_1unit_1_1_unit_rebind_3_01exponents_3_01_force_01_4_01_4.html", null ],
+    [ "tfel::math::unit::UnitRebind< exponents< Frequency > >", "structtfel_1_1math_1_1unit_1_1_unit_rebind_3_01exponents_3_01_frequency_01_4_01_4.html", null ],
+    [ "tfel::math::unit::UnitRebind< exponents< HeatFluxDensity > >", "structtfel_1_1math_1_1unit_1_1_unit_rebind_3_01exponents_3_01_heat_flux_density_01_4_01_4.html", null ],
+    [ "tfel::math::unit::UnitRebind< exponents< InvLength > >", "structtfel_1_1math_1_1unit_1_1_unit_rebind_3_01exponents_3_01_inv_length_01_4_01_4.html", null ],
+    [ "tfel::math::unit::UnitRebind< exponents< InvTemperature > >", "structtfel_1_1math_1_1unit_1_1_unit_rebind_3_01exponents_3_01_inv_temperature_01_4_01_4.html", null ],
+    [ "tfel::math::unit::UnitRebind< exponents< Length > >", "structtfel_1_1math_1_1unit_1_1_unit_rebind_3_01exponents_3_01_length_01_4_01_4.html", null ],
+    [ "tfel::math::unit::UnitRebind< exponents< Mass > >", "structtfel_1_1math_1_1unit_1_1_unit_rebind_3_01exponents_3_01_mass_01_4_01_4.html", null ],
+    [ "tfel::math::unit::UnitRebind< exponents< Mole > >", "structtfel_1_1math_1_1unit_1_1_unit_rebind_3_01exponents_3_01_mole_01_4_01_4.html", null ],
+    [ "tfel::math::unit::UnitRebind< exponents< Momentum > >", "structtfel_1_1math_1_1unit_1_1_unit_rebind_3_01exponents_3_01_momentum_01_4_01_4.html", null ],
+    [ "tfel::math::unit::UnitRebind< exponents< NoUnit > >", "structtfel_1_1math_1_1unit_1_1_unit_rebind_3_01exponents_3_01_no_unit_01_4_01_4.html", null ],
+    [ "tfel::math::unit::UnitRebind< exponents< Speed > >", "structtfel_1_1math_1_1unit_1_1_unit_rebind_3_01exponents_3_01_speed_01_4_01_4.html", null ],
+    [ "tfel::math::unit::UnitRebind< exponents< Stress > >", "structtfel_1_1math_1_1unit_1_1_unit_rebind_3_01exponents_3_01_stress_01_4_01_4.html", null ],
+    [ "tfel::math::unit::UnitRebind< exponents< StressRate > >", "structtfel_1_1math_1_1unit_1_1_unit_rebind_3_01exponents_3_01_stress_rate_01_4_01_4.html", null ],
+    [ "tfel::math::unit::UnitRebind< exponents< Temperature > >", "structtfel_1_1math_1_1unit_1_1_unit_rebind_3_01exponents_3_01_temperature_01_4_01_4.html", null ],
+    [ "tfel::math::unit::UnitRebind< exponents< TemperatureGradient > >", "structtfel_1_1math_1_1unit_1_1_unit_rebind_3_01exponents_3_01_temperature_gradient_01_4_01_4.html", null ],
+    [ "tfel::math::unit::UnitRebind< exponents< ThermalConductivity > >", "structtfel_1_1math_1_1unit_1_1_unit_rebind_3_01exponents_3_01_thermal_conductivity_01_4_01_4.html", null ],
+    [ "tfel::math::unit::UnitRebind< exponents< Time > >", "structtfel_1_1math_1_1unit_1_1_unit_rebind_3_01exponents_3_01_time_01_4_01_4.html", null ],
     [ "mgis::attributes::UnsafeAttribute", "structmgis_1_1attributes_1_1_unsafe_attribute.html", null ],
     [ "mtest::UserDefinedPostProcessing", "structmtest_1_1_user_defined_post_processing.html", null ],
     [ "mtest::MTest::UTest", "structmtest_1_1_m_test_1_1_u_test.html", null ],
@@ -4306,6 +4408,7 @@ var hierarchy =
     [ "tfel::math::internals::ViewsArrayDefaultViewIndexingPolicy< is_scalar, MappedType >", "structtfel_1_1math_1_1internals_1_1_views_array_default_view_indexing_policy.html", null ],
     [ "tfel::math::internals::ViewsArrayDefaultViewIndexingPolicy< true, MappedType >", "structtfel_1_1math_1_1internals_1_1_views_array_default_view_indexing_policy_3_01true_00_01_mapped_type_01_4.html", null ],
     [ "mfront::BehaviourData::VolumeSwellingStressFreeExpansion", "structmfront_1_1_behaviour_data_1_1_volume_swelling_stress_free_expansion.html", null ],
+    [ "mgis::function::internals::VonMisesStressOperator", "structmgis_1_1function_1_1internals_1_1_von_mises_stress_operator.html", null ],
     [ "mfront::DSLBase::WordAnalyser", "structmfront_1_1_d_s_l_base_1_1_word_analyser.html", [
       [ "mfront::BehaviourDSLCommon::StandardWordAnalyser", "structmfront_1_1_behaviour_d_s_l_common_1_1_standard_word_analyser.html", null ]
     ] ],

@@ -142,13 +142,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0d1c8f34b05f2c50511237739c425c12" id="r_a0d1c8f34b05f2c50511237739c425c12"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_solver_options_8hxx.html#af03819f6751327d35c6ce6b4e847f4d8">StiffnessMatrixType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmtest_1_1_calculi_x_standard_behaviour.html#a0d1c8f34b05f2c50511237739c425c12">getDefaultStiffnessMatrixType</a> () const override</td></tr>
 <tr class="separator:a0d1c8f34b05f2c50511237739c425c12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d9186277b5c2451ab21413e91f48846" id="r_a5d9186277b5c2451ab21413e91f48846"><td class="memItemLeft" align="right" valign="top">std::pair&lt; bool, real &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmtest_1_1_calculi_x_standard_behaviour.html#a5d9186277b5c2451ab21413e91f48846">computePredictionOperator</a> (<a class="el" href="structmtest_1_1_behaviour_work_space.html">BehaviourWorkSpace</a> &amp;, const <a class="el" href="structmtest_1_1_current_state.html">CurrentState</a> &amp;, const <a class="el" href="_solver_options_8hxx.html#af03819f6751327d35c6ce6b4e847f4d8">StiffnessMatrixType</a>) const override</td></tr>
-<tr class="memdesc:a5d9186277b5c2451ab21413e91f48846"><td class="mdescLeft">&#160;</td><td class="mdescRight">integrate the mechanical behaviour over the time step  <br /></td></tr>
+<tr class="memdesc:a5d9186277b5c2451ab21413e91f48846"><td class="mdescLeft">&#160;</td><td class="mdescRight">compute the prediction operator at the beginning of the time step.  <br /></td></tr>
 <tr class="separator:a5d9186277b5c2451ab21413e91f48846"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3aa568e16c643412c0dd3daac6abcdc9" id="r_a3aa568e16c643412c0dd3daac6abcdc9"><td class="memItemLeft" align="right" valign="top">std::pair&lt; bool, real &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmtest_1_1_calculi_x_standard_behaviour.html#a3aa568e16c643412c0dd3daac6abcdc9">integrate</a> (<a class="el" href="structmtest_1_1_current_state.html">CurrentState</a> &amp;, <a class="el" href="structmtest_1_1_behaviour_work_space.html">BehaviourWorkSpace</a> &amp;, const real, const <a class="el" href="_solver_options_8hxx.html#af03819f6751327d35c6ce6b4e847f4d8">StiffnessMatrixType</a>) const override</td></tr>
 <tr class="memdesc:a3aa568e16c643412c0dd3daac6abcdc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">integrate the mechanical behaviour over the time step  <br /></td></tr>
 <tr class="separator:a3aa568e16c643412c0dd3daac6abcdc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7837020ed4c8da6395b3fe6ecd21bd03" id="r_a7837020ed4c8da6395b3fe6ecd21bd03"><td class="memItemLeft" align="right" valign="top"><a class="el" href="spack_2opt_2spack_2linux-zen2_2tfel-master-me6xjku4m4xxjr3awglstcdnsqufet5w_2include_2_cyrano_2_behaviour_8hxx.html#a04a02917f85c2196f18aa1b3c89504bd">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmtest_1_1_calculi_x_standard_behaviour.html#a7837020ed4c8da6395b3fe6ecd21bd03">allocateWorkSpace</a> (<a class="el" href="structmtest_1_1_behaviour_work_space.html">BehaviourWorkSpace</a> &amp;) const override</td></tr>
-<tr class="memdesc:a7837020ed4c8da6395b3fe6ecd21bd03"><td class="mdescLeft">&#160;</td><td class="mdescRight">allocate internal workspace  <br /></td></tr>
+<tr class="memdesc:a7837020ed4c8da6395b3fe6ecd21bd03"><td class="mdescLeft">&#160;</td><td class="mdescRight">allocate workspace  <br /></td></tr>
 <tr class="separator:a7837020ed4c8da6395b3fe6ecd21bd03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c7c21b22a2417e0770726c241df4550" id="r_a2c7c21b22a2417e0770726c241df4550"><td class="memItemLeft" align="right" valign="top"><a id="a2c7c21b22a2417e0770726c241df4550" name="a2c7c21b22a2417e0770726c241df4550"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>~CalculiXStandardBehaviour</b> () override</td></tr>
@@ -670,7 +670,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>description</b
 </table>
 </div><div class="memdoc">
 
-<p>allocate internal workspace </p>
+<p>allocate workspace </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">wk</td><td>: behaviour workspace </td></tr>
@@ -754,7 +754,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>description</b
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="structmtest_1_1_calculi_x_finite_strain_behaviour.html#aa1ef1f40e3003926180561c4611f4caf">mtest::CalculiXFiniteStrainBehaviour</a>, and <a class="el" href="structmtest_1_1_calculi_x_small_strain_behaviour.html#af72a643a589deef6be4a19c02eacfe18">mtest::CalculiXSmallStrainBehaviour</a>.</p>
+<p>Implemented in <a class="el" href="structmtest_1_1_calculi_x_finite_strain_behaviour.html#aa1ef1f40e3003926180561c4611f4caf">mtest::CalculiXFiniteStrainBehaviour</a>, and <a class="el" href="structmtest_1_1_calculi_x_small_strain_behaviour.html#a5eac0a8f2d0a37942a7b16d6e1bef8b0">mtest::CalculiXSmallStrainBehaviour</a>.</p>
 
 </div>
 </div>
@@ -798,7 +798,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>description</b
 </table>
 </div><div class="memdoc">
 
-<p>integrate the mechanical behaviour over the time step </p>
+<p>compute the prediction operator at the beginning of the time step. </p>
 <dl class="section return"><dt>Returns</dt><dd>a pair. The first member is true if the integration was successfull, false otherwise. The second member contains a time step scaling factor. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -974,7 +974,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>description</b
 <dl class="section return"><dt>Returns</dt><dd>a pair. The first member is true if the integration was successfull, false otherwise. The second member contains a time step scaling factor. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">s</td><td>: current state </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">[out/in]</td><td>s : current state </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">wk</td><td>: behaviour workspace </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">dt</td><td>: time increment </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">ktype</td><td>: type of the stiffness matrix </td></tr>
@@ -995,7 +995,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>description</b
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>mtest</b></li><li class="navelem"><a class="el" href="structmtest_1_1_calculi_x_standard_behaviour.html">CalculiXStandardBehaviour</a></li>
-    <li class="footer">Generated on Tue Jul 28 2026 14:50:39 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Mon Aug 3 2026 12:34:25 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

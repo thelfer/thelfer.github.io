@@ -1,13 +1,5 @@
 var NAVTREEINDEX35 =
 {
-"structmfront_1_1_implicit_c_z_m_d_s_l.html#abbf4f664ed8854500117811df8ef1d15":[5,0,11,57,0],
-"structmfront_1_1_implicit_code_generator_base.html":[5,0,11,56],
-"structmfront_1_1_implicit_code_generator_base.html#a0ccf88acd88445bd39a0c76837043f71":[5,0,11,56,8],
-"structmfront_1_1_implicit_code_generator_base.html#a0e6067b31501f2fcca38117ce296557b":[5,0,11,56,7],
-"structmfront_1_1_implicit_code_generator_base.html#a13f40a51889217a2dc166944338d7c95":[5,0,11,56,6],
-"structmfront_1_1_implicit_code_generator_base.html#a2b6f6296e1059b2f853721f274893f03":[5,0,11,56,3],
-"structmfront_1_1_implicit_code_generator_base.html#a32775990d05e8730d07f299a198ec80b":[5,0,11,56,10],
-"structmfront_1_1_implicit_code_generator_base.html#a7bc5b76b0f37ce77e0502195bca40b1c":[5,0,11,56,5],
 "structmfront_1_1_implicit_code_generator_base.html#a7ef21daaab20bdca5a7629060fbda161":[5,0,11,56,9],
 "structmfront_1_1_implicit_code_generator_base.html#a85a01be33ee767ed4d22ded514acf128":[5,0,11,56,1],
 "structmfront_1_1_implicit_code_generator_base.html#aa7f73636d120e1b5f4462a150a815367":[5,0,11,56,2],
@@ -249,5 +241,13 @@ var NAVTREEINDEX35 =
 "structmfront_1_1_m_front_lock.html":[5,0,11,82],
 "structmfront_1_1_m_front_lock_guard.html":[5,0,11,83],
 "structmfront_1_1_m_front_lock_guard.html#a45ec703c371d922ca5378f1cac0cd1e5":[5,0,11,83,0],
-"structmfront_1_1_m_front_lock_guard.html#a5486fd649fee4341687f6c35ec35f430":[5,0,11,83,1]
+"structmfront_1_1_m_front_lock_guard.html#a5486fd649fee4341687f6c35ec35f430":[5,0,11,83,1],
+"structmfront_1_1_m_front_template_generation_options.html":[5,0,11,84],
+"structmfront_1_1_m_front_template_generation_options.html#add2aed1458364040d57366659d1fbc19":[5,0,11,84,1],
+"structmfront_1_1_m_front_template_generation_options.html#af34c70c1e811579fe834cc7ab73bd7df":[5,0,11,84,0],
+"structmfront_1_1_m_test_file_generator_base.html":[5,0,11,92],
+"structmfront_1_1_m_test_file_generator_base.html#a066831a9371334847f3ce081a76c25fc":[5,0,11,92,19],
+"structmfront_1_1_m_test_file_generator_base.html#a078303abebdfd0a94e1f7a0eb54bbe6a":[5,0,11,92,29],
+"structmfront_1_1_m_test_file_generator_base.html#a0e9381736bfa421eaaa4dbaefceeae42":[5,0,11,92,3],
+"structmfront_1_1_m_test_file_generator_base.html#a116e5dca16af1fbd71180526b0079467":[5,0,11,92,38]
 };

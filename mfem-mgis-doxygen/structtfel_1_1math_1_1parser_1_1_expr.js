@@ -1,5 +1,6 @@
 var structtfel_1_1math_1_1parser_1_1_expr =
 [
+    [ "~Expr", "structtfel_1_1math_1_1parser_1_1_expr.html#add2f357b09981a89707440f561b9e432", null ],
     [ "checkCyclicDependency", "structtfel_1_1math_1_1parser_1_1_expr.html#a7d324a8f76e24b4ca21361ba07c796fe", null ],
     [ "dependsOnVariable", "structtfel_1_1math_1_1parser_1_1_expr.html#a2c21319fe3f7cb112a991811f9c43b7a", null ],
     [ "getCxxFormula", "structtfel_1_1math_1_1parser_1_1_expr.html#a021d64c525fb9bb9e6a14cd1b9a75b51", null ],

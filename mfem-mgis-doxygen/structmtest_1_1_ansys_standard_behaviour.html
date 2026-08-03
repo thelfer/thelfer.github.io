@@ -151,13 +151,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:adf3b65ec856b978019727e566034e354" id="r_adf3b65ec856b978019727e566034e354"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_solver_options_8hxx.html#af03819f6751327d35c6ce6b4e847f4d8">StiffnessMatrixType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmtest_1_1_ansys_standard_behaviour.html#adf3b65ec856b978019727e566034e354">getDefaultStiffnessMatrixType</a> () const override</td></tr>
 <tr class="separator:adf3b65ec856b978019727e566034e354"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af522af9ecb5fe348d2b3cda279930aa3" id="r_af522af9ecb5fe348d2b3cda279930aa3"><td class="memItemLeft" align="right" valign="top">std::pair&lt; bool, real &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmtest_1_1_ansys_standard_behaviour.html#af522af9ecb5fe348d2b3cda279930aa3">computePredictionOperator</a> (<a class="el" href="structmtest_1_1_behaviour_work_space.html">BehaviourWorkSpace</a> &amp;, const <a class="el" href="structmtest_1_1_current_state.html">CurrentState</a> &amp;, const <a class="el" href="_solver_options_8hxx.html#af03819f6751327d35c6ce6b4e847f4d8">StiffnessMatrixType</a>) const override</td></tr>
-<tr class="memdesc:af522af9ecb5fe348d2b3cda279930aa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">integrate the mechanical behaviour over the time step  <br /></td></tr>
+<tr class="memdesc:af522af9ecb5fe348d2b3cda279930aa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">compute the prediction operator at the beginning of the time step.  <br /></td></tr>
 <tr class="separator:af522af9ecb5fe348d2b3cda279930aa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a254cf0e57e02d28891aebfb50fbbb018" id="r_a254cf0e57e02d28891aebfb50fbbb018"><td class="memItemLeft" align="right" valign="top">std::pair&lt; bool, real &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmtest_1_1_ansys_standard_behaviour.html#a254cf0e57e02d28891aebfb50fbbb018">integrate</a> (<a class="el" href="structmtest_1_1_current_state.html">CurrentState</a> &amp;, <a class="el" href="structmtest_1_1_behaviour_work_space.html">BehaviourWorkSpace</a> &amp;, const real, const <a class="el" href="_solver_options_8hxx.html#af03819f6751327d35c6ce6b4e847f4d8">StiffnessMatrixType</a>) const override</td></tr>
 <tr class="memdesc:a254cf0e57e02d28891aebfb50fbbb018"><td class="mdescLeft">&#160;</td><td class="mdescRight">integrate the mechanical behaviour over the time step  <br /></td></tr>
 <tr class="separator:a254cf0e57e02d28891aebfb50fbbb018"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a477e1ad8a14bd238cfa420dd1352679d" id="r_a477e1ad8a14bd238cfa420dd1352679d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="spack_2opt_2spack_2linux-zen2_2tfel-master-me6xjku4m4xxjr3awglstcdnsqufet5w_2include_2_cyrano_2_behaviour_8hxx.html#a04a02917f85c2196f18aa1b3c89504bd">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmtest_1_1_ansys_standard_behaviour.html#a477e1ad8a14bd238cfa420dd1352679d">allocateWorkSpace</a> (<a class="el" href="structmtest_1_1_behaviour_work_space.html">BehaviourWorkSpace</a> &amp;) const override</td></tr>
-<tr class="memdesc:a477e1ad8a14bd238cfa420dd1352679d"><td class="mdescLeft">&#160;</td><td class="mdescRight">allocate internal workspace  <br /></td></tr>
+<tr class="memdesc:a477e1ad8a14bd238cfa420dd1352679d"><td class="mdescLeft">&#160;</td><td class="mdescRight">allocate workspace  <br /></td></tr>
 <tr class="separator:a477e1ad8a14bd238cfa420dd1352679d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac10a899faadc1ef3d7944b33d9a0224d" id="r_ac10a899faadc1ef3d7944b33d9a0224d"><td class="memItemLeft" align="right" valign="top"><a id="ac10a899faadc1ef3d7944b33d9a0224d" name="ac10a899faadc1ef3d7944b33d9a0224d"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>~AnsysStandardBehaviour</b> () override</td></tr>
@@ -685,7 +685,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>description</b
 </table>
 </div><div class="memdoc">
 
-<p>allocate internal workspace </p>
+<p>allocate workspace </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">wk</td><td>: behaviour workspace </td></tr>
@@ -769,7 +769,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>description</b
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="structmtest_1_1_ansys_finite_strain_behaviour.html#a59a3d9fe3d69a0766c27d0b861b20f37">mtest::AnsysFiniteStrainBehaviour</a>, and <a class="el" href="structmtest_1_1_ansys_small_strain_behaviour.html#a584b6251352f14c4073a6f1200cef72a">mtest::AnsysSmallStrainBehaviour</a>.</p>
+<p>Implemented in <a class="el" href="structmtest_1_1_ansys_finite_strain_behaviour.html#a6e1006c1cbb18dae51fd04bec29d2706">mtest::AnsysFiniteStrainBehaviour</a>, and <a class="el" href="structmtest_1_1_ansys_small_strain_behaviour.html#a77dfb23775f66fdf358ad548e08497ab">mtest::AnsysSmallStrainBehaviour</a>.</p>
 
 </div>
 </div>
@@ -813,7 +813,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>description</b
 </table>
 </div><div class="memdoc">
 
-<p>integrate the mechanical behaviour over the time step </p>
+<p>compute the prediction operator at the beginning of the time step. </p>
 <dl class="section return"><dt>Returns</dt><dd>a pair. The first member is true if the integration was successfull, false otherwise. The second member contains a time step scaling factor. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1085,7 +1085,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>description</b
 <dl class="section return"><dt>Returns</dt><dd>a pair. The first member is true if the integration was successfull, false otherwise. The second member contains a time step scaling factor. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">s</td><td>: current state </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">[out/in]</td><td>s : current state </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">wk</td><td>: behaviour workspace </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">dt</td><td>: time increment </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">ktype</td><td>: type of the stiffness matrix </td></tr>
@@ -1157,7 +1157,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>description</b
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>mtest</b></li><li class="navelem"><a class="el" href="structmtest_1_1_ansys_standard_behaviour.html">AnsysStandardBehaviour</a></li>
-    <li class="footer">Generated on Tue Jul 28 2026 14:50:39 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Mon Aug 3 2026 12:34:25 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

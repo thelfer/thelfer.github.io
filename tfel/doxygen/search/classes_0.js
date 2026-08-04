@@ -78,7 +78,7 @@ var searchData=
   ['accelerationalgorithm_75',['AccelerationAlgorithm',['../structmtest_1_1_acceleration_algorithm.html',1,'mtest']]],
   ['accelerationalgorithmfactory_76',['AccelerationAlgorithmFactory',['../structmtest_1_1_acceleration_algorithm_factory.html',1,'mtest']]],
   ['accumulate_77',['accumulate',['../structtfel_1_1fsalgo_1_1accumulate.html',1,'tfel::fsalgo']]],
-  ['addunit_78',['AddUnit',['../structtfel_1_1math_1_1internals_1_1_add_unit.html',1,'tfel::math::internals']]],
+  ['addunit_78',['AddUnit',['../structtfel_1_1math_1_1unit_1_1internals_1_1_add_unit.html',1,'tfel::math::unit::internals']]],
   ['aitkenaccelerationalgorithm_79',['AitkenAccelerationAlgorithm',['../structtfel_1_1math_1_1_aitken_acceleration_algorithm.html',1,'tfel::math']]],
   ['alternate2deltaaccelerationalgorithm_80',['Alternate2DeltaAccelerationAlgorithm',['../structmtest_1_1_alternate2_delta_acceleration_algorithm.html',1,'mtest']]],
   ['alternatedelta2accelerationalgorithm_81',['AlternateDelta2AccelerationAlgorithm',['../structmtest_1_1_alternate_delta2_acceleration_algorithm.html',1,'mtest']]],

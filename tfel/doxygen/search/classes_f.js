@@ -70,7 +70,7 @@ var searchData=
   ['powerposimpl_3c_20n_2f4_2c_20n_20_25_204_20_3e_67',['PowerPosImpl&lt; N/4, N % 4 &gt;',['../structtfel_1_1math_1_1internals_1_1_power_pos_impl.html',1,'tfel::math::internals']]],
   ['powersqrtneg_68',['PowerSqrtNeg',['../structtfel_1_1math_1_1internals_1_1_power_sqrt_neg.html',1,'tfel::math::internals']]],
   ['powersqrtpos_69',['PowerSqrtPos',['../classtfel_1_1math_1_1internals_1_1_power_sqrt_pos.html',1,'tfel::math::internals']]],
-  ['powerunit_70',['PowerUnit',['../structtfel_1_1math_1_1internals_1_1_power_unit.html',1,'tfel::math::internals']]],
+  ['powerunit_70',['PowerUnit',['../structtfel_1_1math_1_1unit_1_1internals_1_1_power_unit.html',1,'tfel::math::unit::internals']]],
   ['pragerkinematichardeningrule_71',['PragerKinematicHardeningRule',['../structmfront_1_1bbrick_1_1_prager_kinematic_hardening_rule.html',1,'mfront::bbrick']]],
   ['predictionoperatorisnotavalaible_72',['predictionoperatorisnotavalaible',['../structcastem_1_1_castem_behaviour_handler_1_1_prediction_operator_is_not_avalaible.html',1,'castem::CastemBehaviourHandler&lt; type, H, Behaviour &gt;::PredictionOperatorIsNotAvalaible'],['../structcyrano_1_1_cyrano_behaviour_handler_1_1_prediction_operator_is_not_avalaible.html',1,'cyrano::CyranoBehaviourHandler&lt; H, Behaviour &gt;::PredictionOperatorIsNotAvalaible']]],
   ['processmanager_73',['ProcessManager',['../structtfel_1_1system_1_1_process_manager.html',1,'tfel::system']]],

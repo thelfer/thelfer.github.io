@@ -196,10 +196,10 @@ var namespacemfront =
     [ "GenericData", "namespacemfront.html#a0b089943bf593c40430546d099a595f7", null ],
     [ "MaterialKnowledgeAttribute", "namespacemfront.html#aeba7ed4132fad4a3dc04b4d79c689d11", null ],
     [ "MaterialKnowledgeAttributeTypes", "namespacemfront.html#a6a2f4077110c06007d007172f65e1c15", null ],
-    [ "StaticVarContainer", "namespacemfront.html#a752ce8c483746dbd61bdbff711bc28a6", null ],
+    [ "StaticVarContainer", "namespacemfront.html#a581e2fb72f5824a4e95f5e776cf4e94e", null ],
     [ "StaticVarHandler", "namespacemfront.html#a7bad4d0575ebdf6169ea12e9b817e1e9", null ],
     [ "VarContainer", "namespacemfront.html#af57293a292505942e5dcd42149817fff", null ],
-    [ "VarHandler", "namespacemfront.html#ac14e4994078c9ba950e27558af93eabc", null ],
+    [ "VarHandler", "namespacemfront.html#a8ba95c4964a8fc796f267412fa29ae60", null ],
     [ "VariableAttribute", "namespacemfront.html#a5d945de16a5c5534aa7d75bd6e6f0a4f", null ],
     [ "VariableAttributeTypes", "namespacemfront.html#a0b5621195b0f22a982221797669d042a", null ],
     [ "BehaviourSymmetryType", "namespacemfront.html#a037bb09752bcfbdea96d56ba051c71cd", [

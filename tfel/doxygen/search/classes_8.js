@@ -151,6 +151,5 @@ var searchData=
   ['istvectorscalaroperationvalid_148',['IsTVectorScalarOperationValid',['../structtfel_1_1math_1_1_is_t_vector_scalar_operation_valid.html',1,'tfel::math']]],
   ['isunaryoperator_149',['IsUnaryOperator',['../structtfel_1_1typetraits_1_1_is_unary_operator.html',1,'tfel::typetraits']]],
   ['isunaryoperator_3c_20tfel_3a_3amath_3a_3aopneg_20_3e_150',['IsUnaryOperator&lt; tfel::math::OpNeg &gt;',['../structtfel_1_1typetraits_1_1_is_unary_operator_3_01tfel_1_1math_1_1_op_neg_01_4.html',1,'tfel::typetraits']]],
-  ['isvalididentifieroptions_151',['IsValidIdentifierOptions',['../structtfel_1_1utilities_1_1_cxx_tokenizer_1_1_is_valid_identifier_options.html',1,'tfel::utilities::CxxTokenizer']]],
-  ['iterateovermultipleindices_152',['IterateOverMultipleIndices',['../structtfel_1_1math_1_1_iterate_over_multiple_indices.html',1,'tfel::math']]]
+  ['iterateovermultipleindices_151',['IterateOverMultipleIndices',['../structtfel_1_1math_1_1_iterate_over_multiple_indices.html',1,'tfel::math']]]
 ];

@@ -32,7 +32,7 @@ var searchData=
   ['tfel_3a_3amath_3a_3at2tost2concept_29',['T2toST2Concept',['../concepttfel_1_1math_1_1_t2to_s_t2_concept.html',1,'tfel::math']]],
   ['tfel_3a_3amath_3a_3at2tot2concept_30',['T2toT2Concept',['../concepttfel_1_1math_1_1_t2to_t2_concept.html',1,'tfel::math']]],
   ['tfel_3a_3amath_3a_3atensorconcept_31',['TensorConcept',['../concepttfel_1_1math_1_1_tensor_concept.html',1,'tfel::math']]],
-  ['tfel_3a_3amath_3a_3aunit_3a_3aunitconcept_32',['UnitConcept',['../concepttfel_1_1math_1_1unit_1_1_unit_concept.html',1,'tfel::math::unit']]],
+  ['tfel_3a_3amath_3a_3aunitconcept_32',['UnitConcept',['../concepttfel_1_1math_1_1_unit_concept.html',1,'tfel::math']]],
   ['tfel_3a_3amath_3a_3avectorconcept_33',['VectorConcept',['../concepttfel_1_1math_1_1_vector_concept.html',1,'tfel::math']]],
   ['tfel_3a_3ameta_3a_3areferenceconcept_34',['ReferenceConcept',['../concepttfel_1_1meta_1_1_reference_concept.html',1,'tfel::meta']]],
   ['tfel_3a_3atypetraits_3a_3afundamentalnumerictypeconcept_35',['FundamentalNumericTypeConcept',['../concepttfel_1_1typetraits_1_1_fundamental_numeric_type_concept.html',1,'tfel::typetraits']]],

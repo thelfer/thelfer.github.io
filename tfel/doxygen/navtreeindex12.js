@@ -1,8 +1,5 @@
 var NAVTREEINDEX12 =
 {
-"concepttfel_1_1math_1_1_fixed_size_array_type_defininig_array_view_concept.html":[6,0,0,5],
-"concepttfel_1_1math_1_1_fundamental_numeric_type_concept.html":[6,0,0,8],
-"concepttfel_1_1math_1_1_fundamental_numeric_type_concept.html":[5,0,9,1,661],
 "concepttfel_1_1math_1_1_mappable_immutable_math_object_using_coalesced_view_concept.html":[5,0,9,1,656],
 "concepttfel_1_1math_1_1_mappable_immutable_math_object_using_coalesced_view_concept.html":[6,0,0,3],
 "concepttfel_1_1math_1_1_mappable_math_object_using_coalesced_view_concept.html":[5,0,9,1,657],
@@ -249,5 +246,8 @@ var NAVTREEINDEX12 =
 "functions_type_u.html":[7,3,3,19],
 "functions_type_v.html":[7,3,3,20],
 "functions_type_w.html":[7,3,3,21],
-"functions_u.html":[7,3,0,21]
+"functions_u.html":[7,3,0,21],
+"functions_v.html":[7,3,0,22],
+"functions_vars.html":[7,3,2,0],
+"functions_vars.html":[7,3,2]
 };

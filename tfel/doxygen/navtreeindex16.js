@@ -1,8 +1,5 @@
 var NAVTREEINDEX16 =
 {
-"namespacetfel_1_1material.html#a78f18b9093a9ddedb5817fb040a95e12":[5,0,9,0,407],
-"namespacetfel_1_1material.html#a78ffb65409df187eb94220174f75529e":[5,0,9,0,357],
-"namespacetfel_1_1material.html#a798e5c94262fc3a21446f48a63c924ff":[5,0,9,0,223],
 "namespacetfel_1_1material.html#a7b0c96e2100eeb78b3836e6aeaba2d0e":[5,0,9,0,384],
 "namespacetfel_1_1material.html#a7be786d3143c5d6665e2e6eb12e6a464":[5,0,9,0,180],
 "namespacetfel_1_1material.html#a7be786d3143c5d6665e2e6eb12e6a464a05eb8c6dd46a0ea56e87611252d56bcb":[5,0,9,0,180,0],
@@ -249,5 +246,8 @@ var NAVTREEINDEX16 =
 "namespacetfel_1_1math.html#a295dd7bbf51747fb8f571773e1df3937":[5,0,9,1,828],
 "namespacetfel_1_1math.html#a29e30e34ab940e301cab5a8b460ab6ab":[5,0,9,1,883],
 "namespacetfel_1_1math.html#a2a834fe573c6ae0d3c43a28ff748b1e0":[5,0,9,1,925],
-"namespacetfel_1_1math.html#a2af6a76863040300a210e557ebd47fd9":[5,0,9,1,738]
+"namespacetfel_1_1math.html#a2af6a76863040300a210e557ebd47fd9":[5,0,9,1,738],
+"namespacetfel_1_1math.html#a2b759ee7f33caa991286726bb496361a":[5,0,9,1,898],
+"namespacetfel_1_1math.html#a2c59691d17f54f06a7c695d50a334153":[5,0,9,1,829],
+"namespacetfel_1_1math.html#a2d347371055d53b525bf632924a3165c":[5,0,9,1,816]
 };

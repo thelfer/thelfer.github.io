@@ -1,8 +1,5 @@
 var NAVTREEINDEX13 =
 {
-"functions_v.html":[7,3,0,22],
-"functions_vars.html":[7,3,2,0],
-"functions_vars.html":[7,3,2],
 "functions_vars_a.html":[7,3,2,1],
 "functions_vars_b.html":[7,3,2,2],
 "functions_vars_c.html":[7,3,2,3],
@@ -127,15 +124,15 @@ var NAVTREEINDEX13 =
 "mfront_2include_2_m_front_2_behaviour_brick_2_harmonic_sum_of_norton_hoff_viscoplastic_flows_8hxx.html":[8,0,2,0,0,3,17],
 "mfront_2include_2_m_front_2_behaviour_brick_2_michel_and_suquet1992_hollow_sphere_stress_criterion_8hxx.html":[8,0,2,0,0,3,33],
 "mfront_2include_2_m_front_2_behaviour_brick_2_rousselier_tanguy_besson2002_stress_criterion_8hxx.html":[8,0,2,0,0,3,47],
-"mfront_2include_2_m_front_2_behaviour_data_8hxx.html":[8,0,2,0,0,34],
-"mfront_2include_2_m_front_2_generator_options_8hxx.html":[8,0,2,0,0,101],
+"mfront_2include_2_m_front_2_behaviour_data_8hxx.html":[8,0,2,0,0,32],
+"mfront_2include_2_m_front_2_generator_options_8hxx.html":[8,0,2,0,0,98],
 "mfront_2include_2_m_front_2_generic_behaviour_2_behaviour_data_8hxx.html":[8,0,2,0,0,8,0],
 "mfront_2include_2_m_front_2_generic_behaviour_2_behaviour_data_8hxx.html#a2cda2a496c741416e8db2cb1619cae92":[8,0,2,0,0,8,0,11],
 "mfront_2include_2_m_front_2_generic_behaviour_2_types_8hxx.html":[8,0,2,0,0,8,9],
 "mfront_2include_2_m_front_2_generic_behaviour_2_types_8hxx.html#a9d6c0e6eda07bc80ee81db083da23ae6":[8,0,2,0,0,8,9,0],
 "mfront_2include_2_m_front_2_generic_material_property_2_types_8hxx.html":[8,0,2,0,0,9,0],
 "mfront_2include_2_m_front_2_generic_material_property_2_types_8hxx.html#a1cf9c6fefb2d8644082992cabf29818e":[8,0,2,0,0,9,0,0],
-"mfront_8doxygen.html":[8,0,2,0,0,150],
+"mfront_8doxygen.html":[8,0,2,0,0,147],
 "min__element_8hxx.html":[8,0,0,3,2,11],
 "mtest.html":[3],
 "mtest_2include_2_m_test_2_behaviour_8hxx.html":[8,0,5,0,0,19],
@@ -249,5 +246,8 @@ var NAVTREEINDEX13 =
 "namespacedianafea.html#a0d518e309fde0b99897c0dcf4fdca457":[5,0,6,60],
 "namespacedianafea.html#a18535fdc1a70595599bbdfb057a857c4":[5,0,6,63],
 "namespacedianafea.html#a1c34154bbdd8039e3491d77616fdab59":[5,0,6,72],
-"namespacedianafea.html#a32dd09505776a1f0cfa03620bf36847c":[5,0,6,68]
+"namespacedianafea.html#a32dd09505776a1f0cfa03620bf36847c":[5,0,6,68],
+"namespacedianafea.html#a427871280fd8d12a2e85d54fe1d780f1":[5,0,6,62],
+"namespacedianafea.html#a53060158bd9f607592ff9862433e0164":[5,0,6,73],
+"namespacedianafea.html#a69e159cae121201fb1c33891d1341886":[5,0,6,71]
 };

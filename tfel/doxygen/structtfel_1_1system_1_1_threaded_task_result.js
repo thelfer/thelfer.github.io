@@ -6,7 +6,7 @@ var structtfel_1_1system_1_1_threaded_task_result =
     [ "ThreadedTaskResult", "structtfel_1_1system_1_1_threaded_task_result.html#a4f659ba31c9109b57716483214168f1e", null ],
     [ "ThreadedTaskResult", "structtfel_1_1system_1_1_threaded_task_result.html#a2e67b0e789d6633a37c73a1bde5b5bf1", null ],
     [ "~ThreadedTaskResult", "structtfel_1_1system_1_1_threaded_task_result.html#a7a3e7ba23d95117aafc00758eadc149a", null ],
-    [ "operator bool", "structtfel_1_1system_1_1_threaded_task_result.html#a02e4a574a2e40249722b369bd7c35a69", null ],
+    [ "explicit", "structtfel_1_1system_1_1_threaded_task_result.html#abceb773b96c798ddab3cc1257bd63491", null ],
     [ "operator*", "structtfel_1_1system_1_1_threaded_task_result.html#abf3363b3b51fe8bac7bd538ef5546b55", null ],
     [ "operator*", "structtfel_1_1system_1_1_threaded_task_result.html#a0cc70156181dfe29ab0ac481ed2370e1", null ],
     [ "operator->", "structtfel_1_1system_1_1_threaded_task_result.html#af36cf8a7ac5819addb0d7fbcb754dc47", null ],

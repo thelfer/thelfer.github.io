@@ -1,8 +1,6 @@
 var structmfem__mgis_1_1_periodic_non_linear_evolution_problem =
 [
-    [ "PeriodicNonLinearEvolutionProblem", "structmfem__mgis_1_1_periodic_non_linear_evolution_problem.html#ab64932b79a370a51b7e026dfe5f351ad", null ],
     [ "PeriodicNonLinearEvolutionProblem", "structmfem__mgis_1_1_periodic_non_linear_evolution_problem.html#ad45aac2a35fba59fd5005bcb872f7572", null ],
-    [ "PeriodicNonLinearEvolutionProblem", "structmfem__mgis_1_1_periodic_non_linear_evolution_problem.html#a641c82311b362b1d11a51cd97c9b6ed4", null ],
     [ "PeriodicNonLinearEvolutionProblem", "structmfem__mgis_1_1_periodic_non_linear_evolution_problem.html#ac1b3f8968bad06e2e70d417cdc75ce4b", null ],
     [ "~PeriodicNonLinearEvolutionProblem", "structmfem__mgis_1_1_periodic_non_linear_evolution_problem.html#a63bacf97733cea9e19a7e6c04f460a99", null ],
     [ "addBoundaryCondition", "structmfem__mgis_1_1_periodic_non_linear_evolution_problem.html#af013903a84b3e816d42ba46ae5b08dfe", null ],

@@ -76,7 +76,7 @@ var searchData=
   ['powerposimpl_3c_20n_2f4_2c_20n_20_25_204_20_3e_73',['PowerPosImpl&lt; N/4, N % 4 &gt;',['../structtfel_1_1math_1_1internals_1_1_power_pos_impl.html',1,'tfel::math::internals']]],
   ['powersqrtneg_74',['PowerSqrtNeg',['../structtfel_1_1math_1_1internals_1_1_power_sqrt_neg.html',1,'tfel::math::internals']]],
   ['powersqrtpos_75',['PowerSqrtPos',['../classtfel_1_1math_1_1internals_1_1_power_sqrt_pos.html',1,'tfel::math::internals']]],
-  ['powerunit_76',['PowerUnit',['../structtfel_1_1math_1_1internals_1_1_power_unit.html',1,'tfel::math::internals']]],
+  ['powerunit_76',['PowerUnit',['../structtfel_1_1math_1_1unit_1_1internals_1_1_power_unit.html',1,'tfel::math::unit::internals']]],
   ['pragerkinematichardeningrule_77',['PragerKinematicHardeningRule',['../structmfront_1_1bbrick_1_1_prager_kinematic_hardening_rule.html',1,'mfront::bbrick']]],
   ['preconditionscheck_78',['PreconditionsCheck',['../structmgis_1_1_preconditions_check.html',1,'mgis']]],
   ['preconditionschecker_79',['PreconditionsChecker',['../structmgis_1_1_preconditions_checker.html',1,'mgis']]],

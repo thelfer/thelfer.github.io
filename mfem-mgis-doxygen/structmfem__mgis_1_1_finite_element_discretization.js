@@ -1,8 +1,5 @@
 var structmfem__mgis_1_1_finite_element_discretization =
 [
-    [ "FiniteElementDiscretization", "structmfem__mgis_1_1_finite_element_discretization.html#a610ad0e908203021643e8fa69200f633", null ],
-    [ "FiniteElementDiscretization", "structmfem__mgis_1_1_finite_element_discretization.html#a09864e2dcc540b519b6d19fe49da4e37", null ],
-    [ "FiniteElementDiscretization", "structmfem__mgis_1_1_finite_element_discretization.html#a9da124c1669401d64b1532f5683a568a", null ],
     [ "FiniteElementDiscretization", "structmfem__mgis_1_1_finite_element_discretization.html#a00cb91ff6c183bf52101ce1f9299d2c8", null ],
     [ "FiniteElementDiscretization", "structmfem__mgis_1_1_finite_element_discretization.html#a759416e5aeb948a9dc0df4ea4a3e2e54", null ],
     [ "FiniteElementDiscretization", "structmfem__mgis_1_1_finite_element_discretization.html#af76ed3e5923d0d3594c6f78f66c486e9", null ],

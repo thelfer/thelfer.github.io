@@ -676,6 +676,7 @@ var namespacetfel_1_1math =
     [ "StandardArithmeticTypeConcept", "concepttfel_1_1math_1_1_standard_arithmetic_type_concept.html", null ],
     [ "FundamentalNumericTypeConcept", "concepttfel_1_1math_1_1_fundamental_numeric_type_concept.html", null ],
     [ "ScalarConcept", "concepttfel_1_1math_1_1_scalar_concept.html", null ],
+    [ "MutableScalarConcept", "concepttfel_1_1math_1_1_mutable_scalar_concept.html", null ],
     [ "QuantityConcept", "concepttfel_1_1math_1_1_quantity_concept.html", null ],
     [ "NoUnitQuantityConcept", "concepttfel_1_1math_1_1_no_unit_quantity_concept.html", null ],
     [ "MathObjectConcept", "concepttfel_1_1math_1_1_math_object_concept.html", null ],

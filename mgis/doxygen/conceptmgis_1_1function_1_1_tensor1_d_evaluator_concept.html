@@ -102,18 +102,25 @@ $(document).ready(function(){initNavTree('conceptmgis_1_1function_1_1_tensor1_d_
 <div class="contents">
 <h2 class="groupheader">Concept definition</h2>
 <div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> EvaluatorType&gt;</div>
-<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="conceptmgis_1_1function_1_1_tensor1_d_evaluator_concept.html">mgis::function::Tensor1DEvaluatorConcept</a> =  (<a class="code hl_concept" href="conceptmgis_1_1function_1_1_evaluator_concept.html">EvaluatorConcept&lt;EvaluatorType&gt;</a>)&amp;&amp;(</div>
-<div class="line">      std::is_convertible_v&lt;evaluator_result&lt;EvaluatorType&gt;,</div>
-<div class="line">                            tfel::math::tensor&lt;1u, real&gt;&gt;)</div>
+<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="conceptmgis_1_1function_1_1_tensor1_d_evaluator_concept.html">mgis::function::Tensor1DEvaluatorConcept</a> = </div>
+<div class="line">      (<a class="code hl_concept" href="conceptmgis_1_1function_1_1_evaluator_concept.html">EvaluatorConcept&lt;EvaluatorType&gt;</a>)&amp;&amp;                               </div>
+<div class="line">      (::tfel::math::TensorConcept&lt;evaluator_result&lt;EvaluatorType&gt;&gt;)&amp;&amp;  </div>
+<div class="line">      (::tfel::math::space_dimension&lt;evaluator_result&lt;EvaluatorType&gt;&gt; ==</div>
+<div class="line">       1u) &amp;&amp;  </div>
+<div class="line">      (std::same_as&lt;</div>
+<div class="line">          std::decay_t&lt;::tfel::math::base_type&lt;</div>
+<div class="line">              ::tfel::math::numeric_type&lt;evaluator_result&lt;EvaluatorType&gt;&gt;&gt;&gt;,</div>
+<div class="line">          <a class="code hl_typedef" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>&gt;)</div>
 <div class="ttc" id="aconceptmgis_1_1function_1_1_evaluator_concept_html"><div class="ttname"><a href="conceptmgis_1_1function_1_1_evaluator_concept.html">mgis::function::EvaluatorConcept</a></div><div class="ttdoc">a concept that must satisfy an evaluator</div><div class="ttdef"><b>Definition</b> EvaluatorConcept.hxx:163</div></div>
-<div class="ttc" id="aconceptmgis_1_1function_1_1_tensor1_d_evaluator_concept_html"><div class="ttname"><a href="conceptmgis_1_1function_1_1_tensor1_d_evaluator_concept.html">mgis::function::Tensor1DEvaluatorConcept</a></div><div class="ttdef"><b>Definition</b> Tensors.hxx:184</div></div>
+<div class="ttc" id="aconceptmgis_1_1function_1_1_tensor1_d_evaluator_concept_html"><div class="ttname"><a href="conceptmgis_1_1function_1_1_tensor1_d_evaluator_concept.html">mgis::function::Tensor1DEvaluatorConcept</a></div><div class="ttdef"><b>Definition</b> Tensors.hxx:205</div></div>
+<div class="ttc" id="anamespacemgis_html_a0e88ae1504a452a9c3e573a06beff1e4"><div class="ttname"><a href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">mgis::real</a></div><div class="ttdeci">mgis_real real</div><div class="ttdoc">alias to the numeric type used</div><div class="ttdef"><b>Definition</b> Config.hxx:124</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemgis.html">mgis</a></li><li class="navelem"><b>function</b></li><li class="navelem"><a class="el" href="conceptmgis_1_1function_1_1_tensor1_d_evaluator_concept.html">Tensor1DEvaluatorConcept</a></li>
-    <li class="footer">Generated on Sat Aug 15 2026 20:11:39 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Mon Aug 17 2026 13:27:58 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

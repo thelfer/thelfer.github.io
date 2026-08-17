@@ -59,15 +59,18 @@ var hierarchy =
     [ "mgis::function::internals::CompileTimeSize< std::span< const real, N > >", "structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01std_1_1span_3_01const_01real_00_01_n_01_4_01_4.html", null ],
     [ "mgis::function::internals::CompileTimeSize< std::span< real > >", "structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01std_1_1span_3_01real_01_4_01_4.html", null ],
     [ "mgis::function::internals::CompileTimeSize< std::span< real, N > >", "structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01std_1_1span_3_01real_00_01_n_01_4_01_4.html", null ],
-    [ "mgis::function::internals::CompileTimeSize< tfel::math::fsarray< N, real > >", "structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01tfel_1_1math_1_1fsarray_3_01_n_00_01real_01_4_01_4.html", null ],
-    [ "mgis::function::internals::CompileTimeSize< tfel::math::st2tost2< N, real > >", "structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01tfel_1_1math_1_1st2tost2_3_01_n_00_01real_01_4_01_4.html", null ],
-    [ "mgis::function::internals::CompileTimeSize< tfel::math::st2tot2< N, real > >", "structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01tfel_1_1math_1_1st2tot2_3_01_n_00_01real_01_4_01_4.html", null ],
-    [ "mgis::function::internals::CompileTimeSize< tfel::math::stensor< N, real > >", "structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01tfel_1_1math_1_1stensor_3_01_n_00_01real_01_4_01_4.html", null ],
-    [ "mgis::function::internals::CompileTimeSize< tfel::math::t2tost2< N, real > >", "structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01tfel_1_1math_1_1t2tost2_3_01_n_00_01real_01_4_01_4.html", null ],
-    [ "mgis::function::internals::CompileTimeSize< tfel::math::t2tot2< N, real > >", "structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01tfel_1_1math_1_1t2tot2_3_01_n_00_01real_01_4_01_4.html", null ],
-    [ "mgis::function::internals::CompileTimeSize< tfel::math::tensor< N, real > >", "structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01tfel_1_1math_1_1tensor_3_01_n_00_01real_01_4_01_4.html", null ],
-    [ "mgis::function::internals::CompileTimeSize< tfel::math::tmatrix< N, M, real > >", "structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01tfel_1_1math_1_1tmatrix_3_01_n_00_01_m_00_01real_01_4_01_4.html", null ],
-    [ "mgis::function::internals::CompileTimeSize< tfel::math::tvector< N, real > >", "structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01tfel_1_1math_1_1tvector_3_01_n_00_01real_01_4_01_4.html", null ],
+    [ "mgis::function::internals::CompileTimeSize< tfel::math::fsarray< N, ValueType > >", "structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01tfel_1_1math_1_1fsarray_3_01_n_00_01_value_type_01_4_01_4.html", null ],
+    [ "mgis::function::internals::CompileTimeSize< tfel::math::st2tost2< N, ValueType > >", "structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01tfel_1_1math_1_1st2tost2_3_01_n_00_01_value_type_01_4_01_4.html", null ],
+    [ "mgis::function::internals::CompileTimeSize< tfel::math::st2tot2< N, ValueType > >", "structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01tfel_1_1math_1_1st2tot2_3_01_n_00_01_value_type_01_4_01_4.html", null ],
+    [ "mgis::function::internals::CompileTimeSize< tfel::math::stensor< N, ValueType > >", "structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01tfel_1_1math_1_1stensor_3_01_n_00_01_value_type_01_4_01_4.html", null ],
+    [ "mgis::function::internals::CompileTimeSize< tfel::math::t2tost2< N, ValueType > >", "structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01tfel_1_1math_1_1t2tost2_3_01_n_00_01_value_type_01_4_01_4.html", null ],
+    [ "mgis::function::internals::CompileTimeSize< tfel::math::t2tot2< N, ValueType > >", "structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01tfel_1_1math_1_1t2tot2_3_01_n_00_01_value_type_01_4_01_4.html", null ],
+    [ "mgis::function::internals::CompileTimeSize< tfel::math::tensor< N, ValueType > >", "structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01tfel_1_1math_1_1tensor_3_01_n_00_01_value_type_01_4_01_4.html", null ],
+    [ "mgis::function::internals::CompileTimeSize< tfel::math::tmatrix< N, M, ValueType > >", "structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01tfel_1_1math_1_1tmatrix_3_01_n_00_01_m_00_01_value_type_01_4_01_4.html", null ],
+    [ "mgis::function::internals::CompileTimeSize< tfel::math::tvector< N, ValueType > >", "structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01tfel_1_1math_1_1tvector_3_01_n_00_01_value_type_01_4_01_4.html", null ],
+    [ "mgis::function::internals::CompileTimeSize<::tfel::math::const_qt_ref< UnitType, real > >", "structmgis_1_1function_1_1internals_1_1_compile_time_size_3_1_1tfel_1_1math_1_1const__qt__ref_3_bb6bcc6502b04554411599b241b89152.html", null ],
+    [ "mgis::function::internals::CompileTimeSize<::tfel::math::qt< UnitType, real > >", "structmgis_1_1function_1_1internals_1_1_compile_time_size_3_1_1tfel_1_1math_1_1qt_3_01_unit_type_00_01real_01_4_01_4.html", null ],
+    [ "mgis::function::internals::CompileTimeSize<::tfel::math::qt_ref< UnitType, real > >", "structmgis_1_1function_1_1internals_1_1_compile_time_size_3_1_1tfel_1_1math_1_1qt__ref_3_01_unit_type_00_01real_01_4_01_4.html", null ],
     [ "mgis::ContextInitializer", "structmgis_1_1_context_initializer.html", null ],
     [ "mgis::function::internals::ConvertFiniteStrainStiffnessEvaluator< N, ResultFlag, SourceFlag, StiffnessEvaluator, DeformationGradientEvaluatorType0, DeformationGradientEvaluatorType1, CauchyStressEvaluatorType >", "structmgis_1_1function_1_1internals_1_1_convert_finite_strain_stiffness_evaluator.html", null ],
     [ "mgis::function::internals::ConvertFiniteStrainStiffnessModifierGenerator< N, ResultFlag, SourceFlag, DeformationGradientEvaluatorType0, DeformationGradientEvaluatorType1, CauchyStressEvaluatorType >", "structmgis_1_1function_1_1internals_1_1_convert_finite_strain_stiffness_modifier_generator.html", null ],
@@ -148,6 +151,7 @@ var hierarchy =
     [ "mgis::function::internals::FunctionResultTypeTraits< std::span< real, N > >", "structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01std_1_1span_3_01real_00_01_n_01_4_01_4.html", null ],
     [ "mgis::function::internals::FunctionResultTypeTraits< TensorType & >", "structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01_tensor_type_01_6_01_4.html", null ],
     [ "mgis::function::internals::FunctionResultTypeTraits< tfel::math::View< TensorType > >", "structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01tfel_1_1math_1_1_view_3_01_tensor_type_01_4_01_4.html", null ],
+    [ "mgis::function::internals::FunctionResultTypeTraits<::tfel::math::qt_ref< UnitType, real > >", "structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_1_1tfel_1_1math_1_1qt__ref2a8c22112dabdecf7b1bd05d8b4801db.html", null ],
     [ "mgis::function::FunctionStorage< Space, N >", "structmgis_1_1function_1_1_function_storage.html", [
       [ "mgis::function::Function< Space, tfel::math::getUnderlyingArrayMinimalSize< TensorType::indexing_policy >()>", "structmgis_1_1function_1_1_function.html", null ],
       [ "mgis::function::Function< Space, N >", "structmgis_1_1function_1_1_function.html", null ]
@@ -242,6 +246,12 @@ var hierarchy =
     [ "mgis::PreconditionsChecker< MaterialFunctionManager< SpaceType > >", "structmgis_1_1_preconditions_checker.html", [
       [ "mgis::behaviour::MaterialFunctionManager< SpaceType >", "structmgis_1_1behaviour_1_1_material_function_manager.html", null ]
     ] ],
+    [ "mgis::PreconditionsChecker< QuantityModifier< EvaluatorType, UnitType > >", "structmgis_1_1_preconditions_checker.html", [
+      [ "mgis::function::QuantityModifier< EvaluatorType, UnitType >", "structmgis_1_1function_1_1_quantity_modifier.html", null ]
+    ] ],
+    [ "mgis::PreconditionsChecker< QuantityView< FunctionType, UnitType > >", "structmgis_1_1_preconditions_checker.html", [
+      [ "mgis::function::QuantityView< FunctionType, UnitType >", "structmgis_1_1function_1_1_quantity_view.html", null ]
+    ] ],
     [ "mgis::PreconditionsChecker< SharedSpace< SpaceType > >", "structmgis_1_1_preconditions_checker.html", [
       [ "mgis::function::SharedSpace< SpaceType >", "structmgis_1_1function_1_1_shared_space.html", null ]
     ] ],
@@ -266,9 +276,12 @@ var hierarchy =
     [ "mgis::ProfilingSection", "structmgis_1_1_profiling_section.html", null ],
     [ "mgis::julia::Ptr< T >", "structmgis_1_1julia_1_1_ptr.html", null ],
     [ "mgis::function::internals::QuadraturePointIndexTypeSelector< true, Space >", "structmgis_1_1function_1_1internals_1_1_quadrature_point_index_type_selector_3_01true_00_01_space_01_4.html", null ],
+    [ "mgis::function::internals::quantity_modifier< UnitType >", "structmgis_1_1function_1_1internals_1_1quantity__modifier.html", null ],
     [ "mgis::function::internals::RotateBackwardsModifier", "structmgis_1_1function_1_1internals_1_1_rotate_backwards_modifier.html", null ],
     [ "mgis::function::internals::RotateModifier", "structmgis_1_1function_1_1internals_1_1_rotate_modifier.html", null ],
     [ "mgis::behaviour::RotationMatrix3D", "structmgis_1_1behaviour_1_1_rotation_matrix3_d.html", null ],
+    [ "mgis::function::internals::ScalarModifier< T >", "structmgis_1_1function_1_1internals_1_1_scalar_modifier.html", null ],
+    [ "mgis::function::internals::ScalarModifier< real >", "structmgis_1_1function_1_1internals_1_1_scalar_modifier_3_01real_01_4.html", null ],
     [ "mgis::function::internals::SharedElementSpaceAddElementWorkspace< bool, ElementSpaceConcept >", "structmgis_1_1function_1_1internals_1_1_shared_element_space_add_element_workspace.html", null ],
     [ "mgis::function::internals::SharedElementSpaceAddElementWorkspace< hasElementWorkspace< SpaceType >, SpaceType >", "structmgis_1_1function_1_1internals_1_1_shared_element_space_add_element_workspace.html", [
       [ "mgis::function::internals::SharedElementSpaceTraits< SpaceType >", "structmgis_1_1function_1_1internals_1_1_shared_element_space_traits_3_01_space_type_01_4.html", [
@@ -319,16 +332,17 @@ var hierarchy =
       [ "jlcxx::IsMirroredType< mgis::behaviour::Variable::Type >", "structjlcxx_1_1_is_mirrored_type_3_01mgis_1_1behaviour_1_1_variable_1_1_type_01_4.html", null ],
       [ "mgis::function::LightweightViewTraits< FixedSizeView< FunctionType, N > >", "structmgis_1_1function_1_1_lightweight_view_traits_3_01_fixed_size_view_3_01_function_type_00_01_n_01_4_01_4.html", null ],
       [ "mgis::function::LightweightViewTraits< FunctionView< Space, layout, is_mutable > >", "structmgis_1_1function_1_1_lightweight_view_traits_3_01_function_view_3_01_space_00_01layout_00_01is__mutable_01_4_01_4.html", null ],
+      [ "mgis::function::LightweightViewTraits< QuantityView< FunctionType, UnitType > >", "structmgis_1_1function_1_1_lightweight_view_traits_3_01_quantity_view_3_01_function_type_00_01_unit_type_01_4_01_4.html", null ],
       [ "mgis::function::LightweightViewTraits< TensorView< FunctionType, TensorType > >", "structmgis_1_1function_1_1_lightweight_view_traits_3_01_tensor_view_3_01_function_type_00_01_tensor_type_01_4_01_4.html", null ],
-      [ "mgis::function::internals::IsTensor< tfel::math::fsarray< N, real > >", "structmgis_1_1function_1_1internals_1_1_is_tensor_3_01tfel_1_1math_1_1fsarray_3_01_n_00_01real_01_4_01_4.html", null ],
-      [ "mgis::function::internals::IsTensor< tfel::math::st2tost2< N, real > >", "structmgis_1_1function_1_1internals_1_1_is_tensor_3_01tfel_1_1math_1_1st2tost2_3_01_n_00_01real_01_4_01_4.html", null ],
-      [ "mgis::function::internals::IsTensor< tfel::math::st2tot2< N, real > >", "structmgis_1_1function_1_1internals_1_1_is_tensor_3_01tfel_1_1math_1_1st2tot2_3_01_n_00_01real_01_4_01_4.html", null ],
-      [ "mgis::function::internals::IsTensor< tfel::math::stensor< N, real > >", "structmgis_1_1function_1_1internals_1_1_is_tensor_3_01tfel_1_1math_1_1stensor_3_01_n_00_01real_01_4_01_4.html", null ],
-      [ "mgis::function::internals::IsTensor< tfel::math::t2tost2< N, real > >", "structmgis_1_1function_1_1internals_1_1_is_tensor_3_01tfel_1_1math_1_1t2tost2_3_01_n_00_01real_01_4_01_4.html", null ],
-      [ "mgis::function::internals::IsTensor< tfel::math::t2tot2< N, real > >", "structmgis_1_1function_1_1internals_1_1_is_tensor_3_01tfel_1_1math_1_1t2tot2_3_01_n_00_01real_01_4_01_4.html", null ],
-      [ "mgis::function::internals::IsTensor< tfel::math::tensor< N, real > >", "structmgis_1_1function_1_1internals_1_1_is_tensor_3_01tfel_1_1math_1_1tensor_3_01_n_00_01real_01_4_01_4.html", null ],
-      [ "mgis::function::internals::IsTensor< tfel::math::tmatrix< N, M, real > >", "structmgis_1_1function_1_1internals_1_1_is_tensor_3_01tfel_1_1math_1_1tmatrix_3_01_n_00_01_m_00_01real_01_4_01_4.html", null ],
-      [ "mgis::function::internals::IsTensor< tfel::math::tvector< N, real > >", "structmgis_1_1function_1_1internals_1_1_is_tensor_3_01tfel_1_1math_1_1tvector_3_01_n_00_01real_01_4_01_4.html", null ]
+      [ "mgis::function::internals::IsTensor< tfel::math::fsarray< N, ValueType > >", "structmgis_1_1function_1_1internals_1_1_is_tensor_3_01tfel_1_1math_1_1fsarray_3_01_n_00_01_value_type_01_4_01_4.html", null ],
+      [ "mgis::function::internals::IsTensor< tfel::math::st2tost2< N, ValueType > >", "structmgis_1_1function_1_1internals_1_1_is_tensor_3_01tfel_1_1math_1_1st2tost2_3_01_n_00_01_value_type_01_4_01_4.html", null ],
+      [ "mgis::function::internals::IsTensor< tfel::math::st2tot2< N, ValueType > >", "structmgis_1_1function_1_1internals_1_1_is_tensor_3_01tfel_1_1math_1_1st2tot2_3_01_n_00_01_value_type_01_4_01_4.html", null ],
+      [ "mgis::function::internals::IsTensor< tfel::math::stensor< N, ValueType > >", "structmgis_1_1function_1_1internals_1_1_is_tensor_3_01tfel_1_1math_1_1stensor_3_01_n_00_01_value_type_01_4_01_4.html", null ],
+      [ "mgis::function::internals::IsTensor< tfel::math::t2tost2< N, ValueType > >", "structmgis_1_1function_1_1internals_1_1_is_tensor_3_01tfel_1_1math_1_1t2tost2_3_01_n_00_01_value_type_01_4_01_4.html", null ],
+      [ "mgis::function::internals::IsTensor< tfel::math::t2tot2< N, ValueType > >", "structmgis_1_1function_1_1internals_1_1_is_tensor_3_01tfel_1_1math_1_1t2tot2_3_01_n_00_01_value_type_01_4_01_4.html", null ],
+      [ "mgis::function::internals::IsTensor< tfel::math::tensor< N, ValueType > >", "structmgis_1_1function_1_1internals_1_1_is_tensor_3_01tfel_1_1math_1_1tensor_3_01_n_00_01_value_type_01_4_01_4.html", null ],
+      [ "mgis::function::internals::IsTensor< tfel::math::tmatrix< N, M, ValueType > >", "structmgis_1_1function_1_1internals_1_1_is_tensor_3_01tfel_1_1math_1_1tmatrix_3_01_n_00_01_m_00_01_value_type_01_4_01_4.html", null ],
+      [ "mgis::function::internals::IsTensor< tfel::math::tvector< N, ValueType > >", "structmgis_1_1function_1_1internals_1_1_is_tensor_3_01tfel_1_1math_1_1tvector_3_01_n_00_01_value_type_01_4_01_4.html", null ]
     ] ],
     [ "mgis::function::internals::unary_operation_modifier< CallableType >", "structmgis_1_1function_1_1internals_1_1unary__operation__modifier.html", null ],
     [ "mgis::function::internals::unary_operation_modifier2_impl< CallableType >", "structmgis_1_1function_1_1internals_1_1unary__operation__modifier2__impl.html", null ],

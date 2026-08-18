@@ -1,5 +1,7 @@
 var NAVTREEINDEX87 =
 {
+"structtfel_1_1math_1_1unit_1_1_unit_rebind_3_01exponents_3_01_force_01_4_01_4.html":[7,0,14,6,4,34],
+"structtfel_1_1math_1_1unit_1_1_unit_rebind_3_01exponents_3_01_frequency_01_4_01_4.html":[7,0,14,6,4,35],
 "structtfel_1_1math_1_1unit_1_1_unit_rebind_3_01exponents_3_01_heat_flux_density_01_4_01_4.html":[7,0,14,6,4,36],
 "structtfel_1_1math_1_1unit_1_1_unit_rebind_3_01exponents_3_01_inv_length_01_4_01_4.html":[7,0,14,6,4,37],
 "structtfel_1_1math_1_1unit_1_1_unit_rebind_3_01exponents_3_01_inv_temperature_01_4_01_4.html":[7,0,14,6,4,38],
@@ -16,19 +18,16 @@ var NAVTREEINDEX87 =
 "structtfel_1_1math_1_1unit_1_1_unit_rebind_3_01exponents_3_01_thermal_conductivity_01_4_01_4.html":[7,0,14,6,4,49],
 "structtfel_1_1math_1_1unit_1_1_unit_rebind_3_01exponents_3_01_time_01_4_01_4.html":[7,0,14,6,4,50],
 "structtfel_1_1math_1_1unit_1_1internals_1_1_add_unit.html":[7,0,14,6,4,0,0],
-"structtfel_1_1math_1_1unit_1_1internals_1_1_extract_unit.html":[7,0,14,6,4,0,1],
-"structtfel_1_1math_1_1unit_1_1internals_1_1_extract_unit_3_01tfel_1_1meta_1_1_invalid_type_01_4.html":[7,0,14,6,4,0,2],
-"structtfel_1_1math_1_1unit_1_1internals_1_1_extract_unit_base.html":[7,0,14,6,4,0,3],
-"structtfel_1_1math_1_1unit_1_1internals_1_1_power_unit.html":[7,0,14,6,4,0,4],
-"structtfel_1_1math_1_1unit_1_1internals_1_1_subtract_unit.html":[7,0,14,6,4,0,5],
+"structtfel_1_1math_1_1unit_1_1internals_1_1_power_unit.html":[7,0,14,6,4,0,1],
+"structtfel_1_1math_1_1unit_1_1internals_1_1_subtract_unit.html":[7,0,14,6,4,0,2],
 "structtfel_1_1math_1_1vector.html":[5,0,9,1,643],
 "structtfel_1_1math_1_1vector.html":[7,0,14,6,646],
-"structtfel_1_1math_1_1vector.html#a33b1fc042a4e6e5e4088cf13c1cece07":[7,0,14,6,646,2],
 "structtfel_1_1math_1_1vector.html#a33b1fc042a4e6e5e4088cf13c1cece07":[5,0,9,1,643,2],
-"structtfel_1_1math_1_1vector.html#a52d68492a9ad9f06b993d6b7dbbe519c":[5,0,9,1,643,0],
+"structtfel_1_1math_1_1vector.html#a33b1fc042a4e6e5e4088cf13c1cece07":[7,0,14,6,646,2],
 "structtfel_1_1math_1_1vector.html#a52d68492a9ad9f06b993d6b7dbbe519c":[7,0,14,6,646,0],
-"structtfel_1_1math_1_1vector.html#a7d3e4f5ae298be8bd3fd80d5dffcc589":[7,0,14,6,646,1],
+"structtfel_1_1math_1_1vector.html#a52d68492a9ad9f06b993d6b7dbbe519c":[5,0,9,1,643,0],
 "structtfel_1_1math_1_1vector.html#a7d3e4f5ae298be8bd3fd80d5dffcc589":[5,0,9,1,643,1],
+"structtfel_1_1math_1_1vector.html#a7d3e4f5ae298be8bd3fd80d5dffcc589":[7,0,14,6,646,1],
 "structtfel_1_1math_1_1vector.html#a9bb8003d321789c6c78184ea4e4781b3":[5,0,9,1,643,5],
 "structtfel_1_1math_1_1vector.html#a9bb8003d321789c6c78184ea4e4781b3":[7,0,14,6,646,5],
 "structtfel_1_1math_1_1vector.html#ab40a0fd4b9a6e054d96efb39b546a2d5":[5,0,9,1,643,3],
@@ -249,5 +248,6 @@ var NAVTREEINDEX87 =
 "structtfel_1_1system_1_1_external_library_manager.html#a6472d5429b452a45cf178e1213556d0b":[7,0,14,8,28,87],
 "structtfel_1_1system_1_1_external_library_manager.html#a664b8ab0b6f7d805b06b84f6bef180e3":[7,0,14,8,28,99],
 "structtfel_1_1system_1_1_external_library_manager.html#a66754e04e2560396867c935497d8a36f":[7,0,14,8,28,141],
-"structtfel_1_1system_1_1_external_library_manager.html#a6b52fcb661733956188fa02b642f2b2c":[7,0,14,8,28,8]
+"structtfel_1_1system_1_1_external_library_manager.html#a6b52fcb661733956188fa02b642f2b2c":[7,0,14,8,28,8],
+"structtfel_1_1system_1_1_external_library_manager.html#a6b868b7c9b0763787c5d162835a88685":[7,0,14,8,28,136]
 };

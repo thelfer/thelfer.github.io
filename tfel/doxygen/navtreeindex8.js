@@ -1,6 +1,5 @@
 var NAVTREEINDEX8 =
 {
-"_real_part_type_8hxx.html#a56539a6309aa618368fe2f278fb31a0a":[8,0,0,3,9,12,1],
 "_real_part_type_8hxx.html#aa85acf2a9798c7a9896566b73d2e019f":[8,0,0,3,9,12,2],
 "_recursive_find_8hxx.html":[8,0,0,3,7,14],
 "_recursive_find_8hxx.html#a73df4d096104e8dcbb31f3ed6fb3bee0":[8,0,0,3,7,14,2],
@@ -249,5 +248,6 @@ var NAVTREEINDEX8 =
 "_study_8hxx.html":[8,0,5,0,0,95],
 "_study_current_state_8hxx.html":[8,0,5,0,0,96],
 "_study_current_state_8ixx.html":[8,0,5,0,0,97],
-"_study_parameter_8hxx.html":[8,0,5,0,0,98]
+"_study_parameter_8hxx.html":[8,0,5,0,0,98],
+"_substitutions_8hxx.html":[8,0,0,3,0,2]
 };

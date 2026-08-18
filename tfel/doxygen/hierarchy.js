@@ -1559,8 +1559,8 @@ var hierarchy =
     [ "dianafea::DianaFEABehaviourHandler< H, Behaviour >::DoNothingInitializer", "structdianafea_1_1_diana_f_e_a_behaviour_handler_1_1_do_nothing_initializer.html", null ],
     [ "lsdyna::LSDYNABehaviourHandler< H, Behaviour >::DoNothingInitializer", "structlsdyna_1_1_l_s_d_y_n_a_behaviour_handler_1_1_do_nothing_initializer.html", null ],
     [ "lsdyna::LSDYNAExplicitInterface< H, T, Behaviour >::DoNothingInitializer", "structlsdyna_1_1_l_s_d_y_n_a_explicit_interface_1_1_do_nothing_initializer.html", null ],
-    [ "tfel::math::DotProduct< N, M >", "structtfel_1_1math_1_1_dot_product.html", null ],
     [ "tfel::math::dotProduct< N >", "structtfel_1_1math_1_1dot_product.html", null ],
+    [ "tfel::math::DotProduct< N, M >", "structtfel_1_1math_1_1_dot_product.html", null ],
     [ "tfel::math::dotProduct< 0u >", "structtfel_1_1math_1_1dot_product_3_010u_01_4.html", null ],
     [ "tfel::math::DotProduct< 0u, M >", "structtfel_1_1math_1_1_dot_product_3_010u_00_01_m_01_4.html", null ],
     [ "tfel::math::internals::DPK1_DF_to_DTAU_DF_Converter< N >", "structtfel_1_1math_1_1internals_1_1_d_p_k1___d_f__to___d_t_a_u___d_f___converter.html", null ],
@@ -1949,10 +1949,6 @@ var hierarchy =
     [ "dianafea::ExtractAndConvertTangentOperator< tfel::material::ModellingHypothesis::PLANESTRESS >", "structdianafea_1_1_extract_and_convert_tangent_operator_3_01tfel_1_1material_1_1_modelling_hypot40607908a4df715540cdcd479274d229.html", null ],
     [ "lsdyna::ExtractAndConvertTangentOperator< tfel::material::ModellingHypothesis::PLANESTRESS >", "structlsdyna_1_1_extract_and_convert_tangent_operator_3_01tfel_1_1material_1_1_modelling_hypothe3b47d0ccb840ae8a308e3c524894fab1.html", null ],
     [ "calculix::ExtractTangentOperator", "structcalculix_1_1_extract_tangent_operator.html", null ],
-    [ "tfel::math::unit::internals::ExtractUnit< tfel::meta::InvalidType >", "structtfel_1_1math_1_1unit_1_1internals_1_1_extract_unit_3_01tfel_1_1meta_1_1_invalid_type_01_4.html", null ],
-    [ "tfel::math::unit::internals::ExtractUnitBase", "structtfel_1_1math_1_1unit_1_1internals_1_1_extract_unit_base.html", [
-      [ "tfel::math::unit::internals::ExtractUnit< T >", "structtfel_1_1math_1_1unit_1_1internals_1_1_extract_unit.html", null ]
-    ] ],
     [ "tfel::math::FactorizedKriging< N, M, T, Model1, Model2 >", "structtfel_1_1math_1_1_factorized_kriging.html", null ],
     [ "tfel::math::FactorizedKriging< 1u, 1u, double, KrigingPieceWiseLinearModel1D< double >, KrigingModelAdaptator< KrigingDefaultModel< 1u, double > > >", "structtfel_1_1math_1_1_factorized_kriging.html", [
       [ "tfel::math::FactorizedKriging1D1D", "structtfel_1_1math_1_1_factorized_kriging1_d1_d.html", null ]

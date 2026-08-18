@@ -1,6 +1,5 @@
 var NAVTREEINDEX91 =
 {
-"structtfel_1_1utilities_1_1basic__fcstring.html#afb07c0ae1831f16c5b6e381097760698":[7,0,14,12,4,20],
 "structtfel_1_1utilities_1_1internals_1_1_data_convertor.html":[7,0,14,12,0,0],
 "structtfel_1_1utilities_1_1internals_1_1_data_convertor_3_01double_01_4.html":[7,0,14,12,0,1],
 "structtfel_1_1utilities_1_1internals_1_1_data_convertor_3_01std_1_1map_3_01std_1_1string_00_01_t_01_4_01_4.html":[7,0,14,12,0,2],

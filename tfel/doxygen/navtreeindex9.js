@@ -1,6 +1,5 @@
 var NAVTREEINDEX9 =
 {
-"_substitutions_8hxx.html":[8,0,0,3,0,2],
 "_substitutions_8hxx.html#a93af1371fdaa6fb5aa2359c1cdaa1156":[8,0,0,3,0,2,0],
 "_supported_types_8hxx.html":[8,0,2,0,0,203],
 "_supported_types_8hxx.html#a02780b9599daa678096f6fceff95fd10":[8,0,2,0,0,203,11],
@@ -249,5 +248,6 @@ var NAVTREEINDEX9 =
 "_tiny_permutation_8ixx.html":[8,0,0,3,5,7,7],
 "_tiny_powell_dog_leg_algorithm_base_8hxx.html":[8,0,0,3,5,10,11],
 "_tiny_powell_dog_leg_algorithm_base_8hxx.html#a2af6a76863040300a210e557ebd47fd9":[8,0,0,3,5,10,11,0],
-"_tiny_powell_dog_leg_broyden_solver_8hxx.html":[8,0,0,3,5,70]
+"_tiny_powell_dog_leg_broyden_solver_8hxx.html":[8,0,0,3,5,70],
+"_tiny_powell_dog_leg_broyden_solver_8ixx.html":[8,0,0,3,5,10,12]
 };

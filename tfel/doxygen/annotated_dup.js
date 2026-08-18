@@ -1495,9 +1495,6 @@ var annotated_dup =
         [ "unit", null, [
           [ "internals", null, [
             [ "AddUnit", "structtfel_1_1math_1_1unit_1_1internals_1_1_add_unit.html", null ],
-            [ "ExtractUnit", "structtfel_1_1math_1_1unit_1_1internals_1_1_extract_unit.html", null ],
-            [ "ExtractUnit< tfel::meta::InvalidType >", "structtfel_1_1math_1_1unit_1_1internals_1_1_extract_unit_3_01tfel_1_1meta_1_1_invalid_type_01_4.html", null ],
-            [ "ExtractUnitBase", "structtfel_1_1math_1_1unit_1_1internals_1_1_extract_unit_base.html", null ],
             [ "PowerUnit", "structtfel_1_1math_1_1unit_1_1internals_1_1_power_unit.html", null ],
             [ "SubtractUnit", "structtfel_1_1math_1_1unit_1_1internals_1_1_subtract_unit.html", null ]
           ] ],

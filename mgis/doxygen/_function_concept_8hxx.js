@@ -23,6 +23,9 @@ var _function_concept_8hxx =
     [ "mgis::function::internals::mutable_return_value", "conceptmgis_1_1function_1_1internals_1_1mutable__return__value.html", null ],
     [ "mgis::function::LightweightViewConcept", "conceptmgis_1_1function_1_1_lightweight_view_concept.html", null ],
     [ "mgis::function::FunctionConcept", "conceptmgis_1_1function_1_1_function_concept.html", null ],
+    [ "mgis::function::LightweightFunctionConcept", "conceptmgis_1_1function_1_1_lightweight_function_concept.html", null ],
+    [ "mgis::function::NonLightweightFunctionConcept", "conceptmgis_1_1function_1_1_non_lightweight_function_concept.html", null ],
+    [ "mgis::function::ViewableFunctionArgumentConcept", "conceptmgis_1_1function_1_1_viewable_function_argument_concept.html", null ],
     [ "mgis::function::ElementFunctionConcept", "conceptmgis_1_1function_1_1_element_function_concept.html", null ],
     [ "mgis::function::QuadratureFunctionConcept", "conceptmgis_1_1function_1_1_quadrature_function_concept.html", null ],
     [ "function_const_result", "_function_concept_8hxx.html#a56ba97cbacbfdf5790c2df5d8a2609a9", null ],
@@ -30,6 +33,6 @@ var _function_concept_8hxx =
     [ "function_view", "_function_concept_8hxx.html#a6a5837e9b79647c7698acde7836fc0d5", null ],
     [ "disambiguateGetNumberOfComponents", "_function_concept_8hxx.html#a9ff2b4f511e4447b01e198368a198296", null ],
     [ "disambiguateGetSpace", "_function_concept_8hxx.html#aade3e3344bdf72be477e3430338e6843", null ],
-    [ "make_view", "_function_concept_8hxx.html#aac8e852962ebab747a4fdb519696787a", null ],
+    [ "make_view", "_function_concept_8hxx.html#ab1629b408275e176e18d2f229fca71a4", null ],
     [ "operator|", "_function_concept_8hxx.html#af215d2734e68d56e4f3aa79231fd21e5", null ]
 ];

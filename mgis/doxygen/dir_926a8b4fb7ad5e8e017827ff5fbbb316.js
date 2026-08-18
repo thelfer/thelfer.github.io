@@ -18,6 +18,8 @@ var dir_926a8b4fb7ad5e8e017827ff5fbbb316 =
     [ "LibrariesManager.hxx", "_libraries_manager_8hxx.html", "_libraries_manager_8hxx" ],
     [ "LogStream.hxx", "_log_stream_8hxx.html", "_log_stream_8hxx" ],
     [ "LogStream.ixx", "_log_stream_8ixx.html", null ],
+    [ "Profiling.hxx", "_profiling_8hxx.html", "_profiling_8hxx" ],
+    [ "ProfilingData.hxx", "_profiling_data_8hxx.html", "_profiling_data_8hxx" ],
     [ "Raise.hxx", "_raise_8hxx.html", "_raise_8hxx" ],
     [ "Raise.ixx", "_raise_8ixx.html", "_raise_8ixx" ],
     [ "StorageMode.hxx", "_storage_mode_8hxx.html", "_storage_mode_8hxx" ],

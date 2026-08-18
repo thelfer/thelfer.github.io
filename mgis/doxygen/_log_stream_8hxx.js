@@ -13,12 +13,12 @@ var _log_stream_8hxx =
     ] ],
     [ "debug", "_log_stream_8hxx.html#a3d97a09c6c64460afbf937bbeae023c5", null ],
     [ "disableDefaultLogStream", "_log_stream_8hxx.html#a5090d179a5a2a2ebff48bb16b18db959", null ],
-    [ "getDefaultLogStream", "_log_stream_8hxx.html#a45e2adc7ff0a023a90a1dabb59ceb269", null ],
+    [ "getDefaultLogStream", "_log_stream_8hxx.html#afe3d9647d3e4d96809e04e13bf33a4e5", null ],
     [ "resetDefaultLogStream", "_log_stream_8hxx.html#ae9c2b4f2fc495c1e278dd9dd9d915e58", null ],
     [ "resetStreamColor", "_log_stream_8hxx.html#a036c7f019b577e08c7d44850393bbe1a", null ],
     [ "setDefaultLogStream", "_log_stream_8hxx.html#a408b9199459fbde44b73b6dbedd0d204", null ],
     [ "setDefaultLogStream", "_log_stream_8hxx.html#a9de5ebfdace7985b5e404fb8ae846510", null ],
-    [ "setDefaultLogStream", "_log_stream_8hxx.html#a6a8b20f25b7cfa95c3a8c1860e51d633", null ],
+    [ "setDefaultLogStream", "_log_stream_8hxx.html#a03020fe73cd3da8538ad77d45838556b", null ],
     [ "setStreamColor", "_log_stream_8hxx.html#adef4b3c198b45a0b4bec1e1b0b525bf4", null ],
     [ "warning", "_log_stream_8hxx.html#ae1ceec782317554dec7a342b432a1fbb", null ]
 ];

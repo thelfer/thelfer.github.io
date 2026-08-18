@@ -178,11 +178,11 @@ constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>mgis::funct
 <tr class="memitem:a91e41be10a642ac2c8bdaf14e1731bcc" id="r_a91e41be10a642ac2c8bdaf14e1731bcc"><td class="memItemLeft" align="right" valign="top"><a id="a91e41be10a642ac2c8bdaf14e1731bcc" name="a91e41be10a642ac2c8bdaf14e1731bcc"></a>
 constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>mgis::function::internals::assign_value</b> (std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>, 1u &gt;, const std::array&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>, 1u &gt; &amp;)</td></tr>
 <tr class="separator:a91e41be10a642ac2c8bdaf14e1731bcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b5623a46e80242a38ef7d6e8d6f474b" id="r_a3b5623a46e80242a38ef7d6e8d6f474b"><td class="memTemplParams" colspan="2">template&lt;typename FunctionType , EvaluatorConcept EvaluatorType&gt; <br />
-requires ( (internals::isEvaluatorAssignableToFunction&lt;EvaluatorType, FunctionType&gt;)&amp;&amp; // ((LinearElementSpaceConcept&lt;evaluator_space&lt;EvaluatorType&gt;&gt;) || (LinearQuadratureSpaceConcept&lt;evaluator_space&lt;EvaluatorType&gt;&gt;)))</td></tr>
-<tr class="memitem:a3b5623a46e80242a38ef7d6e8d6f474b"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_algorithms_8hxx.html#a3b5623a46e80242a38ef7d6e8d6f474b">mgis::function::assign</a> (<a class="el" href="structmgis_1_1_abstract_error_handler.html">AbstractErrorHandler</a> &amp;, FunctionType &amp;, const EvaluatorType)</td></tr>
-<tr class="memdesc:a3b5623a46e80242a38ef7d6e8d6f474b"><td class="mdescLeft">&#160;</td><td class="mdescRight">assign the evaluator to a function  <br /></td></tr>
-<tr class="separator:a3b5623a46e80242a38ef7d6e8d6f474b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe33d04ce956c767178fa7787bfad4e1" id="r_afe33d04ce956c767178fa7787bfad4e1"><td class="memTemplParams" colspan="2">template&lt;ViewableFunctionArgumentConcept FunctionType, EvaluatorConcept EvaluatorType&gt; <br />
+requires ( (internals::isEvaluatorAssignableToFunction&lt; EvaluatorType, std::decay_t&lt;FunctionType&gt;&gt;)&amp;&amp; // ((LinearElementSpaceConcept&lt;evaluator_space&lt;EvaluatorType&gt;&gt;) || (LinearQuadratureSpaceConcept&lt;evaluator_space&lt;EvaluatorType&gt;&gt;)))</td></tr>
+<tr class="memitem:afe33d04ce956c767178fa7787bfad4e1"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_algorithms_8hxx.html#afe33d04ce956c767178fa7787bfad4e1">mgis::function::assign</a> (<a class="el" href="structmgis_1_1_abstract_error_handler.html">AbstractErrorHandler</a> &amp;, FunctionType &amp;&amp;, const EvaluatorType)</td></tr>
+<tr class="memdesc:afe33d04ce956c767178fa7787bfad4e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">assign the evaluator to a function  <br /></td></tr>
+<tr class="separator:afe33d04ce956c767178fa7787bfad4e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a932a34e7734bd624edfe1d5496376e3e" id="r_a932a34e7734bd624edfe1d5496376e3e"><td class="memTemplParams" colspan="2">template&lt;EvaluatorConcept EvaluatorType, typename OperatorType &gt; <br />
 requires (LinearElementSpaceConcept&lt;evaluator_space&lt;EvaluatorType&gt;&gt;)</td></tr>
 <tr class="memitem:a932a34e7734bd624edfe1d5496376e3e"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::optional&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_algorithms_8hxx.html#a932a34e7734bd624edfe1d5496376e3e">mgis::function::scalar_reduce</a> (<a class="el" href="structmgis_1_1_abstract_error_handler.html">AbstractErrorHandler</a> &amp;, const EvaluatorType, const OperatorType, const <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>)</td></tr>
@@ -198,14 +198,14 @@ requires (LinearElementSpaceConcept&lt;evaluator_space&lt;EvaluatorType&gt;&gt;)
 </ul>
 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a3b5623a46e80242a38ef7d6e8d6f474b" name="a3b5623a46e80242a38ef7d6e8d6f474b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b5623a46e80242a38ef7d6e8d6f474b">&#9670;&#160;</a></span>assign()</h2>
+<a id="afe33d04ce956c767178fa7787bfad4e1" name="afe33d04ce956c767178fa7787bfad4e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe33d04ce956c767178fa7787bfad4e1">&#9670;&#160;</a></span>assign()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename FunctionType , EvaluatorConcept EvaluatorType&gt; <br />
-requires ( (internals::isEvaluatorAssignableToFunction&lt;EvaluatorType, FunctionType&gt;)&amp;&amp; // ((LinearElementSpaceConcept&lt;evaluator_space&lt;EvaluatorType&gt;&gt;) || (LinearQuadratureSpaceConcept&lt;evaluator_space&lt;EvaluatorType&gt;&gt;)))</div>
+template&lt;ViewableFunctionArgumentConcept FunctionType, EvaluatorConcept EvaluatorType&gt; <br />
+requires ( (internals::isEvaluatorAssignableToFunction&lt; EvaluatorType, std::decay_t&lt;FunctionType&gt;&gt;)&amp;&amp; // ((LinearElementSpaceConcept&lt;evaluator_space&lt;EvaluatorType&gt;&gt;) || (LinearQuadratureSpaceConcept&lt;evaluator_space&lt;EvaluatorType&gt;&gt;)))</div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -219,7 +219,7 @@ requires ( (internals::isEvaluatorAssignableToFunction&lt;EvaluatorType, Functio
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">FunctionType &amp;&#160;</td>
+          <td class="paramtype">FunctionType &amp;&amp;&#160;</td>
           <td class="paramname"><em>f</em>, </td>
         </tr>
         <tr>
@@ -321,7 +321,7 @@ requires (LinearElementSpaceConcept&lt;evaluator_space&lt;EvaluatorType&gt;&gt;)
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_926a8b4fb7ad5e8e017827ff5fbbb316.html">MGIS</a></li><li class="navelem"><a class="el" href="dir_2e52b00940cd27d9780366949db1e89b.html">Function</a></li><li class="navelem"><a class="el" href="_algorithms_8hxx.html">Algorithms.hxx</a></li>
-    <li class="footer">Generated on Tue Aug 18 2026 12:07:25 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Aug 18 2026 13:05:50 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

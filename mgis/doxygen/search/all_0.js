@@ -28,6 +28,6 @@ var searchData=
   ['arevalid_25',['areValid',['../namespacemgis.html#a06c83fbb0905ade623a12868ca239b70',1,'mgis']]],
   ['arrayview_26',['ArrayView',['../classmgis_1_1julia_1_1_array_view.html',1,'mgis::julia']]],
   ['arrayview_2ehxx_27',['ArrayView.hxx',['../_array_view_8hxx.html',1,'']]],
-  ['assign_28',['assign',['../_algorithms_8hxx.html#a3b5623a46e80242a38ef7d6e8d6f474b',1,'mgis::function::assign(AbstractErrorHandler &amp;, FunctionType &amp;, const EvaluatorType)'],['../_c_u_d_a_2_algorithms_8hxx.html#af952690ed30bc1d3b77f51c3c170a922',1,'mgis::function::assign(AbstractErrorHandler &amp;, const CUDAExecutionConfiguration &amp;, FunctionType &amp;, const EvaluatorType)']]],
+  ['assign_28',['assign',['../_algorithms_8hxx.html#afe33d04ce956c767178fa7787bfad4e1',1,'mgis::function::assign(AbstractErrorHandler &amp;, FunctionType &amp;&amp;, const EvaluatorType)'],['../_c_u_d_a_2_algorithms_8hxx.html#af952690ed30bc1d3b77f51c3c170a922',1,'mgis::function::assign(AbstractErrorHandler &amp;, const CUDAExecutionConfiguration &amp;, FunctionType &amp;, const EvaluatorType)']]],
   ['author_29',['author',['../structmgis_1_1behaviour_1_1_behaviour_description.html#ac755975ea41e2127475aa46120746e12',1,'mgis::behaviour::BehaviourDescription']]]
 ];

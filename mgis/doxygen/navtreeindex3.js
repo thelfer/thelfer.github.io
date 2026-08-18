@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"index.html#autotoc_md3":[0,1,1],
 "index.html#autotoc_md4":[0,2],
 "index.html#autotoc_md5":[0,2,0],
 "index.html#autotoc_md6":[0,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "structmgis_1_1_libraries_manager.html#a6a0f3852063771101e05bc368cce1535":[3,0,1,14,42],
 "structmgis_1_1_libraries_manager.html#a6a0f3852063771101e05bc368cce1535":[1,0,0,7,42],
 "structmgis_1_1_libraries_manager.html#a71c6c4caf88562bec5ef804b6b957625":[1,0,0,7,8],
-"structmgis_1_1_libraries_manager.html#a71c6c4caf88562bec5ef804b6b957625":[3,0,1,14,8],
-"structmgis_1_1_libraries_manager.html#a77da0e9abcb0282d5cbe797b080e471b":[3,0,1,14,29]
+"structmgis_1_1_libraries_manager.html#a71c6c4caf88562bec5ef804b6b957625":[3,0,1,14,8]
 };

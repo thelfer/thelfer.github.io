@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>MGIS: mgis::function::ST2toST23DEvaluatorConcept Concept Reference</title>
+<title>MGIS: mgis::function::internals::isEvaluatorAssignableToFunction Concept Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -71,7 +71,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('conceptmgis_1_1function_1_1_s_t2to_s_t23_d_evaluator_concept.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('conceptmgis_1_1function_1_1internals_1_1is_evaluator_assignable_to_function.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -97,29 +97,32 @@ $(document).ready(function(){initNavTree('conceptmgis_1_1function_1_1_s_t2to_s_t
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">mgis::function::ST2toST23DEvaluatorConcept Concept Reference</div></div>
+  <div class="headertitle"><div class="title">mgis::function::internals::isEvaluatorAssignableToFunction Concept Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <h2 class="groupheader">Concept definition</h2>
-<div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> EvaluatorType&gt;</div>
-<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="conceptmgis_1_1function_1_1_s_t2to_s_t23_d_evaluator_concept.html">mgis::function::ST2toST23DEvaluatorConcept</a> = </div>
-<div class="line">      (<a class="code hl_concept" href="conceptmgis_1_1function_1_1_evaluator_concept.html">EvaluatorConcept&lt;EvaluatorType&gt;</a>)&amp;&amp;                                 </div>
-<div class="line">      (::tfel::math::ST2toST2Concept&lt;evaluator_result&lt;EvaluatorType&gt;&gt;)&amp;&amp;  </div>
-<div class="line">      (::tfel::math::space_dimension&lt;evaluator_result&lt;EvaluatorType&gt;&gt; ==</div>
-<div class="line">       3u) &amp;&amp;  </div>
-<div class="line">      (std::same_as&lt;</div>
-<div class="line">          std::decay_t&lt;::tfel::math::base_type&lt;</div>
-<div class="line">              ::tfel::math::numeric_type&lt;evaluator_result&lt;EvaluatorType&gt;&gt;&gt;&gt;,</div>
-<div class="line">          <a class="code hl_typedef" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>&gt;)</div>
+<div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> EvaluatorType, <span class="keyword">typename</span> FunctionType&gt;</div>
+<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="conceptmgis_1_1function_1_1internals_1_1is_evaluator_assignable_to_function.html">mgis::function::internals::isEvaluatorAssignableToFunction</a> = </div>
+<div class="line">      (<a class="code hl_concept" href="conceptmgis_1_1function_1_1_evaluator_concept.html">EvaluatorConcept&lt;EvaluatorType&gt;</a>)&amp;&amp;  </div>
+<div class="line">      (<a class="code hl_concept" href="conceptmgis_1_1function_1_1_function_concept.html">FunctionConcept&lt;FunctionType&gt;</a>)&amp;&amp;    </div>
+<div class="line">      (std::same_as&lt;function_space&lt;FunctionType&gt;,</div>
+<div class="line">                    evaluator_space&lt;EvaluatorType&gt;&gt;)&amp;&amp;  </div>
+<div class="line">      ((<span class="keyword">requires</span>(function_result&lt;FunctionType&gt; &amp; lhs,</div>
+<div class="line">                 <span class="keyword">const</span> evaluator_result&lt;EvaluatorType&gt;&amp; rhs) { lhs = rhs; }) ||</div>
+<div class="line">       (<span class="keyword">requires</span>(<a class="code hl_typedef" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">function_result&lt;FunctionType&gt;</a> &amp; <a class="code hl_typedef" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">lhs</a>,</div>
+<div class="line">                 <span class="keyword">const</span> <a class="code hl_typedef" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">evaluator_result&lt;EvaluatorType&gt;</a>&amp; <a class="code hl_typedef" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">rhs</a>) {</div>
+<div class="line">         assign_value(<a class="code hl_typedef" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">lhs</a>, <a class="code hl_typedef" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">rhs</a>);</div>
+<div class="line">       }))</div>
+<div class="ttc" id="a_evaluator_concept_8hxx_html_aaa43e880e9b2fb06fd444c9e86eb871d"><div class="ttname"><a href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">mgis::function::evaluator_result</a></div><div class="ttdeci">typename internals::EvaluatorResultQuery&lt; EvaluatorType &gt;::type evaluator_result</div><div class="ttdoc">type of the result of an evaluator</div><div class="ttdef"><b>Definition</b> EvaluatorConcept.hxx:221</div></div>
 <div class="ttc" id="aconceptmgis_1_1function_1_1_evaluator_concept_html"><div class="ttname"><a href="conceptmgis_1_1function_1_1_evaluator_concept.html">mgis::function::EvaluatorConcept</a></div><div class="ttdoc">a concept that must satisfy an evaluator</div><div class="ttdef"><b>Definition</b> EvaluatorConcept.hxx:163</div></div>
-<div class="ttc" id="aconceptmgis_1_1function_1_1_s_t2to_s_t23_d_evaluator_concept_html"><div class="ttname"><a href="conceptmgis_1_1function_1_1_s_t2to_s_t23_d_evaluator_concept.html">mgis::function::ST2toST23DEvaluatorConcept</a></div><div class="ttdef"><b>Definition</b> Tensors.hxx:266</div></div>
-<div class="ttc" id="anamespacemgis_html_a0e88ae1504a452a9c3e573a06beff1e4"><div class="ttname"><a href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">mgis::real</a></div><div class="ttdeci">mgis_real real</div><div class="ttdoc">alias to the numeric type used</div><div class="ttdef"><b>Definition</b> Config.hxx:124</div></div>
+<div class="ttc" id="aconceptmgis_1_1function_1_1_function_concept_html"><div class="ttname"><a href="conceptmgis_1_1function_1_1_function_concept.html">mgis::function::FunctionConcept</a></div><div class="ttdoc">a concept that must satisfy a function</div><div class="ttdef"><b>Definition</b> FunctionConcept.hxx:250</div></div>
+<div class="ttc" id="aconceptmgis_1_1function_1_1internals_1_1is_evaluator_assignable_to_function_html"><div class="ttname"><a href="conceptmgis_1_1function_1_1internals_1_1is_evaluator_assignable_to_function.html">mgis::function::internals::isEvaluatorAssignableToFunction</a></div><div class="ttdef"><b>Definition</b> Algorithms.hxx:86</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacemgis.html">mgis</a></li><li class="navelem"><b>function</b></li><li class="navelem"><a class="el" href="conceptmgis_1_1function_1_1_s_t2to_s_t23_d_evaluator_concept.html">ST2toST23DEvaluatorConcept</a></li>
+    <li class="navelem"><a class="el" href="namespacemgis.html">mgis</a></li><li class="navelem"><b>function</b></li><li class="navelem"><b>internals</b></li><li class="navelem"><a class="el" href="conceptmgis_1_1function_1_1internals_1_1is_evaluator_assignable_to_function.html">isEvaluatorAssignableToFunction</a></li>
     <li class="footer">Generated on Tue Aug 18 2026 12:07:25 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>

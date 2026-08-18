@@ -1,5 +1,6 @@
 var NAVTREEINDEX5 =
 {
+"structmgis_1_1behaviour_1_1_behaviour_initialize_function.html#ac4e1a245e824b794f33fcb0b703df231":[3,0,1,1,4,7],
 "structmgis_1_1behaviour_1_1_behaviour_initialize_function.html#ad7b4bea2e575c2009671b06e7a18e792":[3,0,1,1,4,5],
 "structmgis_1_1behaviour_1_1_behaviour_integration_options.html":[3,0,1,1,5],
 "structmgis_1_1behaviour_1_1_behaviour_integration_options.html#a26e87b09de38794c921073e1e53329b6":[3,0,1,1,5,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX5 =
 "structmgis_1_1function_1_1_coalesced_memory_access_function_view_base.html#a7ed318b43767e120243ee2f7b5c888e7":[3,0,1,3,12,18],
 "structmgis_1_1function_1_1_coalesced_memory_access_function_view_base.html#a8dbe1533060d3bdb3df4205722994773":[3,0,1,3,12,9],
 "structmgis_1_1function_1_1_coalesced_memory_access_function_view_base.html#a8dfb1d4fc8288346501337a0a1a643c6":[3,0,1,3,12,6],
-"structmgis_1_1function_1_1_coalesced_memory_access_function_view_base.html#aac23f957572e72befe3a5a7e38adedd1":[3,0,1,3,12,3],
-"structmgis_1_1function_1_1_coalesced_memory_access_function_view_base.html#ab0418a0739c67ead3147bea9f667f954":[3,0,1,3,12,13]
+"structmgis_1_1function_1_1_coalesced_memory_access_function_view_base.html#aac23f957572e72befe3a5a7e38adedd1":[3,0,1,3,12,3]
 };

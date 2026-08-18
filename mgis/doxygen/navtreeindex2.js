@@ -157,9 +157,10 @@ var NAVTREEINDEX2 =
 "conceptmgis_1_1function_1_1_tensor_evaluator_concept.html":[2,0,0,32],
 "conceptmgis_1_1function_1_1_tensor_value_concept.html":[2,0,0,22],
 "conceptmgis_1_1function_1_1_viewable_function_argument_concept.html":[2,0,0,9],
-"conceptmgis_1_1function_1_1internals_1_1is__pointer__to__real.html":[2,0,0,0,0],
-"conceptmgis_1_1function_1_1internals_1_1mutable__return__value.html":[2,0,0,0,1],
-"conceptmgis_1_1function_1_1internals_1_1same__decay__type.html":[2,0,0,0,2],
+"conceptmgis_1_1function_1_1internals_1_1is__pointer__to__real.html":[2,0,0,0,1],
+"conceptmgis_1_1function_1_1internals_1_1is_evaluator_assignable_to_function.html":[2,0,0,0,0],
+"conceptmgis_1_1function_1_1internals_1_1mutable__return__value.html":[2,0,0,0,2],
+"conceptmgis_1_1function_1_1internals_1_1same__decay__type.html":[2,0,0,0,3],
 "concepts.html":[2],
 "dir_00240dc4a1a4845ae58be68fbad02d02.html":[4,0,0],
 "dir_1d4e19cccea487c8f1326207c4399911.html":[4,0,0,1,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "index.html":[0],
 "index.html#autotoc_md0":[0,0],
 "index.html#autotoc_md1":[0,1],
-"index.html#autotoc_md2":[0,1,0],
-"index.html#autotoc_md3":[0,1,1]
+"index.html#autotoc_md2":[0,1,0]
 };

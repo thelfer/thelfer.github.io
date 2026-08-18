@@ -3,6 +3,7 @@ var concepts =
     [ "mgis", "namespacemgis.html", [
       [ "function", null, [
         [ "internals", null, [
+          [ "isEvaluatorAssignableToFunction", "conceptmgis_1_1function_1_1internals_1_1is_evaluator_assignable_to_function.html", null ],
           [ "is_pointer_to_real", "conceptmgis_1_1function_1_1internals_1_1is__pointer__to__real.html", null ],
           [ "mutable_return_value", "conceptmgis_1_1function_1_1internals_1_1mutable__return__value.html", null ],
           [ "same_decay_type", "conceptmgis_1_1function_1_1internals_1_1same__decay__type.html", null ]

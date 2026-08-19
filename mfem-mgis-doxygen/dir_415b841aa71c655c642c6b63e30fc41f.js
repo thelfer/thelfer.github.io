@@ -18,6 +18,8 @@ var dir_415b841aa71c655c642c6b63e30fc41f =
     [ "LibrariesManager.hxx", "_libraries_manager_8hxx.html", "_libraries_manager_8hxx" ],
     [ "LogStream.hxx", "_log_stream_8hxx.html", "_log_stream_8hxx" ],
     [ "LogStream.ixx", "_log_stream_8ixx.html", null ],
+    [ "Profiling.hxx", "_profiling_8hxx.html", "_profiling_8hxx" ],
+    [ "ProfilingData.hxx", "_profiling_data_8hxx.html", "_profiling_data_8hxx" ],
     [ "Raise.hxx", "mgis-master-oeeftvzu44dailar2fguebjrt6hue7ak_2include_2_m_g_i_s_2_raise_8hxx.html", "mgis-master-oeeftvzu44dailar2fguebjrt6hue7ak_2include_2_m_g_i_s_2_raise_8hxx" ],
     [ "Raise.ixx", "mgis-master-oeeftvzu44dailar2fguebjrt6hue7ak_2include_2_m_g_i_s_2_raise_8ixx.html", "mgis-master-oeeftvzu44dailar2fguebjrt6hue7ak_2include_2_m_g_i_s_2_raise_8ixx" ],
     [ "StorageMode.hxx", "_storage_mode_8hxx.html", "_storage_mode_8hxx" ],

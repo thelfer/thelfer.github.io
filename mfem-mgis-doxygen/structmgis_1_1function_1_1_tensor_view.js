@@ -1,7 +1,8 @@
 var structmgis_1_1function_1_1_tensor_view =
 [
-    [ "TensorView", "structmgis_1_1function_1_1_tensor_view.html#abfc2d14e959d9d4b2580f2b823c495c1", null ],
-    [ "TensorView", "structmgis_1_1function_1_1_tensor_view.html#a9c87102c47a64b165c6a8f4c7341c209", null ],
+    [ "ConstructorArgumentType", "structmgis_1_1function_1_1_tensor_view.html#a9e7410be9f1754d66374f90ab7023415", null ],
+    [ "TensorView", "structmgis_1_1function_1_1_tensor_view.html#a4e8a764863a398139c7db19d59c43af3", null ],
+    [ "TensorView", "structmgis_1_1function_1_1_tensor_view.html#ad44eb59bafa9c42cc362ad450dc5c413", null ],
     [ "check", "structmgis_1_1function_1_1_tensor_view.html#a9192bbccc0d778cda3e41158efbb882b", null ],
     [ "getNumberOfComponents", "structmgis_1_1function_1_1_tensor_view.html#abe3588120067255449c208f12ad50e98", null ],
     [ "getSpace", "structmgis_1_1function_1_1_tensor_view.html#ab346cec077085f355cfbac9bc11787f0", null ],

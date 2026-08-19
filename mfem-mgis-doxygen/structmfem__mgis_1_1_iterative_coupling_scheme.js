@@ -1,6 +1,6 @@
 var structmfem__mgis_1_1_iterative_coupling_scheme =
 [
-    [ "IterativeCouplingScheme", "structmfem__mgis_1_1_iterative_coupling_scheme.html#abc87dc812d2e291d9eeaa41980a01205", null ],
+    [ "IterativeCouplingScheme", "structmfem__mgis_1_1_iterative_coupling_scheme.html#ae3e114f318d66b561303b98dae95b56b", null ],
     [ "~IterativeCouplingScheme", "structmfem__mgis_1_1_iterative_coupling_scheme.html#a99b0073a547dfc8a26b1e20d3c025e75", null ],
     [ "addConvergenceCriterion", "structmfem__mgis_1_1_iterative_coupling_scheme.html#ab292bcc1d297f27c2c9725e477a6dcee", null ],
     [ "computeNextState", "structmfem__mgis_1_1_iterative_coupling_scheme.html#a1d8eba3007e12555c78ca2970e8ede8d", null ],

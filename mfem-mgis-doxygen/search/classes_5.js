@@ -103,7 +103,8 @@ var searchData=
   ['functionresulttypetraits_3c_20std_3a_3aspan_3c_20real_2c_20n_20_3e_20_3e_100',['FunctionResultTypeTraits&lt; std::span&lt; real, N &gt; &gt;',['../structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01std_1_1span_3_01real_00_01_n_01_4_01_4.html',1,'mgis::function::internals']]],
   ['functionresulttypetraits_3c_20tensortype_20_26_20_3e_101',['FunctionResultTypeTraits&lt; TensorType &amp; &gt;',['../structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01_tensor_type_01_6_01_4.html',1,'mgis::function::internals']]],
   ['functionresulttypetraits_3c_20tfel_3a_3amath_3a_3aview_3c_20tensortype_20_3e_20_3e_102',['FunctionResultTypeTraits&lt; tfel::math::View&lt; TensorType &gt; &gt;',['../structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01tfel_1_1math_1_1_view_3_01_tensor_type_01_4_01_4.html',1,'mgis::function::internals']]],
-  ['functionstorage_103',['FunctionStorage',['../structmgis_1_1function_1_1_function_storage.html',1,'mgis::function']]],
-  ['functionstorage_3c_20space_2c_20dynamic_5fextent_20_3e_104',['FunctionStorage&lt; Space, dynamic_extent &gt;',['../structmgis_1_1function_1_1_function_storage.html',1,'mgis::function']]],
-  ['functionview_105',['FunctionView',['../structmgis_1_1function_1_1_function_view.html',1,'mgis::function']]]
+  ['functionresulttypetraits_3c_3a_3atfel_3a_3amath_3a_3aqt_5fref_3c_20unittype_2c_20real_20_3e_20_3e_103',['FunctionResultTypeTraits&lt;::tfel::math::qt_ref&lt; UnitType, real &gt; &gt;',['../structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_1_1tfel_1_1math_1_1qt__ref2a8c22112dabdecf7b1bd05d8b4801db.html',1,'mgis::function::internals']]],
+  ['functionstorage_104',['FunctionStorage',['../structmgis_1_1function_1_1_function_storage.html',1,'mgis::function']]],
+  ['functionstorage_3c_20space_2c_20dynamic_5fextent_20_3e_105',['FunctionStorage&lt; Space, dynamic_extent &gt;',['../structmgis_1_1function_1_1_function_storage.html',1,'mgis::function']]],
+  ['functionview_106',['FunctionView',['../structmgis_1_1function_1_1_function_view.html',1,'mgis::function']]]
 ];

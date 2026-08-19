@@ -9,5 +9,9 @@ var searchData=
   ['qtoperations_2ehxx_6',['qtOperations.hxx',['../qt_operations_8hxx.html',1,'']]],
   ['qtoperations_2eixx_7',['qtOperations.ixx',['../qt_operations_8ixx.html',1,'']]],
   ['qtspecific_2ehxx_8',['qtSpecific.hxx',['../qt_specific_8hxx.html',1,'']]],
-  ['quantity_2funit_2ehxx_9',['Unit.hxx',['../_quantity_2_unit_8hxx.html',1,'']]]
+  ['quantity_2ehxx_9',['Quantity.hxx',['../_quantity_8hxx.html',1,'']]],
+  ['quantity_2funit_2ehxx_10',['Unit.hxx',['../_quantity_2_unit_8hxx.html',1,'']]],
+  ['quantitymodifier_2eixx_11',['QuantityModifier.ixx',['../_quantity_modifier_8ixx.html',1,'']]],
+  ['quantityview_2ehxx_12',['QuantityView.hxx',['../_quantity_view_8hxx.html',1,'']]],
+  ['quantityview_2eixx_13',['QuantityView.ixx',['../_quantity_view_8ixx.html',1,'']]]
 ];

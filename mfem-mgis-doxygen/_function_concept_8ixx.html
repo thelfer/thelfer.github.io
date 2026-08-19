@@ -125,11 +125,11 @@ requires (!EvaluatorConcept&lt;FunctionType&gt;)</td></tr>
 requires (!EvaluatorConcept&lt;FunctionType&gt;)</td></tr>
 <tr class="memitem:a9ff2b4f511e4447b01e198368a198296"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="spack_2opt_2spack_2linux-zen2_2mgis-master-oeeftvzu44dailar2fguebjrt6hue7ak_2include_2_m_g_i_s_2_config_8hxx.html#a184723b5d743b58169be89d3b04265fc">mgis::size_type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_function_concept_8hxx.html#a9ff2b4f511e4447b01e198368a198296">mgis::function::internals::disambiguateGetNumberOfComponents</a> (const FunctionType &amp;)</td></tr>
 <tr class="separator:a9ff2b4f511e4447b01e198368a198296"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af215d2734e68d56e4f3aa79231fd21e5" id="r_af215d2734e68d56e4f3aa79231fd21e5"><td class="memTemplParams" colspan="2">template&lt;EvaluatorConcept EvaluatorType, FunctionConcept FunctionType&gt; <br />
-requires ( std::same_as&lt;evaluator_space&lt;EvaluatorType&gt;, function_space&lt;FunctionType&gt;&gt;)</td></tr>
-<tr class="memitem:af215d2734e68d56e4f3aa79231fd21e5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">bool</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_function_concept_8hxx.html#af215d2734e68d56e4f3aa79231fd21e5">mgis::function::operator|</a> (EvaluatorType, FunctionType &amp;)</td></tr>
-<tr class="memdesc:af215d2734e68d56e4f3aa79231fd21e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">assign an evaluator to a mutable function view  <br /></td></tr>
-<tr class="separator:af215d2734e68d56e4f3aa79231fd21e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a795db89f6757c6e07dd9fd8208e655a2" id="r_a795db89f6757c6e07dd9fd8208e655a2"><td class="memTemplParams" colspan="2">template&lt;EvaluatorConcept EvaluatorType, ViewableFunctionArgumentConcept FunctionType&gt; <br />
+requires ( std::same_as&lt;evaluator_space&lt;EvaluatorType&gt;, function_space&lt;std::decay_t&lt;FunctionType&gt;&gt;&gt;)</td></tr>
+<tr class="memitem:a795db89f6757c6e07dd9fd8208e655a2"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">bool</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_function_concept_8hxx.html#a795db89f6757c6e07dd9fd8208e655a2">mgis::function::operator|</a> (EvaluatorType, FunctionType &amp;&amp;)</td></tr>
+<tr class="memdesc:a795db89f6757c6e07dd9fd8208e655a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">assign an evaluator to a mutable function view  <br /></td></tr>
+<tr class="separator:a795db89f6757c6e07dd9fd8208e655a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Thomas Helfer </dd></dl>
@@ -200,14 +200,14 @@ requires (!EvaluatorConcept&lt;FunctionType&gt;)</div>
 
 </div>
 </div>
-<a id="af215d2734e68d56e4f3aa79231fd21e5" name="af215d2734e68d56e4f3aa79231fd21e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af215d2734e68d56e4f3aa79231fd21e5">&#9670;&#160;</a></span>operator|()</h2>
+<a id="a795db89f6757c6e07dd9fd8208e655a2" name="a795db89f6757c6e07dd9fd8208e655a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a795db89f6757c6e07dd9fd8208e655a2">&#9670;&#160;</a></span>operator|()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;EvaluatorConcept EvaluatorType, FunctionConcept FunctionType&gt; <br />
-requires ( std::same_as&lt;evaluator_space&lt;EvaluatorType&gt;, function_space&lt;FunctionType&gt;&gt;)</div>
+template&lt;EvaluatorConcept EvaluatorType, ViewableFunctionArgumentConcept FunctionType&gt; <br />
+requires ( std::same_as&lt;evaluator_space&lt;EvaluatorType&gt;, function_space&lt;std::decay_t&lt;FunctionType&gt;&gt;&gt;)</div>
       <table class="memname">
         <tr>
           <td class="memname">bool <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">mgis::function::operator</a>| </td>
@@ -218,7 +218,7 @@ requires ( std::same_as&lt;evaluator_space&lt;EvaluatorType&gt;, function_space&
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">FunctionType &amp;&#160;</td>
+          <td class="paramtype">FunctionType &amp;&amp;&#160;</td>
           <td class="paramname"><em>f</em>&#160;</td>
         </tr>
         <tr>
@@ -247,7 +247,7 @@ requires ( std::same_as&lt;evaluator_space&lt;EvaluatorType&gt;, function_space&
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_19f2334cefedab4bca7d00c996a0e590.html">spack</a></li><li class="navelem"><a class="el" href="dir_4819441dfd5ac14987c44814feffea1f.html">opt</a></li><li class="navelem"><a class="el" href="dir_e09d68ea3582e9b52bc2ab165a9fdd0a.html">spack</a></li><li class="navelem"><a class="el" href="dir_ffdec7cc29a5f6597048472df1d5e993.html">linux-zen2</a></li><li class="navelem"><a class="el" href="dir_c5711de5160e8bb760cbe89959bbbe4f.html">mgis-master-oeeftvzu44dailar2fguebjrt6hue7ak</a></li><li class="navelem"><a class="el" href="dir_e93949b2bee742bfd163f5500daf3be4.html">include</a></li><li class="navelem"><a class="el" href="dir_415b841aa71c655c642c6b63e30fc41f.html">MGIS</a></li><li class="navelem"><a class="el" href="dir_27debedbc5b82a6b341f26ab55a13ef8.html">Function</a></li><li class="navelem"><a class="el" href="_function_concept_8ixx.html">FunctionConcept.ixx</a></li>
-    <li class="footer">Generated on Fri Aug 7 2026 13:24:14 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Aug 19 2026 14:02:55 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

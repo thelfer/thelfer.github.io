@@ -3,6 +3,7 @@ var concepts =
     [ "mgis", null, [
       [ "function", null, [
         [ "internals", null, [
+          [ "isEvaluatorAssignableToFunction", "conceptmgis_1_1function_1_1internals_1_1is_evaluator_assignable_to_function.html", null ],
           [ "is_pointer_to_real", "conceptmgis_1_1function_1_1internals_1_1is__pointer__to__real.html", null ],
           [ "mutable_return_value", "conceptmgis_1_1function_1_1internals_1_1mutable__return__value.html", null ],
           [ "same_decay_type", "conceptmgis_1_1function_1_1internals_1_1same__decay__type.html", null ]
@@ -13,6 +14,9 @@ var concepts =
         [ "EvaluatorModifierConcept", "conceptmgis_1_1function_1_1_evaluator_modifier_concept.html", null ],
         [ "LightweightViewConcept", "conceptmgis_1_1function_1_1_lightweight_view_concept.html", null ],
         [ "FunctionConcept", "conceptmgis_1_1function_1_1_function_concept.html", null ],
+        [ "LightweightFunctionConcept", "conceptmgis_1_1function_1_1_lightweight_function_concept.html", null ],
+        [ "NonLightweightFunctionConcept", "conceptmgis_1_1function_1_1_non_lightweight_function_concept.html", null ],
+        [ "ViewableFunctionArgumentConcept", "conceptmgis_1_1function_1_1_viewable_function_argument_concept.html", null ],
         [ "ElementFunctionConcept", "conceptmgis_1_1function_1_1_element_function_concept.html", null ],
         [ "QuadratureFunctionConcept", "conceptmgis_1_1function_1_1_quadrature_function_concept.html", null ],
         [ "SpaceConcept", "conceptmgis_1_1function_1_1_space_concept.html", null ],
@@ -22,6 +26,10 @@ var concepts =
         [ "LinearQuadratureSpaceConcept", "conceptmgis_1_1function_1_1_linear_quadrature_space_concept.html", null ],
         [ "FunctionalSpaceConcept", "conceptmgis_1_1function_1_1_functional_space_concept.html", null ],
         [ "LinearFunctionalSpaceConcept", "conceptmgis_1_1function_1_1_linear_functional_space_concept.html", null ],
+        [ "QuantityConcept", "conceptmgis_1_1function_1_1_quantity_concept.html", null ],
+        [ "ScalarConcept", "conceptmgis_1_1function_1_1_scalar_concept.html", null ],
+        [ "MutableScalarConcept", "conceptmgis_1_1function_1_1_mutable_scalar_concept.html", null ],
+        [ "TensorValueConcept", "conceptmgis_1_1function_1_1_tensor_value_concept.html", null ],
         [ "TensorConcept", "conceptmgis_1_1function_1_1_tensor_concept.html", null ],
         [ "ScalarOrTensorConcept", "conceptmgis_1_1function_1_1_scalar_or_tensor_concept.html", null ],
         [ "Stensor1DEvaluatorConcept", "conceptmgis_1_1function_1_1_stensor1_d_evaluator_concept.html", null ],
@@ -54,7 +62,8 @@ var concepts =
     [ "tfel", null, [
       [ "math", null, [
         [ "unit", null, [
-          [ "UnitConcept", "concepttfel_1_1math_1_1unit_1_1_unit_concept.html", null ]
+          [ "UnitConcept", "concepttfel_1_1math_1_1unit_1_1_unit_concept.html", null ],
+          [ "areUnitsEqual", "concepttfel_1_1math_1_1unit_1_1are_units_equal.html", null ]
         ] ],
         [ "ArrayConcept", "concepttfel_1_1math_1_1_array_concept.html", null ],
         [ "MappableMutableMathObjectUsingCoalescedViewConcept", "concepttfel_1_1math_1_1_mappable_mutable_math_object_using_coalesced_view_concept.html", null ],
@@ -65,7 +74,10 @@ var concepts =
         [ "StandardArithmeticTypeConcept", "concepttfel_1_1math_1_1_standard_arithmetic_type_concept.html", null ],
         [ "FundamentalNumericTypeConcept", "concepttfel_1_1math_1_1_fundamental_numeric_type_concept.html", null ],
         [ "ScalarConcept", "concepttfel_1_1math_1_1_scalar_concept.html", null ],
+        [ "MutableScalarConcept", "concepttfel_1_1math_1_1_mutable_scalar_concept.html", null ],
+        [ "ImmutableQuantityConcept", "concepttfel_1_1math_1_1_immutable_quantity_concept.html", null ],
         [ "QuantityConcept", "concepttfel_1_1math_1_1_quantity_concept.html", null ],
+        [ "NoUnitImmutableQuantityConcept", "concepttfel_1_1math_1_1_no_unit_immutable_quantity_concept.html", null ],
         [ "NoUnitQuantityConcept", "concepttfel_1_1math_1_1_no_unit_quantity_concept.html", null ],
         [ "MathObjectConcept", "concepttfel_1_1math_1_1_math_object_concept.html", null ],
         [ "MatrixConcept", "concepttfel_1_1math_1_1_matrix_concept.html", null ],

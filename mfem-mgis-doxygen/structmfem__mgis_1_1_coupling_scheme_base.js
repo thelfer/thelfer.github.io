@@ -1,8 +1,8 @@
 var structmfem__mgis_1_1_coupling_scheme_base =
 [
     [ "ContextState", "structmfem__mgis_1_1_coupling_scheme_base_1_1_context_state.html", "structmfem__mgis_1_1_coupling_scheme_base_1_1_context_state" ],
-    [ "CouplingSchemeBase", "structmfem__mgis_1_1_coupling_scheme_base.html#afba1bd58661556d4183a93ae3fe0f2bf", null ],
-    [ "CouplingSchemeBase", "structmfem__mgis_1_1_coupling_scheme_base.html#aed17008f8848c9c8a5263e0dc01ed28b", null ],
+    [ "CouplingSchemeBase", "structmfem__mgis_1_1_coupling_scheme_base.html#a1afec169bb67ad8825c340f6d7eebab5", null ],
+    [ "CouplingSchemeBase", "structmfem__mgis_1_1_coupling_scheme_base.html#a9089971652c6d4402d76e53b7fb09a76", null ],
     [ "~CouplingSchemeBase", "structmfem__mgis_1_1_coupling_scheme_base.html#a9e3adaa63fb809e4d27fcde60fbc94ac", null ],
     [ "addCouplingItem", "structmfem__mgis_1_1_coupling_scheme_base.html#ac104a7753b4a0a02ee3396e5f5b6edcb", null ],
     [ "addModel", "structmfem__mgis_1_1_coupling_scheme_base.html#ac0db3e9b720b5458b9718aabbf2c0866", null ],

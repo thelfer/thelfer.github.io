@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['x_0',['x',['../structtfel_1_1math_1_1_cubic_spline_collocation_point.html#a8eca521d7a8c7ab4a7619aba341f651f',1,'tfel::math::CubicSplineCollocationPoint::x'],['../structnumodis_1_1_vect3.html#a9a4e739c09bf9535482806aff0312338',1,'numodis::Vect3::X()'],['../structnumodis_1_1_vect3.html#a09cf34859bd10b6f4c0fa5c3740f61d4',1,'numodis::Vect3::X() const']]],
+  ['x_0',['x',['../structnumodis_1_1_vect3.html#a9a4e739c09bf9535482806aff0312338',1,'numodis::Vect3::X()'],['../structnumodis_1_1_vect3.html#a09cf34859bd10b6f4c0fa5c3740f61d4',1,'numodis::Vect3::X() const'],['../structtfel_1_1math_1_1_cubic_spline_collocation_point.html#a8eca521d7a8c7ab4a7619aba341f651f',1,'tfel::math::CubicSplineCollocationPoint::x']]],
   ['x0_1',['x0',['../structtfel_1_1math_1_1_scalar_newton_raphson_parameters.html#a31bae7d9463904bc6c0efa2a635fd8cc',1,'tfel::math::ScalarNewtonRaphsonParameters']]],
   ['xmax_2',['xmax',['../structtfel_1_1math_1_1_bissection_algorithm_data.html#ad7983fcb42b50323cc660683620329c0',1,'tfel::math::BissectionAlgorithmData']]],
   ['xmax0_3',['xmax0',['../structtfel_1_1math_1_1_scalar_newton_raphson_parameters.html#a54349c861a5747a78681087d5591e118',1,'tfel::math::ScalarNewtonRaphsonParameters']]],

@@ -1,5 +1,6 @@
 var structmfront_1_1_castem_interface =
 [
+    [ "UniqueCast3MIdentifiersGenerator", "structmfront_1_1_castem_interface_1_1_unique_cast3_m_identifiers_generator.html", null ],
     [ "CastemInterface", "structmfront_1_1_castem_interface.html#a039ac70a7321ee52fc7d737298619188", null ],
     [ "~CastemInterface", "structmfront_1_1_castem_interface.html#adaa962ab9163367e9e66b09819653fd8", null ],
     [ "buildMaterialPropertiesList", "structmfront_1_1_castem_interface.html#ac4eada2b9b177baacd99fae1b84f3b6d", null ],

@@ -230,12 +230,8 @@ var NAVTREEINDEX6 =
 "_periodic_non_linear_evolution_problem_8hxx.html":[6,0,0,0,88],
 "_periodic_non_linear_evolution_problem_8hxx.html#a20f7e7e8c6febc4c37859c9f680266c6":[6,0,0,0,88,4],
 "_periodic_non_linear_evolution_problem_8hxx.html#a4578292171909df1d4b02e887c05c925":[6,0,0,0,88,3],
-"_periodic_non_linear_evolution_problem_8hxx.html#a70c13d55fe0987b6eb363c5d1f59f0eb":[6,0,0,0,88,9],
 "_periodic_non_linear_evolution_problem_8hxx.html#a72bc57d8f7627cf29b6bbc61cf8ad731":[6,0,0,0,88,2],
-"_periodic_non_linear_evolution_problem_8hxx.html#a760575c117f1357b901b1219fda0aa87":[6,0,0,0,88,8],
 "_periodic_non_linear_evolution_problem_8hxx.html#a9051d1fe9e0456d1bda7c0b3b987d09c":[6,0,0,0,88,1],
-"_periodic_non_linear_evolution_problem_8hxx.html#aaa1d4bbdb6e43a5a47e8ea7de59441da":[6,0,0,0,88,6],
-"_periodic_non_linear_evolution_problem_8hxx.html#ad7fcb99a6810e3222e5cdcac8df3274a":[6,0,0,0,88,7],
 "_periodic_non_linear_evolution_problem_8hxx.html#aee6f4996cd552fc11a96aad47f46b35d":[6,0,0,0,88,5],
 "_permutation_8hxx.html":[6,0,1,0,0,0,1,0,6,5,7,3],
 "_permutation_8ixx.html":[6,0,1,0,0,0,1,0,6,5,7,4],
@@ -249,5 +245,9 @@ var NAVTREEINDEX6 =
 "_physical_constants_8hxx.html#a68adeaa9fec78eba5669f9139a6329f0":[6,0,1,0,0,0,1,0,6,14,25],
 "_physical_constants_8hxx.html#a727fa06a1568fd766ebf2deea0f73976":[6,0,1,0,0,0,1,0,6,14,2],
 "_physical_constants_8hxx.html#a762d672a9816ef209b7ec61960395aa3":[6,0,1,0,0,0,1,0,6,14,13],
-"_physical_constants_8hxx.html#a90917adfbb345d1546b323ea6e4651c5":[6,0,1,0,0,0,1,0,6,14,8]
+"_physical_constants_8hxx.html#a90917adfbb345d1546b323ea6e4651c5":[6,0,1,0,0,0,1,0,6,14,8],
+"_physical_constants_8hxx.html#a92a45a0b468b98cc67236be6b95b4cb9":[6,0,1,0,0,0,1,0,6,14,12],
+"_physical_constants_8hxx.html#aa4d8ecfb737adba43117a33960a405a0":[6,0,1,0,0,0,1,0,6,14,22],
+"_physical_constants_8hxx.html#aa866bc20c33e7f1a377de2abb583f0b5":[6,0,1,0,0,0,1,0,6,14,4],
+"_physical_constants_8hxx.html#aafe0333032c129762c711af000524b2a":[6,0,1,0,0,0,1,0,6,14,24]
 };

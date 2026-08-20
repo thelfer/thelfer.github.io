@@ -1,15 +1,5 @@
 var NAVTREEINDEX54 =
 {
-"structtfel_1_1math_1_1_compute_object_tag__.html":[5,0,16,5,103],
-"structtfel_1_1math_1_1_compute_object_tag__.html#aa25d1de7a4ec9a09479cfb50a3cc367c":[5,0,16,5,103,0],
-"structtfel_1_1math_1_1_compute_object_tag___3_01_type_00_01false_00_01false_00_01true_01_4.html":[5,0,16,5,104],
-"structtfel_1_1math_1_1_compute_object_tag___3_01_type_00_01false_00_01false_00_01true_01_4.html#a80e07624b6a4529e18c5197d0eb86021":[5,0,16,5,104,0],
-"structtfel_1_1math_1_1_compute_object_tag___3_01_type_00_01false_00_01true_01_4.html":[5,0,16,5,105],
-"structtfel_1_1math_1_1_compute_object_tag___3_01_type_00_01false_00_01true_01_4.html#a489845bf4247b1eb98dfe0a4896cbe40":[5,0,16,5,105,0],
-"structtfel_1_1math_1_1_compute_object_tag___3_01_type_00_01true_01_4.html":[5,0,16,5,106],
-"structtfel_1_1math_1_1_compute_object_tag___3_01_type_00_01true_01_4.html#ace7a4d52bd2acabe3c30fc7b2b52edf5":[5,0,16,5,106,0],
-"structtfel_1_1math_1_1_compute_unary_operation_result.html":[5,0,16,5,107],
-"structtfel_1_1math_1_1_compute_unary_operation_result.html#af0ff7d774565b583ed4a8827cceed58d":[5,0,16,5,107,0],
 "structtfel_1_1math_1_1_compute_unary_operation_result_3_01_scalar_tag_00_01_unary_operator_tag_00_01_t_00_01_op_neg_01_4.html":[5,0,16,5,108],
 "structtfel_1_1math_1_1_compute_unary_operation_result_3_01_scalar_tag_00_01_unary_operator_tag_00_01_t_00_01_op_neg_01_4.html#a03c9cd326f602939ef0e3b4c306fa025":[5,0,16,5,108,0],
 "structtfel_1_1math_1_1_compute_unary_result__.html":[5,0,16,5,110],
@@ -249,5 +239,15 @@ var NAVTREEINDEX54 =
 "structtfel_1_1math_1_1_evaluator_1_1_t_external_operator.html":[5,0,16,5,200,6],
 "structtfel_1_1math_1_1_evaluator_1_1_t_function.html":[5,0,16,5,200,7],
 "structtfel_1_1math_1_1_evaluator_1_1_t_group.html":[5,0,16,5,200,8],
-"structtfel_1_1math_1_1_evaluator_1_1_t_logical_binary_operation.html":[5,0,16,5,200,9]
+"structtfel_1_1math_1_1_evaluator_1_1_t_logical_binary_operation.html":[5,0,16,5,200,9],
+"structtfel_1_1math_1_1_evaluator_1_1_t_logical_expr.html":[5,0,16,5,200,10],
+"structtfel_1_1math_1_1_evaluator_1_1_t_logical_operation.html":[5,0,16,5,200,11],
+"structtfel_1_1math_1_1_evaluator_1_1_t_neg_logical_expr.html":[5,0,16,5,200,13],
+"structtfel_1_1math_1_1_evaluator_1_1_t_negation.html":[5,0,16,5,200,12],
+"structtfel_1_1math_1_1_evaluator_1_1_t_number.html":[5,0,16,5,200,14],
+"structtfel_1_1math_1_1_evaluator_1_1_t_operator.html":[5,0,16,5,200,15],
+"structtfel_1_1math_1_1_evaluator_1_1_t_variable.html":[5,0,16,5,200,16],
+"structtfel_1_1math_1_1_expr.html":[5,0,16,5,201],
+"structtfel_1_1math_1_1_expr.html#a320c4d4b9958cacc8d3235d5b4c6fc19":[5,0,16,5,201,3],
+"structtfel_1_1math_1_1_expr.html#a61a4d4c416bfffd39595081fb097c93b":[5,0,16,5,201,0]
 };

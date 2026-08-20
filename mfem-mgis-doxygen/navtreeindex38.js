@@ -1,15 +1,5 @@
 var NAVTREEINDEX38 =
 {
-"structmfront_1_1_static_variable_description_container.html":[5,0,11,110],
-"structmfront_1_1_static_variable_description_container.html#a6c4f9a744f1b2f0f0ba8420b44e10f0b":[5,0,11,110,0],
-"structmfront_1_1_static_variable_description_container.html#ae79f24b6e6f4aac6ceefa3135bdacbd5":[5,0,11,110,1],
-"structmfront_1_1_supported_types.html":[5,0,11,111],
-"structmfront_1_1_supported_types.html#a06b424605c54ac5df00e611bc7d0ccde":[5,0,11,111,2],
-"structmfront_1_1_supported_types.html#a0d2e19b780faf07b4842d916667367a1":[5,0,11,111,4],
-"structmfront_1_1_supported_types.html#a70e5e8dd79f51a95e4634d9e91ab1927":[5,0,11,111,9],
-"structmfront_1_1_supported_types.html#a7b36faf833ed56f49c53e8de7b20bb3c":[5,0,11,111,5],
-"structmfront_1_1_supported_types.html#af06af1df09cec34a04ce878d8ac9f0b5":[5,0,11,111,7],
-"structmfront_1_1_supported_types.html#af0c073c65b52897d70ed509cdac576b0":[5,0,11,111,3],
 "structmfront_1_1_supported_types.html#af0c073c65b52897d70ed509cdac576b0a194e25de2851cb1c00b4394e5c490634":[5,0,11,111,3,0],
 "structmfront_1_1_supported_types.html#af0c073c65b52897d70ed509cdac576b0a360c1c2e5a94024b969b9ea7ac1a9fb2":[5,0,11,111,3,1],
 "structmfront_1_1_supported_types.html#af0c073c65b52897d70ed509cdac576b0a81659677244f34f07642c03591534166":[5,0,11,111,3,2],
@@ -249,5 +239,15 @@ var NAVTREEINDEX38 =
 "structmfront_1_1bbrick_1_1_armstrong_frederick_kinematic_hardening_rule.html":[5,0,11,0,0],
 "structmfront_1_1bbrick_1_1_armstrong_frederick_kinematic_hardening_rule.html#a503212c6b100cfca6a49fa2261cdf99a":[5,0,11,0,0,1],
 "structmfront_1_1bbrick_1_1_armstrong_frederick_kinematic_hardening_rule.html#a520beeb0362120417596795f43c44e9a":[5,0,11,0,0,3],
-"structmfront_1_1bbrick_1_1_armstrong_frederick_kinematic_hardening_rule.html#aa129719a1ba98b74eeab0dbcbe56d525":[5,0,11,0,0,2]
+"structmfront_1_1bbrick_1_1_armstrong_frederick_kinematic_hardening_rule.html#aa129719a1ba98b74eeab0dbcbe56d525":[5,0,11,0,0,2],
+"structmfront_1_1bbrick_1_1_armstrong_frederick_kinematic_hardening_rule.html#ab3ecad4e657ba5360d998153614445fc":[5,0,11,0,0,5],
+"structmfront_1_1bbrick_1_1_armstrong_frederick_kinematic_hardening_rule.html#ac329a155523c797b8a17ab4a663aca9b":[5,0,11,0,0,4],
+"structmfront_1_1bbrick_1_1_armstrong_frederick_kinematic_hardening_rule.html#adbb820d3f94b9eb180c717bcd7a026f3":[5,0,11,0,0,0],
+"structmfront_1_1bbrick_1_1_barlat2004_stress_criterion.html":[5,0,11,0,1],
+"structmfront_1_1bbrick_1_1_barlat2004_stress_criterion.html#a0d748318514ddf9935e2352d0af43231":[5,0,11,0,1,1],
+"structmfront_1_1bbrick_1_1_barlat2004_stress_criterion.html#a418a1638d273a1c94bc1285b95f84aa7":[5,0,11,0,1,8],
+"structmfront_1_1bbrick_1_1_barlat2004_stress_criterion.html#a58ecf2a57cd3d56f387e190ce47cedf3":[5,0,11,0,1,7],
+"structmfront_1_1bbrick_1_1_barlat2004_stress_criterion.html#a5c30e71ca7bec5a082f9b0263cefc783":[5,0,11,0,1,4],
+"structmfront_1_1bbrick_1_1_barlat2004_stress_criterion.html#a670308eae823c191d02afadf49f9917c":[5,0,11,0,1,6],
+"structmfront_1_1bbrick_1_1_barlat2004_stress_criterion.html#a79ddc9141abe9557cc09c6e3a72e4cca":[5,0,11,0,1,0]
 };

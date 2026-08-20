@@ -1,15 +1,5 @@
 var NAVTREEINDEX40 =
 {
-"structmfront_1_1bbrick_1_1_inelastic_flow.html#a7ef458e4c9531f39f6ca65afc2b579ec":[5,0,11,0,21,14],
-"structmfront_1_1bbrick_1_1_inelastic_flow.html#a8b8cf04621d825eacef97333012a2d10":[5,0,11,0,21,9],
-"structmfront_1_1bbrick_1_1_inelastic_flow.html#aa10b6f3b1b37050e395cc9adb14dc4a7":[5,0,11,0,21,13],
-"structmfront_1_1bbrick_1_1_inelastic_flow.html#aa7ef8100ec1b9f85bb61e0e8118ea536":[5,0,11,0,21,0],
-"structmfront_1_1bbrick_1_1_inelastic_flow.html#abdb804462ec489590a4a6b020d3e93b8":[5,0,11,0,21,3],
-"structmfront_1_1bbrick_1_1_inelastic_flow.html#ad551a41c7edfce515a443b33dbd9bf5d":[5,0,11,0,21,2],
-"structmfront_1_1bbrick_1_1_inelastic_flow.html#ad58e81ab4d945bf1beb1ff74af998adf":[5,0,11,0,21,10],
-"structmfront_1_1bbrick_1_1_inelastic_flow.html#ad7414457b0b1f9ec378bba4ec9bd4821":[5,0,11,0,21,5],
-"structmfront_1_1bbrick_1_1_inelastic_flow.html#afe764e77f95ccc495394706df95f7b8b":[5,0,11,0,21,15],
-"structmfront_1_1bbrick_1_1_inelastic_flow_base.html":[5,0,11,0,22],
 "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a0e1e55991752aaea3456a72c5f430231":[5,0,11,0,22,16],
 "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a12ab89f6f086be8f4ecd600aae2e2835":[5,0,11,0,22,30],
 "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a1402aa8057b9e05df27582ca45be36b6":[5,0,11,0,22,2],
@@ -249,5 +239,15 @@ var NAVTREEINDEX40 =
 "structmfront_1_1bbrick_1_1_power_law_strain_based_porosity_nucleation_model.html#a8a02ffdcd67d7e7d523e62b5e81bd375":[5,0,11,0,41,1],
 "structmfront_1_1bbrick_1_1_power_law_strain_based_porosity_nucleation_model.html#a9f25a31bd30ed8b06047d2c7218797c8":[5,0,11,0,41,3],
 "structmfront_1_1bbrick_1_1_power_law_stress_based_porosity_nucleation_model.html":[5,0,11,0,42],
-"structmfront_1_1bbrick_1_1_power_law_stress_based_porosity_nucleation_model.html#a1d03164397bde5da5d2d79841e2fc7e8":[5,0,11,0,42,1]
+"structmfront_1_1bbrick_1_1_power_law_stress_based_porosity_nucleation_model.html#a1d03164397bde5da5d2d79841e2fc7e8":[5,0,11,0,42,1],
+"structmfront_1_1bbrick_1_1_power_law_stress_based_porosity_nucleation_model.html#a4bc712e5f313ae89e2dc3f3abb9bee20":[5,0,11,0,42,0],
+"structmfront_1_1bbrick_1_1_power_law_stress_based_porosity_nucleation_model.html#ad46ad8083ef326c27e44733cf51585cc":[5,0,11,0,42,2],
+"structmfront_1_1bbrick_1_1_prager_kinematic_hardening_rule.html":[5,0,11,0,43],
+"structmfront_1_1bbrick_1_1_prager_kinematic_hardening_rule.html#a22fed542da3aaa35f420a19021996be2":[5,0,11,0,43,1],
+"structmfront_1_1bbrick_1_1_prager_kinematic_hardening_rule.html#aed62f52365e4522497c03b158d090965":[5,0,11,0,43,0],
+"structmfront_1_1bbrick_1_1_rousselier_tanguy_besson2002_stress_criterion.html":[5,0,11,0,44],
+"structmfront_1_1bbrick_1_1_rousselier_tanguy_besson2002_stress_criterion.html#a7bcd581ad8fcf2fec8f5c79cd368b992":[5,0,11,0,44,2],
+"structmfront_1_1bbrick_1_1_rousselier_tanguy_besson2002_stress_criterion.html#a7d161e3dc1ad237a290bb93be9c35521":[5,0,11,0,44,4],
+"structmfront_1_1bbrick_1_1_rousselier_tanguy_besson2002_stress_criterion.html#a955c15124f2fb0c160916d0ad88bfa9f":[5,0,11,0,44,1],
+"structmfront_1_1bbrick_1_1_rousselier_tanguy_besson2002_stress_criterion.html#acc6fab7ab23313e560b018b21261ca23":[5,0,11,0,44,5]
 };

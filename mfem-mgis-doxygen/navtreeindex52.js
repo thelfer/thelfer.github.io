@@ -1,15 +1,5 @@
 var NAVTREEINDEX52 =
 {
-"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_converter_base.html#ae35e5e90e9a6559f7ba23b9fa8601eeb":[5,0,16,4,30,2],
-"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_type.html":[5,0,16,4,31],
-"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_type_3_01_finite_strain_beha08c14e1ff33771713e537b1eebea3899.html":[5,0,16,4,35],
-"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_type_3_01_finite_strain_beha08c14e1ff33771713e537b1eebea3899.html#a15060fad385d34bf282048832f7425c5":[5,0,16,4,35,0],
-"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_type_3_01_finite_strain_beha0f3306e53c8b11f5a9d83950370a6b47.html":[5,0,16,4,42],
-"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_type_3_01_finite_strain_beha0f3306e53c8b11f5a9d83950370a6b47.html#ae2d3ecbf7649ca93441373f1c0edf3e1":[5,0,16,4,42,0],
-"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_type_3_01_finite_strain_beha24871f948b673e5d07639f48724b3880.html":[5,0,16,4,39],
-"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_type_3_01_finite_strain_beha24871f948b673e5d07639f48724b3880.html#a8167cb3ac40cc7ad781235294427b22f":[5,0,16,4,39,0],
-"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_type_3_01_finite_strain_beha287db89edda5c67a5d1e8af6b7a453ea.html":[5,0,16,4,38],
-"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_type_3_01_finite_strain_beha287db89edda5c67a5d1e8af6b7a453ea.html#aad17c7d85cc65efee758bf42b618bbec":[5,0,16,4,38,0],
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_type_3_01_finite_strain_beha2d33f9b581aad26b6a78f2b25f2d7632.html":[5,0,16,4,32],
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_type_3_01_finite_strain_beha2d33f9b581aad26b6a78f2b25f2d7632.html#abf3c5f7599b5013e0eccbb6a9738663f":[5,0,16,4,32,0],
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_type_3_01_finite_strain_beha4d89042d398242ecd9ecb7bc50fa4d0c.html":[5,0,16,4,40],
@@ -249,5 +239,15 @@ var NAVTREEINDEX52 =
 "structtfel_1_1material_1_1_out_of_bounds_exception.html":[5,0,16,4,93],
 "structtfel_1_1material_1_1_poly_crystals_sliding_systems.html":[5,0,16,4,94],
 "structtfel_1_1material_1_1_poly_crystals_sliding_systems.html#a01c8228c55efd9134f4ab376230ff3ab":[5,0,16,4,94,0],
-"structtfel_1_1material_1_1_poly_crystals_sliding_systems.html#a4b2e10b12a58193abdbf14ac1f9c4402":[5,0,16,4,94,1]
+"structtfel_1_1material_1_1_poly_crystals_sliding_systems.html#a4b2e10b12a58193abdbf14ac1f9c4402":[5,0,16,4,94,1],
+"structtfel_1_1material_1_1_poly_crystals_sliding_systems.html#aea843dcc48887974e3e95521bd24ed01":[5,0,16,4,94,2],
+"structtfel_1_1material_1_1_power_law_strain_based_nucleation_model_parameters.html":[5,0,16,4,95],
+"structtfel_1_1material_1_1_power_law_strain_based_nucleation_model_parameters.html#a2a75a2e8a8db3829c36d047b7ad4ae94":[5,0,16,4,95,0],
+"structtfel_1_1material_1_1_power_law_strain_based_nucleation_model_parameters.html#a687b4f7db57483b86cf77e2405c91c8b":[5,0,16,4,95,2],
+"structtfel_1_1material_1_1_power_law_strain_based_nucleation_model_parameters.html#a90f062aaa0dd582304dc334208e5d77f":[5,0,16,4,95,1],
+"structtfel_1_1material_1_1_power_law_stress_based_nucleation_model_parameters.html":[5,0,16,4,96],
+"structtfel_1_1material_1_1_power_law_stress_based_nucleation_model_parameters.html#a3588d43d60cf6674d3adc7c585422b1a":[5,0,16,4,96,1],
+"structtfel_1_1material_1_1_power_law_stress_based_nucleation_model_parameters.html#a560f3f031c3ffe5018d1eeeaaf9909fa":[5,0,16,4,96,3],
+"structtfel_1_1material_1_1_power_law_stress_based_nucleation_model_parameters.html#a585b6deb7b57265332eb386fe40b9616":[5,0,16,4,96,0],
+"structtfel_1_1material_1_1_power_law_stress_based_nucleation_model_parameters.html#ac24c0e376708200623bf11b6cf09a1dd":[5,0,16,4,96,2]
 };

@@ -1,15 +1,5 @@
 var NAVTREEINDEX58 =
 {
-"structtfel_1_1math_1_1_math_object_traits_base.html#addfbf0a5304c0d9c2f81c6733dd4e082":[5,0,16,5,376,1],
-"structtfel_1_1math_1_1_math_object_traits_base.html#af7b5127b40e3862416b9098b837c5b0b":[5,0,16,5,376,3],
-"structtfel_1_1math_1_1_math_object_traits_from_array_policy.html":[5,0,16,5,377],
-"structtfel_1_1math_1_1_math_run_time_exception.html":[5,0,16,5,378],
-"structtfel_1_1math_1_1_matrix_concept_base.html":[5,0,16,5,380],
-"structtfel_1_1math_1_1_matrix_tag.html":[5,0,16,5,383],
-"structtfel_1_1math_1_1_matrix_view_from_tensor_expr.html":[5,0,16,5,387],
-"structtfel_1_1math_1_1_maximum_number_of_iterations_reached_exception.html":[5,0,16,5,388],
-"structtfel_1_1math_1_1_multi_indices_binary_operator_functor.html":[5,0,16,5,389],
-"structtfel_1_1math_1_1_multi_indices_random_access_interator_wrapper.html":[5,0,16,5,390],
 "structtfel_1_1math_1_1_multi_indices_random_access_interator_wrapper.html#a65d54d28f3691b9d2a6a046c3ce1433e":[5,0,16,5,390,3],
 "structtfel_1_1math_1_1_multi_indices_random_access_interator_wrapper.html#a99344b7457e39adc5cd2871493664a85":[5,0,16,5,390,1],
 "structtfel_1_1math_1_1_multi_indices_random_access_interator_wrapper.html#aa03892b260626f4e5573dadc9212b768":[5,0,16,5,390,2],
@@ -249,5 +239,15 @@ var NAVTREEINDEX58 =
 "structtfel_1_1math_1_1_strided_coalesced_views_array.html#a43ca3cda125befa86419df7998795070":[5,0,16,5,556,10],
 "structtfel_1_1math_1_1_strided_coalesced_views_array.html#a580c593cc8f92c48862c5cb6cff0b764":[5,0,16,5,556,9],
 "structtfel_1_1math_1_1_strided_coalesced_views_array.html#a58b03763f37887da1c711ded878da350":[5,0,16,5,556,5],
-"structtfel_1_1math_1_1_strided_coalesced_views_array.html#a6439210cfce5c729155245195a06a8e2":[5,0,16,5,556,12]
+"structtfel_1_1math_1_1_strided_coalesced_views_array.html#a6439210cfce5c729155245195a06a8e2":[5,0,16,5,556,12],
+"structtfel_1_1math_1_1_strided_coalesced_views_array.html#a6b64e4d26ac797b6e045b6c94a5c4d02":[5,0,16,5,556,0],
+"structtfel_1_1math_1_1_strided_coalesced_views_array.html#a71115111c36afd64951cdb58a4736d4e":[5,0,16,5,556,4],
+"structtfel_1_1math_1_1_strided_coalesced_views_array.html#a93884c6700d27bc01c3e88770bc143de":[5,0,16,5,556,7],
+"structtfel_1_1math_1_1_strided_coalesced_views_array.html#a98cb7e649291ffe55b45d6b3ef516d57":[5,0,16,5,556,8],
+"structtfel_1_1math_1_1_strided_coalesced_views_array.html#aa53fc72cbdd603c5df33824fb7dc2d9b":[5,0,16,5,556,6],
+"structtfel_1_1math_1_1_strided_coalesced_views_array.html#af601298902c35395c73f7c1071984971":[5,0,16,5,556,11],
+"structtfel_1_1math_1_1_strided_coalesced_views_fixed_size_vector_indexing_policy.html":[5,0,16,5,557],
+"structtfel_1_1math_1_1_strided_random_access_iterator.html":[5,0,16,5,558],
+"structtfel_1_1math_1_1_strided_random_access_iterator.html#a0da47c2ae48cb78ed8dd5f5231837060":[5,0,16,5,558,2],
+"structtfel_1_1math_1_1_strided_random_access_iterator.html#a0e67abfc29792313ab8c835fcbc50fb5":[5,0,16,5,558,13]
 };

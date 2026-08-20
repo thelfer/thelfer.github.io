@@ -1,15 +1,5 @@
 var NAVTREEINDEX53 =
 {
-"structtfel_1_1material_1_1_poly_crystals_sliding_systems.html#aea843dcc48887974e3e95521bd24ed01":[5,0,16,4,94,2],
-"structtfel_1_1material_1_1_power_law_strain_based_nucleation_model_parameters.html":[5,0,16,4,95],
-"structtfel_1_1material_1_1_power_law_strain_based_nucleation_model_parameters.html#a2a75a2e8a8db3829c36d047b7ad4ae94":[5,0,16,4,95,0],
-"structtfel_1_1material_1_1_power_law_strain_based_nucleation_model_parameters.html#a687b4f7db57483b86cf77e2405c91c8b":[5,0,16,4,95,2],
-"structtfel_1_1material_1_1_power_law_strain_based_nucleation_model_parameters.html#a90f062aaa0dd582304dc334208e5d77f":[5,0,16,4,95,1],
-"structtfel_1_1material_1_1_power_law_stress_based_nucleation_model_parameters.html":[5,0,16,4,96],
-"structtfel_1_1material_1_1_power_law_stress_based_nucleation_model_parameters.html#a3588d43d60cf6674d3adc7c585422b1a":[5,0,16,4,96,1],
-"structtfel_1_1material_1_1_power_law_stress_based_nucleation_model_parameters.html#a560f3f031c3ffe5018d1eeeaaf9909fa":[5,0,16,4,96,3],
-"structtfel_1_1material_1_1_power_law_stress_based_nucleation_model_parameters.html#a585b6deb7b57265332eb386fe40b9616":[5,0,16,4,96,0],
-"structtfel_1_1material_1_1_power_law_stress_based_nucleation_model_parameters.html#ac24c0e376708200623bf11b6cf09a1dd":[5,0,16,4,96,2],
 "structtfel_1_1material_1_1_rousselier_tanguy_besson2002_stress_criterion_parameters.html":[5,0,16,4,97],
 "structtfel_1_1material_1_1_rousselier_tanguy_besson2002_stress_criterion_parameters.html#a2cbe9aae9cf4abffec2a511e5464bc15":[5,0,16,4,97,0],
 "structtfel_1_1material_1_1_rousselier_tanguy_besson2002_stress_criterion_parameters.html#ad0c322c921e7abf02a8db5d131b96db3":[5,0,16,4,97,3],
@@ -249,5 +239,15 @@ var NAVTREEINDEX53 =
 "structtfel_1_1math_1_1_compute_binary_operation_result.html":[5,0,16,5,62],
 "structtfel_1_1math_1_1_compute_binary_operation_result.html#a0bc243f3f3d546f0afa997d3b517d3ce":[5,0,16,5,62,0],
 "structtfel_1_1math_1_1_compute_object_tag.html":[5,0,16,5,102],
-"structtfel_1_1math_1_1_compute_object_tag.html#ac6ad4c24ac64d62f96aa52a7778fb86d":[5,0,16,5,102,0]
+"structtfel_1_1math_1_1_compute_object_tag.html#ac6ad4c24ac64d62f96aa52a7778fb86d":[5,0,16,5,102,0],
+"structtfel_1_1math_1_1_compute_object_tag__.html":[5,0,16,5,103],
+"structtfel_1_1math_1_1_compute_object_tag__.html#aa25d1de7a4ec9a09479cfb50a3cc367c":[5,0,16,5,103,0],
+"structtfel_1_1math_1_1_compute_object_tag___3_01_type_00_01false_00_01false_00_01true_01_4.html":[5,0,16,5,104],
+"structtfel_1_1math_1_1_compute_object_tag___3_01_type_00_01false_00_01false_00_01true_01_4.html#a80e07624b6a4529e18c5197d0eb86021":[5,0,16,5,104,0],
+"structtfel_1_1math_1_1_compute_object_tag___3_01_type_00_01false_00_01true_01_4.html":[5,0,16,5,105],
+"structtfel_1_1math_1_1_compute_object_tag___3_01_type_00_01false_00_01true_01_4.html#a489845bf4247b1eb98dfe0a4896cbe40":[5,0,16,5,105,0],
+"structtfel_1_1math_1_1_compute_object_tag___3_01_type_00_01true_01_4.html":[5,0,16,5,106],
+"structtfel_1_1math_1_1_compute_object_tag___3_01_type_00_01true_01_4.html#ace7a4d52bd2acabe3c30fc7b2b52edf5":[5,0,16,5,106,0],
+"structtfel_1_1math_1_1_compute_unary_operation_result.html":[5,0,16,5,107],
+"structtfel_1_1math_1_1_compute_unary_operation_result.html#af0ff7d774565b583ed4a8827cceed58d":[5,0,16,5,107,0]
 };

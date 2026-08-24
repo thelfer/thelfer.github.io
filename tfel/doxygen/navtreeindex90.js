@@ -1,5 +1,9 @@
 var NAVTREEINDEX90 =
 {
+"structtfel_1_1typetraits_1_1_is_scalar.html":[7,0,14,10,55],
+"structtfel_1_1typetraits_1_1_is_scalar_3_01_quantity_type_01_4.html":[7,0,14,10,58],
+"structtfel_1_1typetraits_1_1_is_scalar_3_01cadna_1_1numeric__type_3_01_t_01_4_01_4.html":[7,0,14,10,56],
+"structtfel_1_1typetraits_1_1_is_scalar_3_01const_01_quantity_type_01_4.html":[7,0,14,10,57],
 "structtfel_1_1typetraits_1_1_is_unary_operator.html":[7,0,14,10,59],
 "structtfel_1_1typetraits_1_1_is_unary_operator_3_01tfel_1_1math_1_1_op_neg_01_4.html":[7,0,14,10,60],
 "structtfel_1_1typetraits_1_1_promote.html":[7,0,14,10,61],
@@ -245,9 +249,5 @@ var NAVTREEINDEX90 =
 "structtfel_1_1utilities_1_1_gen_type_base.html#a958f472a7052573d793822dd1a434728":[7,0,14,12,14,10],
 "structtfel_1_1utilities_1_1_gen_type_base.html#aa6495c28ef983fa533dfe05ece8a05c0":[7,0,14,12,14,5],
 "structtfel_1_1utilities_1_1_gen_type_base.html#aab8cdb6fe8f90c3dc295ca921fc07b6d":[7,0,14,12,14,8],
-"structtfel_1_1utilities_1_1_gen_type_base.html#acd5aeec7a66b0ee80b87389ec58912c0":[7,0,14,12,14,0],
-"structtfel_1_1utilities_1_1_gen_type_base.html#acd7aad5ebbd5156f2bff68e907d696fb":[7,0,14,12,14,6],
-"structtfel_1_1utilities_1_1_gen_type_base.html#ada56817ec89ad8b157f074fdb4eaa9fb":[7,0,14,12,14,4],
-"structtfel_1_1utilities_1_1_gen_type_base.html#ae277850345859cf930fee7c49634897d":[7,0,14,12,14,9],
-"structtfel_1_1utilities_1_1_gen_type_cast_error.html":[7,0,14,12,15]
+"structtfel_1_1utilities_1_1_gen_type_base.html#acd5aeec7a66b0ee80b87389ec58912c0":[7,0,14,12,14,0]
 };

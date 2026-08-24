@@ -200,7 +200,7 @@ var searchData=
   ['processmanager_197',['ProcessManager',['../structtfel_1_1system_1_1_process_manager.html',1,'tfel::system']]],
   ['processmanager_2ehxx_198',['ProcessManager.hxx',['../_process_manager_8hxx.html',1,'']]],
   ['processnewcorrection_199',['processnewcorrection',['../structtfel_1_1math_1_1_tiny_non_linear_solver_base.html#a753f17be5e00f103bbc08e55c80434e5',1,'tfel::math::TinyNonLinearSolverBase::processNewCorrection()'],['../structmfront_1_1_behaviour_data.html#ac362bdb845a60fcdaaf472086785c62a',1,'mfront::BehaviourData::ProcessNewCorrection']]],
-  ['processnewestimate_200',['processnewestimate',['../structtfel_1_1math_1_1_tiny_non_linear_solver_base.html#aa8068b753fa4a4c130f88fb4aef57013',1,'tfel::math::TinyNonLinearSolverBase::processNewEstimate()'],['../structmfront_1_1_behaviour_data.html#acbba5918a07423548f5e19ae8b58a1cf',1,'mfront::BehaviourData::ProcessNewEstimate']]],
+  ['processnewestimate_200',['processnewestimate',['../structmfront_1_1_behaviour_data.html#acbba5918a07423548f5e19ae8b58a1cf',1,'mfront::BehaviourData::ProcessNewEstimate'],['../structtfel_1_1math_1_1_tiny_non_linear_solver_base.html#aa8068b753fa4a4c130f88fb4aef57013',1,'tfel::math::TinyNonLinearSolverBase::processNewEstimate()']]],
   ['profiling_201',['profiling',['../structmfront_1_1_behaviour_data.html#abaa6c325944a00be5d24b8cd3ef030a2',1,'mfront::BehaviourData']]],
   ['programname_202',['programName',['../structtfel_1_1utilities_1_1_argument_parser.html#a17fea2a93fedc28fd13afb7dfccc76ea',1,'tfel::utilities::ArgumentParser']]],
   ['project_203',['An introduction to the TFEL project',['../index.html',1,'']]],

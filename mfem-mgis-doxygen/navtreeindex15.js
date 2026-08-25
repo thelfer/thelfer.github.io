@@ -1,5 +1,7 @@
 var NAVTREEINDEX15 =
 {
+"structansys_1_1_ansys_tangent_operator_flag_3_01ansys_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_e_d_b_e_h_a_v_i_o_u_r_01_4.html":[5,0,1,47],
+"structansys_1_1_ansys_tangent_operator_type.html":[5,0,1,48],
 "structansys_1_1_ansys_traits.html":[5,0,1,49],
 "structansys_1_1_ansys_un_supported_case_handler.html":[5,0,1,50],
 "structansys_1_1_export_symmetric_tensor.html":[5,0,1,51],
@@ -247,7 +249,5 @@ var NAVTREEINDEX15 =
 "structcastem_1_1_castem_orthotropic_finite_strain_behaviour_handler2_d_3_01tfel_1_1material_1_1_41dab0866aefa75092bab109c89e3b7c.html":[5,0,4,59],
 "structcastem_1_1_castem_orthotropic_finite_strain_behaviour_handler3_d.html":[5,0,4,60],
 "structcastem_1_1_castem_orthotropic_offset.html":[5,0,4,61],
-"structcastem_1_1_castem_orthotropic_offset_3_01_s_t_a_n_d_a_r_d_f_i_n_i_t_e_s_t_r_a_i_n_b_e_h_a_7bc6722a5deb7597cd16982472f43e77.html":[5,0,4,63],
-"structcastem_1_1_castem_orthotropic_offset_3_01_s_t_a_n_d_a_r_d_f_i_n_i_t_e_s_t_r_a_i_n_b_e_h_a_v_i_o_u_r_00_01_h_01_4.html":[5,0,4,62],
-"structcastem_1_1_castem_orthotropic_offset_3_01_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_e_d_b_e_h_a_v_963fac44a4210b6b155c3fd67ee0df38.html":[5,0,4,65]
+"structcastem_1_1_castem_orthotropic_offset_3_01_s_t_a_n_d_a_r_d_f_i_n_i_t_e_s_t_r_a_i_n_b_e_h_a_7bc6722a5deb7597cd16982472f43e77.html":[5,0,4,63]
 };

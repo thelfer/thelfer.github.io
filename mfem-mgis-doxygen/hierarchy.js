@@ -258,6 +258,11 @@ var hierarchy =
         [ "mgis::Context", "structmgis_1_1_context.html", null ]
       ] ]
     ] ],
+    [ "mfront::AbstractLinearSystemSolver", "structmfront_1_1_abstract_linear_system_solver.html", [
+      [ "mfront::LinearSystemSolverBase", "structmfront_1_1_linear_system_solver_base.html", [
+        [ "mfront::DefaultLinearSystemSolver", "structmfront_1_1_default_linear_system_solver.html", null ]
+      ] ]
+    ] ],
     [ "mfront::AbstractMaterialPropertyInterface", "structmfront_1_1_abstract_material_property_interface.html", [
       [ "mfront::CastemMaterialPropertyInterface", "structmfront_1_1_castem_material_property_interface.html", [
         [ "mfront::Castem21MaterialPropertyInterface", "structmfront_1_1_castem21_material_property_interface.html", null ]
@@ -282,6 +287,7 @@ var hierarchy =
         [ "mfem_mgis::NonLinearEvolutionProblemImplementation< true >", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01true_01_4.html", null ]
       ] ]
     ] ],
+    [ "mfront::AbstractNonLinearSystemSolver", "structmfront_1_1_abstract_non_linear_system_solver.html", null ],
     [ "mfem_mgis::AbstractPartialQuadratureFunctionEvaluator", "structmfem__mgis_1_1_abstract_partial_quadrature_function_evaluator.html", [
       [ "mfem_mgis::PartialQuadratureFunctionEvaluatorBase", "structmfem__mgis_1_1_partial_quadrature_function_evaluator_base.html", [
         [ "mfem_mgis::StandardPartialQuadratureFunctionEvaluator", "structmfem__mgis_1_1_standard_partial_quadrature_function_evaluator.html", null ],
@@ -2625,6 +2631,8 @@ var hierarchy =
     [ "mfem_mgis::LinearSolverFactory< false >", "structmfem__mgis_1_1_linear_solver_factory_3_01false_01_4.html", null ],
     [ "mfem_mgis::LinearSolverFactory< true >", "structmfem__mgis_1_1_linear_solver_factory_3_01true_01_4.html", null ],
     [ "mfem_mgis::LinearSolverHandler", "structmfem__mgis_1_1_linear_solver_handler.html", null ],
+    [ "mfront::AbstractLinearSystemSolver::LinearSystemSubstitutionVariables", "structmfront_1_1_abstract_linear_system_solver_1_1_linear_system_substitution_variables.html", null ],
+    [ "mfront::AbstractLinearSystemSolver::LinearSystemVariables", "structmfront_1_1_abstract_linear_system_solver_1_1_linear_system_variables.html", null ],
     [ "mgis::behaviour::LoadFromDatabaseOptions", "structmgis_1_1behaviour_1_1_load_from_database_options.html", null ],
     [ "mfront::LocalDataStructure", "structmfront_1_1_local_data_structure.html", null ],
     [ "tfel::material::LogarithmicStrainHandler< N, StressType >", "structtfel_1_1material_1_1_logarithmic_strain_handler.html", null ],
@@ -2791,6 +2799,8 @@ var hierarchy =
     [ "tfel::math::MatrixConceptBase< tmatrix< N, M, double > >", "structtfel_1_1math_1_1_matrix_concept_base.html", null ],
     [ "tfel::math::MatrixConceptBase< tmatrix< N, M, NumericType > >", "structtfel_1_1math_1_1_matrix_concept_base.html", null ],
     [ "tfel::math::MatrixConceptBase< tmatrix< N, M, real > >", "structtfel_1_1math_1_1_matrix_concept_base.html", null ],
+    [ "mfront::AbstractLinearSystemSolver::MatrixDecompositionResult", "structmfront_1_1_abstract_linear_system_solver_1_1_matrix_decomposition_result.html", null ],
+    [ "mfront::AbstractLinearSystemSolver::MatrixDecompositionVariables", "structmfront_1_1_abstract_linear_system_solver_1_1_matrix_decomposition_variables.html", null ],
     [ "tfel::math::MatrixMatrixHandle< AType, BType, A, B >", "classtfel_1_1math_1_1_matrix_matrix_handle.html", null ],
     [ "tfel::math::MatrixMatrixHandle< tmatrix< N, K, T >, tmatrix< K, M, T2 >, A, B >", "classtfel_1_1math_1_1_matrix_matrix_handle_3_01tmatrix_3_01_n_00_01_k_00_01_t_01_4_00_01tmatrix_04d58ba599e0dbfe628022b1134e9331.html", null ],
     [ "tfel::math::MatrixTag", "structtfel_1_1math_1_1_matrix_tag.html", null ],
@@ -2916,7 +2926,6 @@ var hierarchy =
       [ "mfem_mgis::MultiMaterialNonLinearIntegrator", "structmfem__mgis_1_1_multi_material_non_linear_integrator.html", null ]
     ] ],
     [ "mfem_mgis::NonLinearResolutionOutput", "structmfem__mgis_1_1_non_linear_resolution_output.html", null ],
-    [ "mfront::NonLinearSystemSolver", "structmfront_1_1_non_linear_system_solver.html", null ],
     [ "mfront::NonLinearSystemSolverFactory", "structmfront_1_1_non_linear_system_solver_factory.html", null ],
     [ "mfront::BehaviourData::NullExpansion", "structmfront_1_1_behaviour_data_1_1_null_expansion.html", null ],
     [ "mgis::function::internals::NumberOfComponents< FunctionOrEvaluatorType >", "structmgis_1_1function_1_1internals_1_1_number_of_components.html", null ],
@@ -4363,6 +4372,7 @@ var hierarchy =
     [ "mfront::LocalDataStructure::Variable", "structmfront_1_1_local_data_structure_1_1_variable.html", null ],
     [ "mgis::behaviour::Variable", "structmgis_1_1behaviour_1_1_variable.html", null ],
     [ "mfront::VariableBoundsDescription", "structmfront_1_1_variable_bounds_description.html", null ],
+    [ "mfront::AbstractLinearSystemSolver::MatrixDecompositionResult::VariableDescription", "structmfront_1_1_abstract_linear_system_solver_1_1_matrix_decomposition_result_1_1_variable_description.html", null ],
     [ "mfront::GenericBehaviourMTestFileGenerator::BehaviourVariablesDescription::VariableDescription", "structmfront_1_1_generic_behaviour_m_test_file_generator_1_1_behaviour_variables_description_1_1_variable_description.html", null ],
     [ "mfront::VariableDescriptionBase", "structmfront_1_1_variable_description_base.html", [
       [ "mfront::StaticVariableDescription", "structmfront_1_1_static_variable_description.html", null ],

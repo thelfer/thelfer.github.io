@@ -7,13 +7,15 @@ var structmfront_1_1_implicit_d_s_l_base =
     [ "endsInputFileProcessing", "structmfront_1_1_implicit_d_s_l_base.html#ab2726947e18d2834bb321377d2dbe765", null ],
     [ "getCodeBlockTemplate", "structmfront_1_1_implicit_d_s_l_base.html#acf09133e464bf5f174b320d2e49d6aba", null ],
     [ "getCodeGenerator", "structmfront_1_1_implicit_d_s_l_base.html#acf8e2a4afcdf5a7c3ac9665b320cf388", null ],
-    [ "getSolver", "structmfront_1_1_implicit_d_s_l_base.html#ad147ca087a9a50e06e3bc72766b6e6fa", null ],
+    [ "getSolver", "structmfront_1_1_implicit_d_s_l_base.html#a5362ba2e617bbcea3359957598d238dc", null ],
     [ "getSymbols", "structmfront_1_1_implicit_d_s_l_base.html#ad01321ae422778a0ddff9c14dd3f2e15", null ],
     [ "isCallableVariable", "structmfront_1_1_implicit_d_s_l_base.html#a46dc5e5f5d3c8550263eff7a5628c3d2", null ],
     [ "makeConsistencyChecks", "structmfront_1_1_implicit_d_s_l_base.html#a4fb70f122517e44b709df1b67dc9e727", null ],
     [ "readTangentOperatorCodeBlock", "structmfront_1_1_implicit_d_s_l_base.html#a628480af2345a65484d908dd901215d3", null ],
+    [ "setLinearSystemSolver", "structmfront_1_1_implicit_d_s_l_base.html#ab02d45d4702fa6187ef0019f27b6301a", null ],
+    [ "setLinearSystemSolver", "structmfront_1_1_implicit_d_s_l_base.html#ada40ea11f46b14b60a0233fef743dc83", null ],
     [ "setNonLinearSolver", "structmfront_1_1_implicit_d_s_l_base.html#ac7704b2c39293ef631c92c440e318e83", null ],
-    [ "setNonLinearSolver", "structmfront_1_1_implicit_d_s_l_base.html#a838f32665426619385adb175e3f3b177", null ],
+    [ "setNonLinearSolver", "structmfront_1_1_implicit_d_s_l_base.html#a8b6c9f338da534a33fbf46e8d6cd30ee", null ],
     [ "treatAdditionalConvergenceChecks", "structmfront_1_1_implicit_d_s_l_base.html#a7f89f6fe963dcb025b523f49fbf48d02", null ],
     [ "treatAlgorithm", "structmfront_1_1_implicit_d_s_l_base.html#a86d62e6fff3a0ee5f82046907db9afcd", null ],
     [ "treatCompareToNumericalJacobian", "structmfront_1_1_implicit_d_s_l_base.html#a4b4e5b4c6d9285606967f13ed6b15788", null ],
@@ -26,6 +28,7 @@ var structmfront_1_1_implicit_d_s_l_base =
     [ "treatIntegrator", "structmfront_1_1_implicit_d_s_l_base.html#a0e52e4d9ecd47f5f0c1ba2937beea387", null ],
     [ "treatIterMax", "structmfront_1_1_implicit_d_s_l_base.html#a9caf443c9249c441590f586b29270279", null ],
     [ "treatJacobianComparisonCriterion", "structmfront_1_1_implicit_d_s_l_base.html#ad03a0d1364b458038620d9357c6979db", null ],
+    [ "treatLinearSystemSolver", "structmfront_1_1_implicit_d_s_l_base.html#a9db3c19dd65329b48391c5cf36f63f7b", null ],
     [ "treatMaximumIncrementValuePerIteration", "structmfront_1_1_implicit_d_s_l_base.html#ac9dfd27b70667b8dcf27ce0d572470ae", null ],
     [ "treatNumericallyComputedJacobianBlocks", "structmfront_1_1_implicit_d_s_l_base.html#a7ce9e26b73ca3dc6e1e9c85ef18d5cfc", null ],
     [ "treatPerturbationValueForNumericalJacobianComputation", "structmfront_1_1_implicit_d_s_l_base.html#af2f905a08050e7722fa75aa96bde5fd0", null ],
@@ -37,5 +40,6 @@ var structmfront_1_1_implicit_d_s_l_base =
     [ "treatTheta", "structmfront_1_1_implicit_d_s_l_base.html#a0776627fbb36587a88c36b71fe776999", null ],
     [ "treatUnknownKeyword", "structmfront_1_1_implicit_d_s_l_base.html#a5a45acdae70d8ec24a8659cbaa20574e", null ],
     [ "treatUnknownVariableMethod", "structmfront_1_1_implicit_d_s_l_base.html#a38a33e238c9f72265778d0f60fd3f921", null ],
-    [ "solver", "structmfront_1_1_implicit_d_s_l_base.html#a6ba5925c0ae8d54c462c5d6f5415541e", null ]
+    [ "linear_solver", "structmfront_1_1_implicit_d_s_l_base.html#a07eb0865762db7f7308bc9730272a869", null ],
+    [ "solver", "structmfront_1_1_implicit_d_s_l_base.html#a9d74ba345b1ca4db5d82b4815398995f", null ]
 ];

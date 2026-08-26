@@ -92,7 +92,7 @@
     <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-        <header>
+    <header>
       <ul id="nav">
 	<li><a href="news.html">News</a></li>
 	<li><a href="index.html">Overview</a>
@@ -140,6 +140,7 @@
 		    <li><a href="release-notes-3.0.15.html">Version 3.0.15</a></li>
 		    <li><a href="release-notes-3.0.16.html">Version 3.0.16</a></li>
 		    <li><a href="release-notes-3.0.17.html">Version 3.0.17</a></li>
+		    <li><a href="release-notes-3.0.18.html">Version 3.0.18</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.1.x</a>
@@ -264,7 +265,7 @@
 		</li>
 		<li><a>Versions 5.2.x</a>
 		  <ul>
-		    <li><a href="release-notes-5.1.html">Version 5.2.0</a></li>
+		    <li><a href="release-notes-5.2.html">Version 5.2.0</a></li>
 		  </ul>
 		</li>
 	      </ul>
@@ -285,7 +286,7 @@
 		<li><a href="benchmark.html">Benchmark</a></li>
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
-                 <li><a href="behaviour-variable.html">behaviour variables</a></li>
+                 <li><a href="behaviour-variable.html">Behaviour variables</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -632,7 +633,7 @@ class="math inline">\(f\)</span>:</p>
 \]</span></p>
 <p>This stress criterion is used to define the yield surface or the
 intensity of the viscoplastic flow.</p>
-<p>Concerning the flow rule, two main classes of models are classically
+<p>Concerning the flow rule, two main class of models are classically
 found in the literature. In the first class of model, the porosity does
 not change the expression of the flow rule:</p>
 <p><span class="math display">\[
@@ -870,7 +871,7 @@ The first and second order derivatives of $\sstar$ are:
     \end{aligned}
 \]
 
-> **Note** Many models developped for porous materials and accounting for anisotropy and void shape effects can be recasted into such generic form of the stress criterion, such as [@benzergabesson2001], [@madou2012a], [@morin2015], [@paux2018]
+> **Note** Many models developed for porous materials and accounting for anisotropy and void shape effects can be recasted into such generic form of the stress criterion, such as [@benzergabesson2001], [@madou2012a], [@morin2015], [@paux2018]
 
 -->
 <!--
@@ -1154,7 +1155,7 @@ id="sec:mfront:porous_plasticity:elastic_contribution_to_porosity_growth"><span
 class="header-section-number">3.1.1</span> Taking the elastic
 contribution to the porosity growth into account</h3>
 <p>Adding the elastic contribution to the porosity growth is trivially
-performed by substracting the following term to the implicit equation
+performed by subtracting the following term to the implicit equation
 associated with the porosity evolution:</p>
 <p><span class="math display">\[
 \mathcal{R}_{\Delta\,f} \mathrel{-}= {\left(1 -
@@ -1880,7 +1881,7 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb7-1"><a href="#c
 <span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AdditionalConvergenceChecks <span class="op">{</span></span>
 <span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>  <span class="co">// adding the contribution of the solid swelling</span></span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>  <span class="co">// the porosity increase to the next extimate of the porosity by</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>  <span class="co">// the porosity increase to the next estimate of the porosity by</span></span>
 <span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>  <span class="co">// the staggered scheme.</span></span>
 <span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>  <span class="co">// This shall only been done after the convergence of the</span></span>
 <span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>  <span class="co">// staggered scheme has converged.</span></span>
@@ -2613,9 +2614,9 @@ constitutive equations with <code>Cast3M</code></h2>
 integration of the porous constitutive equations, especially if
 sub-stepping is allowed. However, integration may still fail due to too
 severe input parameters. As integration failure is not handled in the
-finite element code <code>Cast3M</code>, additional stategies are
+finite element code <code>Cast3M</code>, additional strategies are
 required at the structural scale to avoid such problems. An efficient
-stategy is to adjust the time-step based on the maximal increase of
+strategy is to adjust the time-step based on the maximal increase of
 porosity such as: <span class="math display">\[
 \Delta t_{i+1} = \min{\left(   \frac{\Delta f_{max}}{\Delta f_{i}}
 \Delta t_i , \Delta t_{ref} \right)}

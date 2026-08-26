@@ -89,7 +89,7 @@
     <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-        <header>
+    <header>
       <ul id="nav">
 	<li><a href="news.html">News</a></li>
 	<li><a href="index.html">Overview</a>
@@ -137,6 +137,7 @@
 		    <li><a href="release-notes-3.0.15.html">Version 3.0.15</a></li>
 		    <li><a href="release-notes-3.0.16.html">Version 3.0.16</a></li>
 		    <li><a href="release-notes-3.0.17.html">Version 3.0.17</a></li>
+		    <li><a href="release-notes-3.0.18.html">Version 3.0.18</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.1.x</a>
@@ -261,7 +262,7 @@
 		</li>
 		<li><a>Versions 5.2.x</a>
 		  <ul>
-		    <li><a href="release-notes-5.1.html">Version 5.2.0</a></li>
+		    <li><a href="release-notes-5.2.html">Version 5.2.0</a></li>
 		  </ul>
 		</li>
 	      </ul>
@@ -282,7 +283,7 @@
 		<li><a href="benchmark.html">Benchmark</a></li>
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
-                 <li><a href="behaviour-variable.html">behaviour variables</a></li>
+                 <li><a href="behaviour-variable.html">Behaviour variables</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -385,8 +386,8 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">Overview of some features of the
-<code>TFEL/Math</code> library</h1>
+<h1 class="title">Overview of some features of the TFEL/Math
+library</h1>
 <h2 class="author">Thomas Helfer</h2>
 <h3 class="date">21/11/2017</h3>
 </div>
@@ -564,12 +565,12 @@ memory area, as described in Section 1.7.</p>
 class="header-section-number">1.1.3</span> The <code>Quantity</code>
 class</h3>
 <p>For the sake of simplicity, the <code>qt</code>, <code>qt_ref</code>
-and <code>const_qt_ref</code> were described as classes. This is not
-actually the case in the current implementation which defines them
-through type aliases to a more general <code>Quantity</code> class which
-is parametrized by three template arguments: the unit, the basic numeric
-type and a third argument describing how the value associated with the
-quantity is handled.</p>
+and <code>const_qt_ref</code> were described as independent classes.
+This is not actually the case in the current implementation which
+defines them through inheritance to a more general <code>Quantity</code>
+class which is parametrized by three template arguments: the unit, the
+basic numeric type and a third argument describing how the value
+associated with the quantity is handled.</p>
 <h3 data-number="1.1.4" id="operations-on-quantities"><span
 class="header-section-number">1.1.4</span> Operations on quantities</h3>
 <p>Common operations on quantities, such as additions, subtraction,
@@ -1198,8 +1199,8 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb16-1"><a href="#
 </div>
 <figure id="fig:tfel_4.0:view">
 <img src="img/tfel-math/view.svg" style="width:75.0%"
-alt="“Exemple of decomposition by blocks of a memory area using views”" />
-<figcaption>Figure 3: “Exemple of decomposition by blocks of a memory
+alt="“Example of decomposition by blocks of a memory area using views”" />
+<figcaption>Figure 3: “Example of decomposition by blocks of a memory
 area using views”</figcaption>
 </figure>
 <p>The <code>map</code> function allows to define offset at
@@ -1296,6 +1297,32 @@ symmetric tensors stored in SoA format with a stride of 2. The component
 <code>s1[i]</code> is located at address
 <code>&amp;values[0] + i * 2</code>, while <code>s2[i]</code> is at
 <code>&amp;values[1] + i * 2</code>.</p>
+<h3 data-number="1.7.6"
+id="views-of-derivatives-with-strided-coalescent-memory-access"><span
+class="header-section-number">1.7.6</span> Views of derivatives with
+strided coalescent memory access</h3>
+<p>The <code>map_derivative_strided</code> function creates a view of a
+derivative sub-block of a base matrix whose components are stored in SoA
+layout. It is typically used on the GPU to assemble a Jacobian block by
+block with coalescent memory access, without materialising a
+<code>tmatrix</code>.</p>
+<p>Its template parameters are the block position <code>I, J</code>, the
+function and variable types, and the number of rows <code>N</code> and
+columns <code>M</code> of the base matrix; the base matrix is passed as
+a pointer to its <span class="math inline">\((0, 0)\)</span> component
+and a stride. The following snippet views the derivative of a symmetric
+tensor with respect to another symmetric tensor, i.e. a <span
+class="math inline">\(4\times 4\)</span> sub-block whose top-left corner
+is element <span class="math inline">\((4, 0)\)</span> of an <span
+class="math inline">\(8\times 8\)</span> base matrix stored in SoA
+layout:</p>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">// base pointer `p` to element (0, 0), stride `s` between consecutive components</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>map_derivative_strided<span class="op">&lt;</span><span class="dv">4</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> stensor<span class="op">&lt;</span><span class="dv">2</span><span class="bu">u</span><span class="op">,</span> <span class="dt">double</span><span class="op">&gt;,</span> stensor<span class="op">&lt;</span><span class="dv">2</span><span class="bu">u</span><span class="op">,</span> <span class="dt">double</span><span class="op">&gt;,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">8</span><span class="op">&gt;(</span>p<span class="op">,</span> s<span class="op">)</span> <span class="op">=</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    st2tost2<span class="op">&lt;</span><span class="dv">2</span><span class="bu">u</span><span class="op">,</span> <span class="dt">double</span><span class="op">&gt;::</span>Id<span class="op">();</span></span></code></pre></div>
+<p>Its component <span class="math inline">\((a, b)\)</span> is element
+<span class="math inline">\((4 + a, b)\)</span> of the base matrix,
+located at address <code>p + ((4 + a) * 8 + b) * s</code>.</p>
 <h1 data-number="2" id="sec:tfel_math:non_linear_solvers"><span
 class="header-section-number">2</span> Solvers for fixed size non-linear
 systems</h1>
@@ -1329,33 +1356,33 @@ current estimate of the unknowns and, if required by the solver, the
 jacobian.</p>
 <p>A typical usage of those classes is given by the following
 example:</p>
-<div class="sourceCode" id="cb21"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> NewtonRaphsonSolver</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span> <span class="kw">public</span> tfel<span class="op">::</span>math<span class="op">::</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>          TinyNewtonRaphsonSolver<span class="op">&lt;</span><span class="dv">2</span><span class="bu">u</span><span class="op">,</span> <span class="dt">double</span><span class="op">,</span> NewtonRaphsonSolver<span class="op">&gt;</span> <span class="op">{</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  NewtonRaphsonSolver<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">-&gt;</span>zeros <span class="op">=</span> <span class="op">{</span><span class="fl">0.</span><span class="op">,</span> <span class="fl">0.</span><span class="op">};</span></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">-&gt;</span>epsilon <span class="op">=</span> <span class="fl">1.e-14</span><span class="op">;</span></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">-&gt;</span>iterMax <span class="op">=</span> <span class="dv">20</span><span class="op">;</span></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">bool</span> solve<span class="op">()</span> <span class="op">{</span> <span class="cf">return</span> <span class="kw">this</span><span class="op">-&gt;</span>solveNonLinearSystem<span class="op">();</span> <span class="op">}</span></span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">auto</span> getCurrentEstimate<span class="op">()</span> <span class="at">const</span> <span class="kw">noexcept</span> <span class="op">{</span> <span class="cf">return</span> <span class="kw">this</span><span class="op">-&gt;</span>zeros<span class="op">;</span> <span class="op">}</span></span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">bool</span> computeResidual<span class="op">()</span> <span class="kw">noexcept</span> <span class="op">{</span></span>
-<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">constexpr</span> <span class="dt">double</span> a <span class="op">=</span> <span class="fl">1.</span><span class="op">;</span></span>
-<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">constexpr</span> <span class="dt">double</span> b <span class="op">=</span> <span class="fl">10.</span><span class="op">;</span></span>
-<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span><span class="op">&amp;</span> x <span class="op">=</span> <span class="kw">this</span><span class="op">-&gt;</span>zeros<span class="op">;</span></span>
-<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span><span class="op">&amp;</span> f <span class="op">=</span> <span class="kw">this</span><span class="op">-&gt;</span>fzeros<span class="op">;</span></span>
-<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span><span class="op">&amp;</span> J <span class="op">=</span> <span class="kw">this</span><span class="op">-&gt;</span>jacobian<span class="op">;</span></span>
-<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>    f <span class="op">=</span> <span class="op">{</span><span class="dv">1</span> <span class="op">-</span> x<span class="op">(</span><span class="dv">0</span><span class="op">),</span> <span class="dv">100</span> <span class="op">*</span> <span class="op">(</span>x<span class="op">(</span><span class="dv">1</span><span class="op">)</span> <span class="op">-</span> x<span class="op">(</span><span class="dv">0</span><span class="op">)</span> <span class="op">*</span> x<span class="op">(</span><span class="dv">0</span><span class="op">))};</span></span>
-<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>    J <span class="op">=</span> <span class="op">{-</span><span class="fl">1.</span><span class="op">,</span> <span class="fl">0.</span><span class="op">,</span>  <span class="co">//</span></span>
-<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>         <span class="op">-</span><span class="dv">200</span> <span class="op">*</span> x<span class="op">(</span><span class="dv">0</span><span class="op">),</span> <span class="fl">100.</span><span class="op">};</span></span>
-<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
-<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span>  <span class="co">// end of computeResidual</span></span>
-<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a><span class="op">};</span>  <span class="co">// end of struct NewtonRaphsonSolver</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> NewtonRaphsonSolver</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span> <span class="kw">public</span> tfel<span class="op">::</span>math<span class="op">::</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>          TinyNewtonRaphsonSolver<span class="op">&lt;</span><span class="dv">2</span><span class="bu">u</span><span class="op">,</span> <span class="dt">double</span><span class="op">,</span> NewtonRaphsonSolver<span class="op">&gt;</span> <span class="op">{</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  NewtonRaphsonSolver<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">-&gt;</span>zeros <span class="op">=</span> <span class="op">{</span><span class="fl">0.</span><span class="op">,</span> <span class="fl">0.</span><span class="op">};</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">-&gt;</span>epsilon <span class="op">=</span> <span class="fl">1.e-14</span><span class="op">;</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">-&gt;</span>iterMax <span class="op">=</span> <span class="dv">20</span><span class="op">;</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">bool</span> solve<span class="op">()</span> <span class="op">{</span> <span class="cf">return</span> <span class="kw">this</span><span class="op">-&gt;</span>solveNonLinearSystem<span class="op">();</span> <span class="op">}</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">auto</span> getCurrentEstimate<span class="op">()</span> <span class="at">const</span> <span class="kw">noexcept</span> <span class="op">{</span> <span class="cf">return</span> <span class="kw">this</span><span class="op">-&gt;</span>zeros<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">bool</span> computeResidual<span class="op">()</span> <span class="kw">noexcept</span> <span class="op">{</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">constexpr</span> <span class="dt">double</span> a <span class="op">=</span> <span class="fl">1.</span><span class="op">;</span></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">constexpr</span> <span class="dt">double</span> b <span class="op">=</span> <span class="fl">10.</span><span class="op">;</span></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span><span class="op">&amp;</span> x <span class="op">=</span> <span class="kw">this</span><span class="op">-&gt;</span>zeros<span class="op">;</span></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span><span class="op">&amp;</span> f <span class="op">=</span> <span class="kw">this</span><span class="op">-&gt;</span>fzeros<span class="op">;</span></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span><span class="op">&amp;</span> J <span class="op">=</span> <span class="kw">this</span><span class="op">-&gt;</span>jacobian<span class="op">;</span></span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>    f <span class="op">=</span> <span class="op">{</span><span class="dv">1</span> <span class="op">-</span> x<span class="op">(</span><span class="dv">0</span><span class="op">),</span> <span class="dv">100</span> <span class="op">*</span> <span class="op">(</span>x<span class="op">(</span><span class="dv">1</span><span class="op">)</span> <span class="op">-</span> x<span class="op">(</span><span class="dv">0</span><span class="op">)</span> <span class="op">*</span> x<span class="op">(</span><span class="dv">0</span><span class="op">))};</span></span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>    J <span class="op">=</span> <span class="op">{-</span><span class="fl">1.</span><span class="op">,</span> <span class="fl">0.</span><span class="op">,</span>  <span class="co">//</span></span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>         <span class="op">-</span><span class="dv">200</span> <span class="op">*</span> x<span class="op">(</span><span class="dv">0</span><span class="op">),</span> <span class="fl">100.</span><span class="op">};</span></span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span>  <span class="co">// end of computeResidual</span></span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a><span class="op">};</span>  <span class="co">// end of struct NewtonRaphsonSolver</span></span></code></pre></div>
 <p>which solves the non-linear system:</p>
 <p><span class="math display">\[
 \vec{f}{\left(x,y\right)} =
@@ -1649,15 +1676,15 @@ automatically resets the <code>is_delta_zeros_defined</code> member to
 <code>false</code>. More precisely, here is the implementation of the
 <code>checkConvergence</code> method when the user has defined
 additional convergence checks:</p>
-<div class="sourceCode" id="cb22"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> checkConvergence<span class="op">(</span><span class="at">const</span> NumericType error<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">auto</span> converged <span class="op">=</span> error <span class="op">&lt;</span> <span class="kw">this</span><span class="op">-&gt;</span>epsilon<span class="op">;</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">auto</span> mfront_internals_converged <span class="op">=</span> converged<span class="op">;</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">this</span><span class="op">-&gt;</span>additionalConvergenceChecks<span class="op">(</span>converged<span class="op">,</span> error<span class="op">);</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span><span class="op">((</span>mfront_internals_converged<span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="op">(!</span>converged<span class="op">)){</span></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">-&gt;</span>is_delta_zeros_defined <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> checkConvergence<span class="op">(</span><span class="at">const</span> NumericType error<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">auto</span> converged <span class="op">=</span> error <span class="op">&lt;</span> <span class="kw">this</span><span class="op">-&gt;</span>epsilon<span class="op">;</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">auto</span> mfront_internals_converged <span class="op">=</span> converged<span class="op">;</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">this</span><span class="op">-&gt;</span>additionalConvergenceChecks<span class="op">(</span>converged<span class="op">,</span> error<span class="op">);</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span><span class="op">((</span>mfront_internals_converged<span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="op">(!</span>converged<span class="op">)){</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">-&gt;</span>is_delta_zeros_defined <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <h1 class="unnumbered" id="references">References</h1>
 <div id="refs" class="references csl-bib-body" role="list">
 <div id="ref-abrahams_cxx_2004" class="csl-entry" role="listitem">

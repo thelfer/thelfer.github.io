@@ -3,14 +3,14 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN" xml:lang="en-EN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>How to implement Torelli 2018’ load induced thermal strain behaviour</title>
+    <title>How to implement Torelli 2018 load induced thermal strain behaviour</title>
         <meta name="author" content="Thomas Helfer, Giacomo Torelli" />
             <meta name="date" content="2019-08-12" />
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -89,7 +89,7 @@
     <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-        <header>
+    <header>
       <ul id="nav">
 	<li><a href="news.html">News</a></li>
 	<li><a href="index.html">Overview</a>
@@ -137,6 +137,7 @@
 		    <li><a href="release-notes-3.0.15.html">Version 3.0.15</a></li>
 		    <li><a href="release-notes-3.0.16.html">Version 3.0.16</a></li>
 		    <li><a href="release-notes-3.0.17.html">Version 3.0.17</a></li>
+		    <li><a href="release-notes-3.0.18.html">Version 3.0.18</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.1.x</a>
@@ -261,7 +262,7 @@
 		</li>
 		<li><a>Versions 5.2.x</a>
 		  <ul>
-		    <li><a href="release-notes-5.1.html">Version 5.2.0</a></li>
+		    <li><a href="release-notes-5.2.html">Version 5.2.0</a></li>
 		  </ul>
 		</li>
 	      </ul>
@@ -282,7 +283,7 @@
 		<li><a href="benchmark.html">Benchmark</a></li>
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
-                 <li><a href="behaviour-variable.html">behaviour variables</a></li>
+                 <li><a href="behaviour-variable.html">Behaviour variables</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -385,7 +386,7 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">How to implement Torelli 2018’ load induced thermal
+<h1 class="title">How to implement Torelli 2018 load induced thermal
 strain behaviour</h1>
 <h2 class="author">Thomas Helfer, Giacomo Torelli</h2>
 <h3 class="date">08/12/2019</h3>
@@ -441,7 +442,9 @@ state variables</a></li>
 <p>This page shows how to implement a behaviour describing the load
 induced thermal strain (LITS) phenomena in concrete following the work
 of <span class="citation"
-data-cites="torelli_confinement-dependent_2018">[1]</span>.</p>
+data-cites="torelli_confinement-dependent_2018">[<a
+href="#ref-torelli_confinement-dependent_2018"
+role="doc-biblioref">1</a>]</span>.</p>
 <p>This implementation is available <a
 href="gallery/viscoplasticity/LoadInducedThermalStrain_Torelli2018.mfront">here</a>.</p>
 <h1 id="description">Description</h1>
@@ -570,7 +573,7 @@ is known if <span
 class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{el}}\)</span>
 is known.</p>
 <p>Using Equation (1) in its increment form thus leads to the following
-non linear equation whose only unknows is <span
+non linear equation whose only unknowns is <span
 class="math inline">\(\Delta\,\underline{\varepsilon}^{\mathrm{el}}\)</span>:</p>
 <p><span id="eq:feel"><span class="math display">\[
 f_{\underline{\varepsilon}^{\mathrm{el}}}=\Delta\,\underline{\varepsilon}^{\mathrm{el}}+\Delta\,\underline{\varepsilon}^{\mathrm{LITS}}{\left(\Delta\,\underline{\varepsilon}^{\mathrm{el}}\right)}-\Delta\,\underline{\varepsilon}^{\mathrm{to}}=\underline{0}
@@ -636,7 +639,7 @@ is the elastic stiffness tensor at the middle of the time step:</p>
 {\left&lt;{\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}\right&gt;_{-}}}{\displaystyle
 \partial
 {\left.\underline{\sigma}\right|_{t+\theta\,\Delta\,t}}}}\)</span> is
-not given here as it will be computed by an build-in function of the
+not given here as it will be computed by an built-in function of the
 <code>TFEL/Math</code> library.</p>
 </blockquote>
 <p><span class="math inline">\({\displaystyle \frac{\displaystyle
@@ -745,7 +748,7 @@ behaviour integration.</li>
 <li>Automatic support for plane stress and generalized plane stress
 modelling hypotheses (The axial strain is defined as an additional state
 variable and the associated equation in the implicit system is added to
-enforce the plane stess condition).</li>
+enforce the plane stress condition).</li>
 <li>Automatic addition of the standard terms associated with the elastic
 strain state variable.</li>
 </ul>
@@ -925,7 +928,8 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb17-1"><a href="#
 <blockquote>
 <p><strong>About the choice of the eigensolver</strong></p>
 <p>Here we used a the Jacobi algorithm as implemented in <span
-class="citation" data-cites="kopp_efficient_2008">[2]</span>. This
+class="citation" data-cites="kopp_efficient_2008">[<a
+href="#ref-kopp_efficient_2008" role="doc-biblioref">2</a>]</span>. This
 algorithm is lower but more accurate than the default one (see <a
 href="tensors.html">here</a> for an indepth comparison of available
 algorithms.</p>

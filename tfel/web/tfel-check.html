@@ -88,7 +88,7 @@
     <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-        <header>
+    <header>
       <ul id="nav">
 	<li><a href="news.html">News</a></li>
 	<li><a href="index.html">Overview</a>
@@ -136,6 +136,7 @@
 		    <li><a href="release-notes-3.0.15.html">Version 3.0.15</a></li>
 		    <li><a href="release-notes-3.0.16.html">Version 3.0.16</a></li>
 		    <li><a href="release-notes-3.0.17.html">Version 3.0.17</a></li>
+		    <li><a href="release-notes-3.0.18.html">Version 3.0.18</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.1.x</a>
@@ -260,7 +261,7 @@
 		</li>
 		<li><a>Versions 5.2.x</a>
 		  <ul>
-		    <li><a href="release-notes-5.1.html">Version 5.2.0</a></li>
+		    <li><a href="release-notes-5.2.html">Version 5.2.0</a></li>
 		  </ul>
 		</li>
 	      </ul>
@@ -281,7 +282,7 @@
 		<li><a href="benchmark.html">Benchmark</a></li>
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
-                 <li><a href="behaviour-variable.html">behaviour variables</a></li>
+                 <li><a href="behaviour-variable.html">Behaviour variables</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -385,7 +386,7 @@
     </header>
 <div id="header">
 <h1 class="title">Automation of unit-tests of scientific tools using
-<code>tfel-check</code></h1>
+tfel-check</h1>
 <h2 class="author">Thomas Helfer, Stéphane Bernaud</h2>
 <h3 class="date">21/11/2017</h3>
 </div>
@@ -418,7 +419,13 @@ keywords</a></li>
 <li><a href="#sec:tfel_check:configuration_files"
 id="toc-sec:tfel_check:configuration_files"><span
 class="toc-section-number">3</span> Description of the configuration
-files</a></li>
+files</a>
+<ul>
+<li><a href="#defining-environment-variables-in-configuration-files"
+id="toc-defining-environment-variables-in-configuration-files"><span
+class="toc-section-number">3.1</span> Defining environment variables in
+configuration files</a></li>
+</ul></li>
 <li><a href="#sec:tfel_check:default_components"
 id="toc-sec:tfel_check:default_components"><span
 class="toc-section-number">4</span> Default components</a></li>
@@ -749,12 +756,32 @@ files</h1>
 <ul>
 <li>substitution strings</li>
 <li>available components</li>
+<li>environment variables</li>
 </ul>
 <p>The syntax of configuration file is loosely inspired by the
 <code>JSON</code> format and looks like:</p>
 <div class="sourceCode" id="cb14"><pre
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>components <span class="op">:</span> <span class="op">{</span><span class="st">&quot;pleiades::python&quot;</span><span class="op">};</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>substitutions <span class="op">:</span> <span class="op">{</span><span class="st">&quot;python&quot;</span> <span class="op">:</span> <span class="st">&quot;python3.5&quot;</span><span class="op">};</span></span></code></pre></div>
+<h2 data-number="3.1"
+id="defining-environment-variables-in-configuration-files"><span
+class="header-section-number">3.1</span> Defining environment variables
+in configuration files</h2>
+<p>The <code>environment_variables</code> section introduce a map
+defining a set of environment variables.</p>
+<h3 data-number="3.1.1" id="example-of-usage-1"><span
+class="header-section-number">3.1.1</span> Example of usage</h3>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>environment_variables<span class="op">:</span> <span class="op">{</span><span class="st">&quot;CXXFLAGS&quot;</span><span class="op">:</span> <span class="st">&quot;-Wall&quot;</span><span class="op">};</span></span></code></pre></div>
+<h3 data-number="3.1.2" id="caution-1"><span
+class="header-section-number">3.1.2</span> Caution</h3>
+<ul>
+<li>An environment variable can only be defined once in configuration
+files</li>
+<li>If an environment variable is defined in a configuration file and in
+a test file (through the <code>@Environment</code> keyword), the latter
+definition is used.</li>
+</ul>
 <h1 data-number="4" id="sec:tfel_check:default_components"><span
 class="header-section-number">4</span> Default components</h1>
 <p>Some components are conditionally defined by
@@ -780,28 +807,28 @@ where <code>&lt;name&gt;</code> is the name of the interface.</p>
 <p>Those default components can be listed using the
 <code>--list-default-components</code> command line options, as
 follows:</p>
-<div class="sourceCode" id="cb15"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="er">$</span> tfel<span class="op">-</span>check <span class="op">--</span>list<span class="op">-</span><span class="cf">default</span><span class="op">-</span>components</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> tfel<span class="op">::</span>python</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>python</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> tfel<span class="op">::</span>madnex</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>C<span class="op">++</span>_interface</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>Cpp_interface</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>Cxx_interface</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>Python_interface</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>c_interface</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>c<span class="op">++</span>_interface</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>cpp_interface</span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>cpptest_interface</span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>cxx_interface</span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>excel_interface</span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>excel<span class="op">-</span>internal_interface</span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>gnuplot_interface</span>
-<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>mfront_interface</span>
-<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>octave_interface</span>
-<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>python_interface</span>
-<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>behaviour<span class="op">::</span>generic_interface</span>
-<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>model<span class="op">::</span>mfront_interface</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="er">$</span> tfel<span class="op">-</span>check <span class="op">--</span>list<span class="op">-</span><span class="cf">default</span><span class="op">-</span>components</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> tfel<span class="op">::</span>python</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>python</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> tfel<span class="op">::</span>madnex</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>C<span class="op">++</span>_interface</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>Cpp_interface</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>Cxx_interface</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>Python_interface</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>c_interface</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>c<span class="op">++</span>_interface</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>cpp_interface</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>cpptest_interface</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>cxx_interface</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>excel_interface</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>excel<span class="op">-</span>internal_interface</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>gnuplot_interface</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>mfront_interface</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>octave_interface</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>python_interface</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>behaviour<span class="op">::</span>generic_interface</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>model<span class="op">::</span>mfront_interface</span></code></pre></div>
 <h1 data-number="5"
 id="automatic-declaration-of-substitutions-for-tfel-executables-and-python-interpreter"><span
 class="header-section-number">5</span> Automatic declaration of

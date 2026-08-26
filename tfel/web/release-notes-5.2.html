@@ -89,7 +89,7 @@
     <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-        <header>
+    <header>
       <ul id="nav">
 	<li><a href="news.html">News</a></li>
 	<li><a href="index.html">Overview</a>
@@ -137,6 +137,7 @@
 		    <li><a href="release-notes-3.0.15.html">Version 3.0.15</a></li>
 		    <li><a href="release-notes-3.0.16.html">Version 3.0.16</a></li>
 		    <li><a href="release-notes-3.0.17.html">Version 3.0.17</a></li>
+		    <li><a href="release-notes-3.0.18.html">Version 3.0.18</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.1.x</a>
@@ -261,7 +262,7 @@
 		</li>
 		<li><a>Versions 5.2.x</a>
 		  <ul>
-		    <li><a href="release-notes-5.1.html">Version 5.2.0</a></li>
+		    <li><a href="release-notes-5.2.html">Version 5.2.0</a></li>
 		  </ul>
 		</li>
 	      </ul>
@@ -282,7 +283,7 @@
 		<li><a href="benchmark.html">Benchmark</a></li>
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
-                 <li><a href="behaviour-variable.html">behaviour variables</a></li>
+                 <li><a href="behaviour-variable.html">Behaviour variables</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -392,103 +393,444 @@
 </div>
 <div id="TOC">
 <ul>
+<li><a href="#highlights" id="toc-highlights"><span
+class="toc-section-number">1</span> Highlights</a>
+<ul>
+<li><a href="#support-for-the-tdls-tinydevicecallablelinearsolver"
+id="toc-support-for-the-tdls-tinydevicecallablelinearsolver"><span
+class="toc-section-number">1.1</span> Support for the <code>TDLS</code>
+(<code>TinyDeviceCallableLinearSolver</code>)</a></li>
+</ul></li>
+<li><a href="#known-incompatibilities"
+id="toc-known-incompatibilities"><span
+class="toc-section-number">2</span> Known incompatibilities</a></li>
+<li><a href="#improvements-to-the-build-system"
+id="toc-improvements-to-the-build-system"><span
+class="toc-section-number">3</span> Improvements to the build system</a>
+<ul>
+<li><a href="#new-cmake-options" id="toc-new-cmake-options"><span
+class="toc-section-number">3.1</span> New <code>cmake</code>
+options</a></li>
+<li><a href="#user-defined-cmake-variables"
+id="toc-user-defined-cmake-variables"><span
+class="toc-section-number">3.2</span> User-defined <code>cmake</code>
+variables</a></li>
+<li><a href="#supported-parallel-configurations"
+id="toc-supported-parallel-configurations"><span
+class="toc-section-number">3.3</span> Supported parallel
+configurations</a></li>
+<li><a href="#add-a-build-tests-target"
+id="toc-add-a-build-tests-target"><span
+class="toc-section-number">3.4</span> Add a <code>build-tests</code>
+target</a></li>
+</ul></li>
+<li><a href="#new-tfelconfig-features"
+id="toc-new-tfelconfig-features"><span
+class="toc-section-number">4</span> New <code>TFEL/Config</code>
+features</a>
+<ul>
+<li><a href="#tfels-default-substitutions"
+id="toc-tfels-default-substitutions"><span
+class="toc-section-number">4.1</span> TFEL’s default
+substitutions</a></li>
+</ul></li>
 <li><a href="#new-tfelmath-features"
-id="toc-new-tfelmath-features"><span class="toc-section-number">1</span>
+id="toc-new-tfelmath-features"><span class="toc-section-number">5</span>
 New <code>TFEL/Math</code> features</a>
 <ul>
 <li><a
 href="#views-of-tensorial-objects-with-coalescent-memory-access-for-data-separated-by-a-constant-stride"
 id="toc-views-of-tensorial-objects-with-coalescent-memory-access-for-data-separated-by-a-constant-stride"><span
-class="toc-section-number">1.1</span> Views of tensorial objects with
+class="toc-section-number">5.1</span> Views of tensorial objects with
 coalescent memory access for data separated by a constant
 stride</a></li>
 <li><a href="#walpole-basis" id="toc-walpole-basis"><span
-class="toc-section-number">1.2</span> Walpole basis</a></li>
+class="toc-section-number">5.2</span> Walpole basis</a></li>
+<li><a href="#refactoring-of-quantities"
+id="toc-refactoring-of-quantities"><span
+class="toc-section-number">5.3</span> Refactoring of quantities</a></li>
 </ul></li>
 <li><a href="#new-tfelmaterial-features"
 id="toc-new-tfelmaterial-features"><span
-class="toc-section-number">2</span> New <code>TFEL/Material</code>
+class="toc-section-number">6</span> New <code>TFEL/Material</code>
 features</a>
 <ul>
 <li><a href="#homogenization" id="toc-homogenization"><span
-class="toc-section-number">2.1</span> Homogenization</a></li>
+class="toc-section-number">6.1</span> Homogenization</a></li>
 </ul></li>
 <li><a href="#new-features-in-tfel-check"
 id="toc-new-features-in-tfel-check"><span
-class="toc-section-number">3</span> New features in
+class="toc-section-number">7</span> New features in
 <code>tfel-check</code></a>
 <ul>
 <li><a href="#parallelization" id="toc-parallelization"><span
-class="toc-section-number">3.1</span> Parallelization</a></li>
+class="toc-section-number">7.1</span> Parallelization</a></li>
+<li><a href="#defining-environment-variables-in-configuration-files"
+id="toc-defining-environment-variables-in-configuration-files"><span
+class="toc-section-number">7.2</span> Defining environment variables in
+configuration files</a></li>
 <li><a href="#new-features-in-tfelsystem"
 id="toc-new-features-in-tfelsystem"><span
-class="toc-section-number">3.2</span> New features in
+class="toc-section-number">7.3</span> New features in
 <code>TFEL/System</code></a></li>
 </ul></li>
 <li><a href="#new-tfelmaterial-features-1"
 id="toc-new-tfelmaterial-features-1"><span
-class="toc-section-number">4</span> New <code>TFEL/Material</code>
+class="toc-section-number">8</span> New <code>TFEL/Material</code>
 features</a>
 <ul>
 <li><a href="#homogenization-1" id="toc-homogenization-1"><span
-class="toc-section-number">4.1</span> Homogenization</a></li>
+class="toc-section-number">8.1</span> Homogenization</a></li>
+</ul></li>
+<li><a href="#new-features-in-mfront"
+id="toc-new-features-in-mfront"><span
+class="toc-section-number">9</span> New features in
+<code>MFront</code></a>
+<ul>
+<li><a href="#the-linearsystemsolver-keyword"
+id="toc-the-linearsystemsolver-keyword"><span
+class="toc-section-number">9.1</span> The
+<code>@LinearSystemSolver</code> keyword</a></li>
+<li><a href="#configuration-file" id="toc-configuration-file"><span
+class="toc-section-number">9.2</span> Configuration file</a></li>
+<li><a href="#passing-options-to-interfaces-on-the-command-line"
+id="toc-passing-options-to-interfaces-on-the-command-line"><span
+class="toc-section-number">9.3</span> Passing options to interfaces on
+the command line</a></li>
+<li><a href="#the-generic-parallel-interface-for-material-properties"
+id="toc-the-generic-parallel-interface-for-material-properties"><span
+class="toc-section-number">9.4</span> The <code>generic-parallel</code>
+interface for material properties</a></li>
+<li><a href="#improvements-to-the-cast3m-interface"
+id="toc-improvements-to-the-cast3m-interface"><span
+class="toc-section-number">9.5</span> Improvements to the
+<code>Cast3M</code> interface</a></li>
+</ul></li>
+<li><a href="#continuous-integration"
+id="toc-continuous-integration"><span
+class="toc-section-number">10</span> Continuous integration</a>
+<ul>
+<li><a href="#github-actions" id="toc-github-actions"><span
+class="toc-section-number">10.1</span> Github actions</a></li>
 </ul></li>
 <li><a href="#acknowledgements" id="toc-acknowledgements"><span
-class="toc-section-number">5</span> Acknowledgements</a></li>
+class="toc-section-number">11</span> Acknowledgements</a></li>
 <li><a href="#issues-fixed" id="toc-issues-fixed"><span
-class="toc-section-number">6</span> Issues fixed</a>
+class="toc-section-number">12</span> Issues fixed</a>
 <ul>
+<li><a
+href="#issue-1016-mfront-variables-have-the-same-name-in-the-dgibi-file-generated-by-mfront-for-using-the-fem-program-cast3m"
+id="toc-issue-1016-mfront-variables-have-the-same-name-in-the-dgibi-file-generated-by-mfront-for-using-the-fem-program-cast3m"><span
+class="toc-section-number">12.1</span> Issue 1016: [mfront] Variables
+have the same name in the <code>dgibi</code> file generated by
+<code>MFront</code>, for using the FEM program
+<code>Cast3M</code></a></li>
+<li><a href="#issue-1014-cmake-add-a-build-tests-target"
+id="toc-issue-1014-cmake-add-a-build-tests-target"><span
+class="toc-section-number">12.2</span> Issue 1014: [cmake] Add a
+<code>build-tests</code> target</a></li>
+<li><a
+href="#issue-1013-tfel-math-refine-quantityconcept-to-take-mutability-into-account"
+id="toc-issue-1013-tfel-math-refine-quantityconcept-to-take-mutability-into-account"><span
+class="toc-section-number">12.3</span> Issue 1013: [tfel-math] Refine
+<code>QuantityConcept</code> to take mutability into account</a></li>
+<li><a href="#issue-1012-github-actions-add-testing-of-tfel-with-madnex"
+id="toc-issue-1012-github-actions-add-testing-of-tfel-with-madnex"><span
+class="toc-section-number">12.4</span> Issue 1012: [github-actions] Add
+testing of <code>TFEL</code> with <code>madnex</code></a></li>
+<li><a
+href="#issue-1010-clang-tidy-fix-warnings-related-to-the-google-explicit-constructor-check"
+id="toc-issue-1010-clang-tidy-fix-warnings-related-to-the-google-explicit-constructor-check"><span
+class="toc-section-number">12.5</span> Issue 1010: [clang-tidy] fix
+warnings related to the google-explicit-constructor check</a></li>
+<li><a href="#issue-1006-github-actions-add-tests-based-on-tfel-check"
+id="toc-issue-1006-github-actions-add-tests-based-on-tfel-check"><span
+class="toc-section-number">12.6</span> Issue 1006: [github-actions] Add
+tests based on <code>tfel-check</code></a></li>
+<li><a
+href="#issue-1004-github-actions-add-support-actions-based-on-visual-studio"
+id="toc-issue-1004-github-actions-add-support-actions-based-on-visual-studio"><span
+class="toc-section-number">12.7</span> Issue 1004: [github-actions] Add
+support actions based on Visual Studio</a></li>
+<li><a
+href="#issue-1001-tfel-math-introduce-the-quantityconcept-class-to-allow-surrogate-classes-to-be-treated-as-quantities"
+id="toc-issue-1001-tfel-math-introduce-the-quantityconcept-class-to-allow-surrogate-classes-to-be-treated-as-quantities"><span
+class="toc-section-number">12.8</span> Issue 1001: [tfel-math] Introduce
+the <code>QuantityConcept</code> class to allow surrogate classes to be
+treated as quantities</a></li>
+<li><a
+href="#issue-995-tfel-check-adding-environment-section-in-configuration-file"
+id="toc-issue-995-tfel-check-adding-environment-section-in-configuration-file"><span
+class="toc-section-number">12.9</span> Issue 995: [tfel-check] Adding
+<span class="citation"
+data-cites="Environment">[<strong>Environment?</strong>]</span> section
+in configuration file</a></li>
 <li><a
 href="#issue-987-stridedcoalescedview-has-no-exposed-data-pointer-and-stride"
 id="toc-issue-987-stridedcoalescedview-has-no-exposed-data-pointer-and-stride"><span
-class="toc-section-number">6.1</span> Issue 987:
+class="toc-section-number">12.10</span> Issue 987:
 <code>StridedCoalescedView</code> has no exposed data pointer and
 stride</a></li>
 <li><a
 href="#issue-926-tfel-math-add-tfel_host_device-to-leftcauchygreentensorderivativeexpr-and-rightcauchygreentensorderivativeexpr-classes"
 id="toc-issue-926-tfel-math-add-tfel_host_device-to-leftcauchygreentensorderivativeexpr-and-rightcauchygreentensorderivativeexpr-classes"><span
-class="toc-section-number">6.2</span> Issue 926: [tfel-math] Add
+class="toc-section-number">12.11</span> Issue 926: [tfel-math] Add
 <code>TFEL_HOST_DEVICE</code> to
 <code>LeftCauchyGreenTensorDerivativeExpr</code> and
 <code>RightCauchyGreenTensorDerivativeExpr</code> classes</a></li>
 <li><a
 href="#issue-925-tfel-math-introduce-the-stressstensorconcept-and-nounitstensorconcept-concepts-and-siblings-for-orther-tensorial-objects"
 id="toc-issue-925-tfel-math-introduce-the-stressstensorconcept-and-nounitstensorconcept-concepts-and-siblings-for-orther-tensorial-objects"><span
-class="toc-section-number">6.3</span> Issue 925: [tfel-math] Introduce
+class="toc-section-number">12.12</span> Issue 925: [tfel-math] Introduce
 the <code>StressStensorConcept</code> and
 <code>NoUnitStensorConcept</code> concepts and siblings for orther
 tensorial objects</a></li>
 <li><a
 href="#issue-922-tfel-math-two-functions-have-no-gpu-device-support"
 id="toc-issue-922-tfel-math-two-functions-have-no-gpu-device-support"><span
-class="toc-section-number">6.4</span> Issue 922: [tfel-math] two
+class="toc-section-number">12.13</span> Issue 922: [tfel-math] two
 functions have no GPU device support</a></li>
 <li><a
 href="#issue-890-mfronthomogenization-add-ponte-castaneda-1992-non-linear-scheme"
 id="toc-issue-890-mfronthomogenization-add-ponte-castaneda-1992-non-linear-scheme"><span
-class="toc-section-number">6.5</span> Issue 890: mfront Add Ponte
+class="toc-section-number">12.14</span> Issue 890: mfront Add Ponte
 Castaneda 1992 non linear scheme</a></li>
 <li><a href="#issue-905-tfelmath-pointer-heavy-coalescedview"
 id="toc-issue-905-tfelmath-pointer-heavy-coalescedview"><span
-class="toc-section-number">6.6</span> Issue 905: [TFEL/Math]
+class="toc-section-number">12.15</span> Issue 905: [TFEL/Math]
 Pointer-heavy CoalescedView</a></li>
 <li><a
 href="#issue-853-tfel-fcheck-have-the-possibility-to-launch-multiple-call-to-tfel-check-simultaenously-in-a-ci-context"
 id="toc-issue-853-tfel-fcheck-have-the-possibility-to-launch-multiple-call-to-tfel-check-simultaenously-in-a-ci-context"><span
-class="toc-section-number">6.7</span> Issue 853: [tfel-fcheck] Have the
-possibility to launch multiple call to <code>tfel-check</code>
+class="toc-section-number">12.16</span> Issue 853: [tfel-fcheck] Have
+the possibility to launch multiple call to <code>tfel-check</code>
 simultaenously in a CI context</a></li>
 </ul></li>
 </ul>
 </div>
 <p>The page describes the new functionalities of Version 5.2 of the
 <code>TFEL</code> project.</p>
-<h1 data-number="1" id="new-tfelmath-features"><span
-class="header-section-number">1</span> New <code>TFEL/Math</code>
-features</h1>
+<h1 data-number="1" id="highlights"><span
+class="header-section-number">1</span> Highlights</h1>
 <h2 data-number="1.1"
+id="support-for-the-tdls-tinydevicecallablelinearsolver"><span
+class="header-section-number">1.1</span> Support for the
+<code>TDLS</code> (<code>TinyDeviceCallableLinearSolver</code>)</h2>
+<p>The <code>TDLS</code> library provides tiny linear solvers for small
+dense systems, callable on <code>CPU</code>s as well as inside
+<code>GPU</code> kernels, and designed for maximum GPU performance:</p>
+<ul>
+<li><a href="https://github.com/trsxvz/tdls"
+class="uri">https://github.com/trsxvz/tdls</a></li>
+<li><a href="https://trsxvz.github.io/TDLS/api/index.html">API
+reference</a></li>
+</ul>
+<p>When compiling <code>TFEL</code>, one must explicitly enable support
+for the <code>TDLS</code> library, see below.</p>
+<h1 data-number="2" id="known-incompatibilities"><span
+class="header-section-number">2</span> Known incompatibilities</h1>
+<ul>
+<li><code>MFront</code>’ interfaces have to implement a method named
+<code>setOptions</code>.</li>
+</ul>
+<h1 data-number="3" id="improvements-to-the-build-system"><span
+class="header-section-number">3</span> Improvements to the build
+system</h1>
+<h2 data-number="3.1" id="new-cmake-options"><span
+class="header-section-number">3.1</span> New <code>cmake</code>
+options</h2>
+<ul>
+<li><code>enable-tdls</code>: add support for Tiny Device-callable
+Linear Solvers (<code>TDLS</code>) library. <code>OFF</code> by
+default.</li>
+<li><code>enable-tdls-as-default-linear-system-solver-in-mfront</code>:
+use <code>TDLS</code> as the default linear solver. Requires
+<code>enable-tdls</code> to be <code>ON</code>. <code>OFF</code> by
+default.</li>
+</ul>
+<h2 data-number="3.2" id="user-defined-cmake-variables"><span
+class="header-section-number">3.2</span> User-defined <code>cmake</code>
+variables</h2>
+<ul>
+<li><code>generic-parallel-configurations</code>: list of configurations
+to be supported. See next paragraph for details and the list of
+supported configurations.</li>
+<li><code>TFEL_GXX_COMPILER</code>: path to the <code>g++</code>
+compiler.</li>
+<li><code>TFEL_CLANGXX_COMPILER</code>: path to the <code>clang++</code>
+compiler.</li>
+<li><code>TFEL_ICPX_COMPILER</code>: path to INTEL’s <code>icpx</code>
+compiler.</li>
+<li><code>TFEL_NVHPC_COMPILER</code>: path to NVIDIA’s
+<code>nvhpc</code> compiler.</li>
+<li><code>TFEL_ACPP_COMPILER</code>: path to AdaptativeCpp’s
+<code>acpp</code> compiler.</li>
+<li><code>tdls_DIR</code>: directory where to find the
+<code>cmake</code> files installed by the Tiny Device-callable Linear
+Solvers (<code>TDLS</code>) library.</li>
+</ul>
+<h2 data-number="3.3" id="supported-parallel-configurations"><span
+class="header-section-number">3.3</span> Supported parallel
+configurations</h2>
+<p>The following configurations are supported for parallel
+computations:</p>
+<ul>
+<li><code>cuda-nvcc</code>: configuration associated with the
+<code>CUDA</code> parallel programming model and NVIDIA’s
+<code>nvcc</code> compiler</li>
+<li><code>cuda-clang</code>: configuration associated with the
+<code>CUDA</code> parallel programming model and LLVM’s
+<code>clang</code> compiler</li>
+<li><code>hip-hipcc</code>: configuration associated with the
+<code>HIP</code> parallel programming model and AMD’s <code>hipcc</code>
+compiler</li>
+<li><code>hip-clang</code>: configuration associated with the
+<code>HIP</code> parallel programming model and LLVM’s
+<code>clang</code> compiler</li>
+<li><code>stlpar-parunseq-gcc</code>: configuration associated with
+<code>C++</code> standard parallel algorithms using the parallel
+unsequenced execution policy and the <code>gcc</code> compiler.</li>
+<li><code>stlpar-parunseq-clang</code>: configuration associated with
+<code>C++</code> standard parallel algorithms using the parallel
+unsequenced execution policy and the <code>clang</code> compiler.</li>
+<li><code>stlpar-parunseq-icpx</code>: configuration associated with
+<code>C++</code> standard parallel algorithms using the parallel
+unsequenced execution policy and the <code>icpx</code> compiler.</li>
+<li><code>stlpar-parunseq-nvhpc-gpu</code>: configuration associated
+with <code>C++</code> standard parallel algorithms using the parallel
+unsequenced execution policy and NVIDIA’s <code>nvhpc</code> compiler
+with offloading on the GPU.</li>
+<li><code>sycl-default-icpx</code>: configuration associated with
+<code>SYCL</code> programming model INTEL’s <code>icpx</code>
+compiler.</li>
+</ul>
+<h2 data-number="3.4" id="add-a-build-tests-target"><span
+class="header-section-number">3.4</span> Add a <code>build-tests</code>
+target</h2>
+<p>In previous versions, tests were compiled and run using the
+<code>check</code> target, which internally calls <code>ctest</code> for
+running the test. One drawback of this approach is that
+<code>ctest</code> could not be run in parallel.</p>
+<p>The <code>build-tests</code> target (which is a dependency of the
+<code>check</code> target) only compiles the tests. To run the tests,
+one may still call the <code>check</code> target or call directly
+<code>ctest</code>.</p>
+<p>If the <code>build-tests</code> target has not been called, the
+<code>check</code> target works as in previous versions.</p>
+<h1 data-number="4" id="new-tfelconfig-features"><span
+class="header-section-number">4</span> New <code>TFEL/Config</code>
+features</h1>
+<p>The <code>TFEL/Config</code> library is now documented on <a
+href="tfel-config.html">this page</a>.</p>
+<h2 data-number="4.1" id="tfels-default-substitutions"><span
+class="header-section-number">4.1</span> TFEL’s default
+substitutions</h2>
+<p>The <code>getDefaultSubstitutions</code> function returns some
+default substitutions used by <code>MFront</code> when reading
+configuration files and <code>tfel-check</code> when analysing
+<code>.check</code> files.</p>
+<h3 data-number="4.1.1" id="general-substitutions"><span
+class="header-section-number">4.1.1</span> General substitutions</h3>
+<ul>
+<li><code>TFEL_CXX_STANDARD</code>: the <code>C++</code> standard used
+by the project.</li>
+</ul>
+<h3 data-number="4.1.2" id="supported-compilers"><span
+class="header-section-number">4.1.2</span> Supported compilers</h3>
+<ul>
+<li><p><code>TFEL_GXX_COMPILER</code>: path the <code>g++</code>
+compiler. The value associated with this key is determined as follows,
+by order of priority:</p>
+<ol type="1">
+<li>by passing the variable <code>TFEL_GXX_COMPILER</code> during the
+invocation of <code>cmake</code>.</li>
+<li>by using <code>g++</code> as the main compiler to compile
+<code>TFEL</code></li>
+<li>by searching <code>g++</code> using <code>cmake</code>’s
+<code>find_program</code> function.</li>
+</ol></li>
+<li><p><code>TFEL_CLANGXX_COMPILER</code>: path to <code>LLVM</code>
+<code>clang++</code> compiler. The value associated with this key is
+determined as follows, by order of priority:</p>
+<ol type="1">
+<li>by passing the variable <code>TFEL_CLANGXX_COMPILER</code> during
+the invocation of <code>cmake</code>,</li>
+<li>by using <code>clang++</code> as the main compiler to compile
+<code>TFEL</code>,</li>
+<li>by searching <code>clang++</code> using <code>cmake</code>’s
+<code>find_program</code> function.</li>
+</ol></li>
+<li><p><code>TFEL_ICPX_COMPILER</code>: path to INTEL’s
+<code>icpx</code> compiler. The value associated with this key is
+determined as follows, by order of priority:</p>
+<ol type="1">
+<li>by passing the variable <code>TFEL_ICPX_COMPILER</code> during the
+invocation of <code>cmake</code>,</li>
+<li>by using <code>icpx</code> as the main compiler to compile
+<code>TFEL</code>,</li>
+<li>by searching <code>icpx</code> using <code>cmake</code>’s
+<code>find_program</code> function.</li>
+</ol></li>
+<li><p><code>TFEL_ACPP_COMPILER</code>: path to AdaptativeCpp
+<code>acpp</code> compiler. The value associated with this key is
+determined as follows, by order of priority:</p>
+<ol type="1">
+<li>by passing the variable <code>TFEL_ACPP_COMPILER</code> during the
+invocation of <code>cmake</code>,</li>
+<li>by searching <code>acpp</code> using <code>cmake</code>’s
+<code>find_program</code> function.</li>
+</ol></li>
+<li><p><code>TFEL_NVHPC_COMPILER</code>: path to NVIDIA’s
+<code>nvhpc</code> compiler. The value associated with this key is
+determined as follows, by order of priority:</p>
+<ol type="1">
+<li>by passing the variable <code>TFEL_NVHPC_COMPILER</code> during the
+invocation of <code>cmake</code>,</li>
+<li>by using <code>nvhpc</code> as the main compiler to compile
+<code>TFEL</code>,</li>
+<li>by searching <code>nvhpc</code> using <code>cmake</code>’s
+<code>find_program</code> function.</li>
+</ol></li>
+<li><p><code>TFEL_NVCC_COMPILER</code>: path to NVIDIA’s
+<code>nvhcp</code> as found by <code>FindCUDAToolkit</code>.</p></li>
+<li><p><code>TFEL_HIPCC_COMPILER</code>: path to AMD’s
+<code>hipcc</code> compiler. The value associated with this key is
+determined as follows, by order of priority:</p>
+<ol type="1">
+<li>by passing the variable <code>TFEL_HIPCC_COMPILER</code> during the
+invocation of <code>cmake</code>,</li>
+<li>by searching <code>hipcc</code> using <code>cmake</code>’s
+<code>find_program</code> function.</li>
+</ol></li>
+</ul>
+<h3 data-number="4.1.3"
+id="substitutions-related-to-the-hipcc-compiler"><span
+class="header-section-number">4.1.3</span> Substitutions related to the
+<code>HIPCC</code> compiler</h3>
+<ul>
+<li><code>TFEL_HIPCC_FLAGS: additional flags to be passed to the</code>hipcc`
+compiler.</li>
+<li><code>TFEL_HIP_INCLUDE_DIR</code>: paths to <code>HIP</code>
+headers</li>
+</ul>
+<h3 data-number="4.1.4"
+id="substitutions-related-to-the-cuda-platform"><span
+class="header-section-number">4.1.4</span> Substitutions related to the
+<code>CUDA</code> platform</h3>
+<ul>
+<li><code>TFEL_CUDA_PATH</code>: path to NVIDIA’s <code>CUDA</code>
+toolkit as found by <code>CMake</code>’s <code>FindCUDAToolkit</code>
+module.</li>
+<li><code>TFEL_CUDA_LIBRARY_DIR</code>: path to the libraries of the
+NVIDIA’s <code>CUDA</code> toolkit as found by <code>CMake</code>’s
+<code>FindCUDAToolkit</code> module.</li>
+</ul>
+<h1 data-number="5" id="new-tfelmath-features"><span
+class="header-section-number">5</span> New <code>TFEL/Math</code>
+features</h1>
+<h2 data-number="5.1"
 id="views-of-tensorial-objects-with-coalescent-memory-access-for-data-separated-by-a-constant-stride"><span
-class="header-section-number">1.1</span> Views of tensorial objects with
+class="header-section-number">5.1</span> Views of tensorial objects with
 coalescent memory access for data separated by a constant stride</h2>
 <p>In previous versions, the <code>View</code> class allows interpreting
 a contiguous memory area as a tensorial object. The
@@ -502,17 +844,26 @@ preferable.</p>
 <div class="sourceCode" id="cb1"><pre
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> values<span class="op">[</span><span class="dv">8</span><span class="op">]</span> <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">40</span><span class="op">};</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> s1 <span class="op">=</span> map_strided<span class="op">&lt;</span>stensor<span class="op">&lt;</span><span class="dv">2</span><span class="bu">u</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;&gt;(</span>values<span class="op">,</span> <span class="dv">2</span><span class="op">);</span></span></code></pre></div>
-<h2 data-number="1.2" id="walpole-basis"><span
-class="header-section-number">1.2</span> Walpole basis</h2>
+<h2 data-number="5.2" id="walpole-basis"><span
+class="header-section-number">5.2</span> Walpole basis</h2>
 <p>The Walpole basis relative to transverse isotropic fourth-order
 tensors (<code>st2tost2</code>) is introduced with the
 <code>struct</code> <code>TransverseIsotropicWalpoleBasis</code>, member
 of <code>tfel::math</code>.</p>
-<h1 data-number="2" id="new-tfelmaterial-features"><span
-class="header-section-number">2</span> New <code>TFEL/Material</code>
+<h2 data-number="5.3" id="refactoring-of-quantities"><span
+class="header-section-number">5.3</span> Refactoring of quantities</h2>
+<p>Quantities were deeply refactored to:</p>
+<ul>
+<li>improve maintainability (code is much more compact),</li>
+<li>allow creating surrogate classes for quantities,</li>
+<li>improve error message,</li>
+<li>reduce size of the generated symbols.</li>
+</ul>
+<h1 data-number="6" id="new-tfelmaterial-features"><span
+class="header-section-number">6</span> New <code>TFEL/Material</code>
 features</h1>
-<h2 data-number="2.1" id="homogenization"><span
-class="header-section-number">2.1</span> Homogenization</h2>
+<h2 data-number="6.1" id="homogenization"><span
+class="header-section-number">6.1</span> Homogenization</h2>
 <p>The following methods of the ParticulateMicrostructure objects are
 able to modify the microstructure:</p>
 <ul>
@@ -525,33 +876,33 @@ a distribution of spheroids defined by two orientation tensors. This
 distribution can be used in a <code>ParticulateMicrostructure</code> and
 the associated homogenization schemes can be used with these
 microstructures.</p>
-<h1 data-number="3" id="new-features-in-tfel-check"><span
-class="header-section-number">3</span> New features in
+<h1 data-number="7" id="new-features-in-tfel-check"><span
+class="header-section-number">7</span> New features in
 <code>tfel-check</code></h1>
-<h2 data-number="3.1" id="parallelization"><span
-class="header-section-number">3.1</span> Parallelization</h2>
+<h2 data-number="7.1" id="parallelization"><span
+class="header-section-number">7.1</span> Parallelization</h2>
 <p>The commands described in different <code>.check</code> files can now
 be run in distinct processes.</p>
 <p>Note that the command described in a <code>.check</code> are still
 run sequentially.</p>
 <p>By default, as in previous versions, only one process is used.</p>
-<h3 data-number="3.1.1"
+<h3 data-number="7.1.1"
 id="specifying-the-number-of-jobs-run-simultaneously"><span
-class="header-section-number">3.1.1</span> Specifying the number of jobs
+class="header-section-number">7.1.1</span> Specifying the number of jobs
 run simultaneously</h3>
 <p>The command line argument <code>--jobs</code> (<code>-j</code>) allow
 specifying the number of jobs run simultaneously.</p>
 <p>If no option is given to <code>--jobs</code>, the number of available
 cores is used, if the system provide this information.</p>
-<h4 data-number="3.1.1.1" id="limit-on-the-number-of-jobs"><span
-class="header-section-number">3.1.1.1</span> Limit on the number of
+<h4 data-number="7.1.1.1" id="limit-on-the-number-of-jobs"><span
+class="header-section-number">7.1.1.1</span> Limit on the number of
 jobs</h4>
 <p>By default, this number must be lower than the number of cores
 available. This limit can be discarded by
 passing<code>--discard-jobs-limit=true</code> to
 <code>tfel-check</code>.</p>
-<h3 data-number="3.1.2" id="caution"><span
-class="header-section-number">3.1.2</span> Caution</h3>
+<h3 data-number="7.1.2" id="caution"><span
+class="header-section-number">7.1.2</span> Caution</h3>
 <p>The user must take care that the commands described in
 <code>.check</code> files can be run in parallel.</p>
 <ul>
@@ -567,11 +918,31 @@ undefined behaviour.</p>
 <p>Another example would be to use <code>@CleanDirectories</code> and
 <code>@CleanFiles</code> commands inappropriately and erase data used by
 commands of other <code>.check</code> files.</p>
-<h2 data-number="3.2" id="new-features-in-tfelsystem"><span
-class="header-section-number">3.2</span> New features in
+<h2 data-number="7.2"
+id="defining-environment-variables-in-configuration-files"><span
+class="header-section-number">7.2</span> Defining environment variables
+in configuration files</h2>
+<p>Configuration files can now contain an
+<code>environment_variables</code> sections which can introduce a map
+defining a set of environment variables.</p>
+<h3 data-number="7.2.1" id="example-of-usage"><span
+class="header-section-number">7.2.1</span> Example of usage</h3>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>environment_variables<span class="op">:</span> <span class="op">{</span><span class="st">&quot;CXXFLAGS&quot;</span><span class="op">:</span> <span class="st">&quot;-Wall&quot;</span><span class="op">};</span></span></code></pre></div>
+<h3 data-number="7.2.2" id="caution-1"><span
+class="header-section-number">7.2.2</span> Caution</h3>
+<ul>
+<li>An environment variable can only be defined once in configuration
+files</li>
+<li>If an environment variable is defined in a configuration file and in
+a test file (through the <code>@Environment</code> keyword), the latter
+definition is used.</li>
+</ul>
+<h2 data-number="7.3" id="new-features-in-tfelsystem"><span
+class="header-section-number">7.3</span> New features in
 <code>TFEL/System</code></h2>
-<h3 data-number="3.2.1" id="improvements-in-processmanager"><span
-class="header-section-number">3.2.1</span> Improvements in
+<h3 data-number="7.3.1" id="improvements-in-processmanager"><span
+class="header-section-number">7.3.1</span> Improvements in
 <code>ProcessManager</code></h3>
 <ul>
 <li>New overloads of the <code>createProcess</code> and
@@ -580,24 +951,234 @@ command shall be executed.</li>
 <li><code>ProcessManager</code> shall now work properly in a
 multithreaded context.</li>
 </ul>
-<h3 data-number="3.2.2" id="improvements-in-signalmanager"><span
-class="header-section-number">3.2.2</span> Improvements in
+<h3 data-number="7.3.2" id="improvements-in-signalmanager"><span
+class="header-section-number">7.3.2</span> Improvements in
 <code>SignalManager</code></h3>
 <ul>
 <li><code>SignalManager</code> shall now work properly in a
 multithreaded context.</li>
 </ul>
-<h1 data-number="4" id="new-tfelmaterial-features-1"><span
-class="header-section-number">4</span> New <code>TFEL/Material</code>
+<h1 data-number="8" id="new-tfelmaterial-features-1"><span
+class="header-section-number">8</span> New <code>TFEL/Material</code>
 features</h1>
-<h2 data-number="4.1" id="homogenization-1"><span
-class="header-section-number">4.1</span> Homogenization</h2>
+<h2 data-number="8.1" id="homogenization-1"><span
+class="header-section-number">8.1</span> Homogenization</h2>
 <p>The second moments of strains considering a Hashin-Shtrikman scheme
 are available. A new <a href="PonteCastaneda1992.html">tutorial</a>
 shows how to use it in the implementation of Ponte-Castaneda variational
 bound (1992), within the framework of non-linear elasticity.</p>
-<h1 data-number="5" id="acknowledgements"><span
-class="header-section-number">5</span> Acknowledgements</h1>
+<h1 data-number="9" id="new-features-in-mfront"><span
+class="header-section-number">9</span> New features in
+<code>MFront</code></h1>
+<h2 data-number="9.1" id="the-linearsystemsolver-keyword"><span
+class="header-section-number">9.1</span> The
+<code>@LinearSystemSolver</code> keyword</h2>
+<p>The <code>@LinearSystemSolver</code> keyword is used to select the
+linear sytem solver. It is followed by the name of solver. Currently,
+two solvers are supported:</p>
+<ul>
+<li><code>Default</code>. This uses the solvers provided natively by the
+<code>TFEL/Math</code> library. As implied by its name, this solver is
+used by default.</li>
+<li><code>TDLS</code> (or equivalently
+<code>TinyDeviceCallableLinearSolver</code>). See <a
+href="https://trsxvz.github.io/TDLS/getting_started.html"
+class="uri">https://trsxvz.github.io/TDLS/getting_started.html</a> for
+details. If <code>TFEL</code> is not compiled with support of the
+<code>TDLS</code> library selecting this solver falls back the the
+<code>Default</code> Solver.</li>
+</ul>
+<p>The name of the solver can optionnaly be followed by a dictionary
+allowing to parametrize the solver.</p>
+<h3 data-number="9.1.1" id="supported-parameters"><span
+class="header-section-number">9.1.1</span> Supported Parameters</h3>
+<h4 data-number="9.1.1.1"
+id="parameters-of-the-default-linear-solver"><span
+class="header-section-number">9.1.1.1</span> Parameters of the
+<code>Default</code> Linear Solver</h4>
+<p>The <code>Default</code> Linear Solver does not accept any
+parameter.</p>
+<h4 data-number="9.1.1.2"
+id="parameters-of-the-tdls-linear-solver"><span
+class="header-section-number">9.1.1.2</span> Parameters of the
+<code>TDLS</code> Linear Solver</h4>
+<p>The following options are supported:</p>
+<ul>
+<li><code>tile_size</code>: the matrix is processed as a grid of
+<code>tile_size x   tile_size</code> register tiles. This is the main
+performance axis of the solvers - tune it per system dimension. The
+<code>tile_size</code> can be a strictly positive integer or a string.
+In <code>tile_size</code> is a string, it is interpreted as a integer
+formula whose variable can be any integer constant (see the
+<code>@IntegerConstant</code> keyword), <code>N</code>,
+<code>TVectorSize</code>, <code>StensorSize</code> or
+<code>TensorSize</code>. This formula must evaluate to a strictly
+positive integer for all hypotheses supported by the behaviour.</li>
+<li><code>schedule</code>: expected values are either
+<code>left_looking</code> (or equivalently <code>left</code>,
+<code>left-looking</code> or <code>LeftLooking</code>) and
+<code>right_looking</code> (or equivalently <code>right</code>,
+<code>right-looking</code> or <code>RightLooking</code>). This parameter
+defines the elimination schedule of the tiled factorization.</li>
+<li><code>out_of_tile_search_strategy</code>: expected values are either
+<code>first_acceptable</code> (or equivalently
+<code>first-acceptable</code> or <code>FirstAcceptable</code>) or
+<code>full_scan</code> (or equivalently <code>full-scan</code> or
+<code>FullScan</code>).</li>
+<li>unroll_inner_loop: expected values are either <code>true</code> or
+<code>false</code>. If <code>true</code>, loops indexing register tiles
+carry a forced-unroll pragma - the guard that keeps tiles in registers
+on GPU backends, where a rolled loop indexes the tile dynamically and
+demotes it to slow local memory. If <code>false</code>, no unroll pragma
+anywhere - faster compiles, GPU performance not guaranteed.</li>
+</ul>
+<p>If a parameter is not defined, the default values are inherited for
+the <code>TiledLUppDefaultConfig</code> class defined by the
+<code>TDLS</code> library. See the <a
+href="https://trsxvz.github.io/TDLS/api/index.html">API reference</a>
+for details. At the time of writing this documentation, those default
+values are:</p>
+<ul>
+<li><code>3</code> for <code>tile_size</code></li>
+<li><code>right_looking</code> for <code>schedule</code></li>
+<li><code>first_acceptable</code> for
+<code>out_of_tile_search_strategy</code></li>
+<li><code>true</code> for <code>unroll_inner_loop</code></li>
+</ul>
+<h3 data-number="9.1.2" id="examples-of-usage"><span
+class="header-section-number">9.1.2</span> Examples of usage</h3>
+<div class="sourceCode" id="LinearSystemSolver"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="LinearSystemSolver-1"><a href="#LinearSystemSolver-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LinearSystemSolver TDLS<span class="op">{</span></span>
+<span id="LinearSystemSolver-2"><a href="#LinearSystemSolver-2" aria-hidden="true" tabindex="-1"></a>  tile_size<span class="op">:</span> <span class="dv">4</span><span class="op">,</span></span>
+<span id="LinearSystemSolver-3"><a href="#LinearSystemSolver-3" aria-hidden="true" tabindex="-1"></a>  unroll_inner_loop<span class="op">:</span> <span class="kw">false</span></span>
+<span id="LinearSystemSolver-4"><a href="#LinearSystemSolver-4" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="LinearSystemSolver"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="LinearSystemSolver-1"><a href="#LinearSystemSolver-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LinearSystemSolver TDLS<span class="op">{</span></span>
+<span id="LinearSystemSolver-2"><a href="#LinearSystemSolver-2" aria-hidden="true" tabindex="-1"></a>  tile_size<span class="op">:</span> <span class="st">&quot;StensorSize&quot;</span></span>
+<span id="LinearSystemSolver-3"><a href="#LinearSystemSolver-3" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<h2 data-number="9.2" id="configuration-file"><span
+class="header-section-number">9.2</span> Configuration file</h2>
+<p><code>MFront</code> now allows to define options in a configuration
+file define through the <code>--configuration-file</code> command line
+argument as follows:</p>
+<p>~~<del>{bash} $ mfront –configuration-file=config.json
+–interface=generic-parallel UO2_ShearModulus.mfront</del>~~</p>
+<p>Configuration file follows an extented <code>JSON</code>-like syntax.
+It contains the following sections:</p>
+<ul>
+<li><code>dsl_options</code></li>
+<li><code>material_property_dsl_options</code></li>
+<li><code>behaviour_dsl_options</code></li>
+<li><code>model_dsl_options</code></li>
+<li><code>interfaces_options</code></li>
+<li><code>compilation_options</code></li>
+</ul>
+<p>None of those sections is required. All those sections must introduce
+a dictionary.</p>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>The options given in sections <code>dsl_options</code>,
+<code>material_property_dsl_options</code>,
+<code>behaviour_dsl_options</code> and <code>model_dsl_options</code>
+may also be retrieved in dedicated configurations files, respectively
+specified by the <code>--dsl-options-file</code>,
+<code>--material-property-dsl-options-file</code>,
+<code>--behaviour-dsl-options-file</code>, and
+<code>--model-dsl-options-file</code> command line arguments introduced
+in Version 4.1.</p>
+</blockquote>
+<h3 data-number="9.2.1" id="example-of-configuration-file"><span
+class="header-section-number">9.2.1</span> Example of configuration
+file</h3>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">interfaces_options:</span> <span class="fu">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="er">generic-parallel</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="er">backend</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">&quot;stlpar&quot;</span><span class="fu">,</span> <span class="er">execution_policy</span><span class="fu">:</span> <span class="st">&quot;par_unseq&quot;</span><span class="fu">}</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<h3 data-number="9.2.2" id="the-interfaces_options-section"><span
+class="header-section-number">9.2.2</span> The
+<code>interfaces_options</code> section</h3>
+<h3 data-number="9.2.3" id="the-compilation_options-section"><span
+class="header-section-number">9.2.3</span> The
+<code>compilation_options</code> section</h3>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">compilation_options</span> <span class="er">:</span> <span class="fu">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="er">cxx</span> <span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="er">compiler</span><span class="fu">:</span> <span class="st">&quot;nvc++&quot;</span><span class="fu">,</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="er">compilation_flags</span><span class="fu">:</span> <span class="st">&quot;-O2 -stdpar=gpu -std=c++20 -march=native -gpu=sm_89&quot;</span> </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<h4 data-number="9.2.3.1" id="the-compiler-option"><span
+class="header-section-number">9.2.3.1</span> The <code>compiler</code>
+option</h4>
+<h4 data-number="9.2.3.2" id="the-compilation_flags-option"><span
+class="header-section-number">9.2.3.2</span> The
+<code>compilation_flags</code> option</h4>
+<h3 data-number="9.2.4" id="the-linking_options-section"><span
+class="header-section-number">9.2.4</span> The
+<code>linking_options</code> section</h3>
+<h4 data-number="9.2.4.1" id="the-linker_flags-option"><span
+class="header-section-number">9.2.4.1</span> The
+<code>linker_flags</code> option</h4>
+<h2 data-number="9.3"
+id="passing-options-to-interfaces-on-the-command-line"><span
+class="header-section-number">9.3</span> Passing options to interfaces
+on the command line</h2>
+<h3 data-number="9.3.1" id="first-syntax"><span
+class="header-section-number">9.3.1</span> First syntax</h3>
+<p>~~<del>{bash} $ mfront –obuild
+–interface=‘generic-parallel{backend:{“stlpar”:
+{execution_policy:“par_unseq”}}}’ UO2_ShearModulus.mfront</del>~~</p>
+<h3 data-number="9.3.2" id="second-syntax"><span
+class="header-section-number">9.3.2</span> Second syntax</h3>
+<p>~~<del>{bash} $ mfront –obuild
+–interface=‘{generic-parallel:{backend:“stlpar”{execution_policy:“par_unseq”}}}’
+UO2_ShearModulus.mfront</del>~~</p>
+<h2 data-number="9.4"
+id="the-generic-parallel-interface-for-material-properties"><span
+class="header-section-number">9.4</span> The
+<code>generic-parallel</code> interface for material properties</h2>
+<p>See <a href="generic-parallel-material-property-interface.html">this
+page for details</a>.</p>
+<h3 data-number="9.4.1" id="available-backends"><span
+class="header-section-number">9.4.1</span> Available backends</h3>
+<h4 data-number="9.4.1.1" id="stlpar"><span
+class="header-section-number">9.4.1.1</span> <code>STLPar</code></h4>
+<h4 data-number="9.4.1.2" id="cuda"><span
+class="header-section-number">9.4.1.2</span> <code>CUDA</code></h4>
+<h2 data-number="9.5" id="improvements-to-the-cast3m-interface"><span
+class="header-section-number">9.5</span> Improvements to the
+<code>Cast3M</code> interface</h2>
+<h3 data-number="9.5.1"
+id="improved-generation-of-gibiane-input-file"><span
+class="header-section-number">9.5.1</span> Improved generation of
+<code>Gibiane</code> input file</h3>
+<p>The <code>Cast3M</code> interface generates automatically an example
+of <code>Gibiane</code> input file to integrate which each
+<code>MFront</code> behaviour. This example is meant to be used a
+template and do not pretend to be usable without modification by the
+user. For instance, previous versions of <code>MFront</code> did not
+guarantee that the name of the variables (limited to <code>4</code>
+characters) were unique. Version 5.2 improves this. To illustrate this,
+one may compare the output of Version 5.1 and Version 5.2:</p>
+<pre><code>* Version prior to 5.2
+statev = &#39;MOTS&#39; &#39;EERR&#39; &#39;EEZZ&#39; &#39;EETT&#39; &#39;EERZ&#39; &#39;KHRR&#39; &#39;KHZZ&#39; &#39;KHTT&#39; &#39;KHRZ&#39; &#39;KHRR&#39; &#39;KHZZ&#39; &#39;KHTT&#39; &#39;KHRZ&#39; &#39;P&#39;;
+* Version 5.2
+statev = &#39;MOTS&#39; &#39;EERR&#39; &#39;EEZZ&#39; &#39;EETT&#39; &#39;EERZ&#39; &#39;KHRR&#39; &#39;KHZZ&#39; &#39;KHTT&#39; &#39;KHRZ&#39; &#39;V0&#39; &#39;V1&#39; &#39;V2&#39; &#39;V3&#39; &#39;P&#39;;</code></pre>
+<p>In Version 5.1, the variable name <code>KHRR</code> is declared
+twice. <code>Cast3M</code> does not generate an error although
+duplicated names leads to erroneous results. Version 5.2 avoids this
+pitfall.</p>
+<h1 data-number="10" id="continuous-integration"><span
+class="header-section-number">10</span> Continuous integration</h1>
+<h2 data-number="10.1" id="github-actions"><span
+class="header-section-number">10.1</span> Github actions</h2>
+<p>Github actions have been updated to supported a wider range of
+configurations, including testing based on
+<code>Visual Studio 2024</code> and <code>Visual Studio 2026</code>.</p>
+<h1 data-number="11" id="acknowledgements"><span
+class="header-section-number">11</span> Acknowledgements</h1>
 <p>The authors are grateful to the many contributors to the
 <code>TFEL/MFront</code> project. This research was conducted in the
 framework of the PLEIADES project, which was supported financially by
@@ -605,60 +1186,138 @@ the CEA (Commissariat à l’Énergie Atomique et aux Énergies
 Alternatives), EDF (Électricité de France) and Framatome. Homogenization
 developments were conducted within the framework of the AnoHonA ANR
 project (n° AAPG2023).</p>
-<h1 data-number="6" id="issues-fixed"><span
-class="header-section-number">6</span> Issues fixed</h1>
-<h2 data-number="6.1"
+<h1 data-number="12" id="issues-fixed"><span
+class="header-section-number">12</span> Issues fixed</h1>
+<h2 data-number="12.1"
+id="issue-1016-mfront-variables-have-the-same-name-in-the-dgibi-file-generated-by-mfront-for-using-the-fem-program-cast3m"><span
+class="header-section-number">12.1</span> Issue 1016: [mfront] Variables
+have the same name in the <code>dgibi</code> file generated by
+<code>MFront</code>, for using the FEM program <code>Cast3M</code></h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/1016"
+class="uri">https://github.com/thelfer/tfel/issues/1016</a></p>
+<h2 data-number="12.2"
+id="issue-1014-cmake-add-a-build-tests-target"><span
+class="header-section-number">12.2</span> Issue 1014: [cmake] Add a
+<code>build-tests</code> target</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/1014"
+class="uri">https://github.com/thelfer/tfel/issues/1014</a></p>
+<h2 data-number="12.3"
+id="issue-1013-tfel-math-refine-quantityconcept-to-take-mutability-into-account"><span
+class="header-section-number">12.3</span> Issue 1013: [tfel-math] Refine
+<code>QuantityConcept</code> to take mutability into account</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/1013"
+class="uri">https://github.com/thelfer/tfel/issues/1013</a> ￼</p>
+<h2 data-number="12.4"
+id="issue-1012-github-actions-add-testing-of-tfel-with-madnex"><span
+class="header-section-number">12.4</span> Issue 1012: [github-actions]
+Add testing of <code>TFEL</code> with <code>madnex</code></h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/1012"
+class="uri">https://github.com/thelfer/tfel/issues/1012</a> ￼</p>
+<h2 data-number="12.5"
+id="issue-1010-clang-tidy-fix-warnings-related-to-the-google-explicit-constructor-check"><span
+class="header-section-number">12.5</span> Issue 1010: [clang-tidy] fix
+warnings related to the google-explicit-constructor check</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/1010"
+class="uri">https://github.com/thelfer/tfel/issues/1010</a></p>
+<p>￼ ## Issue 1007: [github-actions] Add continuous integration for the
+generic-parallel interface with CUDA backend</p>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/1007"
+class="uri">https://github.com/thelfer/tfel/issues/1007</a></p>
+<h2 data-number="12.6"
+id="issue-1006-github-actions-add-tests-based-on-tfel-check"><span
+class="header-section-number">12.6</span> Issue 1006: [github-actions]
+Add tests based on <code>tfel-check</code></h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/1006"
+class="uri">https://github.com/thelfer/tfel/issues/1006</a></p>
+<h2 data-number="12.7"
+id="issue-1004-github-actions-add-support-actions-based-on-visual-studio"><span
+class="header-section-number">12.7</span> Issue 1004: [github-actions]
+Add support actions based on Visual Studio</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/1004"
+class="uri">https://github.com/thelfer/tfel/issues/1004</a></p>
+<p>￼ ## Issue 1003:[tfel-math] Improve error messages when using
+quantities</p>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/1003"
+class="uri">https://github.com/thelfer/tfel/issues/1003</a></p>
+<h2 data-number="12.8"
+id="issue-1001-tfel-math-introduce-the-quantityconcept-class-to-allow-surrogate-classes-to-be-treated-as-quantities"><span
+class="header-section-number">12.8</span> Issue 1001: [tfel-math]
+Introduce the <code>QuantityConcept</code> class to allow surrogate
+classes to be treated as quantities</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/1001"
+class="uri">https://github.com/thelfer/tfel/issues/1001</a></p>
+<h2 data-number="12.9"
+id="issue-995-tfel-check-adding-environment-section-in-configuration-file"><span
+class="header-section-number">12.9</span> Issue 995: [tfel-check] Adding
+<span class="citation" data-cites="Environment">[<a
+href="#ref-Environment"
+role="doc-biblioref"><strong>Environment?</strong></a>]</span> section
+in configuration file</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/tfel/issues/995"
+class="uri">https://github.com/thelfer/tfel/issues/995</a></p>
+<h2 data-number="12.10"
 id="issue-987-stridedcoalescedview-has-no-exposed-data-pointer-and-stride"><span
-class="header-section-number">6.1</span> Issue 987:
+class="header-section-number">12.10</span> Issue 987:
 <code>StridedCoalescedView</code> has no exposed data pointer and
 stride</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/987"
 class="uri">https://github.com/thelfer/tfel/issues/987</a></p>
-<h2 data-number="6.2"
+<h2 data-number="12.11"
 id="issue-926-tfel-math-add-tfel_host_device-to-leftcauchygreentensorderivativeexpr-and-rightcauchygreentensorderivativeexpr-classes"><span
-class="header-section-number">6.2</span> Issue 926: [tfel-math] Add
+class="header-section-number">12.11</span> Issue 926: [tfel-math] Add
 <code>TFEL_HOST_DEVICE</code> to
 <code>LeftCauchyGreenTensorDerivativeExpr</code> and
 <code>RightCauchyGreenTensorDerivativeExpr</code> classes</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/926"
 class="uri">https://github.com/thelfer/tfel/issues/926</a></p>
-<h2 data-number="6.3"
+<h2 data-number="12.12"
 id="issue-925-tfel-math-introduce-the-stressstensorconcept-and-nounitstensorconcept-concepts-and-siblings-for-orther-tensorial-objects"><span
-class="header-section-number">6.3</span> Issue 925: [tfel-math]
+class="header-section-number">12.12</span> Issue 925: [tfel-math]
 Introduce the <code>StressStensorConcept</code> and
 <code>NoUnitStensorConcept</code> concepts and siblings for orther
 tensorial objects</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/925"
 class="uri">https://github.com/thelfer/tfel/issues/925</a></p>
-<h2 data-number="6.4"
+<h2 data-number="12.13"
 id="issue-922-tfel-math-two-functions-have-no-gpu-device-support"><span
-class="header-section-number">6.4</span> Issue 922: [tfel-math] two
+class="header-section-number">12.13</span> Issue 922: [tfel-math] two
 functions have no GPU device support</h2>
 <p>￼</p>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/922"
 class="uri">https://github.com/thelfer/tfel/issues/922</a></p>
-<h2 data-number="6.5"
+<h2 data-number="12.14"
 id="issue-890-mfronthomogenization-add-ponte-castaneda-1992-non-linear-scheme"><span
-class="header-section-number">6.5</span> Issue 890: <a
+class="header-section-number">12.14</span> Issue 890: <a
 href="#homogenization">mfront</a> Add Ponte Castaneda 1992 non linear
 scheme</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/890"
 class="uri">https://github.com/thelfer/tfel/issues/890</a></p>
-<h2 data-number="6.6"
+<h2 data-number="12.15"
 id="issue-905-tfelmath-pointer-heavy-coalescedview"><span
-class="header-section-number">6.6</span> Issue 905: [TFEL/Math]
+class="header-section-number">12.15</span> Issue 905: [TFEL/Math]
 Pointer-heavy CoalescedView</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/tfel/issues/905"
 class="uri">https://github.com/thelfer/tfel/issues/905</a></p>
-<h2 data-number="6.7"
+<h2 data-number="12.16"
 id="issue-853-tfel-fcheck-have-the-possibility-to-launch-multiple-call-to-tfel-check-simultaenously-in-a-ci-context"><span
-class="header-section-number">6.7</span> Issue 853: [tfel-fcheck] Have
+class="header-section-number">12.16</span> Issue 853: [tfel-fcheck] Have
 the possibility to launch multiple call to <code>tfel-check</code>
 simultaenously in a CI context</h2>
 <p>For more details, see <a

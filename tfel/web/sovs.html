@@ -3,7 +3,7 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN" xml:lang="en-EN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -11,7 +11,7 @@
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Skorohold-Olevsky Viscous Sintering (SOVS) model</title>
-        <meta name="author" content="Balaguer J. (Instituto de Tecnología Cerámica (ITC-AICE), Universitat Jaume I, Castellón (Spain)), Helfer T." />
+        <meta name="author" content="Balaguer J., Helfer T." />
             <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
@@ -88,7 +88,7 @@
     <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-        <header>
+    <header>
       <ul id="nav">
 	<li><a href="news.html">News</a></li>
 	<li><a href="index.html">Overview</a>
@@ -136,6 +136,7 @@
 		    <li><a href="release-notes-3.0.15.html">Version 3.0.15</a></li>
 		    <li><a href="release-notes-3.0.16.html">Version 3.0.16</a></li>
 		    <li><a href="release-notes-3.0.17.html">Version 3.0.17</a></li>
+		    <li><a href="release-notes-3.0.18.html">Version 3.0.18</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.1.x</a>
@@ -260,7 +261,7 @@
 		</li>
 		<li><a>Versions 5.2.x</a>
 		  <ul>
-		    <li><a href="release-notes-5.1.html">Version 5.2.0</a></li>
+		    <li><a href="release-notes-5.2.html">Version 5.2.0</a></li>
 		  </ul>
 		</li>
 	      </ul>
@@ -281,7 +282,7 @@
 		<li><a href="benchmark.html">Benchmark</a></li>
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
-                 <li><a href="behaviour-variable.html">behaviour variables</a></li>
+                 <li><a href="behaviour-variable.html">Behaviour variables</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -385,9 +386,8 @@
     </header>
 <div id="header">
 <h1 class="title">Skorohold-Olevsky Viscous Sintering (SOVS) model</h1>
-<h2 class="author">Balaguer J. (Instituto de Tecnología Cerámica
-(ITC-AICE), Universitat Jaume I, Castellón (Spain)), Helfer T.</h2>
-<h3 class="date">May 2019</h3>
+<h2 class="author">Balaguer J., Helfer T.</h2>
+<h3 class="date">05/2019</h3>
 </div>
 <div id="TOC">
 <ul>
@@ -465,9 +465,11 @@ implementation</a></li>
 <p>This article shows the implementation of an isotropic linear viscous
 model based on Skorohold-Olevsky Viscous Sintering (SOVS) model. This
 page is inspired by the paper of Lester <span class="citation"
-data-cites="Lester2017">[1]</span>. For a more comprenhensive reading
+data-cites="Lester2017">[<a href="#ref-Lester2017"
+role="doc-biblioref">1</a>]</span>. For a more comprenhensive reading
 about the model, refer to the original paper of Olevsky <span
-class="citation" data-cites="Olevsky1998">[2]</span>.</p>
+class="citation" data-cites="Olevsky1998">[<a href="#ref-Olevsky1998"
+role="doc-biblioref">2</a>]</span>.</p>
 <p>This behaviour will be integrated using an implicit scheme.Such an
 example illustrates:</p>
 <ul>
@@ -484,15 +486,21 @@ the Skorohold-Olevsky Viscous Sintering (SOVS) model</h1>
 and composites. It serves to enhance our ability to understand, predict,
 and control sintering. Additionally, it provides the potencial for more
 cost-effective net or near-net-shape manufacturing <span
-class="citation" data-cites="ZIPSE19971707">[3]</span>.</p>
+class="citation" data-cites="ZIPSE19971707">[<a
+href="#ref-ZIPSE19971707" role="doc-biblioref">3</a>]</span>.</p>
 <p>SOVS model has been succesfully used to predict the sintering of ZnO
-<span class="citation" data-cites="Reiterer2006">[4]</span> and porous
+<span class="citation" data-cites="Reiterer2006">[<a
+href="#ref-Reiterer2006" role="doc-biblioref">4</a>]</span> and porous
 bilayered bodies <span class="citation"
-data-cites="Ni2013 MOLLA20131297">[5, 6]</span>. Regarding the ceramic
-tiles, viscosity models have been developed to predict the shrinkage and
-the residual stresses that appear when materials of the porcelain tile
-type are cooled <span class="citation"
-data-cites="dal2012modelizacion MILANI2019543">[7, 8]</span>. SOVS model
+data-cites="Ni2013 MOLLA20131297">[<a href="#ref-Ni2013"
+role="doc-biblioref">5</a>, <a href="#ref-MOLLA20131297"
+role="doc-biblioref">6</a>]</span>. Regarding the ceramic tiles,
+viscosity models have been developed to predict the shrinkage and the
+residual stresses that appear when materials of the porcelain tile type
+are cooled <span class="citation"
+data-cites="dal2012modelizacion MILANI2019543">[<a
+href="#ref-dal2012modelizacion" role="doc-biblioref">7</a>, <a
+href="#ref-MILANI2019543" role="doc-biblioref">8</a>]</span>. SOVS model
 can extend the functionality of those viscous models to predict the
 sintering, whose investigation is in process.</p>
 <h1 id="description">Description</h1>
@@ -796,7 +804,7 @@ e={\mathrm{tr}{\left(\underline{\varepsilon}^{\mathrm{in}}\right)}}
 variable, because there is no reason to keep its value from one step to
 the other. Such a variable is called in <code>MFront</code> an
 <em>integration variable</em>.</p>
-<p>In pratice, for this integration variable <span
+<p>In practice, for this integration variable <span
 class="math inline">\(e\)</span>, <code>MFront</code> automatically
 defines:</p>
 <ul>
@@ -868,9 +876,10 @@ However, this considerably complicates the implementation of the
 behaviour, and in particular, the derivation of the consistent tangent
 operator. Hence, for the sake simplicity, this reduction to a scalar
 equation is not considered here. However, the reader may refer to <span
-class="citation" data-cites="derouiche_integration_2018">[9]</span> for
-an example of such a reduction to a scalar equation may be done in
-<code>MFront</code>.</p>
+class="citation" data-cites="derouiche_integration_2018">[<a
+href="#ref-derouiche_integration_2018"
+role="doc-biblioref">9</a>]</span> for an example of such a reduction to
+a scalar equation may be done in <code>MFront</code>.</p>
 <p>To solve System (13), one must compute its jacobian as follows:</p>
 <p><span class="math display">\[
 \left\{
@@ -962,7 +971,7 @@ behaviour integration.</li>
 <li>Automatic support for plane stress and generalized plane stress
 modelling hypotheses (The axial strain is defined as an additional state
 variable and the associated equation in the implicit system is added to
-enforce the plane stess condition).</li>
+enforce the plane stress condition).</li>
 <li>Automatic addition of the standard terms associated with the elastic
 strain state variable. The usage of the <code>StandardElasticity</code>
 is introduced as follows:</li>

@@ -91,7 +91,7 @@
     <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-        <header>
+    <header>
       <ul id="nav">
 	<li><a href="news.html">News</a></li>
 	<li><a href="index.html">Overview</a>
@@ -139,6 +139,7 @@
 		    <li><a href="release-notes-3.0.15.html">Version 3.0.15</a></li>
 		    <li><a href="release-notes-3.0.16.html">Version 3.0.16</a></li>
 		    <li><a href="release-notes-3.0.17.html">Version 3.0.17</a></li>
+		    <li><a href="release-notes-3.0.18.html">Version 3.0.18</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.1.x</a>
@@ -263,7 +264,7 @@
 		</li>
 		<li><a>Versions 5.2.x</a>
 		  <ul>
-		    <li><a href="release-notes-5.1.html">Version 5.2.0</a></li>
+		    <li><a href="release-notes-5.2.html">Version 5.2.0</a></li>
 		  </ul>
 		</li>
 	      </ul>
@@ -284,7 +285,7 @@
 		<li><a href="benchmark.html">Benchmark</a></li>
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
-                 <li><a href="behaviour-variable.html">behaviour variables</a></li>
+                 <li><a href="behaviour-variable.html">Behaviour variables</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -447,9 +448,8 @@ id="toc-modification-of-the-previous-implementation">Modification of the
 previous implementation</a></li>
 <li><a href="#benchmarks" id="toc-benchmarks">Benchmarks</a></li>
 </ul></li>
-<li><a href="#extenstion-to-finite-strain"
-id="toc-extenstion-to-finite-strain">Extenstion to finite
-strain</a></li>
+<li><a href="#extension-to-finite-strain"
+id="toc-extension-to-finite-strain">Extension to finite strain</a></li>
 <li><a href="#applications" id="toc-applications">Applications</a></li>
 <li><a href="#usage-in-code_aster" id="toc-usage-in-code_aster">Usage in
 <code>code_aster</code></a></li>
@@ -464,7 +464,7 @@ example illustrates:</p>
 <ul>
 <li>The usage of <code>StandardElasticity</code> brick (see <a
 href="BehaviourBricks.html">this page</a>).</li>
-<li>The usage of the functionnalities introduces by the
+<li>The usage of the functionalities introduces by the
 <code>TFELNumodis</code> library, as described <a
 href="singlecrystal.html">here</a>. In particular, we will automatically
 let <code>MFront</code> generate the slips systems and the interaction
@@ -475,7 +475,7 @@ variables.</li>
 href="finitestrainsinglecrystal.html">here</a>.</li>
 </ul>
 <blockquote>
-<p><strong>Advices</strong></p>
+<p><strong>Advice</strong></p>
 <p>This kind of behaviour is rather complex and requires lot of care to
 get it work properly in any solver. We highly recommend that you follow
 these steps when implementing such behaviour:</p>
@@ -530,7 +530,7 @@ of the hardening of matter.</p>
 Schmid tensor to project the tensors of the stresses in the resolved
 shear stress.The Schmid tensor is determined from the normal to the slip
 plane and the direction of the slip. The second particularity lies in
-the introduction of an interaction matrix which weigths hardening
+the introduction of an interaction matrix which weights hardening
 according to the type of interaction considered. The last particularity
 is the introduction of the orientation of the crystal material for the
 elastic and the plastic modelization.</p>
@@ -669,7 +669,7 @@ class="math inline">\(\displaystyle{\left.R_{i}\right|_{t+\theta\,\Delta\,t}}=Q\
 with <span
 class="math inline">\({\left.p\right|_{t+\theta\,\Delta\,t}}={\left.p\right|_{t}}+\theta\,\Delta\,p\)</span></li>
 </ul>
-<p>This number of unknowns of System (4) is egal to <span
+<p>This number of unknowns of System (4) is equal to <span
 class="math inline">\(6+3\,N_{ss}\)</span> where <span
 class="math inline">\(N_{ss}\)</span> is the number of slip systems and
 <span class="math inline">\(6\)</span> is the number of component of the
@@ -717,7 +717,7 @@ variables</em> and are declared through the
 <code>@IntegrationVariable</code> keyword. Note that one may save the
 values of <span class="math inline">\(\Delta\,\gamma_{i}\)</span> only
 by changing its declaration from <code>@IntegrationVariable</code> to
-<code>@StateVariable</code>, which can be usefull for debugging purposes
+<code>@StateVariable</code>, which can be useful for debugging purposes
 or for post-processing: this possibility is the main reason to keep
 <span class="math inline">\(\Delta\,\gamma_{i}\)</span> rather than
 <span class="math inline">\(\Delta\,p_{i}\)</span>.</li>
@@ -801,14 +801,14 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#c
 <p><strong>Note</strong></p>
 <p>As the behaviour is only valid in <span
 class="math inline">\(3D\)</span>, there is no need to specify any
-orthotropic axises convention (see the
-<code>@OrthotropicBehaviour</code> keyword for details).</p>
+orthotropic axes convention (see the <code>@OrthotropicBehaviour</code>
+keyword for details).</p>
 </blockquote>
 <h2 id="numerical-parameters">Numerical parameters</h2>
 <p>The following lines declare that we want to use a standard
 Newton-Raphson algorithm with a numerically evaluated jacobian. The
 perturbation value used to evaluate the jacobian is chosen equal to
-<span class="math inline">\(10^{-7}\)</span> which is a reasonnable
+<span class="math inline">\(10^{-7}\)</span> which is a reasonable
 value.</p>
 <div class="sourceCode" id="cb5"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Algorithm NewtonRaphson_NumericalJacobian<span class="op">;</span></span>
@@ -837,7 +837,7 @@ behaviour integration.</li>
 <li>Automatic support for plane stress and generalized plane stress
 modelling hypotheses (The axial strain is defined as an additional state
 variable and the associated equation in the implicit system is added to
-enforce the plane stess condition).</li>
+enforce the plane stress condition).</li>
 <li>Automatic addition of the standard terms associated with the elastic
 strain state variable.</li>
 </ul>
@@ -860,7 +860,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#c
 <blockquote>
 <p><strong>Note</strong></p>
 <p>Here, we chose to declare the elastic material properties as part of
-the brick declaration. This pratice has been introduced in
+the brick declaration. This practice has been introduced in
 <code>TFEL-3.2</code> with the development of the
 <code>StandardElastoViscoPlasticity</code>brick. The material properties
 can also be computed using a formula or an external <code>MFront</code>
@@ -912,7 +912,7 @@ class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href=
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> 9: <span class="pp">[</span><span class="ss">0,1,1</span><span class="pp">]</span><span class="er">(</span><span class="ex">1,-1,1</span><span class="kw">)</span></span>
 <span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> 10: <span class="pp">[</span><span class="ss">1,0,</span><span class="pp">-</span><span class="ss">1</span><span class="pp">]</span><span class="er">(</span><span class="ex">1,-1,1</span><span class="kw">)</span></span>
 <span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> 11: <span class="pp">[</span><span class="ss">1,1,0</span><span class="pp">]</span><span class="er">(</span><span class="ex">1,-1,1</span><span class="kw">)</span></span></code></pre></div>
-<p>The interation matrix, which is non symmetric, has <span
+<p>The iteration matrix, which is non symmetric, has <span
 class="math inline">\(7\)</span> independent coefficients. The precise
 structure of this interaction matrix can be retrieved thank to the
 <code>mfront-query</code> tool as follows:</p>
@@ -1040,7 +1040,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb16-1"><a href="#
 <span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span></code></pre></div>
 <h3 id="definition-of-the-implicit-equations">Definition of the implicit
 equations</h3>
-<p>Befor defining the implicit equations, it is important to remember a
+<p>Before defining the implicit equations, it is important to remember a
 few conventions of the <code>Implicit</code> DSL and of the
 <code>StandardElasticity</code> brick:</p>
 <ul>
@@ -1111,7 +1111,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb18-1"><a href="#
 id="improving-the-robustness-of-the-newton-raphson-algorithm">Improving
 the robustness of the Newton-Raphson algorithm</h2>
 <p>When the Norton exponent <span class="math inline">\(n\)</span> is
-reasonnable, the standard Newton-Raphson algorithm works pretty good.
+reasonable, the standard Newton-Raphson algorithm works pretty good.
 However, in practice, this exponent is usually very high, typically
 between <span class="math inline">\(70\)</span> and <span
 class="math inline">\(100\)</span> which almost imposes <span
@@ -1278,7 +1278,7 @@ previous implementation</h2>
 <p>From the previous file, one must:</p>
 <ul>
 <li>change the name of the behaviour.</li>
-<li>change the name of the classe containing the slip systems to reflect
+<li>change the name of the class containing the slip systems to reflect
 the change of name of the behaviour.</li>
 <li>change the name of the algorithm (or simply remove the associated
 line as the Newton-Raphson algorithm with analytical jacobian is the
@@ -1428,11 +1428,11 @@ ns)</td>
 </tbody>
 </table>
 </div>
-<h1 id="extenstion-to-finite-strain">Extenstion to finite strain</h1>
+<h1 id="extension-to-finite-strain">Extension to finite strain</h1>
 <p>To extend the implementation to finite strain, we will use the
 <code>FiniteStrainSingleCrystal</code> brick which is described <a
 href="finitestrainsinglecrystal.html">here</a>.</p>
-<p>In pratice, thanks to this brick, only a very limited number of
+<p>In practice, thanks to this brick, only a very limited number of
 changes are required:</p>
 <ul>
 <li><p>The name of DSL must changed to
@@ -1502,7 +1502,7 @@ class="uri">https://www.youtube.com/watch?v=evNhkEcntaU</a></li>
 <li><a href="https://www.youtube.com/watch?v=OAnJmMTGhE4"
 class="uri">https://www.youtube.com/watch?v=OAnJmMTGhE4</a></li>
 </ul>
-<p>The series adresses several advanced topics regarding the interface
+<p>The series addresses several advanced topics regarding the interface
 between code_ater and MFront:</p>
 <ul>
 <li>handling orthotropy,</li>

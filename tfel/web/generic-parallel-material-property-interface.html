@@ -88,7 +88,7 @@
     <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-        <header>
+    <header>
       <ul id="nav">
 	<li><a href="news.html">News</a></li>
 	<li><a href="index.html">Overview</a>
@@ -136,6 +136,7 @@
 		    <li><a href="release-notes-3.0.15.html">Version 3.0.15</a></li>
 		    <li><a href="release-notes-3.0.16.html">Version 3.0.16</a></li>
 		    <li><a href="release-notes-3.0.17.html">Version 3.0.17</a></li>
+		    <li><a href="release-notes-3.0.18.html">Version 3.0.18</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.1.x</a>
@@ -190,7 +191,8 @@
 		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
 		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
 		    <li><a href="release-notes-3.3.7.html">Version 3.3.7</a></li>
-		    <li><a href="release-notes-3.3.7.html">Version 3.3.8</a></li>
+		    <li><a href="release-notes-3.3.8.html">Version 3.3.8</a></li>
+		    <li><a href="release-notes-3.3.9.html">Version 3.3.9</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.4.x</a>
@@ -205,6 +207,7 @@
 		    <li><a href="release-notes-3.4.7.html">Version 3.4.7</a></li>
 		    <li><a href="release-notes-3.4.8.html">Version 3.4.8</a></li>
 		    <li><a href="release-notes-3.4.9.html">Version 3.4.9</a></li>
+		    <li><a href="release-notes-3.4.10.html">Version 3.4.10</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.0.x</a>
@@ -228,6 +231,7 @@
 		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
 		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
 		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 4.2.x</a>
@@ -409,17 +413,31 @@ usage</a></li>
 <li><a href="#internal-details" id="toc-internal-details">Internal
 details</a></li>
 </ul></li>
+<li><a href="#hip-backend" id="toc-hip-backend"><code>HIP</code>
+backend</a>
+<ul>
+<li><a href="#example-of-usage-1" id="toc-example-of-usage-1">Example of
+usage</a></li>
+</ul></li>
 <li><a href="#parallel-stl-backend-stdpar"
 id="toc-parallel-stl-backend-stdpar">Parallel STL backend
 (<code>stdpar</code>)</a>
 <ul>
-<li><a href="#example-of-usage-1" id="toc-example-of-usage-1">Example of
+<li><a href="#example-of-usage-2" id="toc-example-of-usage-2">Example of
 usage</a></li>
 <li><a href="#options-1" id="toc-options-1">Options</a></li>
 <li><a href="#notes" id="toc-notes">Notes</a></li>
 </ul></li>
 <li><a href="#sycl-backend" id="toc-sycl-backend"><code>SYCL</code>
-backend</a></li>
+backend</a>
+<ul>
+<li><a href="#example-of-usage-3" id="toc-example-of-usage-3">Example of
+usage</a></li>
+<li><a href="#specific-argument" id="toc-specific-argument">Specific
+argument</a></li>
+<li><a href="#backend-options" id="toc-backend-options">Backend
+options</a></li>
+</ul></li>
 </ul></li>
 <li><a href="#tests" id="toc-tests">Tests</a>
 <ul>
@@ -502,15 +520,19 @@ material property computing the shear modulus of uranium dioxide, which
 depends on the temperature and on the porosity. This file can be
 compiled as follows:</p>
 <div class="sourceCode" id="cb3"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--configuration-file</span><span class="op">=</span>config-cuda.json <span class="dt">\</span></span>
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--configuration-file</span><span class="op">=</span>config-cuda-XXXX.json <span class="dt">\</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">--interface</span><span class="op">=</span>generic-parallel UO2_ShearModulus.mfront</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">The</span> following library has been built :</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> libGenericParallelUO2-cuda.so :  UO2_ShearModulus UO2_ShearModulus2</span></code></pre></div>
-<p>where the configuration file <code>config-cuda.json</code> provide
-the required information to call a <code>CUDA</code> compiler
+<p>where the configuration file <code>config-cuda-XXXX.json</code>
+provide the required information to call a <code>CUDA</code> compiler
 (<code>nvcc</code> or <code>clang++</code>) with the appropriate flags.
 This file may also contain the options associated with the
-<code>CUDA</code> backend, see below.</p>
+<code>CUDA</code> backend, see below. Depending on the parallel
+configurations selected during the <code>cmake</code> configuration
+steps, two configuration files may be installed:
+<code>config-cuda-nvcc.json</code> and
+<code>config-cuda-nvhpc.json</code>.</p>
 <p><code>UO2_ShearModulus</code> implements the first prototype, while
 <code>UO2_ShearModulus2</code> implements the second.</p>
 <p>The following code shows how to call the function
@@ -540,7 +562,7 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#c
 <ul>
 <li>the user is responsible for consistently passing pointers to memory
 allocated on the device to the <code>UO2_ShearModulus</code> function,
-including uniform values. Managed memory can also be used.</li>
+including uniform values. Shared memory can also be used.</li>
 <li>The <a href="https://developer.nvidia.com/thrust">Thrust library</a>
 is not used by the <code>CUDA</code> backend. It is only used in the
 example for simplicity.</li>
@@ -612,59 +634,55 @@ of bounds and physical bounds. Those tests are disabled by setting the
 <code>disable_runtime_checks</code> DSL optionto <code>true</code>. Note
 that this option also disables other checks performed on the host
 (notably regarding the number of arguments passed).</p>
+<h2 id="hip-backend"><code>HIP</code> backend</h2>
+<p>The <code>HIP</code> backend is similar to the <code>CUDA</code>
+backend.</p>
+<h3 id="example-of-usage-1">Example of usage</h3>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> output <span class="op">=</span> mfront_gmp_OutputStatus<span class="op">{};</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> output_qt <span class="op">=</span> mfront_gmp_OutputStatus<span class="op">{};</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> E <span class="op">=</span> createManagedData<span class="op">(</span><span class="dv">4</span><span class="op">);</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> T <span class="op">=</span> createManagedData<span class="op">({</span><span class="dv">300</span><span class="op">,</span> <span class="dv">500</span><span class="op">,</span> <span class="dv">300</span><span class="op">,</span> <span class="dv">800</span><span class="op">});</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> policy <span class="op">=</span> mfront_gmp_OutOfBoundsPolicy<span class="op">{};</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> args <span class="op">=</span> <span class="bu">std::</span>array<span class="op">&lt;</span><span class="at">const</span> <span class="dt">double</span> <span class="op">*,</span> <span class="dv">1</span><span class="bu">u</span><span class="op">&gt;{</span>T<span class="op">.</span>get<span class="op">()};</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> args_strides <span class="op">=</span> <span class="bu">std::</span>array<span class="op">&lt;</span><span class="dt">mfront_gmp_size_type</span><span class="op">,</span> <span class="dv">1</span><span class="bu">u</span><span class="op">&gt;{</span><span class="dv">1</span><span class="op">};</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>Inconel600_YoungModulus<span class="op">(&amp;</span>output<span class="op">,</span> E<span class="op">.</span>get<span class="op">(),</span> <span class="dv">1</span><span class="op">,</span> args<span class="op">.</span>data<span class="op">(),</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>                        args_strides<span class="op">.</span>data<span class="op">(),</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> policy<span class="op">);</span></span></code></pre></div>
+<p>where <code>createManagedData</code> is a simple wrapper around
+<code>hipMallocManaged</code> returning an <code>std::unique_ptr</code>
+for RAII.</p>
 <h2 id="parallel-stl-backend-stdpar">Parallel STL backend
 (<code>stdpar</code>)</h2>
-<h3 id="example-of-usage-1">Example of usage</h3>
+<h3 id="example-of-usage-2">Example of usage</h3>
 <p>Let <code>UO2_ShearModulus.mfront</code> be an implementation of a
 material property computing the shear modulus of uranium dioxide, which
 depends on the temperature and on the porosity. This file can be
 compiled as follows:</p>
-<div class="sourceCode" id="cb7"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--configuration-file</span><span class="op">=</span>config-stdpar.json <span class="dt">\</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">--interface</span><span class="op">=</span>generic-parallel UO2_ShearModulus.mfront</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">The</span> following library has been built :</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> libGenericParallelUO2-stdpar.so :  UO2_ShearModulus UO2_ShearModulus2</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront <span class="at">--obuild</span> <span class="at">--configuration-file</span><span class="op">=</span>config-stdpar.json <span class="dt">\</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">--interface</span><span class="op">=</span>generic-parallel UO2_ShearModulus.mfront</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">The</span> following library has been built :</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> libGenericParallelUO2-stdpar.so :  UO2_ShearModulus UO2_ShearModulus2</span></code></pre></div>
 <p>where the configuration file <code>config-stdpar.json</code> provide
 the required information to compile the generated source files and also
 selects the execution policy to be used (see below).</p>
 <p><code>UO2_ShearModulus</code> implements the first prototype, while
 <code>UO2_ShearModulus2</code> implements the second.</p>
-<div class="sourceCode" id="cb8"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> G <span class="op">=</span> <span class="bu">std::</span>vector<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;(</span><span class="dv">4</span><span class="op">);</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> T <span class="op">=</span> <span class="bu">std::</span>vector<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;{</span><span class="dv">300</span><span class="op">,</span> <span class="dv">500</span><span class="op">,</span> <span class="dv">300</span><span class="op">,</span> <span class="dv">800</span><span class="op">};</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> f <span class="op">=</span> <span class="bu">std::</span>vector<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;{</span><span class="fl">0.1</span><span class="op">};</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> output <span class="op">=</span> mfront_gmp_OutputStatus<span class="op">{};</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> policy <span class="op">=</span> GENERIC_MATERIALPROPERTY_NONE_POLICY<span class="op">;</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> args <span class="op">=</span> <span class="bu">std::</span>array<span class="op">&lt;</span><span class="at">const</span> <span class="dt">double</span> <span class="op">*,</span> <span class="dv">2</span><span class="bu">u</span><span class="op">&gt;{</span>T<span class="op">.</span>data<span class="op">(),</span> f<span class="op">.</span>data<span class="op">()};</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> args_strides <span class="op">=</span> <span class="bu">std::</span>array<span class="op">&lt;</span><span class="dt">mfront_gmp_size_type</span><span class="op">,</span> <span class="dv">2</span><span class="bu">u</span><span class="op">&gt;{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">};</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>UO2_ShearModulus<span class="op">(&amp;</span>output<span class="op">,</span> G<span class="op">.</span>data<span class="op">(),</span> <span class="dv">1</span><span class="op">,</span> args<span class="op">.</span>data<span class="op">(),</span> args_strides<span class="op">.</span>data<span class="op">(),</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>                 policy<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> G <span class="op">=</span> <span class="bu">std::</span>vector<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;(</span><span class="dv">4</span><span class="op">);</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> T <span class="op">=</span> <span class="bu">std::</span>vector<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;{</span><span class="dv">300</span><span class="op">,</span> <span class="dv">500</span><span class="op">,</span> <span class="dv">300</span><span class="op">,</span> <span class="dv">800</span><span class="op">};</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> f <span class="op">=</span> <span class="bu">std::</span>vector<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;{</span><span class="fl">0.1</span><span class="op">};</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> output <span class="op">=</span> mfront_gmp_OutputStatus<span class="op">{};</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> policy <span class="op">=</span> GENERIC_MATERIALPROPERTY_NONE_POLICY<span class="op">;</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> args <span class="op">=</span> <span class="bu">std::</span>array<span class="op">&lt;</span><span class="at">const</span> <span class="dt">double</span> <span class="op">*,</span> <span class="dv">2</span><span class="bu">u</span><span class="op">&gt;{</span>T<span class="op">.</span>data<span class="op">(),</span> f<span class="op">.</span>data<span class="op">()};</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> args_strides <span class="op">=</span> <span class="bu">std::</span>array<span class="op">&lt;</span><span class="dt">mfront_gmp_size_type</span><span class="op">,</span> <span class="dv">2</span><span class="bu">u</span><span class="op">&gt;{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">};</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>UO2_ShearModulus<span class="op">(&amp;</span>output<span class="op">,</span> G<span class="op">.</span>data<span class="op">(),</span> <span class="dv">1</span><span class="op">,</span> args<span class="op">.</span>data<span class="op">(),</span> args_strides<span class="op">.</span>data<span class="op">(),</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>                 policy<span class="op">);</span></span></code></pre></div>
 <h4 id="example-of-configuration-file-for-g">Example of configuration
 file for <code>g++</code></h4>
 <p>The following configuration file exemplifies how to use the
 <code>clang++</code> compiler to build the source code generated by the
 <code>stlpar</code> backend:</p>
-<div class="sourceCode" id="cb9"><pre
-class="sourceCode json"><code class="sourceCode json"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">interfaces_options:</span> <span class="fu">{</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="er">generic-parallel</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="er">backend</span><span class="fu">:</span> <span class="fu">{</span><span class="er">stlpar</span><span class="fu">:</span> <span class="fu">{</span><span class="er">execution_policy</span><span class="fu">:</span> <span class="st">&quot;parallel_unsequenced_policy&quot;</span><span class="fu">}}</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span><span class="er">,</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="er">compilation_options</span> <span class="er">:</span> <span class="fu">{</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="er">cxx</span> <span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="er">compiler</span><span class="fu">:</span> <span class="st">&quot;g++&quot;</span><span class="fu">,</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="er">compilation_flags</span><span class="fu">:</span> <span class="st">&quot;-O2 -std=c++20 -march=native&quot;</span> </span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span><span class="er">,</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="er">linking_options</span> <span class="er">:</span> <span class="fu">{</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="er">linker_flags</span> <span class="fu">:</span> <span class="st">&quot;-ltbb&quot;</span></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
-<h4 id="example-of-configuration-file-for-nvhcp">Example of
-configuration file for <code>nvhcp</code></h4>
-<p>The following configuration file exemplifies how to use the
-<code>nvhcp</code> compiler to build the source code generated by the
-<code>stlpar</code> backend and execute the computation of the material
-property on the device:</p>
 <div class="sourceCode" id="cb10"><pre
 class="sourceCode json"><code class="sourceCode json"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="er">interfaces_options:</span> <span class="fu">{</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="er">generic-parallel</span><span class="fu">:</span> <span class="fu">{</span></span>
@@ -673,13 +691,34 @@ class="sourceCode json"><code class="sourceCode json"><span id="cb10-1"><a href=
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span><span class="er">,</span></span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="er">compilation_options</span> <span class="er">:</span> <span class="fu">{</span></span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="er">cxx</span> <span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="er">compiler</span><span class="fu">:</span> <span class="st">&quot;nvc++&quot;</span><span class="fu">,</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="er">compilation_flags</span><span class="fu">:</span> <span class="st">&quot;-O2 -stdpar=gpu -std=c++20 -march=native -gpu=sm_89&quot;</span> </span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="er">compiler</span><span class="fu">:</span> <span class="st">&quot;g++&quot;</span><span class="fu">,</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="er">compilation_flags</span><span class="fu">:</span> <span class="st">&quot;-O2 -std=c++20 -march=native&quot;</span> </span>
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span><span class="er">,</span></span>
 <span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="er">linking_options</span> <span class="er">:</span> <span class="fu">{</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="er">linker_flags</span><span class="fu">:</span> <span class="st">&quot;-stdpar=gpu&quot;</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="er">linker_flags</span> <span class="fu">:</span> <span class="st">&quot;-ltbb&quot;</span></span>
 <span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<h4 id="example-of-configuration-file-for-nvhcp">Example of
+configuration file for <code>nvhcp</code></h4>
+<p>The following configuration file exemplifies how to use the
+<code>nvhcp</code> compiler to build the source code generated by the
+<code>stlpar</code> backend and execute the computation of the material
+property on the device:</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="er">interfaces_options:</span> <span class="fu">{</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="er">generic-parallel</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="er">backend</span><span class="fu">:</span> <span class="fu">{</span><span class="er">stlpar</span><span class="fu">:</span> <span class="fu">{</span><span class="er">execution_policy</span><span class="fu">:</span> <span class="st">&quot;parallel_unsequenced_policy&quot;</span><span class="fu">}}</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span><span class="er">,</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="er">compilation_options</span> <span class="er">:</span> <span class="fu">{</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="er">cxx</span> <span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="er">compiler</span><span class="fu">:</span> <span class="st">&quot;nvc++&quot;</span><span class="fu">,</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="er">compilation_flags</span><span class="fu">:</span> <span class="st">&quot;-O2 -stdpar=gpu -std=c++20 -march=native -gpu=sm_89&quot;</span> </span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span><span class="er">,</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="er">linking_options</span> <span class="er">:</span> <span class="fu">{</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="er">linker_flags</span><span class="fu">:</span> <span class="st">&quot;-stdpar=gpu&quot;</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 <h3 id="options-1">Options</h3>
 <p>The only option available is <code>execution_policy</code>, which can
 have one of the following values:</p>
@@ -719,6 +758,61 @@ top of the Threading Building Blocks library and requires an explicit
 link to this library.</li>
 </ul>
 <h2 id="sycl-backend"><code>SYCL</code> backend</h2>
+<p><a href="https://khronos.org/sycl"><code>SYCL</code></a> is an open
+cross-platform abstraction layer that enables code for heterogeneous and
+offload processors. <code>SYCL</code> allows mixing code on CPUs
+(leveraging multithreading), GPUs and accelerators.</p>
+<p>The <code>SYCL</code> backend has been tested with the following
+compilers: <code>INTEL</code>’ <code>icpx</code> and
+<code>AdaptativeCpp</code>’s <code>accp</code>.</p>
+<h3 id="example-of-usage-3">Example of usage</h3>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">//! </span><span class="an">\brief</span><span class="co"> type of the memory allocator</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="dt">usm_allocator_type</span> <span class="op">=</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    sycl<span class="op">::</span>usm_allocator<span class="op">&lt;</span><span class="dt">double</span><span class="op">,</span> sycl<span class="op">::</span>usm<span class="op">::</span>alloc<span class="op">::</span>host<span class="op">&gt;;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">//! </span><span class="an">\brief</span><span class="co"> a simple alias for a vectors</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> usm_vector <span class="op">=</span> <span class="bu">std::</span>vector<span class="op">&lt;</span><span class="dt">double</span><span class="op">,</span> <span class="dt">usm_allocator_type</span><span class="op">&gt;;</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">//</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> output <span class="op">=</span> mfront_gmp_OutputStatus<span class="op">{};</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">//</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> Q <span class="op">=</span> sycl<span class="op">::</span>queue<span class="op">{</span>sycl<span class="op">::</span>gpu_selector_v<span class="op">};</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> usm_allocator <span class="op">=</span> <span class="dt">usm_allocator_type</span><span class="op">{</span>Q<span class="op">};</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co">//</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> E <span class="op">=</span> usm_vector<span class="op">(</span><span class="dv">4</span> <span class="op">*</span> <span class="dv">3</span><span class="op">,</span> Q<span class="op">);</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> T <span class="op">=</span> usm_vector<span class="op">({</span><span class="dv">300</span><span class="op">,</span> <span class="op">-</span><span class="dv">300</span><span class="op">,</span> <span class="dv">500</span><span class="op">,</span> <span class="op">-</span><span class="dv">500</span><span class="op">,</span> <span class="dv">300</span><span class="op">,</span> <span class="op">-</span><span class="dv">300</span><span class="op">,</span> <span class="dv">800</span><span class="op">,</span> <span class="op">-</span><span class="dv">800</span><span class="op">},</span> Q<span class="op">);</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="co">//</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> d_E <span class="op">=</span> to_device<span class="op">(</span>E<span class="op">,</span> Q<span class="op">);</span> <span class="co">// function transferring data to the device</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> d_T <span class="op">=</span> to_device<span class="op">(</span>T<span class="op">,</span> Q<span class="op">);</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="co">//</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> policy <span class="op">=</span> mfront_gmp_OutOfBoundsPolicy<span class="op">{};</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> args <span class="op">=</span> <span class="bu">std::</span>array<span class="op">&lt;</span><span class="at">const</span> <span class="dt">double</span> <span class="op">*,</span> <span class="dv">1</span><span class="bu">u</span><span class="op">&gt;{</span>d_T<span class="op">.</span>get<span class="op">()};</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> args_strides <span class="op">=</span> <span class="bu">std::</span>array<span class="op">&lt;</span><span class="dt">mfront_gmp_size_type</span><span class="op">,</span> <span class="dv">1</span><span class="bu">u</span><span class="op">&gt;{</span><span class="dv">2</span><span class="op">};</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>Inconel600_YoungModulus<span class="op">(&amp;</span>output<span class="op">,</span> d_E<span class="op">.</span>get<span class="op">(),</span> <span class="dv">3</span><span class="op">,</span> <span class="op">&amp;</span>Q<span class="op">,</span> args<span class="op">.</span>data<span class="op">(),</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>                        args_strides<span class="op">.</span>data<span class="op">(),</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> policy<span class="op">);</span></span></code></pre></div>
+<h3 id="specific-argument">Specific argument</h3>
+<p>The <code>SYCL</code> backend adds one specific argument to the
+prototype of the functions generated by <code>MFront</code>: a pointer
+to the execution queue.</p>
+<h3 id="backend-options">Backend options</h3>
+<p>This backend only has one option named
+<code>data_transfer_policy</code>.</p>
+<h4 id="data-transfer-policy">Data transfer policy</h4>
+<p>Two policies regarding data transfer between host and device are
+available:</p>
+<ul>
+<li><code>automatic</code>: this policy may automatically trigger a copy
+of the data if needed. No copy is made if the data are already on the
+device or in shared memory.</li>
+<li><code>none</code>: this policy assumes that the data are already on
+the device on in shared memory.</li>
+</ul>
+<blockquote>
+<p>** Providing data on the device**</p>
+<p>Data copy in <code>SYCL</code> are asynchronous operations. Thus, if
+the data are provided on the device, the user is responsible for
+ensuring that the data are effectively copied before calling
+<code>MFront</code>’s generated functions.</p>
+</blockquote>
 <h1 id="tests">Tests</h1>
 <p>Unlike other material property interfaces, the tests for the
 <code>generic-parallel</code> interface is performed in the installation
@@ -747,6 +841,11 @@ the <code>hipcc</code> compiler.</li>
 <li><code>stlpar-parunseq-icpx</code>:</li>
 <li><code>sycl-default-icpx</code>: compilation of <code>SYCL</code>
 files using the <code>icpx</code> compiler.</li>
+<li><code>sycl-default-acpc</code>: compilation of <code>SYCL</code>
+files using the <code>acpc</code> compiler on the CPU.</li>
+<li><code>sycl-gpu-acpc</code>: compilation of <code>SYCL</code> files
+using the <code>acpc</code> compiler on the GPU using the
+<code>generic</code> target.</li>
 </ul>
 <h3 id="notes-1">Notes</h3>
 <p>For configurations based on HIP, the variable

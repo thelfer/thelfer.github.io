@@ -24,7 +24,7 @@
     <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-        <header>
+    <header>
       <ul id="nav">
 	<li><a href="news.html">News</a></li>
 	<li><a href="index.html">Overview</a>
@@ -72,6 +72,7 @@
 		    <li><a href="release-notes-3.0.15.html">Version 3.0.15</a></li>
 		    <li><a href="release-notes-3.0.16.html">Version 3.0.16</a></li>
 		    <li><a href="release-notes-3.0.17.html">Version 3.0.17</a></li>
+		    <li><a href="release-notes-3.0.18.html">Version 3.0.18</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.1.x</a>
@@ -196,7 +197,7 @@
 		</li>
 		<li><a>Versions 5.2.x</a>
 		  <ul>
-		    <li><a href="release-notes-5.1.html">Version 5.2.0</a></li>
+		    <li><a href="release-notes-5.2.html">Version 5.2.0</a></li>
 		  </ul>
 		</li>
 	      </ul>
@@ -217,7 +218,7 @@
 		<li><a href="benchmark.html">Benchmark</a></li>
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
-                 <li><a href="behaviour-variable.html">behaviour variables</a></li>
+                 <li><a href="behaviour-variable.html">Behaviour variables</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -324,6 +325,61 @@
 <h2 class="author">Thomas Helfer, Jean-Michel Proix</h2>
 <h3 class="date">17/08/2021</h3>
 </div>
+<div id="TOC">
+<ul>
+<li><a href="#mfront-documentation" id="toc-mfront-documentation">MFront
+documentation</a>
+<ul>
+<li><a href="#references" id="toc-references">References</a></li>
+<li><a href="#tutorials-examples" id="toc-tutorials-examples">🛠
+Tutorials &amp; Examples</a></li>
+<li><a href="#courses" id="toc-courses">Courses</a></li>
+<li><a href="#talks" id="toc-talks">Talks</a></li>
+<li><a href="#material-knowledge-types"
+id="toc-material-knowledge-types">Material Knowledge Types</a></li>
+<li><a href="#domain-specific-languages"
+id="toc-domain-specific-languages">Domain specific languages</a></li>
+<li><a href="#bricks-and-extensions"
+id="toc-bricks-and-extensions">Bricks and Extensions</a></li>
+<li><a href="#homogenization"
+id="toc-homogenization">Homogenization</a></li>
+<li><a href="#post-processing-outputs"
+id="toc-post-processing-outputs">Post-Processing &amp; Outputs</a></li>
+<li><a href="#interfaces" id="toc-interfaces">🔌 Interfaces</a>
+<ul>
+<li><a href="#interfaces-dedicated-to-material-properties"
+id="toc-interfaces-dedicated-to-material-properties">Interfaces
+dedicated to material properties</a></li>
+<li><a href="#mechanical-behaviours"
+id="toc-mechanical-behaviours">Mechanical behaviours</a></li>
+</ul></li>
+<li><a href="#advanced-topics" id="toc-advanced-topics">📖 Advanced
+topics ⭐⭐/⭐⭐⭐</a></li>
+<li><a href="#keywords-associated-with-domain-specific-languages-dsl"
+id="toc-keywords-associated-with-domain-specific-languages-dsl">Keywords
+associated with Domain-Specific Languages (DSL)</a></li>
+</ul></li>
+<li><a href="#testing-validation" id="toc-testing-validation">🧪 Testing
+&amp; Validation ⭐⭐</a></li>
+<li><a href="#python-modules" id="toc-python-modules">Python modules
+⭐⭐</a></li>
+<li><a href="#advanced-topics-1" id="toc-advanced-topics-1">📊 Advanced
+Topics ⭐⭐/⭐⭐⭐</a>
+<ul>
+<li><a href="#tfel-libraries" id="toc-tfel-libraries">TFEL
+libraries</a></li>
+<li><a href="#mathematical-foundations"
+id="toc-mathematical-foundations">Mathematical Foundations</a></li>
+<li><a href="#doxygen-documentation"
+id="toc-doxygen-documentation">Doxygen documentation</a></li>
+</ul></li>
+<li><a href="#legend" id="toc-legend">📌 Legend</a></li>
+<li><a href="#bibliography" id="toc-bibliography">Bibliography</a></li>
+</ul>
+</div>
+<p>Welcome to the <strong>official documentation</strong> for TFEL and
+MFront. This section provides a <strong>structured overview</strong> of
+all available resources, organized by topic and difficulty level.</p>
 <p>This page provides several links to available documentations
 regarding <code>TFEL</code> and <code>MFront</code>, which are fairly
 detailed. Unfortunately, most of these materials are written in French.
@@ -358,7 +414,8 @@ interface of the solver that you plan to use (see below for links).</li>
 <p>For Spanish users, Jordi Alberich has written “A Spanish introduction
 to <code>MFront</code> and <code>Salome-MECA</code>”, which is available
 <a href="tutorial-spanish.html">here</a>.</p>
-<h1 id="references">References</h1>
+<h1 id="mfront-documentation">MFront documentation</h1>
+<h2 id="references">References</h2>
 <ul>
 <li>General introduction. Material properties and Models: <a
 href="documents/mfront/mfront.pdf">mfront.pdf</a></li>
@@ -371,15 +428,53 @@ href="documents/mfront/finitestrain.pdf">finitestrain.pdf</a></li>
 <li><code>MTest</code> user guide: <a
 href="documents/mtest/mtest.pdf">mtest.pdf</a></li>
 </ul>
-<h1 id="tutorials">Tutorials</h1>
-<ul>
-<li>A fairly complete tutorial is available <a
-href="documents/tutoriel/tutoriel.pdf">here</a> (in French).</li>
-<li>For Spanish users, Jordi Alberich has written “A Spanish
-introduction to <code>MFront</code> and <code>Salome-MECA</code>”, which
-is available <a href="tutorial-spanish.html">here</a>.</li>
-</ul>
-<h1 id="courses">Courses</h1>
+<h2 id="tutorials-examples">🛠 Tutorials &amp; Examples</h2>
+<p>Learn by doing with hands-on examples.</p>
+<table>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 28%" />
+<col style="width: 22%" />
+<col style="width: 26%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Resource</th>
+<th>Description</th>
+<th>Language</th>
+<th>Difficulty</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="gallery.html">MFront Gallery</a></td>
+<td>Step-by-step implementations of classical behaviours.</td>
+<td>English</td>
+<td>⭐⭐</td>
+</tr>
+<tr class="even">
+<td><a href="tutorial.html">Tutorial (French)</a></td>
+<td>Complete tutorial for beginners (Norton law example).</td>
+<td>French</td>
+<td>⭐⭐</td>
+</tr>
+<tr class="odd">
+<td><a href="tutorial-spanish.html">Spanish Tutorial</a></td>
+<td>Introduction to MFront and Salome-MECA.</td>
+<td>Spanish</td>
+<td>⭐⭐</td>
+</tr>
+<tr class="even">
+<td><a
+href="https://github.com/thelfer/tfel/tree/master/mfront/tests/behaviours">Behaviour
+Examples</a></td>
+<td>Official test cases (GitHub).</td>
+<td>Code</td>
+<td>⭐⭐⭐</td>
+</tr>
+</tbody>
+</table>
+<h2 id="courses">Courses</h2>
 <ul>
 <li>General introduction: <a
 href="documents/mfront-presentation/mfront-presentation.pdf">mfront-presentation.pdf</a></li>
@@ -391,7 +486,7 @@ href="documents/mfront-formation/mfront-formation.pdf">mfront-formation.pdf</a>
 <li><a href="documents/tp/tp.pdf">tp.pdf</a></li>
 </ul></li>
 </ul>
-<h1 id="talks">Talks</h1>
+<h2 id="talks">Talks</h2>
 <ul>
 <li>Finite strain: <a
 href="documents/mfront-finitestrain/mfront-finitestrain.pdf">mfront-finitestrain.pdf</a></li>
@@ -403,32 +498,520 @@ documents describing TFEL and MFront usage. The talks of the first and
 second MFront Users are available there:</p>
 <p><a href="https://github.com/thelfer/tfel-doc"
 class="uri">https://github.com/thelfer/tfel-doc</a></p>
-<h1 id="solver-interfaces">Solver interfaces</h1>
+<h2 id="material-knowledge-types">Material Knowledge Types</h2>
+<table>
+<colgroup>
+<col style="width: 43%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Resource</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="material-properties.html">Material Properties</a></td>
+<td>How to define material properties (e.g., Young’s modulus, thermal
+conductivity).</td>
+</tr>
+<tr class="even">
+<td><a href="behaviours.html">Mechanical Behaviours</a></td>
+<td>In-depth guide to implementing mechanical behaviours.</td>
+</tr>
+<tr class="odd">
+<td><a href="models.html">Models</a></td>
+<td>Simple point-wise models (e.g., swelling for fuel performance
+codes).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="domain-specific-languages">Domain specific languages</h2>
+<table>
+<colgroup>
+<col style="width: 43%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Resource</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="implicit-dsl.html">Implicit</a></td>
+<td>Implicit integration for strain-based behaviours.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bricks-and-extensions">Bricks and Extensions</h2>
+<table>
+<colgroup>
+<col style="width: 43%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Resource</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="BehaviourBricks.html">Behaviour Bricks</a></td>
+<td>Pre-defined bricks to simplify behaviour implementation.</td>
+</tr>
+<tr class="even">
+<td><a
+href="StandardElastoViscoPlasticityBrick.html"><code>StandardElastoViscoplasticity</code>
+brick</a></td>
+<td>Brick allowing to implement a vast class of plastic and viscoplastic
+behaviours</td>
+</tr>
+<tr class="odd">
+<td><a
+href="HookeStressPotential.html"><code>StandardElasticity</code></a></td>
+<td>Brick used by behaviours based on an elastic part described by
+Hooke’s law</td>
+</tr>
+<tr class="even">
+<td><a
+href="finitestrainsinglecrystal.html"><code>FiniteStrainSingleCrystal</code></a></td>
+<td>Brick dedicated to finite strain behaviour describing single
+crystals</td>
+</tr>
+<tr class="odd">
+<td><a href="DDIF2Brick.html"><code>DDIF2</code> brick</a></td>
+<td>Brick based the <code>DDIF2</code> damage law used in various fuel
+performance code developed at CEA</td>
+</tr>
+</tbody>
+</table>
+<h2 id="homogenization">Homogenization</h2>
+<table>
+<colgroup>
+<col style="width: 43%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Resource</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="Sachs.html">Sachs Scheme</a></td>
+<td>Lower bound for polycrystals.</td>
+</tr>
+<tr class="even">
+<td><a href="Taylor.html">Taylor Scheme</a></td>
+<td>Upper bound for polycrystals.</td>
+</tr>
+<tr class="odd">
+<td><a href="PonteCastaneda1992.html">Ponte Castaneda</a></td>
+<td>Non-linear elastic composites.</td>
+</tr>
+<tr class="even">
+<td><a href="MassonAffineFormulation.html">Masson Affine
+Formulation</a></td>
+<td>Affine formulation for viscoplastic polycrystals.</td>
+</tr>
+<tr class="odd">
+<td><a href="BiphasicLinearHomogenization.html">Biphasic Linear
+Homogenization</a></td>
+<td>Homogenization for biphasic media.</td>
+</tr>
+<tr class="even">
+<td><a href="BetaRule.html">β-Rule</a></td>
+<td>Implementation of the β-rule for homogenization.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="post-processing-outputs">Post-Processing &amp; Outputs</h2>
+<table>
+<colgroup>
+<col style="width: 43%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Resource</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="post-processings.html">Post-Processings</a></td>
+<td>How to extract and analyze results.</td>
+</tr>
+<tr class="even">
+<td><a href="parameters.html">Parameters</a></td>
+<td>Material parameters and their usage.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="interfaces">🔌 Interfaces</h2>
+<h3 id="interfaces-dedicated-to-material-properties">Interfaces
+dedicated to material properties</h3>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 35%" />
+<col style="width: 43%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Interface</th>
+<th>Description</th>
+<th>Documentation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Generic interface</strong></td>
+<td>For use with the <a
+href="https://thelfer.github.io/mgis/web/index.html">MGIS
+project</a>.</td>
+<td><a href="generic-material-property-interface.md">Generic
+Interface</a></td>
+</tr>
+<tr class="even">
+<td><strong>Generic parallel interface</strong></td>
+<td>For use with the <a
+href="https://thelfer.github.io/mgis/web/index.html">MGIS
+project</a>.</td>
+<td><a href="generic-parallel-material-property-interface.md">Generic
+Interface</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="mechanical-behaviours">Mechanical behaviours</h3>
+<p>TFEL/MFront supports multiple finite element solvers. Each interface
+has its own documentation.</p>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 35%" />
+<col style="width: 43%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Interface</th>
+<th>Description</th>
+<th>Documentation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Abaqus</strong></td>
+<td>Commercial FEA solver (Standard/Explicit).</td>
+<td><a href="abaqus.html">Abaqus Interface</a></td>
+</tr>
+<tr class="even">
+<td><strong>Code_Aster</strong></td>
+<td>Open-source FEA solver developped by EDF.</td>
+<td><a href="aster.html">Aster Interface</a></td>
+</tr>
+<tr class="odd">
+<td><strong>Cast3M</strong></td>
+<td>CEA’s finite element solver.</td>
+<td><a href="castem.html">Cast3M Interface</a></td>
+</tr>
+<tr class="even">
+<td><strong>CalculiX</strong></td>
+<td>Open-source FEA solver.</td>
+<td><a href="calculix.html">CalculiX Interface</a></td>
+</tr>
+<tr class="odd">
+<td><strong>ANSYS</strong></td>
+<td>Commercial FEA solver (APDL).</td>
+<td><a href="ansys.html">ANSYS Interface</a></td>
+</tr>
+<tr class="even">
+<td><strong>ZeBuLoN (Zmat)</strong></td>
+<td>Zset’s finite element solver.</td>
+<td><a href="zmat.html">Zmat Interface</a></td>
+</tr>
+<tr class="odd">
+<td><strong>Cyrano</strong></td>
+<td>Fuel performance code (CEA).</td>
+<td><a href="cyrano.html">Cyrano Interface</a></td>
+</tr>
+<tr class="even">
+<td><strong>ElmerFEM</strong></td>
+<td>Open-source multiphysics solver.</td>
+<td><a href="elmerfem.html">ElmerFEM Interface</a></td>
+</tr>
+<tr class="odd">
+<td><strong>AMITEX_FFTP</strong></td>
+<td>FFT-based solver.</td>
+<td><a href="amitex.html">AMITEX Interface</a></td>
+</tr>
+<tr class="even">
+<td><strong>Generic interface</strong></td>
+<td>For use with the <a
+href="https://thelfer.github.io/mgis/web/index.html">MGIS
+project</a>.</td>
+<td><a href="generic-behaviours-interface.html">Generic
+Interface</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="advanced-topics">📖 Advanced topics ⭐⭐/⭐⭐⭐</h2>
+<table>
+<colgroup>
+<col style="width: 43%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Resource</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="theory.html">Theory</a></td>
+<td>Theoretical background for material behaviours.</td>
+</tr>
+<tr class="even">
+<td><a href="mfront-types.html">mfront types</a></td>
+<td>Predefined aliases in <code>MFront</code></td>
+</tr>
+<tr class="odd">
+<td><a href="behaviour-variable.html">The
+<code>@BehaviourVariable</code> keyword</a></td>
+<td>Calling behaviours inside behaviours</td>
+</tr>
+<tr class="even">
+<td><a href="unicode.html">Unicode</a></td>
+<td>Unicode support in <code>MFront</code></td>
+</tr>
+<tr class="odd">
+<td><a href="glossary.html">Glossary</a></td>
+<td>Definitions of all TFEL/MFront terms.</td>
+</tr>
+<tr class="even">
+<td><a href="madnex.html">madnex</a></td>
+<td>Support of <code>madnex</code> files in <code>MFront</code></td>
+</tr>
+<tr class="odd">
+<td><a href="mfront-query.html">mfront-query</a></td>
+<td>Command line queries about MFront files</td>
+</tr>
+<tr class="even">
+<td><a href="mfront-doc.html">mfront-doc</a></td>
+<td>A documentation generator from MFront files</td>
+</tr>
+<tr class="odd">
+<td><a href="mfm.html">The <code>mfm</code> tool</a></td>
+<td>A tool for querying entry points in <code>MFront</code> generated
+libraries</td>
+</tr>
+<tr class="even">
+<td><a href="compiling-mfront-shared-libraries.html">Compilation
+process</a></td>
+<td>Compilation process used by <code>MFront</code></td>
+</tr>
+<tr class="odd">
+<td><a href="FischerBurmeister.html">Fisher-Burmeister complementary
+function</a></td>
+<td>On the Fisher-Burmeister complementary function and its applications
+to multi-surface plasticity</td>
+</tr>
+<tr class="even">
+<td><a
+href="ExtendingStandardElastoViscoPlasticityBrick-StressCriterion.html">Extending
+StandardElastoViscoPlasticity</a></td>
+<td>How to extend standard bricks with custom criteria.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="keywords-associated-with-domain-specific-languages-dsl">Keywords
+associated with Domain-Specific Languages (DSL)</h2>
+<p>Note the those pages may be outdated or can not apply to your
+particular installation of <code>TFEL/MFront</code>. We highly recommend
+using the command line to retrieve the list of keywords associated with
+a <code>DSL</code> or the documentation associated with a keyword.</p>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 33%" />
+<col style="width: 53%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>DSL</th>
+<th>Description</th>
+<th>Keywords Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Implicit</td>
+<td>Implicit integration for strain-based behaviours.</td>
+<td><a href="Implicit-keywords.html">Implicit Keywords</a></td>
+</tr>
+<tr class="even">
+<td>Default</td>
+<td>Generic DSL for custom integration algorithms.</td>
+<td><a href="Default-keywords.html">Default Keywords</a></td>
+</tr>
+<tr class="odd">
+<td>Runge-Kutta</td>
+<td>Explicit integration for ODE-based behaviours.</td>
+<td><a href="RungeKutta-keywords.html">Runge-Kutta Keywords</a></td>
+</tr>
+<tr class="even">
+<td>IsotropicPlasticMisesFlow</td>
+<td>DSL for isotropic J₂ plasticity.</td>
+<td><a href="IsotropicPlasticMisesFlow-keywords.html">Keywords</a></td>
+</tr>
+</tbody>
+</table>
+<h1 id="testing-validation">🧪 Testing &amp; Validation ⭐⭐</h1>
+<p>Tools and guides for testing your implementations.</p>
+<table>
+<colgroup>
+<col style="width: 43%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Resource</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="mtest.html">MTest</a></td>
+<td>TFEL’s testing tool for material point simulations.</td>
+</tr>
+<tr class="even">
+<td><a href="mtest-nonlinear-constraints.html">MTest Nonlinear
+Constraints</a></td>
+<td>Advanced constraints in MTest.</td>
+</tr>
+<tr class="odd">
+<td><a href="tfel-check.html">TFEL-Check</a></td>
+<td>Validation suite for TFEL.</td>
+</tr>
+<tr class="even">
+<td><a href="MTest-keywords.html">MTest Keywords</a></td>
+<td>Keywords reference for MTest.</td>
+</tr>
+<tr class="odd">
+<td><a href="mfm-test-generator.html">mfm-test-generator</a></td>
+<td>Generation of integration tests for various solvers.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="python-modules">Python modules ⭐⭐</h1>
+<table>
+<thead>
+<tr class="header">
+<th>Resource</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="tfel-python.html">TFEL Python</a></td>
+<td>bindings for TFEL libraries.</td>
+</tr>
+<tr class="even">
+<td><a href="mfront-python.html">MFront Python</a></td>
+<td>Python bindings for MFront.</td>
+</tr>
+<tr class="odd">
+<td><a href="mtest-python.html">MTest Python</a></td>
+<td>Python bindings for MTest.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="advanced-topics-1">📊 Advanced Topics ⭐⭐/⭐⭐⭐</h1>
+<p>For experienced users.</p>
+<h2 id="tfel-libraries">TFEL libraries</h2>
+<table>
+<colgroup>
+<col style="width: 43%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Library</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="tfel-math.html">TFEL/Math</a></td>
+<td>Overview of the TFEL/Math library.</td>
+</tr>
+<tr class="even">
+<td><a href="tfel-material.html">TFEL/Material</a></td>
+<td>Overview of the TFEL/Material library.</td>
+</tr>
+<tr class="odd">
+<td><a href="physical-constants.html">TFEL/PhysicalConstants</a></td>
+<td>Pre-defined physical constants in TFEL.</td>
+</tr>
+<tr class="even">
+<td><a href="tfel-mfront-database.html">TFEL/MFrontDataBase</a></td>
+<td>Utilities to handle MFront generated libraries.</td>
+</tr>
+<tr class="odd">
+<td><a href="TFELSystem.html">TFEL/System</a></td>
+<td>Overview of the TFEL/System library.</td>
+</tr>
+<tr class="even">
+<td><a href="tfel-config.html">TFEL/Config</a></td>
+<td>Overview of the TFEL/Config library.</td>
+</tr>
+</tbody>
+</table>
+<p>Usage of the TFEL libraries in <code>C++</code> is described in <a
+href="libraries_usage.html">this page</a>.</p>
+<h2 id="mathematical-foundations">Mathematical Foundations</h2>
+<table>
+<colgroup>
+<col style="width: 43%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Resource</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="tensors.html">Tensors</a></td>
+<td>Operations on 2nd and 4th order tensors (TFEL/Math).</td>
+</tr>
+<tr class="even">
+<td><a href="tfel-math-numerical-integration.html">Numerical
+Integration</a></td>
+<td>Numerical integration methods in TFEL.</td>
+</tr>
+<tr class="odd">
+<td><a href="tfel-math-data-interpolation.html">Data
+Interpolation</a></td>
+<td>Interpolation techniques.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="doxygen-documentation">Doxygen documentation</h2>
+<p>The <code>Doxygen</code> documentation is available <a
+href="https://thelfer.github.io/tfel/doxygen/index.html">here</a>.</p>
+<h1 id="legend">📌 Legend</h1>
 <ul>
-<li>The description of the interface to the <a
-href="http://www-cast3m.cea.fr">Cast3M</a> finite element solver is
-available <a href="castem.html">here</a>.</li>
-<li>The description of the interface to the <a
-href="http://www.code-aster.org">Code-Aster</a> finite element solver is
-available <a href="aster.html">here</a>.</li>
-<li>The description of the interface to the <a
-href="https://www.3ds.com/fr/produits-et-services/simulia/produits/abaqus/abaqusstandard">Abaqus/Standard</a>
-and <a
-href="https://www.3ds.com/products-services/simulia/products/abaqus/abaqusexplicit">Abaqus/Explicit</a>
-finite element solvers is available <a href="abaqus.html">here</a>.</li>
-<li>The description of the interface to the <a
-href="http://www.zset-software.com/products/zebulon">ZeBuLoN</a> finite
-element solver is available <a href="zmat.html">here</a>.</li>
-<li>The description of the interface to the <a
-href="calculix.de">CalculiX</a> finite element solver is available <a
-href="calculix.html">here</a>.</li>
-</ul>
-<h1 id="dedicated-pages">Dedicated pages</h1>
-<ul>
-<li>Support for unicode symbols in <code>MFront</code> is described <a
-href="unicode.html">here</a>.</li>
-<li>The list of predefined type aliases in <code>MFront</code> is given
-<a href="mfront-types.html">here</a>.</li>
+<li>⭐: Beginner</li>
+<li>⭐⭐: Intermediate</li>
+<li>⭐⭐⭐: Advanced</li>
 </ul>
 <h1 id="bibliography">Bibliography</h1>
 <!-- Local IspellDict: english -->

@@ -88,7 +88,7 @@
     <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-        <header>
+    <header>
       <ul id="nav">
 	<li><a href="news.html">News</a></li>
 	<li><a href="index.html">Overview</a>
@@ -136,6 +136,7 @@
 		    <li><a href="release-notes-3.0.15.html">Version 3.0.15</a></li>
 		    <li><a href="release-notes-3.0.16.html">Version 3.0.16</a></li>
 		    <li><a href="release-notes-3.0.17.html">Version 3.0.17</a></li>
+		    <li><a href="release-notes-3.0.18.html">Version 3.0.18</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.1.x</a>
@@ -260,7 +261,7 @@
 		</li>
 		<li><a>Versions 5.2.x</a>
 		  <ul>
-		    <li><a href="release-notes-5.1.html">Version 5.2.0</a></li>
+		    <li><a href="release-notes-5.2.html">Version 5.2.0</a></li>
 		  </ul>
 		</li>
 	      </ul>
@@ -281,7 +282,7 @@
 		<li><a href="benchmark.html">Benchmark</a></li>
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
-                 <li><a href="behaviour-variable.html">behaviour variables</a></li>
+                 <li><a href="behaviour-variable.html">Behaviour variables</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -742,7 +743,7 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb14-1"><a href="#
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> dpp <span class="op">=</span> <span class="op">[&amp;</span>eeps<span class="op">](</span><span class="at">const</span> real x<span class="op">)</span> <span class="op">{</span> <span class="cf">return</span> <span class="bu">std::</span>abs<span class="op">(</span>x<span class="op">)</span> <span class="op">&lt;</span> eeps <span class="op">?</span> <span class="fl">0.5</span> <span class="op">:</span> <span class="op">((</span>x <span class="op">&lt;</span> <span class="dv">0</span><span class="op">)</span> <span class="op">?</span> <span class="dv">0</span> <span class="op">:</span> <span class="dv">1</span><span class="op">);</span> <span class="op">};</span></span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">// square of the posititve part</span></span>
 <span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">auto</span> square_ppos <span class="op">=</span> <span class="op">[](</span><span class="at">const</span> strain<span class="op">&amp;</span> v<span class="op">)</span> <span class="op">{</span> <span class="cf">return</span> v <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">?</span> v <span class="op">*</span> v <span class="op">:</span> <span class="dv">0</span><span class="op">;</span> <span class="op">};</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">// elastic strain at the midle of the time step</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">// elastic strain at the middle of the time step</span></span>
 <span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> e <span class="op">=</span> eval<span class="op">(</span>eel <span class="op">+</span> deel<span class="op">);</span></span>
 <span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="co">// eigen values and eigen tensors of the elastic strain</span></span>
 <span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">auto</span> e_vp <span class="op">=</span> tvector<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span> strain<span class="op">&gt;{};</span></span>

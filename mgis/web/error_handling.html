@@ -96,6 +96,7 @@
 	<li><a>Documentation</a>
 	  <ul>
 	    <li><a href="https://www.theoj.org/joss-papers/joss.02003/10.21105.joss.02003.pdf"> JOSS paper</a></li>
+	    <li><a href="https://thelfer.github.io/mgis/doxygen/index.html">Doxygen documentation</a></li>
 	    <li><a href="bindings-cxx.html">Description of the C++ library</a></li>
 	    <li><a href="install.html">Installation guide</a></li>
 	    <li><a href="error_handling.html">Error handling</a></li>
@@ -152,22 +153,31 @@
 		<li><a>Version 2.1.x</a>
 		  <ul>
 		    <li><a href="release-notes-2.1.html">Version 2.1</a></li>
+		    <li><a href="release-notes-2.1.1.html">Version 2.1.1</a></li>
 		  </ul>
 		<li><a>Version 2.2.x</a>
 		  <ul>
 		    <li><a href="release-notes-2.2.html">Version 2.2</a></li>
 		    <li><a href="release-notes-2.2.1.html">Version 2.2.1</a></li>
+   		    <li><a href="release-notes-2.2.2.html">Version 2.2.2</a></li>
 		  </ul>
 		</li>
 		<li><a>Version 3.0.x</a>
 		  <ul>
 		    <li><a href="release-notes-3.0.html">Version 3.0</a></li>
 		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
 		  </ul>
 		</li>
 		<li><a>Version 3.1.x</a>
 		  <ul>
 		    <li><a href="release-notes-3.1.html">Version 3.1</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		  </ul>
+		<li><a>Version 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2</a></li>
 		  </ul>
 		</li>
 	      </ul>
@@ -203,8 +213,115 @@
 <h2 class="author">Thomas Helfer</h2>
 <h3 class="date">2025</h3>
 </div>
+<div id="TOC">
+<ul>
+<li><a href="#returned-value-of-functions-or-methods-that-may-fail"
+id="toc-returned-value-of-functions-or-methods-that-may-fail">Returned
+value of functions (or methods) that may fail</a></li>
+<li><a href="#contractviolationhandler-and-context"
+id="toc-contractviolationhandler-and-context"><code>ContractViolationHandler</code>
+and <code>Context</code></a>
+<ul>
+<li><a href="#contractviolationhandler"
+id="toc-contractviolationhandler"><code>ContractViolationHandler</code></a>
+<ul>
+<li><a href="#reporting-error-to-end-user"
+id="toc-reporting-error-to-end-user">Reporting error to
+end-user</a></li>
+</ul></li>
+<li><a href="#context" id="toc-context"><code>Context</code></a>
+<ul>
+<li><a href="#reporting-error-to-end-user-1"
+id="toc-reporting-error-to-end-user-1">Reporting error to
+end-user</a></li>
+<li><a href="#source-location" id="toc-source-location">Source
+location</a></li>
+</ul></li>
+<li><a href="#example-of-usage-of-the-registererrormessage-method"
+id="toc-example-of-usage-of-the-registererrormessage-method">Example of
+usage of the <code>registerErrorMessage</code> method</a>
+<ul>
+<li><a href="#warning-about-usage-of-c-strings"
+id="toc-warning-about-usage-of-c-strings">Warning about usage of
+<code>C</code>-strings</a></li>
+<li><a href="#warning-about-usage-of-c-strings-1"
+id="toc-warning-about-usage-of-c-strings-1">Warning about usage of
+<code>C++</code>-strings</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#the-special-case-of-constructors"
+id="toc-the-special-case-of-constructors">The special case of
+constructors</a>
+<ul>
+<li><a href="#the-raise-function" id="toc-the-raise-function">The
+<code>raise</code> function</a></li>
+<li><a href="#the-construct-function"
+id="toc-the-construct-function">The <code>construct</code> function</a>
+<ul>
+<li><a href="#the-mgis_construct-macro"
+id="toc-the-mgis_construct-macro">The <code>MGIS_CONSTRUCT</code>
+macro</a></li>
+<li><a href="#the-mgis_try_construct-macro"
+id="toc-the-mgis_try_construct-macro">The
+<code>MGIS_TRY_CONSTRUCT</code> macro</a></li>
+</ul></li>
+<li><a href="#the-make_unique-function"
+id="toc-the-make_unique-function">The <code>make_unique</code>
+function</a>
+<ul>
+<li><a href="#helper-macros-for-the-make_unique-function"
+id="toc-helper-macros-for-the-make_unique-function">Helper macros for
+the <code>make_unique</code> function</a></li>
+</ul></li>
+<li><a href="#the-make_unique_as-function"
+id="toc-the-make_unique_as-function">The <code>make_unique_as</code>
+function</a>
+<ul>
+<li><a href="#helper-macros-for-the-make_unique_as-function"
+id="toc-helper-macros-for-the-make_unique_as-function">Helper macros for
+the <code>make_unique_as</code> function</a></li>
+</ul></li>
+<li><a href="#the-make_shared-function"
+id="toc-the-make_shared-function">The <code>make_shared</code>
+function</a>
+<ul>
+<li><a href="#helper-macros-for-the-make_shared-function"
+id="toc-helper-macros-for-the-make_shared-function">Helper macros for
+the <code>make_shared</code> function</a></li>
+</ul></li>
+<li><a href="#the-make_shared_as-function"
+id="toc-the-make_shared_as-function">The <code>make_shared_as</code>
+function</a>
+<ul>
+<li><a href="#helper-macros-for-the-make_shared_as-function"
+id="toc-helper-macros-for-the-make_shared_as-function">Helper macros for
+the <code>make_shared_as</code> function</a></li>
+</ul></li>
+</ul></li>
+<li><a
+href="#interaction-with-an-external-library-that-may-use-exceptions"
+id="toc-interaction-with-an-external-library-that-may-use-exceptions">Interaction
+with an external library that may use exceptions</a>
+<ul>
+<li><a href="#the-registerexceptioninerrorbacktrace-function"
+id="toc-the-registerexceptioninerrorbacktrace-function">The
+<code>registerExceptionInErrorBacktrace</code> function</a></li>
+</ul></li>
+</ul>
+</div>
 <p>This section describes the error handling strategy introduced in
-<code>MGIS</code> Version 3.1.</p>
+<code>MGIS</code> Version 3.1 which is meant to:</p>
+<ol type="1">
+<li>ensure performances and compatibility with the HPC techniques used
+in the code (MPI currently and eventually OpenMP in the future).</li>
+<li>provide rich error messages to the end-user.</li>
+</ol>
+<p>The first point eliminates the use of exceptions in most cases (see
+below the special cases of constructors).</p>
+<p>Some other standard strategies provided by the standard have also
+been discarded, although their design have inspired the proposed
+solution. For example, <code>std::error_code</code> only allows to use
+predefined error messages that are not able to describe the context.</p>
 <p>A function or a method using this error handling strategy is
 recognizable as follows:</p>
 <ul>
@@ -233,6 +350,8 @@ results are stored on the stack.</li>
 object holding if those results are stored on the heap. In this case,
 the failure of the function is indicated by the fact that the underlying
 pointer is null.</li>
+<li>a class to which an <code>InvalidValue</code> object is implicitly
+convertible.</li>
 </ul>
 <blockquote>
 <p>** Note **</p>
@@ -241,7 +360,32 @@ pointer is null.</li>
 case with the <code>MGIS_EXPORT</code> attribute. This is a defect of
 <code>C++-20</code>.</p>
 </blockquote>
-<h1 id="reporting-error-to-end-user">Reporting error to end-user</h1>
+<h1
+id="contractviolationhandler-and-context"><code>ContractViolationHandler</code>
+and <code>Context</code></h1>
+<p>Both classses <code>ContractViolationHandler</code> and
+<code>Context</code> inherit from <code>AbstractErrorHandler</code>.</p>
+<h2
+id="contractviolationhandler"><code>ContractViolationHandler</code></h2>
+<p><code>ContractViolationHandler</code> is designed to report a
+contract violation, i.e. errors that shall not occur by design.</p>
+<p><code>ContractViolationHandler</code> can be used in a
+<code>constexpr</code> context, if no contrat violation is detected. If
+a contract violation is detected, a compile-time error is generated
+since <code>registerErrorMessage</code> is not
+<code>constexpr</code></p>
+<h3 id="reporting-error-to-end-user">Reporting error to end-user</h3>
+<p>The <code>ContractViolationHandler</code> class provides the
+<code>registerErrorMessage</code> method which accepts a
+<code>C</code>-string.</p>
+<p>The behaviour of this class is to call <code>std::abort</code> in
+case of contract violation. This behaviour can be changed by passing
+<code>-Denable-exceptions=ON</code> to <code>cmake</code> when compiling
+<code>MGIS</code>.</p>
+<h2 id="context"><code>Context</code></h2>
+<p>The <code>Context</code> class is used for standard error
+management.</p>
+<h3 id="reporting-error-to-end-user-1">Reporting error to end-user</h3>
 <p>The <code>Context</code> class inherits from the
 <code>ErrorBacktrace</code> class, which has been designed to store
 error messages in a hierarchical way from the lowest level of the code
@@ -252,8 +396,8 @@ as the first argument to most functions.</p>
 class mostly provides the <code>registerErrorMessage</code> method that
 can register an error in the form of:</p>
 <ol type="1">
-<li>a -string</li>
-<li>a -string</li>
+<li>a <code>C</code>-string</li>
+<li>a <code>C++</code>-string</li>
 <li>a couple of a function allowing to return an error message from an
 integer value. This kind of function is provided by many HPC
 libraries.</li>
@@ -261,11 +405,14 @@ libraries.</li>
 <p>For convenience, the <code>registerErrorMessage</code> always returns
 an invalid value, i.e. a value that is convertible to any of the
 returned type described in the previous section.</p>
-<p>The error messages are packed up to the moment when error(s) must be
-reported to the end-user. The error messages can then be retrieved by
-the <code>getErrorMessage</code> method (or
-<code>getRawErrorMessage</code>, see below).</p>
-<h2 id="source-location">Source location</h2>
+<p>By default, the error messages are packed up to the moment when
+error(s) must be reported to the end-user. The error messages can then
+be retrieved by the <code>getErrorMessage</code> method (or
+<code>getRawErrorMessage</code>, see below). However, if
+<code>MGIS</code> is compiled with the flag
+<code>-Denable-exceptions=ON</code>, an exception is thrown instead
+using <code>mgis::raise</code>.</p>
+<h3 id="source-location">Source location</h3>
 <p>In debug mode, the source location, as returned by the
 <code>std::source_location::current_location</code> method, is
 automatically added to the error message returned by the
@@ -277,14 +424,67 @@ the <code>registerErrorMessageWithoutSourceLocation</code> method can be
 used.</p>
 <p>If the information about the source location are not wanted, the
 <code>getRawErrorMessage</code> method can be used.</p>
-<h2 id="warning-about-usage-of-c-strings">Warning about usage of
-<code>C</code>-strings</h2>
+<h2 id="example-of-usage-of-the-registererrormessage-method">Example of
+usage of the <code>registerErrorMessage</code> method</h2>
+<p>The following code illustrates the usage of the
+<code>ErrorBacktrace</code>, through a <code>Context</code> object:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> processNext<span class="op">(){};</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> f3<span class="op">(</span>Context <span class="op">&amp;</span>ctx<span class="op">)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">// for this example, the message is useless</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">// In pratice, one shall report the cause of the error</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">// and not expose details, like the function name.</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">//</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Examples:</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="co">//</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="co">// - &quot;negative temperature detected&quot;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">// - &quot;non convergence of the nonlinear solver&quot;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="co">//</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Note that the function name, the source file and the</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="co">// line number are automatically added in debug mode.</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> ctx<span class="op">.</span>registerErrorMessage<span class="op">(</span><span class="st">&quot;invalid call&quot;</span><span class="op">);</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> f2<span class="op">(</span>Context <span class="op">&amp;</span>ctx<span class="op">)</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(!</span>f3<span class="op">(</span>ctx<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="co">// f2 fails, but we don&#39;t have any more information</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="co">// to add for the end user (i.e. f3 is an internal </span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="co">// method and a message like `f3 failed` is not </span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="co">// meaningful), so we just return</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  processNext<span class="op">();</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> f1<span class="op">(</span>Context <span class="op">&amp;</span>ctx<span class="op">)</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(!</span>f2<span class="op">(</span>ctx<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> e<span class="op">.</span>registerErrorMessage<span class="op">(</span><span class="st">&quot;invalid call to f2&quot;</span><span class="op">);</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  processNext<span class="op">();</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>If the <code>f1</code> function is called, the following error
+message is generated in release mode:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">invalid</span> call to f2</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> invalid call</span></code></pre></div>
+<p>In debug mode, the following message is generated:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/home/UserDir/tests/core/error_backtrace_handler/error_backtrace_handler_test.cpp:31:</span> in function <span class="st">&#39;bool f1(mgis::ErrorBacktrace&amp;)&#39;</span>: invalid call to f2</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> /home/UserDir/tests/core/error_backtrace_handler/error_backtrace_handler_test.cpp:14: in function <span class="st">&#39;bool f3(mgis::ErrorBacktrace&amp;)&#39;</span>: invalid call</span></code></pre></div>
+<h3 id="warning-about-usage-of-c-strings">Warning about usage of
+<code>C</code>-strings</h3>
 <p>Note that in the case of a <code>C</code>-string, the string is not
 copied and only the pointer is stored. The developer must then ensure
 that this string is not destroyed. As a rule of thumb, this string shall
 belong to the data section of the binary.</p>
-<h2 id="warning-about-usage-of-c-strings-1">Warning about usage of
-<code>C++</code>-strings</h2>
+<h3 id="warning-about-usage-of-c-strings-1">Warning about usage of
+<code>C++</code>-strings</h3>
 <p><code>C++</code>-strings are the best way to report context sensitive
 error message. However, to reduce code bloat, building a complex error
 message shall never be implemented in a template function: one shall
@@ -322,6 +522,81 @@ of the function and an empty optional object is returned.</p>
 <p>Aside from the first argument (a reference to an instance of the
 <code>ErrorBacktrace</code> class), all the other arguments are
 forwarded to the constructor of the object.</p>
+<h3 id="the-mgis_construct-macro">The <code>MGIS_CONSTRUCT</code>
+macro</h3>
+<p>The <code>MGIS_CONSTRUCT</code> macro is a wrapper around the
+<code>construct</code> function which adds the current source location
+when required (typically in the <code>debug</code> mode).</p>
+<h3 id="the-mgis_try_construct-macro">The
+<code>MGIS_TRY_CONSTRUCT</code> macro</h3>
+<p>A typical pattern of usage of the <code>construct</code> function
+(through the <code>MGIS_CONSTRUCT</code> macro) is to try to build an
+object and:</p>
+<ol type="1">
+<li>to defer the result in case of success.</li>
+<li>to stop the execution of the current function in case of
+failure.</li>
+</ol>
+<p>Here is a typical example of this pattern:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> tmp_v <span class="op">=</span> MGIS_CONSTRUCT<span class="op">(</span>ObjectType<span class="op">,</span> e<span class="op">,</span> <span class="op">...);</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span><span class="op">(!</span>tmp_v<span class="op">.</span>has_value<span class="op">()){</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span><span class="op">&amp;</span> v <span class="op">=</span> <span class="op">*(</span>tmp_v<span class="op">);</span></span></code></pre></div>
+<p>The <code>MGIS_TRY_CONSTRUCT</code> macro reduces this code as
+follows:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>MGIS_TRY_CONSTRUCT<span class="op">(</span>ObjectType<span class="op">,</span> v<span class="op">,</span> e<span class="op">,</span> <span class="op">...);</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Here you can work with variable v which is a reference</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">// to the ObjectType built by the &quot;construct&quot; function</span></span></code></pre></div>
+<h2 id="the-make_unique-function">The <code>make_unique</code>
+function</h2>
+<p>The <code>make_unique</code> function tries to allocate an object on
+the heap and stores it in a <code>std::unique_ptr</code>.</p>
+<p>If an exception is thrown during the construction of the object, the
+error message held by the exception is registered in an instance of the
+<code>ErrorBacktrace</code> and an empty pointer is returned.</p>
+<h3 id="helper-macros-for-the-make_unique-function">Helper macros for
+the <code>make_unique</code> function</h3>
+<p>The <code>MGIS_MAKE_UNIQUE</code> and
+<code>MGIS_TRY_MAKE_UNIQUE</code> macros are similar to the
+<code>MGIS_CONSTRUCT</code> and <code>MGIS_TRY_CONSTRUCT</code> macros
+respectively.</p>
+<h2 id="the-make_unique_as-function">The <code>make_unique_as</code>
+function</h2>
+<p>The <code>make_unique_as</code> function is similar to the
+<code>make_unique</code> function except that the built object is stored
+in a <code>std::unique_ptr</code> of some base class. This method is
+useful in a polymorphic context.</p>
+<h3 id="helper-macros-for-the-make_unique_as-function">Helper macros for
+the <code>make_unique_as</code> function</h3>
+<p>The <code>MGIS_MAKE_UNIQUE_AS</code> and
+<code>MGIS_TRY_MAKE_UNIQUE_AS</code> macros are similar to the
+<code>MGIS_CONSTRUCT</code> and <code>MGIS_TRY_CONSTRUCT</code> macros
+respectively.</p>
+<h2 id="the-make_shared-function">The <code>make_shared</code>
+function</h2>
+<p>The <code>make_shared</code> function is similar to the
+<code>make_unique</code> function except that the result is stored in a
+<code>std::shared_ptr</code>.</p>
+<h3 id="helper-macros-for-the-make_shared-function">Helper macros for
+the <code>make_shared</code> function</h3>
+<p>The <code>MGIS_MAKE_SHARED</code> and
+<code>MGIS_TRY_MAKE_SHARED</code> macros are similar to the
+<code>MGIS_CONSTRUCT</code> and <code>MGIS_TRY_CONSTRUCT</code> macros
+respectively.</p>
+<h2 id="the-make_shared_as-function">The <code>make_shared_as</code>
+function</h2>
+<p>The <code>make_shared_as</code> function is similar to the
+<code>make_unique_as</code> function except that the result is stored in
+a <code>std::shared_ptr</code>.</p>
+<h3 id="helper-macros-for-the-make_shared_as-function">Helper macros for
+the <code>make_shared_as</code> function</h3>
+<p>The <code>MGIS_MAKE_SHARED_AS</code> and
+<code>MGIS_TRY_MAKE_SHARED_AS</code> macros are similar to the
+<code>MGIS_CONSTRUCT</code> and <code>MGIS_TRY_CONSTRUCT</code> macros
+respectively.</p>
 <h1
 id="interaction-with-an-external-library-that-may-use-exceptions">Interaction
 with an external library that may use exceptions</h1>
@@ -330,12 +605,12 @@ with an external library that may use exceptions</h1>
 <p>Call to external libraries that relies on the usage of exceptions
 must be encapsulated in appropriate <code>try/catch</code> blocks as
 follows:</p>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span><span class="op">{</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">....</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">catch</span><span class="op">(...)</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  registerExceptionInErrorBacktrace<span class="op">(</span>e<span class="op">);</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span><span class="op">{</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">....</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">catch</span><span class="op">(...)</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  registerExceptionInErrorBacktrace<span class="op">(</span>e<span class="op">);</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>The <code>registerExceptionInErrorBacktrace</code> is a
 Lippincott-like helper function which translate exceptions derived from
 <code>std::exception</code> into error messages.</p>

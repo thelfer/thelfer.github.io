@@ -89,7 +89,7 @@
     <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-        <header>
+    <header>
       <ul id="nav">
 	<li><a href="news.html">News</a></li>
 	<li><a href="index.html">Overview</a>
@@ -137,6 +137,7 @@
 		    <li><a href="release-notes-3.0.15.html">Version 3.0.15</a></li>
 		    <li><a href="release-notes-3.0.16.html">Version 3.0.16</a></li>
 		    <li><a href="release-notes-3.0.17.html">Version 3.0.17</a></li>
+		    <li><a href="release-notes-3.0.18.html">Version 3.0.18</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.1.x</a>
@@ -261,7 +262,7 @@
 		</li>
 		<li><a>Versions 5.2.x</a>
 		  <ul>
-		    <li><a href="release-notes-5.1.html">Version 5.2.0</a></li>
+		    <li><a href="release-notes-5.2.html">Version 5.2.0</a></li>
 		  </ul>
 		</li>
 	      </ul>
@@ -282,7 +283,7 @@
 		<li><a href="benchmark.html">Benchmark</a></li>
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
-                 <li><a href="behaviour-variable.html">behaviour variables</a></li>
+                 <li><a href="behaviour-variable.html">Behaviour variables</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -756,10 +757,10 @@ id="toc-issue-297-mfront-automatically-include-the-iostream-header-in-models"><s
 class="toc-section-number">15.9</span> Issue 297: [mfront] Automatically
 include the <code>&lt;iostream&gt;</code> header in models</a></li>
 <li><a
-href="#issue-296-mfront-allow-bidirectional-convertion-between-the-integrationresult-enumeration-and-boolean-values"
-id="toc-issue-296-mfront-allow-bidirectional-convertion-between-the-integrationresult-enumeration-and-boolean-values"><span
+href="#issue-296-mfront-allow-bidirectional-conversion-between-the-integrationresult-enumeration-and-boolean-values"
+id="toc-issue-296-mfront-allow-bidirectional-conversion-between-the-integrationresult-enumeration-and-boolean-values"><span
 class="toc-section-number">15.10</span> Issue 296: [mfront] Allow
-bidirectional convertion between the IntegrationResult enumeration and
+bidirectional conversion between the IntegrationResult enumeration and
 boolean values</a></li>
 <li><a
 href="#issue-295-mfront-allow-failure-of-the-behaviour-initialisation"
@@ -1971,7 +1972,7 @@ class="header-section-number">9.3</span> Initialize functions for
 behaviours</h2>
 <p>The <code>@InitializeFunction</code> keyword introduces a code block
 that can be used to initialize internal state variables at the very
-beginning of the computation. Initalize functions may have user
+beginning of the computation. Initialize functions may have user
 so-called <em>initialize funtion variables</em>.</p>
 <p>In this version, only the <code>generic</code> interface generates
 functions associated with initialize functions (See Section 4.1.2 to see
@@ -2020,7 +2021,7 @@ variables, etc.), initialize function variables can be defined after the
 first code block. However, care must be taken to declare initialize
 function variables <strong>before</strong> their use in an initialize
 function.</p>
-<p>Note that an initialize function variable can be used in differents
+<p>Note that an initialize function variable can be used in different
 initialize function.</p>
 <h2 data-number="9.4" id="sec:tfel_4.1:mfront:postprocessings"><span
 class="header-section-number">9.4</span> Post-processings of
@@ -2085,7 +2086,7 @@ can’t be used in the other code blocks.</p>
 variables, etc.), post-processing variables can be defined after the
 first code block. However, care must be taken to declare post-processing
 variables <strong>before</strong> their use in a post-processing.</p>
-<p>Note that a post-processing variable can be used in differents
+<p>Note that a post-processing variable can be used in different
 post-processings. Typically, one may compute the principal strains in a
 dedicated post-processing and in a post-processing computing the
 principal strains and the strain eigen vectors.</p>
@@ -2199,7 +2200,7 @@ variables. Let <code>A</code> be such a variable. The
 named <code>A</code> has been given:</p>
 <ul>
 <li>If this option exists, it will be interpreted as a material
-coefficient as usal and this option can be a number, a formula or the
+coefficient as usual and this option can be a number, a formula or the
 name of an external <code>MFront</code> file.</li>
 <li>If this option does not exist, a suitable variable will be search in
 the variables defined in the behaviour (static variables, parameters,
@@ -2252,7 +2253,7 @@ will look if an option named <code>A</code> has been given to the
 flow:</p>
 <ul>
 <li>If this option exists, it will be interpreted as a material
-coefficient as usal and this option can be a number, a formula or the
+coefficient as usual and this option can be a number, a formula or the
 name of an external <code>MFront</code> file.</li>
 <li>If this option does not exist, a suitable variable will be search in
 the variables defined in the behaviour (static variables, parameters,
@@ -2295,8 +2296,8 @@ pairs of equivalent strain and equivalent stress.</p>
 <p>This isotropic hardening rule can be parametrised using three
 entries:</p>
 <ul>
-<li><code>values</code>: which must a dictionnary giving the value of
-the yield surface radius as a function of the equivalent plastic
+<li><code>values</code>: which must a dictionary giving the value of the
+yield surface radius as a function of the equivalent plastic
 strain.</li>
 <li><code>interpolation</code>: which allows to select the interpolation
 type. Possible values are <code>linear</code> (default choice) and
@@ -2378,7 +2379,7 @@ computed by a predictor step and corrector step. The error between those
 values must be normalised. In previous versions, the existence of a
 variable named <code>young</code> was assumed.</p>
 <p>The <code>@StressErrorNormalizationFactor</code> allows to specify
-this normalization factor more explicitely and consistenly.</p>
+this normalization factor more explicitly and consistenly.</p>
 <p>For backward compatibility with previous versions, the
 <code>young</code> variable will be used, if an appropriate variable is
 defined and if the <code>@StressErrorNormalizationFactor</code> keyword
@@ -2456,7 +2457,7 @@ can also be modified using the <code>ExternalLibraryManager</code> class
 <p><strong>Note: link with the <code>cyrano</code> interface for
 material properties</strong></p>
 <p>The <code>generic</code> interface for material properties is very
-similar to the <code>cyrano</code> interface. In pratice, both
+similar to the <code>cyrano</code> interface. In practice, both
 interfaces shares a common base class (called
 <code>GenericMaterialPropertyInterfaceBase</code>).</p>
 </blockquote>
@@ -2493,7 +2494,7 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb29-1"><a href="#
 <span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a><span class="co">   *   was a child of `std::exception`, the content of the string returned by</span></span>
 <span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a><span class="co">   *   the `what` method is copyied in the `message` field. Otherwise, the</span></span>
 <span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a><span class="co">   *   message field contains the &quot;unknown exception&quot; string.</span></span>
-<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a><span class="co">   * - If the exit status is -3, an error occured in the `C` library, i.e. the</span></span>
+<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a><span class="co">   * - If the exit status is -3, an error occurred in the `C` library, i.e. the</span></span>
 <span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a><span class="co">   *   `errno` value was set to a non zero value during the computation.</span></span>
 <span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a><span class="co">   *   The value of `errno` corresponding to the error is stored to in the</span></span>
 <span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a><span class="co">   *   `c_error_number` field of this structure. The string returned by</span></span>
@@ -3768,13 +3769,13 @@ models</h2>
 href="https://github.com/thelfer/tfel/issues/297"
 class="uri">https://github.com/thelfer/tfel/issues/297</a></p>
 <h2 data-number="15.10"
-id="issue-296-mfront-allow-bidirectional-convertion-between-the-integrationresult-enumeration-and-boolean-values"><span
+id="issue-296-mfront-allow-bidirectional-conversion-between-the-integrationresult-enumeration-and-boolean-values"><span
 class="header-section-number">15.10</span> Issue 296: [mfront] Allow
-bidirectional convertion between the IntegrationResult enumeration and
+bidirectional conversion between the IntegrationResult enumeration and
 boolean values</h2>
 <p>Some code blocks return boolean values and others return instances of
 the IntegrationResult enumeration. This is inconsistent from the user
-point of view. Allowing bidirectional convertion between the
+point of view. Allowing bidirectional conversion between the
 IntegrationResult enumeration and boolean values mitigates this
 issue.</p>
 <p>For more details, see <a

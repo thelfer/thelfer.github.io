@@ -99,6 +99,7 @@
 	    <li><a href="https://thelfer.github.io/mgis/doxygen/index.html">Doxygen documentation</a></li>
 	    <li><a href="bindings-cxx.html">Description of the C++ library</a></li>
 	    <li><a href="install.html">Installation guide</a></li>
+	    <li><a href="error_handling.html">Error handling</a></li>
 	    <li><a>Bindings</a>
 	        <ul>
 		  <li><a>python</a>
@@ -237,11 +238,16 @@ function-major storage</a></li>
 <li><a href="#the-functionview-class"
 id="toc-the-functionview-class">The <code>FunctionView</code>
 class</a></li>
-<li><a href="#tensorial-functions"
-id="toc-tensorial-functions">Tensorial functions</a>
+<li><a href="#views" id="toc-views">Views</a>
 <ul>
-<li><a href="#the-tensorview-class" id="toc-the-tensorview-class">The
-<code>TensorView</code> class</a></li>
+<li><a href="#fixed-size-array-functions"
+id="toc-fixed-size-array-functions">Fixed-size Array functions</a></li>
+<li><a href="#scalar-functions" id="toc-scalar-functions">Scalar
+functions</a></li>
+<li><a href="#support-for-quantities"
+id="toc-support-for-quantities">Support for quantities</a></li>
+<li><a href="#tensorial-functions"
+id="toc-tensorial-functions">Tensorial functions</a></li>
 <li><a href="#the-coalescedmemoryaccesstensorview-class"
 id="toc-the-coalescedmemoryaccesstensorview-class">The
 <code>CoalescedMemoryAccessTensorView</code> class</a></li>
@@ -504,15 +510,39 @@ be given at runtime.</li>
 <p>The <code>FunctionView</code> class matches the
 <code>FunctionEvaluator</code> concept (See Section 1 and <a
 href="evaluators.html">this page</a> for details).</p>
-<h2 id="tensorial-functions">Tensorial functions</h2>
-<h3 id="the-tensorview-class">The <code>TensorView</code> class</h3>
+<h2 id="views">Views</h2>
+<h3 id="fixed-size-array-functions">Fixed-size Array functions</h3>
+<p>The <code>view</code> function has a template overload taking the a
+size as argument. This overload transforms a general function into a
+function returning a fixed-size results.</p>
+<p><code>view&lt;1&gt;</code> is treated a special case and the
+resulting function returns directly scalar object.</p>
+<h3 id="scalar-functions">Scalar functions</h3>
+<p><code>as_scalar</code> allows to turn a generic function into a view
+returning a scalar value. In pratice, <code>as_scalar</code> generates
+the same view than the <code>view&lt;1&gt;</code> function.</p>
+<h3 id="support-for-quantities">Support for quantities</h3>
+<p>Quantities is features of the <a
+href="https://thelfer.github.io/tfel/web/tfel-math.html#sec:tfel_math:quantities">TFEL/Math
+library</a> which allows assigning an unit to a floating point
+number.</p>
+<p><code>MGIS/Function</code> provides <code>as_qt</code> to turn a
+function into a view returning quantities.</p>
+<h4 id="example-of-usage">Example of usage</h4>
+<p>~~<del>{.c++} // make a view of a scalar function which returns a
+stress value auto s = f | as_qt<stress>;</del>~~</p>
+<h3 id="tensorial-functions">Tensorial functions</h3>
 <p>The <code>TensorView</code> class allows to make views which returns
-tensorial objects from functions returning data in contiguous
-memory.</p>
+tensorial objects from functions returning data in contiguous memory.
+This features requires to be built with <code>TFEL</code>’s support.</p>
 <p>A <code>TensorView</code> is generally created by combining a
 <code>FunctionView</code> which a modifier such as
 <code>as_stensor</code> (See <a href="evaluators.html">this page</a> for
 details).</p>
+<h4 id="example-of-usage-1">Example of usage</h4>
+<p>~~<del>{.c++} // make a view of the function return a symmetric
+tensor in 2D whose values are stress auto s = f | as_stensor&lt;2u,
+stress&gt;;</del>~~</p>
 <h3 id="the-coalescedmemoryaccesstensorview-class">The
 <code>CoalescedMemoryAccessTensorView</code> class</h3>
 <p>Coalescent memory access refers to an access pattern where each

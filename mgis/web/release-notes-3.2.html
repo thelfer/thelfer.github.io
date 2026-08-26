@@ -99,6 +99,7 @@
 	    <li><a href="https://thelfer.github.io/mgis/doxygen/index.html">Doxygen documentation</a></li>
 	    <li><a href="bindings-cxx.html">Description of the C++ library</a></li>
 	    <li><a href="install.html">Installation guide</a></li>
+	    <li><a href="error_handling.html">Error handling</a></li>
 	    <li><a>Bindings</a>
 	        <ul>
 		  <li><a>python</a>
@@ -214,6 +215,8 @@
 </div>
 <div id="TOC">
 <ul>
+<li><a href="#known-incompatibilities"
+id="toc-known-incompatibilities">Known incompatibilities</a></li>
 <li><a href="#documentation" id="toc-documentation">Documentation</a>
 <ul>
 <li><a href="#new-cmake-options" id="toc-new-cmake-options">New
@@ -258,6 +261,12 @@ usage</a></li>
 id="toc-new-features-of-the-mgisfunction-library">New features of the
 <code>MGIS/Function</code> library</a>
 <ul>
+<li><a href="#support-for-quantities"
+id="toc-support-for-quantities">Support for quantities</a>
+<ul>
+<li><a href="#example-of-usage-1" id="toc-example-of-usage-1">Example of
+usage</a></li>
+</ul></li>
 <li><a href="#functions-using-a-strided-memory-access"
 id="toc-functions-using-a-strided-memory-access">Functions using a
 strided memory access</a>
@@ -267,12 +276,26 @@ id="toc-stridedcoalescedmemoryaccesstensorview"><code>StridedCoalescedMemoryAcce
 </ul></li>
 <li><a href="#stridedcoalescedmemoryaccesscompositetensorsview"
 id="toc-stridedcoalescedmemoryaccesscompositetensorsview"><code>StridedCoalescedMemoryAccessCompositeTensorsView</code></a></li>
+<li><a href="#allow-modifiers-to-handle-temporary-views"
+id="toc-allow-modifiers-to-handle-temporary-views">Allow modifiers to
+handle temporary views</a></li>
 </ul></li>
 <li><a href="#issues-fixed" id="toc-issues-fixed">Issues fixed</a>
 <ul>
-<li><a href="#issue-220-mgis-functions-add-support-for-nvcc"
-id="toc-issue-220-mgis-functions-add-support-for-nvcc">Issue 220:
-[mgis-functions] Add support for <code>nvcc</code></a></li>
+<li><a
+href="#issue-227-mgis-function-allow-modifiers-and-views-to-take-lightweigh-functions-views-by-copy-i.e.-alleviate-restrictions-that-views-and-modifiers-cant-operate-on-temporaries"
+id="toc-issue-227-mgis-function-allow-modifiers-and-views-to-take-lightweigh-functions-views-by-copy-i.e.-alleviate-restrictions-that-views-and-modifiers-cant-operate-on-temporaries">Issue
+227: [mgis-function] allow modifiers and views to take lightweigh
+functions views by copy, i.e. alleviate restrictions that views and
+modifiers can’t operate on temporaries</a></li>
+<li><a
+href="#issue-226-mgis-function-make-assign_value-extensible-to-support-external-types"
+id="toc-issue-226-mgis-function-make-assign_value-extensible-to-support-external-types">Issue
+226: [mgis-function] make assign_value extensible to support external
+types</a></li>
+<li><a href="#issue-220-mgis-function-add-support-for-nvcc"
+id="toc-issue-220-mgis-function-add-support-for-nvcc">Issue 220:
+[mgis-function] Add support for <code>nvcc</code></a></li>
 <li><a
 href="#issue-210-documentation-deployment-of-the-doxygen-documentation"
 id="toc-issue-210-documentation-deployment-of-the-doxygen-documentation">Issue
@@ -292,6 +315,11 @@ href="#issue-200-create-environment-file-in-the-installation-directory"
 id="toc-issue-200-create-environment-file-in-the-installation-directory">Issue
 200: Create environment file in the installation directory</a></li>
 <li><a
+href="#issue-199-mgis-function-add-support-for-tfelmaths-quantities"
+id="toc-issue-199-mgis-function-add-support-for-tfelmaths-quantities">Issue
+199: [mgis-function] add support for <code>TFEL/Math</code>’s
+quantities</a></li>
+<li><a
 href="#issue-196-mgisfunction-add-function-view-with-strided-coalesent-memory-access"
 id="toc-issue-196-mgisfunction-add-function-view-with-strided-coalesent-memory-access">Issue
 196: [MGIS/Function] Add function view with strided coalesent memory
@@ -306,6 +334,13 @@ id="toc-acknowledgements">Acknowledgements</a></li>
 </div>
 <p>This version is meant to be used with <code>TFEL</code> Version
 5.2.</p>
+<h1 id="known-incompatibilities">Known incompatibilities</h1>
+<ul>
+<li>Modifiers in <code>MGIS/Function</code> now creates a view from a
+temporary view rather than an evaluator. See below for details. In
+practice, most views are also evaluators, so this shall not impact
+existing user code.</li>
+</ul>
 <h1 id="documentation">Documentation</h1>
 <h2 id="new-cmake-options">New <code>cmake</code> options</h2>
 <h3 id="support-for-cuda-in-mgisfunction">Support for <code>CUDA</code>
@@ -409,6 +444,20 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#c
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                         MaterialStateManager<span class="op">::</span>UPDATE<span class="op">);</span></span></code></pre></div>
 <h1 id="new-features-of-the-mgisfunction-library">New features of the
 <code>MGIS/Function</code> library</h1>
+<h2 id="support-for-quantities">Support for quantities</h2>
+<p>Quantities is features of the <a
+href="https://thelfer.github.io/tfel/web/tfel-math.html#sec:tfel_math:quantities">TFEL/Math
+library</a> which allows assigning an unit to a floating point
+number.</p>
+<p><code>MGIS/Function</code> provides <code>as_qt</code> to turn a
+function into a view returning quantities. Tensor modifiers, such as
+<code>as_stensor</code> now allows to specify a quantity as an optional
+argument.</p>
+<h3 id="example-of-usage-1">Example of usage</h3>
+<p>~~<del>{.c++} // make a view of a scalar function which returns a
+stress value auto s = f | as_qt<stress>; // make a view of the function
+return a symmetric tensor in 2D whose values are stress auto s = f2 |
+as_stensor&lt;2u, stress&gt;;</del>~~</p>
 <h2 id="functions-using-a-strided-memory-access">Functions using a
 strided memory access</h2>
 <p>The following classes have been introduced:</p>
@@ -425,7 +474,7 @@ using the following scheme:</p>
 +-------++-------++------++-------+----+-------++------++------++-------+
 | Elt 1 || Elt 2 || .... || Elt N |....| Elt 1 ||Elt 2 || .... || Elt N |
 +-------++-------++------++-------+----+-------++------++------++-------+</code></pre>
-<h4 id="example-of-usage-1">Example of usage</h4>
+<h4 id="example-of-usage-2">Example of usage</h4>
 <div class="sourceCode" id="cb6"><pre
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> ne <span class="op">=</span> <span class="dt">size_type</span><span class="op">{</span><span class="dv">2</span><span class="op">};</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> space <span class="op">=</span> BasicLinearSpace<span class="op">{</span>ne<span class="op">};</span></span>
@@ -441,7 +490,7 @@ id="stridedcoalescedmemoryaccesscompositetensorsview"><code>StridedCoalescedMemo
 <p><code>StridedCoalescedMemoryAccessCompositeTensorsView</code> allows
 retrieving scalar or tensorial objects which are stored in a non
 interleaved manner.</p>
-<h4 id="example-of-usage-2">Example of usage</h4>
+<h4 id="example-of-usage-3">Example of usage</h4>
 <div class="sourceCode" id="cb7"><pre
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> CompositeFunctionView <span class="op">=</span> </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    StridedCoalescedMemoryAccessCompositeTensorsView<span class="op">&lt;</span>BasicLinearSpace<span class="op">,</span> <span class="dv">4</span><span class="op">,</span></span>
@@ -454,9 +503,48 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb7-1"><a href="#c
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">// e1 = {1, 2, 3, 4}</span></span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> e2 <span class="op">=</span> f<span class="op">.</span>get<span class="op">&lt;</span><span class="dv">0</span><span class="op">,</span> tfel<span class="op">::</span>math<span class="op">::</span>stensor<span class="op">&lt;</span><span class="dv">2</span><span class="op">,</span> real<span class="op">&gt;&gt;(</span><span class="dv">1</span><span class="op">);</span></span>
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">// e2 = {10, 20, 30, 40}</span></span></code></pre></div>
+<h2 id="allow-modifiers-to-handle-temporary-views">Allow modifiers to
+handle temporary views</h2>
+<p>In Version 3.1, passing a temporary view to a modifier would create
+an evaluator. This behaviour was due to the fact that:</p>
+<ul>
+<li>modifier could not operate on temporary functions (i.e. could not
+operator on an <code>rvalue</code> in <code>C++</code>’s precise
+wording)</li>
+<li>immutable views generally also matches the
+<code>EvaluatorConcept</code>, and modifiers were authorized to operate
+on temporary evaluators</li>
+</ul>
+<p>In Version 3.2, modifiers are now allowed to operate on temporary
+views. This following code now generates a view rather than an
+evaluator:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">// creating an array view from an rvalue.</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> v <span class="op">=</span> f<span class="op">.</span>view<span class="op">()</span> <span class="op">|</span> as_array<span class="op">&lt;</span><span class="dv">2</span><span class="op">&gt;;</span></span></code></pre></div>
+<p>In comparison, to achieve the same behaviour in Version 3.1, creation
+of an intermediate variable was required, as follows:</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">// creating an array view in Version 3.1:</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> f_view <span class="op">=</span> f<span class="op">.</span>view<span class="op">();</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> v <span class="op">=</span> f_view <span class="op">|</span> as_array<span class="op">&lt;</span><span class="dv">2</span><span class="op">&gt;;</span></span></code></pre></div>
 <h1 id="issues-fixed">Issues fixed</h1>
-<h2 id="issue-220-mgis-functions-add-support-for-nvcc">Issue 220:
-[mgis-functions] Add support for <code>nvcc</code></h2>
+<h2
+id="issue-227-mgis-function-allow-modifiers-and-views-to-take-lightweigh-functions-views-by-copy-i.e.-alleviate-restrictions-that-views-and-modifiers-cant-operate-on-temporaries">Issue
+227: [mgis-function] allow modifiers and views to take lightweigh
+functions views by copy, i.e. alleviate restrictions that views and
+modifiers can’t operate on temporaries</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/227"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/227</a></p>
+<h2
+id="issue-226-mgis-function-make-assign_value-extensible-to-support-external-types">Issue
+226: [mgis-function] make assign_value extensible to support external
+types</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/226"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/226</a></p>
+<h2 id="issue-220-mgis-function-add-support-for-nvcc">Issue 220:
+[mgis-function] Add support for <code>nvcc</code></h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/220"
 class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/220</a></p>
@@ -487,6 +575,13 @@ id="issue-200-create-environment-file-in-the-installation-directory">Issue
 <p>For more details, see <a
 href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/200"
 class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/200</a></p>
+<h2
+id="issue-199-mgis-function-add-support-for-tfelmaths-quantities">Issue
+199: [mgis-function] add support for <code>TFEL/Math</code>’s
+quantities</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/199"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/199</a></p>
 <h2
 id="issue-196-mgisfunction-add-function-view-with-strided-coalesent-memory-access">Issue
 196: [MGIS/Function] Add function view with strided coalesent memory

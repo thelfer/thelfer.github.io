@@ -89,7 +89,7 @@
     <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-        <header>
+    <header>
       <ul id="nav">
 	<li><a href="news.html">News</a></li>
 	<li><a href="index.html">Overview</a>
@@ -137,6 +137,7 @@
 		    <li><a href="release-notes-3.0.15.html">Version 3.0.15</a></li>
 		    <li><a href="release-notes-3.0.16.html">Version 3.0.16</a></li>
 		    <li><a href="release-notes-3.0.17.html">Version 3.0.17</a></li>
+		    <li><a href="release-notes-3.0.18.html">Version 3.0.18</a></li>
 		  </ul>
 		</li>
 		<li><a>Versions 3.1.x</a>
@@ -261,7 +262,7 @@
 		</li>
 		<li><a>Versions 5.2.x</a>
 		  <ul>
-		    <li><a href="release-notes-5.1.html">Version 5.2.0</a></li>
+		    <li><a href="release-notes-5.2.html">Version 5.2.0</a></li>
 		  </ul>
 		</li>
 	      </ul>
@@ -282,7 +283,7 @@
 		<li><a href="benchmark.html">Benchmark</a></li>
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
-                 <li><a href="behaviour-variable.html">behaviour variables</a></li>
+                 <li><a href="behaviour-variable.html">Behaviour variables</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -539,7 +540,7 @@ behaviour integration.</li>
 <li>Automatic support for plane stress and generalized plane stress
 modelling hypotheses (The axial strain is defined as an additional state
 variable and the associated equation in the implicit system is added to
-enforce the plane stess condition).</li>
+enforce the plane stress condition).</li>
 <li>Automatic addition of the standard terms associated with the elastic
 strain state variable.</li>
 </ul>
@@ -618,7 +619,7 @@ inelastic flow</h3>
 \frac{\displaystyle \partial g}{\displaystyle \partial
 \underline{\sigma}}}}
 \]</span></p>
-<p>The plastic multiplier satifies the Kuhn-Tucker relation: <span
+<p>The plastic multiplier satisfies the Kuhn-Tucker relation: <span
 class="math display">\[
 \left\{
 \begin{aligned}
@@ -781,7 +782,7 @@ will look if an option named <code>A</code> has been given to the
 flow:</p>
 <ul>
 <li>If this option exists, it will be interpreted as a material
-coefficient as usal and this option can be a number, a formula or the
+coefficient as usual and this option can be a number, a formula or the
 name of an external <code>MFront</code> file.</li>
 <li>If this option does not exist, a suitable variable will be search in
 the variables defined in the behaviour (static variables, parameters,
@@ -1144,7 +1145,7 @@ restrictions apply:</p>
 the <code>Tridimensional</code> and <code>PlaneStress</code> modelling
 hypotheses are supported.</li>
 <li>if the <code>Pipe</code> orthotropic axis convention is used, only
-theI <code>Tridimensional</code>, <code>Axisymmetrical</code>,
+their <code>Tridimensional</code>, <code>Axisymmetrical</code>,
 <code>AxisymmetricalGeneralisedPlainStrain</code>, and
 <code>AxisymmetricalGeneralisedPlainStres</code> modelling hypotheses
 are supported.</li>
@@ -1367,7 +1368,7 @@ class="header-section-number">2.5</span> List of available isotropic
 hardening rules</h2>
 <blockquote>
 <p><strong>Note</strong></p>
-<p>The follwing hardening rules can be combined to define more complex
+<p>The following hardening rules can be combined to define more complex
 hardening rules. For example, the following code adds to Voce
 hardening:</p>
 <div class="sourceCode" id="cb15"><pre
@@ -1501,7 +1502,7 @@ variables. Let <code>A</code> be such a variable. The
 named <code>A</code> has been given:</p>
 <ul>
 <li>If this option exists, it will be interpreted as a material
-coefficient as usal and this option can be a number, a formula or the
+coefficient as usual and this option can be a number, a formula or the
 name of an external <code>MFront</code> file.</li>
 <li>If this option does not exist, a suitable variable will be search in
 the variables defined in the behaviour (static variables, parameters,
@@ -1541,8 +1542,8 @@ pairs of equivalent strain and equivalent stress.</p>
 <p>This isotropic hardening rule can be parametrised using three
 entries:</p>
 <ul>
-<li><code>values</code>: which must a dictionnary giving the value of
-the yield surface radius as a function of the equivalent plastic
+<li><code>values</code>: which must a dictionary giving the value of the
+yield surface radius as a function of the equivalent plastic
 strain.</li>
 <li><code>interpolation</code>: which allows to select the interpolation
 type. Possible values are <code>linear</code> (default choice) and
@@ -1577,8 +1578,8 @@ R_{0}{\left(p\right)}\,R_{rs}{\left(\dot{p}\right)},
 <p>where:</p>
 <ul>
 <li><span class="math inline">\(R_{0}{\left(p\right)}\)</span> is the
-yield radius corresponding to an infinitly slow loading. It can be built
-by summing any isotropic hardening rule already implemented in the
+yield radius corresponding to an infinitely slow loading. It can be
+built by summing any isotropic hardening rule already implemented in the
 `StandardElastoViscoPlasticity brick.</li>
 <li><span class="math inline">\(R_{rs}{\left(\dot{p}\right)}\)</span> is
 a correction describing the strain rate sensitivity. <span
@@ -1593,9 +1594,9 @@ introduces a contribution to <span
 class="math inline">\(R_{0}{\left(p\right)}\)</span>. This option can be
 repeated multiple times.</li>
 <li><code>rate_sensitivity_factor</code>: this option introduces the
-rate sensivity factor <span
+rate sensitivity factor <span
 class="math inline">\(R_{rs}{\left(\dot{p}\right)}\)</span>. The list of
-available rate sensivity factors is given in section 2.5.7.2.</li>
+available rate sensitivity factors is given in section 2.5.7.2.</li>
 </ul>
 <h4 data-number="2.5.7.1" id="example-of-usage-5"><span
 class="header-section-number">2.5.7.1</span> Example of usage</h4>

@@ -1,7 +1,5 @@
 var NAVTREEINDEX6 =
 {
-"structmgis_1_1function_1_1_coalesced_memory_access_function_view_base.html#a8dfb1d4fc8288346501337a0a1a643c6":[3,0,1,3,12,6],
-"structmgis_1_1function_1_1_coalesced_memory_access_function_view_base.html#aac23f957572e72befe3a5a7e38adedd1":[3,0,1,3,12,3],
 "structmgis_1_1function_1_1_coalesced_memory_access_function_view_base.html#ab0418a0739c67ead3147bea9f667f954":[3,0,1,3,12,13],
 "structmgis_1_1function_1_1_coalesced_memory_access_function_view_base.html#ab83e3d09f0d52cffbfd3b87f5c607eda":[3,0,1,3,12,10],
 "structmgis_1_1function_1_1_coalesced_memory_access_function_view_base.html#ad02bf127efdbe47a16988d1b07be0ece":[3,0,1,3,12,12],
@@ -249,5 +247,7 @@ var NAVTREEINDEX6 =
 "structmgis_1_1function_1_1customization__points_1_1_minimum_component_3_01real_01_4.html":[3,0,1,3,0,13],
 "structmgis_1_1function_1_1customization__points_1_1_minimum_component_3_01std_1_1array_3_01real_00_01_n_01_4_01_4.html":[3,0,1,3,0,14],
 "structmgis_1_1function_1_1customization__points_1_1_minimum_component_3_01std_1_1span_3_01const_01real_00_01_n_01_4_01_4.html":[3,0,1,3,0,15],
-"structmgis_1_1function_1_1customization__points_1_1_minimum_component_3_01tfel_1_1math_1_1_view_b80741af4806089a2b3b63f445aea5ed.html":[3,0,1,3,0,17]
+"structmgis_1_1function_1_1customization__points_1_1_minimum_component_3_01tfel_1_1math_1_1_view_b80741af4806089a2b3b63f445aea5ed.html":[3,0,1,3,0,17],
+"structmgis_1_1function_1_1internals_1_1_absolute_value_operator.html":[3,0,1,3,1,0],
+"structmgis_1_1function_1_1internals_1_1_binary_operation_modifier_base.html":[3,0,1,3,1,3]
 };

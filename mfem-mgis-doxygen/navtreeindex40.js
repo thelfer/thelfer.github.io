@@ -1,17 +1,5 @@
 var NAVTREEINDEX40 =
 {
-"structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html":[5,0,11,0,19],
-"structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#a36be4326a318d489260888c19f5e4b4b":[5,0,11,0,19,6],
-"structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#a531232d9404150bcaccb85ce6697c280":[5,0,11,0,19,9],
-"structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#a55ccbbf1473d836d277f898a25d10768":[5,0,11,0,19,10],
-"structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#a69cc6dc3e5ab85f82d841527b394b143":[5,0,11,0,19,8],
-"structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#a6a1fd2d403111b03c0c22f4fe9e6776d":[5,0,11,0,19,1],
-"structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#a6f8d51986d4eeb22ca58a2957cd106b5":[5,0,11,0,19,4],
-"structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#a8dd874386589572af7c2669d0b557107":[5,0,11,0,19,3],
-"structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#a9ae6982fe1d958c8c38297edce72d52a":[5,0,11,0,19,11],
-"structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#aa125f8edec73145d28782757886156d1":[5,0,11,0,19,0],
-"structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#ab2b5c525a24f3248968cb2ed9d185854":[5,0,11,0,19,7],
-"structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#ab42b72e3413033f28fa8e618dffc19dd":[5,0,11,0,19,2],
 "structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#ae403a6b9b8f95c598181e0ee234461c8":[5,0,11,0,19,5],
 "structmfront_1_1bbrick_1_1_hyperbolic_sine_viscoplastic_flow.html":[5,0,11,0,20],
 "structmfront_1_1bbrick_1_1_hyperbolic_sine_viscoplastic_flow.html#a196ddb3684a3e238aeba83ad0a54dfa3":[5,0,11,0,20,6],
@@ -249,5 +237,17 @@ var NAVTREEINDEX40 =
 "structmfront_1_1bbrick_1_1_porosity_nucleation_model_base.html#a076bc46f015e47e3ce5c964402725d30":[5,0,11,0,38,7],
 "structmfront_1_1bbrick_1_1_porosity_nucleation_model_base.html#a1dd62100cd477bfc9c8ee2edb14dda28":[5,0,11,0,38,3],
 "structmfront_1_1bbrick_1_1_porosity_nucleation_model_base.html#a270000871b214369faf1dc9c35ceffcb":[5,0,11,0,38,8],
-"structmfront_1_1bbrick_1_1_porosity_nucleation_model_base.html#a600a9211c3bd399d58597679deb25fe8":[5,0,11,0,38,5]
+"structmfront_1_1bbrick_1_1_porosity_nucleation_model_base.html#a600a9211c3bd399d58597679deb25fe8":[5,0,11,0,38,5],
+"structmfront_1_1bbrick_1_1_porosity_nucleation_model_base.html#a69a5cfe759413f000b0fde83be08882b":[5,0,11,0,38,9],
+"structmfront_1_1bbrick_1_1_porosity_nucleation_model_base.html#a76074bf324317a9ee1c71019566bffaf":[5,0,11,0,38,1],
+"structmfront_1_1bbrick_1_1_porosity_nucleation_model_base.html#aa1e5f7de434b017e354d81813b3f4592":[5,0,11,0,38,6],
+"structmfront_1_1bbrick_1_1_porosity_nucleation_model_base.html#aa860e14647f374a30c921ab7903a4822":[5,0,11,0,38,10],
+"structmfront_1_1bbrick_1_1_porosity_nucleation_model_base.html#ac124df6c516c2964bf24acce391ecc8f":[5,0,11,0,38,4],
+"structmfront_1_1bbrick_1_1_porosity_nucleation_model_base.html#aef94e859953cbb9826342fc97ddf1ddb":[5,0,11,0,38,2],
+"structmfront_1_1bbrick_1_1_porosity_nucleation_model_base_1_1_material_coefficient_description.html":[5,0,11,0,38,0],
+"structmfront_1_1bbrick_1_1_porosity_nucleation_model_base_1_1_material_coefficient_description.html#a8b99f81789d5630dc71e2705c664095e":[5,0,11,0,38,0,1],
+"structmfront_1_1bbrick_1_1_porosity_nucleation_model_base_1_1_material_coefficient_description.html#a8c2aa6988d7419b118cb87a06f811414":[5,0,11,0,38,0,2],
+"structmfront_1_1bbrick_1_1_porosity_nucleation_model_base_1_1_material_coefficient_description.html#acf6b1bf4f03db7ad35312dabff3f9b9b":[5,0,11,0,38,0,0],
+"structmfront_1_1bbrick_1_1_porosity_nucleation_model_factory.html":[5,0,11,0,39],
+"structmfront_1_1bbrick_1_1_porosity_nucleation_model_factory.html#a28997dc2fcbccfb7de8fe963e2477c29":[5,0,11,0,39,3]
 };

@@ -1,17 +1,5 @@
 var NAVTREEINDEX41 =
 {
-"structmfront_1_1bbrick_1_1_porosity_nucleation_model_base.html#a69a5cfe759413f000b0fde83be08882b":[5,0,11,0,38,9],
-"structmfront_1_1bbrick_1_1_porosity_nucleation_model_base.html#a76074bf324317a9ee1c71019566bffaf":[5,0,11,0,38,1],
-"structmfront_1_1bbrick_1_1_porosity_nucleation_model_base.html#aa1e5f7de434b017e354d81813b3f4592":[5,0,11,0,38,6],
-"structmfront_1_1bbrick_1_1_porosity_nucleation_model_base.html#aa860e14647f374a30c921ab7903a4822":[5,0,11,0,38,10],
-"structmfront_1_1bbrick_1_1_porosity_nucleation_model_base.html#ac124df6c516c2964bf24acce391ecc8f":[5,0,11,0,38,4],
-"structmfront_1_1bbrick_1_1_porosity_nucleation_model_base.html#aef94e859953cbb9826342fc97ddf1ddb":[5,0,11,0,38,2],
-"structmfront_1_1bbrick_1_1_porosity_nucleation_model_base_1_1_material_coefficient_description.html":[5,0,11,0,38,0],
-"structmfront_1_1bbrick_1_1_porosity_nucleation_model_base_1_1_material_coefficient_description.html#a8b99f81789d5630dc71e2705c664095e":[5,0,11,0,38,0,1],
-"structmfront_1_1bbrick_1_1_porosity_nucleation_model_base_1_1_material_coefficient_description.html#a8c2aa6988d7419b118cb87a06f811414":[5,0,11,0,38,0,2],
-"structmfront_1_1bbrick_1_1_porosity_nucleation_model_base_1_1_material_coefficient_description.html#acf6b1bf4f03db7ad35312dabff3f9b9b":[5,0,11,0,38,0,0],
-"structmfront_1_1bbrick_1_1_porosity_nucleation_model_factory.html":[5,0,11,0,39],
-"structmfront_1_1bbrick_1_1_porosity_nucleation_model_factory.html#a28997dc2fcbccfb7de8fe963e2477c29":[5,0,11,0,39,3],
 "structmfront_1_1bbrick_1_1_porosity_nucleation_model_factory.html#a74d5bca4c82b8c92e9f0fa36fde3d0f0":[5,0,11,0,39,1],
 "structmfront_1_1bbrick_1_1_porosity_nucleation_model_factory.html#ac4889359b1326f05f59f6f49d532d11e":[5,0,11,0,39,2],
 "structmfront_1_1bbrick_1_1_porosity_nucleation_model_factory.html#adfcdb4dd5145b7ab1fa3608416e256e1":[5,0,11,0,39,0],
@@ -249,5 +237,17 @@ var NAVTREEINDEX41 =
 "structmfront_1_1gb_1_1_orthotropic_elastic_material_properties_number_3_012u_01_4.html":[5,0,11,1,9],
 "structmfront_1_1gb_1_1_orthotropic_elastic_material_properties_number_3_013u_01_4.html":[5,0,11,1,10],
 "structmfront_1_1gb_1_1_thermal_expansion_coefficient_properties_number.html":[5,0,11,1,11],
-"structmfront_1_1gb_1_1_thermal_expansion_coefficient_properties_number_3_01false_01_4.html":[5,0,11,1,12]
+"structmfront_1_1gb_1_1_thermal_expansion_coefficient_properties_number_3_01false_01_4.html":[5,0,11,1,12],
+"structmfront_1_1gb_1_1_thermal_expansion_coefficient_properties_number_3_01true_01_4.html":[5,0,11,1,13],
+"structmfront_1_1gb_1_1_thermo_elastic_material_properties_number.html":[5,0,11,1,14],
+"structmfront_1_1gb_1_1_thermo_elastic_material_properties_number_3_01_h_00_01false_00_01es_00_01false_00_01bs_01_4.html":[5,0,11,1,15],
+"structmfront_1_1gb_1_1_thermo_elastic_material_properties_number_3_01_h_00_01false_00_01es_00_01true_00_01bs_01_4.html":[5,0,11,1,16],
+"structmfront_1_1gb_1_1_thermo_elastic_material_properties_number_3_01_h_00_01true_00_01es_00_01false_00_01bs_01_4.html":[5,0,11,1,17],
+"structmfront_1_1gb_1_1_thermo_elastic_material_properties_number_3_01_h_00_01true_00_01es_00_01true_00_01bs_01_4.html":[5,0,11,1,18],
+"structmfront_1_1generic__parallel_1_1material__property_1_1_abstract_backend.html":[5,0,11,2,0,0],
+"structmfront_1_1generic__parallel_1_1material__property_1_1_abstract_backend.html#a04fa7e6075820d1daf5f60efb0b13e7b":[5,0,11,2,0,0,9],
+"structmfront_1_1generic__parallel_1_1material__property_1_1_abstract_backend.html#a1a4c5ea0fc10fbe63baf936ba9931656":[5,0,11,2,0,0,5],
+"structmfront_1_1generic__parallel_1_1material__property_1_1_abstract_backend.html#a397b054d492befb9c7558d861c866e4b":[5,0,11,2,0,0,2],
+"structmfront_1_1generic__parallel_1_1material__property_1_1_abstract_backend.html#a3ca28f921411535eca1ca454e73535df":[5,0,11,2,0,0,6],
+"structmfront_1_1generic__parallel_1_1material__property_1_1_abstract_backend.html#a51c959c03bf8191e073caa736516084d":[5,0,11,2,0,0,11]
 };

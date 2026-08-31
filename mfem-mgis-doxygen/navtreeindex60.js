@@ -1,17 +1,5 @@
 var NAVTREEINDEX60 =
 {
-"structtfel_1_1math_1_1_unary_result_type_3_01vector_3_01_t_01_4_00_01_op_neg_01_4.html":[5,0,16,5,643],
-"structtfel_1_1math_1_1_vector_concept_base.html":[5,0,16,5,645],
-"structtfel_1_1math_1_1_vector_dot_product_handle.html":[5,0,16,5,646],
-"structtfel_1_1math_1_1_vector_dot_product_handle_3_01tvector_3_01_n_00_01_t_01_4_00_01tvector_3_01_n_00_01_t2_01_4_01_4.html":[5,0,16,5,647],
-"structtfel_1_1math_1_1_vector_tag.html":[5,0,16,5,649],
-"structtfel_1_1math_1_1_vector_vector_dot_product.html":[5,0,16,5,650],
-"structtfel_1_1math_1_1_view.html":[5,0,16,5,651],
-"structtfel_1_1math_1_1_view.html#a05cbe7c3d87df9134180566f42092dd6":[5,0,16,5,651,0],
-"structtfel_1_1math_1_1_view.html#a0f9ed54de3ed1eb5aa91ee765bdaa40c":[5,0,16,5,651,2],
-"structtfel_1_1math_1_1_view.html#a1de1a6e8c2b7aab03d9644a1ba590979":[5,0,16,5,651,12],
-"structtfel_1_1math_1_1_view.html#a2b84d58cc939ed9ec2c4ff9074d65fd9":[5,0,16,5,651,10],
-"structtfel_1_1math_1_1_view.html#a32cf30b2d11cabc307299b6e72420c22":[5,0,16,5,651,9],
 "structtfel_1_1math_1_1_view.html#a365ef8fc9dff051dd7bdad17b572e973":[5,0,16,5,651,8],
 "structtfel_1_1math_1_1_view.html#a7100f400fb10210844bbcf4111fd1e09":[5,0,16,5,651,3],
 "structtfel_1_1math_1_1_view.html#a8643d2764bcd8fa54d7e3c2c151cb12f":[5,0,16,5,651,11],
@@ -249,5 +237,17 @@ var NAVTREEINDEX60 =
 "structtfel_1_1math_1_1internals_1_1_stensor_compute_isotropic_function_derivative.html":[5,0,16,5,1,105],
 "structtfel_1_1math_1_1internals_1_1_stensor_compute_isotropic_function_derivative_3_011u_01_4.html":[5,0,16,5,1,106],
 "structtfel_1_1math_1_1internals_1_1_stensor_compute_isotropic_function_derivative_3_012u_01_4.html":[5,0,16,5,1,107],
-"structtfel_1_1math_1_1internals_1_1_stensor_compute_isotropic_function_derivative_3_013u_01_4.html":[5,0,16,5,1,108]
+"structtfel_1_1math_1_1internals_1_1_stensor_compute_isotropic_function_derivative_3_013u_01_4.html":[5,0,16,5,1,108],
+"structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver.html":[5,0,16,5,1,109],
+"structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver.html#aedacabdc7f78be924a7af70b6fdcffde":[5,0,16,5,1,109,0],
+"structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver_3_01stensor__common_1_1_f_s_e_s_a_n_a_l77382d9afd34dbdef14c3c2d0c6c5994.html":[5,0,16,5,1,110],
+"structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver_3_01stensor__common_1_1_f_s_e_s_a_n_a_l77382d9afd34dbdef14c3c2d0c6c5994.html#a0d69291e809979f9217ffb4d6189392e":[5,0,16,5,1,110,0],
+"structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver_3_01stensor__common_1_1_f_s_e_s_a_n_a_lac6bf28d7baa9aabec70e78762e58e64.html":[5,0,16,5,1,111],
+"structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver_3_01stensor__common_1_1_f_s_e_s_a_n_a_lac6bf28d7baa9aabec70e78762e58e64.html#ae2f39b87e5e39c23d11be28cfdd43705":[5,0,16,5,1,111,0],
+"structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver_3_01stensor__common_1_1_f_s_e_s_c_u_p_pcf9b8ef75a4b61c029c79c20057d14e5.html":[5,0,16,5,1,112],
+"structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver_3_01stensor__common_1_1_f_s_e_s_c_u_p_pfb3e271f9f0c1efc9bd1cd27e14d327e.html":[5,0,16,5,1,113],
+"structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver_3_01stensor__common_1_1_f_s_e_s_c_u_p_pfb3e271f9f0c1efc9bd1cd27e14d327e.html#a9581fc8e5e33e84cca147f2f48dd5a45":[5,0,16,5,1,113,0],
+"structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver_3_01stensor__common_1_1_f_s_e_s_h_y_b_r8d41861b0ea58dfe2634a796594ba478.html":[5,0,16,5,1,115],
+"structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver_3_01stensor__common_1_1_f_s_e_s_h_y_b_r8d41861b0ea58dfe2634a796594ba478.html#a8743c27e24762a58850317532e890eed":[5,0,16,5,1,115,0],
+"structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver_3_01stensor__common_1_1_f_s_e_s_h_y_b_rc7deaacbfb2bb8af796433073880721a.html":[5,0,16,5,1,114]
 };

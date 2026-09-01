@@ -1,5 +1,8 @@
 var NAVTREEINDEX7 =
 {
+"structmgis_1_1function_1_1customization__points_1_1_minimum_component_3_01tfel_1_1math_1_1_view_b80741af4806089a2b3b63f445aea5ed.html":[3,0,1,3,0,17],
+"structmgis_1_1function_1_1internals_1_1_absolute_value_operator.html":[3,0,1,3,1,0],
+"structmgis_1_1function_1_1internals_1_1_binary_operation_modifier_base.html":[3,0,1,3,1,3],
 "structmgis_1_1function_1_1internals_1_1_binary_operator_currying.html":[3,0,1,3,1,4],
 "structmgis_1_1function_1_1internals_1_1_binary_operator_currying.html#a7a6a00e0a75b2f6218cb3b4f0063bda5":[3,0,1,3,1,4,0],
 "structmgis_1_1function_1_1internals_1_1_binary_operator_currying2.html":[3,0,1,3,1,5],

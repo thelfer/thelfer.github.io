@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['make_5fshared_0',['make_shared',['../namespacemgis.html#a673d5957aa6ec47342f297a5fe35aafe',1,'mgis']]],
-  ['make_5fshared_5fas_1',['make_shared_as',['../namespacemgis.html#aaaffef08f98cf535633d0877420421a9',1,'mgis']]],
-  ['make_5funique_2',['make_unique',['../namespacemgis.html#a2f54a86e03d7161c1499933f0d027246',1,'mgis']]],
-  ['make_5funique_5fas_3',['make_unique_as',['../namespacemgis.html#a1035c49c6879c03fea24d555ae88eb37',1,'mgis']]],
+  ['make_5fshared_0',['make_shared',['../namespacemgis.html#a39a3ee38157b7af42c2f3bb656c63e53',1,'mgis']]],
+  ['make_5fshared_5fas_1',['make_shared_as',['../namespacemgis.html#a9a55cfcc3ed09a79e5e7616d65e5aeed',1,'mgis']]],
+  ['make_5funique_2',['make_unique',['../namespacemgis.html#ac3dfb693fec982f6f9d7bca07782574a',1,'mgis']]],
+  ['make_5funique_5fas_3',['make_unique_as',['../namespacemgis.html#a95d120f694f0b9e6ea0826366c34c630',1,'mgis']]],
   ['make_5fview_4',['make_view',['../_behaviour_data_8hxx.html#ac15f058a080017b7398d24895ae1fff1',1,'mgis::behaviour::make_view()'],['../_function_concept_8hxx.html#ab1629b408275e176e18d2f229fca71a4',1,'mgis::function::make_view()'],['../_state_8hxx.html#a90a49ad53297f1ac722f58c7a27a3c9e',1,'mgis::behaviour::make_view(const State &amp;)'],['../_state_8hxx.html#a9c5172309aca1570484d0c854c573eba',1,'mgis::behaviour::make_view(State &amp;)']]],
   ['markdown_2ehxx_5',['Markdown.hxx',['../_markdown_8hxx.html',1,'']]],
   ['mass_5fdensity_6',['mass_density',['../structmgis__bv___state_view.html#af3e7bbf894bda3284f6f797245f0145f',1,'mgis_bv_StateView::mass_density'],['../structmgis__bv___initial_state_view.html#a0301a1a3f79f719b95d78ef94ec6b767',1,'mgis_bv_InitialStateView::mass_density'],['../structmgis_1_1behaviour_1_1_material_state_manager.html#acb690a259359fce91c7975a738492d84',1,'mgis::behaviour::MaterialStateManager::mass_density']]],

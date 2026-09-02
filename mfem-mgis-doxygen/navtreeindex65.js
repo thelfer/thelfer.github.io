@@ -1,5 +1,13 @@
 var NAVTREEINDEX65 =
 {
+"structtfel_1_1typetraits_1_1_is_assignable_to_3_01_math_object_00_01tfel_1_1math_1_1_coalesced_vcefbceb19857cc3fa92dd1f3d652b031.html":[5,0,16,9,8],
+"structtfel_1_1typetraits_1_1_is_assignable_to_3_01_math_object_00_01tfel_1_1math_1_1_view_3_01_md0266b3485fe6ba56cf4c6589c821b29.html":[5,0,16,9,9],
+"structtfel_1_1typetraits_1_1_is_assignable_to_3_01_quantity_type1_00_01_quantity_type2_01_4.html":[5,0,16,9,11],
+"structtfel_1_1typetraits_1_1_is_assignable_to_3_01_quantity_type_00_01_scalar_type_01_4.html":[5,0,16,9,10],
+"structtfel_1_1typetraits_1_1_is_assignable_to_3_01_scalar_type_00_01_quantity_type_01_4.html":[5,0,16,9,12],
+"structtfel_1_1typetraits_1_1_is_assignable_to_3_01_t1_00_01cadna_1_1numeric__type_3_01_t2_01_4_01_4.html":[5,0,16,9,13],
+"structtfel_1_1typetraits_1_1_is_assignable_to_3_01cadna_1_1numeric__type_3_01_t1_01_4_00_01cadna00080c0aa566ae1242c1236099e0c74b.html":[5,0,16,9,7],
+"structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1_coalesced_view_base_3_01_math4ad81ce017d8ad0d08733a3d4f513dbd.html":[5,0,16,9,14],
 "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1_coalesced_view_base_3_01_mathb5c6ce3185391dbba214237b5c4df4cb.html":[5,0,16,9,15],
 "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1_cubic_spline_collocation_poin46974f192869bf19e684fe2b85e73dc1.html":[5,0,16,9,16],
 "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1_expr_3_01_evaluation_result_04d8b79c58df94ab3a79a72ec0413bb69.html":[5,0,16,9,19],
@@ -241,13 +249,5 @@ var NAVTREEINDEX65 =
 "structtfel_1_1utilities_1_1_cxx_tokenizer_options.html#aa61272d247ee9ad8b70ff8f20b4c3df8":[5,0,16,11,8,1],
 "structtfel_1_1utilities_1_1_cxx_tokenizer_options.html#ac2f5f0ba9495444c5948e8b72ad80349":[5,0,16,11,8,15],
 "structtfel_1_1utilities_1_1_cxx_tokenizer_options.html#accb801a99bd5f777c72ef491b5a649ae":[5,0,16,11,8,14],
-"structtfel_1_1utilities_1_1_cxx_tokenizer_options.html#ad71d6fd0a290b81b2b03835a5f0b3965":[5,0,16,11,8,20],
-"structtfel_1_1utilities_1_1_cxx_tokenizer_options.html#ad8c636cf6918d1dd6a28e3f4f397f12f":[5,0,16,11,8,19],
-"structtfel_1_1utilities_1_1_cxx_tokenizer_options.html#adcffc7b25b2a9b7294a702189a523fd3":[5,0,16,11,8,2],
-"structtfel_1_1utilities_1_1_cxx_tokenizer_options.html#afcf6ba07cf5d60d68107c893ecbbed89":[5,0,16,11,8,18],
-"structtfel_1_1utilities_1_1_data.html":[5,0,16,11,9],
-"structtfel_1_1utilities_1_1_data.html#a0ac11ae085d21a6725aa5cd82e8a1357":[5,0,16,11,9,1],
-"structtfel_1_1utilities_1_1_data.html#a253f212d2c545138938c2d5ad423fdc9":[5,0,16,11,9,7],
-"structtfel_1_1utilities_1_1_data.html#a26993664765b93b17b401a7e0f137da6":[5,0,16,11,9,5],
-"structtfel_1_1utilities_1_1_data.html#a68d60b63a3a69fe34112032fd66f1ddf":[5,0,16,11,9,4]
+"structtfel_1_1utilities_1_1_cxx_tokenizer_options.html#ad71d6fd0a290b81b2b03835a5f0b3965":[5,0,16,11,8,20]
 };

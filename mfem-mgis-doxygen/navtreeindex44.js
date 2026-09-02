@@ -1,5 +1,13 @@
 var NAVTREEINDEX44 =
 {
+"structmgis_1_1function_1_1_binary_operation_evaluator_base.html#ac947662bea17c2b1e8edd93af8097d49":[5,0,12,2,4,6],
+"structmgis_1_1function_1_1_binary_operation_evaluator_base.html#ae237f22011814135d3ae37fa7b4fbae4":[5,0,12,2,4,3],
+"structmgis_1_1function_1_1_binary_operation_evaluator_base.html#aee9e92c08999bd207a33ad4912256789":[5,0,12,2,4,4],
+"structmgis_1_1function_1_1_binary_operation_evaluator_base.html#af34ff0536f8cb964657bae93b4bb88a1":[5,0,12,2,4,0],
+"structmgis_1_1function_1_1_binary_operation_evaluator_base.html#af39cba4b8968a7817ba0d303166bf6d5":[5,0,12,2,4,1],
+"structmgis_1_1function_1_1_binary_operation_evaluator_base.html#afe844d4e535cc8733411f8e414e9ec7c":[5,0,12,2,4,7],
+"structmgis_1_1function_1_1_binary_operation_modifier.html":[5,0,12,2,5],
+"structmgis_1_1function_1_1_binary_operation_modifier.html#a63bb2378e6d73f601bcb700d6962fddc":[5,0,12,2,5,1],
 "structmgis_1_1function_1_1_binary_operation_modifier.html#ae5fb1fd75a8d42b1c86ef61d1ae8e348":[5,0,12,2,5,0],
 "structmgis_1_1function_1_1_binary_operation_modifier2.html":[5,0,12,2,6],
 "structmgis_1_1function_1_1_binary_operation_modifier2.html#a9d90da79cd88cc1b1e5e660a91ddc598":[5,0,12,2,6,0],
@@ -241,13 +249,5 @@ var NAVTREEINDEX44 =
 "structmgis_1_1function_1_1customization__points_1_1_maximum_component_3_01_tensor_type_01_4.html":[5,0,12,2,0,10],
 "structmgis_1_1function_1_1customization__points_1_1_maximum_component_3_01real_01_4.html":[5,0,12,2,0,7],
 "structmgis_1_1function_1_1customization__points_1_1_maximum_component_3_01std_1_1array_3_01real_00_01_n_01_4_01_4.html":[5,0,12,2,0,8],
-"structmgis_1_1function_1_1customization__points_1_1_maximum_component_3_01std_1_1span_3_01const_01real_00_01_n_01_4_01_4.html":[5,0,12,2,0,9],
-"structmgis_1_1function_1_1customization__points_1_1_maximum_component_3_01tfel_1_1math_1_1_view_295d5db76c83edbe342d8755fb9a663b.html":[5,0,12,2,0,11],
-"structmgis_1_1function_1_1customization__points_1_1_minimum_component.html":[5,0,12,2,0,12],
-"structmgis_1_1function_1_1customization__points_1_1_minimum_component_3_01_tensor_type_01_4.html":[5,0,12,2,0,16],
-"structmgis_1_1function_1_1customization__points_1_1_minimum_component_3_01real_01_4.html":[5,0,12,2,0,13],
-"structmgis_1_1function_1_1customization__points_1_1_minimum_component_3_01std_1_1array_3_01real_00_01_n_01_4_01_4.html":[5,0,12,2,0,14],
-"structmgis_1_1function_1_1customization__points_1_1_minimum_component_3_01std_1_1span_3_01const_01real_00_01_n_01_4_01_4.html":[5,0,12,2,0,15],
-"structmgis_1_1function_1_1customization__points_1_1_minimum_component_3_01tfel_1_1math_1_1_view_b80741af4806089a2b3b63f445aea5ed.html":[5,0,12,2,0,17],
-"structmgis_1_1function_1_1internals_1_1_absolute_value_operator.html":[5,0,12,2,1,0]
+"structmgis_1_1function_1_1customization__points_1_1_maximum_component_3_01std_1_1span_3_01const_01real_00_01_n_01_4_01_4.html":[5,0,12,2,0,9]
 };

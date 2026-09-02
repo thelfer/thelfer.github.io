@@ -1,5 +1,8 @@
 var NAVTREEINDEX39 =
 {
+"structmfront_1_1_variable_description_base.html#afcdc516a5db71a77158c817765ee6a45":[5,0,11,123,8],
+"structmfront_1_1_variable_description_container.html":[5,0,11,124],
+"structmfront_1_1_variable_description_container.html#a0ae20cd2e5bc698921cf403c1aab6a81":[5,0,11,124,0],
 "structmfront_1_1_variable_description_container.html#a1d95a1395e99e7dfdd9d145f961633e9":[5,0,11,124,4],
 "structmfront_1_1_variable_description_container.html#a456bb0b81ae5b293c53442783e6daf07":[5,0,11,124,7],
 "structmfront_1_1_variable_description_container.html#a5415c54832e39f513ac09c261d95bc58":[5,0,11,124,5],
@@ -246,8 +249,5 @@ var NAVTREEINDEX39 =
 "structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#a6a1fd2d403111b03c0c22f4fe9e6776d":[5,0,11,0,19,1],
 "structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#a6f8d51986d4eeb22ca58a2957cd106b5":[5,0,11,0,19,4],
 "structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#a8dd874386589572af7c2669d0b557107":[5,0,11,0,19,3],
-"structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#a9ae6982fe1d958c8c38297edce72d52a":[5,0,11,0,19,11],
-"structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#aa125f8edec73145d28782757886156d1":[5,0,11,0,19,0],
-"structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#ab2b5c525a24f3248968cb2ed9d185854":[5,0,11,0,19,7],
-"structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#ab42b72e3413033f28fa8e618dffc19dd":[5,0,11,0,19,2]
+"structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#a9ae6982fe1d958c8c38297edce72d52a":[5,0,11,0,19,11]
 };

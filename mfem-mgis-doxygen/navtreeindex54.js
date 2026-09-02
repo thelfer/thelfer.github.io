@@ -1,5 +1,13 @@
 var NAVTREEINDEX54 =
 {
+"structtfel_1_1math_1_1_coalesced_view_base.html#ad696c2a2dffb568095c2dae5f7f227d8":[5,0,16,5,18,9],
+"structtfel_1_1math_1_1_coalesced_view_base.html#aebe257abd58cf0d4bf01d6ecc285e730":[5,0,16,5,18,1],
+"structtfel_1_1math_1_1_compute_binary_operation_handler.html":[5,0,16,5,19],
+"structtfel_1_1math_1_1_compute_binary_operation_handler.html#a031149d741e12ce0f54bcfbf758628ce":[5,0,16,5,19,0],
+"structtfel_1_1math_1_1_compute_binary_operation_handler.html#a8d629f520e3ff2e7ca08864f613eb186":[5,0,16,5,19,1],
+"structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_matrix_tag_00_01_matrix_tag_00_01_a404695a19cedd02b6c49b3c8e726f504.html":[5,0,16,5,24,0],
+"structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_matrix_tag_00_01_matrix_tag_00_01_a_00_01_b_00_01_op_mult_01_4.html":[5,0,16,5,24],
+"structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_matrix_tag_00_01_vector_tag_00_01_a_00_01_b_00_01_op_mult_01_4.html":[5,0,16,5,25],
 "structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_matrix_tag_00_01_vector_tag_00_01_aacd611d194eace726070c251dc266569.html":[5,0,16,5,25,0],
 "structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_scalar_tag_00_01_math_object_tag_00066dae1694a3ab9f1aed320e0b58701e.html":[5,0,16,5,26,0],
 "structtfel_1_1math_1_1_compute_binary_operation_handler_3_01_scalar_tag_00_01_math_object_tag_00b703abb03566e06b31c98c29770e7d11.html":[5,0,16,5,26],
@@ -241,13 +249,5 @@ var NAVTREEINDEX54 =
 "structtfel_1_1math_1_1_difference_random_access_iterator_1_1proxy.html#afb808f690f8e37b1f1c2aafdb771920a":[5,0,16,5,193,0,1],
 "structtfel_1_1math_1_1_difference_random_access_iterator_base.html":[5,0,16,5,194],
 "structtfel_1_1math_1_1_dot_product.html":[5,0,16,5,196],
-"structtfel_1_1math_1_1_dot_product_3_010u_00_01_m_01_4.html":[5,0,16,5,198],
-"structtfel_1_1math_1_1_empty_run_time_properties.html":[5,0,16,5,199],
-"structtfel_1_1math_1_1_evaluator.html":[5,0,16,5,200],
-"structtfel_1_1math_1_1_evaluator.html#a32c79e59c9d440e02a1a2d7491bc884c":[5,0,16,5,200,32],
-"structtfel_1_1math_1_1_evaluator.html#a3dfec67902be6ee3ff7febbad3e0661c":[5,0,16,5,200,27],
-"structtfel_1_1math_1_1_evaluator.html#a7a321ca83b4b85365b2e2ee66733022c":[5,0,16,5,200,29],
-"structtfel_1_1math_1_1_evaluator.html#a7c56bf306e5da6ddab74ac964f5f3763":[5,0,16,5,200,20],
-"structtfel_1_1math_1_1_evaluator.html#a7d4a803c4a96d969c487acfd1fef2eae":[5,0,16,5,200,24],
-"structtfel_1_1math_1_1_evaluator.html#a7dc252a8156eadb39409cabfc3f2b440":[5,0,16,5,200,22]
+"structtfel_1_1math_1_1_dot_product_3_010u_00_01_m_01_4.html":[5,0,16,5,198]
 };

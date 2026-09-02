@@ -13,6 +13,7 @@ var dir_926a8b4fb7ad5e8e017827ff5fbbb316 =
     [ "Contract.ixx", "_contract_8ixx.html", null ],
     [ "Cste.hxx", "_cste_8hxx.html", "_cste_8hxx" ],
     [ "ErrorBacktrace.hxx", "_error_backtrace_8hxx.html", "_error_backtrace_8hxx" ],
+    [ "ErrorBacktrace.ixx", "_error_backtrace_8ixx.html", null ],
     [ "InvalidResult.hxx", "_invalid_result_8hxx.html", "_invalid_result_8hxx" ],
     [ "InvalidResult.ixx", "_invalid_result_8ixx.html", "_invalid_result_8ixx" ],
     [ "LibrariesManager.hxx", "_libraries_manager_8hxx.html", "_libraries_manager_8hxx" ],

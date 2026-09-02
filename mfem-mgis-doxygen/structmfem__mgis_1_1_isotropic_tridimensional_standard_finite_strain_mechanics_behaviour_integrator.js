@@ -8,11 +8,7 @@ var structmfem__mgis_1_1_isotropic_tridimensional_standard_finite_strain_mechani
     [ "getIntegrationRule", "structmfem__mgis_1_1_isotropic_tridimensional_standard_finite_strain_mechanics_behaviour_integrator.html#af5a2856eceb13dfd44e03ec7d65407ed", null ],
     [ "getRotationMatrix", "structmfem__mgis_1_1_isotropic_tridimensional_standard_finite_strain_mechanics_behaviour_integrator.html#aebca9f05a3fbfcd08d8c6c2b5a4a3efc", null ],
     [ "integrate", "structmfem__mgis_1_1_isotropic_tridimensional_standard_finite_strain_mechanics_behaviour_integrator.html#a90c6fca6089866e6bf33691e63965693", null ],
-    [ "updateGradients", "structmfem__mgis_1_1_isotropic_tridimensional_standard_finite_strain_mechanics_behaviour_integrator.html#a862139bd0c8570ed216fd48d1c977cd2", null ],
-    [ "updateInnerForces", "structmfem__mgis_1_1_isotropic_tridimensional_standard_finite_strain_mechanics_behaviour_integrator.html#a7a4ec685dcfa7d7b0f0c6e5614244107", null ],
     [ "updateJacobian", "structmfem__mgis_1_1_isotropic_tridimensional_standard_finite_strain_mechanics_behaviour_integrator.html#ab2e7950798c18e42595cdd0a9c5ba866", null ],
     [ "updateResidual", "structmfem__mgis_1_1_isotropic_tridimensional_standard_finite_strain_mechanics_behaviour_integrator.html#a5eab8c47a9793c29e0856066f7461d7c", null ],
-    [ "updateStiffnessMatrix", "structmfem__mgis_1_1_isotropic_tridimensional_standard_finite_strain_mechanics_behaviour_integrator.html#acc53bf55affc24fa0fb2515326304635", null ],
-    [ "updateStiffnessMatrix", "structmfem__mgis_1_1_isotropic_tridimensional_standard_finite_strain_mechanics_behaviour_integrator.html#abd9bda623e6e63ab276eb4cf70d23f56", null ],
     [ "StandardBehaviourIntegratorCRTPBase< IsotropicTridimensionalStandardFiniteStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_isotropic_tridimensional_standard_finite_strain_mechanics_behaviour_integrator.html#afb84ce7917808b4d27dcf47fdc14504f", null ]
 ];

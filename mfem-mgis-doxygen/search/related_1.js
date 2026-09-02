@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['fbarbehaviourintegratorcrtpbase_3c_20fbarisotropicplanestrainbehaviourintegrator_2c_20hypothesis_3a_3aplanestrain_20_3e_0',['FBarBehaviourIntegratorCRTPBase&lt; FBarIsotropicPlaneStrainBehaviourIntegrator, Hypothesis::PLANESTRAIN &gt;',['../structmfem__mgis_1_1_f_bar_isotropic_plane_strain_behaviour_integrator.html#a0491bbad558fd813d9b9d4646d0408aa',1,'mfem_mgis::FBarIsotropicPlaneStrainBehaviourIntegrator']]],
-  ['fbarbehaviourintegratorcrtpbase_3c_20fbarisotropictridimensionalbehaviourintegrator_2c_20hypothesis_3a_3atridimensional_20_3e_1',['FBarBehaviourIntegratorCRTPBase&lt; FBarIsotropicTridimensionalBehaviourIntegrator, Hypothesis::TRIDIMENSIONAL &gt;',['../structmfem__mgis_1_1_f_bar_isotropic_tridimensional_behaviour_integrator.html#a310b2b1cab565da0563dc992b7efca25',1,'mfem_mgis::FBarIsotropicTridimensionalBehaviourIntegrator']]]
+  ['operator_21_3d_0',['operator!=',['../structtfel_1_1glossary_1_1_glossary_entry.html#a43a0e9e166d56ddda0b8c0cd20525a70',1,'tfel::glossary::GlossaryEntry::operator!='],['../structtfel_1_1glossary_1_1_glossary_entry.html#ae6f0fbfc7fa70225f5d02595ff1a1d95',1,'tfel::glossary::GlossaryEntry::operator!=']]],
+  ['operator_3c_1',['operator&lt;',['../structtfel_1_1glossary_1_1_glossary_entry.html#a92e6695a2558332999a3675b0ef729ce',1,'tfel::glossary::GlossaryEntry']]],
+  ['operator_3d_3d_2',['operator==',['../structtfel_1_1glossary_1_1_glossary_entry.html#a379e8c02e05515ecb6509162da3ccea9',1,'tfel::glossary::GlossaryEntry::operator=='],['../structtfel_1_1glossary_1_1_glossary_entry.html#ae70e593a8550deb7854e25b62fd8b3c5',1,'tfel::glossary::GlossaryEntry::operator==']]]
 ];

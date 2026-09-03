@@ -1,5 +1,6 @@
 var NAVTREEINDEX9 =
 {
+"_study_current_state_8ixx.html":[8,0,5,0,0,97],
 "_study_parameter_8hxx.html":[8,0,5,0,0,98],
 "_substitutions_8hxx.html":[8,0,0,3,0,2],
 "_substitutions_8hxx.html#a93af1371fdaa6fb5aa2359c1cdaa1156":[8,0,0,3,0,2,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX9 =
 "_tiny_non_linear_solver_base_8hxx.html":[8,0,0,3,5,10,9],
 "_tiny_non_linear_solver_base_8ixx.html":[8,0,0,3,5,10,10],
 "_tiny_permutation_8hxx.html":[8,0,0,3,5,7,6],
-"_tiny_permutation_8ixx.html":[8,0,0,3,5,7,7],
-"_tiny_powell_dog_leg_algorithm_base_8hxx.html":[8,0,0,3,5,10,11]
+"_tiny_permutation_8ixx.html":[8,0,0,3,5,7,7]
 };

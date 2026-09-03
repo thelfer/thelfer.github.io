@@ -107,6 +107,8 @@ $(document).ready(function(){initNavTree('_test_case_8hxx.html',''); initResizab
 <div class="textblock"><code>#include &lt;string&gt;</code><br />
 <code>#include &lt;string_view&gt;</code><br />
 <code>#include &quot;<a class="el" href="_t_f_e_l_config_8hxx.html">TFEL/Config/TFELConfig.hxx</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_raise_8hxx.html">TFEL/Raise.hxx</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_macros_8hxx.html">TFEL/Macros.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="include_2_t_f_e_l_2_tests_2_test_8hxx.html">TFEL/Tests/Test.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_test_result_8hxx.html">TFEL/Tests/TestResult.hxx</a>&quot;</code><br />
 </div><table class="memberdecls">
@@ -172,16 +174,23 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">do</span> {                                                        \</div>
-<div class="line">    <span class="keywordflow">try</span> {                                                     \</div>
-<div class="line">      TestCase::registerResult(<span class="stringliteral">&quot;assertion: &#39;&quot;</span> #X <span class="stringliteral">&quot;&#39;&quot;</span>, (X));   \</div>
-<div class="line">    } <span class="keywordflow">catch</span> (std::exception &amp; tfel_test_exception) {          \</div>
-<div class="line">      TestCase::registerResult(<span class="stringliteral">&quot;assertion: &#39;&quot;</span> #X <span class="stringliteral">&quot;&#39;&quot;</span>, <span class="keyword">false</span>,  \</div>
-<div class="line">                               tfel_test_exception.what());   \</div>
-<div class="line">    } <span class="keywordflow">catch</span> (...) {                                           \</div>
-<div class="line">      TestCase::registerResult(<span class="stringliteral">&quot;assertion: &#39;&quot;</span> #X <span class="stringliteral">&quot;&#39;&quot;</span>, <span class="keyword">false</span>); \</div>
-<div class="line">    }                                                         \</div>
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">do</span> {                                                                      \</div>
+<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> <a class="code hl_define" href="_macros_8hxx.html#ac8cc83cc4a6b7b26ea20be4930aedf02">TFEL_TEMPORARY_VARIABLE</a>(<a class="code hl_define" href="_test_case_8hxx.html#a562f500d2269b4db7443d585cbffd702">TFEL_TESTS_ASSERT</a>) = (X);            \</div>
+<div class="line">    <span class="keywordflow">try</span> {                                                                   \</div>
+<div class="line">      TestCase::registerResult(<span class="stringliteral">&quot;assertion: &#39;&quot;</span> #X <span class="stringliteral">&quot;&#39;&quot;</span>,                       \</div>
+<div class="line">                               <a class="code hl_define" href="_macros_8hxx.html#ac8cc83cc4a6b7b26ea20be4930aedf02">TFEL_TEMPORARY_VARIABLE</a>(<a class="code hl_define" href="_test_case_8hxx.html#a562f500d2269b4db7443d585cbffd702">TFEL_TESTS_ASSERT</a>)); \</div>
+<div class="line">    } <span class="keywordflow">catch</span> (std::exception &amp; tfel_test_exception) {                        \</div>
+<div class="line">      TestCase::registerResult(<span class="stringliteral">&quot;assertion: &#39;&quot;</span> #X <span class="stringliteral">&quot;&#39;&quot;</span>, <span class="keyword">false</span>,                \</div>
+<div class="line">                               tfel_test_exception.what());                 \</div>
+<div class="line">    } <span class="keywordflow">catch</span> (...) {                                                         \</div>
+<div class="line">      TestCase::registerResult(<span class="stringliteral">&quot;assertion: &#39;&quot;</span> #X <span class="stringliteral">&quot;&#39;&quot;</span>, <span class="keyword">false</span>);               \</div>
+<div class="line">    }                                                                       \</div>
+<div class="line">    if (!(<a class="code hl_define" href="_macros_8hxx.html#ac8cc83cc4a6b7b26ea20be4930aedf02">TFEL_TEMPORARY_VARIABLE</a>(<a class="code hl_define" href="_test_case_8hxx.html#a562f500d2269b4db7443d585cbffd702">TFEL_TESTS_ASSERT</a>))) {                    \</div>
+<div class="line">      tfel::raise(<span class="stringliteral">&quot;assertion: &#39;&quot;</span> #X <span class="stringliteral">&quot;&#39; failed&quot;</span>);                            \</div>
+<div class="line">    }                                                                       \</div>
 <div class="line">  } <span class="keywordflow">while</span> (0)</div>
+<div class="ttc" id="a_macros_8hxx_html_ac8cc83cc4a6b7b26ea20be4930aedf02"><div class="ttname"><a href="_macros_8hxx.html#ac8cc83cc4a6b7b26ea20be4930aedf02">TFEL_TEMPORARY_VARIABLE</a></div><div class="ttdeci">#define TFEL_TEMPORARY_VARIABLE(X)</div><div class="ttdoc">macro defining a unique local variable name for a temporary variable that it not meant to be seen by ...</div><div class="ttdef"><b>Definition</b> Macros.hxx:59</div></div>
+<div class="ttc" id="a_test_case_8hxx_html_a562f500d2269b4db7443d585cbffd702"><div class="ttname"><a href="_test_case_8hxx.html#a562f500d2269b4db7443d585cbffd702">TFEL_TESTS_ASSERT</a></div><div class="ttdeci">#define TFEL_TESTS_ASSERT(X)</div><div class="ttdoc">an helper macro to ease the use of TestCase::registerResult</div><div class="ttdef"><b>Definition</b> TestCase.hxx:41</div></div>
 </div><!-- fragment -->
 <p>an helper macro to ease the use of TestCase::registerResult </p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -548,7 +557,7 @@ Macros</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_f1614b9bfb736e18e5ccdeb7e67f6541.html">TFEL</a></li><li class="navelem"><a class="el" href="dir_f03f2567c1d9e42b1133206326ec553c.html">Tests</a></li><li class="navelem"><a class="el" href="_test_case_8hxx.html">TestCase.hxx</a></li>
-    <li class="footer">Generated on Thu Aug 27 2026 19:15:49 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu Sep 3 2026 09:21:34 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

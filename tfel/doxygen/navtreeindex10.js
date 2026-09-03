@@ -1,5 +1,6 @@
 var NAVTREEINDEX10 =
 {
+"_tiny_powell_dog_leg_algorithm_base_8hxx.html":[8,0,0,3,5,10,11],
 "_tiny_powell_dog_leg_algorithm_base_8hxx.html#a2af6a76863040300a210e557ebd47fd9":[8,0,0,3,5,10,11,0],
 "_tiny_powell_dog_leg_broyden_solver_8hxx.html":[8,0,0,3,5,70],
 "_tiny_powell_dog_leg_broyden_solver_8ixx.html":[8,0,0,3,5,10,12],
@@ -248,6 +249,5 @@ var NAVTREEINDEX10 =
 "classtfel_1_1math_1_1_compute_binary_operation_result_3_01_matrix_tag_00_01_scalar_tag_00_01tmatcb5739c87051c9db3928bba8ca3f3bcd.html":[7,0,14,6,71],
 "classtfel_1_1math_1_1_compute_binary_operation_result_3_01_matrix_tag_00_01_scalar_tag_00_01tmatcb5739c87051c9db3928bba8ca3f3bcd.html":[5,0,9,1,68],
 "classtfel_1_1math_1_1_compute_binary_operation_result_3_01_matrix_tag_00_01_scalar_tag_00_01tmatf3f12531f4ed3673e765e2df2218dcdf.html":[7,0,14,6,72],
-"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_matrix_tag_00_01_scalar_tag_00_01tmatf3f12531f4ed3673e765e2df2218dcdf.html":[5,0,9,1,69],
-"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_s_t2to_s_t2_tag_00_01_scalar_tag_00_07be38026e325093a472ea73b4daa4b1a.html":[5,0,9,1,83]
+"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_matrix_tag_00_01_scalar_tag_00_01tmatf3f12531f4ed3673e765e2df2218dcdf.html":[5,0,9,1,69]
 };

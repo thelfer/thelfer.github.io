@@ -14,5 +14,7 @@ var structtfel_1_1tests_1_1_test_manager =
     [ "addXMLTestOutput", "structtfel_1_1tests_1_1_test_manager.html#a5655899b0642e583d1c3874011684fcd", null ],
     [ "execute", "structtfel_1_1tests_1_1_test_manager.html#a8a190ce2ee207b140eee806a0683809b", null ],
     [ "operator=", "structtfel_1_1tests_1_1_test_manager.html#a18e2b3c466a37dc257bcb07603800236", null ],
-    [ "operator=", "structtfel_1_1tests_1_1_test_manager.html#a1373b794c03ba70ee2487ccc5979ce3c", null ]
+    [ "operator=", "structtfel_1_1tests_1_1_test_manager.html#a1373b794c03ba70ee2487ccc5979ce3c", null ],
+    [ "registerTestConstructionFailure", "structtfel_1_1tests_1_1_test_manager.html#a5d3f617f6eaed5309aa3e58bf27c6015", null ],
+    [ "registerTestConstructionFailure", "structtfel_1_1tests_1_1_test_manager.html#ae8fd323d95dd904b4f62635cb2d358dd", null ]
 ];

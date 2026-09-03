@@ -1,5 +1,6 @@
 var NAVTREEINDEX52 =
 {
+"structmfront_1_1bbrick_1_1_option_description.html#a23fad421ed5b4200f338d1a642640179a410859721ce92ceb159a7a11ccf4330b":[7,0,10,0,35,0,4],
 "structmfront_1_1bbrick_1_1_option_description.html#a23fad421ed5b4200f338d1a642640179a5b7fd81e39a5479232a3e13f90bd7cd6":[7,0,10,0,35,0,7],
 "structmfront_1_1bbrick_1_1_option_description.html#a23fad421ed5b4200f338d1a642640179a9f711a677a57e51dd5cfdf263fe4763c":[7,0,10,0,35,0,8],
 "structmfront_1_1bbrick_1_1_option_description.html#a23fad421ed5b4200f338d1a642640179ac01c92f94a0802d2680dee7e6c789246":[7,0,10,0,35,0,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX52 =
 "structmfront_1_1bbrick_1_1_user_defined_isotropic_hardening_rule.html#a99452307150d78ccc1181b32dcaf0c21":[7,0,10,0,60,0],
 "structmfront_1_1bbrick_1_1_user_defined_isotropic_hardening_rule.html#aa9b4ec9e7d0e137828eee2fdc65a90f0":[7,0,10,0,60,4],
 "structmfront_1_1bbrick_1_1_user_defined_isotropic_hardening_rule.html#ad18897676e047487a6a10884e4c9986a":[7,0,10,0,60,1],
-"structmfront_1_1bbrick_1_1_user_defined_isotropic_hardening_rule.html#af9b9abd605f40dbbe59845782d75b933":[7,0,10,0,60,9],
-"structmfront_1_1bbrick_1_1_user_defined_viscoplastic_flow.html":[7,0,10,0,61]
+"structmfront_1_1bbrick_1_1_user_defined_isotropic_hardening_rule.html#af9b9abd605f40dbbe59845782d75b933":[7,0,10,0,60,9]
 };

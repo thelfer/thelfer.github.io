@@ -3,6 +3,7 @@ var _test_case_8hxx =
     [ "tfel::tests::TestCase", "structtfel_1_1tests_1_1_test_case.html", "structtfel_1_1tests_1_1_test_case" ],
     [ "TFEL_TESTS_ASSERT", "_test_case_8hxx.html#a562f500d2269b4db7443d585cbffd702", null ],
     [ "TFEL_TESTS_CALLMETHOD", "_test_case_8hxx.html#a2db04f472cff48673527f17081ce98d0", null ],
+    [ "TFEL_TESTS_CHECK", "_test_case_8hxx.html#ac66e34adc9ba82ed8bf68251e68dd220", null ],
     [ "TFEL_TESTS_CHECK_EQUAL", "_test_case_8hxx.html#abd8b58953e7735de289d6d0697ea43f7", null ],
     [ "TFEL_TESTS_CHECK_GE", "_test_case_8hxx.html#a35b49cddf8de96cf73303a6791fbc07b", null ],
     [ "TFEL_TESTS_CHECK_GT", "_test_case_8hxx.html#a0c219e127167055cdb4347d693c78028", null ],

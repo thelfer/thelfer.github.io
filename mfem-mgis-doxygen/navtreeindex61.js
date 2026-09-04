@@ -1,5 +1,9 @@
 var NAVTREEINDEX61 =
 {
+"structtfel_1_1math_1_1internals_1_1_sort_eigen_values_3_013u_01_4.html":[5,0,16,5,1,79],
+"structtfel_1_1math_1_1internals_1_1_sort_eigen_values_3_013u_01_4.html#ae70d8f7cffcbe04a3f2e35209920c99c":[5,0,16,5,1,79,0],
+"structtfel_1_1math_1_1internals_1_1_sort_eigen_vectors.html":[5,0,16,5,1,80],
+"structtfel_1_1math_1_1internals_1_1_sort_eigen_vectors_3_011u_01_4.html":[5,0,16,5,1,81],
 "structtfel_1_1math_1_1internals_1_1_sort_eigen_vectors_3_011u_01_4.html#a1c7e4cd78cd5279e83258770865abc6d":[5,0,16,5,1,81,0],
 "structtfel_1_1math_1_1internals_1_1_sort_eigen_vectors_3_012u_01_4.html":[5,0,16,5,1,82],
 "structtfel_1_1math_1_1internals_1_1_sort_eigen_vectors_3_012u_01_4.html#a32d666ab8ea6e0284ecbe78b71980b50":[5,0,16,5,1,82,0],
@@ -245,9 +249,5 @@ var NAVTREEINDEX61 =
 "structtfel_1_1math_1_1parser_1_1_logical_binary_operation.html#a41f664d7a28739d68bd5dd7dea99bce2":[5,0,16,5,2,77,0],
 "structtfel_1_1math_1_1parser_1_1_logical_binary_operation.html#a6b8943927b4bafafd52708b167d02d67":[5,0,16,5,2,77,1],
 "structtfel_1_1math_1_1parser_1_1_logical_binary_operation.html#ab0accbb19e8981d0ff2320d93d008a8a":[5,0,16,5,2,77,2],
-"structtfel_1_1math_1_1parser_1_1_logical_expr.html":[5,0,16,5,2,78],
-"structtfel_1_1math_1_1parser_1_1_logical_expr.html#a0da2a30a2bf22b3592423e9c8a2ba1bc":[5,0,16,5,2,78,0],
-"structtfel_1_1math_1_1parser_1_1_logical_expr.html#a69cf1c246d501325422a5cb16fffcf59":[5,0,16,5,2,78,3],
-"structtfel_1_1math_1_1parser_1_1_logical_expr.html#aa4c5b97d1a23961493aa21b2a5f900b8":[5,0,16,5,2,78,2],
-"structtfel_1_1math_1_1parser_1_1_logical_expr.html#abdd0b8c0a58dcb09032d30601cf01d1a":[5,0,16,5,2,78,1]
+"structtfel_1_1math_1_1parser_1_1_logical_expr.html":[5,0,16,5,2,78]
 };

@@ -1,5 +1,9 @@
 var NAVTREEINDEX59 =
 {
+"structtfel_1_1math_1_1_scalar_newton_raphson_parameters.html#a1459da613bf504ada670eac3a5bfa235":[5,0,16,5,509,0],
+"structtfel_1_1math_1_1_scalar_newton_raphson_parameters.html#a31bae7d9463904bc6c0efa2a635fd8cc":[5,0,16,5,509,1],
+"structtfel_1_1math_1_1_scalar_newton_raphson_parameters.html#a54349c861a5747a78681087d5591e118":[5,0,16,5,509,2],
+"structtfel_1_1math_1_1_scalar_newton_raphson_parameters.html#a5e6b0570927386fb5a3afda85abc5c57":[5,0,16,5,509,3],
 "structtfel_1_1math_1_1_scalar_object_operation.html":[5,0,16,5,510],
 "structtfel_1_1math_1_1_scalar_tag.html":[5,0,16,5,511],
 "structtfel_1_1math_1_1_scalar_type_rebind.html":[5,0,16,5,512],
@@ -245,9 +249,5 @@ var NAVTREEINDEX59 =
 "structtfel_1_1math_1_1_tiny_powell_dog_leg_newton_raphson_solver.html#a8f816b0b12d745dd3c3ced4b10d59d27":[5,0,16,5,607,7],
 "structtfel_1_1math_1_1_tiny_powell_dog_leg_newton_raphson_solver.html#aa637727faa25fb21d53a92d2aae806fd":[5,0,16,5,607,1],
 "structtfel_1_1math_1_1_tiny_powell_dog_leg_newton_raphson_solver.html#ab9a169c48252582c7165478f950765f6":[5,0,16,5,607,0],
-"structtfel_1_1math_1_1_tiny_powell_dog_leg_newton_raphson_solver.html#adab6a8a258f47d2b57ce4056d6723167":[5,0,16,5,607,3],
-"structtfel_1_1math_1_1_tiny_runge_kutta_solver_base.html":[5,0,16,5,608],
-"structtfel_1_1math_1_1_tiny_runge_kutta_solver_base.html#a0fd972a1153ff47087f05b9c3491dcd9":[5,0,16,5,608,9],
-"structtfel_1_1math_1_1_tiny_runge_kutta_solver_base.html#a19c18d24431345a56b0657574213f533":[5,0,16,5,608,3],
-"structtfel_1_1math_1_1_tiny_runge_kutta_solver_base.html#a1e74313f6dabf67504468a93aad39a9f":[5,0,16,5,608,10]
+"structtfel_1_1math_1_1_tiny_powell_dog_leg_newton_raphson_solver.html#adab6a8a258f47d2b57ce4056d6723167":[5,0,16,5,607,3]
 };

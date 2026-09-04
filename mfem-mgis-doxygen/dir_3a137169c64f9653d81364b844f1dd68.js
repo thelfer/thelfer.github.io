@@ -39,6 +39,7 @@ var dir_3a137169c64f9653d81364b844f1dd68 =
     [ "FiniteElementDiscretization.hxx", "_finite_element_discretization_8hxx.html", "_finite_element_discretization_8hxx" ],
     [ "FiniteElementDiscretization.ixx", "_finite_element_discretization_8ixx.html", null ],
     [ "FirstIterationConvergenceCriterion.hxx", "_first_iteration_convergence_criterion_8hxx.html", "_first_iteration_convergence_criterion_8hxx" ],
+    [ "Geometry.hxx", "_geometry_8hxx.html", "_geometry_8hxx" ],
     [ "GridFunctionInterpolator.hxx", "_grid_function_interpolator_8hxx.html", "_grid_function_interpolator_8hxx" ],
     [ "GridFunctionUtilities.hxx", "_grid_function_utilities_8hxx.html", "_grid_function_utilities_8hxx" ],
     [ "ImposedDirichletBoundaryConditionAtClosestNode.hxx", "_imposed_dirichlet_boundary_condition_at_closest_node_8hxx.html", "_imposed_dirichlet_boundary_condition_at_closest_node_8hxx" ],

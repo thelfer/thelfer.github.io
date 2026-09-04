@@ -1,6 +1,5 @@
 var structmfem__mgis_1_1_grid_function_interpolator =
 [
-    [ "Point", "structmfem__mgis_1_1_grid_function_interpolator.html#a1f3b119dcb6f7bc0d87ab429f8a49081", null ],
     [ "GridFunctionInterpolator", "structmfem__mgis_1_1_grid_function_interpolator.html#ab9a548d3edb783e3705acbdf4f46dd4e", null ],
     [ "GridFunctionInterpolator", "structmfem__mgis_1_1_grid_function_interpolator.html#ac983e4115ad2a8724a13dd4b6a9d39b5", null ],
     [ "GridFunctionInterpolator", "structmfem__mgis_1_1_grid_function_interpolator.html#a282121ba8b1becd921440d613efc7cc4", null ],

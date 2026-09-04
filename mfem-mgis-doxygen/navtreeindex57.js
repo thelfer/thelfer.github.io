@@ -1,5 +1,9 @@
 var NAVTREEINDEX57 =
 {
+"structtfel_1_1math_1_1_expr_3_01_t2to_t2_result_type_00_01_tensor_product_right_derivative_expr_3_011u_01_4_01_4.html#aa9201e1e7e180d0669f35b0f6148dbe1":[5,0,16,5,264,5],
+"structtfel_1_1math_1_1_expr_3_01_t2to_t2_result_type_00_01_tensor_product_right_derivative_expr_3_011u_01_4_01_4.html#aebe601ebb73aa54d681fb328cd7eba0a":[5,0,16,5,264,0],
+"structtfel_1_1math_1_1_expr_3_01_t2to_t2_result_type_00_01_tensor_product_right_derivative_expr_3_012u_01_4_01_4.html":[5,0,16,5,265],
+"structtfel_1_1math_1_1_expr_3_01_t2to_t2_result_type_00_01_tensor_product_right_derivative_expr_3_012u_01_4_01_4.html#a1e36606dae8cd9bde593e783aba02e08":[5,0,16,5,265,4],
 "structtfel_1_1math_1_1_expr_3_01_t2to_t2_result_type_00_01_tensor_product_right_derivative_expr_3_012u_01_4_01_4.html#a26de140d85062c186ce79d3aa348b600":[5,0,16,5,265,5],
 "structtfel_1_1math_1_1_expr_3_01_t2to_t2_result_type_00_01_tensor_product_right_derivative_expr_3_012u_01_4_01_4.html#a513f484c24449147d5dd2a0a752602c7":[5,0,16,5,265,3],
 "structtfel_1_1math_1_1_expr_3_01_t2to_t2_result_type_00_01_tensor_product_right_derivative_expr_3_012u_01_4_01_4.html#a8ea51d64de65a24ec214237f9d50aaa1":[5,0,16,5,265,1],
@@ -245,9 +249,5 @@ var NAVTREEINDEX57 =
 "structtfel_1_1math_1_1_is_t_vector_scalar_operation_valid.html":[5,0,16,5,321],
 "structtfel_1_1math_1_1_iterate_over_multiple_indices.html":[5,0,16,5,322],
 "structtfel_1_1math_1_1_kriging.html":[5,0,16,5,323],
-"structtfel_1_1math_1_1_kriging1_d.html":[5,0,16,5,324],
-"structtfel_1_1math_1_1_kriging2_d.html":[5,0,16,5,325],
-"structtfel_1_1math_1_1_kriging3_d.html":[5,0,16,5,326],
-"structtfel_1_1math_1_1_kriging_default_model.html":[5,0,16,5,327],
-"structtfel_1_1math_1_1_kriging_default_model_3_011u_00_01_t_00_01_n_m_01_4.html":[5,0,16,5,328]
+"structtfel_1_1math_1_1_kriging1_d.html":[5,0,16,5,324]
 };

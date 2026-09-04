@@ -1,5 +1,9 @@
 var NAVTREEINDEX52 =
 {
+"structtfel_1_1material_1_1_barlat_stress_and_derivatives_with_respect_to_eigenvalues.html":[5,0,16,4,2],
+"structtfel_1_1material_1_1_barlat_stress_and_derivatives_with_respect_to_eigenvalues.html#a63e65d2a40466865a453e3cc3ad35b1d":[5,0,16,4,2,2],
+"structtfel_1_1material_1_1_barlat_stress_and_derivatives_with_respect_to_eigenvalues.html#a6f917609916d29212ee7b0e31a324b24":[5,0,16,4,2,1],
+"structtfel_1_1material_1_1_barlat_stress_and_derivatives_with_respect_to_eigenvalues.html#a8c7c2e7e740f453188d6b30a9618b2a5":[5,0,16,4,2,3],
 "structtfel_1_1material_1_1_barlat_stress_and_derivatives_with_respect_to_eigenvalues.html#aa64b8d2125fcbdcaa932fe3103dc1fd3":[5,0,16,4,2,4],
 "structtfel_1_1material_1_1_barlat_stress_and_derivatives_with_respect_to_eigenvalues.html#ab02ab33844deef96ead27894f4ca4fb7":[5,0,16,4,2,0],
 "structtfel_1_1material_1_1_barlat_stress_and_derivatives_with_respect_to_eigenvalues.html#ad9f05054e2c615292c6822fd12ef98c2":[5,0,16,4,2,5],
@@ -245,9 +249,5 @@ var NAVTREEINDEX52 =
 "structtfel_1_1material_1_1_metallic_c_f_c_sliding_systems.html#ab0db27e26fe61f64ecadeb5e6119a94a":[5,0,16,4,65,2],
 "structtfel_1_1material_1_1_metallic_c_f_c_sliding_systems.html#ae1ac37d2c177a7c1a0dbff005297c4d3":[5,0,16,4,65,1],
 "structtfel_1_1material_1_1_michel_and_suquet1992_hollow_sphere_stress_criterion_parameters.html":[5,0,16,4,66],
-"structtfel_1_1material_1_1_michel_and_suquet1992_hollow_sphere_stress_criterion_parameters.html#a18a971016e7423f7ed5f549d9891f351":[5,0,16,4,66,3],
-"structtfel_1_1material_1_1_michel_and_suquet1992_hollow_sphere_stress_criterion_parameters.html#a72bcc21d9ae21e7a0ea7940dbc4f2029":[5,0,16,4,66,0],
-"structtfel_1_1material_1_1_michel_and_suquet1992_hollow_sphere_stress_criterion_parameters.html#ab220a4cc28edf121866cce38c7a73253":[5,0,16,4,66,1],
-"structtfel_1_1material_1_1_michel_and_suquet1992_hollow_sphere_stress_criterion_parameters.html#ab79f4eee1a1c361158328e15525c6adf":[5,0,16,4,66,2],
-"structtfel_1_1material_1_1_modelling_hypothesis.html":[5,0,16,4,67]
+"structtfel_1_1material_1_1_michel_and_suquet1992_hollow_sphere_stress_criterion_parameters.html#a18a971016e7423f7ed5f549d9891f351":[5,0,16,4,66,3]
 };

@@ -1,5 +1,9 @@
 var NAVTREEINDEX54 =
 {
+"structtfel_1_1math_1_1_anderson_base.html#a4e5e76b3cf8e4e2ff267b1f4b5335b99":[5,0,16,5,8,3],
+"structtfel_1_1math_1_1_anderson_base.html#a4f72baab68190f05bea9c06ba2680520":[5,0,16,5,8,1],
+"structtfel_1_1math_1_1_anderson_base.html#a5a470fe69d6775363b7e9a08a6977de4":[5,0,16,5,8,10],
+"structtfel_1_1math_1_1_anderson_base.html#a67b6e9b4226b0fab7d89795d03cf625c":[5,0,16,5,8,12],
 "structtfel_1_1math_1_1_anderson_base.html#a8152409d95a64e538be1760b286b6ddb":[5,0,16,5,8,7],
 "structtfel_1_1math_1_1_anderson_base.html#ac5dbdf62d19ab236e52bbd83670de3b9":[5,0,16,5,8,11],
 "structtfel_1_1math_1_1_anderson_base.html#ad9823f695bfc75653810e0a5af00ea59":[5,0,16,5,8,2],
@@ -245,9 +249,5 @@ var NAVTREEINDEX54 =
 "structtfel_1_1math_1_1_derivative_type_dispatcher_3_01tfel_1_1meta_1_1_invalid_type_00_01_variab35c051a88e68001c455c37a5f5218d91.html#a6c40f941b01d4d9bd11d53b48e6af115":[5,0,16,5,184,0],
 "structtfel_1_1math_1_1_derivative_type_dispatcher_3_01tfel_1_1meta_1_1_invalid_type_00_01tfel_1_99d53ec2283dea482c40726ff9e6e9ee.html":[5,0,16,5,183],
 "structtfel_1_1math_1_1_derivative_type_dispatcher_3_01tfel_1_1meta_1_1_invalid_type_00_01tfel_1_99d53ec2283dea482c40726ff9e6e9ee.html#a3eda6f5f4a68823b812b6fbc645b40a7":[5,0,16,5,183,0],
-"structtfel_1_1math_1_1_derivative_type_implementation.html":[5,0,16,5,187],
-"structtfel_1_1math_1_1_derivative_type_implementation.html#a186a76aeffc9d12d8da15e1e1937657a":[5,0,16,5,187,0],
-"structtfel_1_1math_1_1_derivative_type_implementation_3_01false_00_01true_00_01_function_type_00_01_variable_type_01_4.html":[5,0,16,5,188],
-"structtfel_1_1math_1_1_derivative_type_implementation_3_01false_00_01true_00_01_function_type_00_01_variable_type_01_4.html#ab17a97427a7a253978bf099fcaddd69f":[5,0,16,5,188,0],
-"structtfel_1_1math_1_1_derivative_type_implementation_3_01true_00_01true_00_01_function_type_00_01_variable_type_01_4.html":[5,0,16,5,189]
+"structtfel_1_1math_1_1_derivative_type_implementation.html":[5,0,16,5,187]
 };

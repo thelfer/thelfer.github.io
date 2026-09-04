@@ -1,5 +1,7 @@
 var NAVTREEINDEX10 =
 {
+"classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_stensor_tag_00_01_s_t2to_s_t2_tag_00e488cc06f7fb5b2c28470b40e6a6d2bb.html":[5,0,16,5,37],
+"classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_stensor_tag_00_01_stensor_tag_00_01_1c1804db710226c7d276c7c797161fee.html":[5,0,16,5,38],
 "classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_stensor_tag_00_01_stensor_tag_00_01_69d7b204739205d1ae55c94e52025d3c.html":[5,0,16,5,39],
 "classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_stensor_tag_00_01_stensor_tag_00_01_a_00_01_b_00_01_op_mult_01_4.html":[5,0,16,5,40],
 "classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_stensor_tag_00_01_t2to_s_t2_tag_00_01_a_00_01_b_00_01_op_mult_01_4.html":[5,0,16,5,41],
@@ -247,7 +249,5 @@ var NAVTREEINDEX10 =
 "concepttfel_1_1math_1_1_s_t2to_s_t2_concept.html":[4,1,0,17],
 "concepttfel_1_1math_1_1_s_t2to_t2_concept.html":[4,1,0,20],
 "concepttfel_1_1math_1_1_scalar_concept.html":[4,1,0,9],
-"concepttfel_1_1math_1_1_standard_arithmetic_type_concept.html":[4,1,0,7],
-"concepttfel_1_1math_1_1_stensor_concept.html":[4,1,0,23],
-"concepttfel_1_1math_1_1_stress_s_t2to_s_t2_concept.html":[4,1,0,19]
+"concepttfel_1_1math_1_1_standard_arithmetic_type_concept.html":[4,1,0,7]
 };

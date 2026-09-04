@@ -118,12 +118,6 @@ var hierarchy =
     ] ],
     [ "mfem_mgis::AbstractBehaviourIntegrator", "structmfem__mgis_1_1_abstract_behaviour_integrator.html", [
       [ "mfem_mgis::BehaviourIntegratorBase", "structmfem__mgis_1_1_behaviour_integrator_base.html", [
-        [ "mfem_mgis::FBarBehaviourIntegratorCRTPBase< FBarIsotropicPlaneStrainBehaviourIntegrator, Hypothesis::PLANESTRAIN >", "structmfem__mgis_1_1_f_bar_behaviour_integrator_c_r_t_p_base.html", [
-          [ "mfem_mgis::FBarIsotropicPlaneStrainBehaviourIntegrator", "structmfem__mgis_1_1_f_bar_isotropic_plane_strain_behaviour_integrator.html", null ]
-        ] ],
-        [ "mfem_mgis::FBarBehaviourIntegratorCRTPBase< FBarIsotropicTridimensionalBehaviourIntegrator, Hypothesis::TRIDIMENSIONAL >", "structmfem__mgis_1_1_f_bar_behaviour_integrator_c_r_t_p_base.html", [
-          [ "mfem_mgis::FBarIsotropicTridimensionalBehaviourIntegrator", "structmfem__mgis_1_1_f_bar_isotropic_tridimensional_behaviour_integrator.html", null ]
-        ] ],
         [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< IsotropicPlaneStrainStandardFiniteStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", [
           [ "mfem_mgis::IsotropicPlaneStrainStandardFiniteStrainMechanicsBehaviourIntegrator", "structmfem__mgis_1_1_isotropic_plane_strain_standard_finite_strain_mechanics_behaviour_integrator.html", null ]
         ] ],
@@ -182,7 +176,6 @@ var hierarchy =
           [ "mfem_mgis::TransientHeatTransferBehaviourIntegrator", "structmfem__mgis_1_1_transient_heat_transfer_behaviour_integrator.html", null ]
         ] ],
         [ "mfem_mgis::BidimensionalMicromorphicDamageBehaviourIntegrator", "structmfem__mgis_1_1_bidimensional_micromorphic_damage_behaviour_integrator.html", null ],
-        [ "mfem_mgis::FBarBehaviourIntegratorCRTPBase< Child, H >", "structmfem__mgis_1_1_f_bar_behaviour_integrator_c_r_t_p_base.html", null ],
         [ "mfem_mgis::OrthotropicBidimensionalMicromorphicDamageBehaviourIntegrator", "structmfem__mgis_1_1_orthotropic_bidimensional_micromorphic_damage_behaviour_integrator.html", null ],
         [ "mfem_mgis::StandardBehaviourIntegratorCRTPBase< Child >", "structmfem__mgis_1_1_standard_behaviour_integrator_c_r_t_p_base.html", null ],
         [ "mfem_mgis::TridimensionalMicromorphicDamageBehaviourIntegrator", "structmfem__mgis_1_1_tridimensional_micromorphic_damage_behaviour_integrator.html", null ]
@@ -545,8 +538,6 @@ var hierarchy =
     [ "mgis::behaviour::BehaviourIntegrationWorkSpace", "structmgis_1_1behaviour_1_1_behaviour_integration_work_space.html", null ],
     [ "mfem_mgis::BehaviourIntegratorFactory", "structmfem__mgis_1_1_behaviour_integrator_factory.html", null ],
     [ "mfem_mgis::BehaviourIntegratorTraits< BehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits.html", null ],
-    [ "mfem_mgis::BehaviourIntegratorTraits< FBarIsotropicPlaneStrainBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_f_bar_isotropic_plane_strain_behaviour_integrator_01_4.html", null ],
-    [ "mfem_mgis::BehaviourIntegratorTraits< FBarIsotropicTridimensionalBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_f_bar_isotropic_tridimensional_behaviour_integrator_01_4.html", null ],
     [ "mfem_mgis::BehaviourIntegratorTraits< IsotropicPlaneStrainStandardFiniteStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_isotropic_plane_strain_standard_finite_str058555a310f31d3525091c27fe446de1.html", null ],
     [ "mfem_mgis::BehaviourIntegratorTraits< IsotropicPlaneStrainStandardSmallStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_isotropic_plane_strain_standard_small_strab03ca29ba6e154ecb055438675cf8841.html", null ],
     [ "mfem_mgis::BehaviourIntegratorTraits< IsotropicPlaneStrainStationaryNonLinearHeatTransferBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_isotropic_plane_strain_stationary_non_line763eaaeb4027aae18449d8f97a056eb1.html", null ],
@@ -2285,6 +2276,7 @@ var hierarchy =
     [ "cyrano::CyranoBehaviourHandler< H, Behaviour >::GradientInitialiserWithoutStressFreeExpansion", "structcyrano_1_1_cyrano_behaviour_handler_1_1_gradient_initialiser_without_stress_free_expansion.html", null ],
     [ "dianafea::DianaFEABehaviourHandler< H, Behaviour >::GradientInitialiserWithoutStressFreeExpansion", "structdianafea_1_1_diana_f_e_a_behaviour_handler_1_1_gradient_initialiser_without_stress_free_expansion.html", null ],
     [ "lsdyna::LSDYNABehaviourHandler< H, Behaviour >::GradientInitialiserWithoutStressFreeExpansion", "structlsdyna_1_1_l_s_d_y_n_a_behaviour_handler_1_1_gradient_initialiser_without_stress_free_expansion.html", null ],
+    [ "mfem_mgis::GridFunctionInterpolator", "structmfem__mgis_1_1_grid_function_interpolator.html", null ],
     [ "numodis::GSystem", "structnumodis_1_1_g_system.html", null ],
     [ "tfel::math::internals::GteSymmetricEigensolver3x3< real >", "structtfel_1_1math_1_1internals_1_1_gte_symmetric_eigensolver3x3.html", null ],
     [ "tfel::material::GursonTvergaardNeedleman1982StressCriterionParameters< StressStensor >", "structtfel_1_1material_1_1_gurson_tvergaard_needleman1982_stress_criterion_parameters.html", null ],
@@ -2714,6 +2706,7 @@ var hierarchy =
     [ "mfront::SearchPathsHandler::MadnexPath", "structmfront_1_1_search_paths_handler_1_1_madnex_path.html", null ],
     [ "tfel::math::internals::MakeConstViewReference< T >", "structtfel_1_1math_1_1internals_1_1_make_const_view_reference.html", null ],
     [ "tfel::math::internals::MakeConstViewReference< qt< UnitType, ValueType > >", "structtfel_1_1math_1_1internals_1_1_make_const_view_reference_3_01qt_3_01_unit_type_00_01_value_type_01_4_01_4.html", null ],
+    [ "mfem_mgis::MakeGridFunctionResult< parallel >", "structmfem__mgis_1_1_make_grid_function_result.html", null ],
     [ "tfel::math::MakeQuantityReferenceType< QuantityType >", "structtfel_1_1math_1_1_make_quantity_reference_type.html", null ],
     [ "tfel::math::MakeQuantityReferenceType< qt< UnitType, ValueType > >", "structtfel_1_1math_1_1_make_quantity_reference_type_3_01qt_3_01_unit_type_00_01_value_type_01_4_01_4.html", null ],
     [ "tfel::math::internals::MakeViewReference< T >", "structtfel_1_1math_1_1internals_1_1_make_view_reference.html", null ],
@@ -3067,15 +3060,6 @@ var hierarchy =
       [ "tfel::material::internals::OrthotropicAxesConventionConverter< ModellingHypothesis::PLANESTRESS, OrthotropicAxesConvention::PIPE >", "structtfel_1_1material_1_1internals_1_1_orthotropic_axes_convention_converter_3_01_modelling_hypea53ab1569fd01a125aca9fc03614913.html", null ]
     ] ],
     [ "mtest::PipeProfileHandler", "structmtest_1_1_pipe_profile_handler.html", null ],
-    [ "mfem_mgis::PlaneStrainStandardFiniteStrainMechanicsBehaviourIntegratorBase", "structmfem__mgis_1_1_plane_strain_standard_finite_strain_mechanics_behaviour_integrator_base.html", [
-      [ "mfem_mgis::FBarIsotropicPlaneStrainBehaviourIntegrator", "structmfem__mgis_1_1_f_bar_isotropic_plane_strain_behaviour_integrator.html", null ],
-      [ "mfem_mgis::IsotropicPlaneStrainStandardFiniteStrainMechanicsBehaviourIntegrator", "structmfem__mgis_1_1_isotropic_plane_strain_standard_finite_strain_mechanics_behaviour_integrator.html", null ],
-      [ "mfem_mgis::OrthotropicPlaneStrainStandardFiniteStrainMechanicsBehaviourIntegrator", "structmfem__mgis_1_1_orthotropic_plane_strain_standard_finite_strain_mechanics_behaviour_integrator.html", null ]
-    ] ],
-    [ "mfem_mgis::PlaneStressStandardFiniteStrainMechanicsBehaviourIntegratorBase", "structmfem__mgis_1_1_plane_stress_standard_finite_strain_mechanics_behaviour_integrator_base.html", [
-      [ "mfem_mgis::IsotropicPlaneStressStandardFiniteStrainMechanicsBehaviourIntegrator", "structmfem__mgis_1_1_isotropic_plane_stress_standard_finite_strain_mechanics_behaviour_integrator.html", null ],
-      [ "mfem_mgis::OrthotropicPlaneStressStandardFiniteStrainMechanicsBehaviourIntegrator", "structmfem__mgis_1_1_orthotropic_plane_stress_standard_finite_strain_mechanics_behaviour_integrator.html", null ]
-    ] ],
     [ "tfel::math::CubicSpline< AbscissaType, ValueType >::PointComparator", "structtfel_1_1math_1_1_cubic_spline_1_1_point_comparator.html", null ],
     [ "tfel::system::PointerBinaryReader< T >", "structtfel_1_1system_1_1_pointer_binary_reader.html", null ],
     [ "tfel::system::PointerBinaryWriter< T >", "structtfel_1_1system_1_1_pointer_binary_writer.html", null ],
@@ -3343,8 +3327,6 @@ var hierarchy =
     [ "mfem_mgis::RotatedGradientsMatrixPartialQuadratureFunctionEvalutor< GradientsSize >", "structmfem__mgis_1_1_rotated_gradients_matrix_partial_quadrature_function_evalutor.html", null ],
     [ "mfem_mgis::RotatedThermodynamicForcesMatrixPartialQuadratureFunctionEvalutor< ThermodynamicForcesSize >", "structmfem__mgis_1_1_rotated_thermodynamic_forces_matrix_partial_quadrature_function_evalutor.html", null ],
     [ "mgis::function::internals::RotateModifier", "structmgis_1_1function_1_1internals_1_1_rotate_modifier.html", null ],
-    [ "mfem_mgis::FBarIsotropicPlaneStrainBehaviourIntegrator::RotationMatrix", "structmfem__mgis_1_1_f_bar_isotropic_plane_strain_behaviour_integrator_1_1_rotation_matrix.html", null ],
-    [ "mfem_mgis::FBarIsotropicTridimensionalBehaviourIntegrator::RotationMatrix", "structmfem__mgis_1_1_f_bar_isotropic_tridimensional_behaviour_integrator_1_1_rotation_matrix.html", null ],
     [ "mfem_mgis::IsotropicPlaneStrainStandardFiniteStrainMechanicsBehaviourIntegrator::RotationMatrix", "structmfem__mgis_1_1_isotropic_plane_strain_standard_finite_strain_mechanics_behaviour_integrator_1_1_rotation_matrix.html", null ],
     [ "mfem_mgis::IsotropicPlaneStrainStandardSmallStrainMechanicsBehaviourIntegrator::RotationMatrix", "structmfem__mgis_1_1_isotropic_plane_strain_standard_small_strain_mechanics_behaviour_integrator_1_1_rotation_matrix.html", null ],
     [ "mfem_mgis::IsotropicPlaneStrainStationaryNonLinearHeatTransferBehaviourIntegrator::RotationMatrix", "structmfem__mgis_1_1_isotropic_plane_strain_stationary_non_linear_heat_transfer_behaviour_integrator_1_1_rotation_matrix.html", null ],
@@ -4142,11 +4124,6 @@ var hierarchy =
     [ "tfel::fsalgo::transform< N >", "structtfel_1_1fsalgo_1_1transform.html", null ],
     [ "tfel::fsalgo::transform< 0u >", "structtfel_1_1fsalgo_1_1transform_3_010u_01_4.html", null ],
     [ "tfel::math::TransverseIsotropicWalpoleBasis< real >", "structtfel_1_1math_1_1_transverse_isotropic_walpole_basis.html", null ],
-    [ "mfem_mgis::TridimensionalStandardFiniteStrainMechanicsBehaviourIntegratorBase", "structmfem__mgis_1_1_tridimensional_standard_finite_strain_mechanics_behaviour_integrator_base.html", [
-      [ "mfem_mgis::FBarIsotropicTridimensionalBehaviourIntegrator", "structmfem__mgis_1_1_f_bar_isotropic_tridimensional_behaviour_integrator.html", null ],
-      [ "mfem_mgis::IsotropicTridimensionalStandardFiniteStrainMechanicsBehaviourIntegrator", "structmfem__mgis_1_1_isotropic_tridimensional_standard_finite_strain_mechanics_behaviour_integrator.html", null ],
-      [ "mfem_mgis::OrthotropicTridimensionalStandardFiniteStrainMechanicsBehaviourIntegrator", "structmfem__mgis_1_1_orthotropic_tridimensional_standard_finite_strain_mechanics_behaviour_integrator.html", null ]
-    ] ],
     [ "numodis::TripleNode", "structnumodis_1_1_triple_node.html", null ],
     [ "std::true_type", null, [
       [ "mgis::function::LightweightViewTraits< FixedSizeView< FunctionType, N > >", "structmgis_1_1function_1_1_lightweight_view_traits_3_01_fixed_size_view_3_01_function_type_00_01_n_01_4_01_4.html", null ],

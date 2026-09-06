@@ -1,5 +1,6 @@
 var structmfront_1_1_castem_interface =
 [
+    [ "UniqueCast3MIdentifiersGenerator", "structmfront_1_1_castem_interface_1_1_unique_cast3_m_identifiers_generator.html", null ],
     [ "CastemInterface", "structmfront_1_1_castem_interface.html#a039ac70a7321ee52fc7d737298619188", null ],
     [ "~CastemInterface", "structmfront_1_1_castem_interface.html#adaa962ab9163367e9e66b09819653fd8", null ],
     [ "buildMaterialPropertiesList", "structmfront_1_1_castem_interface.html#ac4eada2b9b177baacd99fae1b84f3b6d", null ],
@@ -12,7 +13,7 @@ var structmfront_1_1_castem_interface =
     [ "getInterfaceName", "structmfront_1_1_castem_interface.html#ae8ff216531f326390900b89cfc317f2e", null ],
     [ "getLibraryName", "structmfront_1_1_castem_interface.html#a70b27cb061ea31df2a35c61cc59f85c3", null ],
     [ "getMaterialPropertiesOffsetForBehaviourTraits", "structmfront_1_1_castem_interface.html#a78588669a746ca9326650f25b634ac29", null ],
-    [ "getModellingHypothesesToBeTreated", "structmfront_1_1_castem_interface.html#a2060603ad7bf8464b3695641b68c7570", null ],
+    [ "getModellingHypothesesToBeTreated", "structmfront_1_1_castem_interface.html#a18412f924a5300add9be7a8363324f40", null ],
     [ "getModellingHypothesisTest", "structmfront_1_1_castem_interface.html#ad0506ba4a14ca9e0a7d21df826822964", null ],
     [ "getTargetsDescription", "structmfront_1_1_castem_interface.html#a844e1750b55638ed349843dbb2cd9f6f", null ],
     [ "isModellingHypothesisSupported", "structmfront_1_1_castem_interface.html#a46bd38576ad31d482e1eb8594ce78148", null ],
@@ -21,7 +22,7 @@ var structmfront_1_1_castem_interface =
     [ "writeCastemFunction", "structmfront_1_1_castem_interface.html#a6d7197a0d1d704f243c8caeba44f0ce6", null ],
     [ "writeFiniteRotationSmallStrainCastemFunction", "structmfront_1_1_castem_interface.html#a427d31a473d41ac5e93f84ed4a54018e", null ],
     [ "writeFiniteStrainStrategiesPlaneStressSpecificCall", "structmfront_1_1_castem_interface.html#affbc56dab1329a0d0208825dfafec190", null ],
-    [ "writeInitializeAxialStrain", "structmfront_1_1_castem_interface.html#ad5535852929ea7cd8484bd9b3eaf3edd", null ],
+    [ "writeInitializeAxialStrain", "structmfront_1_1_castem_interface.html#a92e27abb0bfbbaac024315f0d3746e86", null ],
     [ "writeInterfaceSpecificIncludes", "structmfront_1_1_castem_interface.html#ad9e4b6cd458e8186d4b7a63258077aac", null ],
     [ "writeLogarithmicStrain1DCastemFunction", "structmfront_1_1_castem_interface.html#a0cc1005d87681155f36cf4da7cfebd67", null ],
     [ "writeMieheApelLambrechtLogarithmicStrainCastemFunction", "structmfront_1_1_castem_interface.html#a3fa0e5a87133b9d67e81bc5a5a1aafac", null ],

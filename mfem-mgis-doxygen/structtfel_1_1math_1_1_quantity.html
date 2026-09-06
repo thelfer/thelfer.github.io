@@ -110,6 +110,7 @@ $(document).ready(function(){initNavTree('structtfel_1_1math_1_1_quantity.html',
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="structtfel_1_1math_1_1_quantity-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">tfel::math::Quantity&lt; UnitType, ValueType, OwnershipPolicy &gt; Struct Template Reference</div></div>
 </div><!--header-->
@@ -129,7 +130,7 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a6e2a67a0c2b9a5ee7b2a91a28ca802d4" id="r_a6e2a67a0c2b9a5ee7b2a91a28ca802d4"><td class="memTemplParams" colspan="2"><a id="a6e2a67a0c2b9a5ee7b2a91a28ca802d4" name="a6e2a67a0c2b9a5ee7b2a91a28ca802d4"></a>
-template&lt;typename ValueType1 , typename ValueType2 &gt; </td></tr>
+template&lt;StandardArithmeticTypeConcept ValueType1, StandardArithmeticTypeConcept ValueType2&gt; </td></tr>
 <tr class="memitem:a6e2a67a0c2b9a5ee7b2a91a28ca802d4"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>promote</b> = typename <a class="el" href="structtfel_1_1typetraits_1_1_promote.html">tfel::typetraits::Promote</a>&lt; ValueType1, ValueType2 &gt;::type</td></tr>
 <tr class="memdesc:a6e2a67a0c2b9a5ee7b2a91a28ca802d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple alias <br /></td></tr>
 <tr class="separator:a6e2a67a0c2b9a5ee7b2a91a28ca802d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -140,80 +141,85 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>value_type</b> = Val
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa5235fb92083cf4658b32b9c80da5384" id="r_aa5235fb92083cf4658b32b9c80da5384"><td class="memTemplParams" colspan="2"><a id="aa5235fb92083cf4658b32b9c80da5384" name="aa5235fb92083cf4658b32b9c80da5384"></a>
-template&lt;typename ValueType2 , typename OwnershipPolicy2 &gt; <br />
-requires (std::is_same_v&lt;<a class="el" href="structtfel_1_1math_1_1_quantity.html#a6e2a67a0c2b9a5ee7b2a91a28ca802d4">promote</a>&lt;ValueType, ValueType2&gt;, ValueType&gt;)</td></tr>
-<tr class="memitem:aa5235fb92083cf4658b32b9c80da5384"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Quantity</b> (const <a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a>&lt; UnitType, ValueType2, OwnershipPolicy2 &gt; &amp;src) noexcept</td></tr>
-<tr class="separator:aa5235fb92083cf4658b32b9c80da5384"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d7aecabd6f1fb0337950f94fce8c722" id="r_a5d7aecabd6f1fb0337950f94fce8c722"><td class="memTemplParams" colspan="2"><a id="a5d7aecabd6f1fb0337950f94fce8c722" name="a5d7aecabd6f1fb0337950f94fce8c722"></a>
-template&lt;typename T &gt; <br />
-requires ((std::is_constructible_v&lt;ValueType, T&gt;)&amp;&amp; // (std::is_convertible_v&lt;ValueType, T&gt;)&amp;&amp; // (std::same_as&lt;UnitType, <a class="el" href="_forward_2qt_8hxx.html#aa333deb5149d1a74b6703d21e02ea53b">unit::NoUnit</a>&gt;))</td></tr>
-<tr class="memitem:a5d7aecabd6f1fb0337950f94fce8c722"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr <a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator=</b> (const T &amp;src) noexcept</td></tr>
-<tr class="separator:a5d7aecabd6f1fb0337950f94fce8c722"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a857019e8a5dc911f49af814ff9d9a36d" id="r_a857019e8a5dc911f49af814ff9d9a36d"><td class="memTemplParams" colspan="2"><a id="a857019e8a5dc911f49af814ff9d9a36d" name="a857019e8a5dc911f49af814ff9d9a36d"></a>
-template&lt;typename T &gt; <br />
-requires ((std::is_constructible_v&lt;ValueType, T&gt;)&amp;&amp; // (std::is_convertible_v&lt;ValueType, T&gt;)&amp;&amp; // (std::same_as&lt;UnitType, <a class="el" href="_forward_2qt_8hxx.html#aa333deb5149d1a74b6703d21e02ea53b">unit::NoUnit</a>&gt;))</td></tr>
-<tr class="memitem:a857019e8a5dc911f49af814ff9d9a36d"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr <a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator+=</b> (const T &amp;src) noexcept</td></tr>
-<tr class="separator:a857019e8a5dc911f49af814ff9d9a36d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a526364827bb17e4e1f7c1bfe6d3f2f30" id="r_a526364827bb17e4e1f7c1bfe6d3f2f30"><td class="memTemplParams" colspan="2"><a id="a526364827bb17e4e1f7c1bfe6d3f2f30" name="a526364827bb17e4e1f7c1bfe6d3f2f30"></a>
-template&lt;typename T &gt; <br />
-requires ((std::is_constructible_v&lt;ValueType, T&gt;)&amp;&amp; // (std::is_convertible_v&lt;ValueType, T&gt;)&amp;&amp; // (std::same_as&lt;UnitType, <a class="el" href="_forward_2qt_8hxx.html#aa333deb5149d1a74b6703d21e02ea53b">unit::NoUnit</a>&gt;))</td></tr>
-<tr class="memitem:a526364827bb17e4e1f7c1bfe6d3f2f30"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr <a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator-=</b> (const T &amp;src) noexcept</td></tr>
-<tr class="separator:a526364827bb17e4e1f7c1bfe6d3f2f30"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b6bd288e73c69f936cc9c3a4aee6508" id="r_a0b6bd288e73c69f936cc9c3a4aee6508"><td class="memTemplParams" colspan="2"><a id="a0b6bd288e73c69f936cc9c3a4aee6508" name="a0b6bd288e73c69f936cc9c3a4aee6508"></a>
-template&lt;typename ValueType2 , typename OwnershipPolicy2 &gt; <br />
-requires (std::is_same_v&lt;<a class="el" href="structtfel_1_1math_1_1_quantity.html#a6e2a67a0c2b9a5ee7b2a91a28ca802d4">promote</a>&lt;ValueType, ValueType2&gt;, ValueType&gt;)</td></tr>
-<tr class="memitem:a0b6bd288e73c69f936cc9c3a4aee6508"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr <a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a>&lt; UnitType, ValueType2, OwnershipPolicy2 &gt; &amp;src) noexcept</td></tr>
-<tr class="memdesc:a0b6bd288e73c69f936cc9c3a4aee6508"><td class="mdescLeft">&#160;</td><td class="mdescRight">assignement operator <br /></td></tr>
-<tr class="separator:a0b6bd288e73c69f936cc9c3a4aee6508"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7988ad4b46feda163bc74c89b7546528" id="r_a7988ad4b46feda163bc74c89b7546528"><td class="memTemplParams" colspan="2"><a id="a7988ad4b46feda163bc74c89b7546528" name="a7988ad4b46feda163bc74c89b7546528"></a>
-template&lt;typename ValueType2 , typename OwnershipPolicy2 &gt; <br />
-requires (std::is_same_v&lt;<a class="el" href="structtfel_1_1math_1_1_quantity.html#a6e2a67a0c2b9a5ee7b2a91a28ca802d4">promote</a>&lt;ValueType, ValueType2&gt;, ValueType&gt;)</td></tr>
-<tr class="memitem:a7988ad4b46feda163bc74c89b7546528"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr <a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator+=</b> (const <a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a>&lt; UnitType, ValueType2, OwnershipPolicy2 &gt; &amp;src) noexcept</td></tr>
-<tr class="memdesc:a7988ad4b46feda163bc74c89b7546528"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator += <br /></td></tr>
-<tr class="separator:a7988ad4b46feda163bc74c89b7546528"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32cf011a1b68b5aca89bdef104e59a69" id="r_a32cf011a1b68b5aca89bdef104e59a69"><td class="memTemplParams" colspan="2"><a id="a32cf011a1b68b5aca89bdef104e59a69" name="a32cf011a1b68b5aca89bdef104e59a69"></a>
-template&lt;typename ValueType2 , typename OwnershipPolicy2 &gt; <br />
-requires ( std::is_same&lt;<a class="el" href="structtfel_1_1math_1_1_quantity.html#a6e2a67a0c2b9a5ee7b2a91a28ca802d4">promote</a>&lt;ValueType, ValueType2&gt;, ValueType&gt;::value)</td></tr>
-<tr class="memitem:a32cf011a1b68b5aca89bdef104e59a69"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr <a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator-=</b> (const <a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a>&lt; UnitType, ValueType2, OwnershipPolicy2 &gt; &amp;src) noexcept</td></tr>
-<tr class="memdesc:a32cf011a1b68b5aca89bdef104e59a69"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator -= <br /></td></tr>
-<tr class="separator:a32cf011a1b68b5aca89bdef104e59a69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba20147bbd209ba72af37b66b24581db" id="r_aba20147bbd209ba72af37b66b24581db"><td class="memTemplParams" colspan="2">template&lt;typename ValueType2 &gt; <br />
-requires (<a class="el" href="structtfel_1_1math_1_1_quantity_1_1_is_qt_scalar_operation_valid.html">IsQtScalarOperationValid</a>&lt;ValueType, ValueType2&gt;::cond)</td></tr>
-<tr class="memitem:aba20147bbd209ba72af37b66b24581db"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr <a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1_quantity.html#aba20147bbd209ba72af37b66b24581db">operator*=</a> (const ValueType2 &amp;a) noexcept</td></tr>
-<tr class="memdesc:aba20147bbd209ba72af37b66b24581db"><td class="mdescLeft">&#160;</td><td class="mdescRight">multiplication by a scalar  <br /></td></tr>
-<tr class="separator:aba20147bbd209ba72af37b66b24581db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8361eb5da3aa68a4f1182f51630d38ff" id="r_a8361eb5da3aa68a4f1182f51630d38ff"><td class="memTemplParams" colspan="2">template&lt;typename ValueType2 , typename OwnershipPolicy2 &gt; <br />
-requires (<a class="el" href="structtfel_1_1math_1_1_quantity_1_1_is_qt_scalar_operation_valid.html">IsQtScalarOperationValid</a>&lt;ValueType, ValueType2&gt;::cond)</td></tr>
-<tr class="memitem:a8361eb5da3aa68a4f1182f51630d38ff"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr <a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1_quantity.html#a8361eb5da3aa68a4f1182f51630d38ff">operator*=</a> (const <a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a>&lt; <a class="el" href="_forward_2qt_8hxx.html#aa333deb5149d1a74b6703d21e02ea53b">unit::NoUnit</a>, ValueType2, OwnershipPolicy2 &gt; &amp;a) noexcept</td></tr>
-<tr class="memdesc:a8361eb5da3aa68a4f1182f51630d38ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">multiplication by a scalar  <br /></td></tr>
-<tr class="separator:a8361eb5da3aa68a4f1182f51630d38ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a605ee30f367e86df1c9792878bf02d4a" id="r_a605ee30f367e86df1c9792878bf02d4a"><td class="memTemplParams" colspan="2">template&lt;typename ValueType2 &gt; <br />
-requires (<a class="el" href="structtfel_1_1math_1_1_quantity_1_1_is_qt_scalar_operation_valid.html">IsQtScalarOperationValid</a>&lt;ValueType, ValueType2&gt;::cond)</td></tr>
-<tr class="memitem:a605ee30f367e86df1c9792878bf02d4a"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr <a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1_quantity.html#a605ee30f367e86df1c9792878bf02d4a">operator/=</a> (const ValueType2 &amp;a) noexcept</td></tr>
-<tr class="memdesc:a605ee30f367e86df1c9792878bf02d4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">division by a scalar  <br /></td></tr>
-<tr class="separator:a605ee30f367e86df1c9792878bf02d4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae34d030ab7f039ce66240a4510a9be13" id="r_ae34d030ab7f039ce66240a4510a9be13"><td class="memTemplParams" colspan="2">template&lt;typename ValueType2 , typename OwnershipPolicy2 &gt; <br />
-requires (<a class="el" href="structtfel_1_1math_1_1_quantity_1_1_is_qt_scalar_operation_valid.html">IsQtScalarOperationValid</a>&lt;ValueType, ValueType2&gt;::cond)</td></tr>
-<tr class="memitem:ae34d030ab7f039ce66240a4510a9be13"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr <a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1_quantity.html#ae34d030ab7f039ce66240a4510a9be13">operator/=</a> (const <a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a>&lt; <a class="el" href="_forward_2qt_8hxx.html#aa333deb5149d1a74b6703d21e02ea53b">unit::NoUnit</a>, ValueType2, OwnershipPolicy2 &gt; &amp;a) noexcept</td></tr>
-<tr class="memdesc:ae34d030ab7f039ce66240a4510a9be13"><td class="mdescLeft">&#160;</td><td class="mdescRight">division by a scalar  <br /></td></tr>
-<tr class="separator:ae34d030ab7f039ce66240a4510a9be13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaabb31638ffb2c8e9d9af1901a05701a" id="r_aaabb31638ffb2c8e9d9af1901a05701a"><td class="memTemplParams" colspan="2"><a id="aaabb31638ffb2c8e9d9af1901a05701a" name="aaabb31638ffb2c8e9d9af1901a05701a"></a>
+template&lt;ImmutableQuantityConcept OtherQuantityType&gt; <br />
+requires ( (unit::areUnitsEqual&lt;UnitType, quantity_unit&lt;OtherQuantityType&gt;&gt;)&amp;&amp;( std::is_same_v&lt;<a class="el" href="structtfel_1_1math_1_1_quantity.html#a6e2a67a0c2b9a5ee7b2a91a28ca802d4">promote</a>&lt;ValueType, base_type&lt;OtherQuantityType&gt;&gt;, ValueType&gt;))</td></tr>
+<tr class="memitem:aaabb31638ffb2c8e9d9af1901a05701a"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Quantity</b> (const OtherQuantityType &amp;src) noexcept</td></tr>
+<tr class="separator:aaabb31638ffb2c8e9d9af1901a05701a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1560e4dbeda38f121b0ea5ecf48a878a" id="r_a1560e4dbeda38f121b0ea5ecf48a878a"><td class="memTemplParams" colspan="2"><a id="a1560e4dbeda38f121b0ea5ecf48a878a" name="a1560e4dbeda38f121b0ea5ecf48a878a"></a>
+template&lt;StandardArithmeticTypeConcept T&gt; <br />
+requires ((std::is_constructible_v&lt;ValueType, T&gt;)&amp;&amp; // (std::is_convertible_v&lt;ValueType, T&gt;)&amp;&amp; // (unit::areUnitsEqual&lt;UnitType, <a class="el" href="structtfel_1_1math_1_1unit_1_1_no_unit.html">unit::NoUnit</a>&gt;)&amp;&amp; // (is_mutable))</td></tr>
+<tr class="memitem:a1560e4dbeda38f121b0ea5ecf48a878a"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr <a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator=</b> (const T &amp;src) noexcept</td></tr>
+<tr class="separator:a1560e4dbeda38f121b0ea5ecf48a878a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71a94f192262bb020ca7851778a85415" id="r_a71a94f192262bb020ca7851778a85415"><td class="memTemplParams" colspan="2"><a id="a71a94f192262bb020ca7851778a85415" name="a71a94f192262bb020ca7851778a85415"></a>
+template&lt;StandardArithmeticTypeConcept T&gt; <br />
+requires ((std::is_constructible_v&lt;ValueType, T&gt;)&amp;&amp; // (std::is_convertible_v&lt;ValueType, T&gt;)&amp;&amp; // (unit::areUnitsEqual&lt;UnitType, <a class="el" href="structtfel_1_1math_1_1unit_1_1_no_unit.html">unit::NoUnit</a>&gt;)&amp;&amp; // (is_mutable))</td></tr>
+<tr class="memitem:a71a94f192262bb020ca7851778a85415"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr <a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator+=</b> (const T &amp;src) noexcept</td></tr>
+<tr class="separator:a71a94f192262bb020ca7851778a85415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a759fc9b9ef1fe618ceaa7949f68616c9" id="r_a759fc9b9ef1fe618ceaa7949f68616c9"><td class="memTemplParams" colspan="2"><a id="a759fc9b9ef1fe618ceaa7949f68616c9" name="a759fc9b9ef1fe618ceaa7949f68616c9"></a>
+template&lt;StandardArithmeticTypeConcept T&gt; <br />
+requires ((std::is_constructible_v&lt;ValueType, T&gt;)&amp;&amp; // (std::is_convertible_v&lt;ValueType, T&gt;)&amp;&amp; // (unit::areUnitsEqual&lt;UnitType, <a class="el" href="structtfel_1_1math_1_1unit_1_1_no_unit.html">unit::NoUnit</a>&gt;)&amp;&amp; // (is_mutable))</td></tr>
+<tr class="memitem:a759fc9b9ef1fe618ceaa7949f68616c9"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr <a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator-=</b> (const T &amp;src) noexcept</td></tr>
+<tr class="separator:a759fc9b9ef1fe618ceaa7949f68616c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67e5c9399e43781b74bee55b78fe0add" id="r_a67e5c9399e43781b74bee55b78fe0add"><td class="memTemplParams" colspan="2"><a id="a67e5c9399e43781b74bee55b78fe0add" name="a67e5c9399e43781b74bee55b78fe0add"></a>
+template&lt;ImmutableQuantityConcept OtherQuantityType&gt; <br />
+requires ( (unit::areUnitsEqual&lt;UnitType, quantity_unit&lt;OtherQuantityType&gt;&gt;)&amp;&amp;( std::is_same_v&lt;<a class="el" href="structtfel_1_1math_1_1_quantity.html#a6e2a67a0c2b9a5ee7b2a91a28ca802d4">promote</a>&lt;ValueType, base_type&lt;OtherQuantityType&gt;&gt;, ValueType&gt;)&amp;&amp; // (is_mutable))</td></tr>
+<tr class="memitem:a67e5c9399e43781b74bee55b78fe0add"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr <a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator=</b> (const OtherQuantityType &amp;src) noexcept</td></tr>
+<tr class="memdesc:a67e5c9399e43781b74bee55b78fe0add"><td class="mdescLeft">&#160;</td><td class="mdescRight">assignement operator <br /></td></tr>
+<tr class="separator:a67e5c9399e43781b74bee55b78fe0add"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a013fadf25e8d475508576f7f191f0312" id="r_a013fadf25e8d475508576f7f191f0312"><td class="memTemplParams" colspan="2"><a id="a013fadf25e8d475508576f7f191f0312" name="a013fadf25e8d475508576f7f191f0312"></a>
+template&lt;ImmutableQuantityConcept OtherQuantityType&gt; <br />
+requires ( (unit::areUnitsEqual&lt;UnitType, quantity_unit&lt;OtherQuantityType&gt;&gt;)&amp;&amp;( std::is_same_v&lt;<a class="el" href="structtfel_1_1math_1_1_quantity.html#a6e2a67a0c2b9a5ee7b2a91a28ca802d4">promote</a>&lt;ValueType, base_type&lt;OtherQuantityType&gt;&gt;, ValueType&gt;)&amp;&amp; // (is_mutable))</td></tr>
+<tr class="memitem:a013fadf25e8d475508576f7f191f0312"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr <a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator+=</b> (const OtherQuantityType &amp;src) noexcept</td></tr>
+<tr class="memdesc:a013fadf25e8d475508576f7f191f0312"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator += <br /></td></tr>
+<tr class="separator:a013fadf25e8d475508576f7f191f0312"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ee53c39fe2513474d8f3c5d12c201ec" id="r_a1ee53c39fe2513474d8f3c5d12c201ec"><td class="memTemplParams" colspan="2"><a id="a1ee53c39fe2513474d8f3c5d12c201ec" name="a1ee53c39fe2513474d8f3c5d12c201ec"></a>
+template&lt;ImmutableQuantityConcept OtherQuantityType&gt; <br />
+requires ( (unit::areUnitsEqual&lt;UnitType, quantity_unit&lt;OtherQuantityType&gt;&gt;)&amp;&amp;( std::is_same_v&lt;<a class="el" href="structtfel_1_1math_1_1_quantity.html#a6e2a67a0c2b9a5ee7b2a91a28ca802d4">promote</a>&lt;ValueType, base_type&lt;OtherQuantityType&gt;&gt;, ValueType&gt;)&amp;&amp; // (is_mutable))</td></tr>
+<tr class="memitem:a1ee53c39fe2513474d8f3c5d12c201ec"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr <a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator-=</b> (const OtherQuantityType &amp;src) noexcept</td></tr>
+<tr class="memdesc:a1ee53c39fe2513474d8f3c5d12c201ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator -= <br /></td></tr>
+<tr class="separator:a1ee53c39fe2513474d8f3c5d12c201ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5cd17f7b92f44b2b7a934f4abaa51cd" id="r_af5cd17f7b92f44b2b7a934f4abaa51cd"><td class="memTemplParams" colspan="2">template&lt;StandardArithmeticTypeConcept ValueType2&gt; <br />
+requires ((<a class="el" href="structtfel_1_1math_1_1_quantity_1_1_is_qt_scalar_operation_valid.html">IsQtScalarOperationValid</a>&lt;ValueType, ValueType2&gt;::cond) &amp;&amp; // (is_mutable))</td></tr>
+<tr class="memitem:af5cd17f7b92f44b2b7a934f4abaa51cd"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr <a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1_quantity.html#af5cd17f7b92f44b2b7a934f4abaa51cd">operator*=</a> (const ValueType2 &amp;a) noexcept</td></tr>
+<tr class="memdesc:af5cd17f7b92f44b2b7a934f4abaa51cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">multiplication by a scalar  <br /></td></tr>
+<tr class="separator:af5cd17f7b92f44b2b7a934f4abaa51cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a8176b8d3c3679e8edbaa41122375ed" id="r_a0a8176b8d3c3679e8edbaa41122375ed"><td class="memTemplParams" colspan="2">template&lt;NoUnitImmutableQuantityConcept OtherQuantityType&gt; <br />
+requires ( (<a class="el" href="structtfel_1_1math_1_1_quantity_1_1_is_qt_scalar_operation_valid.html">IsQtScalarOperationValid</a>&lt;ValueType, base_type&lt;OtherQuantityType&gt;&gt;::cond) &amp;&amp; // (is_mutable))</td></tr>
+<tr class="memitem:a0a8176b8d3c3679e8edbaa41122375ed"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr <a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1_quantity.html#a0a8176b8d3c3679e8edbaa41122375ed">operator*=</a> (const OtherQuantityType &amp;a) noexcept</td></tr>
+<tr class="memdesc:a0a8176b8d3c3679e8edbaa41122375ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">multiplication by a scalar  <br /></td></tr>
+<tr class="separator:a0a8176b8d3c3679e8edbaa41122375ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b4ec65fbadc1fce2852cdbdfd084ca3" id="r_a6b4ec65fbadc1fce2852cdbdfd084ca3"><td class="memTemplParams" colspan="2">template&lt;StandardArithmeticTypeConcept ValueType2&gt; <br />
+requires ((<a class="el" href="structtfel_1_1math_1_1_quantity_1_1_is_qt_scalar_operation_valid.html">IsQtScalarOperationValid</a>&lt;ValueType, ValueType2&gt;::cond) &amp;&amp; // (is_mutable))</td></tr>
+<tr class="memitem:a6b4ec65fbadc1fce2852cdbdfd084ca3"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr <a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1_quantity.html#a6b4ec65fbadc1fce2852cdbdfd084ca3">operator/=</a> (const ValueType2 &amp;a) noexcept</td></tr>
+<tr class="memdesc:a6b4ec65fbadc1fce2852cdbdfd084ca3"><td class="mdescLeft">&#160;</td><td class="mdescRight">division by a scalar  <br /></td></tr>
+<tr class="separator:a6b4ec65fbadc1fce2852cdbdfd084ca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3ecf0b7fb29ef36e16a6b01be653a7b" id="r_aa3ecf0b7fb29ef36e16a6b01be653a7b"><td class="memTemplParams" colspan="2">template&lt;NoUnitImmutableQuantityConcept OtherQuantityType&gt; <br />
+requires ( (<a class="el" href="structtfel_1_1math_1_1_quantity_1_1_is_qt_scalar_operation_valid.html">IsQtScalarOperationValid</a>&lt;ValueType, base_type&lt;OtherQuantityType&gt;&gt;::cond) &amp;&amp; // (is_mutable))</td></tr>
+<tr class="memitem:aa3ecf0b7fb29ef36e16a6b01be653a7b"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr <a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1_quantity.html#aa3ecf0b7fb29ef36e16a6b01be653a7b">operator/=</a> (const OtherQuantityType &amp;a) noexcept</td></tr>
+<tr class="memdesc:aa3ecf0b7fb29ef36e16a6b01be653a7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">division by a scalar  <br /></td></tr>
+<tr class="separator:aa3ecf0b7fb29ef36e16a6b01be653a7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04dc5974ffd382536c77d3bb8415bf4c" id="r_a04dc5974ffd382536c77d3bb8415bf4c"><td class="memItemLeft" align="right" valign="top"><a id="a04dc5974ffd382536c77d3bb8415bf4c" name="a04dc5974ffd382536c77d3bb8415bf4c"></a>
-TFEL_HOST_DEVICE constexpr <a class="el" href="_forward_2qt_8hxx.html#af3f6a2b6fd43605cbd137447c18f655c">qt</a>&lt; UnitType, ValueType &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator-</b> () const noexcept</td></tr>
+TFEL_HOST_DEVICE constexpr <a class="el" href="structtfel_1_1math_1_1qt.html">qt</a>&lt; UnitType, ValueType &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator-</b> () const noexcept</td></tr>
 <tr class="memdesc:a04dc5974ffd382536c77d3bb8415bf4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">negation operator <br /></td></tr>
 <tr class="separator:a04dc5974ffd382536c77d3bb8415bf4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a0b1496e638a4156b26611bf75ff2805b" id="r_a0b1496e638a4156b26611bf75ff2805b"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1_quantity.html#a0b1496e638a4156b26611bf75ff2805b">is_mutable</a></td></tr>
+<tr class="separator:a0b1496e638a4156b26611bf75ff2805b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a8361eb5da3aa68a4f1182f51630d38ff" name="a8361eb5da3aa68a4f1182f51630d38ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8361eb5da3aa68a4f1182f51630d38ff">&#9670;&#160;</a></span>operator*=() <span class="overload">[1/2]</span></h2>
+<a id="a0a8176b8d3c3679e8edbaa41122375ed" name="a0a8176b8d3c3679e8edbaa41122375ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a8176b8d3c3679e8edbaa41122375ed">&#9670;&#160;</a></span>operator*=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;UnitConcept UnitType, typename ValueType , typename OwnershipPolicy &gt; </div>
+template&lt;unit::UnitConcept UnitType, StandardArithmeticTypeConcept ValueType, typename OwnershipPolicy &gt; </div>
 <div class="memtemplate">
-template&lt;typename ValueType2 , typename OwnershipPolicy2 &gt; <br />
-requires (<a class="el" href="structtfel_1_1math_1_1_quantity_1_1_is_qt_scalar_operation_valid.html">IsQtScalarOperationValid</a>&lt;ValueType, ValueType2&gt;::cond)</div>
+template&lt;NoUnitImmutableQuantityConcept OtherQuantityType&gt; <br />
+requires ( (<a class="el" href="structtfel_1_1math_1_1_quantity_1_1_is_qt_scalar_operation_valid.html">IsQtScalarOperationValid</a>&lt;ValueType, base_type&lt;OtherQuantityType&gt;&gt;::cond) &amp;&amp; // (is_mutable))</div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -221,7 +227,7 @@ requires (<a class="el" href="structtfel_1_1math_1_1_quantity_1_1_is_qt_scalar_o
         <tr>
           <td class="memname">TFEL_HOST_DEVICE constexpr <a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a> &amp; <a class="el" href="structtfel_1_1math_1_1_quantity.html">tfel::math::Quantity</a>&lt; UnitType, ValueType, OwnershipPolicy &gt;::operator*= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a>&lt; <a class="el" href="_forward_2qt_8hxx.html#aa333deb5149d1a74b6703d21e02ea53b">unit::NoUnit</a>, ValueType2, OwnershipPolicy2 &gt; &amp;&#160;</td>
+          <td class="paramtype">const OtherQuantityType &amp;&#160;</td>
           <td class="paramname"><em>a</em></td><td>)</td>
           <td></td>
         </tr>
@@ -249,16 +255,16 @@ requires (<a class="el" href="structtfel_1_1math_1_1_quantity_1_1_is_qt_scalar_o
 
 </div>
 </div>
-<a id="aba20147bbd209ba72af37b66b24581db" name="aba20147bbd209ba72af37b66b24581db"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aba20147bbd209ba72af37b66b24581db">&#9670;&#160;</a></span>operator*=() <span class="overload">[2/2]</span></h2>
+<a id="af5cd17f7b92f44b2b7a934f4abaa51cd" name="af5cd17f7b92f44b2b7a934f4abaa51cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5cd17f7b92f44b2b7a934f4abaa51cd">&#9670;&#160;</a></span>operator*=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;UnitConcept UnitType, typename ValueType , typename OwnershipPolicy &gt; </div>
+template&lt;unit::UnitConcept UnitType, StandardArithmeticTypeConcept ValueType, typename OwnershipPolicy &gt; </div>
 <div class="memtemplate">
-template&lt;typename ValueType2 &gt; <br />
-requires (<a class="el" href="structtfel_1_1math_1_1_quantity_1_1_is_qt_scalar_operation_valid.html">IsQtScalarOperationValid</a>&lt;ValueType, ValueType2&gt;::cond)</div>
+template&lt;StandardArithmeticTypeConcept ValueType2&gt; <br />
+requires ((<a class="el" href="structtfel_1_1math_1_1_quantity_1_1_is_qt_scalar_operation_valid.html">IsQtScalarOperationValid</a>&lt;ValueType, ValueType2&gt;::cond) &amp;&amp; // (is_mutable))</div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -294,16 +300,16 @@ requires (<a class="el" href="structtfel_1_1math_1_1_quantity_1_1_is_qt_scalar_o
 
 </div>
 </div>
-<a id="ae34d030ab7f039ce66240a4510a9be13" name="ae34d030ab7f039ce66240a4510a9be13"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae34d030ab7f039ce66240a4510a9be13">&#9670;&#160;</a></span>operator/=() <span class="overload">[1/2]</span></h2>
+<a id="aa3ecf0b7fb29ef36e16a6b01be653a7b" name="aa3ecf0b7fb29ef36e16a6b01be653a7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3ecf0b7fb29ef36e16a6b01be653a7b">&#9670;&#160;</a></span>operator/=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;UnitConcept UnitType, typename ValueType , typename OwnershipPolicy &gt; </div>
+template&lt;unit::UnitConcept UnitType, StandardArithmeticTypeConcept ValueType, typename OwnershipPolicy &gt; </div>
 <div class="memtemplate">
-template&lt;typename ValueType2 , typename OwnershipPolicy2 &gt; <br />
-requires (<a class="el" href="structtfel_1_1math_1_1_quantity_1_1_is_qt_scalar_operation_valid.html">IsQtScalarOperationValid</a>&lt;ValueType, ValueType2&gt;::cond)</div>
+template&lt;NoUnitImmutableQuantityConcept OtherQuantityType&gt; <br />
+requires ( (<a class="el" href="structtfel_1_1math_1_1_quantity_1_1_is_qt_scalar_operation_valid.html">IsQtScalarOperationValid</a>&lt;ValueType, base_type&lt;OtherQuantityType&gt;&gt;::cond) &amp;&amp; // (is_mutable))</div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -311,7 +317,7 @@ requires (<a class="el" href="structtfel_1_1math_1_1_quantity_1_1_is_qt_scalar_o
         <tr>
           <td class="memname">TFEL_HOST_DEVICE constexpr <a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a> &amp; <a class="el" href="structtfel_1_1math_1_1_quantity.html">tfel::math::Quantity</a>&lt; UnitType, ValueType, OwnershipPolicy &gt;::operator/= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a>&lt; <a class="el" href="_forward_2qt_8hxx.html#aa333deb5149d1a74b6703d21e02ea53b">unit::NoUnit</a>, ValueType2, OwnershipPolicy2 &gt; &amp;&#160;</td>
+          <td class="paramtype">const OtherQuantityType &amp;&#160;</td>
           <td class="paramname"><em>a</em></td><td>)</td>
           <td></td>
         </tr>
@@ -339,16 +345,16 @@ requires (<a class="el" href="structtfel_1_1math_1_1_quantity_1_1_is_qt_scalar_o
 
 </div>
 </div>
-<a id="a605ee30f367e86df1c9792878bf02d4a" name="a605ee30f367e86df1c9792878bf02d4a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a605ee30f367e86df1c9792878bf02d4a">&#9670;&#160;</a></span>operator/=() <span class="overload">[2/2]</span></h2>
+<a id="a6b4ec65fbadc1fce2852cdbdfd084ca3" name="a6b4ec65fbadc1fce2852cdbdfd084ca3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b4ec65fbadc1fce2852cdbdfd084ca3">&#9670;&#160;</a></span>operator/=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;UnitConcept UnitType, typename ValueType , typename OwnershipPolicy &gt; </div>
+template&lt;unit::UnitConcept UnitType, StandardArithmeticTypeConcept ValueType, typename OwnershipPolicy &gt; </div>
 <div class="memtemplate">
-template&lt;typename ValueType2 &gt; <br />
-requires (<a class="el" href="structtfel_1_1math_1_1_quantity_1_1_is_qt_scalar_operation_valid.html">IsQtScalarOperationValid</a>&lt;ValueType, ValueType2&gt;::cond)</div>
+template&lt;StandardArithmeticTypeConcept ValueType2&gt; <br />
+requires ((<a class="el" href="structtfel_1_1math_1_1_quantity_1_1_is_qt_scalar_operation_valid.html">IsQtScalarOperationValid</a>&lt;ValueType, ValueType2&gt;::cond) &amp;&amp; // (is_mutable))</div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -382,6 +388,34 @@ requires (<a class="el" href="structtfel_1_1math_1_1_quantity_1_1_is_qt_scalar_o
   </dd>
 </dl>
 
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a0b1496e638a4156b26611bf75ff2805b" name="a0b1496e638a4156b26611bf75ff2805b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b1496e638a4156b26611bf75ff2805b">&#9670;&#160;</a></span>is_mutable</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unit::UnitConcept UnitType, StandardArithmeticTypeConcept ValueType, typename OwnershipPolicy &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto <a class="el" href="structtfel_1_1math_1_1_quantity.html">tfel::math::Quantity</a>&lt; UnitType, ValueType, OwnershipPolicy &gt;::is_mutable</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= <span class="keyword">requires</span>(OwnershipPolicy &amp; p) {</div>
+<div class="line">      { p.getValue() } -&gt; std::same_as&lt;ValueType&amp;&gt;;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following files:<ul>
@@ -394,7 +428,7 @@ requires (<a class="el" href="structtfel_1_1math_1_1_quantity_1_1_is_qt_scalar_o
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>tfel</b></li><li class="navelem"><b>math</b></li><li class="navelem"><a class="el" href="structtfel_1_1math_1_1_quantity.html">Quantity</a></li>
-    <li class="footer">Generated on Wed Jul 1 2026 16:14:36 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Sep 4 2026 21:17:59 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

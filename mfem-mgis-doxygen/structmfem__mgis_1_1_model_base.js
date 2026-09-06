@@ -1,7 +1,7 @@
 var structmfem__mgis_1_1_model_base =
 [
-    [ "ModelBase", "structmfem__mgis_1_1_model_base.html#aa3d179ba781f4a5069f3654ec3511165", null ],
-    [ "ModelBase", "structmfem__mgis_1_1_model_base.html#a7671688da9b12c41122dfa81dc654275", null ],
+    [ "ModelBase", "structmfem__mgis_1_1_model_base.html#a4471e190469decb254bb5d0c4a67ec76", null ],
+    [ "ModelBase", "structmfem__mgis_1_1_model_base.html#a665036b89d8f5a39e3901d5853884009", null ],
     [ "~ModelBase", "structmfem__mgis_1_1_model_base.html#a372c0e786912e463c870dcbbb72e3c7e", null ],
     [ "addPostProcessing", "structmfem__mgis_1_1_model_base.html#a1ee5a12c48c1837b2540e6fdf821f086", null ],
     [ "addPostProcessing", "structmfem__mgis_1_1_model_base.html#a1542e40d4c16df98a5e711e4e3ab5ba2", null ],

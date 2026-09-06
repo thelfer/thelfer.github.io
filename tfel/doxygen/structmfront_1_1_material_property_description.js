@@ -2,7 +2,7 @@ var structmfront_1_1_material_property_description =
 [
     [ "MaterialPropertyDescription", "structmfront_1_1_material_property_description.html#af417ccf3fd1435bda067a8ab62d920d6", null ],
     [ "MaterialPropertyDescription", "structmfront_1_1_material_property_description.html#a198542c0c41d065f58c829dbf890b9b3", null ],
-    [ "MaterialPropertyDescription", "structmfront_1_1_material_property_description.html#ad8064e778817f1199c023fd360d9d0d2", null ],
+    [ "MaterialPropertyDescription", "structmfront_1_1_material_property_description.html#a0146f04e22468a2515abc76c835c4b77", null ],
     [ "~MaterialPropertyDescription", "structmfront_1_1_material_property_description.html#a92d53e834411799882b28e9c1f7c48e6", null ],
     [ "addMaterialLaw", "structmfront_1_1_material_property_description.html#a2c8e43586f053d62e6561edb9164b9c8", null ],
     [ "appendToIncludes", "structmfront_1_1_material_property_description.html#a95c91e476335cc92f48fc2923acd7a87", null ],
@@ -22,7 +22,7 @@ var structmfront_1_1_material_property_description =
     [ "isNameReserved", "structmfront_1_1_material_property_description.html#a1375c341f43723769e1dbd4dc396e2f0", null ],
     [ "isParameterName", "structmfront_1_1_material_property_description.html#a9a249464b63bcaf53303716d5ae5a045", null ],
     [ "operator=", "structmfront_1_1_material_property_description.html#afdb948d7e8fd32bd432355f9a7f99457", null ],
-    [ "operator=", "structmfront_1_1_material_property_description.html#a34f43be0cfa8a9f407c454bc57c1fdbb", null ],
+    [ "operator=", "structmfront_1_1_material_property_description.html#af2b3422c4dadbca05287134b2f1eed04", null ],
     [ "reserveName", "structmfront_1_1_material_property_description.html#aedf97bfb3bb16ce243601d8d7a7a7cbb", null ],
     [ "setEntryName", "structmfront_1_1_material_property_description.html#aeb024ab1216c40c13873e20382813d60", null ],
     [ "setGlossaryName", "structmfront_1_1_material_property_description.html#af52065d4a153d0df0cbf78b34c1c1a9b", null ],

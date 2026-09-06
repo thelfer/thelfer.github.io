@@ -7,7 +7,7 @@ var structmfront_1_1bbrick_1_1_standard_stress_criterion_base =
     [ "computeNormal", "structmfront_1_1bbrick_1_1_standard_stress_criterion_base.html#af8853f8a99cff02198fe048c0812b64d", null ],
     [ "computeNormalDerivative", "structmfront_1_1bbrick_1_1_standard_stress_criterion_base.html#a706326e61a712d8dbd0a8e905246f760", null ],
     [ "endTreatment", "structmfront_1_1bbrick_1_1_standard_stress_criterion_base.html#a865db5ce7a8264a7db658c33a38ce568", null ],
-    [ "getPorosityEffectOnEquivalentPlasticStrain", "structmfront_1_1bbrick_1_1_standard_stress_criterion_base.html#a28689b3ce460d6d7cfd18328f1ddc046", null ],
+    [ "getPorosityEffectOnEquivalentPlasticStrain", "structmfront_1_1bbrick_1_1_standard_stress_criterion_base.html#a988d61a31373123209bcf9f10d714655", null ],
     [ "initialize", "structmfront_1_1bbrick_1_1_standard_stress_criterion_base.html#abe7f4712bcb5f423501720105f3a48e6", null ],
-    [ "isCoupledWithPorosityEvolution", "structmfront_1_1bbrick_1_1_standard_stress_criterion_base.html#a485214a98695cf3f09b377a4fed4c429", null ]
+    [ "isCoupledWithPorosityEvolution", "structmfront_1_1bbrick_1_1_standard_stress_criterion_base.html#a1a83331958d6525f9bd9bfa35a36b29b", null ]
 ];

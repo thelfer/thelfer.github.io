@@ -5,7 +5,7 @@ var structtfel_1_1check_1_1_test =
     [ "getColA", "structtfel_1_1check_1_1_test.html#a54137ae750555454951859dbafc50201", null ],
     [ "getColB", "structtfel_1_1check_1_1_test.html#a62181147cb3b41e0df1155618d1598a5", null ],
     [ "getColIntegralInterpolated", "structtfel_1_1check_1_1_test.html#a4382fd35981263582fb40c5dc92e1467", null ],
-    [ "getComparison", "structtfel_1_1check_1_1_test.html#ab36010e35b10adbefc69f6cd8ef9c88b", null ],
+    [ "getComparison", "structtfel_1_1check_1_1_test.html#a869cf0e4a55d11582fc5d074f52fd142", null ],
     [ "getFileA", "structtfel_1_1check_1_1_test.html#a64977ef892565f06da01a9dbf27bd1aa", null ],
     [ "getFileB", "structtfel_1_1check_1_1_test.html#a369d5b35243043ec9df7d925f902012f", null ],
     [ "getIntegralInterpolation", "structtfel_1_1check_1_1_test.html#a6ba8f40db49e49ac05897f491ef2206e", null ],

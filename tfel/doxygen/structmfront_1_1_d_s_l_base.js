@@ -18,7 +18,7 @@ var structmfront_1_1_d_s_l_base =
     [ "disableQuantitiesUsageIfNotAlreadySet", "structmfront_1_1_d_s_l_base.html#ad9e7920906788e53e2047f5a5c2e4e38", null ],
     [ "getClassName", "structmfront_1_1_d_s_l_base.html#a4c6d3577ae661ba1196b015e38d24577", null ],
     [ "getDSLOptions", "structmfront_1_1_d_s_l_base.html#a9a979fb71a3eb9b85e02a148e00e0f1d", null ],
-    [ "getFileDescription", "structmfront_1_1_d_s_l_base.html#ac7becc58aa8c4424288ebf32def31b97", null ],
+    [ "getFileDescription", "structmfront_1_1_d_s_l_base.html#a5948ba0ae9ef63d527dace2d9ebf979d", null ],
     [ "getIntegerConstant", "structmfront_1_1_d_s_l_base.html#a5a2b6ab871847959a0faa921c76792f2", null ],
     [ "getIntegerConstants", "structmfront_1_1_d_s_l_base.html#ae4ebd02ec0de73dce0a49305d8a9865a", null ],
     [ "getTargetsDescription", "structmfront_1_1_d_s_l_base.html#a4881deedc753beddb0b22db4ba831bf3", null ],

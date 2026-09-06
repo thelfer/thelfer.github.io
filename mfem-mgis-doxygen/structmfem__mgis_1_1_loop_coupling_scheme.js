@@ -1,7 +1,7 @@
 var structmfem__mgis_1_1_loop_coupling_scheme =
 [
-    [ "LoopCouplingScheme", "structmfem__mgis_1_1_loop_coupling_scheme.html#ab40b26f05e794a6ae2a9ebf995991583", null ],
-    [ "LoopCouplingScheme", "structmfem__mgis_1_1_loop_coupling_scheme.html#affe91ba21f41cc7a0433e8760c874f72", null ],
+    [ "LoopCouplingScheme", "structmfem__mgis_1_1_loop_coupling_scheme.html#af6f8de6f01267ade6f3743fd0cdeabb6", null ],
+    [ "LoopCouplingScheme", "structmfem__mgis_1_1_loop_coupling_scheme.html#a2aa5eba7944917260b352567cea7a9f9", null ],
     [ "~LoopCouplingScheme", "structmfem__mgis_1_1_loop_coupling_scheme.html#a1602bc33b9678e07d174236a60e8518d", null ],
     [ "addConvergenceCriterion", "structmfem__mgis_1_1_loop_coupling_scheme.html#a5efaeebdbfbf499e071c80cccd8497b5", null ],
     [ "computeNextState", "structmfem__mgis_1_1_loop_coupling_scheme.html#a6632385454b1d7a8b18cdecc372e5d2d", null ],

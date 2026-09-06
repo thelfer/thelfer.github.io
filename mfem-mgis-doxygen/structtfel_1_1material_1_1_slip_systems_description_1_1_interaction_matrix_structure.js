@@ -2,7 +2,7 @@ var structtfel_1_1material_1_1_slip_systems_description_1_1_interaction_matrix_s
 [
     [ "SlidingSystemsInteraction", "structtfel_1_1material_1_1_slip_systems_description_1_1_interaction_matrix_structure_1_1_sliding_systems_interaction.html", null ],
     [ "InteractionMatrixStructure", "structtfel_1_1material_1_1_slip_systems_description_1_1_interaction_matrix_structure.html#aece525d88988268415028101963e35ae", null ],
-    [ "InteractionMatrixStructure", "structtfel_1_1material_1_1_slip_systems_description_1_1_interaction_matrix_structure.html#abf1e7734d3fdbbe0fac0778619453098", null ],
+    [ "InteractionMatrixStructure", "structtfel_1_1material_1_1_slip_systems_description_1_1_interaction_matrix_structure.html#a7e8c87e92fb81e6d1dc91ab979780408", null ],
     [ "InteractionMatrixStructure", "structtfel_1_1material_1_1_slip_systems_description_1_1_interaction_matrix_structure.html#a0ab480bbe2b435f5438d44c8bdc7ec1f", null ],
     [ "~InteractionMatrixStructure", "structtfel_1_1material_1_1_slip_systems_description_1_1_interaction_matrix_structure.html#a5d08fd3a36b2f366403416cf4b6f976a", null ],
     [ "getRank", "structtfel_1_1material_1_1_slip_systems_description_1_1_interaction_matrix_structure.html#a5418d92c493be71971e3fb66d22d48d6", null ],

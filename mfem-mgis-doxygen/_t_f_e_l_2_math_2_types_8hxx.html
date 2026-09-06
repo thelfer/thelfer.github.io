@@ -215,7 +215,7 @@ template&lt;<a class="el" href="concepttfel_1_1math_1_1_scalar_concept.html">tfe
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a8d7e56abbf07c901ded6a6cf432ef1d0" id="r_a8d7e56abbf07c901ded6a6cf432ef1d0"><td class="memTemplParams" colspan="2">template&lt;UnitConcept Unit, typename T &gt; <br />
+<tr class="memitem:a8d7e56abbf07c901ded6a6cf432ef1d0" id="r_a8d7e56abbf07c901ded6a6cf432ef1d0"><td class="memTemplParams" colspan="2">template&lt;unit::UnitConcept Unit, typename T &gt; <br />
 requires (ScalarConcept&lt;T&gt; || MathObjectConcept&lt;T&gt;)</td></tr>
 <tr class="memitem:a8d7e56abbf07c901ded6a6cf432ef1d0"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_t_f_e_l_2_math_2_types_8hxx.html#a8d7e56abbf07c901ded6a6cf432ef1d0">tfel::math::checkUnitCompatibility</a> ()</td></tr>
 <tr class="memdesc:a8d7e56abbf07c901ded6a6cf432ef1d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">this function checks if the given type matches the given unit if it built on top of a quantity. If the given type is built on a plain old scalar type, this function always returns true.  <br /></td></tr>
@@ -232,7 +232,7 @@ requires (ScalarConcept&lt;T&gt; || MathObjectConcept&lt;T&gt;)</td></tr>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;UnitConcept Unit, typename T &gt; <br />
+template&lt;unit::UnitConcept Unit, typename T &gt; <br />
 requires (ScalarConcept&lt;T&gt; || MathObjectConcept&lt;T&gt;)</div>
 <table class="mlabels">
   <tr>
@@ -257,12 +257,12 @@ requires (ScalarConcept&lt;T&gt; || MathObjectConcept&lt;T&gt;)</div>
 <div class="fragment"><div class="line"><span class="keyword">template</span> &lt;tfel::math::ScalarConcept StressType&gt;</div>
 <div class="line">StressType computeLambda(</div>
 <div class="line"> <span class="keyword">const</span> StressType&amp; young,</div>
-<div class="line"> <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code hl_struct" href="structtfel_1_1math_1_1_quantity.html">tfel::math::ScalarTypeRebind&lt;StressType&gt;::real</a>&amp; nu)</div>
+<div class="line"> <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code hl_struct" href="structtfel_1_1math_1_1qt.html">tfel::math::ScalarTypeRebind&lt;StressType&gt;::real</a>&amp; nu)</div>
 <div class="line"> <span class="keyword">requires</span>(</div>
-<div class="line">     tfel::math::checkUnitCompatibility&lt;<a class="code hl_struct" href="structtfel_1_1math_1_1_unit.html">tfel::math::unit::Stress</a>,</div>
+<div class="line">     tfel::math::checkUnitCompatibility&lt;<a class="code hl_struct" href="structtfel_1_1math_1_1unit_1_1_stress.html">tfel::math::unit::Stress</a>,</div>
 <div class="line">StressType&gt;()); </div>
-<div class="ttc" id="astructtfel_1_1math_1_1_quantity_html"><div class="ttname"><a href="structtfel_1_1math_1_1_quantity.html">tfel::math::Quantity</a></div><div class="ttdef"><b>Definition</b> qt.hxx:193</div></div>
-<div class="ttc" id="astructtfel_1_1math_1_1_unit_html"><div class="ttname"><a href="structtfel_1_1math_1_1_unit.html">tfel::math::Unit</a></div><div class="ttdoc">structure describing an unit</div><div class="ttdef"><b>Definition</b> Forward/qt.hxx:57</div></div>
+<div class="ttc" id="astructtfel_1_1math_1_1qt_html"><div class="ttname"><a href="structtfel_1_1math_1_1qt.html">tfel::math::qt</a></div><div class="ttdoc">a simple alias</div><div class="ttdef"><b>Definition</b> qt.hxx:376</div></div>
+<div class="ttc" id="astructtfel_1_1math_1_1unit_1_1_stress_html"><div class="ttname"><a href="structtfel_1_1math_1_1unit_1_1_stress.html">tfel::math::unit::Stress</a></div><div class="ttdoc">Declares the Stress unit.</div><div class="ttdef"><b>Definition</b> Forward/Unit.hxx:249</div></div>
 </div><!-- fragment --><p>Thanks to the <code>checkUnitCompatibility</code> function, this function only compiles if <code>StressType</code> either:</p>
 <ul>
 <li>maches <code>qt&lt;Stress, NumericType&gt;</code>, where <code>NumericType</code> is a plain old floatting point type such as <code>double</code>, <code>float</code> or <code>long double</code>.</li>
@@ -283,8 +283,8 @@ requires (ScalarConcept&lt;T&gt; || MathObjectConcept&lt;T&gt;)</div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_19f2334cefedab4bca7d00c996a0e590.html">spack</a></li><li class="navelem"><a class="el" href="dir_4819441dfd5ac14987c44814feffea1f.html">opt</a></li><li class="navelem"><a class="el" href="dir_e09d68ea3582e9b52bc2ab165a9fdd0a.html">spack</a></li><li class="navelem"><a class="el" href="dir_ffdec7cc29a5f6597048472df1d5e993.html">linux-zen2</a></li><li class="navelem"><a class="el" href="dir_6588c5e0d40325e8eb1481d010e339b7.html">tfel-master-me6xjku4m4xxjr3awglstcdnsqufet5w</a></li><li class="navelem"><a class="el" href="dir_c50b429bc1df79ed8293fb669771f5fc.html">include</a></li><li class="navelem"><a class="el" href="dir_65ae2d2fe2c789130f43272dbb198603.html">TFEL</a></li><li class="navelem"><a class="el" href="dir_8a0125d98895ba30149478cb9f245d63.html">Math</a></li><li class="navelem"><a class="el" href="_t_f_e_l_2_math_2_types_8hxx.html">types.hxx</a></li>
-    <li class="footer">Generated on Wed Jul 1 2026 16:14:31 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a class="el" href="dir_19f2334cefedab4bca7d00c996a0e590.html">spack</a></li><li class="navelem"><a class="el" href="dir_4819441dfd5ac14987c44814feffea1f.html">opt</a></li><li class="navelem"><a class="el" href="dir_e09d68ea3582e9b52bc2ab165a9fdd0a.html">spack</a></li><li class="navelem"><a class="el" href="dir_c7ace5c44aa5247833a5cbc691fa8647.html">linux-sapphirerapids</a></li><li class="navelem"><a class="el" href="dir_a57d86e2da3df01b8f7484219747d066.html">tfel-master-vkmgzvjod4mr4qceyov4usmreh75qd6g</a></li><li class="navelem"><a class="el" href="dir_c2241e08352d341b3868473841eb5987.html">include</a></li><li class="navelem"><a class="el" href="dir_89b2fc91346efb7a382d5d6e319be3b3.html">TFEL</a></li><li class="navelem"><a class="el" href="dir_54a2b56b02f10aa58a5c7fc2b4008d9e.html">Math</a></li><li class="navelem"><a class="el" href="_t_f_e_l_2_math_2_types_8hxx.html">types.hxx</a></li>
+    <li class="footer">Generated on Fri Sep 4 2026 21:17:53 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

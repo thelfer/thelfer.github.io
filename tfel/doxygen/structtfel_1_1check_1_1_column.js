@@ -2,7 +2,7 @@ var structtfel_1_1check_1_1_column =
 [
     [ "~Column", "structtfel_1_1check_1_1_column.html#af95b2ca2af5ad2b56d9557ca72798689", null ],
     [ "clearValues", "structtfel_1_1check_1_1_column.html#a83c2d956d8730624255582bf017caaa2", null ],
-    [ "getData", "structtfel_1_1check_1_1_column.html#a7967e01ac26b44a5b5ab69ffc50214a2", null ],
+    [ "getData", "structtfel_1_1check_1_1_column.html#acaeb9444813ca7ab90d57dcc3a0ecd6d", null ],
     [ "getFilename", "structtfel_1_1check_1_1_column.html#a9b8dbd553cfeba5a96a1ac30a54fa27a", null ],
     [ "getName", "structtfel_1_1check_1_1_column.html#aa545778074905945552104eb63e9ddeb", null ],
     [ "getValues", "structtfel_1_1check_1_1_column.html#a090b81c52e87b97ebeed140dfe96b4a3", null ],

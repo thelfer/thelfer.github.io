@@ -1,7 +1,7 @@
 var structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base =
 [
     [ "Hypothesis", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a3340e66635c2af62480ac09453bf6ebc", null ],
-    [ "NonLinearEvolutionProblemImplementationBase", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#aa6dd2982155f5083dab7c1f5de9b5a29", null ],
+    [ "NonLinearEvolutionProblemImplementationBase", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#ac97f3ff7204af1bd1854ad6f98d8c39a", null ],
     [ "~NonLinearEvolutionProblemImplementationBase", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a4d4304f9a1490d2e5a79c1e41b6175ea", null ],
     [ "addBehaviourIntegrator", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a1d056753c7c15fcf938365138238945d", null ],
     [ "addBehaviourIntegrator", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a91adc10092aba30732d82f56760737d9", null ],
@@ -56,7 +56,7 @@ var structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base =
     [ "solve", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#aa762dc5216bafa1b7e56b219f5d5e770", null ],
     [ "solve", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a89e340a865e8ba66d6fb0fa0fdb62d8c", null ],
     [ "update", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a5bf63eb47cdc92efe3a44801f9440ca7", null ],
-    [ "updateLinearSolver", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a5420f06a4a3001e2fe14264f9fe6dcc0", null ],
+    [ "updateLinearSolver", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a8f22c0c77e4d6b38c3931bfd451fc4bb", null ],
     [ "updateLinearSolver", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a1c6c909f71584f35d54c0103d0e14465", null ],
     [ "updateLinearSolver", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#aa024deb1bc14683fedaa2760961340c6", null ],
     [ "boundary_conditions", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a35ac796c702e47a1746b3d06076541a9", null ],

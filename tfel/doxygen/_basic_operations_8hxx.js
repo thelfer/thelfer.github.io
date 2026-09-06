@@ -7,5 +7,6 @@ var _basic_operations_8hxx =
     [ "tfel ::math::OpNeg", "structtfel_01_1_1math_1_1_op_neg.html", null ],
     [ "tfel ::math::OpDotProduct", "structtfel_01_1_1math_1_1_op_dot_product.html", null ],
     [ "tfel ::math::OpDiadicProduct", "structtfel_01_1_1math_1_1_op_diadic_product.html", null ],
-    [ "tfel::typetraits::IsUnaryOperator< tfel::math::OpNeg >", "structtfel_1_1typetraits_1_1_is_unary_operator_3_01tfel_1_1math_1_1_op_neg_01_4.html", null ]
+    [ "tfel::typetraits::IsUnaryOperator< tfel::math::OpNeg >", "structtfel_1_1typetraits_1_1_is_unary_operator_3_01tfel_1_1math_1_1_op_neg_01_4.html", null ],
+    [ "tfel ::math::BasicScalarBinaryOperationConcept", "concepttfel_01_1_1math_1_1_basic_scalar_binary_operation_concept.html", null ]
 ];

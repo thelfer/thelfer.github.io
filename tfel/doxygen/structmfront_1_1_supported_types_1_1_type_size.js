@@ -3,7 +3,7 @@ var structmfront_1_1_supported_types_1_1_type_size =
     [ "Hypothesis", "structmfront_1_1_supported_types_1_1_type_size.html#a67225fc5994e7320048cb5edbd03b617", null ],
     [ "ModellingHypothesis", "structmfront_1_1_supported_types_1_1_type_size.html#ad9cbb06bb60eb5dd53ed4947bd107720", null ],
     [ "TypeSize", "structmfront_1_1_supported_types_1_1_type_size.html#ae93be5c78d2fd428693cf231473d667f", null ],
-    [ "TypeSize", "structmfront_1_1_supported_types_1_1_type_size.html#a65f808b3784590e579b5bb5c2f35bbce", null ],
+    [ "TypeSize", "structmfront_1_1_supported_types_1_1_type_size.html#a6bc71f4607a6da036b557356345ed4fc", null ],
     [ "TypeSize", "structmfront_1_1_supported_types_1_1_type_size.html#a76b3b3e8fe0d6134df0d6db3657648da", null ],
     [ "TypeSize", "structmfront_1_1_supported_types_1_1_type_size.html#a24fc4157a1f71df22d0689eeb078e1cb", null ],
     [ "TypeSize", "structmfront_1_1_supported_types_1_1_type_size.html#aae96b99e97e41d3916356641d81190b4", null ],
@@ -17,6 +17,6 @@ var structmfront_1_1_supported_types_1_1_type_size =
     [ "operator+=", "structmfront_1_1_supported_types_1_1_type_size.html#a38466a62f84f55af902bdac6b749d597", null ],
     [ "operator-=", "structmfront_1_1_supported_types_1_1_type_size.html#a7cf0ccb5e7e124c61feec3fb207e71bc", null ],
     [ "operator=", "structmfront_1_1_supported_types_1_1_type_size.html#a8d55cef39043166a6882a00fe4c0f80c", null ],
-    [ "operator=", "structmfront_1_1_supported_types_1_1_type_size.html#a70b59c89c2f414bcdcb3ff455e5389f4", null ],
+    [ "operator=", "structmfront_1_1_supported_types_1_1_type_size.html#acdb852f48904fb666e4decba2101c5c9", null ],
     [ "operator==", "structmfront_1_1_supported_types_1_1_type_size.html#ab1289ffa7001cbf44680778367632247", null ]
 ];

@@ -10,9 +10,9 @@ var _construct_8hxx =
     [ "MGIS_TRY_MAKE_SHARED_AS", "_construct_8hxx.html#ab06a3176b0ce6bddfb29964740c388b1", null ],
     [ "MGIS_TRY_MAKE_UNIQUE", "_construct_8hxx.html#a8c1861d683aefbfd005d17dc556a0107", null ],
     [ "MGIS_TRY_MAKE_UNIQUE_AS", "_construct_8hxx.html#a1df8615335225060caa72f1c5b5dbac9", null ],
-    [ "construct", "_construct_8hxx.html#a10e155da7fe2a6c62f1cf67e1e929593", null ],
-    [ "make_shared", "_construct_8hxx.html#a39a3ee38157b7af42c2f3bb656c63e53", null ],
-    [ "make_shared_as", "_construct_8hxx.html#a9a55cfcc3ed09a79e5e7616d65e5aeed", null ],
-    [ "make_unique", "_construct_8hxx.html#ac3dfb693fec982f6f9d7bca07782574a", null ],
-    [ "make_unique_as", "_construct_8hxx.html#a95d120f694f0b9e6ea0826366c34c630", null ]
+    [ "construct", "_construct_8hxx.html#ac6ef99a2da32be978438d90f840b87f3", null ],
+    [ "make_shared", "_construct_8hxx.html#a673d5957aa6ec47342f297a5fe35aafe", null ],
+    [ "make_shared_as", "_construct_8hxx.html#aaaffef08f98cf535633d0877420421a9", null ],
+    [ "make_unique", "_construct_8hxx.html#a2f54a86e03d7161c1499933f0d027246", null ],
+    [ "make_unique_as", "_construct_8hxx.html#a1035c49c6879c03fea24d555ae88eb37", null ]
 ];

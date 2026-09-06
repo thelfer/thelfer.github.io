@@ -6,7 +6,7 @@ var structmgis_1_1_threaded_task_result =
     [ "ThreadedTaskResult", "structmgis_1_1_threaded_task_result.html#a660052f3487e70b7479c5e3c7fbc8174", null ],
     [ "ThreadedTaskResult", "structmgis_1_1_threaded_task_result.html#a5d273e66e4a0151acc551c1bc2a95c07", null ],
     [ "~ThreadedTaskResult", "structmgis_1_1_threaded_task_result.html#abb3eb373ca75a97c22d489f9658324fa", null ],
-    [ "operator bool", "structmgis_1_1_threaded_task_result.html#acdb900726b5cd7ecabf7b37e6a691e08", null ],
+    [ "operator bool", "structmgis_1_1_threaded_task_result.html#a02e4a574a2e40249722b369bd7c35a69", null ],
     [ "operator*", "structmgis_1_1_threaded_task_result.html#a1de6a25f3f1fb90a92bc30db4c25eec0", null ],
     [ "operator*", "structmgis_1_1_threaded_task_result.html#aae42e51f90ec49eaf6a8c157caef07ad", null ],
     [ "operator->", "structmgis_1_1_threaded_task_result.html#a1dceb69de715049cb7f0ffee5ee1ac60", null ],

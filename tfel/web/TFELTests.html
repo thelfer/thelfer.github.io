@@ -1,0 +1,804 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN" xml:lang="en-EN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>TFELTests - Unit Testing Framework</title>
+        <meta name="author" content="Thomas Helfer" />
+            <meta name="date" content="2010-10-04" />
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  background-color: #f8f8f8; }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+      code span.al { color: #ef2929; } /* Alert */
+      code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #204a87; } /* Attribute */
+      code span.bn { color: #0000cf; } /* BaseN */
+      code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4e9a06; } /* Char */
+      code span.cn { color: #8f5902; } /* Constant */
+      code span.co { color: #8f5902; font-style: italic; } /* Comment */
+      code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+      code span.dt { color: #204a87; } /* DataType */
+      code span.dv { color: #0000cf; } /* DecVal */
+      code span.er { color: #a40000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #0000cf; } /* Float */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+      code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+      code span.ot { color: #8f5902; } /* Other */
+      code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+      code span.ss { color: #4e9a06; } /* SpecialString */
+      code span.st { color: #4e9a06; } /* String */
+      code span.va { color: #000000; } /* Variable */
+      code span.vs { color: #4e9a06; } /* VerbatimString */
+      code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <header>
+      <ul id="nav">
+	<li><a href="news.html">News</a></li>
+	<li><a href="index.html">Overview</a>
+	  <ul>
+	    <li><a>Domain specific languages</a>
+	      <ul>
+		<li><a href="material-properties.html">Material properties</a></li>
+		<li><a href="behaviours.html">Mechanical behaviours</a></li>
+		<li><a href="models.html">Models</a></li>
+	      </ul>
+            </li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting started</a>
+	  <ul>
+	    <li><a href="https://github.com/thelfer/tfel/">Github repository</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/releases">Download</a></li>
+	    <li><a href="release-notes.html">Release notes</a>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		    <li><a href="release-notes-3.0.8.html">Version 3.0.8</a></li>
+		    <li><a href="release-notes-3.0.9.html">Version 3.0.9</a></li>
+		    <li><a href="release-notes-3.0.10.html">Version 3.0.10</a></li>
+		    <li><a href="release-notes-3.0.11.html">Version 3.0.11</a></li>
+		    <li><a href="release-notes-3.0.12.html">Version 3.0.12</a></li>
+		    <li><a href="release-notes-3.0.13.html">Version 3.0.13</a></li>
+		    <li><a href="release-notes-3.0.14.html">Version 3.0.14</a></li>
+		    <li><a href="release-notes-3.0.15.html">Version 3.0.15</a></li>
+		    <li><a href="release-notes-3.0.16.html">Version 3.0.16</a></li>
+		    <li><a href="release-notes-3.0.17.html">Version 3.0.17</a></li>
+		    <li><a href="release-notes-3.0.18.html">Version 3.0.18</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		    <li><a href="release-notes-3.1.8.html">Version 3.1.8</a></li>
+		    <li><a href="release-notes-3.1.9.html">Version 3.1.9</a></li>
+		    <li><a href="release-notes-3.1.10.html">Version 3.1.10</a></li>
+		    <li><a href="release-notes-3.1.11.html">Version 3.1.11</a></li>
+		    <li><a href="release-notes-3.1.12.html">Version 3.1.12</a></li>
+		    <li><a href="release-notes-3.1.13.html">Version 3.1.13</a></li>
+		    <li><a href="release-notes-3.1.14.html">Version 3.1.14</a></li>
+		    <li><a href="release-notes-3.1.15.html">Version 3.1.15</a></li>
+		    <li><a href="release-notes-3.1.16.html">Version 3.1.16</a></li>
+		    <li><a href="release-notes-3.1.17.html">Version 3.1.17</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		    <li><a href="release-notes-3.2.5.html">Version 3.2.5</a></li>
+		    <li><a href="release-notes-3.2.6.html">Version 3.2.6</a></li>
+		    <li><a href="release-notes-3.2.7.html">Version 3.2.7</a></li>
+		    <li><a href="release-notes-3.2.8.html">Version 3.2.8</a></li>
+		    <li><a href="release-notes-3.2.9.html">Version 3.2.9</a></li>
+		    <li><a href="release-notes-3.2.10.html">Version 3.2.10</a></li>
+		    <li><a href="release-notes-3.2.11.html">Version 3.2.11</a></li>
+		    <li><a href="release-notes-3.2.12.html">Version 3.2.12</a></li>
+		    <li><a href="release-notes-3.2.13.html">Version 3.2.13</a></li>
+		    <li><a href="release-notes-3.2.14.html">Version 3.2.14</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		    <li><a href="release-notes-3.3.2.html">Version 3.3.2</a></li>
+		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
+		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
+		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
+		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
+		    <li><a href="release-notes-3.3.7.html">Version 3.3.7</a></li>
+		    <li><a href="release-notes-3.3.8.html">Version 3.3.8</a></li>
+		    <li><a href="release-notes-3.3.9.html">Version 3.3.9</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.1.html">Version 3.4.1</a></li>
+		    <li><a href="release-notes-3.4.2.html">Version 3.4.2</a></li>
+		    <li><a href="release-notes-3.4.3.html">Version 3.4.3</a></li>
+		    <li><a href="release-notes-3.4.4.html">Version 3.4.4</a></li>
+		    <li><a href="release-notes-3.4.5.html">Version 3.4.5</a></li>
+		    <li><a href="release-notes-3.4.6.html">Version 3.4.6</a></li>
+		    <li><a href="release-notes-3.4.7.html">Version 3.4.7</a></li>
+		    <li><a href="release-notes-3.4.8.html">Version 3.4.8</a></li>
+		    <li><a href="release-notes-3.4.9.html">Version 3.4.9</a></li>
+		    <li><a href="release-notes-3.4.10.html">Version 3.4.10</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		    <li><a href="release-notes-4.0.1.html">Version 4.0.1</a></li>
+		    <li><a href="release-notes-4.0.2.html">Version 4.0.2</a></li>
+		    <li><a href="release-notes-4.0.3.html">Version 4.0.3</a></li>
+		    <li><a href="release-notes-4.0.4.html">Version 4.0.4</a></li>
+		    <li><a href="release-notes-4.0.5.html">Version 4.0.5</a></li>
+		    <li><a href="release-notes-4.0.6.html">Version 4.0.6</a></li>
+		    <li><a href="release-notes-4.0.7.html">Version 4.0.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.1.html">Version 4.1.0</a></li>
+		    <li><a href="release-notes-4.1.1.html">Version 4.1.1</a></li>
+		    <li><a href="release-notes-4.1.2.html">Version 4.1.2</a></li>
+		    <li><a href="release-notes-4.1.3.html">Version 4.1.3</a></li>
+		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
+		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
+		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.2.html">Version 4.2.0</a></li>
+		    <li><a href="release-notes-4.2.1.html">Version 4.2.1</a></li>
+		    <li><a href="release-notes-4.2.2.html">Version 4.2.2</a></li>
+		    <li><a href="release-notes-4.2.3.html">Version 4.2.3</a></li>
+		    <li><a href="release-notes-4.2.4.html">Version 4.2.4</a></li>
+		    <li><a href="release-notes-4.2.5.html">Version 4.2.5</a></li>
+		    <li><a href="release-notes-4.2.6.html">Version 4.2.6</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 5.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-5.0.html">Version 5.0.0</a></li>
+		    <li><a href="release-notes-5.0.1.html">Version 5.0.1</a></li>
+		    <li><a href="release-notes-5.0.2.html">Version 5.0.2</a></li>
+		    <li><a href="release-notes-5.0.3.html">Version 5.0.3</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 5.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-5.1.html">Version 5.1.0</a></li>
+		    <li><a href="release-notes-5.1.1.html">Version 5.1.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 5.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-5.2.html">Version 5.2.0</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a href="coverity-scan.html">Coverity scan</a></li>
+	    <li><a href="install.html">Installation</a></li>
+	  </ul>
+	</li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="documentations.html">General documentation</a></li>
+	    <li><a href="gallery.html">Gallery</a></li>
+	    <li><a href="https://thelfer.github.io/tfel/doxygen/index.html">Doxygen documentation</a></li>
+	    <li><a>MFront</a>
+	      <ul>
+		<li><a href="tutorial.html">Tutorial</a></li>
+		<li><a href="implicit-dsl.html">The Implicit DSL</a></li>
+		<li><a href="benchmark.html">Benchmark</a></li>
+		<li><a href="parameters.html">Parameters</a></li>
+		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
+                 <li><a href="behaviour-variable.html">Behaviour variables</a></li>
+		<li><a href="interfaces.html">Solver interfaces</a>
+		  <ul>
+		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
+		    <li><a href="aster.html">Code-Aster</a></li>
+    		    <li><a href="abaqus.html">Abaqus</a></li>
+		    <li><a href="zmat.html">ZeBuLoN</a></li>
+   		    <li><a href="calculix.html">CalculiX</a></li>
+		    <!-- <li><a >TMFFT</a></li> -->
+		    <li><a href="cyrano.html">Cyrano</a></li>
+   		    <li><a href="generic-material-property-interface.html">Generic interface for material properties</a></li>
+   		    <li><a href="generic-behaviours-interface.html">Generic interface for behaviours</a></li>
+		  </ul>
+		</li>
+                 <li><a>MFront keywords</a>
+    	              <ul>
+    	        <li><a href="Default-keywords.html">Default</a></li>
+    	        <li><a href="DefaultCZM-keywords.html">DefaultCZM</a></li>
+    	        <li><a href="DefaultFiniteStrain-keywords.html">DefaultFiniteStrain</a></li>
+    	        <li><a href="DefaultGenericBehaviour-keywords.html">DefaultGenericBehaviour</a></li>
+    	        <li><a href="DefaultModel-keywords.html">DefaultModel</a></li>
+    	        <li><a href="Implicit-keywords.html">Implicit</a></li>
+    	        <li><a href="ImplicitCZM-keywords.html">ImplicitCZM</a></li>
+    	        <li><a href="ImplicitFiniteStrain-keywords.html">ImplicitFiniteStrain</a></li>
+    	        <li><a href="ImplicitGenericBehaviour-keywords.html">ImplicitGenericBehaviour</a></li>
+    	        <li><a href="ImplicitModel-keywords.html">ImplicitModel</a></li>
+    	        <li><a href="ImplicitII-keywords.html">ImplicitII</a></li>
+    	        <li><a href="IsotropicMisesCreep-keywords.html">IsotropicMisesCreep</a></li>
+    	        <li><a href="IsotropicMisesPlasticFlow-keywords.html">IsotropicMisesPlasticFlow</a></li>
+    	        <li><a href="IsotropicPlasticMisesFlow-keywords.html">IsotropicPlasticMisesFlow</a></li>
+    	        <li><a href="IsotropicStrainHardeningMisesCreep-keywords.html">IsotropicStrainHardeningMisesCreep</a></li>
+    	        <li><a href="MaterialLaw-keywords.html">MaterialLaw</a></li>
+    	        <li><a href="MaterialProperty-keywords.html">MaterialProperty</a></li>
+    	        <li><a href="Model-keywords.html">Model</a></li>
+    	        <li><a href="MultipleIsotropicMisesFlows-keywords.html">MultipleIsotropicMisesFlows</a></li>
+    	        <li><a href="RungeKutta-keywords.html">RungeKutta</a></li>
+    	        <li><a href="RungeKuttaFiniteStrain-keywords.html">RungeKuttaFiniteStrain</a></li>
+    	        <li><a href="RungeKuttaGenericBehaviour-keywords.html">RungeKuttaGenericBehaviour</a></li>
+    	        <li><a href="RungeKuttaModel-keywords.html">RungeKuttaModel</a></li>
+    	      </ul>
+                </li>
+	      </ul>
+	    </li>
+	    <li><a href="mtest.html">MTest</a>
+               <ul>
+	      <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
+              <li><a href="MTest-keywords.html">MTest keywords</a></li>
+	      </ul>
+            </li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
+	    <li><a>TFEL libraries</a>
+	      <ul>
+		<li><a href="libraries_usage.html">Usage of the TFEL libraries in C++</a></li>
+		<li><a href="tfel-math.html">TFEL/Math</a></li>
+                 <ul>
+		  <li><a href="tfel-math-numerical-integration.html">Numerical integeration</a></li>
+		  <li><a href="tfel-math-data-interpolation.html">Data interpolation</a></li>
+	        </ul>
+		<li><a href="tfel-material.html">TFEL/Material</a></li>
+                 <li><a href="glossary.html">Glossary</a></li>
+                 <li><a href="physical-constants.html">Physical constants</a></li>
+		<li><a href="tfel-mfront-database.html">TFELMFrontDatabase</a></li>
+	      </ul>
+	    </li>
+	    <li><a>Python modules</a>
+	      <ul>
+		<li><a href="tfel-python.html">TFEL modules</a></li>
+		<li><a href="mfront-python.html">mfront module</a></li>
+		<li><a href="mtest-python.html">mtest module</a></li>
+	      </ul>
+	    </li>
+	    <li><a href="publications.html">Publications</a></li>
+	    <li><a href="faq.html">FAQ</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
+	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="search.html">Search on this site</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/discussions">Forum</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Bug report</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Feature request</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+<div id="header">
+<h1 class="title">TFELTests - Unit Testing Framework</h1>
+<h2 class="author">Thomas Helfer</h2>
+<h3 class="date">10/04/2010</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#overview" id="toc-overview">Overview</a></li>
+<li><a href="#key-features" id="toc-key-features">Key Features</a>
+<ul>
+<li><a href="#test-organization" id="toc-test-organization">Test
+Organization</a></li>
+<li><a href="#assertion-macros" id="toc-assertion-macros">Assertion
+Macros</a></li>
+<li><a href="#output-formats" id="toc-output-formats">Output
+Formats</a></li>
+<li><a href="#automatic-test-registration"
+id="toc-automatic-test-registration">Automatic Test
+Registration</a></li>
+</ul></li>
+<li><a href="#usage" id="toc-usage">Usage</a>
+<ul>
+<li><a href="#basic-test-case" id="toc-basic-test-case">Basic Test
+Case</a></li>
+<li><a href="#test-function-wrapper" id="toc-test-function-wrapper">Test
+Function Wrapper</a></li>
+<li><a href="#test-suite" id="toc-test-suite">Test Suite</a></li>
+<li><a href="#test-manager" id="toc-test-manager">Test Manager</a></li>
+<li><a href="#output-configuration" id="toc-output-configuration">Output
+Configuration</a></li>
+</ul></li>
+<li><a href="#api-reference" id="toc-api-reference">API Reference</a>
+<ul>
+<li><a href="#core-classes" id="toc-core-classes">Core Classes</a></li>
+<li><a href="#output-classes" id="toc-output-classes">Output
+Classes</a></li>
+<li><a href="#result-classes" id="toc-result-classes">Result
+Classes</a></li>
+</ul></li>
+<li><a href="#macros" id="toc-macros">Macros</a>
+<ul>
+<li><a href="#test-registration" id="toc-test-registration">Test
+Registration</a></li>
+<li><a href="#assertions" id="toc-assertions">Assertions</a></li>
+</ul></li>
+<li><a href="#integration-with-build-systems"
+id="toc-integration-with-build-systems">Integration with Build
+Systems</a></li>
+<li><a href="#examples" id="toc-examples">Examples</a></li>
+<li><a href="#best-practices" id="toc-best-practices">Best
+Practices</a></li>
+<li><a href="#continuous-integration"
+id="toc-continuous-integration">Continuous Integration</a></li>
+<li><a href="#references" id="toc-references">References</a></li>
+</ul>
+</div>
+<h1 id="overview">Overview</h1>
+<p><code>TFELTests</code> is a lightweight and flexible unit testing
+framework designed for C++ applications. It provides a comprehensive set
+of tools for writing, organizing, and executing unit tests, with support
+for test suites, test proxies, and multiple output formats including
+standard streams and XML (JUnit format).</p>
+<p>The framework is particularly well-suited for scientific computing
+applications and is integrated with the TFEL ecosystem.</p>
+<h1 id="key-features">Key Features</h1>
+<h2 id="test-organization">Test Organization</h2>
+<p>The framework supports several levels of test organization:</p>
+<ul>
+<li><strong>Test Case</strong>: A single test that can contain multiple
+assertions</li>
+<li><strong>Test Suite</strong>: A collection of tests that can be
+executed together</li>
+<li><strong>Test Manager</strong>: A singleton that manages multiple
+test suites and outputs</li>
+</ul>
+<h2 id="assertion-macros">Assertion Macros</h2>
+<p>The framework provides a rich set of assertion macros for testing
+various conditions:</p>
+<ul>
+<li><code>TFEL_TESTS_ASSERT(X)</code>: Assert that a condition is
+true</li>
+<li><code>TFEL_TESTS_STATIC_ASSERT(X)</code>: Static assertion that is
+evaluated at compile time</li>
+<li><code>TFEL_TESTS_CHECK_THROW(X, Y)</code>: Check that code X throws
+exception of type Y</li>
+<li><code>TFEL_TESTS_CALLMETHOD(X)</code>: Call a method and register
+its result</li>
+<li><code>TFEL_TESTS_CHECK_EQUAL(X, Y)</code>: Check that X equals
+Y</li>
+<li><code>TFEL_TESTS_CHECK_GT(X, Y)</code>: Check that X is greater than
+Y</li>
+<li><code>TFEL_TESTS_CHECK_GE(X, Y)</code>: Check that X is greater than
+or equal to Y</li>
+<li><code>TFEL_TESTS_CHECK_LT(X, Y)</code>: Check that X is less than
+Y</li>
+<li><code>TFEL_TESTS_CHECK_LE(X, Y)</code>: Check that X is less than or
+equal to Y</li>
+</ul>
+<h2 id="output-formats">Output Formats</h2>
+<p>Test results can be output to:</p>
+<ul>
+<li>Standard streams (console, files)</li>
+<li>XML files in JUnit format for integration with continuous
+integration systems</li>
+<li>Multiple outputs simultaneously</li>
+</ul>
+<h2 id="automatic-test-registration">Automatic Test Registration</h2>
+<p>The framework provides mechanisms for automatic test registration
+using proxy classes, reducing boilerplate code.</p>
+<h1 id="usage">Usage</h1>
+<h2 id="basic-test-case">Basic Test Case</h2>
+<p>The simplest way to create a test is to inherit from the
+<code>TestCase</code> class:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Tests/TestCase.hxx&quot;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Tests/TestProxy.hxx&quot;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> MyTest <span class="kw">final</span> <span class="op">:</span> <span class="kw">public</span> tfel<span class="op">::</span>tests<span class="op">::</span>TestCase <span class="op">{</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  MyTest<span class="op">()</span> <span class="op">:</span> TestCase<span class="op">(</span><span class="st">&quot;MyGroup&quot;</span><span class="op">,</span> <span class="st">&quot;MyTest&quot;</span><span class="op">)</span> <span class="op">{}</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  tfel<span class="op">::</span>tests<span class="op">::</span>TestResult execute<span class="op">()</span> <span class="kw">override</span> <span class="op">{</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    TFEL_TESTS_ASSERT<span class="op">(</span><span class="kw">true</span><span class="op">);</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    TFEL_TESTS_ASSERT<span class="op">(</span><span class="dv">1</span> <span class="op">!=</span> <span class="dv">2</span><span class="op">);</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    TFEL_TESTS_CHECK_EQUAL<span class="op">(</span><span class="bu">std::</span>string<span class="op">(</span><span class="st">&quot;test&quot;</span><span class="op">),</span> <span class="st">&quot;test&quot;</span><span class="op">);</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">this</span><span class="op">-&gt;</span>result<span class="op">;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>TFEL_TESTS_GENERATE_PROXY<span class="op">(</span>MyTest<span class="op">,</span> <span class="st">&quot;MyTestSuite&quot;</span><span class="op">);</span></span></code></pre></div>
+<h2 id="test-function-wrapper">Test Function Wrapper</h2>
+<p>For simple test functions, the <code>TestFunctionWrapper</code> can
+be used:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Tests/TestFunctionWrapper.hxx&quot;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> myTestFunction<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">using</span> <span class="kw">namespace</span> tfel<span class="op">::</span>tests<span class="op">;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">using</span> Wrapper <span class="op">=</span> TestFunctionWrapper<span class="op">&lt;</span>myTestFunction<span class="op">&gt;;</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">auto</span> test <span class="op">=</span> <span class="bu">std::</span>make_shared<span class="op">&lt;</span>Wrapper<span class="op">&gt;(</span><span class="st">&quot;MyGroup&quot;</span><span class="op">,</span> <span class="st">&quot;myTestFunction&quot;</span><span class="op">);</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  TestSuite suite<span class="op">(</span><span class="st">&quot;MySuite&quot;</span><span class="op">);</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  suite<span class="op">.</span>add<span class="op">(</span>test<span class="op">);</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> suite<span class="op">.</span>execute<span class="op">().</span>success<span class="op">()</span> <span class="op">?</span> EXIT_SUCCESS <span class="op">:</span> EXIT_FAILURE<span class="op">;</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h2 id="test-suite">Test Suite</h2>
+<p>Tests can be grouped into suites for better organization:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Tests/TestSuite.hxx&quot;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Tests/TestFunctionWrapper.hxx&quot;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> test1<span class="op">()</span> <span class="op">{</span> <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> test2<span class="op">()</span> <span class="op">{</span> <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">using</span> <span class="kw">namespace</span> tfel<span class="op">::</span>tests<span class="op">;</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">using</span> Wrapper1 <span class="op">=</span> TestFunctionWrapper<span class="op">&lt;</span>test1<span class="op">&gt;;</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">using</span> Wrapper2 <span class="op">=</span> TestFunctionWrapper<span class="op">&lt;</span>test2<span class="op">&gt;;</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">auto</span> a <span class="op">=</span> <span class="bu">std::</span>make_shared<span class="op">&lt;</span>Wrapper1<span class="op">&gt;(</span><span class="st">&quot;test1&quot;</span><span class="op">);</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">auto</span> b <span class="op">=</span> <span class="bu">std::</span>make_shared<span class="op">&lt;</span>Wrapper2<span class="op">&gt;(</span><span class="st">&quot;test2&quot;</span><span class="op">);</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  TestSuite suite<span class="op">(</span><span class="st">&quot;MySuite&quot;</span><span class="op">);</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  suite<span class="op">.</span>add<span class="op">(</span>a<span class="op">);</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  suite<span class="op">.</span>add<span class="op">(</span>b<span class="op">);</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> suite<span class="op">.</span>execute<span class="op">().</span>success<span class="op">()</span> <span class="op">?</span> EXIT_SUCCESS <span class="op">:</span> EXIT_FAILURE<span class="op">;</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h2 id="test-manager">Test Manager</h2>
+<p>The <code>TestManager</code> singleton provides centralized
+management of tests and outputs:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Tests/TestManager.hxx&quot;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Tests/TestFunctionWrapper.hxx&quot;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> test1<span class="op">()</span> <span class="op">{</span> <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">using</span> <span class="kw">namespace</span> tfel<span class="op">::</span>tests<span class="op">;</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">using</span> Wrapper <span class="op">=</span> TestFunctionWrapper<span class="op">&lt;</span>test1<span class="op">&gt;;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">auto</span><span class="op">&amp;</span> m <span class="op">=</span> TestManager<span class="op">::</span>getTestManager<span class="op">();</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">auto</span> test <span class="op">=</span> <span class="bu">std::</span>make_shared<span class="op">&lt;</span>Wrapper<span class="op">&gt;(</span><span class="st">&quot;test1&quot;</span><span class="op">);</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  m<span class="op">.</span>addTest<span class="op">(</span><span class="st">&quot;MySuite&quot;</span><span class="op">,</span> test<span class="op">);</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  m<span class="op">.</span>addTestOutput<span class="op">(</span><span class="st">&quot;test-output.txt&quot;</span><span class="op">);</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  m<span class="op">.</span>addXMLTestOutput<span class="op">(</span><span class="st">&quot;test-results.xml&quot;</span><span class="op">);</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> m<span class="op">.</span>execute<span class="op">().</span>success<span class="op">()</span> <span class="op">?</span> EXIT_SUCCESS <span class="op">:</span> EXIT_FAILURE<span class="op">;</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h2 id="output-configuration">Output Configuration</h2>
+<p>The framework supports various output configurations:</p>
+<h3 id="standard-stream-output">Standard Stream Output</h3>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Tests/StdStreamTestOutput.hxx&quot;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">// Redirect output to a file</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> output <span class="op">=</span> <span class="bu">std::</span>make_shared<span class="op">&lt;</span>tfel<span class="op">::</span>tests<span class="op">::</span>StdStreamTestOutput<span class="op">&gt;(</span><span class="st">&quot;output.txt&quot;</span><span class="op">);</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">// Redirect output to std::cout with colors</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> console <span class="op">=</span> <span class="bu">std::</span>make_shared<span class="op">&lt;</span>tfel<span class="op">::</span>tests<span class="op">::</span>StdStreamTestOutput<span class="op">&gt;(</span><span class="bu">std::</span>cout<span class="op">,</span> <span class="kw">true</span><span class="op">);</span></span></code></pre></div>
+<h3 id="xml-output-junit-format">XML Output (JUnit Format)</h3>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Tests/XMLTestOutput.hxx&quot;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> xml_output <span class="op">=</span> <span class="bu">std::</span>make_shared<span class="op">&lt;</span>tfel<span class="op">::</span>tests<span class="op">::</span>XMLTestOutput<span class="op">&gt;(</span><span class="st">&quot;results.xml&quot;</span><span class="op">);</span></span></code></pre></div>
+<h3 id="multiple-outputs">Multiple Outputs</h3>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Tests/MultipleTestOutputs.hxx&quot;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>tfel<span class="op">::</span>tests<span class="op">::</span>MultipleTestOutputs outputs<span class="op">;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>outputs<span class="op">.</span>addTestOutput<span class="op">(</span><span class="bu">std::</span>make_shared<span class="op">&lt;</span>tfel<span class="op">::</span>tests<span class="op">::</span>StdStreamTestOutput<span class="op">&gt;(</span><span class="st">&quot;file1.txt&quot;</span><span class="op">));</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>outputs<span class="op">.</span>addTestOutput<span class="op">(</span><span class="bu">std::</span>make_shared<span class="op">&lt;</span>tfel<span class="op">::</span>tests<span class="op">::</span>XMLTestOutput<span class="op">&gt;(</span><span class="st">&quot;results.xml&quot;</span><span class="op">));</span></span></code></pre></div>
+<h1 id="api-reference">API Reference</h1>
+<h2 id="core-classes">Core Classes</h2>
+<h3 id="test">Test</h3>
+<p>Base class for all unit tests. Provides the interface that all tests
+must implement.</p>
+<ul>
+<li><code>virtual std::string name() const = 0</code>: Return the name
+of the test</li>
+<li><code>virtual std::string classname() const = 0</code>: Return the
+group/class of the test</li>
+<li><code>virtual TestResult execute() = 0</code>: Execute the test and
+return the result</li>
+</ul>
+<h3 id="testcase">TestCase</h3>
+<p>A concrete test class that can contain multiple assertions.</p>
+<ul>
+<li><code>TestCase(const std::string&amp;)</code>: Constructor with test
+name</li>
+<li><code>TestCase(const std::string&amp;, const std::string&amp;)</code>:
+Constructor with group and test name</li>
+<li><code>virtual void registerResult(const std::string_view, const bool, const std::string_view = {})</code>:
+Register a test result</li>
+<li><code>TestResult result</code>: The result of the test</li>
+</ul>
+<h3 id="testsuite">TestSuite</h3>
+<p>A collection of tests that can be executed together.</p>
+<ul>
+<li><code>TestSuite()</code>: Default constructor</li>
+<li><code>TestSuite(const std::string&amp;)</code>: Constructor with
+suite name</li>
+<li><code>void add(const TestPtr&amp;)</code>: Add a test to the
+suite</li>
+<li><code>TestResult execute(TestOutput&amp;)</code>: Execute the suite
+with a specific output</li>
+<li><code>TestResult execute()</code>: Execute the suite with default
+output</li>
+</ul>
+<h3 id="testmanager">TestManager</h3>
+<p>Singleton class for managing tests and outputs.</p>
+<ul>
+<li><code>static TestManager&amp; getTestManager()</code>: Get the
+singleton instance</li>
+<li><code>void addTestOutput(TestOutputPtr)</code>: Add a test
+output</li>
+<li><code>void addTestOutput(std::ostream&amp;, const bool = true)</code>:
+Add a stream output</li>
+<li><code>void addTestOutput(const std::string&amp;)</code>: Add a file
+output</li>
+<li><code>void addXMLTestOutput(const std::string&amp;)</code>: Add an
+XML output</li>
+<li><code>void addTestOutput(const std::string&amp;, TestOutputPtr)</code>:
+Add output for a specific suite</li>
+<li><code>void addTest(const std::string&amp;, TestPtr)</code>: Add a
+test to a suite</li>
+<li><code>TestResult execute()</code>: Execute all registered tests</li>
+</ul>
+<h3 id="testfunctionwrapper">TestFunctionWrapper</h3>
+<p>Template class for wrapping simple test functions.</p>
+<ul>
+<li><code>TestFunctionWrapper(const std::string&amp;, const std::string&amp;)</code>:
+Constructor with group and function name</li>
+<li><code>TestFunctionWrapper(const char* const)</code>: Constructor
+with function name</li>
+</ul>
+<h3 id="testproxy">TestProxy</h3>
+<p>Template class for automatic test registration.</p>
+<ul>
+<li><code>template &lt;typename... Arguments&gt; TestProxy(const std::string&amp;, Arguments&amp;&amp;...)</code>:
+Constructor</li>
+</ul>
+<h2 id="output-classes">Output Classes</h2>
+<h3 id="testoutput">TestOutput</h3>
+<p>Base class for test outputs.</p>
+<ul>
+<li><code>virtual void beginTestSuite(const std::string&amp;) = 0</code>:
+Called when a test suite begins</li>
+<li><code>virtual void addTest(const std::string&amp;, const std::string&amp;, const TestResult&amp;) = 0</code>:
+Add a test result</li>
+<li><code>virtual void endTestSuite(const TestResult&amp;) = 0</code>:
+Called when a test suite ends</li>
+</ul>
+<h3 id="stdstreamtestoutput">StdStreamTestOutput</h3>
+<p>Output to standard streams.</p>
+<ul>
+<li><code>StdStreamTestOutput(const std::string&amp;)</code>:
+Constructor with file name</li>
+<li><code>StdStreamTestOutput(std::ostream&amp;, const bool = true)</code>:
+Constructor with stream and color option</li>
+<li><code>StdStreamTestOutput(const std::shared_ptr&lt;std::ostream&gt;&amp;, const bool = false)</code>:
+Constructor with shared stream</li>
+</ul>
+<h3 id="xmltestoutput">XMLTestOutput</h3>
+<p>Output to XML file in JUnit format.</p>
+<ul>
+<li><code>XMLTestOutput(const std::string&amp;)</code>: Constructor with
+file name</li>
+</ul>
+<h3 id="multipletestoutputs">MultipleTestOutputs</h3>
+<p>Aggregate multiple outputs.</p>
+<ul>
+<li><code>void addTestOutput(const TestOutputPtr&amp;)</code>: Add an
+output</li>
+</ul>
+<h2 id="result-classes">Result Classes</h2>
+<h3 id="testresult">TestResult</h3>
+<p>Structure describing the result of a test or test suite.</p>
+<ul>
+<li><code>TestResult()</code>: Default constructor</li>
+<li><code>TestResult(const bool)</code>: Constructor with success
+status</li>
+<li><code>TestResult(const bool, const std::string_view, const std::string_view = {})</code>:
+Constructor with details</li>
+<li><code>bool success() const</code>: Check if the test was
+successful</li>
+<li><code>const std::string&amp; getDescription() const</code>: Get the
+test description</li>
+<li><code>const std::string&amp; getFailureDescription() const</code>:
+Get the failure description</li>
+<li><code>void append(const TestResult&amp;)</code>: Append a
+result</li>
+<li><code>void setTestDuration(const double)</code>: Set the test
+duration</li>
+<li><code>double duration() const</code>: Get the test duration</li>
+</ul>
+<h1 id="macros">Macros</h1>
+<h2 id="test-registration">Test Registration</h2>
+<ul>
+<li><code>TFEL_TESTS_GENERATE_PROXY(X, Y)</code>: Generate a proxy for
+class X in suite Y</li>
+<li><code>TFEL_TESTS_GENERATE_PROXY2(X, X2, Y)</code>: Generate a proxy
+with custom name</li>
+<li><code>TFEL_TESTS_GENERATE_PROXY3(X, X2, Y, Y2)</code>: Generate a
+proxy with constructor argument</li>
+<li><code>TFEL_TESTS_FUNCTION(X, G, Y)</code>: Generate a test function
+with group G in suite Y</li>
+</ul>
+<h2 id="assertions">Assertions</h2>
+<ul>
+<li><code>TFEL_TESTS_ASSERT(X)</code>: Assert condition X</li>
+<li><code>TFEL_TESTS_STATIC_ASSERT(X)</code>: Static assertion</li>
+<li><code>TFEL_TESTS_CHECK_THROW(X, Y)</code>: Check exception</li>
+<li><code>TFEL_TESTS_CALLMETHOD(X)</code>: Call method and register
+result</li>
+<li><code>TFEL_TESTS_CHECK_EQUAL(X, Y)</code>: Check equality</li>
+<li><code>TFEL_TESTS_CHECK_GT(X, Y)</code>: Check greater than</li>
+<li><code>TFEL_TESTS_CHECK_GE(X, Y)</code>: Check greater or equal</li>
+<li><code>TFEL_TESTS_CHECK_LT(X, Y)</code>: Check less than</li>
+<li><code>TFEL_TESTS_CHECK_LE(X, Y)</code>: Check less or equal</li>
+</ul>
+<h1 id="integration-with-build-systems">Integration with Build
+Systems</h1>
+<p>The TFELTests library is typically used in CMake-based projects.
+Tests can be added to the build system using the standard CMake testing
+infrastructure or custom test runners.</p>
+<h1 id="examples">Examples</h1>
+<p>The TFEL source code includes several examples of unit tests in the
+<code>tests/Tests/</code> directory:</p>
+<ul>
+<li><code>testcase.cxx</code>: Example of using the TestCase class</li>
+<li><code>testsuite.cxx</code>: Example of using the TestSuite
+class</li>
+<li><code>testmanager.cxx</code>: Example of using the TestManager
+class</li>
+<li><code>testproxy.cxx</code>: Example of using test proxies</li>
+<li><code>multipletestoutputs.cxx</code>: Example of using multiple
+outputs</li>
+<li><code>stdstreamtestoutput.cxx</code>: Example of using standard
+stream output</li>
+</ul>
+<h1 id="best-practices">Best Practices</h1>
+<ol type="1">
+<li><p><strong>Test Isolation</strong>: Each test should be independent
+and not rely on the state of other tests.</p></li>
+<li><p><strong>Descriptive Names</strong>: Use descriptive names for
+tests and test suites to make it clear what is being tested.</p></li>
+<li><p><strong>Single Responsibility</strong>: Each test should verify a
+single behavior or property.</p></li>
+<li><p><strong>Use Assertions Wisely</strong>: Use the appropriate
+assertion macro for the condition being tested.</p></li>
+<li><p><strong>Test Coverage</strong>: Aim for comprehensive test
+coverage of your code, including edge cases and error
+conditions.</p></li>
+<li><p><strong>Performance</strong>: For performance-critical code,
+consider the overhead of test execution and use appropriate test
+strategies.</p></li>
+</ol>
+<h1 id="continuous-integration">Continuous Integration</h1>
+<p>The XML output format follows the JUnit standard, making it
+compatible with most continuous integration systems including Jenkins,
+GitLab CI, and GitHub Actions. This allows for easy integration of test
+results into your CI pipeline.</p>
+<h1 id="references">References</h1>
+<!-- Local IspellDict: english -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

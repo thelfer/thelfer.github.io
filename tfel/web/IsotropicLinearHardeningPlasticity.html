@@ -88,7 +88,7 @@
     <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <header>
+        <header>
       <ul id="nav">
 	<li><a href="news.html">News</a></li>
 	<li><a href="index.html">Overview</a>
@@ -755,7 +755,7 @@ linear combinations of the two fourth order tensors <span
 class="math inline">\(\underline{M}\)</span> and <span
 class="math inline">\({\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}\,\otimes\,{\left.\underline{n}\right|_{t+\theta\,\Delta\,t}}\)</span>
 which only acts on the deviatoric parts of the symmetric tensors. The
-following properties then holds:</p>
+following properites then holds:</p>
 <p><span class="math display">\[
 \left\{
 \begin{aligned}
@@ -795,7 +795,7 @@ following properties then holds:</p>
 \right)}
 \end{aligned}
 \]</span></p>
-<p>and finally,</p>
+<p>and finaly,</p>
 <p><span
 id="eq:isotropic_linear_harderning:consistent_tangent_operator"><span
 class="math display">\[
@@ -941,7 +941,7 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb7-1"><a href="#c
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  Dt <span class="op">=</span> lambda <span class="op">*</span> Stensor4<span class="op">::</span>IxI<span class="op">()</span> <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> mu <span class="op">*</span> Stensor4<span class="op">::</span>Id<span class="op">();</span></span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>We could also provide a tangent operator, but this would mean saving
-an auxiliary state variable stating if a plastic loading occurred at the
+an auxiliary state variable stating if a plastic loading occured at the
 previous time step.</p>
 <h2 id="behaviour-integration">Behaviour integration</h2>
 <p>The behaviour integration is implemented in the
@@ -951,8 +951,8 @@ the consistent tangent operator</h3>
 <p>The <code>Default</code> DSL allows to compute the consistent tangent
 operator either inside the <code>@Integrator</code> code block or in a
 dedicated code block name <code>@TangentOperator</code>.</p>
-<p>The first choice is simpler and more efficient for the considered
-implementation, but this requires to explicitly state that the
+<p>The first choice is simplier and more efficient for the considered
+implementation, but this requires to explicitely state that the
 consistent tangent operator is defined in the <code>@Integrator</code>
 code block using the <code>@ProvidesSymmetricTangentOperator</code>
 keyword, as follows:</p>

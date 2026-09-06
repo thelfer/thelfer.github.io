@@ -154,6 +154,7 @@
 		  <ul>
 		    <li><a href="release-notes-2.1.html">Version 2.1</a></li>
 		    <li><a href="release-notes-2.1.1.html">Version 2.1.1</a></li>
+		    <li><a href="release-notes-2.1.2.html">Version 2.1.2</a></li>
 		  </ul>
 		<li><a>Version 2.2.x</a>
 		  <ul>
@@ -231,6 +232,10 @@ end-user</a></li>
 </ul></li>
 <li><a href="#context" id="toc-context"><code>Context</code></a>
 <ul>
+<li><a href="#checking-and-assertion"
+id="toc-checking-and-assertion">Checking and assertion</a></li>
+<li><a href="#terminating-the-program"
+id="toc-terminating-the-program">Terminating the program</a></li>
 <li><a href="#reporting-error-to-end-user-1"
 id="toc-reporting-error-to-end-user-1">Reporting error to
 end-user</a></li>
@@ -385,6 +390,16 @@ case of contract violation. This behaviour can be changed by passing
 <h2 id="context"><code>Context</code></h2>
 <p>The <code>Context</code> class is used for standard error
 management.</p>
+<h3 id="checking-and-assertion">Checking and assertion</h3>
+<p><code>Context::assertOrTerminate</code> checks if an assertion is
+true. If not, <code>Context::terminate</code> is called.</p>
+<h3 id="terminating-the-program">Terminating the program</h3>
+<p><code>Context::terminate</code> allows to terminate the program. This
+shall only be used when an internal error is detected, for instance when
+an invariant of the code is not respected. This method calls the
+terminal handler registred by <code>Context::setTerminateHandler</code>.
+The default terminate handler prints the current error stack on
+<code>std::cerr</code> and calls <code>std::terminate</code>.</p>
 <h3 id="reporting-error-to-end-user-1">Reporting error to end-user</h3>
 <p>The <code>Context</code> class inherits from the
 <code>ErrorBacktrace</code> class, which has been designed to store

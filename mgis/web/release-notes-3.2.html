@@ -154,6 +154,7 @@
 		  <ul>
 		    <li><a href="release-notes-2.1.html">Version 2.1</a></li>
 		    <li><a href="release-notes-2.1.1.html">Version 2.1.1</a></li>
+		    <li><a href="release-notes-2.1.2.html">Version 2.1.2</a></li>
 		  </ul>
 		<li><a>Version 2.2.x</a>
 		  <ul>
@@ -279,9 +280,49 @@ id="toc-stridedcoalescedmemoryaccesscompositetensorsview"><code>StridedCoalesced
 <li><a href="#allow-modifiers-to-handle-temporary-views"
 id="toc-allow-modifiers-to-handle-temporary-views">Allow modifiers to
 handle temporary views</a></li>
+<li><a
+href="#temporary-views-can-be-used-in-assignement-operator-and-assign-function"
+id="toc-temporary-views-can-be-used-in-assignement-operator-and-assign-function">Temporary
+views can be used in “assignement” <code>operator|</code> and
+<code>assign</code> function</a></li>
 </ul></li>
 <li><a href="#issues-fixed" id="toc-issues-fixed">Issues fixed</a>
 <ul>
+<li><a href="#issue-255-fix-invoketest-on-macos"
+id="toc-issue-255-fix-invoketest-on-macos">Issue 255: Fix
+<code>InvokeTest</code> on <code>MacOS</code></a></li>
+<li><a href="#issue-250-add-errorbacktraceassertorterminate"
+id="toc-issue-250-add-errorbacktraceassertorterminate">Issue 250: Add
+<code>ErrorBacktrace::assertOrTerminate</code></a></li>
+<li><a href="#issue-248-add-errorbacktraceterminate"
+id="toc-issue-248-add-errorbacktraceterminate">Issue 248: Add
+<code>ErrorBacktrace::terminate</code></a></li>
+<li><a
+href="#issue-245-add-an-overload-of-isinvalid-for-taking-an-invalidresult-as-argument"
+id="toc-issue-245-add-an-overload-of-isinvalid-for-taking-an-invalidresult-as-argument">Issue
+245: Add an overload of <code>isInvalid</code> for taking an
+<code>InvalidResult</code> as argument</a></li>
+<li><a
+href="#issue-244-avoid-repeating-context-object-in-construct-make_unique-or-make_shared-and-siblings-when-the-constructor-takes-a-context-as-first-argument"
+id="toc-issue-244-avoid-repeating-context-object-in-construct-make_unique-or-make_shared-and-siblings-when-the-constructor-takes-a-context-as-first-argument">Issue
+244: Avoid repeating <code>Context</code> object in
+<code>construct</code>, <code>make_unique</code> or
+<code>make_shared</code> (and siblings) when the constructor takes a
+<code>Context</code> as first argument`</a></li>
+<li><a
+href="#issue-236-mgis-function-allow-assignement-operator-and-assign-algorithm-to-work-on-temporary-views"
+id="toc-issue-236-mgis-function-allow-assignement-operator-and-assign-algorithm-to-work-on-temporary-views">Issue
+236: [mgis-function] Allow “assignement” operator | and
+<code>assign</code> algorithm to work on temporary views</a></li>
+<li><a href="#issue-233-cmake-add-a-build-tests-target"
+id="toc-issue-233-cmake-add-a-build-tests-target">Issue #233: [cmake]
+Add a build-tests target</a></li>
+<li><a
+href="#issue-232-mgis-function-add-more-constraint-on-the-assign-algorithm-to-detect-if-values-of-the-function-can-be-assigned-to-the-values-of-the-evaluator"
+id="toc-issue-232-mgis-function-add-more-constraint-on-the-assign-algorithm-to-detect-if-values-of-the-function-can-be-assigned-to-the-values-of-the-evaluator">Issue
+232: [mgis-function] add more constraint on the <code>assign</code>
+algorithm to detect if values of the function can be assigned to the
+values of the evaluator</a></li>
 <li><a
 href="#issue-227-mgis-function-allow-modifiers-and-views-to-take-lightweigh-functions-views-by-copy-i.e.-alleviate-restrictions-that-views-and-modifiers-cant-operate-on-temporaries"
 id="toc-issue-227-mgis-function-allow-modifiers-and-views-to-take-lightweigh-functions-views-by-copy-i.e.-alleviate-restrictions-that-views-and-modifiers-cant-operate-on-temporaries">Issue
@@ -521,13 +562,88 @@ evaluator:</p>
 <div class="sourceCode" id="cb8"><pre
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">// creating an array view from an rvalue.</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> v <span class="op">=</span> f<span class="op">.</span>view<span class="op">()</span> <span class="op">|</span> as_array<span class="op">&lt;</span><span class="dv">2</span><span class="op">&gt;;</span></span></code></pre></div>
-<p>In comparison, to achieve the same behaviour in Version 3.1, creation
+<blockquote>
+<p>By comparison, to achieve the same behaviour in Version 3.1, creation
 of an intermediate variable was required, as follows:</p>
 <div class="sourceCode" id="cb9"><pre
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">// creating an array view in Version 3.1:</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> f_view <span class="op">=</span> f<span class="op">.</span>view<span class="op">();</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> v <span class="op">=</span> f_view <span class="op">|</span> as_array<span class="op">&lt;</span><span class="dv">2</span><span class="op">&gt;;</span></span></code></pre></div>
+</blockquote>
+<h2
+id="temporary-views-can-be-used-in-assignement-operator-and-assign-function">Temporary
+views can be used in “assignement” <code>operator|</code> and
+<code>assign</code> function</h2>
+<p>In Version 3.1, “assignement” <code>operator|</code> and
+<code>assign</code> function did not accept temporaries.</p>
+<p>This behaviour has been changed in Version 3.2 which allows a more
+direct code:</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>f2 <span class="op">|</span> as_scalar <span class="op">|</span> <span class="op">(</span>f <span class="op">|</span> as_scalar<span class="op">);</span> <span class="co">// &quot;assignement&quot; operator|</span></span></code></pre></div>
+<p>or equivalently:</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>assign<span class="op">(</span>ctx<span class="op">,</span> f <span class="op">|</span> as_scalar<span class="op">,</span> f2 <span class="op">|</span> as_scalar<span class="op">);</span></span></code></pre></div>
+<blockquote>
+<p>By comparison, Version 3.1 would have forced to store the view
+resulting from <code>f | as_scalar</code> into a temporary as
+follows:</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> tmp <span class="op">=</span> f <span class="op">|</span> as_scalar<span class="op">;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>assign<span class="op">(</span>ctx<span class="op">,</span> tmp<span class="op">,</span> f2 <span class="op">|</span> as_scalar<span class="op">);</span></span></code></pre></div>
+</blockquote>
 <h1 id="issues-fixed">Issues fixed</h1>
+<h2 id="issue-255-fix-invoketest-on-macos">Issue 255: Fix
+<code>InvokeTest</code> on <code>MacOS</code></h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/255"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/255</a></p>
+<h2 id="issue-250-add-errorbacktraceassertorterminate">Issue 250: Add
+<code>ErrorBacktrace::assertOrTerminate</code></h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/250"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/250</a></p>
+<h2 id="issue-248-add-errorbacktraceterminate">Issue 248: Add
+<code>ErrorBacktrace::terminate</code></h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/248"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/248</a></p>
+<h2
+id="issue-245-add-an-overload-of-isinvalid-for-taking-an-invalidresult-as-argument">Issue
+245: Add an overload of <code>isInvalid</code> for taking an
+<code>InvalidResult</code> as argument</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/245"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/245</a></p>
+<h2
+id="issue-244-avoid-repeating-context-object-in-construct-make_unique-or-make_shared-and-siblings-when-the-constructor-takes-a-context-as-first-argument">Issue
+244: Avoid repeating <code>Context</code> object in
+<code>construct</code>, <code>make_unique</code> or
+<code>make_shared</code> (and siblings) when the constructor takes a
+<code>Context</code> as first argument`</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/244"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/244</a></p>
+<h2
+id="issue-236-mgis-function-allow-assignement-operator-and-assign-algorithm-to-work-on-temporary-views">Issue
+236: [mgis-function] Allow “assignement” operator | and
+<code>assign</code> algorithm to work on temporary views</h2>
+<p>￼</p>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/236"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/236</a></p>
+<h2 id="issue-233-cmake-add-a-build-tests-target">Issue #233: [cmake]
+Add a build-tests target</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/233"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/233</a></p>
+<h2
+id="issue-232-mgis-function-add-more-constraint-on-the-assign-algorithm-to-detect-if-values-of-the-function-can-be-assigned-to-the-values-of-the-evaluator">Issue
+232: [mgis-function] add more constraint on the <code>assign</code>
+algorithm to detect if values of the function can be assigned to the
+values of the evaluator</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/232"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/232</a></p>
 <h2
 id="issue-227-mgis-function-allow-modifiers-and-views-to-take-lightweigh-functions-views-by-copy-i.e.-alleviate-restrictions-that-views-and-modifiers-cant-operate-on-temporaries">Issue
 227: [mgis-function] allow modifiers and views to take lightweigh

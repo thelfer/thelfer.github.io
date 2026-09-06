@@ -3,7 +3,7 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN" xml:lang="en-EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -88,7 +88,7 @@
     <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <header>
+        <header>
       <ul id="nav">
 	<li><a href="news.html">News</a></li>
 	<li><a href="index.html">Overview</a>
@@ -385,10 +385,11 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">Extending the StandardElastoViscoPlasticity brick with
-a new stress criterion</h1>
+<h1 class="title">Extending the
+<code>StandardElastoViscoPlasticity</code> brick with a new stress
+criterion</h1>
 <h2 class="author">Thomas Helfer, Jérémy Hure, Mohamed Shokeir</h2>
-<h3 class="date">04/2020</h3>
+<h3 class="date">April 2020</h3>
 </div>
 <div id="TOC">
 <ul>
@@ -508,8 +509,7 @@ class="header-section-number">1.2</span> Creating a proper working
 directory for the example of the Green criterion</h2>
 <p>In this paragraph, we detail Steps 1 and 2. for the case of the Green
 criterion (see <span class="citation"
-data-cites="green_plasticity_1972">[<a href="#ref-green_plasticity_1972"
-role="doc-biblioref">1</a>]</span>) which will be used as an
+data-cites="green_plasticity_1972">[1]</span>) which will be used as an
 illustrative example throughout this document. We describe all those
 steps in details and finally gives a shell script that automates the
 whole process for <code>LiNuX</code> users. When providing command line
@@ -520,7 +520,7 @@ called <code>include/TFEL/Material</code> and renamed respectively
 <code>Green1972StressCriterion.hxx</code> and
 <code>Green1972StressCriterion.ixx</code>.</p>
 <p>The <code>MFront</code> template files must be copied in the working
-directory and renamed appropriately.</p>
+directory and renamed appropriatly.</p>
 <p>This can be done by taping the following commands in the terminal
 (under <code>LiNuX</code> or <code>Mac Os</code>):</p>
 <div class="sourceCode" id="cb2"><pre
@@ -579,12 +579,10 @@ class="header-section-number">1.3</span> Implementing the Green 1972
 stress criterion</h2>
 <p>In this paragraph, we detail all the steps required to implement the
 Green 1972 stress criterion (see <span class="citation"
-data-cites="green_plasticity_1972">[<a href="#ref-green_plasticity_1972"
-role="doc-biblioref">1</a>]</span> for the original paper, <span
-class="citation" data-cites="fritzen_computational_2013">[<a
-href="#ref-fritzen_computational_2013"
-role="doc-biblioref">2</a>]</span> for the paper that we follow for this
-work).</p>
+data-cites="green_plasticity_1972">[1]</span> for the original paper,
+<span class="citation"
+data-cites="fritzen_computational_2013">[2]</span> for the paper that we
+follow for this work).</p>
 <p>The green stress criterion is defined by:</p>
 <p><span class="math display">\[
 \sigma_{\mathrm{eq}}=\sqrt{{{\displaystyle \frac{\displaystyle

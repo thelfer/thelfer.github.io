@@ -89,7 +89,7 @@
     <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <header>
+        <header>
       <ul id="nav">
 	<li><a href="news.html">News</a></li>
 	<li><a href="index.html">Overview</a>
@@ -396,10 +396,11 @@
 <li><a href="#highlights" id="toc-highlights"><span
 class="toc-section-number">1</span> Highlights</a>
 <ul>
-<li><a href="#support-for-the-tdls-tinydevicecallablelinearsolver"
-id="toc-support-for-the-tdls-tinydevicecallablelinearsolver"><span
+<li><a
+href="#support-for-the-tdls-library-tiny-device-callable-linear-solvers"
+id="toc-support-for-the-tdls-library-tiny-device-callable-linear-solvers"><span
 class="toc-section-number">1.1</span> Support for the <code>TDLS</code>
-(<code>TinyDeviceCallableLinearSolver</code>)</a></li>
+library (Tiny Device-callable Linear Solvers)</a></li>
 </ul></li>
 <li><a href="#known-incompatibilities"
 id="toc-known-incompatibilities"><span
@@ -613,11 +614,11 @@ simultaenously in a CI context</a></li>
 <h1 data-number="1" id="highlights"><span
 class="header-section-number">1</span> Highlights</h1>
 <h2 data-number="1.1"
-id="support-for-the-tdls-tinydevicecallablelinearsolver"><span
+id="support-for-the-tdls-library-tiny-device-callable-linear-solvers"><span
 class="header-section-number">1.1</span> Support for the
-<code>TDLS</code> (<code>TinyDeviceCallableLinearSolver</code>)</h2>
-<p>The <code>TDLS</code> library provides tiny linear solvers for small
-dense systems, callable on <code>CPU</code>s as well as inside
+<code>TDLS</code> library (Tiny Device-callable Linear Solvers)</h2>
+<p>The <code>TDLS</code> library provides direct linear solvers for
+small dense systems, callable on <code>CPU</code>s as well as inside
 <code>GPU</code> kernels, and designed for maximum GPU performance:</p>
 <ul>
 <li><a href="https://github.com/trsxvz/tdls"
@@ -974,8 +975,8 @@ class="header-section-number">9</span> New features in
 class="header-section-number">9.1</span> The
 <code>@LinearSystemSolver</code> keyword</h2>
 <p>The <code>@LinearSystemSolver</code> keyword is used to select the
-linear sytem solver. It is followed by the name of solver. Currently,
-two solvers are supported:</p>
+linear system solver. It is followed by the name of the solver.
+Currently, two solvers are supported:</p>
 <ul>
 <li><code>Default</code>. This uses the solvers provided natively by the
 <code>TFEL/Math</code> library. As implied by its name, this solver is
@@ -984,11 +985,11 @@ used by default.</li>
 <code>TinyDeviceCallableLinearSolver</code>). See <a
 href="https://trsxvz.github.io/TDLS/getting_started.html"
 class="uri">https://trsxvz.github.io/TDLS/getting_started.html</a> for
-details. If <code>TFEL</code> is not compiled with support of the
-<code>TDLS</code> library selecting this solver falls back the the
-<code>Default</code> Solver.</li>
+details. If <code>TFEL</code> is not compiled with support for the
+<code>TDLS</code> library, selecting this solver falls back to the
+<code>Default</code> solver.</li>
 </ul>
-<p>The name of the solver can optionnaly be followed by a dictionary
+<p>The name of the solver can optionally be followed by a dictionary
 allowing to parametrize the solver.</p>
 <h3 data-number="9.1.1" id="supported-parameters"><span
 class="header-section-number">9.1.1</span> Supported Parameters</h3>
@@ -1006,17 +1007,17 @@ class="header-section-number">9.1.1.2</span> Parameters of the
 <ul>
 <li><code>tile_size</code>: the matrix is processed as a grid of
 <code>tile_size x   tile_size</code> register tiles. This is the main
-performance axis of the solvers - tune it per system dimension. The
+performance axis of the solvers. Tune it per system dimension. The
 <code>tile_size</code> can be a strictly positive integer or a string.
-In <code>tile_size</code> is a string, it is interpreted as a integer
-formula whose variable can be any integer constant (see the
+If <code>tile_size</code> is a string, it is interpreted as an integer
+formula whose variables can be any integer constant (see the
 <code>@IntegerConstant</code> keyword), <code>N</code>,
 <code>TVectorSize</code>, <code>StensorSize</code> or
 <code>TensorSize</code>. This formula must evaluate to a strictly
 positive integer for all hypotheses supported by the behaviour.</li>
 <li><code>schedule</code>: expected values are either
 <code>left_looking</code> (or equivalently <code>left</code>,
-<code>left-looking</code> or <code>LeftLooking</code>) and
+<code>left-looking</code> or <code>LeftLooking</code>) or
 <code>right_looking</code> (or equivalently <code>right</code>,
 <code>right-looking</code> or <code>RightLooking</code>). This parameter
 defines the elimination schedule of the tiled factorization.</li>
@@ -1024,17 +1025,38 @@ defines the elimination schedule of the tiled factorization.</li>
 <code>first_acceptable</code> (or equivalently
 <code>first-acceptable</code> or <code>FirstAcceptable</code>) or
 <code>full_scan</code> (or equivalently <code>full-scan</code> or
-<code>FullScan</code>).</li>
-<li>unroll_inner_loop: expected values are either <code>true</code> or
-<code>false</code>. If <code>true</code>, loops indexing register tiles
-carry a forced-unroll pragma - the guard that keeps tiles in registers
-on GPU backends, where a rolled loop indexes the tile dynamically and
-demotes it to slow local memory. If <code>false</code>, no unroll pragma
-anywhere - faster compiles, GPU performance not guaranteed.</li>
+<code>FullScan</code>). With <code>first_acceptable</code>, the search
+below the tile stops at the first candidate whose corrected magnitude
+reaches the out-of-tile search threshold. With <code>full_scan</code>,
+all the rows below the tile are scanned and the best corrected candidate
+wins.</li>
+<li><code>unroll_inner_loop</code>: expected values are either
+<code>true</code> or <code>false</code>. If <code>true</code>, loops
+indexing register tiles carry a forced-unroll pragma, the guard that
+keeps tiles in registers on GPU backends, where a rolled loop indexes
+the tile dynamically and demotes it to slow local memory. If
+<code>false</code>, no unroll pragma anywhere, for faster compiles, GPU
+performance not guaranteed.</li>
+<li><code>out_of_tile_search_threshold</code>: acceptable-pivot
+threshold of the out-of-tile search. An in-tile pivot candidate whose
+magnitude reaches this value is accepted without looking outside the
+tile; below it, the search extends to the rows under the tile
+(out-of-tile pivoting) and the best candidate wins.</li>
+<li><code>singular_pivot_threshold</code>: the factorization is declared
+singular when even the best candidate of the out-of-tile recovery stays
+below this threshold. This option must be set together with the
+<code>out_of_tile_search_threshold</code> option and must not exceed
+it.</li>
+<li><code>out_of_tile_search_diagnostics</code>: expected values are
+either <code>true</code> or <code>false</code>. If <code>true</code>, an
+integer member <code>mfront_tdls_oot_count</code>, readable in user code
+blocks, reports the number of out-of-tile searches of the last linear
+solve. If <code>false</code> (the default), the generated code is
+unchanged.</li>
 </ul>
-<p>If a parameter is not defined, the default values are inherited for
-the <code>TiledLUppDefaultConfig</code> class defined by the
-<code>TDLS</code> library. See the <a
+<p>If a parameter is not defined, the default values are inherited from
+the <code>TiledLUppConfig</code> class defined by the <code>TDLS</code>
+library. See the <a
 href="https://trsxvz.github.io/TDLS/api/index.html">API reference</a>
 for details. At the time of writing this documentation, those default
 values are:</p>
@@ -1044,9 +1066,15 @@ values are:</p>
 <li><code>first_acceptable</code> for
 <code>out_of_tile_search_strategy</code></li>
 <li><code>true</code> for <code>unroll_inner_loop</code></li>
+<li><code>1e-10</code> for <code>out_of_tile_search_threshold</code> (or
+<code>1e-4</code> for single precision)</li>
+<li><code>std::numeric_limits&lt;double&gt;::min()</code> for
+<code>singular_pivot_threshold</code> (or
+<code>std::numeric_limits&lt;float&gt;::min()</code> for single
+precision)</li>
 </ul>
-<h3 data-number="9.1.2" id="examples-of-usage"><span
-class="header-section-number">9.1.2</span> Examples of usage</h3>
+<h3 data-number="9.1.2" id="examples"><span
+class="header-section-number">9.1.2</span> Examples</h3>
 <div class="sourceCode" id="LinearSystemSolver"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="LinearSystemSolver-1"><a href="#LinearSystemSolver-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LinearSystemSolver TDLS<span class="op">{</span></span>
 <span id="LinearSystemSolver-2"><a href="#LinearSystemSolver-2" aria-hidden="true" tabindex="-1"></a>  tile_size<span class="op">:</span> <span class="dv">4</span><span class="op">,</span></span>

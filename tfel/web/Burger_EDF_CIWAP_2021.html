@@ -89,7 +89,7 @@
     <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <header>
+        <header>
       <ul id="nav">
 	<li><a href="news.html">News</a></li>
 	<li><a href="index.html">Overview</a>
@@ -412,7 +412,7 @@ id="toc-sec:burger_full:implicit_algorithm">Description of the implicit
 algorithm</a>
 <ul>
 <li><a href="#sec:burger_full:isvs" id="toc-sec:burger_full:isvs">Choice
-of the state variables and auxiliary state variables</a></li>
+of the state variables and auxilary state variables</a></li>
 <li><a href="#computation-of-the-stress"
 id="toc-computation-of-the-stress">Computation of the stress</a></li>
 <li><a href="#sec:burger_full:implicit:basic_creep"
@@ -496,7 +496,7 @@ href="http://aces-h2020.eu/domains/aces-h2020.eu/">European project
 ACES</a> <span class="citation" data-cites="aces linkedin_aces_2021">[<a
 href="#ref-aces" role="doc-biblioref">1</a>, <a
 href="#ref-linkedin_aces_2021" role="doc-biblioref">2</a>]</span>, in
-order to give access to the <a
+order to give acces to the <a
 href="https://www.rilem.net/news/invitation-to-participate-in-edf-vercors-3rd-benchmark-405">VERCORS
 benchmark 3rd participants</a> <span class="citation"
 data-cites="charpin_ageing_2021">[<a href="#ref-charpin_ageing_2021"
@@ -699,8 +699,8 @@ the equilibrium at the global scale.</p>
 <p>A standard Newton-Raphson algorithm will be used to find the solution
 of the implici system, which requires to compute the jacobian of the
 implicit system.</p>
-<h2 id="sec:burger_full:isvs">Choice of the state variables and
-auxiliary state variables</h2>
+<h2 id="sec:burger_full:isvs">Choice of the state variables and auxilary
+state variables</h2>
 <p>The role of the implicit scheme is to determine the following
 increments:</p>
 <p><span class="math display">\[
@@ -962,7 +962,7 @@ f_{\left\|\underline{\varepsilon}_{m}^{\text{ibc}}\right\|}}{\displaystyle
 equation to determine the maximum value of the norm of the irreversible
 part of the basic creep</h3>
 <p>Using Implicit Equation (12) may lead to spurious oscillations of the
-Newton algorithm, <strong>although this is not observed in the test
+Newton algorithm, <strong>although this is not observered in the test
 cases below</strong>.</p>
 <p>This is due to the fact that the derivatives of this equation are not
 continuous.</p>
@@ -1081,7 +1081,7 @@ id="choice-of-the-domain-specific-language-and-the-standardelasticity-brick">Cho
 of the domain specific language and the <code>StandardElasticity</code>
 brick</h2>
 <p>The domain specific language (DSL) suitable for implementing an
-implicit scheme based on standard strain-based behaviour is called <a
+implicit scheme based on standard strain-based beahviour is called <a
 href="implicit-dsl.html"><code>Implicit</code></a> <span
 class="citation" data-cites="ceaedf_implicit_2021">[<a
 href="#ref-ceaedf_implicit_2021" role="doc-biblioref">11</a>]</span>.
@@ -1093,7 +1093,7 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#c
 <span class="citation" data-cites="ceaedf_behaviour_bricks_2020">[<a
 href="#ref-ceaedf_behaviour_bricks_2020"
 role="doc-biblioref">15</a>]</span> is appropriate for this behaviour
-which provides additional functionalities such as:</p>
+which provides additional functionnalities such as:</p>
 <ul>
 <li>Automatic computation of the stress tensor at various stages of the
 behaviour integration.</li>
@@ -1101,7 +1101,7 @@ behaviour integration.</li>
 <li>Automatic support for plane stress and generalized plane stress
 modelling hypotheses (The axial strain is defined as an additional state
 variable and the associated equation in the implicit system is added to
-enforce the plane stress condition).</li>
+enforce the plane stess condition).</li>
 <li>Automatic addition of the standard terms associated with the elastic
 strain state variable.</li>
 </ul>
@@ -1110,7 +1110,7 @@ follows:</p>
 <div class="sourceCode" id="cb2"><pre
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick StandardElasticity<span class="op">;</span></span></code></pre></div>
 <blockquote>
-<p><strong>Atomic declaration of the elastic strain</strong></p>
+<p><strong>Automic declaration of the elastic strain</strong></p>
 <p>The <code>Implicit</code> DSL automatically defines the elastic
 strain as the first state variable.</p>
 </blockquote>
@@ -1478,7 +1478,7 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb13-1"><a href="#
 <span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co"> * Shifted value of the historical minimale of relative humidity </span></span>
 <span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="co"> *</span></span>
 <span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="co"> * This value has been shifted (value + 1) so the implicit initialization</span></span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="co"> * to zero of this variable in most finite element solvers is meaningful.</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="co"> * to zero of this variable in most finite element solvers is meaningfull.</span></span>
 <span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="co"> * So for initialization at value different to 1, please don&#39;t forget to</span></span>
 <span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="co"> * take into account this shift.</span></span>
 <span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="co"> */</span></span>
@@ -1528,7 +1528,7 @@ must be changed to <code>SECH</code> as follows:</p>
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>rH<span class="op">.</span>setEntryName<span class="op">(</span><span class="st">&quot;SECH&quot;</span><span class="op">);</span></span></code></pre></div>
 </blockquote>
 <h3 id="local-variables">Local variables</h3>
-<p>Local variables are a powerful feature of <code>MFront</code> which
+<p>Local variables are a powerfull feature of <code>MFront</code> which
 allows to define variables which will be accessible in each code
 blocks.</p>
 <p>In this implementation, we will need local variables for two distinct
@@ -1548,9 +1548,9 @@ involves exponentials of the temperature following the Arrhenius law
 (see Equations (6) and (7)).</p>
 <p>Those local variables are declared as follows:</p>
 <div class="sourceCode" id="cb16"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">//! first Lamé coefficient</span></span>
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">//! first Lamé coeffient</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real lambda<span class="op">;</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">//! second Lamé coefficient</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">//! second Lamé coeffient</span></span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real mu<span class="op">;</span></span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co">//! variable to compute effect of relative on drying creep</span></span>
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalVariable real VrH<span class="op">;</span></span>
@@ -1630,7 +1630,7 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb22-1"><a href="#
 <p>Note that this implementation uses a little trick to activate the
 drying strain base on the value of <span
 class="math inline">\(\eta_{\text{fd}}\)</span>. In the latter is
-negative or null, drying creep is deactivated.</p>
+negative or null, drying creep is desactivated.</p>
 <h2 id="implicit-system">Implicit system</h2>
 <p>The <code>@Integrator</code> code block defines the values of
 residuals and their derivatives with respect to the state variables.</p>
@@ -1763,15 +1763,15 @@ In this section, we specifically dicu
 regression test cases</h2>
 <p><code>5</code> <code>MTest</code>’ unit tests associated with the
 <code>Burger_EDF_CIWAP_2021</code> behaviour have been introduced in the
-<code>MFrontGallery</code> project. Those tests are automatically
+<code>MFrontGallery</code> project. Thoses tests are automatically
 executed when <code>MFront</code> evolves as part of the its continuous
 integration strategy.</p>
 <p>This ensures that the implementations of the
 <code>Burger_EDF_CIWAP_2021</code> behaviour compiles despite
 <code>MFront</code>’ evolutions and that the <code>MTest</code>’ tests
 gives the same results.</p>
-<p>It is also worth mentioning that each test is executed <span
-class="math inline">\(5\)</span> times which different roundings modes
+<p>It is also worth mentionning that each test is executed <span
+class="math inline">\(5\)</span> times which differents roundings modes
 (including a so-called random rounding mode where the rounding mode is
 changed a various predefined steps by <code>MTest</code>), providing a
 basic and naive check of the numerical stability of the results.</p>

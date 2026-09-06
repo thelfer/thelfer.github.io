@@ -88,7 +88,7 @@
     <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <header>
+        <header>
       <ul id="nav">
 	<li><a href="news.html">News</a></li>
 	<li><a href="index.html">Overview</a>
@@ -555,7 +555,7 @@ type for <code>real</code> depends on the interface used.</li>
 <li><code>StrainStensor</code> is an alias to
 <code>stensor&lt;N,strain&gt;</code>.</li>
 <li><code>StressStensor</code> is an alias to
-<code>stensor&lt;N,stress&gt;</code>.</li>
+<code>stensor&lt;N,stess&gt;</code>.</li>
 </ul>
 <h2 data-number="1.2" id="vector-notations-for-symmetric-tensors"><span
 class="header-section-number">1.2</span> Vector notations for symmetric
@@ -1041,8 +1041,8 @@ applying a given rotation.</p>
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> rt <span class="op">=</span> t2tot2<span class="op">&lt;</span>N<span class="op">,</span>real<span class="op">&gt;::</span>fromRotationMatrix<span class="op">(</span>r<span class="op">);</span></span></code></pre></div>
 <blockquote>
 <p><strong>Note</strong></p>
-<p>In practice, the <code>fromRotationMatrix</code> static methods can
-be used to compute the rotation of any second and fourth order tensors
+<p>In pratice, the <code>fromRotationMatrix</code> static methods can be
+used to compute the rotation of any second and fourth order tensors
 (including the ones of the <code>t2tost2</code> and <code>st2tot2</code>
 types). They are used internally in the implementation of the
 <code>change_basis</code> functions provided for the fourth order
@@ -1212,7 +1212,7 @@ I_{1}\,\underline{I}-{\underset{\tilde{}}{\mathbf{a}}}^{T}\\
 \end{aligned}
 \right.
 \]</span></p>
-<p>Those expressions are simpler for symmetric tensors: <span
+<p>Those expressions are simplier for symmetric tensors: <span
 class="math display">\[
 \left\{
 \begin{aligned}
@@ -1266,7 +1266,7 @@ can be computed as follows:</p>
 <div class="sourceCode" id="cb31"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> id <span class="op">=</span> tensor<span class="op">&lt;</span>N<span class="op">,</span>real<span class="op">&gt;::</span>Id<span class="op">();</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> d2I2_dA2 <span class="op">=</span> <span class="op">(</span>id<span class="op">^</span>id<span class="op">)-</span>t2tot2<span class="op">&lt;</span>N<span class="op">,</span>real<span class="op">&gt;::</span>transpose_derivative<span class="op">();</span></span></code></pre></div>
-<p>For symmetric tensors, this computation is much simpler:</p>
+<p>For symmetric tensors, this computation is much simplier:</p>
 <div class="sourceCode" id="cb32"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> id <span class="op">=</span> stensor<span class="op">&lt;</span>N<span class="op">,</span>real<span class="op">&gt;::</span>Id<span class="op">();</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> d2I2_dA2 <span class="op">=</span> <span class="op">(</span>id<span class="op">^</span>id<span class="op">)-</span>st2tot2<span class="op">&lt;</span>N<span class="op">,</span>real<span class="op">&gt;::</span>Id<span class="op">();</span></span></code></pre></div>
@@ -1384,7 +1384,7 @@ Section 3.8.2): <span class="math display">\[
 \underline{s}}{\displaystyle \partial \underline{\sigma}}}=
 \underline{s}
 \]</span></p>
-<p>In practice, this can be implemented as follows:</p>
+<p>In pratice, this can be implemented as follows:</p>
 <div class="sourceCode" id="cb34"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> dJ2 <span class="op">=</span> deviator<span class="op">(</span>sig<span class="op">);</span></span></code></pre></div>
 <p>For the expression of <span class="math inline">\({\displaystyle

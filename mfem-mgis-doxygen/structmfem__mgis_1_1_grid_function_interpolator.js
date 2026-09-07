@@ -6,6 +6,6 @@ var structmfem__mgis_1_1_grid_function_interpolator =
     [ "~GridFunctionInterpolator", "structmfem__mgis_1_1_grid_function_interpolator.html#a1bd066b298cd70c9a107833a75134514", null ],
     [ "addPoints", "structmfem__mgis_1_1_grid_function_interpolator.html#a7e68f970159f3134319fddc4607f1696", null ],
     [ "addPoints", "structmfem__mgis_1_1_grid_function_interpolator.html#a3b5f8ee9c6276ab31cd5b665ca20d450", null ],
-    [ "interpolate", "structmfem__mgis_1_1_grid_function_interpolator.html#a4f81341459b84af39413de6fbf722c86", null ],
-    [ "interpolate", "structmfem__mgis_1_1_grid_function_interpolator.html#ab2fbdd684a18b00a76e1cf2ec57dd3eb", null ]
+    [ "interpolate", "structmfem__mgis_1_1_grid_function_interpolator.html#a837605c71b5d35962c2f078155dc10c3", null ],
+    [ "interpolate", "structmfem__mgis_1_1_grid_function_interpolator.html#a0956840a511ebf05bd198ab7c0699712", null ]
 ];

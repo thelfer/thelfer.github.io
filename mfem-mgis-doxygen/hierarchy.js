@@ -210,6 +210,10 @@ var hierarchy =
         [ "mfem_mgis::FirstIterationConvergenceCriterion", "structmfem__mgis_1_1_first_iteration_convergence_criterion.html", null ]
       ] ]
     ] ],
+    [ "mfem_mgis::AbstractCurve", "structmfem__mgis_1_1_abstract_curve.html", [
+      [ "mfem_mgis::GridFunctionValuesCurve", "structmfem__mgis_1_1_grid_function_values_curve.html", null ],
+      [ "mfem_mgis::MultipleCurves", "structmfem__mgis_1_1_multiple_curves.html", null ]
+    ] ],
     [ "mfem_mgis::AbstractDirichletBoundaryCondition", "structmfem__mgis_1_1_abstract_dirichlet_boundary_condition.html", [
       [ "mfem_mgis::DirichletBoundaryConditionBase", "structmfem__mgis_1_1_dirichlet_boundary_condition_base.html", [
         [ "mfem_mgis::UniformDirichletBoundaryCondition", "structmfem__mgis_1_1_uniform_dirichlet_boundary_condition.html", null ]
@@ -295,6 +299,11 @@ var hierarchy =
           [ "mfem_mgis::UniformConstantScalarPartialQuadratureFunctionEvaluator", "structmfem__mgis_1_1_uniform_constant_scalar_partial_quadrature_function_evaluator.html", null ],
           [ "mfem_mgis::UniformScalarPartialQuadratureFunctionEvaluator", "structmfem__mgis_1_1_uniform_scalar_partial_quadrature_function_evaluator.html", null ]
         ] ]
+      ] ]
+    ] ],
+    [ "mfem_mgis::AbstractPostProcessing", "structmfem__mgis_1_1_abstract_post_processing.html", [
+      [ "mfem_mgis::PostProcessingBase", "structmfem__mgis_1_1_post_processing_base.html", [
+        [ "mfem_mgis::CurvesPostProcessing", "structmfem__mgis_1_1_curves_post_processing.html", null ]
       ] ]
     ] ],
     [ "mfem_mgis::AbstractSimulationMonitor", "structmfem__mgis_1_1_abstract_simulation_monitor.html", null ],
@@ -1540,6 +1549,7 @@ var hierarchy =
     [ "tfel::math::CubicSplineCollocationPoint< AbscissaType, ValueType >", "structtfel_1_1math_1_1_cubic_spline_collocation_point.html", null ],
     [ "tfel::math::internals::CubicSplineCollocationPointComparator", "structtfel_1_1math_1_1internals_1_1_cubic_spline_collocation_point_comparator.html", null ],
     [ "mtest::CurrentState", "structmtest_1_1_current_state.html", null ],
+    [ "mfem_mgis::CurveWriter", "structmfem__mgis_1_1_curve_writer.html", null ],
     [ "tfel::utilities::CxxTokenizerOptions", "structtfel_1_1utilities_1_1_cxx_tokenizer_options.html", [
       [ "tfel::utilities::CxxTokenizer", "structtfel_1_1utilities_1_1_cxx_tokenizer.html", [
         [ "mfront::DSLBase", "structmfront_1_1_d_s_l_base.html", null ],
@@ -1692,8 +1702,8 @@ var hierarchy =
     [ "dianafea::DianaFEABehaviourHandler< H, Behaviour >::DoNothingInitializer", "structdianafea_1_1_diana_f_e_a_behaviour_handler_1_1_do_nothing_initializer.html", null ],
     [ "lsdyna::LSDYNABehaviourHandler< H, Behaviour >::DoNothingInitializer", "structlsdyna_1_1_l_s_d_y_n_a_behaviour_handler_1_1_do_nothing_initializer.html", null ],
     [ "lsdyna::LSDYNAExplicitInterface< H, T, Behaviour >::DoNothingInitializer", "structlsdyna_1_1_l_s_d_y_n_a_explicit_interface_1_1_do_nothing_initializer.html", null ],
-    [ "tfel::math::dotProduct< N >", "structtfel_1_1math_1_1dot_product.html", null ],
     [ "tfel::math::DotProduct< N, M >", "structtfel_1_1math_1_1_dot_product.html", null ],
+    [ "tfel::math::dotProduct< N >", "structtfel_1_1math_1_1dot_product.html", null ],
     [ "tfel::math::dotProduct< 0u >", "structtfel_1_1math_1_1dot_product_3_010u_01_4.html", null ],
     [ "tfel::math::DotProduct< 0u, M >", "structtfel_1_1math_1_1_dot_product_3_010u_00_01_m_01_4.html", null ],
     [ "tfel::math::internals::DPK1_DF_to_DTAU_DF_Converter< N >", "structtfel_1_1math_1_1internals_1_1_d_p_k1___d_f__to___d_t_a_u___d_f___converter.html", null ],
@@ -2276,6 +2286,7 @@ var hierarchy =
     [ "cyrano::CyranoBehaviourHandler< H, Behaviour >::GradientInitialiserWithoutStressFreeExpansion", "structcyrano_1_1_cyrano_behaviour_handler_1_1_gradient_initialiser_without_stress_free_expansion.html", null ],
     [ "dianafea::DianaFEABehaviourHandler< H, Behaviour >::GradientInitialiserWithoutStressFreeExpansion", "structdianafea_1_1_diana_f_e_a_behaviour_handler_1_1_gradient_initialiser_without_stress_free_expansion.html", null ],
     [ "lsdyna::LSDYNABehaviourHandler< H, Behaviour >::GradientInitialiserWithoutStressFreeExpansion", "structlsdyna_1_1_l_s_d_y_n_a_behaviour_handler_1_1_gradient_initialiser_without_stress_free_expansion.html", null ],
+    [ "mfem_mgis::GridFunctionInterpolator", "structmfem__mgis_1_1_grid_function_interpolator.html", null ],
     [ "numodis::GSystem", "structnumodis_1_1_g_system.html", null ],
     [ "tfel::math::internals::GteSymmetricEigensolver3x3< real >", "structtfel_1_1math_1_1internals_1_1_gte_symmetric_eigensolver3x3.html", null ],
     [ "tfel::material::GursonTvergaardNeedleman1982StressCriterionParameters< StressStensor >", "structtfel_1_1material_1_1_gurson_tvergaard_needleman1982_stress_criterion_parameters.html", null ],
@@ -2633,6 +2644,7 @@ var hierarchy =
     [ "mfem_mgis::LinearSolverHandler", "structmfem__mgis_1_1_linear_solver_handler.html", null ],
     [ "mfront::AbstractLinearSystemSolver::LinearSystemSubstitutionVariables", "structmfront_1_1_abstract_linear_system_solver_1_1_linear_system_substitution_variables.html", null ],
     [ "mfront::AbstractLinearSystemSolver::LinearSystemVariables", "structmfront_1_1_abstract_linear_system_solver_1_1_linear_system_variables.html", null ],
+    [ "mfem_mgis::LineCurve", "structmfem__mgis_1_1_line_curve.html", null ],
     [ "mgis::behaviour::LoadFromDatabaseOptions", "structmgis_1_1behaviour_1_1_load_from_database_options.html", null ],
     [ "mfront::LocalDataStructure", "structmfront_1_1_local_data_structure.html", null ],
     [ "tfel::material::LogarithmicStrainHandler< N, StressType >", "structtfel_1_1material_1_1_logarithmic_strain_handler.html", null ],
@@ -2705,6 +2717,7 @@ var hierarchy =
     [ "mfront::SearchPathsHandler::MadnexPath", "structmfront_1_1_search_paths_handler_1_1_madnex_path.html", null ],
     [ "tfel::math::internals::MakeConstViewReference< T >", "structtfel_1_1math_1_1internals_1_1_make_const_view_reference.html", null ],
     [ "tfel::math::internals::MakeConstViewReference< qt< UnitType, ValueType > >", "structtfel_1_1math_1_1internals_1_1_make_const_view_reference_3_01qt_3_01_unit_type_00_01_value_type_01_4_01_4.html", null ],
+    [ "mfem_mgis::MakeGridFunctionResult< parallel >", "structmfem__mgis_1_1_make_grid_function_result.html", null ],
     [ "tfel::math::MakeQuantityReferenceType< QuantityType >", "structtfel_1_1math_1_1_make_quantity_reference_type.html", null ],
     [ "tfel::math::MakeQuantityReferenceType< qt< UnitType, ValueType > >", "structtfel_1_1math_1_1_make_quantity_reference_type_3_01qt_3_01_unit_type_00_01_value_type_01_4_01_4.html", null ],
     [ "tfel::math::internals::MakeViewReference< T >", "structtfel_1_1math_1_1internals_1_1_make_view_reference.html", null ],

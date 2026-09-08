@@ -31,5 +31,6 @@ var structmfem__mgis_1_1_mesh_discretization =
     [ "setMaterialsNames", "structmfem__mgis_1_1_mesh_discretization.html#ae362027451421b49e837177acd0022a0", null ],
     [ "boundaries_names", "structmfem__mgis_1_1_mesh_discretization.html#ae8b9f6031519ecc0bfbd45abf4244862", null ],
     [ "materials_names", "structmfem__mgis_1_1_mesh_discretization.html#ab2f395241eee5451c97e8f2467c6a3ef", null ],
-    [ "parallel_mesh", "structmfem__mgis_1_1_mesh_discretization.html#a0fd4476db5fe96cd979809c882222d4b", null ]
+    [ "parallel_mesh", "structmfem__mgis_1_1_mesh_discretization.html#a0fd4476db5fe96cd979809c882222d4b", null ],
+    [ "sequential_mesh", "structmfem__mgis_1_1_mesh_discretization.html#a0ca4d0d0a285f5a9280ec477b21c7578", null ]
 ];

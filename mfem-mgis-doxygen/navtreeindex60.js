@@ -1,5 +1,11 @@
 var NAVTREEINDEX60 =
 {
+"structtfel_1_1math_1_1_unary_result_type_3_01fsarray_3_01_n_00_01_t_01_4_00_01_op_neg_01_4.html":[5,0,16,5,632],
+"structtfel_1_1math_1_1_unary_result_type_3_01long_01double_00_01_power_3_01_n_00_01_d_01_4_01_4.html":[5,0,16,5,633],
+"structtfel_1_1math_1_1_unary_result_type_3_01runtime__array_3_01_t_01_4_00_01_op_neg_01_4.html":[5,0,16,5,634],
+"structtfel_1_1math_1_1_unary_result_type_3_01tvector_3_01_n_00_01_t_01_4_00_01_op_neg_01_4.html":[5,0,16,5,642],
+"structtfel_1_1math_1_1_unary_result_type_3_01vector_3_01_t_01_4_00_01_op_neg_01_4.html":[5,0,16,5,643],
+"structtfel_1_1math_1_1_vector_concept_base.html":[5,0,16,5,645],
 "structtfel_1_1math_1_1_vector_dot_product_handle.html":[5,0,16,5,646],
 "structtfel_1_1math_1_1_vector_dot_product_handle_3_01tvector_3_01_n_00_01_t_01_4_00_01tvector_3_01_n_00_01_t2_01_4_01_4.html":[5,0,16,5,647],
 "structtfel_1_1math_1_1_vector_tag.html":[5,0,16,5,649],
@@ -243,11 +249,5 @@ var NAVTREEINDEX60 =
 "structtfel_1_1math_1_1internals_1_1_stensor_compute_eigen_vectors.html":[5,0,16,5,1,101],
 "structtfel_1_1math_1_1internals_1_1_stensor_compute_eigen_vectors_3_011u_01_4.html":[5,0,16,5,1,102],
 "structtfel_1_1math_1_1internals_1_1_stensor_compute_eigen_vectors_3_012u_01_4.html":[5,0,16,5,1,103],
-"structtfel_1_1math_1_1internals_1_1_stensor_compute_eigen_vectors_3_013u_01_4.html":[5,0,16,5,1,104],
-"structtfel_1_1math_1_1internals_1_1_stensor_compute_isotropic_function_derivative.html":[5,0,16,5,1,105],
-"structtfel_1_1math_1_1internals_1_1_stensor_compute_isotropic_function_derivative_3_011u_01_4.html":[5,0,16,5,1,106],
-"structtfel_1_1math_1_1internals_1_1_stensor_compute_isotropic_function_derivative_3_012u_01_4.html":[5,0,16,5,1,107],
-"structtfel_1_1math_1_1internals_1_1_stensor_compute_isotropic_function_derivative_3_013u_01_4.html":[5,0,16,5,1,108],
-"structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver.html":[5,0,16,5,1,109],
-"structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver.html#aedacabdc7f78be924a7af70b6fdcffde":[5,0,16,5,1,109,0]
+"structtfel_1_1math_1_1internals_1_1_stensor_compute_eigen_vectors_3_013u_01_4.html":[5,0,16,5,1,104]
 };

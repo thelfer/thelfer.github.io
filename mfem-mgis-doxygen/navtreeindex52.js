@@ -1,12 +1,18 @@
 var NAVTREEINDEX52 =
 {
+"structtfel_1_1material_1_1_d_d_i_f2_base.html":[5,0,16,4,23],
+"structtfel_1_1material_1_1_divergence_exception.html":[5,0,16,4,24],
+"structtfel_1_1material_1_1_eshelby_tolerances.html":[5,0,16,4,25],
+"structtfel_1_1material_1_1_extended_poly_crystals_sliding_systems.html":[5,0,16,4,26],
+"structtfel_1_1material_1_1_extended_poly_crystals_sliding_systems.html#af867e3c335f07c2076be9c555b42dfd0":[5,0,16,4,26,0],
+"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html":[5,0,16,4,27],
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#a5646715714dd7f9eeda9035bb3499a1b":[5,0,16,4,27,0],
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#a5a16e9a554d8043afc02ff7738499f06":[5,0,16,4,27,6],
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#a8ea9899bae16deb09e57e74fd542e161":[5,0,16,4,27,1],
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#aa3aafd915de9a7e0e778a0e3d91fcc48":[5,0,16,4,27,3],
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#add9b8e82ea733acaf38678f95dee359f":[5,0,16,4,27,2],
-"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#ae7df9ea11639d8e65d3b9ec88fc30852":[5,0,16,4,27,5],
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#ae7df9ea11639d8e65d3b9ec88fc30852":[5,0,16,4,27,4],
+"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#ae7df9ea11639d8e65d3b9ec88fc30852":[5,0,16,4,27,5],
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_base.html":[5,0,16,4,28],
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_base.html#afcefc4fb7c6e809ff0ead154a9a46236":[5,0,16,4,28,0],
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_base.html#afcefc4fb7c6e809ff0ead154a9a46236a17dec24a09f12f921ee8f3704b0ad018":[5,0,16,4,28,0,5],
@@ -243,11 +249,5 @@ var NAVTREEINDEX52 =
 "structtfel_1_1material_1_1_modelling_hypothesis_to_stensor_size_3_01_modelling_hypothesis_1_1_p_l_a_n_e_s_t_r_a_i_n_01_4.html":[5,0,16,4,81],
 "structtfel_1_1material_1_1_modelling_hypothesis_to_stensor_size_3_01_modelling_hypothesis_1_1_p_l_a_n_e_s_t_r_e_s_s_01_4.html":[5,0,16,4,82],
 "structtfel_1_1material_1_1_modelling_hypothesis_to_stensor_size_3_01_modelling_hypothesis_1_1_t_r_i_d_i_m_e_n_s_i_o_n_a_l_01_4.html":[5,0,16,4,83],
-"structtfel_1_1material_1_1_modelling_hypothesis_to_tensor_size.html":[5,0,16,4,84],
-"structtfel_1_1material_1_1_modelling_hypothesis_to_tensor_size_3_01_modelling_hypothesis_1_1_a_x1200f83fc853729008d13fa973877830.html":[5,0,16,4,86],
-"structtfel_1_1material_1_1_modelling_hypothesis_to_tensor_size_3_01_modelling_hypothesis_1_1_a_x_i_s_y_m_m_e_t_r_i_c_a_l_01_4.html":[5,0,16,4,85],
-"structtfel_1_1material_1_1_modelling_hypothesis_to_tensor_size_3_01_modelling_hypothesis_1_1_a_xfdb1a4223046cfc158a96a06fcceb0c8.html":[5,0,16,4,87],
-"structtfel_1_1material_1_1_modelling_hypothesis_to_tensor_size_3_01_modelling_hypothesis_1_1_g_ed2535001cd815bc1ce2f99cc25de47b0.html":[5,0,16,4,88],
-"structtfel_1_1material_1_1_modelling_hypothesis_to_tensor_size_3_01_modelling_hypothesis_1_1_p_l_a_n_e_s_t_r_a_i_n_01_4.html":[5,0,16,4,89],
-"structtfel_1_1material_1_1_modelling_hypothesis_to_tensor_size_3_01_modelling_hypothesis_1_1_p_l_a_n_e_s_t_r_e_s_s_01_4.html":[5,0,16,4,90]
+"structtfel_1_1material_1_1_modelling_hypothesis_to_tensor_size.html":[5,0,16,4,84]
 };

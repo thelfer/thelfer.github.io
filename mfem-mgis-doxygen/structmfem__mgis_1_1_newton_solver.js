@@ -8,13 +8,16 @@ var structmfem__mgis_1_1_newton_solver =
     [ "computeResidual", "structmfem__mgis_1_1_newton_solver.html#acd0ffdc41b7e1274b3f5741ce5564e02", null ],
     [ "GetInitialNorm", "structmfem__mgis_1_1_newton_solver.html#a1f92680403eaa1c2db501018a07c51ae", null ],
     [ "getJacobian", "structmfem__mgis_1_1_newton_solver.html#aa3bfc4a779bfa1dc9f72493111deebc0", null ],
+    [ "isLinearSolverFailureDiscarded", "structmfem__mgis_1_1_newton_solver.html#ad5c35a526bd584d174930d6c204701f3", null ],
     [ "processNewUnknownsEstimate", "structmfem__mgis_1_1_newton_solver.html#a8c30e4c3312969da17a7fdc3c7b958d3", null ],
     [ "setContext", "structmfem__mgis_1_1_newton_solver.html#a460e9adb0b823d11cbafe9c791486175", null ],
     [ "setLinearSolver", "structmfem__mgis_1_1_newton_solver.html#a52bf1b2a0bb16f059173da91df47e7f8", null ],
     [ "setReferenceResidualNorm", "structmfem__mgis_1_1_newton_solver.html#acb5ed675cff85daf2b9e32435c8ffa7d", null ],
+    [ "setSolverParameters", "structmfem__mgis_1_1_newton_solver.html#ae3e6a364357fa3a6111a540f00a331b0", null ],
     [ "unsetContext", "structmfem__mgis_1_1_newton_solver.html#a5208665aed52cff7adb0e89c30075457", null ],
     [ "unsetReferenceResidualNorm", "structmfem__mgis_1_1_newton_solver.html#ac3880cca04f709a084119679ea8e4492", null ],
     [ "ctx_ptr", "structmfem__mgis_1_1_newton_solver.html#aaedd49cf598c1f5fc31a0815e2e7e787", null ],
+    [ "discardLinearSolverFailure", "structmfem__mgis_1_1_newton_solver.html#a061d1ec8e124567542d1e6e705661576", null ],
     [ "nue_actions", "structmfem__mgis_1_1_newton_solver.html#ac03d2a022efbb8f123f436278842d272", null ],
     [ "reference_residual_norm", "structmfem__mgis_1_1_newton_solver.html#a2b8c2b02717f0e58d431ac2df65a49ea", null ]
 ];

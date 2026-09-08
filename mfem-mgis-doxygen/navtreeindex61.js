@@ -1,5 +1,11 @@
 var NAVTREEINDEX61 =
 {
+"structtfel_1_1math_1_1internals_1_1_stensor_compute_isotropic_function_derivative.html":[5,0,16,5,1,105],
+"structtfel_1_1math_1_1internals_1_1_stensor_compute_isotropic_function_derivative_3_011u_01_4.html":[5,0,16,5,1,106],
+"structtfel_1_1math_1_1internals_1_1_stensor_compute_isotropic_function_derivative_3_012u_01_4.html":[5,0,16,5,1,107],
+"structtfel_1_1math_1_1internals_1_1_stensor_compute_isotropic_function_derivative_3_013u_01_4.html":[5,0,16,5,1,108],
+"structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver.html":[5,0,16,5,1,109],
+"structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver.html#aedacabdc7f78be924a7af70b6fdcffde":[5,0,16,5,1,109,0],
 "structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver_3_01stensor__common_1_1_f_s_e_s_a_n_a_l77382d9afd34dbdef14c3c2d0c6c5994.html":[5,0,16,5,1,110],
 "structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver_3_01stensor__common_1_1_f_s_e_s_a_n_a_l77382d9afd34dbdef14c3c2d0c6c5994.html#a0d69291e809979f9217ffb4d6189392e":[5,0,16,5,1,110,0],
 "structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver_3_01stensor__common_1_1_f_s_e_s_a_n_a_lac6bf28d7baa9aabec70e78762e58e64.html":[5,0,16,5,1,111],
@@ -243,11 +249,5 @@ var NAVTREEINDEX61 =
 "structtfel_1_1math_1_1parser_1_1_number.html#ad906edd806d823c8713ee481d98a9649":[5,0,16,5,2,82,6],
 "structtfel_1_1math_1_1parser_1_1_number.html#adcd6e3a4d2e678d3d0d2176d8a250323":[5,0,16,5,2,82,0],
 "structtfel_1_1math_1_1parser_1_1_op_and.html":[5,0,16,5,2,83],
-"structtfel_1_1math_1_1parser_1_1_op_div.html":[5,0,16,5,2,84],
-"structtfel_1_1math_1_1parser_1_1_op_equal.html":[5,0,16,5,2,85],
-"structtfel_1_1math_1_1parser_1_1_op_greater.html":[5,0,16,5,2,86],
-"structtfel_1_1math_1_1parser_1_1_op_greater_or_equal.html":[5,0,16,5,2,87],
-"structtfel_1_1math_1_1parser_1_1_op_lesser.html":[5,0,16,5,2,88],
-"structtfel_1_1math_1_1parser_1_1_op_lesser_or_equal.html":[5,0,16,5,2,89],
-"structtfel_1_1math_1_1parser_1_1_op_minus.html":[5,0,16,5,2,90]
+"structtfel_1_1math_1_1parser_1_1_op_div.html":[5,0,16,5,2,84]
 };

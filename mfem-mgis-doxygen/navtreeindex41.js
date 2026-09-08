@@ -1,5 +1,11 @@
 var NAVTREEINDEX41 =
 {
+"structmfront_1_1bbrick_1_1_porosity_nucleation_model_base.html#a76074bf324317a9ee1c71019566bffaf":[5,0,11,0,38,1],
+"structmfront_1_1bbrick_1_1_porosity_nucleation_model_base.html#aa1e5f7de434b017e354d81813b3f4592":[5,0,11,0,38,6],
+"structmfront_1_1bbrick_1_1_porosity_nucleation_model_base.html#aa860e14647f374a30c921ab7903a4822":[5,0,11,0,38,10],
+"structmfront_1_1bbrick_1_1_porosity_nucleation_model_base.html#ac124df6c516c2964bf24acce391ecc8f":[5,0,11,0,38,4],
+"structmfront_1_1bbrick_1_1_porosity_nucleation_model_base.html#aef94e859953cbb9826342fc97ddf1ddb":[5,0,11,0,38,2],
+"structmfront_1_1bbrick_1_1_porosity_nucleation_model_base_1_1_material_coefficient_description.html":[5,0,11,0,38,0],
 "structmfront_1_1bbrick_1_1_porosity_nucleation_model_base_1_1_material_coefficient_description.html#a8b99f81789d5630dc71e2705c664095e":[5,0,11,0,38,0,1],
 "structmfront_1_1bbrick_1_1_porosity_nucleation_model_base_1_1_material_coefficient_description.html#a8c2aa6988d7419b118cb87a06f811414":[5,0,11,0,38,0,2],
 "structmfront_1_1bbrick_1_1_porosity_nucleation_model_base_1_1_material_coefficient_description.html#acf6b1bf4f03db7ad35312dabff3f9b9b":[5,0,11,0,38,0,0],
@@ -243,11 +249,5 @@ var NAVTREEINDEX41 =
 "structmfront_1_1gb_1_1_orthotropic_elastic_material_properties_number_3_013u_01_4.html":[5,0,11,1,10],
 "structmfront_1_1gb_1_1_thermal_expansion_coefficient_properties_number.html":[5,0,11,1,11],
 "structmfront_1_1gb_1_1_thermal_expansion_coefficient_properties_number_3_01false_01_4.html":[5,0,11,1,12],
-"structmfront_1_1gb_1_1_thermal_expansion_coefficient_properties_number_3_01true_01_4.html":[5,0,11,1,13],
-"structmfront_1_1gb_1_1_thermo_elastic_material_properties_number.html":[5,0,11,1,14],
-"structmfront_1_1gb_1_1_thermo_elastic_material_properties_number_3_01_h_00_01false_00_01es_00_01false_00_01bs_01_4.html":[5,0,11,1,15],
-"structmfront_1_1gb_1_1_thermo_elastic_material_properties_number_3_01_h_00_01false_00_01es_00_01true_00_01bs_01_4.html":[5,0,11,1,16],
-"structmfront_1_1gb_1_1_thermo_elastic_material_properties_number_3_01_h_00_01true_00_01es_00_01false_00_01bs_01_4.html":[5,0,11,1,17],
-"structmfront_1_1gb_1_1_thermo_elastic_material_properties_number_3_01_h_00_01true_00_01es_00_01true_00_01bs_01_4.html":[5,0,11,1,18],
-"structmfront_1_1generic__parallel_1_1material__property_1_1_abstract_backend.html":[5,0,11,2,0,0]
+"structmfront_1_1gb_1_1_thermal_expansion_coefficient_properties_number_3_01true_01_4.html":[5,0,11,1,13]
 };

@@ -1,5 +1,11 @@
 var NAVTREEINDEX44 =
 {
+"structmgis_1_1function_1_1_basic_linear_space.html#a3a3ebd8d93db0a97b3eee73c06944ac5":[5,0,12,2,3,1],
+"structmgis_1_1function_1_1_binary_operation_evaluator_base.html":[5,0,12,2,4],
+"structmgis_1_1function_1_1_binary_operation_evaluator_base.html#a153fa5f3d72cbb3f0777c726d7dc58ea":[5,0,12,2,4,8],
+"structmgis_1_1function_1_1_binary_operation_evaluator_base.html#a178e61c13a282c40f78c87d38ddb6d56":[5,0,12,2,4,9],
+"structmgis_1_1function_1_1_binary_operation_evaluator_base.html#a5baf02aadf116aa15083ae8c1523211b":[5,0,12,2,4,11],
+"structmgis_1_1function_1_1_binary_operation_evaluator_base.html#a7291e60ec6cd2684f8c343b0df968e1f":[5,0,12,2,4,2],
 "structmgis_1_1function_1_1_binary_operation_evaluator_base.html#a75f4608ef8189fdfdf5977698b001342":[5,0,12,2,4,5],
 "structmgis_1_1function_1_1_binary_operation_evaluator_base.html#ab972b4eb1634aaf8505d83409ce729eb":[5,0,12,2,4,10],
 "structmgis_1_1function_1_1_binary_operation_evaluator_base.html#ac947662bea17c2b1e8edd93af8097d49":[5,0,12,2,4,6],
@@ -243,11 +249,5 @@ var NAVTREEINDEX44 =
 "structmgis_1_1function_1_1_unary_operation2.html#ab9b833fe075cf161cdb62d0141b45707":[5,0,12,2,50,0],
 "structmgis_1_1function_1_1customization__points_1_1_absolute_value.html":[5,0,12,2,0,0],
 "structmgis_1_1function_1_1customization__points_1_1_absolute_value_3_01_tensor_type_01_4.html":[5,0,12,2,0,4],
-"structmgis_1_1function_1_1customization__points_1_1_absolute_value_3_01real_01_4.html":[5,0,12,2,0,1],
-"structmgis_1_1function_1_1customization__points_1_1_absolute_value_3_01std_1_1array_3_01const_01real_00_01_n_01_4_01_4.html":[5,0,12,2,0,2],
-"structmgis_1_1function_1_1customization__points_1_1_absolute_value_3_01std_1_1span_3_01const_01real_00_01_n_01_4_01_4.html":[5,0,12,2,0,3],
-"structmgis_1_1function_1_1customization__points_1_1_absolute_value_3_01tfel_1_1math_1_1_view_3_01const_01_tensor_type_01_4_01_4.html":[5,0,12,2,0,5],
-"structmgis_1_1function_1_1customization__points_1_1_maximum_component.html":[5,0,12,2,0,6],
-"structmgis_1_1function_1_1customization__points_1_1_maximum_component_3_01_tensor_type_01_4.html":[5,0,12,2,0,10],
-"structmgis_1_1function_1_1customization__points_1_1_maximum_component_3_01real_01_4.html":[5,0,12,2,0,7]
+"structmgis_1_1function_1_1customization__points_1_1_absolute_value_3_01real_01_4.html":[5,0,12,2,0,1]
 };

@@ -1,5 +1,11 @@
 var NAVTREEINDEX39 =
 {
+"structmfront_1_1_variable_description_base.html#a61271dda9a4e2b011949721ea3edf620":[5,0,11,123,3],
+"structmfront_1_1_variable_description_base.html#a64834282c8e8086972fa9514c05b54ec":[5,0,11,123,14],
+"structmfront_1_1_variable_description_base.html#a6f77609b34c39ba921569d4afd4be3aa":[5,0,11,123,11],
+"structmfront_1_1_variable_description_base.html#a72a7f1368631e3e64dcfcf5a82c55693":[5,0,11,123,6],
+"structmfront_1_1_variable_description_base.html#aae89445837110d0c6ade80ae6229a176":[5,0,11,123,4],
+"structmfront_1_1_variable_description_base.html#ac6152e9ee813664879cf38f4766dc1fa":[5,0,11,123,10],
 "structmfront_1_1_variable_description_base.html#add54fa80723e4138fd911f42d65cb446":[5,0,11,123,15],
 "structmfront_1_1_variable_description_base.html#af1766a7638f490fb0a055d012b6dd703":[5,0,11,123,5],
 "structmfront_1_1_variable_description_base.html#afcdc516a5db71a77158c817765ee6a45":[5,0,11,123,8],
@@ -243,11 +249,5 @@ var NAVTREEINDEX39 =
 "structmfront_1_1bbrick_1_1_hooke_stress_potential_base.html#af420843d62b8d99955463c437cb6d579":[5,0,11,0,18,24],
 "structmfront_1_1bbrick_1_1_hooke_stress_potential_base.html#af498ad5f118272833a796dc789dfb916":[5,0,11,0,18,22],
 "structmfront_1_1bbrick_1_1_hooke_stress_potential_base.html#afdaba991fd6f3db85732f2bf841a5552":[5,0,11,0,18,1],
-"structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html":[5,0,11,0,19],
-"structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#a36be4326a318d489260888c19f5e4b4b":[5,0,11,0,19,6],
-"structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#a531232d9404150bcaccb85ce6697c280":[5,0,11,0,19,9],
-"structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#a55ccbbf1473d836d277f898a25d10768":[5,0,11,0,19,10],
-"structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#a69cc6dc3e5ab85f82d841527b394b143":[5,0,11,0,19,8],
-"structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#a6a1fd2d403111b03c0c22f4fe9e6776d":[5,0,11,0,19,1],
-"structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#a6f8d51986d4eeb22ca58a2957cd106b5":[5,0,11,0,19,4]
+"structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html":[5,0,11,0,19]
 };

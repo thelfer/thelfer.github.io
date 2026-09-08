@@ -1,4 +1,0 @@
-var dir_887e4d843160feaff4a6298e132fef0d =
-[
-    [ "MGIS", "dir_54a044d51b9d2b326372680d349f082b.html", "dir_54a044d51b9d2b326372680d349f082b" ]
-];

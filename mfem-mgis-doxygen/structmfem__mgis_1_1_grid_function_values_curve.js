@@ -1,6 +1,6 @@
 var structmfem__mgis_1_1_grid_function_values_curve =
 [
-    [ "GridFunctionValuesCurve", "structmfem__mgis_1_1_grid_function_values_curve.html#a996fa417e887dbe7add617e8aa099bb7", null ],
+    [ "GridFunctionValuesCurve", "structmfem__mgis_1_1_grid_function_values_curve.html#a9901ef52d566c47171fb20949f0d4274", null ],
     [ "~GridFunctionValuesCurve", "structmfem__mgis_1_1_grid_function_values_curve.html#a41431452c7df128a3e3a8264096e7948", null ],
     [ "addPoints", "structmfem__mgis_1_1_grid_function_values_curve.html#aa28e5373b8079527a02e0f022df12480", null ],
     [ "getDescriptions", "structmfem__mgis_1_1_grid_function_values_curve.html#a5a5c70420df653143de33e6e8e5969e8", null ],

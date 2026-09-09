@@ -1,7 +1,6 @@
 var structmfem__mgis_1_1_points_set_curves =
 [
-    [ "PointsSetCurves", "structmfem__mgis_1_1_points_set_curves.html#a6f81d40b178ddbfcbb8e65105ddcbac5", null ],
-    [ "PointsSetCurves", "structmfem__mgis_1_1_points_set_curves.html#af49b894f11cc38729d8c6946fd3bec06", null ],
+    [ "PointsSetCurves", "structmfem__mgis_1_1_points_set_curves.html#ad9fbfe17b00ef009db89691b35f8202b", null ],
     [ "add", "structmfem__mgis_1_1_points_set_curves.html#a19e67b3238490e6dbd8c1c54fe8dc962", null ],
     [ "add", "structmfem__mgis_1_1_points_set_curves.html#a14fb81375fd745d9033be3f80259c3dc", null ],
     [ "exportCoordinates", "structmfem__mgis_1_1_points_set_curves.html#a4f7ec153ea78da2b18052620fc952396", null ],

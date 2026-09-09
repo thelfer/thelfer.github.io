@@ -23,6 +23,7 @@ var structmfem__mgis_1_1_mesh_discretization =
     [ "getMesh", "structmfem__mgis_1_1_mesh_discretization.html#ae9ddac3f1d0dca2bee9e465181abfffe", null ],
     [ "getMeshPointer", "structmfem__mgis_1_1_mesh_discretization.html#a666bb2b956d4790ae536ff440c41e352", null ],
     [ "getMeshPointer", "structmfem__mgis_1_1_mesh_discretization.html#aaa60f4da41d65717401e27397cb4d289", null ],
+    [ "getMutableMeshPointer", "structmfem__mgis_1_1_mesh_discretization.html#a8f471f1e3fc98d330c49684dff384a8b", null ],
     [ "setBoundariesNames", "structmfem__mgis_1_1_mesh_discretization.html#a7e0fa834df5ea1ed5db223865df092d5", null ],
     [ "setBoundariesNames", "structmfem__mgis_1_1_mesh_discretization.html#a272f06f4f9c9d1a035a0106434e7c682", null ],
     [ "setBoundariesNames", "structmfem__mgis_1_1_mesh_discretization.html#a0b6f3ddd73d22a596938855f3d0a36ff", null ],

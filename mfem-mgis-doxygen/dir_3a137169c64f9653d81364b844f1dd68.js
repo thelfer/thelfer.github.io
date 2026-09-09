@@ -40,6 +40,8 @@ var dir_3a137169c64f9653d81364b844f1dd68 =
     [ "Faltus2026RegularizedBehaviourIntegrators.ixx", "_faltus2026_regularized_behaviour_integrators_8ixx.html", null ],
     [ "FiniteElementDiscretization.hxx", "_finite_element_discretization_8hxx.html", "_finite_element_discretization_8hxx" ],
     [ "FiniteElementDiscretization.ixx", "_finite_element_discretization_8ixx.html", null ],
+    [ "FiniteElementSpacesManager.hxx", "_finite_element_spaces_manager_8hxx.html", "_finite_element_spaces_manager_8hxx" ],
+    [ "FiniteElementSpacesManager.ixx", "_finite_element_spaces_manager_8ixx.html", null ],
     [ "FirstIterationConvergenceCriterion.hxx", "_first_iteration_convergence_criterion_8hxx.html", "_first_iteration_convergence_criterion_8hxx" ],
     [ "Geometry.hxx", "_geometry_8hxx.html", "_geometry_8hxx" ],
     [ "GridFunctionInterpolator.hxx", "_grid_function_interpolator_8hxx.html", "_grid_function_interpolator_8hxx" ],

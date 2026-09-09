@@ -2150,6 +2150,7 @@ var hierarchy =
     [ "mfem_mgis::Faltus2026RegularizedIsotropicBehaviourIntegratorBaseDispatch< Hypothesis::TRIDIMENSIONAL >", "structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator_base_dispatch_3_01_hy585a1f6e00216ee05121fca4c0a3aaad.html", null ],
     [ "mfront::FileDescription", "structmfront_1_1_file_description.html", null ],
     [ "tfel::fsalgo::fill< N >", "structtfel_1_1fsalgo_1_1fill.html", null ],
+    [ "mfem_mgis::FiniteElementSpacesManager", "structmfem__mgis_1_1_finite_element_spaces_manager.html", null ],
     [ "mgis::behaviour::FiniteStrainBehaviourOptions", "structmgis_1_1behaviour_1_1_finite_strain_behaviour_options.html", null ],
     [ "tfel::material::FiniteStrainBehaviourTangentOperatorBase", "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_base.html", [
       [ "tfel::material::FiniteStrainBehaviourTangentOperator< N, StressType >", "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html", null ],

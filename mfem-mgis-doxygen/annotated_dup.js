@@ -561,6 +561,7 @@ var annotated_dup =
       [ "Faltus2026RegularizedIsotropicBehaviourIntegratorBaseDispatch< Hypothesis::PLANESTRESS >", "structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator_base_dispatch_3_01_hy84eb42220287bea87d37518f2e58db7e.html", null ],
       [ "Faltus2026RegularizedIsotropicBehaviourIntegratorBaseDispatch< Hypothesis::TRIDIMENSIONAL >", "structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator_base_dispatch_3_01_hy585a1f6e00216ee05121fca4c0a3aaad.html", null ],
       [ "FiniteElementDiscretization", "structmfem__mgis_1_1_finite_element_discretization.html", "structmfem__mgis_1_1_finite_element_discretization" ],
+      [ "FiniteElementSpacesManager", "structmfem__mgis_1_1_finite_element_spaces_manager.html", "structmfem__mgis_1_1_finite_element_spaces_manager" ],
       [ "FirstIterationConvergenceCriterion", "structmfem__mgis_1_1_first_iteration_convergence_criterion.html", "structmfem__mgis_1_1_first_iteration_convergence_criterion" ],
       [ "GridFunctionInterpolator", "structmfem__mgis_1_1_grid_function_interpolator.html", "structmfem__mgis_1_1_grid_function_interpolator" ],
       [ "GridFunctionValuesCurve", "structmfem__mgis_1_1_grid_function_values_curve.html", "structmfem__mgis_1_1_grid_function_values_curve" ],

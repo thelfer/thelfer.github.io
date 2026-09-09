@@ -303,7 +303,8 @@ var hierarchy =
     ] ],
     [ "mfem_mgis::AbstractPostProcessing", "structmfem__mgis_1_1_abstract_post_processing.html", [
       [ "mfem_mgis::PostProcessingBase", "structmfem__mgis_1_1_post_processing_base.html", [
-        [ "mfem_mgis::CurvesPostProcessing", "structmfem__mgis_1_1_curves_post_processing.html", null ]
+        [ "mfem_mgis::CurvesPostProcessing", "structmfem__mgis_1_1_curves_post_processing.html", null ],
+        [ "mfem_mgis::PointsSetCurvesPostProcessing", "structmfem__mgis_1_1_points_set_curves_post_processing.html", null ]
       ] ]
     ] ],
     [ "mfem_mgis::AbstractSimulationMonitor", "structmfem__mgis_1_1_abstract_simulation_monitor.html", null ],
@@ -1549,7 +1550,7 @@ var hierarchy =
     [ "tfel::math::CubicSplineCollocationPoint< AbscissaType, ValueType >", "structtfel_1_1math_1_1_cubic_spline_collocation_point.html", null ],
     [ "tfel::math::internals::CubicSplineCollocationPointComparator", "structtfel_1_1math_1_1internals_1_1_cubic_spline_collocation_point_comparator.html", null ],
     [ "mtest::CurrentState", "structmtest_1_1_current_state.html", null ],
-    [ "mfem_mgis::CurveWriter", "structmfem__mgis_1_1_curve_writer.html", null ],
+    [ "mfem_mgis::CurvesWriter", "structmfem__mgis_1_1_curves_writer.html", null ],
     [ "tfel::utilities::CxxTokenizerOptions", "structtfel_1_1utilities_1_1_cxx_tokenizer_options.html", [
       [ "tfel::utilities::CxxTokenizer", "structtfel_1_1utilities_1_1_cxx_tokenizer.html", [
         [ "mfront::DSLBase", "structmfront_1_1_d_s_l_base.html", null ],
@@ -2644,7 +2645,6 @@ var hierarchy =
     [ "mfem_mgis::LinearSolverHandler", "structmfem__mgis_1_1_linear_solver_handler.html", null ],
     [ "mfront::AbstractLinearSystemSolver::LinearSystemSubstitutionVariables", "structmfront_1_1_abstract_linear_system_solver_1_1_linear_system_substitution_variables.html", null ],
     [ "mfront::AbstractLinearSystemSolver::LinearSystemVariables", "structmfront_1_1_abstract_linear_system_solver_1_1_linear_system_variables.html", null ],
-    [ "mfem_mgis::LineCurve", "structmfem__mgis_1_1_line_curve.html", null ],
     [ "mgis::behaviour::LoadFromDatabaseOptions", "structmgis_1_1behaviour_1_1_load_from_database_options.html", null ],
     [ "mfront::LocalDataStructure", "structmfront_1_1_local_data_structure.html", null ],
     [ "tfel::material::LogarithmicStrainHandler< N, StressType >", "structtfel_1_1material_1_1_logarithmic_strain_handler.html", null ],
@@ -3074,6 +3074,8 @@ var hierarchy =
     [ "tfel::math::CubicSpline< AbscissaType, ValueType >::PointComparator", "structtfel_1_1math_1_1_cubic_spline_1_1_point_comparator.html", null ],
     [ "tfel::system::PointerBinaryReader< T >", "structtfel_1_1system_1_1_pointer_binary_reader.html", null ],
     [ "tfel::system::PointerBinaryWriter< T >", "structtfel_1_1system_1_1_pointer_binary_writer.html", null ],
+    [ "mfem_mgis::PointsSetCurves", "structmfem__mgis_1_1_points_set_curves.html", null ],
+    [ "mfem_mgis::PointsSetCurvesWriter", "structmfem__mgis_1_1_points_set_curves_writer.html", null ],
     [ "tfel::material::PolyCrystalsSlidingSystems< Ng, GS, NumType >", "structtfel_1_1material_1_1_poly_crystals_sliding_systems.html", null ],
     [ "mfront::bbrick::PorosityNucleationModel", "structmfront_1_1bbrick_1_1_porosity_nucleation_model.html", [
       [ "mfront::bbrick::PorosityNucleationModelBase", "structmfront_1_1bbrick_1_1_porosity_nucleation_model_base.html", [

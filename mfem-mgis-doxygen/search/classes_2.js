@@ -504,7 +504,7 @@ var searchData=
   ['cudabackendbase_501',['CUDABackendBase',['../structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend_base.html',1,'mfront::generic_parallel::material_property']]],
   ['currentstate_502',['CurrentState',['../structmtest_1_1_current_state.html',1,'mtest']]],
   ['curvespostprocessing_503',['CurvesPostProcessing',['../structmfem__mgis_1_1_curves_post_processing.html',1,'mfem_mgis']]],
-  ['curvewriter_504',['CurveWriter',['../structmfem__mgis_1_1_curve_writer.html',1,'mfem_mgis']]],
+  ['curveswriter_504',['CurvesWriter',['../structmfem__mgis_1_1_curves_writer.html',1,'mfem_mgis']]],
   ['cxxprogrammingmodelbackendbase_505',['CxxProgrammingModelBackendBase',['../structmfront_1_1generic__parallel_1_1material__property_1_1_cxx_programming_model_backend_base.html',1,'mfront::generic_parallel::material_property']]],
   ['cxxtokenizer_506',['CxxTokenizer',['../structtfel_1_1utilities_1_1_cxx_tokenizer.html',1,'tfel::utilities']]],
   ['cxxtokenizeroptions_507',['CxxTokenizerOptions',['../structtfel_1_1utilities_1_1_cxx_tokenizer_options.html',1,'tfel::utilities']]],

@@ -1,5 +1,11 @@
 var NAVTREEINDEX8 =
 {
+"_solver_utilities_8hxx.html#a63f58852f574c95ee06b1570d08c66f2":[6,0,0,0,101,0],
+"_solver_utilities_8hxx.html#ac282a67ff60b4498b8ea293a89bdeee1":[6,0,0,0,101,1],
+"_solver_utilities_8hxx.html#ac8c41cf81750747c9067f5516690cd1e":[6,0,0,0,101,2],
+"_solver_work_space_8hxx.html":[6,0,1,0,0,0,1,0,4,20],
+"_solver_work_space_8hxx.html#af2d9d4e72e668600916d2105ea73520d":[6,0,1,0,0,0,1,0,4,20,1],
+"_sort_eigen_values_8hxx.html":[6,0,1,0,0,0,1,0,6,5,18,0,6],
 "_sort_eigen_vectors_8hxx.html":[6,0,1,0,0,0,1,0,6,5,18,0,7],
 "_space_concept_8hxx.html":[6,0,1,0,0,0,0,0,0,1,30],
 "_space_concept_8hxx.html#a39fa83c1af7fb0f17f49d0bf9c4dc860":[6,0,1,0,0,0,0,0,0,1,30,22],
@@ -243,11 +249,5 @@ var NAVTREEINDEX8 =
 "_t_f_e_l_2_material_2_michel_and_suquet1992_hollow_sphere_stress_criterion_8hxx.html#a9f97cc2a7581bd29f7c4553a4f22ffd1":[6,0,1,0,0,0,1,0,6,4,64,2],
 "_t_f_e_l_2_material_2_michel_and_suquet1992_hollow_sphere_stress_criterion_8hxx.html#aaa59c0f6b36a1dcff42d49f7e8a9ab42":[6,0,1,0,0,0,1,0,6,4,64,9],
 "_t_f_e_l_2_material_2_michel_and_suquet1992_hollow_sphere_stress_criterion_8hxx.html#ad9e9bea9dd58988f899a7fa7b80e2486":[6,0,1,0,0,0,1,0,6,4,64,4],
-"_t_f_e_l_2_material_2_michel_and_suquet1992_hollow_sphere_stress_criterion_8hxx.html#af727c8e26e0cb32822fed5ec7c1f0a8d":[6,0,1,0,0,0,1,0,6,4,64,7],
-"_t_f_e_l_2_material_2_rousselier_tanguy_besson2002_stress_criterion_8hxx.html":[6,0,1,0,0,0,1,0,6,4,89],
-"_t_f_e_l_2_material_2_rousselier_tanguy_besson2002_stress_criterion_8hxx.html#a09c29dc53e949ec69adac873759b5bac":[6,0,1,0,0,0,1,0,6,4,89,6],
-"_t_f_e_l_2_material_2_rousselier_tanguy_besson2002_stress_criterion_8hxx.html#a0ecc30bfd486261e2c231c995598dbae":[6,0,1,0,0,0,1,0,6,4,89,11],
-"_t_f_e_l_2_material_2_rousselier_tanguy_besson2002_stress_criterion_8hxx.html#a1ee1e52fd253a807a417fef5095892b4":[6,0,1,0,0,0,1,0,6,4,89,12],
-"_t_f_e_l_2_material_2_rousselier_tanguy_besson2002_stress_criterion_8hxx.html#a52fc8e4a9e604a251fabb73ffc1190e2":[6,0,1,0,0,0,1,0,6,4,89,13],
-"_t_f_e_l_2_material_2_rousselier_tanguy_besson2002_stress_criterion_8hxx.html#a55c1518db84907ea7647761ac6ae2eca":[6,0,1,0,0,0,1,0,6,4,89,3]
+"_t_f_e_l_2_material_2_michel_and_suquet1992_hollow_sphere_stress_criterion_8hxx.html#af727c8e26e0cb32822fed5ec7c1f0a8d":[6,0,1,0,0,0,1,0,6,4,64,7]
 };

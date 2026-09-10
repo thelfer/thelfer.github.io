@@ -1,7 +1,5 @@
 var NAVTREEINDEX10 =
 {
-"_x_m_l_test_output_8hxx.html":[6,0,1,0,0,0,1,0,6,8,12],
-"accumulate_8hxx.html":[6,0,1,0,0,0,1,0,6,2,0],
 "annotated.html":[5,0],
 "atlas_8hxx.html":[6,0,1,0,0,0,1,0,6,5,2,0],
 "basic__rstream_8hxx.html":[6,0,1,0,0,0,1,0,6,7,0],
@@ -249,5 +247,7 @@ var NAVTREEINDEX10 =
 "conceptmgis_1_1function_1_1_tensor_concept.html":[4,0,0,23],
 "conceptmgis_1_1function_1_1_tensor_evaluator_concept.html":[4,0,0,32],
 "conceptmgis_1_1function_1_1_tensor_value_concept.html":[4,0,0,22],
-"conceptmgis_1_1function_1_1_viewable_function_argument_concept.html":[4,0,0,9]
+"conceptmgis_1_1function_1_1_viewable_function_argument_concept.html":[4,0,0,9],
+"conceptmgis_1_1function_1_1internals_1_1is__pointer__to__real.html":[4,0,0,0,1],
+"conceptmgis_1_1function_1_1internals_1_1is_evaluator_assignable_to_function.html":[4,0,0,0,0]
 };

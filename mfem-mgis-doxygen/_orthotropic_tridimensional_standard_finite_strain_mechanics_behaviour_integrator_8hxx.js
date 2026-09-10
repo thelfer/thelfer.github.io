@@ -1,5 +1,0 @@
-var _orthotropic_tridimensional_standard_finite_strain_mechanics_behaviour_integrator_8hxx =
-[
-    [ "mfem_mgis::BehaviourIntegratorTraits< OrthotropicTridimensionalStandardFiniteStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_orthotropic_tridimensional_standard_finite80fd5621ba12a0fe0b2f6bdebdd9e4c0.html", null ],
-    [ "mfem_mgis::OrthotropicTridimensionalStandardFiniteStrainMechanicsBehaviourIntegrator", "structmfem__mgis_1_1_orthotropic_tridimensional_standard_finite_strain_mechanics_behaviour_integrator.html", "structmfem__mgis_1_1_orthotropic_tridimensional_standard_finite_strain_mechanics_behaviour_integrator" ]
-];

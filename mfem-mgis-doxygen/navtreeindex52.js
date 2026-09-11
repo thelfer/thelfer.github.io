@@ -1,13 +1,5 @@
 var NAVTREEINDEX52 =
 {
-"structnumodis_1_1_crystallo.html":[5,0,14,2],
-"structnumodis_1_1_crystallo.html#a2a6f64b9ce5af2d2191675ef0a53256d":[5,0,14,2,6],
-"structnumodis_1_1_crystallo.html#a2ed32a999789f50192701bbe2cca5452":[5,0,14,2,3],
-"structnumodis_1_1_crystallo.html#a51c761a2dc5fc79060724115c88e6137":[5,0,14,2,5],
-"structnumodis_1_1_crystallo.html#a54e6eabbcb55674a1f1d8388e3e792da":[5,0,14,2,9],
-"structnumodis_1_1_crystallo.html#a5f842902db6d8327948408863c26ecd9":[5,0,14,2,2],
-"structnumodis_1_1_crystallo.html#a64c614afa4c69bdd5b6a8a0546b33e29":[5,0,14,2,0],
-"structnumodis_1_1_crystallo.html#a6d3aa95cc522fa281a80ed623a66ab23":[5,0,14,2,12],
 "structnumodis_1_1_crystallo.html#a913765d903b201aa3073138e633bb4f6":[5,0,14,2,7],
 "structnumodis_1_1_crystallo.html#aa18851b4edaa0f5e70d16ef318b09af6":[5,0,14,2,10],
 "structnumodis_1_1_crystallo.html#aa9671224df03ced0737a141ae81642a1":[5,0,14,2,4],
@@ -249,5 +241,13 @@ var NAVTREEINDEX52 =
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#a5646715714dd7f9eeda9035bb3499a1b":[5,0,16,4,27,0],
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#a5a16e9a554d8043afc02ff7738499f06":[5,0,16,4,27,6],
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#a8ea9899bae16deb09e57e74fd542e161":[5,0,16,4,27,1],
-"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#aa3aafd915de9a7e0e778a0e3d91fcc48":[5,0,16,4,27,3]
+"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#aa3aafd915de9a7e0e778a0e3d91fcc48":[5,0,16,4,27,3],
+"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#add9b8e82ea733acaf38678f95dee359f":[5,0,16,4,27,2],
+"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#ae7df9ea11639d8e65d3b9ec88fc30852":[5,0,16,4,27,5],
+"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#ae7df9ea11639d8e65d3b9ec88fc30852":[5,0,16,4,27,4],
+"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_base.html":[5,0,16,4,28],
+"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_base.html#afcefc4fb7c6e809ff0ead154a9a46236":[5,0,16,4,28,0],
+"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_base.html#afcefc4fb7c6e809ff0ead154a9a46236a17dec24a09f12f921ee8f3704b0ad018":[5,0,16,4,28,0,5],
+"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_base.html#afcefc4fb7c6e809ff0ead154a9a46236a1890490ad601e65a189d0789d5c07f74":[5,0,16,4,28,0,11],
+"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_base.html#afcefc4fb7c6e809ff0ead154a9a46236a1c044e987a1f64dc0f8bd5d8782e4349":[5,0,16,4,28,0,4]
 };

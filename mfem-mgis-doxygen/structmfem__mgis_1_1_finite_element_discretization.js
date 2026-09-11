@@ -22,9 +22,7 @@ var structmfem__mgis_1_1_finite_element_discretization =
     [ "getMaterialsIdentifiers", "structmfem__mgis_1_1_finite_element_discretization.html#ad6a56beb2abc707ab43b02f7e24988c1", null ],
     [ "getMaterialsNames", "structmfem__mgis_1_1_finite_element_discretization.html#a7bbda446336b6edc6da3295b01f32a50", null ],
     [ "isSlibing", "structmfem__mgis_1_1_finite_element_discretization.html#a8243e157c3aa700188c4d76573fa6e24", null ],
-    [ "setBoundariesNames", "structmfem__mgis_1_1_finite_element_discretization.html#a7e0fa834df5ea1ed5db223865df092d5", null ],
     [ "setBoundariesNames", "structmfem__mgis_1_1_finite_element_discretization.html#a0b6f3ddd73d22a596938855f3d0a36ff", null ],
-    [ "setMaterialsNames", "structmfem__mgis_1_1_finite_element_discretization.html#aae01c798b312b9f1a285f76e1e94a921", null ],
     [ "setMaterialsNames", "structmfem__mgis_1_1_finite_element_discretization.html#ae362027451421b49e837177acd0022a0", null ],
     [ "setNodalFiniteElementSpace", "structmfem__mgis_1_1_finite_element_discretization.html#a759b652a75340c76ea891cca2b378348", null ]
 ];

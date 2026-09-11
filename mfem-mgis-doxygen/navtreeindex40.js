@@ -1,13 +1,5 @@
 var NAVTREEINDEX40 =
 {
-"structmfront_1_1_variable_description_container.html#a0ae20cd2e5bc698921cf403c1aab6a81":[5,0,11,124,0],
-"structmfront_1_1_variable_description_container.html#a1d95a1395e99e7dfdd9d145f961633e9":[5,0,11,124,4],
-"structmfront_1_1_variable_description_container.html#a456bb0b81ae5b293c53442783e6daf07":[5,0,11,124,7],
-"structmfront_1_1_variable_description_container.html#a5415c54832e39f513ac09c261d95bc58":[5,0,11,124,5],
-"structmfront_1_1_variable_description_container.html#a6858e154c2d9d4ea235f5366d1c50dc6":[5,0,11,124,2],
-"structmfront_1_1_variable_description_container.html#aaadcf7800a9c74fbadd34e341cf0a928":[5,0,11,124,6],
-"structmfront_1_1_variable_description_container.html#ab561361f2d3b539ba6399e168e23f761":[5,0,11,124,9],
-"structmfront_1_1_variable_description_container.html#ab8eb30fd8dc63068c22de2a6e434bf53":[5,0,11,124,3],
 "structmfront_1_1_variable_description_container.html#ac1edb5cf9d57e63a977cacf1d084d720":[5,0,11,124,1],
 "structmfront_1_1_variable_description_container.html#ad8bc1ed28d2598aba8080c9c6f3bd57f":[5,0,11,124,8],
 "structmfront_1_1_write_material_property_parameters_handler_arguments.html":[5,0,11,125],
@@ -249,5 +241,13 @@ var NAVTREEINDEX40 =
 "structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#a8dd874386589572af7c2669d0b557107":[5,0,11,0,19,3],
 "structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#a9ae6982fe1d958c8c38297edce72d52a":[5,0,11,0,19,11],
 "structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#aa125f8edec73145d28782757886156d1":[5,0,11,0,19,0],
-"structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#ab2b5c525a24f3248968cb2ed9d185854":[5,0,11,0,19,7]
+"structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#ab2b5c525a24f3248968cb2ed9d185854":[5,0,11,0,19,7],
+"structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#ab42b72e3413033f28fa8e618dffc19dd":[5,0,11,0,19,2],
+"structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html#ae403a6b9b8f95c598181e0ee234461c8":[5,0,11,0,19,5],
+"structmfront_1_1bbrick_1_1_hyperbolic_sine_viscoplastic_flow.html":[5,0,11,0,20],
+"structmfront_1_1bbrick_1_1_hyperbolic_sine_viscoplastic_flow.html#a196ddb3684a3e238aeba83ad0a54dfa3":[5,0,11,0,20,6],
+"structmfront_1_1bbrick_1_1_hyperbolic_sine_viscoplastic_flow.html#a24f355d8c043c75171bf25dff1684066":[5,0,11,0,20,8],
+"structmfront_1_1bbrick_1_1_hyperbolic_sine_viscoplastic_flow.html#a37a356a01bd05faf7a481134ff12cdaa":[5,0,11,0,20,0],
+"structmfront_1_1bbrick_1_1_hyperbolic_sine_viscoplastic_flow.html#a3f4102e7c1158d5f8eb60601dd6070fd":[5,0,11,0,20,7],
+"structmfront_1_1bbrick_1_1_hyperbolic_sine_viscoplastic_flow.html#a3fca80c0e0f8ed0107b0d1f97b2d8187":[5,0,11,0,20,2]
 };

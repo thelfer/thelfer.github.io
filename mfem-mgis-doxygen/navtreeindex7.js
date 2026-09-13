@@ -1,7 +1,5 @@
 var NAVTREEINDEX7 =
 {
-"_partial_quadrature_function_evaluators_8hxx.html#aef95dbcc418d4d29ea2795676df948d9":[6,0,0,0,91,3],
-"_partial_quadrature_function_evaluators_8hxx.html#afa9a2684803599725feef0f14785413f":[6,0,0,0,91,5],
 "_partial_quadrature_functions_set_8hxx.html":[6,0,0,0,92],
 "_partial_quadrature_space_8hxx.html":[6,0,0,0,93],
 "_partial_quadrature_space_8ixx.html":[6,0,0,0,94],
@@ -249,5 +247,7 @@ var NAVTREEINDEX7 =
 "_solver_options_8hxx.html#af03819f6751327d35c6ce6b4e847f4d8a2bad13d613cf6e01fed2f00302f6e320":[6,0,1,0,0,0,1,0,4,19,2,3],
 "_solver_options_8hxx.html#af03819f6751327d35c6ce6b4e847f4d8a4421bc88336c9e9b0258dba2fd83994a":[6,0,1,0,0,0,1,0,4,19,2,5],
 "_solver_options_8hxx.html#af03819f6751327d35c6ce6b4e847f4d8a61a085f4807a9157f9381a9b543efda2":[6,0,1,0,0,0,1,0,4,19,2,1],
-"_solver_options_8hxx.html#af03819f6751327d35c6ce6b4e847f4d8a8cb5117b9f1d5584e6902eb2b7f8f326":[6,0,1,0,0,0,1,0,4,19,2,0]
+"_solver_options_8hxx.html#af03819f6751327d35c6ce6b4e847f4d8a8cb5117b9f1d5584e6902eb2b7f8f326":[6,0,1,0,0,0,1,0,4,19,2,0],
+"_solver_options_8hxx.html#af03819f6751327d35c6ce6b4e847f4d8aabb87c7fc292d636b3ae8410dcc4f05c":[6,0,1,0,0,0,1,0,4,19,2,6],
+"_solver_options_8hxx.html#af03819f6751327d35c6ce6b4e847f4d8af0a723ef95ea97d8476d5b39e8bf3328":[6,0,1,0,0,0,1,0,4,19,2,2]
 };

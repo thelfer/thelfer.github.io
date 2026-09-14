@@ -584,6 +584,7 @@ var annotated_dup =
       [ "LinearSolverFactory< true >", "structmfem__mgis_1_1_linear_solver_factory_3_01true_01_4.html", "structmfem__mgis_1_1_linear_solver_factory_3_01true_01_4" ],
       [ "LinearSolverHandler", "structmfem__mgis_1_1_linear_solver_handler.html", null ],
       [ "LoopCouplingScheme", "structmfem__mgis_1_1_loop_coupling_scheme.html", "structmfem__mgis_1_1_loop_coupling_scheme" ],
+      [ "MakeGridFunctionResult", "structmfem__mgis_1_1_make_grid_function_result.html", "structmfem__mgis_1_1_make_grid_function_result" ],
       [ "Material", "structmfem__mgis_1_1_material.html", "structmfem__mgis_1_1_material" ],
       [ "MeanThermodynamicForces", "structmfem__mgis_1_1_mean_thermodynamic_forces.html", "structmfem__mgis_1_1_mean_thermodynamic_forces" ],
       [ "MeshDiscretization", "structmfem__mgis_1_1_mesh_discretization.html", "structmfem__mgis_1_1_mesh_discretization" ],

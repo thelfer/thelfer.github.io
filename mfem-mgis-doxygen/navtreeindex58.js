@@ -1,11 +1,5 @@
 var NAVTREEINDEX58 =
 {
-"structtfel_1_1math_1_1_expr_3_01_t2to_t2_result_type_00_01_tensor_product_right_derivative_expr_3_012u_01_4_01_4.html":[5,0,16,5,265],
-"structtfel_1_1math_1_1_expr_3_01_t2to_t2_result_type_00_01_tensor_product_right_derivative_expr_3_012u_01_4_01_4.html#a1e36606dae8cd9bde593e783aba02e08":[5,0,16,5,265,4],
-"structtfel_1_1math_1_1_expr_3_01_t2to_t2_result_type_00_01_tensor_product_right_derivative_expr_3_012u_01_4_01_4.html#a26de140d85062c186ce79d3aa348b600":[5,0,16,5,265,5],
-"structtfel_1_1math_1_1_expr_3_01_t2to_t2_result_type_00_01_tensor_product_right_derivative_expr_3_012u_01_4_01_4.html#a513f484c24449147d5dd2a0a752602c7":[5,0,16,5,265,3],
-"structtfel_1_1math_1_1_expr_3_01_t2to_t2_result_type_00_01_tensor_product_right_derivative_expr_3_012u_01_4_01_4.html#a8ea51d64de65a24ec214237f9d50aaa1":[5,0,16,5,265,1],
-"structtfel_1_1math_1_1_expr_3_01_t2to_t2_result_type_00_01_tensor_product_right_derivative_expr_3_012u_01_4_01_4.html#ad8ca275ca4a887e662e7f3628e116ae0":[5,0,16,5,265,2],
 "structtfel_1_1math_1_1_expr_3_01_t2to_t2_result_type_00_01_tensor_product_right_derivative_expr_3_012u_01_4_01_4.html#af57e37ad97385a52743aa85d5201b7a2":[5,0,16,5,265,0],
 "structtfel_1_1math_1_1_expr_3_01_t2to_t2_result_type_00_01_tensor_product_right_derivative_expr_3_013u_01_4_01_4.html":[5,0,16,5,266],
 "structtfel_1_1math_1_1_expr_3_01_t2to_t2_result_type_00_01_tensor_product_right_derivative_expr_3_013u_01_4_01_4.html#a2177da9db3ac3f7c75254ced36a35932":[5,0,16,5,266,0],
@@ -249,5 +243,11 @@ var NAVTREEINDEX58 =
 "structtfel_1_1math_1_1_kriging.html":[5,0,16,5,323],
 "structtfel_1_1math_1_1_kriging1_d.html":[5,0,16,5,324],
 "structtfel_1_1math_1_1_kriging2_d.html":[5,0,16,5,325],
-"structtfel_1_1math_1_1_kriging3_d.html":[5,0,16,5,326]
+"structtfel_1_1math_1_1_kriging3_d.html":[5,0,16,5,326],
+"structtfel_1_1math_1_1_kriging_default_model.html":[5,0,16,5,327],
+"structtfel_1_1math_1_1_kriging_default_model_3_011u_00_01_t_00_01_n_m_01_4.html":[5,0,16,5,328],
+"structtfel_1_1math_1_1_kriging_default_model_3_012u_00_01_t_00_01_n_m_01_4.html":[5,0,16,5,329],
+"structtfel_1_1math_1_1_kriging_default_model_3_013u_00_01_t_00_01_n_m_01_4.html":[5,0,16,5,330],
+"structtfel_1_1math_1_1_kriging_default_nugget_model.html":[5,0,16,5,331],
+"structtfel_1_1math_1_1_kriging_error_insufficient_data.html":[5,0,16,5,332]
 };

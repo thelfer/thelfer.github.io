@@ -1,11 +1,5 @@
 var NAVTREEINDEX41 =
 {
-"structmfront_1_1bbrick_1_1_hooke_stress_potential.html#ae80efeb0ec564f381b169e39aadd831d":[5,0,11,0,17,3],
-"structmfront_1_1bbrick_1_1_hooke_stress_potential_base.html":[5,0,11,0,18],
-"structmfront_1_1bbrick_1_1_hooke_stress_potential_base.html#a08a3b815b5b448bc2f6eb6e0e6ae45fe":[5,0,11,0,18,13],
-"structmfront_1_1bbrick_1_1_hooke_stress_potential_base.html#a1f2fbbd2716e2fccc0776216a8f82663":[5,0,11,0,18,7],
-"structmfront_1_1bbrick_1_1_hooke_stress_potential_base.html#a24fedfc2698f80719b5f9c0b5499fd76":[5,0,11,0,18,23],
-"structmfront_1_1bbrick_1_1_hooke_stress_potential_base.html#a35c6d1b23e704f2657727f1f213de763":[5,0,11,0,18,10],
 "structmfront_1_1bbrick_1_1_hooke_stress_potential_base.html#a37b46970be841ad9c290461762be8950":[5,0,11,0,18,16],
 "structmfront_1_1bbrick_1_1_hooke_stress_potential_base.html#a40c3fde0bc04c06f5cfc18d21d568a7c":[5,0,11,0,18,18],
 "structmfront_1_1bbrick_1_1_hooke_stress_potential_base.html#a41e48928f04a544f1911a77d0d29bf5e":[5,0,11,0,18,4],
@@ -249,5 +243,11 @@ var NAVTREEINDEX41 =
 "structmfront_1_1bbrick_1_1_option_description.html#a4dc218404194230bfe335b846852481b":[5,0,11,0,35,2],
 "structmfront_1_1bbrick_1_1_option_description.html#a6876fa219843ef7a8d46ef3f40cb6957":[5,0,11,0,35,13],
 "structmfront_1_1bbrick_1_1_option_description.html#a776da9b88ab0e94555c695ed2d974f7a":[5,0,11,0,35,5],
-"structmfront_1_1bbrick_1_1_option_description.html#a7c51024b7da245f4bcbdaf21a6c8ad14":[5,0,11,0,35,7]
+"structmfront_1_1bbrick_1_1_option_description.html#a7c51024b7da245f4bcbdaf21a6c8ad14":[5,0,11,0,35,7],
+"structmfront_1_1bbrick_1_1_option_description.html#a9b9a479c8337b58e78dc36fde62823fe":[5,0,11,0,35,4],
+"structmfront_1_1bbrick_1_1_option_description.html#abcf86a8975fd58bbe48d02c336b60245":[5,0,11,0,35,1],
+"structmfront_1_1bbrick_1_1_option_description.html#abe8531a5f665830eebc97ce385dc8b6e":[5,0,11,0,35,11],
+"structmfront_1_1bbrick_1_1_option_description.html#ada627cc437cb0f75a7977870bba72c7f":[5,0,11,0,35,15],
+"structmfront_1_1bbrick_1_1_option_description.html#af36d50ec11f267dfb295400db96ca353":[5,0,11,0,35,6],
+"structmfront_1_1bbrick_1_1_plastic_inelastic_flow.html":[5,0,11,0,36]
 };

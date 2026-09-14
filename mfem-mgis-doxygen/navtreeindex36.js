@@ -1,11 +1,5 @@
 var NAVTREEINDEX36 =
 {
-"structmfront_1_1_generic_behaviour_interface.html#a0ec818409374a8df16a83af094130da7":[5,0,11,53,3],
-"structmfront_1_1_generic_behaviour_interface.html#aa60ad82ee27a2f832efefe1052dc587b":[5,0,11,53,0],
-"structmfront_1_1_generic_behaviour_interface.html#aeb692249c96b52f03fc0310f5cc1fa19":[5,0,11,53,2],
-"structmfront_1_1_generic_behaviour_m_test_file_generator.html":[5,0,11,54],
-"structmfront_1_1_generic_behaviour_m_test_file_generator.html#a04620e2692e3c50d174bee031c3a995c":[5,0,11,54,9],
-"structmfront_1_1_generic_behaviour_m_test_file_generator.html#a109ac56cb380921c6b04c7c26433eecc":[5,0,11,54,7],
 "structmfront_1_1_generic_behaviour_m_test_file_generator.html#a2180fbe9a12f459e51201f2c047526a7":[5,0,11,54,3],
 "structmfront_1_1_generic_behaviour_m_test_file_generator.html#a4a6d574d8c7b57a3ce451d07704eb5f1":[5,0,11,54,1],
 "structmfront_1_1_generic_behaviour_m_test_file_generator.html#a5368a38fcde91a8221ea0c43b63fafb0":[5,0,11,54,4],
@@ -249,5 +243,11 @@ var NAVTREEINDEX36 =
 "structmfront_1_1_library_description.html#a7977f91255abf8abd20601110ba70928":[5,0,11,77,8],
 "structmfront_1_1_library_description.html#a8b8c16149a7f11c92cd3d9e78d35b36e":[5,0,11,77,6],
 "structmfront_1_1_library_description.html#ab97890fb9ed36adfa019edf262f21f82":[5,0,11,77,4],
-"structmfront_1_1_library_description.html#ae878b17c3bd33aaf0ae32356b4f06ffc":[5,0,11,77,5]
+"structmfront_1_1_library_description.html#ae878b17c3bd33aaf0ae32356b4f06ffc":[5,0,11,77,5],
+"structmfront_1_1_linear_system_solver_base.html":[5,0,11,78],
+"structmfront_1_1_linear_system_solver_base.html#a2176dba92f84f4ee727c8da27abd1659":[5,0,11,78,3],
+"structmfront_1_1_linear_system_solver_base.html#a2327c63828f92802a3009c335809ac17":[5,0,11,78,1],
+"structmfront_1_1_linear_system_solver_base.html#a387967285b45b6b373e4edec150ad9a3":[5,0,11,78,2],
+"structmfront_1_1_linear_system_solver_base.html#a5f442f898df5e32d8e20095aa646b62b":[5,0,11,78,0],
+"structmfront_1_1_linear_system_solver_base.html#ab6c557151242c706b720b033d845d3e7":[5,0,11,78,4]
 };

@@ -1,11 +1,5 @@
 var NAVTREEINDEX62 =
 {
-"structtfel_1_1math_1_1internals_1_1_sort_eigen_vectors.html":[5,0,16,5,1,80],
-"structtfel_1_1math_1_1internals_1_1_sort_eigen_vectors_3_011u_01_4.html":[5,0,16,5,1,81],
-"structtfel_1_1math_1_1internals_1_1_sort_eigen_vectors_3_011u_01_4.html#a1c7e4cd78cd5279e83258770865abc6d":[5,0,16,5,1,81,0],
-"structtfel_1_1math_1_1internals_1_1_sort_eigen_vectors_3_012u_01_4.html":[5,0,16,5,1,82],
-"structtfel_1_1math_1_1internals_1_1_sort_eigen_vectors_3_012u_01_4.html#a32d666ab8ea6e0284ecbe78b71980b50":[5,0,16,5,1,82,0],
-"structtfel_1_1math_1_1internals_1_1_sort_eigen_vectors_3_013u_01_4.html":[5,0,16,5,1,83],
 "structtfel_1_1math_1_1internals_1_1_sort_eigen_vectors_3_013u_01_4.html#ae1bfb0e1ed0e4cd9d557ea63ddeeb4a6":[5,0,16,5,1,83,0],
 "structtfel_1_1math_1_1internals_1_1_stensor_change_basis.html":[5,0,16,5,1,84],
 "structtfel_1_1math_1_1internals_1_1_stensor_change_basis_3_011u_01_4.html":[5,0,16,5,1,85],
@@ -249,5 +243,11 @@ var NAVTREEINDEX62 =
 "structtfel_1_1math_1_1parser_1_1_logical_binary_operation.html#ab0accbb19e8981d0ff2320d93d008a8a":[5,0,16,5,2,77,2],
 "structtfel_1_1math_1_1parser_1_1_logical_expr.html":[5,0,16,5,2,78],
 "structtfel_1_1math_1_1parser_1_1_logical_expr.html#a0da2a30a2bf22b3592423e9c8a2ba1bc":[5,0,16,5,2,78,0],
-"structtfel_1_1math_1_1parser_1_1_logical_expr.html#a69cf1c246d501325422a5cb16fffcf59":[5,0,16,5,2,78,3]
+"structtfel_1_1math_1_1parser_1_1_logical_expr.html#a69cf1c246d501325422a5cb16fffcf59":[5,0,16,5,2,78,3],
+"structtfel_1_1math_1_1parser_1_1_logical_expr.html#aa4c5b97d1a23961493aa21b2a5f900b8":[5,0,16,5,2,78,2],
+"structtfel_1_1math_1_1parser_1_1_logical_expr.html#abdd0b8c0a58dcb09032d30601cf01d1a":[5,0,16,5,2,78,1],
+"structtfel_1_1math_1_1parser_1_1_logical_operation.html":[5,0,16,5,2,79],
+"structtfel_1_1math_1_1parser_1_1_logical_operation.html#a446a95ebd95d32d686ebfefa51efc17d":[5,0,16,5,2,79,2],
+"structtfel_1_1math_1_1parser_1_1_logical_operation.html#aa6c024ec107eea6c1f896b549d39fa12":[5,0,16,5,2,79,0],
+"structtfel_1_1math_1_1parser_1_1_logical_operation.html#ab1d17504cd6e49b6541cbb7d771255aa":[5,0,16,5,2,79,3]
 };

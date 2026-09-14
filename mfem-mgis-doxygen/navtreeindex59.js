@@ -1,11 +1,5 @@
 var NAVTREEINDEX59 =
 {
-"structtfel_1_1math_1_1_kriging_default_model.html":[5,0,16,5,327],
-"structtfel_1_1math_1_1_kriging_default_model_3_011u_00_01_t_00_01_n_m_01_4.html":[5,0,16,5,328],
-"structtfel_1_1math_1_1_kriging_default_model_3_012u_00_01_t_00_01_n_m_01_4.html":[5,0,16,5,329],
-"structtfel_1_1math_1_1_kriging_default_model_3_013u_00_01_t_00_01_n_m_01_4.html":[5,0,16,5,330],
-"structtfel_1_1math_1_1_kriging_default_nugget_model.html":[5,0,16,5,331],
-"structtfel_1_1math_1_1_kriging_error_insufficient_data.html":[5,0,16,5,332],
 "structtfel_1_1math_1_1_kriging_error_invalid_length.html":[5,0,16,5,333],
 "structtfel_1_1math_1_1_kriging_error_no_data_specified.html":[5,0,16,5,334],
 "structtfel_1_1math_1_1_kriging_model_adaptator.html":[5,0,16,5,335],
@@ -249,5 +243,11 @@ var NAVTREEINDEX59 =
 "structtfel_1_1math_1_1_scalar_indexing_policy.html#ab7980ef267dfa4f0de0dbb4a793ebdc2":[5,0,16,5,508,0],
 "structtfel_1_1math_1_1_scalar_newton_raphson_parameters.html":[5,0,16,5,509],
 "structtfel_1_1math_1_1_scalar_newton_raphson_parameters.html#a1459da613bf504ada670eac3a5bfa235":[5,0,16,5,509,0],
-"structtfel_1_1math_1_1_scalar_newton_raphson_parameters.html#a31bae7d9463904bc6c0efa2a635fd8cc":[5,0,16,5,509,1]
+"structtfel_1_1math_1_1_scalar_newton_raphson_parameters.html#a31bae7d9463904bc6c0efa2a635fd8cc":[5,0,16,5,509,1],
+"structtfel_1_1math_1_1_scalar_newton_raphson_parameters.html#a54349c861a5747a78681087d5591e118":[5,0,16,5,509,2],
+"structtfel_1_1math_1_1_scalar_newton_raphson_parameters.html#a5e6b0570927386fb5a3afda85abc5c57":[5,0,16,5,509,3],
+"structtfel_1_1math_1_1_scalar_object_operation.html":[5,0,16,5,510],
+"structtfel_1_1math_1_1_scalar_tag.html":[5,0,16,5,511],
+"structtfel_1_1math_1_1_scalar_type_rebind.html":[5,0,16,5,512],
+"structtfel_1_1math_1_1_singular_jacobian_exception.html":[5,0,16,5,513]
 };

@@ -1,11 +1,5 @@
 var NAVTREEINDEX60 =
 {
-"structtfel_1_1math_1_1_scalar_newton_raphson_parameters.html#a54349c861a5747a78681087d5591e118":[5,0,16,5,509,2],
-"structtfel_1_1math_1_1_scalar_newton_raphson_parameters.html#a5e6b0570927386fb5a3afda85abc5c57":[5,0,16,5,509,3],
-"structtfel_1_1math_1_1_scalar_object_operation.html":[5,0,16,5,510],
-"structtfel_1_1math_1_1_scalar_tag.html":[5,0,16,5,511],
-"structtfel_1_1math_1_1_scalar_type_rebind.html":[5,0,16,5,512],
-"structtfel_1_1math_1_1_singular_jacobian_exception.html":[5,0,16,5,513],
 "structtfel_1_1math_1_1_stack_allocated_tiny_broyden2_solver_workspace.html":[5,0,16,5,527],
 "structtfel_1_1math_1_1_stack_allocated_tiny_broyden2_solver_workspace.html#a3d34e9721acdf59791ebeeb123999a29":[5,0,16,5,527,1],
 "structtfel_1_1math_1_1_stack_allocated_tiny_broyden2_solver_workspace.html#a5ed40120930290f0c785844bd406e656":[5,0,16,5,527,0],
@@ -249,5 +243,11 @@ var NAVTREEINDEX60 =
 "structtfel_1_1math_1_1_tiny_powell_dog_leg_newton_raphson_solver.html#ab9a169c48252582c7165478f950765f6":[5,0,16,5,607,0],
 "structtfel_1_1math_1_1_tiny_powell_dog_leg_newton_raphson_solver.html#adab6a8a258f47d2b57ce4056d6723167":[5,0,16,5,607,3],
 "structtfel_1_1math_1_1_tiny_runge_kutta_solver_base.html":[5,0,16,5,608],
-"structtfel_1_1math_1_1_tiny_runge_kutta_solver_base.html#a0fd972a1153ff47087f05b9c3491dcd9":[5,0,16,5,608,9]
+"structtfel_1_1math_1_1_tiny_runge_kutta_solver_base.html#a0fd972a1153ff47087f05b9c3491dcd9":[5,0,16,5,608,9],
+"structtfel_1_1math_1_1_tiny_runge_kutta_solver_base.html#a19c18d24431345a56b0657574213f533":[5,0,16,5,608,3],
+"structtfel_1_1math_1_1_tiny_runge_kutta_solver_base.html#a1e74313f6dabf67504468a93aad39a9f":[5,0,16,5,608,10],
+"structtfel_1_1math_1_1_tiny_runge_kutta_solver_base.html#a2901bc41a55e8cf38039bd3137153f31":[5,0,16,5,608,2],
+"structtfel_1_1math_1_1_tiny_runge_kutta_solver_base.html#a5ed83148e6c222ba90e8e648bf474e0e":[5,0,16,5,608,4],
+"structtfel_1_1math_1_1_tiny_runge_kutta_solver_base.html#aa454272f34d84a0182dae86f9e4ca022":[5,0,16,5,608,6],
+"structtfel_1_1math_1_1_tiny_runge_kutta_solver_base.html#ab5492dd349408593ae6182906f36e02e":[5,0,16,5,608,11]
 };

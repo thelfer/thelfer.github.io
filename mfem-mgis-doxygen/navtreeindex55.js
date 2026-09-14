@@ -1,11 +1,5 @@
 var NAVTREEINDEX55 =
 {
-"structtfel_1_1math_1_1_anderson_base.html#a5a470fe69d6775363b7e9a08a6977de4":[5,0,16,5,8,10],
-"structtfel_1_1math_1_1_anderson_base.html#a67b6e9b4226b0fab7d89795d03cf625c":[5,0,16,5,8,12],
-"structtfel_1_1math_1_1_anderson_base.html#a8152409d95a64e538be1760b286b6ddb":[5,0,16,5,8,7],
-"structtfel_1_1math_1_1_anderson_base.html#ac5dbdf62d19ab236e52bbd83670de3b9":[5,0,16,5,8,11],
-"structtfel_1_1math_1_1_anderson_base.html#ad9823f695bfc75653810e0a5af00ea59":[5,0,16,5,8,2],
-"structtfel_1_1math_1_1_anderson_base.html#add439207646d71ccd46d98c04ee53fe8":[5,0,16,5,8,5],
 "structtfel_1_1math_1_1_anderson_base.html#ae2fa70aa34245f52ef0265cb0702926c":[5,0,16,5,8,13],
 "structtfel_1_1math_1_1_anderson_base.html#aed99a669c83dd46c39c78fa9b855a973":[5,0,16,5,8,6],
 "structtfel_1_1math_1_1_anderson_base.html#af01462244639efe03041c4160c9f0504":[5,0,16,5,8,9],
@@ -249,5 +243,11 @@ var NAVTREEINDEX55 =
 "structtfel_1_1math_1_1_derivative_type_dispatcher_3_01tfel_1_1meta_1_1_invalid_type_00_01tfel_1_99d53ec2283dea482c40726ff9e6e9ee.html#a3eda6f5f4a68823b812b6fbc645b40a7":[5,0,16,5,183,0],
 "structtfel_1_1math_1_1_derivative_type_implementation.html":[5,0,16,5,187],
 "structtfel_1_1math_1_1_derivative_type_implementation.html#a186a76aeffc9d12d8da15e1e1937657a":[5,0,16,5,187,0],
-"structtfel_1_1math_1_1_derivative_type_implementation_3_01false_00_01true_00_01_function_type_00_01_variable_type_01_4.html":[5,0,16,5,188]
+"structtfel_1_1math_1_1_derivative_type_implementation_3_01false_00_01true_00_01_function_type_00_01_variable_type_01_4.html":[5,0,16,5,188],
+"structtfel_1_1math_1_1_derivative_type_implementation_3_01false_00_01true_00_01_function_type_00_01_variable_type_01_4.html#ab17a97427a7a253978bf099fcaddd69f":[5,0,16,5,188,0],
+"structtfel_1_1math_1_1_derivative_type_implementation_3_01true_00_01true_00_01_function_type_00_01_variable_type_01_4.html":[5,0,16,5,189],
+"structtfel_1_1math_1_1_derivative_type_implementation_3_01true_00_01true_00_01_function_type_00_01_variable_type_01_4.html#aff90b61278154a9fc280e06d55f05b7f":[5,0,16,5,189,0],
+"structtfel_1_1math_1_1_derivative_type_meta_function.html":[5,0,16,5,190],
+"structtfel_1_1math_1_1_derivative_type_meta_function.html#ab5f027ac91726c1419f0f806d5ebd06b":[5,0,16,5,190,0],
+"structtfel_1_1math_1_1_derivative_type_meta_function_3_01_function_type_00_01_variable_type_01_4.html":[5,0,16,5,191]
 };

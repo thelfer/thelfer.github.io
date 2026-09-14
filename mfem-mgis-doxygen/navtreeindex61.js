@@ -1,11 +1,5 @@
 var NAVTREEINDEX61 =
 {
-"structtfel_1_1math_1_1_tiny_runge_kutta_solver_base.html#a19c18d24431345a56b0657574213f533":[5,0,16,5,608,3],
-"structtfel_1_1math_1_1_tiny_runge_kutta_solver_base.html#a1e74313f6dabf67504468a93aad39a9f":[5,0,16,5,608,10],
-"structtfel_1_1math_1_1_tiny_runge_kutta_solver_base.html#a2901bc41a55e8cf38039bd3137153f31":[5,0,16,5,608,2],
-"structtfel_1_1math_1_1_tiny_runge_kutta_solver_base.html#a5ed83148e6c222ba90e8e648bf474e0e":[5,0,16,5,608,4],
-"structtfel_1_1math_1_1_tiny_runge_kutta_solver_base.html#aa454272f34d84a0182dae86f9e4ca022":[5,0,16,5,608,6],
-"structtfel_1_1math_1_1_tiny_runge_kutta_solver_base.html#ab5492dd349408593ae6182906f36e02e":[5,0,16,5,608,11],
 "structtfel_1_1math_1_1_tiny_runge_kutta_solver_base.html#ab6129fa5e05b733bb4c3e899199e2757":[5,0,16,5,608,12],
 "structtfel_1_1math_1_1_tiny_runge_kutta_solver_base.html#ac7a020197df45a2badfd84b53c5a6e58":[5,0,16,5,608,8],
 "structtfel_1_1math_1_1_tiny_runge_kutta_solver_base.html#ae4c601f0f158cd3bd759284b351173cd":[5,0,16,5,608,5],
@@ -249,5 +243,11 @@ var NAVTREEINDEX61 =
 "structtfel_1_1math_1_1internals_1_1_sort_eigen_values_3_012u_01_4.html":[5,0,16,5,1,78],
 "structtfel_1_1math_1_1internals_1_1_sort_eigen_values_3_012u_01_4.html#a07547bffa5d240e0855f83624278e1f4":[5,0,16,5,1,78,0],
 "structtfel_1_1math_1_1internals_1_1_sort_eigen_values_3_013u_01_4.html":[5,0,16,5,1,79],
-"structtfel_1_1math_1_1internals_1_1_sort_eigen_values_3_013u_01_4.html#ae70d8f7cffcbe04a3f2e35209920c99c":[5,0,16,5,1,79,0]
+"structtfel_1_1math_1_1internals_1_1_sort_eigen_values_3_013u_01_4.html#ae70d8f7cffcbe04a3f2e35209920c99c":[5,0,16,5,1,79,0],
+"structtfel_1_1math_1_1internals_1_1_sort_eigen_vectors.html":[5,0,16,5,1,80],
+"structtfel_1_1math_1_1internals_1_1_sort_eigen_vectors_3_011u_01_4.html":[5,0,16,5,1,81],
+"structtfel_1_1math_1_1internals_1_1_sort_eigen_vectors_3_011u_01_4.html#a1c7e4cd78cd5279e83258770865abc6d":[5,0,16,5,1,81,0],
+"structtfel_1_1math_1_1internals_1_1_sort_eigen_vectors_3_012u_01_4.html":[5,0,16,5,1,82],
+"structtfel_1_1math_1_1internals_1_1_sort_eigen_vectors_3_012u_01_4.html#a32d666ab8ea6e0284ecbe78b71980b50":[5,0,16,5,1,82,0],
+"structtfel_1_1math_1_1internals_1_1_sort_eigen_vectors_3_013u_01_4.html":[5,0,16,5,1,83]
 };

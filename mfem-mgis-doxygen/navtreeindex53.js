@@ -1,11 +1,5 @@
 var NAVTREEINDEX53 =
 {
-"structtfel_1_1material_1_1_barlat_stress_and_derivatives_with_respect_to_eigenvalues.html#a6f917609916d29212ee7b0e31a324b24":[5,0,16,4,2,1],
-"structtfel_1_1material_1_1_barlat_stress_and_derivatives_with_respect_to_eigenvalues.html#a8c7c2e7e740f453188d6b30a9618b2a5":[5,0,16,4,2,3],
-"structtfel_1_1material_1_1_barlat_stress_and_derivatives_with_respect_to_eigenvalues.html#aa64b8d2125fcbdcaa932fe3103dc1fd3":[5,0,16,4,2,4],
-"structtfel_1_1material_1_1_barlat_stress_and_derivatives_with_respect_to_eigenvalues.html#ab02ab33844deef96ead27894f4ca4fb7":[5,0,16,4,2,0],
-"structtfel_1_1material_1_1_barlat_stress_and_derivatives_with_respect_to_eigenvalues.html#ad9f05054e2c615292c6822fd12ef98c2":[5,0,16,4,2,5],
-"structtfel_1_1material_1_1_bounds_check.html":[5,0,16,4,3],
 "structtfel_1_1material_1_1_bounds_check_3_011u_01_4.html":[5,0,16,4,4],
 "structtfel_1_1material_1_1_bounds_check_3_012u_01_4.html":[5,0,16,4,5],
 "structtfel_1_1material_1_1_bounds_check_3_013u_01_4.html":[5,0,16,4,6],
@@ -39,8 +33,8 @@ var NAVTREEINDEX53 =
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#a8ea9899bae16deb09e57e74fd542e161":[5,0,16,4,27,1],
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#aa3aafd915de9a7e0e778a0e3d91fcc48":[5,0,16,4,27,3],
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#add9b8e82ea733acaf38678f95dee359f":[5,0,16,4,27,2],
-"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#ae7df9ea11639d8e65d3b9ec88fc30852":[5,0,16,4,27,4],
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#ae7df9ea11639d8e65d3b9ec88fc30852":[5,0,16,4,27,5],
+"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#ae7df9ea11639d8e65d3b9ec88fc30852":[5,0,16,4,27,4],
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_base.html":[5,0,16,4,28],
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_base.html#afcefc4fb7c6e809ff0ead154a9a46236":[5,0,16,4,28,0],
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_base.html#afcefc4fb7c6e809ff0ead154a9a46236a17dec24a09f12f921ee8f3704b0ad018":[5,0,16,4,28,0,5],
@@ -249,5 +243,11 @@ var NAVTREEINDEX53 =
 "structtfel_1_1material_1_1_michel_and_suquet1992_hollow_sphere_stress_criterion_parameters.html":[5,0,16,4,66],
 "structtfel_1_1material_1_1_michel_and_suquet1992_hollow_sphere_stress_criterion_parameters.html#a18a971016e7423f7ed5f549d9891f351":[5,0,16,4,66,3],
 "structtfel_1_1material_1_1_michel_and_suquet1992_hollow_sphere_stress_criterion_parameters.html#a72bcc21d9ae21e7a0ea7940dbc4f2029":[5,0,16,4,66,0],
-"structtfel_1_1material_1_1_michel_and_suquet1992_hollow_sphere_stress_criterion_parameters.html#ab220a4cc28edf121866cce38c7a73253":[5,0,16,4,66,1]
+"structtfel_1_1material_1_1_michel_and_suquet1992_hollow_sphere_stress_criterion_parameters.html#ab220a4cc28edf121866cce38c7a73253":[5,0,16,4,66,1],
+"structtfel_1_1material_1_1_michel_and_suquet1992_hollow_sphere_stress_criterion_parameters.html#ab79f4eee1a1c361158328e15525c6adf":[5,0,16,4,66,2],
+"structtfel_1_1material_1_1_modelling_hypothesis.html":[5,0,16,4,67],
+"structtfel_1_1material_1_1_modelling_hypothesis.html#a9a637e1af46e51842514a724c47da119":[5,0,16,4,67,0],
+"structtfel_1_1material_1_1_modelling_hypothesis.html#a9a637e1af46e51842514a724c47da119a0857a5e690a526ad9b1abd30a6f70055":[5,0,16,4,67,0,7],
+"structtfel_1_1material_1_1_modelling_hypothesis.html#a9a637e1af46e51842514a724c47da119a11464ad2ab9d4c889c3ea92e2b810a28":[5,0,16,4,67,0,1],
+"structtfel_1_1material_1_1_modelling_hypothesis.html#a9a637e1af46e51842514a724c47da119a3db72c065bc435b39a3bf373a1884747":[5,0,16,4,67,0,3]
 };

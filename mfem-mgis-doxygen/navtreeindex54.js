@@ -1,11 +1,5 @@
 var NAVTREEINDEX54 =
 {
-"structtfel_1_1material_1_1_michel_and_suquet1992_hollow_sphere_stress_criterion_parameters.html#ab79f4eee1a1c361158328e15525c6adf":[5,0,16,4,66,2],
-"structtfel_1_1material_1_1_modelling_hypothesis.html":[5,0,16,4,67],
-"structtfel_1_1material_1_1_modelling_hypothesis.html#a9a637e1af46e51842514a724c47da119":[5,0,16,4,67,0],
-"structtfel_1_1material_1_1_modelling_hypothesis.html#a9a637e1af46e51842514a724c47da119a0857a5e690a526ad9b1abd30a6f70055":[5,0,16,4,67,0,7],
-"structtfel_1_1material_1_1_modelling_hypothesis.html#a9a637e1af46e51842514a724c47da119a11464ad2ab9d4c889c3ea92e2b810a28":[5,0,16,4,67,0,1],
-"structtfel_1_1material_1_1_modelling_hypothesis.html#a9a637e1af46e51842514a724c47da119a3db72c065bc435b39a3bf373a1884747":[5,0,16,4,67,0,3],
 "structtfel_1_1material_1_1_modelling_hypothesis.html#a9a637e1af46e51842514a724c47da119a9f511ffd8d4bc9d2727f043ebd02563d":[5,0,16,4,67,0,5],
 "structtfel_1_1material_1_1_modelling_hypothesis.html#a9a637e1af46e51842514a724c47da119ab5574f69acedb4e21208f4961d6bc794":[5,0,16,4,67,0,6],
 "structtfel_1_1material_1_1_modelling_hypothesis.html#a9a637e1af46e51842514a724c47da119addb9e3d6fac931f145e9e49a4c76a578":[5,0,16,4,67,0,4],
@@ -249,5 +243,11 @@ var NAVTREEINDEX54 =
 "structtfel_1_1math_1_1_anderson_base.html#a35e644a18075db2c482b1793c8d85c4e":[5,0,16,5,8,4],
 "structtfel_1_1math_1_1_anderson_base.html#a377a6c69e36d053eefa08101528b71e4":[5,0,16,5,8,8],
 "structtfel_1_1math_1_1_anderson_base.html#a4e5e76b3cf8e4e2ff267b1f4b5335b99":[5,0,16,5,8,3],
-"structtfel_1_1math_1_1_anderson_base.html#a4f72baab68190f05bea9c06ba2680520":[5,0,16,5,8,1]
+"structtfel_1_1math_1_1_anderson_base.html#a4f72baab68190f05bea9c06ba2680520":[5,0,16,5,8,1],
+"structtfel_1_1math_1_1_anderson_base.html#a5a470fe69d6775363b7e9a08a6977de4":[5,0,16,5,8,10],
+"structtfel_1_1math_1_1_anderson_base.html#a67b6e9b4226b0fab7d89795d03cf625c":[5,0,16,5,8,12],
+"structtfel_1_1math_1_1_anderson_base.html#a8152409d95a64e538be1760b286b6ddb":[5,0,16,5,8,7],
+"structtfel_1_1math_1_1_anderson_base.html#ac5dbdf62d19ab236e52bbd83670de3b9":[5,0,16,5,8,11],
+"structtfel_1_1math_1_1_anderson_base.html#ad9823f695bfc75653810e0a5af00ea59":[5,0,16,5,8,2],
+"structtfel_1_1math_1_1_anderson_base.html#add439207646d71ccd46d98c04ee53fe8":[5,0,16,5,8,5]
 };

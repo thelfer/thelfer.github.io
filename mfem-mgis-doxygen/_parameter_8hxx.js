@@ -1,6 +1,7 @@
 var _parameter_8hxx =
 [
     [ "mfem_mgis::Parameter", "structmfem__mgis_1_1_parameter.html", "structmfem__mgis_1_1_parameter" ],
+    [ "mfem_mgis::ParameterValueConcept", "conceptmfem__mgis_1_1_parameter_value_concept.html", null ],
     [ "GetResultType", "_parameter_8hxx.html#aaf138934cdbd61fef36d0af9f2fbe3c8", null ],
     [ "ParameterVariant", "_parameter_8hxx.html#a63112b5e58b87cb3a1c12f01fba77cf2", null ],
     [ "contains", "_parameter_8hxx.html#a050f945156aa60dd3846f5f84710370e", null ],

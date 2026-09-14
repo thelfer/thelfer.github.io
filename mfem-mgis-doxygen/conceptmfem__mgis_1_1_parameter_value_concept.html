@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>mfem-mgis: mfem_mgis::MakeGridFunctionResult&lt; parallel &gt; Struct Template Reference</title>
+<title>mfem-mgis: mfem_mgis::ParameterValueConcept Concept Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -80,7 +80,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('structmfem__mgis_1_1_make_grid_function_result.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('conceptmfem__mgis_1_1_parameter_value_concept.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -106,42 +106,26 @@ $(document).ready(function(){initNavTree('structmfem__mgis_1_1_make_grid_functio
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="structmfem__mgis_1_1_make_grid_function_result-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">mfem_mgis::MakeGridFunctionResult&lt; parallel &gt; Struct Template Reference</div></div>
+  <div class="headertitle"><div class="title">mfem_mgis::ParameterValueConcept Concept Reference</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>result <code>makeGridFunction</code>  
- <a href="structmfem__mgis_1_1_make_grid_function_result.html#details">More...</a></p>
-
-<p><code>#include &lt;/home/runner/work/mfem-mgis/mfem-mgis/include/MFEMMGIS/GridFunctionUtilities.hxx&gt;</code></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:ac353b95bff85d34c5ff41778dc6969a8" id="r_ac353b95bff85d34c5ff41778dc6969a8"><td class="memItemLeft" align="right" valign="top"><a id="ac353b95bff85d34c5ff41778dc6969a8" name="ac353b95bff85d34c5ff41778dc6969a8"></a>
-std::shared_ptr&lt; <a class="el" href="namespacemfem__mgis.html#a25ba04adaf648f69a2d19bc66a598a82">FiniteElementSpace</a>&lt; parallel &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>fe_space</b></td></tr>
-<tr class="memdesc:ac353b95bff85d34c5ff41778dc6969a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">finite element space on which the grid function is defined <br /></td></tr>
-<tr class="separator:ac353b95bff85d34c5ff41778dc6969a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7a84d0db6b5ad64df82327dc00db0f1" id="r_aa7a84d0db6b5ad64df82327dc00db0f1"><td class="memItemLeft" align="right" valign="top"><a id="aa7a84d0db6b5ad64df82327dc00db0f1" name="aa7a84d0db6b5ad64df82327dc00db0f1"></a>
-std::unique_ptr&lt; <a class="el" href="namespacemfem__mgis.html#a635e6b6265fe66128b71f8645049d212">GridFunction</a>&lt; parallel &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>f</b></td></tr>
-<tr class="memdesc:aa7a84d0db6b5ad64df82327dc00db0f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">created grid function <br /></td></tr>
-<tr class="separator:aa7a84d0db6b5ad64df82327dc00db0f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;bool parallel&gt;<br />
-struct mfem_mgis::MakeGridFunctionResult&lt; parallel &gt;</div><p>result <code>makeGridFunction</code> </p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="_grid_function_utilities_8hxx.html">GridFunctionUtilities.hxx</a></li>
-</ul>
-</div><!-- contents -->
+<h2 class="groupheader">Concept definition</h2>
+<div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="conceptmfem__mgis_1_1_parameter_value_concept.html">mfem_mgis::ParameterValueConcept</a> = </div>
+<div class="line">      ((std::same_as&lt;T, bool&gt;) || (std::same_as&lt;T, size_type&gt;) ||</div>
+<div class="line">       (std::same_as&lt;T, real&gt;) || (std::same_as&lt;T, std::string&gt;) ||</div>
+<div class="line">       (std::same_as&lt;T, std::vector&lt;Parameter&gt;&gt;) ||</div>
+<div class="line">       (std::same_as&lt;T, Parameters&gt;) ||</div>
+<div class="line">       (std::same_as&lt;T, std::function&lt;<a class="code hl_typedef" href="namespacemfem__mgis.html#aee59940f912d12c96b219f5a92ddaf3c">real</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacemfem__mgis.html#aee59940f912d12c96b219f5a92ddaf3c">real</a>)&gt;&gt;))</div>
+<div class="ttc" id="aconceptmfem__mgis_1_1_parameter_value_concept_html"><div class="ttname"><a href="conceptmfem__mgis_1_1_parameter_value_concept.html">mfem_mgis::ParameterValueConcept</a></div><div class="ttdef"><b>Definition</b> Parameter.hxx:36</div></div>
+<div class="ttc" id="anamespacemfem__mgis_html_aee59940f912d12c96b219f5a92ddaf3c"><div class="ttname"><a href="namespacemfem__mgis.html#aee59940f912d12c96b219f5a92ddaf3c">mfem_mgis::real</a></div><div class="ttdeci">mgis::real real</div><div class="ttdoc">alias to the numeric type used</div><div class="ttdef"><b>Definition</b> include/MFEMMGIS/Config.hxx:108</div></div>
+</div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacemfem__mgis.html">mfem_mgis</a></li><li class="navelem"><a class="el" href="structmfem__mgis_1_1_make_grid_function_result.html">MakeGridFunctionResult</a></li>
-    <li class="footer">Generated on Mon Sep 14 2026 18:58:33 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a class="el" href="namespacemfem__mgis.html">mfem_mgis</a></li><li class="navelem"><a class="el" href="conceptmfem__mgis_1_1_parameter_value_concept.html">ParameterValueConcept</a></li>
+    <li class="footer">Generated on Mon Sep 14 2026 20:24:45 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

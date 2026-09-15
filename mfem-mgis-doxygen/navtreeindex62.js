@@ -1,5 +1,11 @@
 var NAVTREEINDEX62 =
 {
+"structtfel_1_1math_1_1internals_1_1_result_type3_3_01_t1_00_01_t2_00_01tfel_1_1math_1_1_op_plus_01_4.html":[5,0,16,5,1,73],
+"structtfel_1_1math_1_1internals_1_1_scalar_view_implementation.html":[5,0,16,5,1,74],
+"structtfel_1_1math_1_1internals_1_1_scalar_view_implementation_3_01_scalar_type_00_01true_01_4.html":[5,0,16,5,1,75],
+"structtfel_1_1math_1_1internals_1_1_sort_eigen_values.html":[5,0,16,5,1,76],
+"structtfel_1_1math_1_1internals_1_1_sort_eigen_values_3_011u_01_4.html":[5,0,16,5,1,77],
+"structtfel_1_1math_1_1internals_1_1_sort_eigen_values_3_011u_01_4.html#a5b60d3e079f4eb68b5a239b1746ee961":[5,0,16,5,1,77,0],
 "structtfel_1_1math_1_1internals_1_1_sort_eigen_values_3_012u_01_4.html":[5,0,16,5,1,78],
 "structtfel_1_1math_1_1internals_1_1_sort_eigen_values_3_012u_01_4.html#a07547bffa5d240e0855f83624278e1f4":[5,0,16,5,1,78,0],
 "structtfel_1_1math_1_1internals_1_1_sort_eigen_values_3_013u_01_4.html":[5,0,16,5,1,79],
@@ -243,11 +249,5 @@ var NAVTREEINDEX62 =
 "structtfel_1_1math_1_1parser_1_1_general_power_function.html#a28f6e7fc54d6b127f4db97ad48c9999f":[5,0,16,5,2,71,3],
 "structtfel_1_1math_1_1parser_1_1_integer_expr.html":[5,0,16,5,2,72],
 "structtfel_1_1math_1_1parser_1_1_kriged_function.html":[5,0,16,5,2,73],
-"structtfel_1_1math_1_1parser_1_1_kriged_function_base.html":[5,0,16,5,2,74],
-"structtfel_1_1math_1_1parser_1_1_levenberg_marquardt_evaluator_wrapper.html":[5,0,16,5,2,75],
-"structtfel_1_1math_1_1parser_1_1_levenberg_marquardt_external_function_wrapper.html":[5,0,16,5,2,76],
-"structtfel_1_1math_1_1parser_1_1_logical_binary_operation.html":[5,0,16,5,2,77],
-"structtfel_1_1math_1_1parser_1_1_logical_binary_operation.html#a1cd180fa386bce9b0b4bd8bea6758ad0":[5,0,16,5,2,77,3],
-"structtfel_1_1math_1_1parser_1_1_logical_binary_operation.html#a41f664d7a28739d68bd5dd7dea99bce2":[5,0,16,5,2,77,0],
-"structtfel_1_1math_1_1parser_1_1_logical_binary_operation.html#a6b8943927b4bafafd52708b167d02d67":[5,0,16,5,2,77,1]
+"structtfel_1_1math_1_1parser_1_1_kriged_function_base.html":[5,0,16,5,2,74]
 };

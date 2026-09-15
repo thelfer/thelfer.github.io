@@ -1,5 +1,11 @@
 var NAVTREEINDEX54 =
 {
+"structtfel_1_1material_1_1_metallic_c_f_c_generic_sliding_systems_interaction_matrix.html#aa7015f47a488c5753bcfb57dfc590b7b":[5,0,16,4,64,0],
+"structtfel_1_1material_1_1_metallic_c_f_c_sliding_systems.html":[5,0,16,4,65],
+"structtfel_1_1material_1_1_metallic_c_f_c_sliding_systems.html#a00cb8e1909414019c38558e87d6492d9":[5,0,16,4,65,0],
+"structtfel_1_1material_1_1_metallic_c_f_c_sliding_systems.html#aa994887b4c29123c573fc543d0a38eb7":[5,0,16,4,65,3],
+"structtfel_1_1material_1_1_metallic_c_f_c_sliding_systems.html#ab0db27e26fe61f64ecadeb5e6119a94a":[5,0,16,4,65,2],
+"structtfel_1_1material_1_1_metallic_c_f_c_sliding_systems.html#ae1ac37d2c177a7c1a0dbff005297c4d3":[5,0,16,4,65,1],
 "structtfel_1_1material_1_1_michel_and_suquet1992_hollow_sphere_stress_criterion_parameters.html":[5,0,16,4,66],
 "structtfel_1_1material_1_1_michel_and_suquet1992_hollow_sphere_stress_criterion_parameters.html#a18a971016e7423f7ed5f549d9891f351":[5,0,16,4,66,3],
 "structtfel_1_1material_1_1_michel_and_suquet1992_hollow_sphere_stress_criterion_parameters.html#a72bcc21d9ae21e7a0ea7940dbc4f2029":[5,0,16,4,66,0],
@@ -243,11 +249,5 @@ var NAVTREEINDEX54 =
 "structtfel_1_1math_1_1_abs_sum.html#a19ba234f268f708ae7f30a397a654ac1":[5,0,16,5,6,4],
 "structtfel_1_1math_1_1_abs_sum.html#a60b0d681f0e7f73da8f3bd4f8e1176fe":[5,0,16,5,6,3],
 "structtfel_1_1math_1_1_abs_sum.html#aa763cb96750110718ac9a7157368eaf2":[5,0,16,5,6,2],
-"structtfel_1_1math_1_1_abs_sum.html#ac9857f33bb1e675e7e0d50b72028c7e0":[5,0,16,5,6,0],
-"structtfel_1_1math_1_1_abs_sum.html#adc2438317c4dce3c2e7db42dec2fe0da":[5,0,16,5,6,1],
-"structtfel_1_1math_1_1_aitken_acceleration_algorithm.html":[5,0,16,5,7],
-"structtfel_1_1math_1_1_aitken_acceleration_algorithm.html#aadc348fdf6a8bbcca88ea064d9df668b":[5,0,16,5,7,1],
-"structtfel_1_1math_1_1_aitken_acceleration_algorithm.html#ac6477d1f84f3c9449a9623b0e04842c5":[5,0,16,5,7,0],
-"structtfel_1_1math_1_1_anderson_base.html":[5,0,16,5,8],
-"structtfel_1_1math_1_1_anderson_base.html#a135504fb5bdbc8fbe7667cfcc426783c":[5,0,16,5,8,0]
+"structtfel_1_1math_1_1_abs_sum.html#ac9857f33bb1e675e7e0d50b72028c7e0":[5,0,16,5,6,0]
 };

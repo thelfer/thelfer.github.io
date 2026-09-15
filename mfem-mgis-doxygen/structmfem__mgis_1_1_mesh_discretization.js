@@ -1,5 +1,6 @@
 var structmfem__mgis_1_1_mesh_discretization =
 [
+    [ "AttributesList", "structmfem__mgis_1_1_mesh_discretization_1_1_attributes_list.html", "structmfem__mgis_1_1_mesh_discretization_1_1_attributes_list" ],
     [ "Location", "structmfem__mgis_1_1_mesh_discretization.html#a6507520a10b924705f062fbad6fddf61", [
       [ "ON_MATERIALS", "structmfem__mgis_1_1_mesh_discretization.html#a6507520a10b924705f062fbad6fddf61ab31be47e33d661752affb8c59cabae70", null ],
       [ "ON_BOUNDARIES", "structmfem__mgis_1_1_mesh_discretization.html#a6507520a10b924705f062fbad6fddf61aa9aaec1af1360149af62ee15fdaced07", null ]

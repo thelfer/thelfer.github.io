@@ -1,5 +1,11 @@
 var NAVTREEINDEX61 =
 {
+"structtfel_1_1math_1_1_tiny_powell_dog_leg_newton_raphson_solver.html#a26e70c3802a6febf910bf9e0385be023":[5,0,16,5,607,5],
+"structtfel_1_1math_1_1_tiny_powell_dog_leg_newton_raphson_solver.html#a2981ee01f293d5d2c2d78eb5d50e048b":[5,0,16,5,607,2],
+"structtfel_1_1math_1_1_tiny_powell_dog_leg_newton_raphson_solver.html#a372b04e743ac06a52b5d37d6fc2625db":[5,0,16,5,607,6],
+"structtfel_1_1math_1_1_tiny_powell_dog_leg_newton_raphson_solver.html#a4d3a93d1d746b20d90ddcde5cb3eb268":[5,0,16,5,607,4],
+"structtfel_1_1math_1_1_tiny_powell_dog_leg_newton_raphson_solver.html#a8f816b0b12d745dd3c3ced4b10d59d27":[5,0,16,5,607,7],
+"structtfel_1_1math_1_1_tiny_powell_dog_leg_newton_raphson_solver.html#aa637727faa25fb21d53a92d2aae806fd":[5,0,16,5,607,1],
 "structtfel_1_1math_1_1_tiny_powell_dog_leg_newton_raphson_solver.html#ab9a169c48252582c7165478f950765f6":[5,0,16,5,607,0],
 "structtfel_1_1math_1_1_tiny_powell_dog_leg_newton_raphson_solver.html#adab6a8a258f47d2b57ce4056d6723167":[5,0,16,5,607,3],
 "structtfel_1_1math_1_1_tiny_runge_kutta_solver_base.html":[5,0,16,5,608],
@@ -243,11 +249,5 @@ var NAVTREEINDEX61 =
 "structtfel_1_1math_1_1internals_1_1_result_type3.html":[5,0,16,5,1,69],
 "structtfel_1_1math_1_1internals_1_1_result_type3_3_01_t1_00_01_t2_00_01tfel_1_1math_1_1_op_div_01_4.html":[5,0,16,5,1,70],
 "structtfel_1_1math_1_1internals_1_1_result_type3_3_01_t1_00_01_t2_00_01tfel_1_1math_1_1_op_minus_01_4.html":[5,0,16,5,1,71],
-"structtfel_1_1math_1_1internals_1_1_result_type3_3_01_t1_00_01_t2_00_01tfel_1_1math_1_1_op_mult_01_4.html":[5,0,16,5,1,72],
-"structtfel_1_1math_1_1internals_1_1_result_type3_3_01_t1_00_01_t2_00_01tfel_1_1math_1_1_op_plus_01_4.html":[5,0,16,5,1,73],
-"structtfel_1_1math_1_1internals_1_1_scalar_view_implementation.html":[5,0,16,5,1,74],
-"structtfel_1_1math_1_1internals_1_1_scalar_view_implementation_3_01_scalar_type_00_01true_01_4.html":[5,0,16,5,1,75],
-"structtfel_1_1math_1_1internals_1_1_sort_eigen_values.html":[5,0,16,5,1,76],
-"structtfel_1_1math_1_1internals_1_1_sort_eigen_values_3_011u_01_4.html":[5,0,16,5,1,77],
-"structtfel_1_1math_1_1internals_1_1_sort_eigen_values_3_011u_01_4.html#a5b60d3e079f4eb68b5a239b1746ee961":[5,0,16,5,1,77,0]
+"structtfel_1_1math_1_1internals_1_1_result_type3_3_01_t1_00_01_t2_00_01tfel_1_1math_1_1_op_mult_01_4.html":[5,0,16,5,1,72]
 };

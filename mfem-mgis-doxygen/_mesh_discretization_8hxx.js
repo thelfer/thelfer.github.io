@@ -1,6 +1,7 @@
 var _mesh_discretization_8hxx =
 [
     [ "mfem_mgis::MeshDiscretization", "structmfem__mgis_1_1_mesh_discretization.html", "structmfem__mgis_1_1_mesh_discretization" ],
+    [ "mfem_mgis::MeshDiscretization::AttributesList", "structmfem__mgis_1_1_mesh_discretization_1_1_attributes_list.html", "structmfem__mgis_1_1_mesh_discretization_1_1_attributes_list" ],
     [ "getBoundariesAttributes", "_mesh_discretization_8hxx.html#a4143aeb6b4275e3e04315f5146cd1ea9", null ],
     [ "getBoundariesIdentifiers", "_mesh_discretization_8hxx.html#a6b3ce499fe210906c6a597913abfe74c", null ],
     [ "getInformation< MeshDiscretization >", "_mesh_discretization_8hxx.html#aaf374a67b35e20e966fb494b522d5c67", null ],

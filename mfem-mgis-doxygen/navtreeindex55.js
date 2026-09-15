@@ -1,5 +1,11 @@
 var NAVTREEINDEX55 =
 {
+"structtfel_1_1math_1_1_abs_sum.html#adc2438317c4dce3c2e7db42dec2fe0da":[5,0,16,5,6,1],
+"structtfel_1_1math_1_1_aitken_acceleration_algorithm.html":[5,0,16,5,7],
+"structtfel_1_1math_1_1_aitken_acceleration_algorithm.html#aadc348fdf6a8bbcca88ea064d9df668b":[5,0,16,5,7,1],
+"structtfel_1_1math_1_1_aitken_acceleration_algorithm.html#ac6477d1f84f3c9449a9623b0e04842c5":[5,0,16,5,7,0],
+"structtfel_1_1math_1_1_anderson_base.html":[5,0,16,5,8],
+"structtfel_1_1math_1_1_anderson_base.html#a135504fb5bdbc8fbe7667cfcc426783c":[5,0,16,5,8,0],
 "structtfel_1_1math_1_1_anderson_base.html#a35e644a18075db2c482b1793c8d85c4e":[5,0,16,5,8,4],
 "structtfel_1_1math_1_1_anderson_base.html#a377a6c69e36d053eefa08101528b71e4":[5,0,16,5,8,8],
 "structtfel_1_1math_1_1_anderson_base.html#a4e5e76b3cf8e4e2ff267b1f4b5335b99":[5,0,16,5,8,3],
@@ -243,11 +249,5 @@ var NAVTREEINDEX55 =
 "structtfel_1_1math_1_1_derivative_type_dispatcher_3_01_tensor_tag_00_01_stensor_tag_00_01_tensor_type1_00_01_stensor_type2_01_4.html#a3856e01425e0ea15af7078c4dd010dd5":[5,0,16,5,181,0],
 "structtfel_1_1math_1_1_derivative_type_dispatcher_3_01_tensor_tag_00_01_tensor_tag_00_01_tensor_type1_00_01_tensor_type2_01_4.html":[5,0,16,5,182],
 "structtfel_1_1math_1_1_derivative_type_dispatcher_3_01_tensor_tag_00_01_tensor_tag_00_01_tensor_type1_00_01_tensor_type2_01_4.html#a3827ad9d6392c220cbf1eb179982b163":[5,0,16,5,182,0],
-"structtfel_1_1math_1_1_derivative_type_dispatcher_3_01_vector_tag_00_01_scalar_tag_00_01tvector_f1b11acc8c2ecf9e815ed7393824e387.html":[5,0,16,5,185],
-"structtfel_1_1math_1_1_derivative_type_dispatcher_3_01_vector_tag_00_01_scalar_tag_00_01tvector_f1b11acc8c2ecf9e815ed7393824e387.html#a3d8f3d6bb985745782e9b4c27ba33a77":[5,0,16,5,185,0],
-"structtfel_1_1math_1_1_derivative_type_dispatcher_3_01_vector_tag_00_01_vector_tag_00_01tvector_c6da30a2eb349e2b8f7044ab4352d283.html":[5,0,16,5,186],
-"structtfel_1_1math_1_1_derivative_type_dispatcher_3_01_vector_tag_00_01_vector_tag_00_01tvector_c6da30a2eb349e2b8f7044ab4352d283.html#a17c223f6f8f0ffa4dc82c209fb89aa33":[5,0,16,5,186,0],
-"structtfel_1_1math_1_1_derivative_type_dispatcher_3_01tfel_1_1meta_1_1_invalid_type_00_01_variab35c051a88e68001c455c37a5f5218d91.html":[5,0,16,5,184],
-"structtfel_1_1math_1_1_derivative_type_dispatcher_3_01tfel_1_1meta_1_1_invalid_type_00_01_variab35c051a88e68001c455c37a5f5218d91.html#a6c40f941b01d4d9bd11d53b48e6af115":[5,0,16,5,184,0],
-"structtfel_1_1math_1_1_derivative_type_dispatcher_3_01tfel_1_1meta_1_1_invalid_type_00_01tfel_1_99d53ec2283dea482c40726ff9e6e9ee.html":[5,0,16,5,183]
+"structtfel_1_1math_1_1_derivative_type_dispatcher_3_01_vector_tag_00_01_scalar_tag_00_01tvector_f1b11acc8c2ecf9e815ed7393824e387.html":[5,0,16,5,185]
 };

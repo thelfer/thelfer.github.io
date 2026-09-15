@@ -1,5 +1,11 @@
 var NAVTREEINDEX60 =
 {
+"structtfel_1_1math_1_1_s_t2to_t2_stensor_product_expr.html":[5,0,16,5,524],
+"structtfel_1_1math_1_1_s_t2to_t2_t2to_s_t2_product_expr.html":[5,0,16,5,525],
+"structtfel_1_1math_1_1_s_t2to_t2_tag.html":[5,0,16,5,526],
+"structtfel_1_1math_1_1_scalar_indexing_policy.html":[5,0,16,5,508],
+"structtfel_1_1math_1_1_scalar_indexing_policy.html#a418263af1f8c3b83d9fb1361f9edb5c4":[5,0,16,5,508,2],
+"structtfel_1_1math_1_1_scalar_indexing_policy.html#a5f905b574b816c20cdab8b31a7ec6a5d":[5,0,16,5,508,1],
 "structtfel_1_1math_1_1_scalar_indexing_policy.html#ab7980ef267dfa4f0de0dbb4a793ebdc2":[5,0,16,5,508,0],
 "structtfel_1_1math_1_1_scalar_newton_raphson_parameters.html":[5,0,16,5,509],
 "structtfel_1_1math_1_1_scalar_newton_raphson_parameters.html#a1459da613bf504ada670eac3a5bfa235":[5,0,16,5,509,0],
@@ -243,11 +249,5 @@ var NAVTREEINDEX60 =
 "structtfel_1_1math_1_1_tiny_powell_dog_leg_broyden_solver.html#ad2164f11276111ec23195fd2bcfd1469":[5,0,16,5,606,7],
 "structtfel_1_1math_1_1_tiny_powell_dog_leg_broyden_solver.html#ae25cec28b25b5ad443e4155e46bd85ae":[5,0,16,5,606,5],
 "structtfel_1_1math_1_1_tiny_powell_dog_leg_broyden_solver.html#aeda62e0d89ebfd1c3546803f0154f732":[5,0,16,5,606,0],
-"structtfel_1_1math_1_1_tiny_powell_dog_leg_newton_raphson_solver.html":[5,0,16,5,607],
-"structtfel_1_1math_1_1_tiny_powell_dog_leg_newton_raphson_solver.html#a26e70c3802a6febf910bf9e0385be023":[5,0,16,5,607,5],
-"structtfel_1_1math_1_1_tiny_powell_dog_leg_newton_raphson_solver.html#a2981ee01f293d5d2c2d78eb5d50e048b":[5,0,16,5,607,2],
-"structtfel_1_1math_1_1_tiny_powell_dog_leg_newton_raphson_solver.html#a372b04e743ac06a52b5d37d6fc2625db":[5,0,16,5,607,6],
-"structtfel_1_1math_1_1_tiny_powell_dog_leg_newton_raphson_solver.html#a4d3a93d1d746b20d90ddcde5cb3eb268":[5,0,16,5,607,4],
-"structtfel_1_1math_1_1_tiny_powell_dog_leg_newton_raphson_solver.html#a8f816b0b12d745dd3c3ced4b10d59d27":[5,0,16,5,607,7],
-"structtfel_1_1math_1_1_tiny_powell_dog_leg_newton_raphson_solver.html#aa637727faa25fb21d53a92d2aae806fd":[5,0,16,5,607,1]
+"structtfel_1_1math_1_1_tiny_powell_dog_leg_newton_raphson_solver.html":[5,0,16,5,607]
 };

@@ -23,7 +23,5 @@ var structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01false_0
     [ "setLinearSolver", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01false_01_4.html#a10dc62c144ca72d1e78f63294d90d934", null ],
     [ "setLinearSolver", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01false_01_4.html#a3894824ee959c7d7b802b18012b09f08", null ],
     [ "setLinearSolver", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01false_01_4.html#a73a0897cf616a4039c6fb6748fb220cb", null ],
-    [ "postprocessings", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01false_01_4.html#a7515477fd1338943559df60d15cbdbbd", null ],
-    [ "unknowns0", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01false_01_4.html#a8f586d75c71be3d7afb07a397087d524", null ],
-    [ "unknowns1", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01false_01_4.html#ad29973a402f2fdeb8538dec08eb7a0b8", null ]
+    [ "postprocessings", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01false_01_4.html#a7515477fd1338943559df60d15cbdbbd", null ]
 ];

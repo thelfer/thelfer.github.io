@@ -1,5 +1,7 @@
 var NAVTREEINDEX31 =
 {
+"structmfmtg_1_1_abstract_test_case.html#a2400f063924a244680883956a6d5ab07":[5,0,10,0,0],
+"structmfmtg_1_1_abstract_test_case.html#a7d00c9b4dde5e06bc89223530f1114a9":[5,0,10,0,2],
 "structmfmtg_1_1_abstract_test_case.html#aa021a389332b69f54ad8744977947921":[5,0,10,0,3],
 "structmfmtg_1_1_abstract_test_case_factory.html":[5,0,10,1],
 "structmfmtg_1_1_abstract_test_case_factory.html#a253fbda24bf5258191fa2ba889249c2f":[5,0,10,1,2],
@@ -247,7 +249,5 @@ var NAVTREEINDEX31 =
 "structmfront_1_1_behaviour_brick_base.html#a8c5a922fbbaf1d93fafe1c42b6a32fe7":[5,0,11,12,14],
 "structmfront_1_1_behaviour_brick_base.html#a9495410bdbec4689b7182bcb1ea66994":[5,0,11,12,5],
 "structmfront_1_1_behaviour_brick_base.html#aa0952ecffaff8428d3fc950286bddaa6":[5,0,11,12,13],
-"structmfront_1_1_behaviour_brick_base.html#aa1f724e60ec875b3c63056ccecb5ca45":[5,0,11,12,6],
-"structmfront_1_1_behaviour_brick_base.html#aaf564dea312ee058d6e4e236cd95730d":[5,0,11,12,0],
-"structmfront_1_1_behaviour_brick_base.html#ab7262f364ea0563f0ba9640cfc519e8d":[5,0,11,12,12]
+"structmfront_1_1_behaviour_brick_base.html#aa1f724e60ec875b3c63056ccecb5ca45":[5,0,11,12,6]
 };

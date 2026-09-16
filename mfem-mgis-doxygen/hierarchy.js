@@ -305,19 +305,19 @@ var hierarchy =
       ] ]
     ] ],
     [ "mfront::AbstractNonLinearSystemSolver", "structmfront_1_1_abstract_non_linear_system_solver.html", null ],
-    [ "mfem_mgis::AbstractPartialQuadratureFunctionEvaluator", "structmfem__mgis_1_1_abstract_partial_quadrature_function_evaluator.html", [
-      [ "mfem_mgis::PartialQuadratureFunctionEvaluatorBase", "structmfem__mgis_1_1_partial_quadrature_function_evaluator_base.html", [
-        [ "mfem_mgis::StandardPartialQuadratureFunctionEvaluator", "structmfem__mgis_1_1_standard_partial_quadrature_function_evaluator.html", null ],
-        [ "mfem_mgis::UniformScalarPartialQuadratureFunctionEvaluatorBase", "structmfem__mgis_1_1_uniform_scalar_partial_quadrature_function_evaluator_base.html", [
-          [ "mfem_mgis::UniformConstantScalarPartialQuadratureFunctionEvaluator", "structmfem__mgis_1_1_uniform_constant_scalar_partial_quadrature_function_evaluator.html", null ],
-          [ "mfem_mgis::UniformScalarPartialQuadratureFunctionEvaluator", "structmfem__mgis_1_1_uniform_scalar_partial_quadrature_function_evaluator.html", null ]
-        ] ]
-      ] ]
-    ] ],
     [ "mfem_mgis::AbstractPostProcessing", "structmfem__mgis_1_1_abstract_post_processing.html", [
       [ "mfem_mgis::PostProcessingBase", "structmfem__mgis_1_1_post_processing_base.html", [
         [ "mfem_mgis::CurvesPostProcessing", "structmfem__mgis_1_1_curves_post_processing.html", null ],
         [ "mfem_mgis::PointsSetCurvesPostProcessing", "structmfem__mgis_1_1_points_set_curves_post_processing.html", null ]
+      ] ]
+    ] ],
+    [ "mfem_mgis::AbstractQPEvaluator", "structmfem__mgis_1_1_abstract_q_p_evaluator.html", [
+      [ "mfem_mgis::QPEvaluatorBase", "structmfem__mgis_1_1_q_p_evaluator_base.html", [
+        [ "mfem_mgis::StandardQPEvaluator", "structmfem__mgis_1_1_standard_q_p_evaluator.html", null ],
+        [ "mfem_mgis::UniformScalarQPEvaluatorBase", "structmfem__mgis_1_1_uniform_scalar_q_p_evaluator_base.html", [
+          [ "mfem_mgis::UniformConstantScalarQPEvaluator", "structmfem__mgis_1_1_uniform_constant_scalar_q_p_evaluator.html", null ],
+          [ "mfem_mgis::UniformScalarQPEvaluator", "structmfem__mgis_1_1_uniform_scalar_q_p_evaluator.html", null ]
+        ] ]
       ] ]
     ] ],
     [ "mfem_mgis::AbstractSimulationMonitor", "structmfem__mgis_1_1_abstract_simulation_monitor.html", null ],
@@ -1721,8 +1721,8 @@ var hierarchy =
     [ "dianafea::DianaFEABehaviourHandler< H, Behaviour >::DoNothingInitializer", "structdianafea_1_1_diana_f_e_a_behaviour_handler_1_1_do_nothing_initializer.html", null ],
     [ "lsdyna::LSDYNABehaviourHandler< H, Behaviour >::DoNothingInitializer", "structlsdyna_1_1_l_s_d_y_n_a_behaviour_handler_1_1_do_nothing_initializer.html", null ],
     [ "lsdyna::LSDYNAExplicitInterface< H, T, Behaviour >::DoNothingInitializer", "structlsdyna_1_1_l_s_d_y_n_a_explicit_interface_1_1_do_nothing_initializer.html", null ],
-    [ "tfel::math::dotProduct< N >", "structtfel_1_1math_1_1dot_product.html", null ],
     [ "tfel::math::DotProduct< N, M >", "structtfel_1_1math_1_1_dot_product.html", null ],
+    [ "tfel::math::dotProduct< N >", "structtfel_1_1math_1_1dot_product.html", null ],
     [ "tfel::math::dotProduct< 0u >", "structtfel_1_1math_1_1dot_product_3_010u_01_4.html", null ],
     [ "tfel::math::DotProduct< 0u, M >", "structtfel_1_1math_1_1_dot_product_3_010u_00_01_m_01_4.html", null ],
     [ "tfel::math::internals::DPK1_DF_to_DTAU_DF_Converter< N >", "structtfel_1_1math_1_1internals_1_1_d_p_k1___d_f__to___d_t_a_u___d_f___converter.html", null ],
@@ -3058,13 +3058,12 @@ var hierarchy =
     ] ],
     [ "mfem_mgis::PartialQuadratureFunctionDataLayout", "structmfem__mgis_1_1_partial_quadrature_function_data_layout.html", [
       [ "mfem_mgis::ImmutablePartialQuadratureFunctionView", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html", [
-        [ "mfem_mgis::PartialQuadratureFunctionEvaluatorResult", "structmfem__mgis_1_1_partial_quadrature_function_evaluator_result.html", null ],
         [ "mfem_mgis::PartialQuadratureFunctionView", "structmfem__mgis_1_1_partial_quadrature_function_view.html", [
           [ "mfem_mgis::PartialQuadratureFunction", "structmfem__mgis_1_1_partial_quadrature_function.html", null ]
-        ] ]
+        ] ],
+        [ "mfem_mgis::QPEvaluatorResult", "structmfem__mgis_1_1_q_p_evaluator_result.html", null ]
       ] ]
     ] ],
-    [ "mfem_mgis::PartialQuadratureFunctionEvaluationOptions", "structmfem__mgis_1_1_partial_quadrature_function_evaluation_options.html", null ],
     [ "mfem_mgis::PartialQuadratureSpace", "structmfem__mgis_1_1_partial_quadrature_space.html", null ],
     [ "mfront::PathSpecifier", "structmfront_1_1_path_specifier.html", null ],
     [ "tfel::material::homogenization::elasticity::Phase< N, StressType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_phase.html", [
@@ -3240,6 +3239,7 @@ var hierarchy =
     ] ],
     [ "tfel::math::DifferenceRandomAccessIterator< iterator_base >::proxy", "structtfel_1_1math_1_1_difference_random_access_iterator_1_1proxy.html", null ],
     [ "tfel::math::StridedRandomAccessIterator< iterator_base >::proxy", "structtfel_1_1math_1_1_strided_random_access_iterator_1_1proxy.html", null ],
+    [ "mfem_mgis::QPEvaluationOptions", "structmfem__mgis_1_1_q_p_evaluation_options.html", null ],
     [ "tfel::math::QRDecomp", "structtfel_1_1math_1_1_q_r_decomp.html", null ],
     [ "mgis::function::internals::QuadraturePointIndexTypeSelector< true, Space >", "structmgis_1_1function_1_1internals_1_1_quadrature_point_index_type_selector_3_01true_00_01_space_01_4.html", null ],
     [ "mgis::function::internals::quantity_modifier< UnitType >", "structmgis_1_1function_1_1internals_1_1quantity__modifier.html", null ],
@@ -3366,8 +3366,8 @@ var hierarchy =
     [ "tfel::math::ResultType< vector< T >, vector< T2 >, OpPlus >", "classtfel_1_1math_1_1_result_type_3_01vector_3_01_t_01_4_00_01vector_3_01_t2_01_4_00_01_op_plus_01_4.html", null ],
     [ "tfel::math::RightCauchyGreenTensorDerivativeExpr< N >", "structtfel_1_1math_1_1_right_cauchy_green_tensor_derivative_expr.html", null ],
     [ "mgis::function::internals::RotateBackwardsModifier", "structmgis_1_1function_1_1internals_1_1_rotate_backwards_modifier.html", null ],
-    [ "mfem_mgis::RotatedGradientsMatrixPartialQuadratureFunctionEvalutor< GradientsSize >", "structmfem__mgis_1_1_rotated_gradients_matrix_partial_quadrature_function_evalutor.html", null ],
-    [ "mfem_mgis::RotatedThermodynamicForcesMatrixPartialQuadratureFunctionEvalutor< ThermodynamicForcesSize >", "structmfem__mgis_1_1_rotated_thermodynamic_forces_matrix_partial_quadrature_function_evalutor.html", null ],
+    [ "mfem_mgis::RotatedGradientsMatrixQPEvaluator< GradientsSize >", "structmfem__mgis_1_1_rotated_gradients_matrix_q_p_evaluator.html", null ],
+    [ "mfem_mgis::RotatedThermodynamicForcesMatrixQPEvaluator< ThermodynamicForcesSize >", "structmfem__mgis_1_1_rotated_thermodynamic_forces_matrix_q_p_evaluator.html", null ],
     [ "mgis::function::internals::RotateModifier", "structmgis_1_1function_1_1internals_1_1_rotate_modifier.html", null ],
     [ "mfem_mgis::FBarIsotropicPlaneStrainBehaviourIntegrator::RotationMatrix", "structmfem__mgis_1_1_f_bar_isotropic_plane_strain_behaviour_integrator_1_1_rotation_matrix.html", null ],
     [ "mfem_mgis::FBarIsotropicTridimensionalBehaviourIntegrator::RotationMatrix", "structmfem__mgis_1_1_f_bar_isotropic_tridimensional_behaviour_integrator_1_1_rotation_matrix.html", null ],
@@ -3382,7 +3382,7 @@ var hierarchy =
     [ "mfem_mgis::IsotropicTridimensionalStationaryNonLinearHeatTransferBehaviourIntegrator::RotationMatrix", "structmfem__mgis_1_1_isotropic_tridimensional_stationary_non_linear_heat_transfer_behaviour_integrator_1_1_rotation_matrix.html", null ],
     [ "mfem_mgis::TransientHeatTransferBehaviourIntegrator::RotationMatrix", "structmfem__mgis_1_1_transient_heat_transfer_behaviour_integrator_1_1_rotation_matrix.html", null ],
     [ "mgis::behaviour::RotationMatrix3D", "structmgis_1_1behaviour_1_1_rotation_matrix3_d.html", null ],
-    [ "mfem_mgis::RotationMatrixPartialQuadratureFunctionEvalutor", "structmfem__mgis_1_1_rotation_matrix_partial_quadrature_function_evalutor.html", null ],
+    [ "mfem_mgis::RotationMatrixQPEvaluator", "structmfem__mgis_1_1_rotation_matrix_q_p_evaluator.html", null ],
     [ "tfel::material::RousselierTanguyBesson2002StressCriterionParameters< StressStensor >", "structtfel_1_1material_1_1_rousselier_tanguy_besson2002_stress_criterion_parameters.html", null ],
     [ "tfel::math::TMatrixTMatrixExpr< N, M, K, A, B >::RowConstIterator", "structtfel_1_1math_1_1_t_matrix_t_matrix_expr_1_1_row_const_iterator.html", null ],
     [ "tfel::math::TMatrixTVectorExpr< N, M, A, B >::RowConstIterator", "structtfel_1_1math_1_1_t_matrix_t_vector_expr_1_1_row_const_iterator.html", null ],

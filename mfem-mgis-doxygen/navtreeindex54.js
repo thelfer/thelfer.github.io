@@ -1,5 +1,7 @@
 var NAVTREEINDEX54 =
 {
+"structtfel_1_1material_1_1_isotropic_moduli.html":[5,0,16,4,52],
+"structtfel_1_1material_1_1_k_g_moduli.html":[5,0,16,4,53],
 "structtfel_1_1material_1_1_lambda_mu_moduli.html":[5,0,16,4,54],
 "structtfel_1_1material_1_1_logarithmic_strain_handler.html":[5,0,16,4,55],
 "structtfel_1_1material_1_1_logarithmic_strain_handler_3_011u_00_01_stress_type_01_4.html":[5,0,16,4,56],
@@ -247,7 +249,5 @@ var NAVTREEINDEX54 =
 "structtfel_1_1material_1_1_slip_systems_description.html#a7674eeb77aef139fb35f3525187da72b":[5,0,16,4,98,35],
 "structtfel_1_1material_1_1_slip_systems_description.html#a7f4df53cbb6d78cfd2c008fea2195ac8":[5,0,16,4,98,26],
 "structtfel_1_1material_1_1_slip_systems_description.html#a85822f38766819820729bc7ab64a0651":[5,0,16,4,98,33],
-"structtfel_1_1material_1_1_slip_systems_description.html#a89447d838f965a9e49cf25c00bcfe85b":[5,0,16,4,98,10],
-"structtfel_1_1material_1_1_slip_systems_description.html#a89447d838f965a9e49cf25c00bcfe85ba1279f8bba959ce6a444f1ace364c941f":[5,0,16,4,98,10,1],
-"structtfel_1_1material_1_1_slip_systems_description.html#a89447d838f965a9e49cf25c00bcfe85ba514673c4702d691769946598cc860da6":[5,0,16,4,98,10,0]
+"structtfel_1_1material_1_1_slip_systems_description.html#a89447d838f965a9e49cf25c00bcfe85b":[5,0,16,4,98,10]
 };

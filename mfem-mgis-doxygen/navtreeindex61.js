@@ -1,5 +1,9 @@
 var NAVTREEINDEX61 =
 {
+"structtfel_1_1math_1_1_t2to_t2_tag.html":[5,0,16,5,570],
+"structtfel_1_1math_1_1_t2to_t2_tensor_product_expr.html":[5,0,16,5,571],
+"structtfel_1_1math_1_1_t_matrix_t_matrix_expr.html":[5,0,16,5,610],
+"structtfel_1_1math_1_1_t_matrix_t_matrix_expr_1_1_column_const_iterator.html":[5,0,16,5,610,0],
 "structtfel_1_1math_1_1_t_matrix_t_matrix_expr_1_1_row_const_iterator.html":[5,0,16,5,610,1],
 "structtfel_1_1math_1_1_t_matrix_t_matrix_expr_1_1_row_const_iterator.html#a60162b5bb2611a42f5b7972ec28772f9":[5,0,16,5,610,1,1],
 "structtfel_1_1math_1_1_t_matrix_t_matrix_expr_1_1_row_const_iterator.html#a75a4b1eb2ce6626758c090c71b56e70d":[5,0,16,5,610,1,2],
@@ -245,9 +249,5 @@ var NAVTREEINDEX61 =
 "structtfel_1_1math_1_1array__holder.html":[5,0,16,5,9],
 "structtfel_1_1math_1_1array__holder.html#a14f7887fb121ca5df21278c25a1e0cae":[5,0,16,5,9,1],
 "structtfel_1_1math_1_1array__holder.html#a430b0c12071a1fd3cf8d6ad71cba9d9b":[5,0,16,5,9,0],
-"structtfel_1_1math_1_1array__holder.html#a7eecd24bea7e2b9185ed277be104f81f":[5,0,16,5,9,2],
-"structtfel_1_1math_1_1const__qt__ref.html":[5,0,16,5,133],
-"structtfel_1_1math_1_1dot_product.html":[5,0,16,5,195],
-"structtfel_1_1math_1_1dot_product_3_010u_01_4.html":[5,0,16,5,197],
-"structtfel_1_1math_1_1fsarray.html":[5,0,16,5,300]
+"structtfel_1_1math_1_1array__holder.html#a7eecd24bea7e2b9185ed277be104f81f":[5,0,16,5,9,2]
 };

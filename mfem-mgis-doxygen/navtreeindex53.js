@@ -1,5 +1,9 @@
 var NAVTREEINDEX53 =
 {
+"structnumodis_1_1_i_plane.html#a954886a8bf2b6ca4fb563c0007b2cec8":[5,0,14,11,3],
+"structnumodis_1_1_i_plane.html#ab3f37c4a5f0a2b752108ef3ba9c3bdb9":[5,0,14,11,0],
+"structnumodis_1_1_i_plane.html#acbde8a378f89ed731a867179f976efe6":[5,0,14,11,4],
+"structnumodis_1_1_i_plane.html#ad8cef38e63baa01bda90accf7dc9db91":[5,0,14,11,5],
 "structnumodis_1_1_i_plane.html#af35b969209e2851c97bf6fe8e00a3066":[5,0,14,11,6],
 "structnumodis_1_1_isotropic_line_tension_model.html":[5,0,14,12],
 "structnumodis_1_1_isotropic_line_tension_model.html#a20a2c281970c7ce33da071d7d1d61f8a":[5,0,14,12,0],
@@ -245,9 +249,5 @@ var NAVTREEINDEX53 =
 "structtfel_1_1material_1_1_gurson_tvergaard_needleman1982_stress_criterion_parameters.html#aea5e9ceed26e6df01c9afee4c65840ff":[5,0,16,4,49,4],
 "structtfel_1_1material_1_1_gurson_tvergaard_needleman1982_stress_criterion_parameters.html#aeb17b403d676714ebec6cca99245620d":[5,0,16,4,49,6],
 "structtfel_1_1material_1_1_isotropic_moduli.html":[5,0,16,4,52],
-"structtfel_1_1material_1_1_k_g_moduli.html":[5,0,16,4,53],
-"structtfel_1_1material_1_1_lambda_mu_moduli.html":[5,0,16,4,54],
-"structtfel_1_1material_1_1_logarithmic_strain_handler.html":[5,0,16,4,55],
-"structtfel_1_1material_1_1_logarithmic_strain_handler_3_011u_00_01_stress_type_01_4.html":[5,0,16,4,56],
-"structtfel_1_1material_1_1_logarithmic_strain_handler_3_011u_00_01_stress_type_01_4.html#a0caa716d689fadd57ba8a7a674fd0c63":[5,0,16,4,56,3]
+"structtfel_1_1material_1_1_k_g_moduli.html":[5,0,16,4,53]
 };

@@ -317,6 +317,7 @@ var namespacemfem__mgis =
     [ "getMPIrank", "namespacemfem__mgis.html#a36c05fabaa197a4de966f81041e29f01", null ],
     [ "getMPIsize", "namespacemfem__mgis.html#a4c87fb6d85e50681a8334a79c68e6807", null ],
     [ "getNodesDistance", "namespacemfem__mgis.html#a9051d1fe9e0456d1bda7c0b3b987d09c", null ],
+    [ "getNumberOfComponents", "namespacemfem__mgis.html#a761c44c5d27ff13880bc6d10b5f85f12", null ],
     [ "getNumberOfComponents", "namespacemfem__mgis.html#a9d4944fc4c55601185cd955764ac59a5", null ],
     [ "getNumberOfComponents", "namespacemfem__mgis.html#a74a1b6ee5ee8c84303bdcc934b000658", null ],
     [ "getNumberOfComponents", "namespacemfem__mgis.html#a8c125f22a608eb875a2132aa1d56bd63", null ],

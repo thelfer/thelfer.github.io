@@ -238,9 +238,10 @@ var NAVTREEINDEX2 =
 "_faltus2026_regularized_behaviour_integrators_8hxx.html":[6,0,0,0,36],
 "_faltus2026_regularized_behaviour_integrators_8ixx.html":[6,0,0,0,37],
 "_finite_element_discretization_8hxx.html":[6,0,0,0,41],
+"_finite_element_discretization_8hxx.html#a761c44c5d27ff13880bc6d10b5f85f12":[6,0,0,0,41,2],
 "_finite_element_discretization_8hxx.html#a84deaa40711e39c5637f32aef3669e6a":[6,0,0,0,41,1],
-"_finite_element_discretization_8hxx.html#aa0dfb79117f8e8f789acf65e2e19783d":[6,0,0,0,41,2],
-"_finite_element_discretization_8hxx.html#aceb5419cf52805f781ac49488b5c89db":[6,0,0,0,41,3],
+"_finite_element_discretization_8hxx.html#aa0dfb79117f8e8f789acf65e2e19783d":[6,0,0,0,41,3],
+"_finite_element_discretization_8hxx.html#aceb5419cf52805f781ac49488b5c89db":[6,0,0,0,41,4],
 "_finite_element_discretization_8ixx.html":[6,0,0,0,42],
 "_finite_element_spaces_manager_8hxx.html":[6,0,0,0,43],
 "_finite_element_spaces_manager_8ixx.html":[6,0,0,0,44],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "_finite_strain_behaviour_tangent_operator_8hxx.html":[6,0,1,0,0,0,1,0,6,4,23],
 "_finite_strain_behaviour_tangent_operator_8hxx.html#a11472adaa06c35e63eac4c052f0ba7e7":[6,0,1,0,0,0,1,0,6,4,23,15],
 "_finite_strain_behaviour_tangent_operator_8hxx.html#a362ce00ffb7681e30b9fcd1fbe4141fe":[6,0,1,0,0,0,1,0,6,4,23,20],
-"_finite_strain_behaviour_tangent_operator_8hxx.html#a38db1742244dfb040949d0f4b4e0f69a":[6,0,1,0,0,0,1,0,6,4,23,19],
-"_finite_strain_behaviour_tangent_operator_8hxx.html#aa12b52aae535a92e4b80787e93c015d9":[6,0,1,0,0,0,1,0,6,4,23,16]
+"_finite_strain_behaviour_tangent_operator_8hxx.html#a38db1742244dfb040949d0f4b4e0f69a":[6,0,1,0,0,0,1,0,6,4,23,19]
 };

@@ -1,5 +1,7 @@
 var NAVTREEINDEX46 =
 {
+"structmgis_1_1function_1_1_fixed_size_view.html#a5ced79f7a390f11909492345e1e8bec7":[5,0,12,2,18,5],
+"structmgis_1_1function_1_1_fixed_size_view.html#a61e5014ff39318fedbef461e48a1907a":[5,0,12,2,18,7],
 "structmgis_1_1function_1_1_fixed_size_view.html#a6aefe8fcd4015f657d9132684348b522":[5,0,12,2,18,1],
 "structmgis_1_1function_1_1_fixed_size_view.html#a8d60a76cbe291ac7ed3543bdec640063":[5,0,12,2,18,9],
 "structmgis_1_1function_1_1_fixed_size_view.html#a9efd7ce718974ba51f39c5ea59ea82bb":[5,0,12,2,18,8],
@@ -247,7 +249,5 @@ var NAVTREEINDEX46 =
 "structmgis_1_1function_1_1internals_1_1_function_result_query_implementation1.html":[5,0,12,2,1,52],
 "structmgis_1_1function_1_1internals_1_1_function_result_query_implementation1_3_01true_00_01_function_type_01_4.html":[5,0,12,2,1,53],
 "structmgis_1_1function_1_1internals_1_1_function_result_query_implementation2.html":[5,0,12,2,1,54],
-"structmgis_1_1function_1_1internals_1_1_function_result_query_implementation2_3_01true_00_01_function_type_01_4.html":[5,0,12,2,1,55],
-"structmgis_1_1function_1_1internals_1_1_function_result_query_implementation3.html":[5,0,12,2,1,56],
-"structmgis_1_1function_1_1internals_1_1_function_result_query_implementation3_3_01true_00_01_function_type_01_4.html":[5,0,12,2,1,57]
+"structmgis_1_1function_1_1internals_1_1_function_result_query_implementation2_3_01true_00_01_function_type_01_4.html":[5,0,12,2,1,55]
 };

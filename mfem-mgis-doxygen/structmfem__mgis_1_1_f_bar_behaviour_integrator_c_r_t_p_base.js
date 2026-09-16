@@ -1,7 +1,7 @@
 var structmfem__mgis_1_1_f_bar_behaviour_integrator_c_r_t_p_base =
 [
+    [ "FBarBehaviourIntegratorCRTPBase", "structmfem__mgis_1_1_f_bar_behaviour_integrator_c_r_t_p_base.html#ac075c4b4525d606e2741bd2f949bc736", null ],
     [ "~FBarBehaviourIntegratorCRTPBase", "structmfem__mgis_1_1_f_bar_behaviour_integrator_c_r_t_p_base.html#a3d34e3a3be285e781c3e3faf466a063f", null ],
-    [ "BehaviourIntegratorBase", "structmfem__mgis_1_1_f_bar_behaviour_integrator_c_r_t_p_base.html#aed3ae697f0c5c412ed676bac4d2d35c8", null ],
     [ "implementComputeInnerForces", "structmfem__mgis_1_1_f_bar_behaviour_integrator_c_r_t_p_base.html#a0ee8974fff9f2e8927fb59ca46b21c2a", null ],
     [ "implementIntegrate", "structmfem__mgis_1_1_f_bar_behaviour_integrator_c_r_t_p_base.html#a48a3b7668b4cf28ceb983347b5ed3082", null ],
     [ "implementUpdateJacobian", "structmfem__mgis_1_1_f_bar_behaviour_integrator_c_r_t_p_base.html#a921108ca60b2ff3a4ad7ec2e819fd3f2", null ],

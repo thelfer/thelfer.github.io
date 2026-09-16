@@ -1,5 +1,7 @@
 var NAVTREEINDEX53 =
 {
+"structnumodis_1_1_i_plane.html#af35b969209e2851c97bf6fe8e00a3066":[5,0,14,11,6],
+"structnumodis_1_1_isotropic_line_tension_model.html":[5,0,14,12],
 "structnumodis_1_1_isotropic_line_tension_model.html#a20a2c281970c7ce33da071d7d1d61f8a":[5,0,14,12,0],
 "structnumodis_1_1_isotropic_line_tension_model.html#a8f181ef2b085d725988aa72c500a9cc9":[5,0,14,12,2],
 "structnumodis_1_1_isotropic_line_tension_model.html#ad07c6f8d7f477ca569451925f5b3c8c6":[5,0,14,12,1],
@@ -175,8 +177,8 @@ var NAVTREEINDEX53 =
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#a8ea9899bae16deb09e57e74fd542e161":[5,0,16,4,27,1],
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#aa3aafd915de9a7e0e778a0e3d91fcc48":[5,0,16,4,27,3],
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#add9b8e82ea733acaf38678f95dee359f":[5,0,16,4,27,2],
-"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#ae7df9ea11639d8e65d3b9ec88fc30852":[5,0,16,4,27,4],
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#ae7df9ea11639d8e65d3b9ec88fc30852":[5,0,16,4,27,5],
+"structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator.html#ae7df9ea11639d8e65d3b9ec88fc30852":[5,0,16,4,27,4],
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_base.html":[5,0,16,4,28],
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_base.html#afcefc4fb7c6e809ff0ead154a9a46236":[5,0,16,4,28,0],
 "structtfel_1_1material_1_1_finite_strain_behaviour_tangent_operator_base.html#afcefc4fb7c6e809ff0ead154a9a46236a17dec24a09f12f921ee8f3704b0ad018":[5,0,16,4,28,0,5],
@@ -247,7 +249,5 @@ var NAVTREEINDEX53 =
 "structtfel_1_1material_1_1_lambda_mu_moduli.html":[5,0,16,4,54],
 "structtfel_1_1material_1_1_logarithmic_strain_handler.html":[5,0,16,4,55],
 "structtfel_1_1material_1_1_logarithmic_strain_handler_3_011u_00_01_stress_type_01_4.html":[5,0,16,4,56],
-"structtfel_1_1material_1_1_logarithmic_strain_handler_3_011u_00_01_stress_type_01_4.html#a0caa716d689fadd57ba8a7a674fd0c63":[5,0,16,4,56,3],
-"structtfel_1_1material_1_1_logarithmic_strain_handler_3_011u_00_01_stress_type_01_4.html#a0d2d7feb95532502589dcf9ffba64c75":[5,0,16,4,56,11],
-"structtfel_1_1material_1_1_logarithmic_strain_handler_3_011u_00_01_stress_type_01_4.html#a0e10bd9bc697fde2cc433df1b6211b04":[5,0,16,4,56,7]
+"structtfel_1_1material_1_1_logarithmic_strain_handler_3_011u_00_01_stress_type_01_4.html#a0caa716d689fadd57ba8a7a674fd0c63":[5,0,16,4,56,3]
 };

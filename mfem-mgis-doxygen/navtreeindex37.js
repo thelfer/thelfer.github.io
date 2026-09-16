@@ -1,5 +1,7 @@
 var NAVTREEINDEX37 =
 {
+"structmfront_1_1_implicit_c_z_m_d_s_l.html#abbf4f664ed8854500117811df8ef1d15":[5,0,11,64,0],
+"structmfront_1_1_implicit_code_generator_base.html":[5,0,11,63],
 "structmfront_1_1_implicit_code_generator_base.html#a0ccf88acd88445bd39a0c76837043f71":[5,0,11,63,8],
 "structmfront_1_1_implicit_code_generator_base.html#a0e6067b31501f2fcca38117ce296557b":[5,0,11,63,7],
 "structmfront_1_1_implicit_code_generator_base.html#a13f40a51889217a2dc166944338d7c95":[5,0,11,63,6],
@@ -247,7 +249,5 @@ var NAVTREEINDEX37 =
 "structmfront_1_1_m_front_database_1_1_entry_point.html#a9976147973d597d999be818be67b3f1ba08ad0784841cd23becacaeb06b7fc605":[5,0,11,88,2,0,1],
 "structmfront_1_1_m_front_database_1_1_entry_point.html#a9976147973d597d999be818be67b3f1ba2770f54df0a69a61eff890d7334e93cb":[5,0,11,88,2,0,2],
 "structmfront_1_1_m_front_database_1_1_entry_point.html#a9976147973d597d999be818be67b3f1ba73c4daec7b1d9ba40ec63f9a7175e1ec":[5,0,11,88,2,0,0],
-"structmfront_1_1_m_front_database_1_1_entry_point.html#ab88588f3b77dabc3b459e825171bfec3":[5,0,11,88,2,2],
-"structmfront_1_1_m_front_database_1_1_entry_point.html#ae6e24d88c40a32743f22e40f586f8c3d":[5,0,11,88,2,4],
-"structmfront_1_1_m_front_database_1_1_query.html":[5,0,11,88,3]
+"structmfront_1_1_m_front_database_1_1_entry_point.html#ab88588f3b77dabc3b459e825171bfec3":[5,0,11,88,2,2]
 };

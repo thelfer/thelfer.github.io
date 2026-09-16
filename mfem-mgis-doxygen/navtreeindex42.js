@@ -1,5 +1,7 @@
 var NAVTREEINDEX42 =
 {
+"structmfront_1_1bbrick_1_1_isotropic_hardening_rule.html":[5,0,11,0,24],
+"structmfront_1_1bbrick_1_1_isotropic_hardening_rule.html#a076503064632ccfb0911ce851440b163":[5,0,11,0,24,5],
 "structmfront_1_1bbrick_1_1_isotropic_hardening_rule.html#a21307d8b7eabad8e40402d2b68dab1d2":[5,0,11,0,24,2],
 "structmfront_1_1bbrick_1_1_isotropic_hardening_rule.html#a22520b60c21100d765fad34535d4984b":[5,0,11,0,24,11],
 "structmfront_1_1bbrick_1_1_isotropic_hardening_rule.html#a3ef336e5b694f645e93ee4b80a0f26c9":[5,0,11,0,24,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX42 =
 "structmfront_1_1bbrick_1_1_standard_stress_criterion_base.html#ab3f52c2f23e9740cd9109da2ea6e1cb6":[5,0,11,0,48,2],
 "structmfront_1_1bbrick_1_1_standard_stress_criterion_base.html#abe7f4712bcb5f423501720105f3a48e6":[5,0,11,0,48,8],
 "structmfront_1_1bbrick_1_1_standard_stress_criterion_base.html#af8853f8a99cff02198fe048c0812b64d":[5,0,11,0,48,4],
-"structmfront_1_1bbrick_1_1_strain_based_porosity_nucleation_model_base.html":[5,0,11,0,49],
-"structmfront_1_1bbrick_1_1_strain_based_porosity_nucleation_model_base.html#a0b5d8c11b184c303a25561b3cc9032cf":[5,0,11,0,49,1],
-"structmfront_1_1bbrick_1_1_strain_based_porosity_nucleation_model_base.html#a11d22ea7389665dbd9620c25fd0faa8b":[5,0,11,0,49,4]
+"structmfront_1_1bbrick_1_1_strain_based_porosity_nucleation_model_base.html":[5,0,11,0,49]
 };

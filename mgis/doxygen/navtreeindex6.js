@@ -1,5 +1,9 @@
 var NAVTREEINDEX6 =
 {
+"structmgis_1_1function_1_1_coalesced_memory_access_composite_tensors_view.html#a268607ff9964ec6f9d46ed30ad88fcd0":[3,0,1,3,7,0],
+"structmgis_1_1function_1_1_coalesced_memory_access_composite_tensors_view.html#aca0329af65642ca7eacb2c2708add612":[3,0,1,3,7,3],
+"structmgis_1_1function_1_1_coalesced_memory_access_composite_tensors_view.html#aefb541f343c1613d7f6a17d98b86a1af":[3,0,1,3,7,2],
+"structmgis_1_1function_1_1_coalesced_memory_access_composite_tensors_view_const_value.html":[3,0,1,3,8],
 "structmgis_1_1function_1_1_coalesced_memory_access_composite_tensors_view_const_value_3_01real_01_4.html":[3,0,1,3,9],
 "structmgis_1_1function_1_1_coalesced_memory_access_composite_tensors_view_mutable_value.html":[3,0,1,3,10],
 "structmgis_1_1function_1_1_coalesced_memory_access_composite_tensors_view_mutable_value_3_01real_01_4.html":[3,0,1,3,11],
@@ -245,9 +249,5 @@ var NAVTREEINDEX6 =
 "structmgis_1_1function_1_1_uniform_evaluator.html#afac8e7dbdb47db0343bcff5181f9b68b":[3,0,1,3,53,7],
 "structmgis_1_1function_1_1_uniform_evaluator.html#afc48bdae3d1b0070fbeb009f4efc6854":[3,0,1,3,53,0],
 "structmgis_1_1function_1_1customization__points_1_1_absolute_value.html":[3,0,1,3,0,0],
-"structmgis_1_1function_1_1customization__points_1_1_absolute_value_3_01_tensor_type_01_4.html":[3,0,1,3,0,4],
-"structmgis_1_1function_1_1customization__points_1_1_absolute_value_3_01real_01_4.html":[3,0,1,3,0,1],
-"structmgis_1_1function_1_1customization__points_1_1_absolute_value_3_01std_1_1array_3_01const_01real_00_01_n_01_4_01_4.html":[3,0,1,3,0,2],
-"structmgis_1_1function_1_1customization__points_1_1_absolute_value_3_01std_1_1span_3_01const_01real_00_01_n_01_4_01_4.html":[3,0,1,3,0,3],
-"structmgis_1_1function_1_1customization__points_1_1_absolute_value_3_01tfel_1_1math_1_1_view_3_01const_01_tensor_type_01_4_01_4.html":[3,0,1,3,0,5]
+"structmgis_1_1function_1_1customization__points_1_1_absolute_value_3_01_tensor_type_01_4.html":[3,0,1,3,0,4]
 };

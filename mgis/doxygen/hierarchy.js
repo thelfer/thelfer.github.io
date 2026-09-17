@@ -169,7 +169,6 @@ var hierarchy =
     [ "mgis::internal::InvalidValueTraits< bool >", "structmgis_1_1internal_1_1_invalid_value_traits_3_01bool_01_4.html", null ],
     [ "mgis::internal::InvalidValueTraits< mgis::OptionalReference< ValueType > >", "structmgis_1_1internal_1_1_invalid_value_traits_3_01mgis_1_1_optional_reference_3_01_value_type_01_4_01_4.html", null ],
     [ "mgis::internal::InvalidValueTraits< std::optional< bool > >", "structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1optional_3_01bool_01_4_01_4.html", null ],
-    [ "mgis::internal::InvalidValueTraits< std::optional< const T > >", "structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1optional_3_01const_01_t_01_4_01_4.html", null ],
     [ "mgis::internal::InvalidValueTraits< std::optional< T > >", "structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1optional_3_01_t_01_4_01_4.html", null ],
     [ "mgis::internal::InvalidValueTraits< std::shared_ptr< T > >", "structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1shared__ptr_3_01_t_01_4_01_4.html", null ],
     [ "mgis::internal::InvalidValueTraits< std::unique_ptr< T > >", "structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1unique__ptr_3_01_t_01_4_01_4.html", null ],

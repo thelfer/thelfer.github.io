@@ -1,5 +1,6 @@
 var NAVTREEINDEX52 =
 {
+"structmtest_1_1_solver_options.html#ab1fcf321450df496cd05a4aa4bbe678b":[5,0,13,77,9],
 "structmtest_1_1_solver_options.html#abe8756a79bb7e063ea882330dc577821":[5,0,13,77,7],
 "structmtest_1_1_solver_options.html#ac6d1548171759eec139167d256ee82a5":[5,0,13,77,2],
 "structmtest_1_1_solver_options.html#ad8e106bd7bf7c8242e362761a0589e5a":[5,0,13,77,13],
@@ -248,6 +249,5 @@ var NAVTREEINDEX52 =
 "structnumodis_1_1_i_direction.html#acb1abef62da1c480f13f9b52f84f9d53":[5,0,14,10,5],
 "structnumodis_1_1_i_direction.html#ad0f951d205bc7cf993a42a363d43a170":[5,0,14,10,2],
 "structnumodis_1_1_i_plane.html":[5,0,14,11],
-"structnumodis_1_1_i_plane.html#a1205088146ac3ad496a5fe612a0ec674":[5,0,14,11,8],
-"structnumodis_1_1_i_plane.html#a44c115863d9e6d862a2dae04270ffb2a":[5,0,14,11,2]
+"structnumodis_1_1_i_plane.html#a1205088146ac3ad496a5fe612a0ec674":[5,0,14,11,8]
 };

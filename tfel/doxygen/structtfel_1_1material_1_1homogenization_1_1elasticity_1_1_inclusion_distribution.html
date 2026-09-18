@@ -106,7 +106,7 @@ $(document).ready(function(){initNavTree('structtfel_1_1material_1_1homogenizati
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;/home/runner/work/tfel/tfel/include/TFEL/Material/MicrostructureDescription.hxx&gt;</code></p>
+<p><code>#include &lt;/home/runner/work/tfel/tfel/include/TFEL/Material/PhaseDescription.hxx&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for tfel::material::homogenization::elasticity::InclusionDistribution&lt; N, StressType &gt;:</div>
 <div class="dyncontent">
@@ -122,6 +122,9 @@ Public Types</h2></td></tr>
 <tr class="memitem:ae5ff6d573acf8a993bf1f04be9e355ab" id="r_ae5ff6d573acf8a993bf1f04be9e355ab"><td class="memItemLeft" align="right" valign="top"><a id="ae5ff6d573acf8a993bf1f04be9e355ab" name="ae5ff6d573acf8a993bf1f04be9e355ab"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>real</b> = tfel::types::real&lt; StressType &gt;</td></tr>
 <tr class="separator:ae5ff6d573acf8a993bf1f04be9e355ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9f4ad620b9d76a1246f7c9d3136145f" id="r_ac9f4ad620b9d76a1246f7c9d3136145f"><td class="memItemLeft" align="right" valign="top"><a id="ac9f4ad620b9d76a1246f7c9d3136145f" name="ac9f4ad620b9d76a1246f7c9d3136145f"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>compliance</b> = tfel::types::compliance&lt; StressType &gt;</td></tr>
+<tr class="separator:ac9f4ad620b9d76a1246f7c9d3136145f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd2978bbee3cb224f05b4dd57ef44a76" id="r_acd2978bbee3cb224f05b4dd57ef44a76"><td class="memItemLeft" align="right" valign="top"><a id="acd2978bbee3cb224f05b4dd57ef44a76" name="acd2978bbee3cb224f05b4dd57ef44a76"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>LengthType</b> = tfel::types::length&lt; StressType &gt;</td></tr>
 <tr class="separator:acd2978bbee3cb224f05b4dd57ef44a76"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -150,6 +153,9 @@ virtual <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2
 <tr class="memitem:a7ece40e7cb3d36c8039e01a77cff1bfb" id="r_a7ece40e7cb3d36c8039e01a77cff1bfb"><td class="memItemLeft" align="right" valign="top"><a id="a7ece40e7cb3d36c8039e01a77cff1bfb" name="a7ece40e7cb3d36c8039e01a77cff1bfb"></a>
 virtual <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2tost2</a>&lt; N, real &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>computeMeanLocalisator</b> (const <a class="el" href="structtfel_1_1material_1_1_isotropic_moduli.html">IsotropicModuli</a>&lt; StressType &gt; &amp;IM0)=0</td></tr>
 <tr class="separator:a7ece40e7cb3d36c8039e01a77cff1bfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a306a17eae50cc1dfbcd0aad90aef82ef" id="r_a306a17eae50cc1dfbcd0aad90aef82ef"><td class="memItemLeft" align="right" valign="top"><a id="a306a17eae50cc1dfbcd0aad90aef82ef" name="a306a17eae50cc1dfbcd0aad90aef82ef"></a>
+virtual <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2tost2</a>&lt; N, compliance &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>computeDerivativesOfMeanLocalisator</b> (const <a class="el" href="structtfel_1_1material_1_1_isotropic_moduli.html">IsotropicModuli</a>&lt; StressType &gt; &amp;IM0, const std::array&lt; real, 4 &gt; &amp;dKG)=0</td></tr>
+<tr class="separator:a306a17eae50cc1dfbcd0aad90aef82ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_phase"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_phase')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_phase.html">tfel::material::homogenization::elasticity::Phase&lt; N, StressType &gt;</a></td></tr>
 <tr class="memitem:a561ede590108fe42cc361f8bed7ed79c inherit pub_methods_structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_phase" id="r_a561ede590108fe42cc361f8bed7ed79c"><td class="memItemLeft" align="right" valign="top">
 &#160;</td><td class="memItemRight" valign="bottom"><b>Phase</b> (real f, const <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2tost2</a>&lt; N, StressType &gt; &amp;C)</td></tr>
@@ -188,7 +194,7 @@ real&#160;</td><td class="memItemRight" valign="bottom"><b>fraction</b></td></tr
 requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6cf432ef1d0">tfel::math::checkUnitCompatibility</a>&lt; <a class="el" href="structtfel_1_1math_1_1unit_1_1_stress.html">tfel::math::unit::Stress</a>, StressType&gt;())<br />
 struct tfel::material::homogenization::elasticity::InclusionDistribution&lt; N, StressType &gt;</div><p>This struct represents a distribution of inclusions as an abstract class, child of class <a class="el" href="structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_phase.html">Phase</a>. It contains an inclusion and a pure virtual method computeMeanLocalisator which returns the mean localisator of the distribution of inclusions, for a given matrix elasticity in parameter. </p>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="_microstructure_description_8hxx.html">MicrostructureDescription.hxx</a></li>
+<li><a class="el" href="_phase_description_8hxx.html">PhaseDescription.hxx</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -196,7 +202,7 @@ struct tfel::material::homogenization::elasticity::InclusionDistribution&lt; N, 
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetfel.html">tfel</a></li><li class="navelem"><a class="el" href="namespacetfel_1_1material.html">material</a></li><li class="navelem"><b>homogenization</b></li><li class="navelem"><b>elasticity</b></li><li class="navelem"><a class="el" href="structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_inclusion_distribution.html">InclusionDistribution</a></li>
-    <li class="footer">Generated on Thu Sep 17 2026 11:59:29 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Sep 18 2026 09:56:57 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

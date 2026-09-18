@@ -1,5 +1,7 @@
 var NAVTREEINDEX59 =
 {
+"structtfel_1_1math_1_1_f_anderson.html#aa17e326a89e1a3b68f07a294afee304c":[5,0,16,5,286,0],
+"structtfel_1_1math_1_1_f_s_levenberg_marquardt.html":[5,0,16,5,301],
 "structtfel_1_1math_1_1_f_s_levenberg_marquardt.html#a07a130bee948b0a042b0bcffd8850dc3":[5,0,16,5,301,2],
 "structtfel_1_1math_1_1_f_s_levenberg_marquardt.html#a237cc0f7e9c4525bc99bdb868a4c151a":[5,0,16,5,301,3],
 "structtfel_1_1math_1_1_f_s_levenberg_marquardt.html#a4d6b046831619dd4c237707ce829d871":[5,0,16,5,301,8],
@@ -247,7 +249,5 @@ var NAVTREEINDEX59 =
 "structtfel_1_1math_1_1_mutable_array_with_contiguous_data_s_t_l_compatibility_layer.html#a58c66474df265b4a02eeea97a1b4d16d":[5,0,16,5,395,0],
 "structtfel_1_1math_1_1_mutable_array_with_contiguous_data_s_t_l_compatibility_layer.html#a85e5eb509a3d8ade8a33f4716c69fb3f":[5,0,16,5,395,6],
 "structtfel_1_1math_1_1_mutable_array_with_contiguous_data_s_t_l_compatibility_layer.html#ac78981713bc1aa38836cd9e851a5b05c":[5,0,16,5,395,8],
-"structtfel_1_1math_1_1_mutable_array_with_contiguous_data_s_t_l_compatibility_layer.html#ad6d8625af7aaebd5a69460c560c7fde3":[5,0,16,5,395,3],
-"structtfel_1_1math_1_1_mutable_array_with_contiguous_data_s_t_l_compatibility_layer.html#ad7545684d69615f5befb9d39a3ca30f3":[5,0,16,5,395,1],
-"structtfel_1_1math_1_1_mutable_array_with_contiguous_data_s_t_l_compatibility_layer.html#adf4cf86188a06d579224cd3d31ffe939":[5,0,16,5,395,2]
+"structtfel_1_1math_1_1_mutable_array_with_contiguous_data_s_t_l_compatibility_layer.html#ad6d8625af7aaebd5a69460c560c7fde3":[5,0,16,5,395,3]
 };

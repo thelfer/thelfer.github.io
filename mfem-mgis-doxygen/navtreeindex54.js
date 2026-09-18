@@ -1,5 +1,7 @@
 var NAVTREEINDEX54 =
 {
+"structtfel_1_1material_1_1_gurson_tvergaard_needleman1982_stress_criterion_parameters.html#abd9029b9db45e62719c246acfc400c1e":[5,0,16,4,49,2],
+"structtfel_1_1material_1_1_gurson_tvergaard_needleman1982_stress_criterion_parameters.html#aea5e9ceed26e6df01c9afee4c65840ff":[5,0,16,4,49,4],
 "structtfel_1_1material_1_1_gurson_tvergaard_needleman1982_stress_criterion_parameters.html#aeb17b403d676714ebec6cca99245620d":[5,0,16,4,49,6],
 "structtfel_1_1material_1_1_isotropic_moduli.html":[5,0,16,4,52],
 "structtfel_1_1material_1_1_k_g_moduli.html":[5,0,16,4,53],
@@ -247,7 +249,5 @@ var NAVTREEINDEX54 =
 "structtfel_1_1material_1_1_slip_systems_description.html#a6d13f15f7fd1aa9a6175f244bea0f78e":[5,0,16,4,98,19],
 "structtfel_1_1material_1_1_slip_systems_description.html#a6d3e041b4fb5aa4ffa723fbe4cb9934a":[5,0,16,4,98,15],
 "structtfel_1_1material_1_1_slip_systems_description.html#a708db22ebae348df753f779ccc534d7e":[5,0,16,4,98,40],
-"structtfel_1_1material_1_1_slip_systems_description.html#a7674eeb77aef139fb35f3525187da72b":[5,0,16,4,98,35],
-"structtfel_1_1material_1_1_slip_systems_description.html#a7f4df53cbb6d78cfd2c008fea2195ac8":[5,0,16,4,98,26],
-"structtfel_1_1material_1_1_slip_systems_description.html#a85822f38766819820729bc7ab64a0651":[5,0,16,4,98,33]
+"structtfel_1_1material_1_1_slip_systems_description.html#a7674eeb77aef139fb35f3525187da72b":[5,0,16,4,98,35]
 };

@@ -1,5 +1,7 @@
 var NAVTREEINDEX60 =
 {
+"structtfel_1_1math_1_1_mutable_array_with_contiguous_data_s_t_l_compatibility_layer.html#ad7545684d69615f5befb9d39a3ca30f3":[5,0,16,5,395,1],
+"structtfel_1_1math_1_1_mutable_array_with_contiguous_data_s_t_l_compatibility_layer.html#adf4cf86188a06d579224cd3d31ffe939":[5,0,16,5,395,2],
 "structtfel_1_1math_1_1_mutable_array_without_contiguous_data_s_t_l_compatibility_layer.html":[5,0,16,5,396],
 "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html":[5,0,16,5,397],
 "structtfel_1_1math_1_1_mutable_fixed_size_array_base.html#a50863be13bb2ec29d8e4f5bf9d39e167":[5,0,16,5,397,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX60 =
 "structtfel_1_1math_1_1_strided_random_access_iterator_base.html":[5,0,16,5,559],
 "structtfel_1_1math_1_1_t2to_s_t2_concept_base.html":[5,0,16,5,561],
 "structtfel_1_1math_1_1_t2to_s_t2_s_t2to_t2_product_expr.html":[5,0,16,5,562],
-"structtfel_1_1math_1_1_t2to_s_t2_t2to_t2_product_expr.html":[5,0,16,5,563],
-"structtfel_1_1math_1_1_t2to_s_t2_tag.html":[5,0,16,5,564],
-"structtfel_1_1math_1_1_t2to_s_t2_tensor_product_expr.html":[5,0,16,5,565]
+"structtfel_1_1math_1_1_t2to_s_t2_t2to_t2_product_expr.html":[5,0,16,5,563]
 };

@@ -1,5 +1,6 @@
 var NAVTREEINDEX14 =
 {
+"spack_2opt_2spack_2linux-x86__64__v4_2mgis-master-o3ynduvnb2mmi22jcxrwoo2dh3f6guky_2include_2_m_ef7437b24fc424eefabd8d4440febb8e.html#a6a32891d53ddbfef0077d4b96ac5936f":[6,0,1,0,0,0,0,0,0,0,0,36],
 "spack_2opt_2spack_2linux-x86__64__v4_2mgis-master-o3ynduvnb2mmi22jcxrwoo2dh3f6guky_2include_2_m_ef7437b24fc424eefabd8d4440febb8e.html#a6e4cd8be4198e7d847c1e93a1569a0e1":[6,0,1,0,0,0,0,0,0,0,0,18],
 "spack_2opt_2spack_2linux-x86__64__v4_2mgis-master-o3ynduvnb2mmi22jcxrwoo2dh3f6guky_2include_2_m_ef7437b24fc424eefabd8d4440febb8e.html#a6fb2955d86fc2fb61f3553e87dbbd94c":[6,0,1,0,0,0,0,0,0,0,0,10],
 "spack_2opt_2spack_2linux-x86__64__v4_2mgis-master-o3ynduvnb2mmi22jcxrwoo2dh3f6guky_2include_2_m_ef7437b24fc424eefabd8d4440febb8e.html#a72314fbaa5dbe22c6e53dc715625ea23":[6,0,1,0,0,0,0,0,0,0,0,11],
@@ -248,6 +249,5 @@ var NAVTREEINDEX14 =
 "structansys_1_1_ansys_compute_stiffness_tensor_3_01ansys_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_edeb608034a5a347259acdf7f949428c9.html":[5,0,1,4],
 "structansys_1_1_ansys_compute_stiffness_tensor_3_01ansys_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_ee83c1a2a8d35eb6039db6879184773b4.html":[5,0,1,5],
 "structansys_1_1_ansys_compute_stiffness_tensor_3_01ansys_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_ef2f137990a551015beba8d3cf8d7fd96.html":[5,0,1,14],
-"structansys_1_1_ansys_compute_stiffness_tensor_3_01ansys_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_eff1d9c8330105f9c6a4a9bb624081709.html":[5,0,1,7],
-"structansys_1_1_ansys_compute_thermal_expansion_coefficient_tensor.html":[5,0,1,15]
+"structansys_1_1_ansys_compute_stiffness_tensor_3_01ansys_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_eff1d9c8330105f9c6a4a9bb624081709.html":[5,0,1,7]
 };

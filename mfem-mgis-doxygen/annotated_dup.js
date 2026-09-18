@@ -496,6 +496,9 @@ var annotated_dup =
       [ "UMATImportThermodynamicForces< tfel::material::ModellingHypothesis::PLANESTRESS >", "structlsdyna_1_1_u_m_a_t_import_thermodynamic_forces_3_01tfel_1_1material_1_1_modelling_hypothes2cf82d0aaf4e88d28dc75c7fae8270c8.html", null ]
     ] ],
     [ "mfem_mgis", "namespacemfem__mgis.html", [
+      [ "nonlinear_solver", null, [
+        [ "AbstractAdditionalConvergenceCriterion", "structmfem__mgis_1_1nonlinear__solver_1_1_abstract_additional_convergence_criterion.html", "structmfem__mgis_1_1nonlinear__solver_1_1_abstract_additional_convergence_criterion" ]
+      ] ],
       [ "unit_tests", null, [
         [ "TestParameters", "structmfem__mgis_1_1unit__tests_1_1_test_parameters.html", null ],
         [ "UniaxialTestResults", "structmfem__mgis_1_1unit__tests_1_1_uniaxial_test_results.html", "structmfem__mgis_1_1unit__tests_1_1_uniaxial_test_results" ]

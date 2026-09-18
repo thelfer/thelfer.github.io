@@ -108,6 +108,7 @@ $(document).ready(function(){initNavTree('structmfem__mgis_1_1_provider.html',''
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
 <a href="structmfem__mgis_1_1_provider-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">mfem_mgis::Provider Struct Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
@@ -135,10 +136,90 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a77a7c40a74eb055ff000bc5d555d6914" id="r_a77a7c40a74eb055ff000bc5d555d6914"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_provider.html#a77a7c40a74eb055ff000bc5d555d6914">getIdentifier</a> () const noexcept=0</td></tr>
 <tr class="memdesc:a77a7c40a74eb055ff000bc5d555d6914"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the name of the provider  <br /></td></tr>
 <tr class="separator:a77a7c40a74eb055ff000bc5d555d6914"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7db3eaa5bbf818831f4f6d5b45c622da" id="r_a7db3eaa5bbf818831f4f6d5b45c622da"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_provider.html#a7db3eaa5bbf818831f4f6d5b45c622da">analyseDependency</a> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, <a class="el" href="structmfem__mgis_1_1_dependencies_manager.html">DependenciesManager</a> &amp;, const <a class="el" href="structmfem__mgis_1_1_q_p_dependency.html">QPDependency</a> &amp;, const TimeStepStage) const noexcept=0</td></tr>
+<tr class="memdesc:a7db3eaa5bbf818831f4f6d5b45c622da"><td class="mdescLeft">&#160;</td><td class="mdescRight">analyse the given dependency. If a provider can resolve this dependency, it shall declare itself as the provider of the dependency. It can then declare additional dependencies.  <br /></td></tr>
+<tr class="separator:a7db3eaa5bbf818831f4f6d5b45c622da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0af7b78e5ede504a420bdad0f259f49" id="r_ad0af7b78e5ede504a420bdad0f259f49"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_provider.html#ad0af7b78e5ede504a420bdad0f259f49">resolveDependency</a> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, <a class="el" href="structmfem__mgis_1_1_q_p_evaluators_factory.html">QPEvaluatorsFactory</a> &amp;, const <a class="el" href="structmfem__mgis_1_1_q_p_dependency.html">QPDependency</a> &amp;, const TimeStepStage) const noexcept=0</td></tr>
+<tr class="memdesc:ad0af7b78e5ede504a420bdad0f259f49"><td class="mdescLeft">&#160;</td><td class="mdescRight">resolve the dependency  <br /></td></tr>
+<tr class="separator:ad0af7b78e5ede504a420bdad0f259f49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08eee2572708cfd59ff35e1fa67eee14" id="r_a08eee2572708cfd59ff35e1fa67eee14"><td class="memItemLeft" align="right" valign="top"><a id="a08eee2572708cfd59ff35e1fa67eee14" name="a08eee2572708cfd59ff35e1fa67eee14"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~Provider</b> () noexcept</td></tr>
+<tr class="memdesc:a08eee2572708cfd59ff35e1fa67eee14"><td class="mdescLeft">&#160;</td><td class="mdescRight">destructor <br /></td></tr>
+<tr class="separator:a08eee2572708cfd59ff35e1fa67eee14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-static-methods" name="pro-static-methods"></a>
+Static Protected Member Functions</h2></td></tr>
+<tr class="memitem:a9f50765d920d79e9775483f9ec853d0f" id="r_a9f50765d920d79e9775483f9ec853d0f"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_provider.html#a9f50765d920d79e9775483f9ec853d0f">reportInvalidResolveDependencyCall</a> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, const <a class="el" href="structmfem__mgis_1_1_q_p_dependency.html">QPDependency</a> &amp;) noexcept</td></tr>
+<tr class="memdesc:a9f50765d920d79e9775483f9ec853d0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">method that can be called to report an invalid call to the resolveDependency method  <br /></td></tr>
+<tr class="separator:a9f50765d920d79e9775483f9ec853d0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>this class describe an object able to solve a dependency </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7db3eaa5bbf818831f4f6d5b45c622da" name="a7db3eaa5bbf818831f4f6d5b45c622da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7db3eaa5bbf818831f4f6d5b45c622da">&#9670;&#160;</a></span>analyseDependency()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool mfem_mgis::Provider::analyseDependency </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmgis_1_1_context.html">Context</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structmfem__mgis_1_1_dependencies_manager.html">DependenciesManager</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structmfem__mgis_1_1_q_p_dependency.html">QPDependency</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const TimeStepStage&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>analyse the given dependency. If a provider can resolve this dependency, it shall declare itself as the provider of the dependency. It can then declare additional dependencies. </p>
+<dl class="section note"><dt>Note</dt><dd>since the given dependency may not have concrete specifications, they must not be checked in this method. The implementation may check that the specifications of the dependencies are compatible with what the provider may provide using the <code><a class="el" href="structmfem__mgis_1_1_dependency_base.html#a7fd065c8e470c2a2e625f37b061c74d3" title="check that this dependency is consistent with the given specifications.">DependencyBase::matchesSpecifications</a></code> method, but this is automatically done by the <code><a class="el" href="structmfem__mgis_1_1_dependencies_manager.html#a095bf9d285a14d13aaeb7ff1a567e1b8" title="set the provider of the dependency at integration points for the given location with the given name">DependenciesManager::setProvider</a></code> method .</dd>
+<dd>
+The <code>reportInvalidResolveDependencyCall</code> can be called to report an error</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">ctx</td><td>execution context </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dm</td><td>dependencies manager </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">d</td><td>dependency </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ts</td><td>time step stage </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="structmfem__mgis_1_1_model_base.html#a0f8c21ac741afb6d50f0d42585c8e10d">mfem_mgis::ModelBase</a>.</p>
+
+</div>
+</div>
 <a id="a77a7c40a74eb055ff000bc5d555d6914" name="a77a7c40a74eb055ff000bc5d555d6914"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a77a7c40a74eb055ff000bc5d555d6914">&#9670;&#160;</a></span>getIdentifier()</h2>
 
@@ -169,6 +250,115 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a9f50765d920d79e9775483f9ec853d0f" name="a9f50765d920d79e9775483f9ec853d0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f50765d920d79e9775483f9ec853d0f">&#9670;&#160;</a></span>reportInvalidResolveDependencyCall()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool mfem_mgis::Provider::reportInvalidResolveDependencyCall </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmgis_1_1_context.html">Context</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structmfem__mgis_1_1_q_p_dependency.html">QPDependency</a> &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>method that can be called to report an invalid call to the resolveDependency method </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ctx</td><td>execution context </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">d</td><td>dependency </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad0af7b78e5ede504a420bdad0f259f49" name="ad0af7b78e5ede504a420bdad0f259f49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0af7b78e5ede504a420bdad0f259f49">&#9670;&#160;</a></span>resolveDependency()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool mfem_mgis::Provider::resolveDependency </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmgis_1_1_context.html">Context</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structmfem__mgis_1_1_q_p_evaluators_factory.html">QPEvaluatorsFactory</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structmfem__mgis_1_1_q_p_dependency.html">QPDependency</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const TimeStepStage&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>resolve the dependency </p>
+<dl class="section note"><dt>Note</dt><dd>since the given dependency must have been resolved by this provider, checking the specifications of the dependencies shall not be required. The implementations of <code>resolveDependencies</code> are free to call <code>Dependencies::checkSpecifications</code> for a somehow paranoid check.</dd>
+<dd>
+The <code>reportInvalidResolveDependencyCall</code> can be called to report an error</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ctx</td><td>execution context </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">f</td><td>evaluator factory </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">d</td><td>dependency </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ts</td><td>time step stage </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="structmfem__mgis_1_1_model_base.html#adb985bc9e9668376bcbf7ff8cfdbaaa4">mfem_mgis::ModelBase</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="_provider_8hxx.html">Provider.hxx</a></li>
 </ul>
@@ -178,7 +368,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemfem__mgis.html">mfem_mgis</a></li><li class="navelem"><a class="el" href="structmfem__mgis_1_1_provider.html">Provider</a></li>
-    <li class="footer">Generated on Fri Sep 18 2026 14:51:14 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Sep 18 2026 15:11:22 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

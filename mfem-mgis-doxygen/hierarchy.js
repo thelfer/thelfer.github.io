@@ -320,6 +320,7 @@ var hierarchy =
         ] ]
       ] ]
     ] ],
+    [ "mfem_mgis::AbstractQPEvaluatorGenerator", "structmfem__mgis_1_1_abstract_q_p_evaluator_generator.html", null ],
     [ "mfem_mgis::AbstractSimulationMonitor", "structmfem__mgis_1_1_abstract_simulation_monitor.html", null ],
     [ "mfmtg::AbstractTestCase", "structmfmtg_1_1_abstract_test_case.html", [
       [ "mfmtg::TestCaseBase", "structmfmtg_1_1_test_case_base.html", [
@@ -1618,6 +1619,11 @@ var hierarchy =
     [ "tfel::utilities::DataStructure", "structtfel_1_1utilities_1_1_data_structure.html", null ],
     [ "tfel::material::DDIF2Base", "structtfel_1_1material_1_1_d_d_i_f2_base.html", null ],
     [ "tfel::math::DefaultCoalescedAccessPolicy< MappedType, IndexingPolicyType >", "structtfel_1_1math_1_1_default_coalesced_access_policy.html", null ],
+    [ "mfem_mgis::DependenciesManager::DependenciesAnalysisOutput", "structmfem__mgis_1_1_dependencies_manager_1_1_dependencies_analysis_output.html", null ],
+    [ "mfem_mgis::DependenciesManager", "structmfem__mgis_1_1_dependencies_manager.html", null ],
+    [ "mfem_mgis::DependencyBase", "structmfem__mgis_1_1_dependency_base.html", [
+      [ "mfem_mgis::QPDependency", "structmfem__mgis_1_1_q_p_dependency.html", null ]
+    ] ],
     [ "tfel::math::DerivativeType< FunctionType, VariablesTypes >", "structtfel_1_1math_1_1_derivative_type.html", null ],
     [ "tfel::math::DerivativeType< FunctionType, VariableType >", "structtfel_1_1math_1_1_derivative_type_3_01_function_type_00_01_variable_type_01_4.html", null ],
     [ "tfel::math::DerivativeType< FunctionType, VariableType, OtherVariablesTypes... >", "structtfel_1_1math_1_1_derivative_type_3_01_function_type_00_01_variable_type_00_01_other_variables_types_8_8_8_01_4.html", null ],
@@ -2485,6 +2491,7 @@ var hierarchy =
     [ "mgis::internal::InvalidValueTraits< std::optional< T > >", "structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1optional_3_01_t_01_4_01_4.html", null ],
     [ "mgis::internal::InvalidValueTraits< std::shared_ptr< T > >", "structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1shared__ptr_3_01_t_01_4_01_4.html", null ],
     [ "mgis::internal::InvalidValueTraits< std::unique_ptr< T > >", "structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1unique__ptr_3_01_t_01_4_01_4.html", null ],
+    [ "mgis::internal::InvalidValueTraits<::mfem_mgis::LocationIdentifier >", "structmgis_1_1internal_1_1_invalid_value_traits_3_1_1mfem__mgis_1_1_location_identifier_01_4.html", null ],
     [ "tfel::material::internals::InverseLangevinFunction< InverseLangevinFunctionApproximations, NumericType >", "structtfel_1_1material_1_1internals_1_1_inverse_langevin_function.html", null ],
     [ "tfel::material::internals::InverseLangevinFunction< tfel::material::InverseLangevinFunctionApproximations::COHEN_1991, NumericType >", "structtfel_1_1material_1_1internals_1_1_inverse_langevin_function_3_01tfel_1_1material_1_1_inver5c835493bb048147cfe236570e10368d.html", null ],
     [ "tfel::material::internals::InverseLangevinFunction< tfel::material::InverseLangevinFunctionApproximations::JEDYNAK_2015, NumericType >", "structtfel_1_1material_1_1internals_1_1_inverse_langevin_function_3_01tfel_1_1material_1_1_inverd0d6d436096d57cd3fb601a692ced0d7.html", null ],
@@ -2666,6 +2673,8 @@ var hierarchy =
     [ "mfront::AbstractLinearSystemSolver::LinearSystemVariables", "structmfront_1_1_abstract_linear_system_solver_1_1_linear_system_variables.html", null ],
     [ "mgis::behaviour::LoadFromDatabaseOptions", "structmgis_1_1behaviour_1_1_load_from_database_options.html", null ],
     [ "mfront::LocalDataStructure", "structmfront_1_1_local_data_structure.html", null ],
+    [ "mfem_mgis::QPEvaluatorsFactory::LocalDependenciesAnalysisOutput", "structmfem__mgis_1_1_q_p_evaluators_factory_1_1_local_dependencies_analysis_output.html", null ],
+    [ "mfem_mgis::MeshDiscretization::LocationIdentifier", "structmfem__mgis_1_1_mesh_discretization_1_1_location_identifier.html", null ],
     [ "tfel::material::LogarithmicStrainHandler< N, StressType >", "structtfel_1_1material_1_1_logarithmic_strain_handler.html", null ],
     [ "tfel::material::LogarithmicStrainHandlerBase", "structtfel_1_1material_1_1_logarithmic_strain_handler_base.html", [
       [ "tfel::material::LogarithmicStrainHandler< 1u, StressType >", "structtfel_1_1material_1_1_logarithmic_strain_handler_3_011u_00_01_stress_type_01_4.html", null ],
@@ -3064,6 +3073,9 @@ var hierarchy =
       ] ]
     ] ],
     [ "mfem_mgis::PartialQuadratureSpace", "structmfem__mgis_1_1_partial_quadrature_space.html", null ],
+    [ "mfem_mgis::PartialQuadratureSpaceIdentifiersManager", "structmfem__mgis_1_1_partial_quadrature_space_identifiers_manager.html", [
+      [ "mfem_mgis::StateManager", "structmfem__mgis_1_1_state_manager.html", null ]
+    ] ],
     [ "mfront::PathSpecifier", "structmfront_1_1_path_specifier.html", null ],
     [ "tfel::material::homogenization::elasticity::Phase< N, StressType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_phase.html", [
       [ "tfel::material::homogenization::elasticity::InclusionDistribution< 3u, StressType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_inclusion_distribution.html", [
@@ -3239,6 +3251,8 @@ var hierarchy =
     [ "tfel::math::DifferenceRandomAccessIterator< iterator_base >::proxy", "structtfel_1_1math_1_1_difference_random_access_iterator_1_1proxy.html", null ],
     [ "tfel::math::StridedRandomAccessIterator< iterator_base >::proxy", "structtfel_1_1math_1_1_strided_random_access_iterator_1_1proxy.html", null ],
     [ "mfem_mgis::QPEvaluationOptions", "structmfem__mgis_1_1_q_p_evaluation_options.html", null ],
+    [ "mfem_mgis::QPEvaluatorDescription", "structmfem__mgis_1_1_q_p_evaluator_description.html", null ],
+    [ "mfem_mgis::QPEvaluatorsFactory", "structmfem__mgis_1_1_q_p_evaluators_factory.html", null ],
     [ "tfel::math::QRDecomp", "structtfel_1_1math_1_1_q_r_decomp.html", null ],
     [ "mgis::function::internals::QuadraturePointIndexTypeSelector< true, Space >", "structmgis_1_1function_1_1internals_1_1_quadrature_point_index_type_selector_3_01true_00_01_space_01_4.html", null ],
     [ "mgis::function::internals::quantity_modifier< UnitType >", "structmgis_1_1function_1_1internals_1_1quantity__modifier.html", null ],
@@ -3265,6 +3279,7 @@ var hierarchy =
       ] ]
     ] ],
     [ "mfront::MFrontDatabase::Query", "structmfront_1_1_m_front_database_1_1_query.html", null ],
+    [ "mfem_mgis::MeshDiscretization::RawLocationIdentifier< Location >", "structmfem__mgis_1_1_mesh_discretization_1_1_raw_location_identifier.html", null ],
     [ "tfel::typetraits::RealPartType< T >", "structtfel_1_1typetraits_1_1_real_part_type.html", null ],
     [ "tfel::typetraits::RealPartType< const QuantityType >", "structtfel_1_1typetraits_1_1_real_part_type_3_01const_01_quantity_type_01_4.html", null ],
     [ "tfel::typetraits::RealPartType< QuantityType >", "structtfel_1_1typetraits_1_1_real_part_type_3_01_quantity_type_01_4.html", null ],

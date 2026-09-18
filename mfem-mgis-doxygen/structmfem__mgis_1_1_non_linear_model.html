@@ -146,9 +146,6 @@ const <a class="el" href="structmfem__mgis_1_1_non_linear_evolution_problem.html
 <tr class="separator:ae7ad82b88be835d85b0b14599116e3a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72e4d3b2c229caba745627a799d0c0d8" id="r_a72e4d3b2c229caba745627a799d0c0d8"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_non_linear_model.html#a72e4d3b2c229caba745627a799d0c0d8">getName</a> () const noexcept override</td></tr>
 <tr class="separator:a72e4d3b2c229caba745627a799d0c0d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49f9755c89af2603782ac0e07e6d16e9" id="r_a49f9755c89af2603782ac0e07e6d16e9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_non_linear_model.html#a49f9755c89af2603782ac0e07e6d16e9">executeInitialPostProcessingTasks</a> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, const <a class="el" href="namespacemfem__mgis.html#aee59940f912d12c96b219f5a92ddaf3c">real</a>) noexcept override</td></tr>
-<tr class="memdesc:a49f9755c89af2603782ac0e07e6d16e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">execute post-processings at the beginning of the simulation. For instance, this method may display the initial values of the state variables.  <br /></td></tr>
-<tr class="separator:a49f9755c89af2603782ac0e07e6d16e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a383461573dc0f880ca1968084e51bcfc" id="r_a383461573dc0f880ca1968084e51bcfc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_non_linear_model.html#a383461573dc0f880ca1968084e51bcfc">performInitializationTaksAtTheBeginningOfTheTimeStep</a> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, const <a class="el" href="structmfem__mgis_1_1_time_step.html">TimeStep</a> &amp;) noexcept override</td></tr>
 <tr class="memdesc:a383461573dc0f880ca1968084e51bcfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">perform initalize tasks before the allocation of the resources (indeed this method shall declare all the required resources (formulations, temporary fields) required to perform the computations).  <br /></td></tr>
 <tr class="separator:a383461573dc0f880ca1968084e51bcfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -202,6 +199,15 @@ const <a class="el" href="structmfem__mgis_1_1_non_linear_evolution_problem.html
 <tr class="memitem:a1ee5a12c48c1837b2540e6fdf821f086 inherit pub_methods_structmfem__mgis_1_1_model_base" id="r_a1ee5a12c48c1837b2540e6fdf821f086"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_model_base.html#a1ee5a12c48c1837b2540e6fdf821f086">addPostProcessing</a> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, std::string_view, const <a class="el" href="structmfem__mgis_1_1_parameters.html">Parameters</a> &amp;) noexcept override</td></tr>
 <tr class="memdesc:a1ee5a12c48c1837b2540e6fdf821f086 inherit pub_methods_structmfem__mgis_1_1_model_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">add a new post-processing  <br /></td></tr>
 <tr class="separator:a1ee5a12c48c1837b2540e6fdf821f086 inherit pub_methods_structmfem__mgis_1_1_model_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f8c21ac741afb6d50f0d42585c8e10d inherit pub_methods_structmfem__mgis_1_1_model_base" id="r_a0f8c21ac741afb6d50f0d42585c8e10d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_model_base.html#a0f8c21ac741afb6d50f0d42585c8e10d">analyseDependency</a> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, <a class="el" href="structmfem__mgis_1_1_dependencies_manager.html">DependenciesManager</a> &amp;, const <a class="el" href="structmfem__mgis_1_1_q_p_dependency.html">QPDependency</a> &amp;, const TimeStepStage) const noexcept override</td></tr>
+<tr class="memdesc:a0f8c21ac741afb6d50f0d42585c8e10d inherit pub_methods_structmfem__mgis_1_1_model_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">analyse the given dependency. If a provider can resolve this dependency, it shall declare itself as the provider of the dependency. It can then declare additional dependencies.  <br /></td></tr>
+<tr class="separator:a0f8c21ac741afb6d50f0d42585c8e10d inherit pub_methods_structmfem__mgis_1_1_model_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb985bc9e9668376bcbf7ff8cfdbaaa4 inherit pub_methods_structmfem__mgis_1_1_model_base" id="r_adb985bc9e9668376bcbf7ff8cfdbaaa4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_model_base.html#adb985bc9e9668376bcbf7ff8cfdbaaa4">resolveDependency</a> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, <a class="el" href="structmfem__mgis_1_1_q_p_evaluators_factory.html">QPEvaluatorsFactory</a> &amp;, const <a class="el" href="structmfem__mgis_1_1_q_p_dependency.html">QPDependency</a> &amp;, const TimeStepStage) const noexcept override</td></tr>
+<tr class="memdesc:adb985bc9e9668376bcbf7ff8cfdbaaa4 inherit pub_methods_structmfem__mgis_1_1_model_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">resolve the dependency  <br /></td></tr>
+<tr class="separator:adb985bc9e9668376bcbf7ff8cfdbaaa4 inherit pub_methods_structmfem__mgis_1_1_model_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99a6a462b4bb13856e1cddf33ca1d12d inherit pub_methods_structmfem__mgis_1_1_model_base" id="r_a99a6a462b4bb13856e1cddf33ca1d12d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_model_base.html#a99a6a462b4bb13856e1cddf33ca1d12d">executeInitialPostProcessingTasks</a> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, const <a class="el" href="namespacemfem__mgis.html#aee59940f912d12c96b219f5a92ddaf3c">real</a>) noexcept override</td></tr>
+<tr class="memdesc:a99a6a462b4bb13856e1cddf33ca1d12d inherit pub_methods_structmfem__mgis_1_1_model_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">execute post-processings at the beginning of the simulation. For instance, this method may display the initial values of the state variables.  <br /></td></tr>
+<tr class="separator:a99a6a462b4bb13856e1cddf33ca1d12d inherit pub_methods_structmfem__mgis_1_1_model_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55919e3bed25d2b7094cf60a468f999e inherit pub_methods_structmfem__mgis_1_1_model_base" id="r_a55919e3bed25d2b7094cf60a468f999e"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="namespacemfem__mgis.html#aee59940f912d12c96b219f5a92ddaf3c">real</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_model_base.html#a55919e3bed25d2b7094cf60a468f999e">getNextTimeIncrement</a> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, const <a class="el" href="namespacemfem__mgis.html#aee59940f912d12c96b219f5a92ddaf3c">real</a>, const <a class="el" href="namespacemfem__mgis.html#aee59940f912d12c96b219f5a92ddaf3c">real</a>) const noexcept override</td></tr>
 <tr class="memdesc:a55919e3bed25d2b7094cf60a468f999e inherit pub_methods_structmfem__mgis_1_1_model_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is called at the beginning of a time step to determine a suitable time increment.  <br /></td></tr>
 <tr class="separator:a55919e3bed25d2b7094cf60a468f999e inherit pub_methods_structmfem__mgis_1_1_model_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -219,6 +225,11 @@ const <a class="el" href="structmfem__mgis_1_1_non_linear_evolution_problem.html
 virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~AbstractCouplingItem</b> ()</td></tr>
 <tr class="memdesc:a104ead6f80f2998031d7e4f5b548649a inherit pub_methods_structmfem__mgis_1_1_abstract_coupling_item"><td class="mdescLeft">&#160;</td><td class="mdescRight">destructor <br /></td></tr>
 <tr class="separator:a104ead6f80f2998031d7e4f5b548649a inherit pub_methods_structmfem__mgis_1_1_abstract_coupling_item"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_structmfem__mgis_1_1_provider"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_structmfem__mgis_1_1_provider')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="structmfem__mgis_1_1_provider.html">mfem_mgis::Provider</a></td></tr>
+<tr class="memitem:a08eee2572708cfd59ff35e1fa67eee14 inherit pub_methods_structmfem__mgis_1_1_provider" id="r_a08eee2572708cfd59ff35e1fa67eee14"><td class="memItemLeft" align="right" valign="top">
+virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~Provider</b> () noexcept</td></tr>
+<tr class="memdesc:a08eee2572708cfd59ff35e1fa67eee14 inherit pub_methods_structmfem__mgis_1_1_provider"><td class="mdescLeft">&#160;</td><td class="mdescRight">destructor <br /></td></tr>
+<tr class="separator:a08eee2572708cfd59ff35e1fa67eee14 inherit pub_methods_structmfem__mgis_1_1_provider"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -255,6 +266,10 @@ virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getDep
 virtual <a class="el" href="spack_2opt_2spack_2linux-zen2_2tfel-master-me6xjku4m4xxjr3awglstcdnsqufet5w_2include_2_cyrano_2_behaviour_8hxx.html#a04a02917f85c2196f18aa1b3c89504bd">void</a>&#160;</td><td class="memItemRight" valign="bottom"><b>addPostProcessing</b> (std::function&lt; bool(<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, bool)&gt;) noexcept</td></tr>
 <tr class="memdesc:a1542e40d4c16df98a5e711e4e3ab5ba2 inherit pro_methods_structmfem__mgis_1_1_model_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">add a post-processing (see executePostProceccing for details) <br /></td></tr>
 <tr class="separator:a1542e40d4c16df98a5e711e4e3ab5ba2 inherit pro_methods_structmfem__mgis_1_1_model_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_static_methods_structmfem__mgis_1_1_provider"><td colspan="2" onclick="javascript:toggleInherit('pro_static_methods_structmfem__mgis_1_1_provider')"><img src="closed.png" alt="-"/>&#160;Static Protected Member Functions inherited from <a class="el" href="structmfem__mgis_1_1_provider.html">mfem_mgis::Provider</a></td></tr>
+<tr class="memitem:a9f50765d920d79e9775483f9ec853d0f inherit pro_static_methods_structmfem__mgis_1_1_provider" id="r_a9f50765d920d79e9775483f9ec853d0f"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_provider.html#a9f50765d920d79e9775483f9ec853d0f">reportInvalidResolveDependencyCall</a> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, const <a class="el" href="structmfem__mgis_1_1_q_p_dependency.html">QPDependency</a> &amp;) noexcept</td></tr>
+<tr class="memdesc:a9f50765d920d79e9775483f9ec853d0f inherit pro_static_methods_structmfem__mgis_1_1_provider"><td class="mdescLeft">&#160;</td><td class="mdescRight">method that can be called to report an invalid call to the resolveDependency method  <br /></td></tr>
+<tr class="separator:a9f50765d920d79e9775483f9ec853d0f inherit pro_static_methods_structmfem__mgis_1_1_provider"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_structmfem__mgis_1_1_model_base"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_structmfem__mgis_1_1_model_base')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="structmfem__mgis_1_1_model_base.html">mfem_mgis::ModelBase</a></td></tr>
 <tr class="memitem:ac6632afdc66fcfa4a32e29b350e4d24a inherit pro_attribs_structmfem__mgis_1_1_model_base" id="r_ac6632afdc66fcfa4a32e29b350e4d24a"><td class="memItemLeft" align="right" valign="top">
 std::optional&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>name</b></td></tr>
@@ -328,54 +343,6 @@ std::optional&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bo
 <dl class="section note"><dt>Note</dt><dd>if required, the time step can be retrieved from the clock hold by the physical system </dd></dl>
 
 <p>Reimplemented from <a class="el" href="structmfem__mgis_1_1_model_base.html#a969ff91b4ee7020999ffb0b5c9367d84">mfem_mgis::ModelBase</a>.</p>
-
-</div>
-</div>
-<a id="a49f9755c89af2603782ac0e07e6d16e9" name="a49f9755c89af2603782ac0e07e6d16e9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49f9755c89af2603782ac0e07e6d16e9">&#9670;&#160;</a></span>executeInitialPostProcessingTasks()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool mfem_mgis::NonLinearModel::executeInitialPostProcessingTasks </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structmgis_1_1_context.html">Context</a> &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="namespacemfem__mgis.html#aee59940f912d12c96b219f5a92ddaf3c">real</a>&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>execute post-processings at the beginning of the simulation. For instance, this method may display the initial values of the state variables. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">ctx</td><td>execution context </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>initial time</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>if required, the time at the beginning of the time step can be retrieved from the clock hold by the physical system </dd></dl>
-
-<p>Reimplemented from <a class="el" href="structmfem__mgis_1_1_model_base.html#a99a6a462b4bb13856e1cddf33ca1d12d">mfem_mgis::ModelBase</a>.</p>
 
 </div>
 </div>
@@ -605,7 +572,7 @@ IPEvaluatorsFactory &amp;) noexcept = 0; /*!</dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemfem__mgis.html">mfem_mgis</a></li><li class="navelem"><a class="el" href="structmfem__mgis_1_1_non_linear_model.html">NonLinearModel</a></li>
-    <li class="footer">Generated on Fri Sep 18 2026 14:51:14 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Sep 18 2026 15:11:22 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

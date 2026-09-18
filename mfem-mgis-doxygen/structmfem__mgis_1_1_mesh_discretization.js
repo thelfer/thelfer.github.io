@@ -1,6 +1,10 @@
 var structmfem__mgis_1_1_mesh_discretization =
 [
     [ "AttributesList", "structmfem__mgis_1_1_mesh_discretization_1_1_attributes_list.html", "structmfem__mgis_1_1_mesh_discretization_1_1_attributes_list" ],
+    [ "LocationIdentifier", "structmfem__mgis_1_1_mesh_discretization_1_1_location_identifier.html", "structmfem__mgis_1_1_mesh_discretization_1_1_location_identifier" ],
+    [ "RawLocationIdentifier", "structmfem__mgis_1_1_mesh_discretization_1_1_raw_location_identifier.html", "structmfem__mgis_1_1_mesh_discretization_1_1_raw_location_identifier" ],
+    [ "BoundaryIdentifier", "structmfem__mgis_1_1_mesh_discretization.html#ab47239aa6caeba5bab42f4da8020aca1", null ],
+    [ "MaterialIdentifier", "structmfem__mgis_1_1_mesh_discretization.html#a8926ba9e7d85c3bf4106b03e3aa443b9", null ],
     [ "Location", "structmfem__mgis_1_1_mesh_discretization.html#a6507520a10b924705f062fbad6fddf61", [
       [ "ON_MATERIALS", "structmfem__mgis_1_1_mesh_discretization.html#a6507520a10b924705f062fbad6fddf61ab31be47e33d661752affb8c59cabae70", null ],
       [ "ON_BOUNDARIES", "structmfem__mgis_1_1_mesh_discretization.html#a6507520a10b924705f062fbad6fddf61aa9aaec1af1360149af62ee15fdaced07", null ]
@@ -16,6 +20,8 @@ var structmfem__mgis_1_1_mesh_discretization =
     [ "getBoundariesNames", "structmfem__mgis_1_1_mesh_discretization.html#aaf30d55f463077e87d18845380358beb", null ],
     [ "getBoundaryIdentifier", "structmfem__mgis_1_1_mesh_discretization.html#a0718d73c581d35361215063adb52b6c3", null ],
     [ "getBoundaryName", "structmfem__mgis_1_1_mesh_discretization.html#ae0dbeaaef7bfc5f4f4b588be44ea9f09", null ],
+    [ "getLocationIdentifier", "structmfem__mgis_1_1_mesh_discretization.html#a087d384552971eacaf4efe90532542e5", null ],
+    [ "getLocationName", "structmfem__mgis_1_1_mesh_discretization.html#acef09f6617625a135a38fa1155d9e00b", null ],
     [ "getMaterialIdentifier", "structmfem__mgis_1_1_mesh_discretization.html#aea9fc430c35eb46a8d0ac68950ca7f49", null ],
     [ "getMaterialName", "structmfem__mgis_1_1_mesh_discretization.html#adc0aa23b035feda4f3ec98cf0d7cfd58", null ],
     [ "getMaterialsIdentifiers", "structmfem__mgis_1_1_mesh_discretization.html#ad6a56beb2abc707ab43b02f7e24988c1", null ],
@@ -34,10 +40,12 @@ var structmfem__mgis_1_1_mesh_discretization =
     [ "getMutableSequentialMeshPointer", "structmfem__mgis_1_1_mesh_discretization.html#a8b4cd78e8943ac2874c623c7f2c10ceb", null ],
     [ "getMutableSubMeshPointer", "structmfem__mgis_1_1_mesh_discretization.html#a60ccd122d90feabd59c694b93f941dfd", null ],
     [ "getMutableSubMeshReference", "structmfem__mgis_1_1_mesh_discretization.html#a1fb3106785f09dae1d2cec360c966e15", null ],
+    [ "getParallelLocationIdentifier", "structmfem__mgis_1_1_mesh_discretization.html#a865bb02835e66a50234d08c2b78ba1ee", null ],
     [ "getParallelMeshPointer", "structmfem__mgis_1_1_mesh_discretization.html#a6cc42650bbc5d4fbb7ae18a96aaab0d3", null ],
     [ "getParallelMeshPointer", "structmfem__mgis_1_1_mesh_discretization.html#a87c40126ab6fddaa00c934a1d5182783", null ],
     [ "getParallelMutableSubMeshPointer", "structmfem__mgis_1_1_mesh_discretization.html#ae3e3361fbf7b294f3ebf47f3dfb07efa", null ],
     [ "getParallelSubMeshPointer", "structmfem__mgis_1_1_mesh_discretization.html#a7a2a001ea593369e1b99cb6fd97697d4", null ],
+    [ "getSequentialLocationIdentifier", "structmfem__mgis_1_1_mesh_discretization.html#a0eb0a685f2da3aaf9bd752426230e059", null ],
     [ "getSequentialMeshPointer", "structmfem__mgis_1_1_mesh_discretization.html#af70d4e458e7abd03ede09750eaec1fea", null ],
     [ "getSequentialMeshPointer", "structmfem__mgis_1_1_mesh_discretization.html#afb9a0e197d20930e7cec2a45d87bc7db", null ],
     [ "getSequentialMutableSubMeshPointer", "structmfem__mgis_1_1_mesh_discretization.html#a9489062f27e2024fb61040c8063c46f3", null ],
@@ -54,5 +62,6 @@ var structmfem__mgis_1_1_mesh_discretization =
     [ "manages", "structmfem__mgis_1_1_mesh_discretization.html#a5b3122d48fa8a626f171555ab893814e", null ],
     [ "setBoundariesNames", "structmfem__mgis_1_1_mesh_discretization.html#a0b6f3ddd73d22a596938855f3d0a36ff", null ],
     [ "setMaterialsNames", "structmfem__mgis_1_1_mesh_discretization.html#ae362027451421b49e837177acd0022a0", null ],
+    [ "operator==", "structmfem__mgis_1_1_mesh_discretization.html#a67d3b39ee064d7855914a0c970ddfe25", null ],
     [ "pimpl", "structmfem__mgis_1_1_mesh_discretization.html#a4f409d6e86d5a05b8d4511439eb689a8", null ]
 ];

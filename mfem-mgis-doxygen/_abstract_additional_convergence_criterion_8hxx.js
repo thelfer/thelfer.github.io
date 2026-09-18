@@ -1,5 +1,0 @@
-var _abstract_additional_convergence_criterion_8hxx =
-[
-    [ "mfem_mgis::nonlinear_solver::AbstractAdditionalConvergenceCriterion", "structmfem__mgis_1_1nonlinear__solver_1_1_abstract_additional_convergence_criterion.html", "structmfem__mgis_1_1nonlinear__solver_1_1_abstract_additional_convergence_criterion" ],
-    [ "mfem_mgis::nonlinear_solver::AbstractAdditionalConvergenceCriterion::CheckArguments", "structmfem__mgis_1_1nonlinear__solver_1_1_abstract_additional_convergence_criterion_1_1_check_arguments.html", "structmfem__mgis_1_1nonlinear__solver_1_1_abstract_additional_convergence_criterion_1_1_check_arguments" ]
-];

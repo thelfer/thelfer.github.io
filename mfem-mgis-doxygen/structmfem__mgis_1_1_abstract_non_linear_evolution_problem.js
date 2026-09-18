@@ -39,7 +39,6 @@ var structmfem__mgis_1_1_abstract_non_linear_evolution_problem =
     [ "getMaterialsIdentifiers", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#ad55e924cb46e303bf8baa2de46bbc859", null ],
     [ "getNumberOfBehaviourIntegrators", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#ada60e3f69d6caa682bf93a5ba3f3a36c", null ],
     [ "getPredictionPolicy", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#a1ce706fe02408d74f4c76b9719d9af5e", null ],
-    [ "getSolver", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#a6e7ff53edde3bd16673670e582be62e4", null ],
     [ "getUnknowns", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#a022f1823654ca0f3faecf8f7c7d62419", null ],
     [ "getUnknowns", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#aa6ce8dae068f10b1decdece0afccd2ee", null ],
     [ "getUnknownsAtBeginningOfTheTimeStep", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#aedc66ecf85eb77adbfd349fb52a70509", null ],

@@ -1,5 +1,6 @@
 var NAVTREEINDEX44 =
 {
+"structmfront_1_1bbrick_1_1_power_isotropic_hardening_rule.html#aa29146f1d355cf336950de0de482f7f3":[5,0,11,0,40,5],
 "structmfront_1_1bbrick_1_1_power_isotropic_hardening_rule.html#ac04211e1c50aa27586560694a5430597":[5,0,11,0,40,9],
 "structmfront_1_1bbrick_1_1_power_isotropic_hardening_rule.html#ac0711ad5097fd2fb5caef13bb2361f40":[5,0,11,0,40,7],
 "structmfront_1_1bbrick_1_1_power_isotropic_hardening_rule.html#acb6f2d9112ce4e7319c0ae381ae4665b":[5,0,11,0,40,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX44 =
 "structmfront_1_1generic__parallel_1_1material__property_1_1_abstract_backend.html#a8b1a074ec1cda49a28b4067d37348962":[5,0,11,2,0,0,4],
 "structmfront_1_1generic__parallel_1_1material__property_1_1_abstract_backend.html#aa8e792f99602aa1fad331347335c4aaa":[5,0,11,2,0,0,3],
 "structmfront_1_1generic__parallel_1_1material__property_1_1_abstract_backend.html#ab8dc86ad34c5ecf9e647dc4d269565ba":[5,0,11,2,0,0,10],
-"structmfront_1_1generic__parallel_1_1material__property_1_1_abstract_backend.html#af8f9ec3b9fddf350987b7e1b40e11de0":[5,0,11,2,0,0,8],
-"structmfront_1_1generic__parallel_1_1material__property_1_1_backend_base.html":[5,0,11,2,0,1]
+"structmfront_1_1generic__parallel_1_1material__property_1_1_abstract_backend.html#af8f9ec3b9fddf350987b7e1b40e11de0":[5,0,11,2,0,0,8]
 };

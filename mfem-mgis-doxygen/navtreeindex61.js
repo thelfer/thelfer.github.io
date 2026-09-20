@@ -1,5 +1,6 @@
 var NAVTREEINDEX61 =
 {
+"structtfel_1_1math_1_1_math_exception.html":[5,0,16,5,358],
 "structtfel_1_1math_1_1_math_object_traits.html":[5,0,16,5,359],
 "structtfel_1_1math_1_1_math_object_traits_3_01_coalesced_view_base_3_01_mapped_type_00_01_indexib78fa0da091a39be697a9af0d8910c48.html":[5,0,16,5,360],
 "structtfel_1_1math_1_1_math_object_traits_3_01_expr_3_01_result_type_00_01_operation_01_4_01_4.html":[5,0,16,5,361],
@@ -248,6 +249,5 @@ var NAVTREEINDEX61 =
 "structtfel_1_1math_1_1_stensor_product_right_derivative_expr.html":[5,0,16,5,545],
 "structtfel_1_1math_1_1_stensor_s_t2to_s_t2_product_expr.html":[5,0,16,5,548],
 "structtfel_1_1math_1_1_stensor_size_to_dime.html":[5,0,16,5,546],
-"structtfel_1_1math_1_1_stensor_square_derivative_expr.html":[5,0,16,5,547],
-"structtfel_1_1math_1_1_stensor_symmetric_product_derivative.html":[5,0,16,5,549]
+"structtfel_1_1math_1_1_stensor_square_derivative_expr.html":[5,0,16,5,547]
 };

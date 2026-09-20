@@ -1,5 +1,6 @@
 var NAVTREEINDEX43 =
 {
+"structmfront_1_1bbrick_1_1_hyperbolic_sine_viscoplastic_flow.html#a7fe21e0938447ec525787a74cb85163e":[5,0,11,0,20,5],
 "structmfront_1_1bbrick_1_1_hyperbolic_sine_viscoplastic_flow.html#a8b50580a88ded843b006348b6f5904c9":[5,0,11,0,20,3],
 "structmfront_1_1bbrick_1_1_hyperbolic_sine_viscoplastic_flow.html#a9b930ba5c9fb003b9262674fddedca1f":[5,0,11,0,20,10],
 "structmfront_1_1bbrick_1_1_hyperbolic_sine_viscoplastic_flow.html#aa59f6a77297692b2d161c275c8c32845":[5,0,11,0,20,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX43 =
 "structmfront_1_1bbrick_1_1_power_isotropic_hardening_rule.html":[5,0,11,0,40],
 "structmfront_1_1bbrick_1_1_power_isotropic_hardening_rule.html#a0b588c0356507274c9c7343c447e4fd2":[5,0,11,0,40,3],
 "structmfront_1_1bbrick_1_1_power_isotropic_hardening_rule.html#a4e5e594125ec98babdb7c6847c9ed95f":[5,0,11,0,40,8],
-"structmfront_1_1bbrick_1_1_power_isotropic_hardening_rule.html#a9549c61349b54475196e966d011baa25":[5,0,11,0,40,1],
-"structmfront_1_1bbrick_1_1_power_isotropic_hardening_rule.html#aa29146f1d355cf336950de0de482f7f3":[5,0,11,0,40,5]
+"structmfront_1_1bbrick_1_1_power_isotropic_hardening_rule.html#a9549c61349b54475196e966d011baa25":[5,0,11,0,40,1]
 };

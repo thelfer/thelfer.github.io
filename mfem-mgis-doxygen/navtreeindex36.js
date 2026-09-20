@@ -1,5 +1,6 @@
 var NAVTREEINDEX36 =
 {
+"structmfront_1_1_behaviour_description.html#abbe38ad38f8850234fa34cd3278d1ae7":[5,0,11,17,169],
 "structmfront_1_1_behaviour_description.html#abbe80324283b71bc68b5d51fb46408ea":[5,0,11,17,251],
 "structmfront_1_1_behaviour_description.html#abe55585bf95ef5ed5203c2369d90651c":[5,0,11,17,14],
 "structmfront_1_1_behaviour_description.html#abecf3f4ccf5c97885215e4a9990182c6":[5,0,11,17,88],
@@ -248,6 +249,5 @@ var NAVTREEINDEX36 =
 "structmfront_1_1_d_s_l_base.html#a4c6d3577ae661ba1196b015e38d24577":[5,0,11,46,16],
 "structmfront_1_1_d_s_l_base.html#a4efe5d0cdd190e605d220fa7579510ff":[5,0,11,46,24],
 "structmfront_1_1_d_s_l_base.html#a503a0b0ad40c40a58d56e485d830a334":[5,0,11,46,48],
-"structmfront_1_1_d_s_l_base.html#a52a124bf6bd5d63bb66855260fbf0546":[5,0,11,46,60],
-"structmfront_1_1_d_s_l_base.html#a531ce811b4b2d87c79aef73ddc6ed645":[5,0,11,46,33]
+"structmfront_1_1_d_s_l_base.html#a52a124bf6bd5d63bb66855260fbf0546":[5,0,11,46,60]
 };

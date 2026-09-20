@@ -1,5 +1,6 @@
 var NAVTREEINDEX48 =
 {
+"structmgis_1_1function_1_1internals_1_1_binary_operation_modifier_base.html":[5,0,12,2,1,3],
 "structmgis_1_1function_1_1internals_1_1_binary_operator_currying.html":[5,0,12,2,1,4],
 "structmgis_1_1function_1_1internals_1_1_binary_operator_currying.html#a7a6a00e0a75b2f6218cb3b4f0063bda5":[5,0,12,2,1,4,0],
 "structmgis_1_1function_1_1internals_1_1_binary_operator_currying2.html":[5,0,12,2,1,5],
@@ -248,6 +249,5 @@ var NAVTREEINDEX48 =
 "structmtest_1_1_ansys_finite_strain_behaviour.html#a69206ec0fffdd10c6a5aa8f65dbbf337":[5,0,13,6,1],
 "structmtest_1_1_ansys_finite_strain_behaviour.html#a6e1006c1cbb18dae51fd04bec29d2706":[5,0,13,6,2],
 "structmtest_1_1_ansys_normalise_tangent_operator.html":[5,0,13,7],
-"structmtest_1_1_ansys_small_strain_behaviour.html":[5,0,13,8],
-"structmtest_1_1_ansys_small_strain_behaviour.html#a499d096c8c91a2f3a873bac5c370b7d9":[5,0,13,8,0]
+"structmtest_1_1_ansys_small_strain_behaviour.html":[5,0,13,8]
 };

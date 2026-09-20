@@ -1,5 +1,7 @@
 var NAVTREEINDEX9 =
 {
+"_t_f_e_l_2_material_2_michel_and_suquet1992_hollow_sphere_stress_criterion_8hxx.html#a8318b272260707520b4f00b74180ac75":[6,0,1,0,0,0,1,0,6,4,64,12],
+"_t_f_e_l_2_material_2_michel_and_suquet1992_hollow_sphere_stress_criterion_8hxx.html#a99f0531e6020b3a59871084b92dc2958":[6,0,1,0,0,0,1,0,6,4,64,1],
 "_t_f_e_l_2_material_2_michel_and_suquet1992_hollow_sphere_stress_criterion_8hxx.html#a9f97cc2a7581bd29f7c4553a4f22ffd1":[6,0,1,0,0,0,1,0,6,4,64,2],
 "_t_f_e_l_2_material_2_michel_and_suquet1992_hollow_sphere_stress_criterion_8hxx.html#aaa59c0f6b36a1dcff42d49f7e8a9ab42":[6,0,1,0,0,0,1,0,6,4,64,9],
 "_t_f_e_l_2_material_2_michel_and_suquet1992_hollow_sphere_stress_criterion_8hxx.html#ad9e9bea9dd58988f899a7fa7b80e2486":[6,0,1,0,0,0,1,0,6,4,64,4],
@@ -247,7 +249,5 @@ var NAVTREEINDEX9 =
 "_views_array_8hxx.html#abc565bd93d818874a327dc9140022539":[6,0,1,0,0,0,1,0,6,5,1,34,9],
 "_views_array_8hxx.html#afe1e469d35bbeb45d57faa77680c8a4e":[6,0,1,0,0,0,1,0,6,5,1,34,8],
 "_views_array_i_o_8hxx.html":[6,0,1,0,0,0,1,0,6,5,1,35],
-"_viscoplastic_flow_base_8hxx.html":[6,0,1,0,0,0,1,0,3,3,61],
-"_voce_isotropic_hardening_rule_8hxx.html":[6,0,1,0,0,0,1,0,3,3,62],
-"_walpole_basis_8hxx.html":[6,0,1,0,0,0,1,0,6,5,16,22]
+"_viscoplastic_flow_base_8hxx.html":[6,0,1,0,0,0,1,0,3,3,61]
 };

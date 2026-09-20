@@ -351,6 +351,7 @@ var hierarchy =
     ] ],
     [ "mtest::AccelerationAlgorithmFactory", "structmtest_1_1_acceleration_algorithm_factory.html", null ],
     [ "tfel::fsalgo::accumulate< N >", "structtfel_1_1fsalgo_1_1accumulate.html", null ],
+    [ "mfem_mgis::ParametersValidator::AddArguments", "structmfem__mgis_1_1_parameters_validator_1_1_add_arguments.html", null ],
     [ "tfel::math::unit::internals::AddUnit< UnitType1, UnitType2 >", "structtfel_1_1math_1_1unit_1_1internals_1_1_add_unit.html", null ],
     [ "tfel::math::AitkenAccelerationAlgorithm< NumericType, IndexType >", "structtfel_1_1math_1_1_aitken_acceleration_algorithm.html", null ],
     [ "mfront::MFrontDatabase::AnalyseDirectoryOptions", "structmfront_1_1_m_front_database_1_1_analyse_directory_options.html", null ],
@@ -3057,6 +3058,7 @@ var hierarchy =
       [ "tfel::math::Quantity< UnitType, ValueType, OwnershipPolicy >", "structtfel_1_1math_1_1_quantity.html", null ]
     ] ],
     [ "mtest::PipeTest::OxidationModel", "structmtest_1_1_pipe_test_1_1_oxidation_model.html", null ],
+    [ "mfem_mgis::ParametersValidator", "structmfem__mgis_1_1_parameters_validator.html", null ],
     [ "ParameterVariant", null, [
       [ "mfem_mgis::Parameter", "structmfem__mgis_1_1_parameter.html", null ]
     ] ],

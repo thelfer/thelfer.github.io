@@ -122,6 +122,7 @@ var namespacemfem__mgis =
     [ "OrthotropicTridimensionalStationaryNonLinearHeatTransferBehaviourIntegrator", "structmfem__mgis_1_1_orthotropic_tridimensional_stationary_non_linear_heat_transfer_behaviour_integrator.html", "structmfem__mgis_1_1_orthotropic_tridimensional_stationary_non_linear_heat_transfer_behaviour_integrator" ],
     [ "Parameter", "structmfem__mgis_1_1_parameter.html", "structmfem__mgis_1_1_parameter" ],
     [ "Parameters", "structmfem__mgis_1_1_parameters.html", "structmfem__mgis_1_1_parameters" ],
+    [ "ParametersValidator", "structmfem__mgis_1_1_parameters_validator.html", "structmfem__mgis_1_1_parameters_validator" ],
     [ "ParaviewExportIntegrationPointResultsAtNodes", "structmfem__mgis_1_1_paraview_export_integration_point_results_at_nodes.html", "structmfem__mgis_1_1_paraview_export_integration_point_results_at_nodes" ],
     [ "ParaviewExportIntegrationPointResultsAtNodesBase", "structmfem__mgis_1_1_paraview_export_integration_point_results_at_nodes_base.html", "structmfem__mgis_1_1_paraview_export_integration_point_results_at_nodes_base" ],
     [ "ParaviewExportIntegrationPointResultsAtNodesImplementation", "structmfem__mgis_1_1_paraview_export_integration_point_results_at_nodes_implementation.html", "structmfem__mgis_1_1_paraview_export_integration_point_results_at_nodes_implementation" ],

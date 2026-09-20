@@ -1,5 +1,6 @@
 var NAVTREEINDEX6 =
 {
+"_mesh_discretization_8hxx.html#a10c9b98525562464d3e00bba26b08618":[6,0,0,0,66,6],
 "_mesh_discretization_8hxx.html#a1fe7ca131dc127ee5a875966c0430eaf":[6,0,0,0,66,15],
 "_mesh_discretization_8hxx.html#a3dd8c62138cae6cc68cf6dc8ee1134df":[6,0,0,0,66,16],
 "_mesh_discretization_8hxx.html#a4143aeb6b4275e3e04315f5146cd1ea9":[6,0,0,0,66,8],
@@ -72,7 +73,7 @@ var NAVTREEINDEX6 =
 "_mutable_runtime_array_base_8hxx.html":[6,0,1,0,0,0,1,0,6,5,1,23],
 "_mutable_runtime_array_base_8ixx.html":[6,0,1,0,0,0,1,0,6,5,1,24],
 "_negation_8hxx.html":[6,0,1,0,0,0,1,0,6,5,12,31],
-"_newton_solver_8hxx.html":[6,0,0,0,0,0],
+"_newton_solver_8hxx.html":[6,0,0,0,0,1],
 "_non_linear_evolution_problem_8hxx.html":[6,0,0,0,74],
 "_non_linear_evolution_problem_8hxx.html#a7eed448a1864666bdafd93b78ce2818a":[6,0,0,0,74,2],
 "_non_linear_evolution_problem_8hxx.html#abbc07134b3f64e37f5225773e2f53f72":[6,0,0,0,74,1],
@@ -87,6 +88,7 @@ var NAVTREEINDEX6 =
 "_non_linear_model_8hxx.html":[6,0,0,0,78],
 "_non_linear_resolution_output_8hxx.html":[6,0,0,0,79],
 "_non_linear_resolution_output_8hxx.html#a1371568f40e6e0d425033bf05c4afc58":[6,0,0,0,79,2],
+"_non_linear_solver_base_8hxx.html":[6,0,0,0,0,2],
 "_norton_hoff_viscoplastic_flow_8hxx.html":[6,0,1,0,0,0,1,0,3,3,33],
 "_number_8hxx.html":[6,0,1,0,0,0,1,0,6,5,12,32],
 "_option_description_8hxx.html":[6,0,1,0,0,0,1,0,3,3,34],
@@ -247,7 +249,5 @@ var NAVTREEINDEX6 =
 "_partial_quadrature_space_8hxx.html":[6,0,0,0,92],
 "_partial_quadrature_space_8ixx.html":[6,0,0,0,93],
 "_partial_quadrature_space_identifiers_manager_8hxx.html":[6,0,0,0,94],
-"_path_specifier_8hxx.html":[6,0,1,0,0,0,1,0,3,44],
-"_path_specifier_8hxx.html#a0137eb161028d2316228134f42a97f0a":[6,0,1,0,0,0,1,0,3,44,4],
-"_path_specifier_8hxx.html#a26538c9f41448a623ad71498546dd5c1":[6,0,1,0,0,0,1,0,3,44,2]
+"_path_specifier_8hxx.html":[6,0,1,0,0,0,1,0,3,44]
 };

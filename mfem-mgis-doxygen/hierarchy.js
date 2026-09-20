@@ -1728,8 +1728,8 @@ var hierarchy =
     [ "dianafea::DianaFEABehaviourHandler< H, Behaviour >::DoNothingInitializer", "structdianafea_1_1_diana_f_e_a_behaviour_handler_1_1_do_nothing_initializer.html", null ],
     [ "lsdyna::LSDYNABehaviourHandler< H, Behaviour >::DoNothingInitializer", "structlsdyna_1_1_l_s_d_y_n_a_behaviour_handler_1_1_do_nothing_initializer.html", null ],
     [ "lsdyna::LSDYNAExplicitInterface< H, T, Behaviour >::DoNothingInitializer", "structlsdyna_1_1_l_s_d_y_n_a_explicit_interface_1_1_do_nothing_initializer.html", null ],
-    [ "tfel::math::DotProduct< N, M >", "structtfel_1_1math_1_1_dot_product.html", null ],
     [ "tfel::math::dotProduct< N >", "structtfel_1_1math_1_1dot_product.html", null ],
+    [ "tfel::math::DotProduct< N, M >", "structtfel_1_1math_1_1_dot_product.html", null ],
     [ "tfel::math::dotProduct< 0u >", "structtfel_1_1math_1_1dot_product_3_010u_01_4.html", null ],
     [ "tfel::math::DotProduct< 0u, M >", "structtfel_1_1math_1_1_dot_product_3_010u_00_01_m_01_4.html", null ],
     [ "tfel::math::internals::DPK1_DF_to_DTAU_DF_Converter< N >", "structtfel_1_1math_1_1internals_1_1_d_p_k1___d_f__to___d_t_a_u___d_f___converter.html", null ],
@@ -2593,7 +2593,11 @@ var hierarchy =
     [ "tfel::utilities::CxxTokenizer::IsValidIdentifierOptions", "structtfel_1_1utilities_1_1_cxx_tokenizer_1_1_is_valid_identifier_options.html", null ],
     [ "tfel::math::IterateOverMultipleIndices< TypeSize, CurrentIndex, Arity, UnrollLoop >", "structtfel_1_1math_1_1_iterate_over_multiple_indices.html", null ],
     [ "mfem::IterativeSolver", null, [
-      [ "mfem_mgis::NewtonSolver", "structmfem__mgis_1_1_newton_solver.html", null ]
+      [ "mfem_mgis::AbstractNonLinearSolver", "structmfem__mgis_1_1_abstract_non_linear_solver.html", [
+        [ "mfem_mgis::NonLinearSolverBase", "structmfem__mgis_1_1_non_linear_solver_base.html", [
+          [ "mfem_mgis::NewtonSolver", "structmfem__mgis_1_1_newton_solver.html", null ]
+        ] ]
+      ] ]
     ] ],
     [ "tfel::config::internals::JacobianType< N, T, use_qt >", "structtfel_1_1config_1_1internals_1_1_jacobian_type.html", null ],
     [ "tfel::config::internals::JacobianType< 1u, T, false >", "structtfel_1_1config_1_1internals_1_1_jacobian_type_3_011u_00_01_t_00_01false_01_4.html", null ],

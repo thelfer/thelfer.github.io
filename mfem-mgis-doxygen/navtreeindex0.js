@@ -52,6 +52,7 @@ var NAVTREEINDEX0 =
 "_abstract_non_linear_evolution_problem_8hxx.html#a96c929df3dd3dc4e612444dc9976a1f7":[6,0,0,0,12,10],
 "_abstract_non_linear_evolution_problem_8hxx.html#ac205078afc8ecd3a594a6d13c5f318cc":[6,0,0,0,12,9],
 "_abstract_non_linear_evolution_problem_8hxx.html#afefb93558fb042b026817160726b1c58":[6,0,0,0,12,8],
+"_abstract_non_linear_solver_8hxx.html":[6,0,0,0,0,0],
 "_abstract_post_processing_8hxx.html":[6,0,0,0,1,1],
 "_abstract_q_p_evaluator_8hxx.html":[6,0,0,0,2,0],
 "_abstract_q_p_evaluator_8hxx.html#a86a12d3c4fc6e0be367d13ec2ada9aec":[6,0,0,0,2,0,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "_brick_utilities_8hxx.html#a5fcc62c2cfbf57f434a7561fa53078f3":[6,0,1,0,0,0,1,0,3,3,2,32],
 "_brick_utilities_8hxx.html#a627fdf8ce1017597a8dbd5ed86cf9514":[6,0,1,0,0,0,1,0,3,3,2,6],
 "_brick_utilities_8hxx.html#a67ae2c25560b87e746121d4ca2432a64":[6,0,1,0,0,0,1,0,3,3,2,15],
-"_brick_utilities_8hxx.html#a6c9dbd8e0fc2593afdd49ddb6916e4b9":[6,0,1,0,0,0,1,0,3,3,2,41],
-"_brick_utilities_8hxx.html#a74ccef7fa3c85d3268da0fbaea4a8633":[6,0,1,0,0,0,1,0,3,3,2,40]
+"_brick_utilities_8hxx.html#a6c9dbd8e0fc2593afdd49ddb6916e4b9":[6,0,1,0,0,0,1,0,3,3,2,41]
 };

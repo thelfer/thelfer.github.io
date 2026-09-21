@@ -1,5 +1,7 @@
 var NAVTREEINDEX9 =
 {
+"_t_f_e_l_2_material_2_michel_and_suquet1992_hollow_sphere_stress_criterion_8hxx.html#a53478c744340e203175742f224cec960":[6,0,1,0,0,0,1,0,6,4,64,11],
+"_t_f_e_l_2_material_2_michel_and_suquet1992_hollow_sphere_stress_criterion_8hxx.html#a609c0142bbfb1b53b938bc14a8bda0ca":[6,0,1,0,0,0,1,0,6,4,64,6],
 "_t_f_e_l_2_material_2_michel_and_suquet1992_hollow_sphere_stress_criterion_8hxx.html#a68903b7d67cd1d3564a218a7bebf57f8":[6,0,1,0,0,0,1,0,6,4,64,13],
 "_t_f_e_l_2_material_2_michel_and_suquet1992_hollow_sphere_stress_criterion_8hxx.html#a6f152af5faea9c89e6af245b2b1ac856":[6,0,1,0,0,0,1,0,6,4,64,10],
 "_t_f_e_l_2_material_2_michel_and_suquet1992_hollow_sphere_stress_criterion_8hxx.html#a8318b272260707520b4f00b74180ac75":[6,0,1,0,0,0,1,0,6,4,64,12],
@@ -247,7 +249,5 @@ var NAVTREEINDEX9 =
 "_view_8hxx.html#ae3b6c911fc77e28319842187680d240e":[6,0,1,0,0,0,1,0,6,5,1,33,15],
 "_view_8hxx.html#af9511c570c811a9fbb1f8aa702d6f14d":[6,0,1,0,0,0,1,0,6,5,1,33,14],
 "_views_array_8hxx.html":[6,0,1,0,0,0,1,0,6,5,1,34],
-"_views_array_8hxx.html#a22ee62421d92643599d399646e39b1c2":[6,0,1,0,0,0,1,0,6,5,1,34,7],
-"_views_array_8hxx.html#abc565bd93d818874a327dc9140022539":[6,0,1,0,0,0,1,0,6,5,1,34,9],
-"_views_array_8hxx.html#afe1e469d35bbeb45d57faa77680c8a4e":[6,0,1,0,0,0,1,0,6,5,1,34,8]
+"_views_array_8hxx.html#a22ee62421d92643599d399646e39b1c2":[6,0,1,0,0,0,1,0,6,5,1,34,7]
 };

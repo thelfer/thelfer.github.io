@@ -1,5 +1,7 @@
 var NAVTREEINDEX7 =
 {
+"_partial_quadrature_space_identifiers_manager_8hxx.html":[6,0,0,0,94],
+"_path_specifier_8hxx.html":[6,0,1,0,0,0,1,0,3,44],
 "_path_specifier_8hxx.html#a0137eb161028d2316228134f42a97f0a":[6,0,1,0,0,0,1,0,3,44,4],
 "_path_specifier_8hxx.html#a26538c9f41448a623ad71498546dd5c1":[6,0,1,0,0,0,1,0,3,44,2],
 "_path_specifier_8hxx.html#aafd8dcd5d5720c4dacca99ca5663d488":[6,0,1,0,0,0,1,0,3,44,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX7 =
 "_solver_options_8hxx.html#ae1be4e758e0ed732b6c81c08d49a86ceab19d72e1c98ea20405f7aee27c45c93a":[6,0,1,0,0,0,1,0,4,19,1,2],
 "_solver_options_8hxx.html#ae1be4e758e0ed732b6c81c08d49a86ceae0cf73c6dc6f7321fcc7df17a058c727":[6,0,1,0,0,0,1,0,4,19,1,4],
 "_solver_options_8hxx.html#ae1be4e758e0ed732b6c81c08d49a86ceae6c3137c7bdd760b3a6a67fb9debf63c":[6,0,1,0,0,0,1,0,4,19,1,3],
-"_solver_options_8hxx.html#af03819f6751327d35c6ce6b4e847f4d8":[6,0,1,0,0,0,1,0,4,19,2],
-"_solver_options_8hxx.html#af03819f6751327d35c6ce6b4e847f4d8a140916ea36bc20ef8d50a29c5754c01f":[6,0,1,0,0,0,1,0,4,19,2,4],
-"_solver_options_8hxx.html#af03819f6751327d35c6ce6b4e847f4d8a2bad13d613cf6e01fed2f00302f6e320":[6,0,1,0,0,0,1,0,4,19,2,3]
+"_solver_options_8hxx.html#af03819f6751327d35c6ce6b4e847f4d8":[6,0,1,0,0,0,1,0,4,19,2]
 };

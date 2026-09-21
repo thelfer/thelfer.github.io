@@ -89,6 +89,8 @@ var NAVTREEINDEX6 =
 "_non_linear_resolution_output_8hxx.html":[6,0,0,0,79],
 "_non_linear_resolution_output_8hxx.html#a1371568f40e6e0d425033bf05c4afc58":[6,0,0,0,79,2],
 "_non_linear_solver_base_8hxx.html":[6,0,0,0,0,2],
+"_non_linear_solver_factory_8hxx.html":[6,0,0,0,0,3],
+"_non_linear_solver_factory_8ixx.html":[6,0,0,0,0,4],
 "_norton_hoff_viscoplastic_flow_8hxx.html":[6,0,1,0,0,0,1,0,3,3,33],
 "_number_8hxx.html":[6,0,1,0,0,0,1,0,6,5,12,32],
 "_option_description_8hxx.html":[6,0,1,0,0,0,1,0,3,3,34],
@@ -247,7 +249,5 @@ var NAVTREEINDEX6 =
 "_partial_quadrature_function_8ixx.html":[6,0,0,0,90],
 "_partial_quadrature_functions_set_8hxx.html":[6,0,0,0,91],
 "_partial_quadrature_space_8hxx.html":[6,0,0,0,92],
-"_partial_quadrature_space_8ixx.html":[6,0,0,0,93],
-"_partial_quadrature_space_identifiers_manager_8hxx.html":[6,0,0,0,94],
-"_path_specifier_8hxx.html":[6,0,1,0,0,0,1,0,3,44]
+"_partial_quadrature_space_8ixx.html":[6,0,0,0,93]
 };

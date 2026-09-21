@@ -304,6 +304,9 @@ var hierarchy =
         [ "mfem_mgis::NonLinearEvolutionProblemImplementation< true >", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01true_01_4.html", null ]
       ] ]
     ] ],
+    [ "mfem_mgis::AbstractNonLinearSolverGenerator", "structmfem__mgis_1_1_abstract_non_linear_solver_generator.html", [
+      [ "mfem_mgis::StandardNonLinearSolverGenerator< SolverType >", "structmfem__mgis_1_1_standard_non_linear_solver_generator.html", null ]
+    ] ],
     [ "mfront::AbstractNonLinearSystemSolver", "structmfront_1_1_abstract_non_linear_system_solver.html", null ],
     [ "mfem_mgis::AbstractPostProcessing", "structmfem__mgis_1_1_abstract_post_processing.html", [
       [ "mfem_mgis::PostProcessingBase", "structmfem__mgis_1_1_post_processing_base.html", [
@@ -1728,8 +1731,8 @@ var hierarchy =
     [ "dianafea::DianaFEABehaviourHandler< H, Behaviour >::DoNothingInitializer", "structdianafea_1_1_diana_f_e_a_behaviour_handler_1_1_do_nothing_initializer.html", null ],
     [ "lsdyna::LSDYNABehaviourHandler< H, Behaviour >::DoNothingInitializer", "structlsdyna_1_1_l_s_d_y_n_a_behaviour_handler_1_1_do_nothing_initializer.html", null ],
     [ "lsdyna::LSDYNAExplicitInterface< H, T, Behaviour >::DoNothingInitializer", "structlsdyna_1_1_l_s_d_y_n_a_explicit_interface_1_1_do_nothing_initializer.html", null ],
-    [ "tfel::math::dotProduct< N >", "structtfel_1_1math_1_1dot_product.html", null ],
     [ "tfel::math::DotProduct< N, M >", "structtfel_1_1math_1_1_dot_product.html", null ],
+    [ "tfel::math::dotProduct< N >", "structtfel_1_1math_1_1dot_product.html", null ],
     [ "tfel::math::dotProduct< 0u >", "structtfel_1_1math_1_1dot_product_3_010u_01_4.html", null ],
     [ "tfel::math::DotProduct< 0u, M >", "structtfel_1_1math_1_1_dot_product_3_010u_00_01_m_01_4.html", null ],
     [ "tfel::math::internals::DPK1_DF_to_DTAU_DF_Converter< N >", "structtfel_1_1math_1_1internals_1_1_d_p_k1___d_f__to___d_t_a_u___d_f___converter.html", null ],
@@ -2971,6 +2974,7 @@ var hierarchy =
       [ "mfem_mgis::MultiMaterialNonLinearIntegrator", "structmfem__mgis_1_1_multi_material_non_linear_integrator.html", null ]
     ] ],
     [ "mfem_mgis::NonLinearResolutionOutput", "structmfem__mgis_1_1_non_linear_resolution_output.html", null ],
+    [ "mfem_mgis::NonLinearSolverFactory", "structmfem__mgis_1_1_non_linear_solver_factory.html", null ],
     [ "mfront::NonLinearSystemSolverFactory", "structmfront_1_1_non_linear_system_solver_factory.html", null ],
     [ "mfront::BehaviourData::NullExpansion", "structmfront_1_1_behaviour_data_1_1_null_expansion.html", null ],
     [ "mgis::function::internals::NumberOfComponents< FunctionOrEvaluatorType >", "structmgis_1_1function_1_1internals_1_1_number_of_components.html", null ],

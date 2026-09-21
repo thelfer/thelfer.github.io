@@ -2,6 +2,7 @@ var structmfem__mgis_1_1_non_linear_model =
 [
     [ "~NonLinearModel", "structmfem__mgis_1_1_non_linear_model.html#a9ed4242e3438bb1c527049813184e395", null ],
     [ "computeNextState", "structmfem__mgis_1_1_non_linear_model.html#ad069cfcb0604223aaf98d2d290a47b32", null ],
+    [ "executeInitialPostProcessingTasks", "structmfem__mgis_1_1_non_linear_model.html#a49f9755c89af2603782ac0e07e6d16e9", null ],
     [ "executePostProcessingTasks", "structmfem__mgis_1_1_non_linear_model.html#afa08cef53231ece139b4bb00cd9d6ebd", null ],
     [ "getName", "structmfem__mgis_1_1_non_linear_model.html#a72e4d3b2c229caba745627a799d0c0d8", null ],
     [ "performInitializationTaksAtTheBeginningOfTheTimeStep", "structmfem__mgis_1_1_non_linear_model.html#a383461573dc0f880ca1968084e51bcfc", null ],

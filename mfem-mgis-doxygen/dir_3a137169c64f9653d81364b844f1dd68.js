@@ -1,6 +1,5 @@
 var dir_3a137169c64f9653d81364b844f1dd68 =
 [
-    [ "NonLinearSolvers", "dir_5350b8c166af7eaea545e1a1fedc00ae.html", "dir_5350b8c166af7eaea545e1a1fedc00ae" ],
     [ "PostProcessing", "dir_e2fc8cef852b3d81399fb97ece87068e.html", "dir_e2fc8cef852b3d81399fb97ece87068e" ],
     [ "QPEvaluator", "dir_d4431e5c444306dd711df20feaa1aa37.html", "dir_d4431e5c444306dd711df20feaa1aa37" ],
     [ "Utilities", "dir_498794b147a9d289dd2c1de38e8e0477.html", "dir_498794b147a9d289dd2c1de38e8e0477" ],
@@ -75,6 +74,7 @@ var dir_3a137169c64f9653d81364b844f1dd68 =
     [ "MPI.hxx", "_m_p_i_8hxx.html", "_m_p_i_8hxx" ],
     [ "MPI.ixx", "_m_p_i_8ixx.html", "_m_p_i_8ixx" ],
     [ "MultiMaterialNonLinearIntegrator.hxx", "_multi_material_non_linear_integrator_8hxx.html", "_multi_material_non_linear_integrator_8hxx" ],
+    [ "NewtonSolver.hxx", "_newton_solver_8hxx.html", "_newton_solver_8hxx" ],
     [ "NonLinearEvolutionProblem.hxx", "_non_linear_evolution_problem_8hxx.html", "_non_linear_evolution_problem_8hxx" ],
     [ "NonLinearEvolutionProblemImplementation.hxx", "_non_linear_evolution_problem_implementation_8hxx.html", "_non_linear_evolution_problem_implementation_8hxx" ],
     [ "NonLinearEvolutionProblemImplementation.ixx", "_non_linear_evolution_problem_implementation_8ixx.html", "_non_linear_evolution_problem_implementation_8ixx" ],
@@ -105,6 +105,7 @@ var dir_3a137169c64f9653d81364b844f1dd68 =
     [ "Profiler.hxx", "_profiler_8hxx.html", "_profiler_8hxx" ],
     [ "Provider.hxx", "_provider_8hxx.html", "_provider_8hxx" ],
     [ "RotationMatrix.hxx", "include_2_m_f_e_m_m_g_i_s_2_rotation_matrix_8hxx.html", "include_2_m_f_e_m_m_g_i_s_2_rotation_matrix_8hxx" ],
+    [ "SolverUtilities.hxx", "_solver_utilities_8hxx.html", "_solver_utilities_8hxx" ],
     [ "StandardBehaviourIntegratorCRTPBase.hxx", "_standard_behaviour_integrator_c_r_t_p_base_8hxx.html", "_standard_behaviour_integrator_c_r_t_p_base_8hxx" ],
     [ "StandardBehaviourIntegratorCRTPBase.ixx", "_standard_behaviour_integrator_c_r_t_p_base_8ixx.html", null ],
     [ "StateManager.hxx", "_state_manager_8hxx.html", "_state_manager_8hxx" ],

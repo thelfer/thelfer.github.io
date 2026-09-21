@@ -12,7 +12,7 @@ var searchData=
   ['recommendedtimeincrement_9',['recommendedTimeIncrement',['../structmfem__mgis_1_1_abstract_time_step_validator_1_1_result.html#add66bec5d24e102db05a39fd180a1dc8',1,'mfem_mgis::AbstractTimeStepValidator::Result']]],
   ['recoverableerror_10',['recoverableError',['../structmfem__mgis_1_1_exit_status.html#ab18eaae3a8d829288c099e4629d7d2b7',1,'mfem_mgis::ExitStatus']]],
   ['red_11',['Red',['../structtfel_1_1utilities_1_1_terminal_colors.html#a2d80a88f92165ce583f61ab7c6beb65c',1,'tfel::utilities::TerminalColors']]],
-  ['reference_5fresidual_5fnorm_12',['reference_residual_norm',['../structmfem__mgis_1_1_newton_solver.html#a2b8c2b02717f0e58d431ac2df65a49ea',1,'mfem_mgis::NewtonSolver']]],
+  ['reference_5fresidual_5fnorm_12',['reference_residual_norm',['../structmfem__mgis_1_1_non_linear_solver_base.html#ac412d3f7ea31d7806ba90f9c478ce5df',1,'mfem_mgis::NonLinearSolverBase']]],
   ['registerline_13',['registerLine',['../structmfront_1_1_d_s_l_base_1_1_code_block_parser_options.html#a00ba1f809d6aec590a6760b91167d715',1,'mfront::DSLBase::CodeBlockParserOptions']]],
   ['registredkeywords_14',['registredkeywords',['../structmfront_1_1_behaviour_d_s_l_common.html#a080ed7ce8a3941f4689eb549b93c37ef',1,'mfront::BehaviourDSLCommon::registredKeyWords'],['../structmfront_1_1_material_property_d_s_l.html#a1c546761b3af876bfa569183e84cc6ba',1,'mfront::MaterialPropertyDSL::registredKeyWords']]],
   ['regular_5fexpression_5fsyntax_15',['regular_expression_syntax',['../structmfront_1_1_m_front_database_1_1_query.html#a565910c7c07649a75869dfa01c94b965',1,'mfront::MFrontDatabase::Query']]],

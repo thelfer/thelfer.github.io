@@ -15,7 +15,7 @@ var searchData=
   ['de0_12',['de0',['../structmtest_1_1_current_state.html#af434c5f300ae3cf85642a8e7bd6f3c94',1,'mtest::CurrentState']]],
   ['de1_13',['de1',['../structmtest_1_1_current_state.html#a3298e40cfbd159af4e64cfb4b260d142',1,'mtest::CurrentState']]],
   ['debugflags_14',['debugFlags',['../structmfront_1_1_generator_options.html#a1ff40030c8e904d79a2890a94b8a5899',1,'mfront::GeneratorOptions']]],
-  ['default_5ferror_5freport_5fpolicy_15',['default_error_report_policy',['../spack_2opt_2spack_2linux-zen2_2mgis-master-bs26uunyidp3apeqihomdmwhg57kgl6a_2include_2_m_g_i_s_2_config_8hxx.html#a7e07631d8c78c74705d4d62ca6698f05',1,'mgis::config']]],
+  ['default_5ferror_5freport_5fpolicy_15',['default_error_report_policy',['../spack_2opt_2spack_2linux-sapphirerapids_2mgis-master-hzpmlmhfh3w3e2yqshm4khe2oavlpafl_2include_2_m_g_i_s_2_config_8hxx.html#a7e07631d8c78c74705d4d62ca6698f05',1,'mgis::config']]],
   ['default_5fmaterial_5fproperties_16',['default_material_properties',['../structmtest_1_1_pipe_test_1_1_oxidation_model.html#a23d1be0155f94450101a51e40b415241',1,'mtest::PipeTest::OxidationModel']]],
   ['defaultcomputefinalthermodynamicforce_17',['DefaultComputeFinalThermodynamicForce',['../structmfront_1_1_behaviour_data.html#a2b36a6811ac856740364b1a6539d6492',1,'mfront::BehaviourData']]],
   ['defaultconstructor_18',['defaultConstructor',['../structmfront_1_1_behaviour_description.html#af28eb9d3261848637bec795396776fc6',1,'mfront::BehaviourDescription']]],
@@ -42,7 +42,7 @@ var searchData=
   ['dirichlet_5fboundary_5fconditions_39',['dirichlet_boundary_conditions',['../structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a93682ab3ce77065855c505bdb46a802a',1,'mfem_mgis::NonLinearEvolutionProblemImplementationBase']]],
   ['disableruntimechecks_40',['disableRuntimeChecks',['../structmfront_1_1_material_knowledge_description.html#a93177af691fb0181ffbf8894d7eabf26',1,'mfront::MaterialKnowledgeDescription']]],
   ['disableruntimechecksoption_41',['disableRuntimeChecksOption',['../structmfront_1_1_d_s_l_base.html#acd4f7a9ca4ad7b844da0fde4f8428dcb',1,'mfront::DSLBase']]],
-  ['discardlinearsolverfailure_42',['discardLinearSolverFailure',['../structmfem__mgis_1_1_newton_solver.html#a061d1ec8e124567542d1e6e705661576',1,'mfem_mgis::NewtonSolver']]],
+  ['discardlinearsolverfailure_42',['discardLinearSolverFailure',['../structmfem__mgis_1_1_non_linear_solver_base.html#a03b9b0ff0bbdb2596b4b64527037cb53',1,'mfem_mgis::NonLinearSolverBase']]],
   ['dissipated_5fenergies_43',['dissipated_energies',['../structmgis_1_1behaviour_1_1_material_state_manager.html#a416d70bc4b9d8c38143579a5fb8efa4e',1,'mgis::behaviour::MaterialStateManager::dissipated_energies'],['../structmgis_1_1behaviour_1_1_material_state_manager_initializer.html#a99a5c8bec1499fd9d22f2dd9d65ec54c',1,'mgis::behaviour::MaterialStateManagerInitializer::dissipated_energies']]],
   ['dissipated_5fenergy_44',['dissipated_energy',['../structmgis_1_1behaviour_1_1_state.html#ac17c039e13d64ba158b0558634a82b2d',1,'mgis::behaviour::State::dissipated_energy'],['../structmgis__bv___state_view.html#a78a4dd89c8920f451997062049731990',1,'mgis_bv_StateView::dissipated_energy'],['../structmgis__bv___initial_state_view.html#aee17a5233b0a2ccbd67212124d01748f',1,'mgis_bv_InitialStateView::dissipated_energy']]],
   ['dmpv_45',['dmpv',['../structmtest_1_1_single_structure_scheme.html#a8a3f4b08c0f25f22b6a0fcb6ceb4d74d',1,'mtest::SingleStructureScheme']]],
@@ -67,6 +67,6 @@ var searchData=
   ['dvp_5fdf_64',['dvp_df',['../structmfront_1_1bbrick_1_1_user_defined_viscoplastic_flow.html#a5af1157e8f0c00956c213e1b0f3e6858',1,'mfront::bbrick::UserDefinedViscoplasticFlow']]],
   ['dvp_5fdp_65',['dvp_dp',['../structmfront_1_1bbrick_1_1_user_defined_viscoplastic_flow.html#a1c5d71c940d8aece0c7f6f3d6f288ca1',1,'mfront::bbrick::UserDefinedViscoplasticFlow']]],
   ['dvtypes_66',['dvtypes',['../structtfel_1_1system_1_1_external_behaviour_description.html#a39bfe6d04f7c5ed16bc89542261cf6eb',1,'tfel::system::ExternalBehaviourDescription']]],
-  ['dynamic_5fextent_67',['dynamic_extent',['../namespacemfem__mgis.html#a0a1c65429884ef0585a525f70f54cb85',1,'mfem_mgis::dynamic_extent'],['../spack_2opt_2spack_2linux-zen2_2mgis-master-bs26uunyidp3apeqihomdmwhg57kgl6a_2include_2_m_g_i_s_2_config_8hxx.html#ae69dc42a95f45bf4ffb676c0e9b64722',1,'mgis::dynamic_extent']]],
+  ['dynamic_5fextent_67',['dynamic_extent',['../namespacemfem__mgis.html#a0a1c65429884ef0585a525f70f54cb85',1,'mfem_mgis::dynamic_extent'],['../spack_2opt_2spack_2linux-sapphirerapids_2mgis-master-hzpmlmhfh3w3e2yqshm4khe2oavlpafl_2include_2_m_g_i_s_2_config_8hxx.html#ae69dc42a95f45bf4ffb676c0e9b64722',1,'mgis::dynamic_extent']]],
   ['dynamic_5ftime_5fstep_5fscaling_68',['dynamic_time_step_scaling',['../structmtest_1_1_solver_options.html#a111ee215787e21b2b9e6ee02bb1dc75b',1,'mtest::SolverOptions']]]
 ];

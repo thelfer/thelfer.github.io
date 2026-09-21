@@ -21,6 +21,7 @@ var namespacemgis =
     [ "invoke_result_t", "namespacemgis.html#acb639271daea2a4852ad11f6f8c5fcd9", null ],
     [ "real", "namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4", null ],
     [ "size_type", "namespacemgis.html#a184723b5d743b58169be89d3b04265fc", null ],
+    [ "TerminateHandler", "namespacemgis.html#a8d54a05a6d9fa1c8ae6ff9977a687af0", null ],
     [ "OutputStreamColors", "namespacemgis.html#a8ca19ff3c596083e841958b8ef720622", [
       [ "BLACK", "namespacemgis.html#a8ca19ff3c596083e841958b8ef720622a08d0012388564e95c3b4a7407cf04965", null ],
       [ "RED", "namespacemgis.html#a8ca19ff3c596083e841958b8ef720622aa2d9547b5d3dd9f05984475f7c926da0", null ],
@@ -45,6 +46,7 @@ var namespacemgis =
       [ "verboseDebug", "namespacemgis.html#ae27c067cd94c99251df4640e86ecd3a9a455ef0fe59bc3593a5d3822574443562", null ],
       [ "verboseFull", "namespacemgis.html#ae27c067cd94c99251df4640e86ecd3a9a1c3f73fa1cdafb7cc26e60494d221243", null ]
     ] ],
+    [ "abort", "namespacemgis.html#a0629eb66a27324064e63412b0583223b", null ],
     [ "areInvalid", "namespacemgis.html#af4bf11d96d885951a9521d94a8dbfebc", null ],
     [ "areValid", "namespacemgis.html#a06c83fbb0905ade623a12868ca239b70", null ],
     [ "construct", "namespacemgis.html#ac6ef99a2da32be978438d90f840b87f3", null ],
@@ -84,6 +86,8 @@ var namespacemgis =
     [ "setDefaultVerbosityLevel", "namespacemgis.html#ac5ea64e24e66fa4eaf44902f5cce3264", null ],
     [ "setExceptionHandler", "namespacemgis.html#ad6dbfd095532fee6200701d5b9596d1b", null ],
     [ "setStreamColor", "namespacemgis.html#adef4b3c198b45a0b4bec1e1b0b525bf4", null ],
+    [ "setTerminateHandler", "namespacemgis.html#a138a6bdc47e00ef35c48e4cd678d7e36", null ],
+    [ "terminate", "namespacemgis.html#a529a5cd45c137150a5fac7755eaa0772", null ],
     [ "warning", "namespacemgis.html#ae1ceec782317554dec7a342b432a1fbb", null ],
     [ "dynamic_extent", "namespacemgis.html#ae69dc42a95f45bf4ffb676c0e9b64722", null ]
 ];

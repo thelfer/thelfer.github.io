@@ -169,6 +169,10 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>size_type</b> = mgis
 using&#160;</td><td class="memItemRight" valign="bottom"><b>real</b> = <a class="el" href="_material_property_fct_ptr_8hxx.html#a2821f0ee7b21182b6739325ce0271474">mgis_real</a></td></tr>
 <tr class="memdesc:a0e88ae1504a452a9c3e573a06beff1e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">alias to the numeric type used <br /></td></tr>
 <tr class="separator:a0e88ae1504a452a9c3e573a06beff1e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d54a05a6d9fa1c8ae6ff9977a687af0" id="r_a8d54a05a6d9fa1c8ae6ff9977a687af0"><td class="memItemLeft" align="right" valign="top"><a id="a8d54a05a6d9fa1c8ae6ff9977a687af0" name="a8d54a05a6d9fa1c8ae6ff9977a687af0"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>TerminateHandler</b> = void(*)(std::string_view)</td></tr>
+<tr class="memdesc:a8d54a05a6d9fa1c8ae6ff9977a687af0"><td class="mdescLeft">&#160;</td><td class="mdescRight">brief a simple alias <br /></td></tr>
+<tr class="separator:a8d54a05a6d9fa1c8ae6ff9977a687af0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0044a002b8fdba8da5c4fc9173d3e99" id="r_ac0044a002b8fdba8da5c4fc9173d3e99"><td class="memItemLeft" align="right" valign="top"><a id="ac0044a002b8fdba8da5c4fc9173d3e99" name="ac0044a002b8fdba8da5c4fc9173d3e99"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>ExceptionHandler</b> = void(*)()</td></tr>
 <tr class="memdesc:ac0044a002b8fdba8da5c4fc9173d3e99"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple alias <br /></td></tr>
@@ -218,6 +222,15 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a138a6bdc47e00ef35c48e4cd678d7e36" id="r_a138a6bdc47e00ef35c48e4cd678d7e36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemgis.html#a138a6bdc47e00ef35c48e4cd678d7e36">setTerminateHandler</a> (<a class="el" href="namespacemgis.html#a8d54a05a6d9fa1c8ae6ff9977a687af0">TerminateHandler</a> &amp;) noexcept</td></tr>
+<tr class="memdesc:a138a6bdc47e00ef35c48e4cd678d7e36"><td class="mdescLeft">&#160;</td><td class="mdescRight">specify a new terminate handler  <br /></td></tr>
+<tr class="separator:a138a6bdc47e00ef35c48e4cd678d7e36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a529a5cd45c137150a5fac7755eaa0772" id="r_a529a5cd45c137150a5fac7755eaa0772"><td class="memItemLeft" align="right" valign="top">MGIS_EXPORT MGIS_NORETURN void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemgis.html#a529a5cd45c137150a5fac7755eaa0772">terminate</a> (std::string_view)</td></tr>
+<tr class="memdesc:a529a5cd45c137150a5fac7755eaa0772"><td class="mdescLeft">&#160;</td><td class="mdescRight">call the terminate handler  <br /></td></tr>
+<tr class="separator:a529a5cd45c137150a5fac7755eaa0772"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0629eb66a27324064e63412b0583223b" id="r_a0629eb66a27324064e63412b0583223b"><td class="memItemLeft" align="right" valign="top">MGIS_EXPORT MGIS_NORETURN void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemgis.html#a0629eb66a27324064e63412b0583223b">abort</a> (std::string_view)</td></tr>
+<tr class="memdesc:a0629eb66a27324064e63412b0583223b"><td class="mdescLeft">&#160;</td><td class="mdescRight">call the terminate handler  <br /></td></tr>
+<tr class="separator:a0629eb66a27324064e63412b0583223b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81613dfa036bb6f14c98c4fa447a86a9" id="r_a81613dfa036bb6f14c98c4fa447a86a9"><td class="memTemplParams" colspan="2"><a id="a81613dfa036bb6f14c98c4fa447a86a9" name="a81613dfa036bb6f14c98c4fa447a86a9"></a>
 template&lt;typename Type , typename... Args&gt; <br />
 requires ( is_check_preconditions_callable&lt;Type, Args...&gt;)</td></tr>
@@ -547,6 +560,33 @@ constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><b>preconditio
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a0629eb66a27324064e63412b0583223b" name="a0629eb66a27324064e63412b0583223b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0629eb66a27324064e63412b0583223b">&#9670;&#160;</a></span>abort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MGIS_EXPORT MGIS_NORETURN void mgis::abort </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>call the terminate handler </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">msg</td><td>message</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>this function is simply an alias to <code>terminate</code> </dd></dl>
+
+</div>
+</div>
 <a id="af4bf11d96d885951a9521d94a8dbfebc" name="af4bf11d96d885951a9521d94a8dbfebc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af4bf11d96d885951a9521d94a8dbfebc">&#9670;&#160;</a></span>areInvalid()</h2>
 
@@ -2018,6 +2058,66 @@ template&lt;typename Exception  = std::runtime_error, typename... Args&gt; </div
 
 </div>
 </div>
+<a id="a138a6bdc47e00ef35c48e4cd678d7e36" name="a138a6bdc47e00ef35c48e4cd678d7e36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a138a6bdc47e00ef35c48e4cd678d7e36">&#9670;&#160;</a></span>setTerminateHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mgis::setTerminateHandler </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacemgis.html#a8d54a05a6d9fa1c8ae6ff9977a687af0">TerminateHandler</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>specify a new terminate handler </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">h</td><td>handler </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a529a5cd45c137150a5fac7755eaa0772" name="a529a5cd45c137150a5fac7755eaa0772"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a529a5cd45c137150a5fac7755eaa0772">&#9670;&#160;</a></span>terminate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MGIS_EXPORT MGIS_NORETURN void mgis::terminate </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>call the terminate handler </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">msg</td><td>message </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ae1ceec782317554dec7a342b432a1fbb" name="ae1ceec782317554dec7a342b432a1fbb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae1ceec782317554dec7a342b432a1fbb">&#9670;&#160;</a></span>warning()</h2>
 
@@ -2131,7 +2231,7 @@ template&lt;typename Type , typename... Args&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemgis.html">mgis</a></li>
-    <li class="footer">Generated on Mon Sep 21 2026 12:35:15 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Mon Sep 21 2026 14:30:53 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

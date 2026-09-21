@@ -2,7 +2,6 @@ var structmgis_1_1_error_backtrace =
 [
     [ "ErrorReport", "structmgis_1_1_error_backtrace.html#a4e53150e018afed642101e9fdb023c91", null ],
     [ "ErrorReportFunction", "structmgis_1_1_error_backtrace.html#a012d15532827a6c816b8e947185d6096", null ],
-    [ "TerminateHandler", "structmgis_1_1_error_backtrace.html#a9235d6a1a61a21f501e7d7eb434db455", null ],
     [ "~ErrorBacktrace", "structmgis_1_1_error_backtrace.html#a7cfad7d2e1029253ac09df71657139c8", null ],
     [ "assertOrTerminate", "structmgis_1_1_error_backtrace.html#ad3e26536c88de2e990c72d52b1fb5093", null ],
     [ "assertOrTerminate", "structmgis_1_1_error_backtrace.html#a10902e7c6c3b783acb04476bfe70c319", null ],

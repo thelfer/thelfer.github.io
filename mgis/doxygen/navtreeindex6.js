@@ -1,5 +1,11 @@
 var NAVTREEINDEX6 =
 {
+"structmgis_1_1function_1_1_binary_operation_modifier2.html":[3,0,1,3,6],
+"structmgis_1_1function_1_1_binary_operation_modifier2.html#a9d90da79cd88cc1b1e5e660a91ddc598":[3,0,1,3,6,0],
+"structmgis_1_1function_1_1_c_u_d_a_execution_configuration.html":[3,0,1,3,14],
+"structmgis_1_1function_1_1_c_u_d_a_execution_configuration.html#a1b6115334926e92cfac53eeab9c62a4b":[3,0,1,3,14,0],
+"structmgis_1_1function_1_1_coalesced_memory_access_composite_tensors_view.html":[3,0,1,3,7],
+"structmgis_1_1function_1_1_coalesced_memory_access_composite_tensors_view.html#a161d73d2d16886436e5d0462180c8642":[3,0,1,3,7,1],
 "structmgis_1_1function_1_1_coalesced_memory_access_composite_tensors_view.html#a268607ff9964ec6f9d46ed30ad88fcd0":[3,0,1,3,7,0],
 "structmgis_1_1function_1_1_coalesced_memory_access_composite_tensors_view.html#aca0329af65642ca7eacb2c2708add612":[3,0,1,3,7,3],
 "structmgis_1_1function_1_1_coalesced_memory_access_composite_tensors_view.html#aefb541f343c1613d7f6a17d98b86a1af":[3,0,1,3,7,2],
@@ -243,11 +249,5 @@ var NAVTREEINDEX6 =
 "structmgis_1_1function_1_1_uniform_evaluator.html#a90310fb52c89ea45e85f59fd2516568f":[3,0,1,3,53,3],
 "structmgis_1_1function_1_1_uniform_evaluator.html#aa1cae60fe7cee28be471e0757e87f6c3":[3,0,1,3,53,4],
 "structmgis_1_1function_1_1_uniform_evaluator.html#ab114d162f979532228524e13062c7f06":[3,0,1,3,53,1],
-"structmgis_1_1function_1_1_uniform_evaluator.html#adbd162b42322d6c8a72c9bd12339a4b1":[3,0,1,3,53,8],
-"structmgis_1_1function_1_1_uniform_evaluator.html#ae6853a2c031bbeb0f1daa5bd68b72c96":[3,0,1,3,53,6],
-"structmgis_1_1function_1_1_uniform_evaluator.html#af0a89a8d2571ce0924dcbd5249730b6d":[3,0,1,3,53,9],
-"structmgis_1_1function_1_1_uniform_evaluator.html#afac8e7dbdb47db0343bcff5181f9b68b":[3,0,1,3,53,7],
-"structmgis_1_1function_1_1_uniform_evaluator.html#afc48bdae3d1b0070fbeb009f4efc6854":[3,0,1,3,53,0],
-"structmgis_1_1function_1_1customization__points_1_1_absolute_value.html":[3,0,1,3,0,0],
-"structmgis_1_1function_1_1customization__points_1_1_absolute_value_3_01_tensor_type_01_4.html":[3,0,1,3,0,4]
+"structmgis_1_1function_1_1_uniform_evaluator.html#adbd162b42322d6c8a72c9bd12339a4b1":[3,0,1,3,53,8]
 };

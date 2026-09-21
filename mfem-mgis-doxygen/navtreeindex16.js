@@ -1,5 +1,9 @@
 var NAVTREEINDEX16 =
 {
+"structcastem_1_1_castem_behaviour_handler_1_1_gradient_initialiser_with_stress_free_expansion.html#ac09978e538f2cf61d921d0c5c55c0c1a":[5,0,4,0,8,2],
+"structcastem_1_1_castem_behaviour_handler_1_1_gradient_initialiser_without_stress_free_expansion.html":[5,0,4,0,7],
+"structcastem_1_1_castem_behaviour_handler_1_1_gradient_initialiser_without_stress_free_expansion.html#a1530a2d5d5b6608f2fa38f13feeb2bf5":[5,0,4,0,7,0],
+"structcastem_1_1_castem_behaviour_handler_1_1_gradient_initialiser_without_stress_free_expansion.html#a153deda8a0529a8109244a73c9187dfc":[5,0,4,0,7,2],
 "structcastem_1_1_castem_behaviour_handler_1_1_gradient_initialiser_without_stress_free_expansion.html#a47e5fd2c0d22080ebc26b7c4dfdb4047":[5,0,4,0,7,1],
 "structcastem_1_1_castem_behaviour_handler_1_1_integrator.html":[5,0,4,0,9],
 "structcastem_1_1_castem_behaviour_handler_1_1_integrator_with_time_stepping.html":[5,0,4,0,10],
@@ -245,9 +249,5 @@ var NAVTREEINDEX16 =
 "structdianafea_1_1_import_gradients_3_01tfel_1_1material_1_1_modelling_hypothesis_1_1_p_l_a_n_e_s_t_r_e_s_s_01_4.html":[5,0,6,51],
 "structdianafea_1_1_import_symmetric_tensor.html":[5,0,6,52],
 "structdianafea_1_1_import_symmetric_tensor_3_011u_01_4.html":[5,0,6,53],
-"structdianafea_1_1_import_symmetric_tensor_3_012u_01_4.html":[5,0,6,54],
-"structdianafea_1_1_import_symmetric_tensor_3_013u_01_4.html":[5,0,6,55],
-"structdianafea_1_1_import_thermodynamic_forces.html":[5,0,6,56],
-"structdianafea_1_1_import_thermodynamic_forces_3_01tfel_1_1material_1_1_modelling_hypothesis_1_1_p_l_a_n_e_s_t_r_e_s_s_01_4.html":[5,0,6,57],
-"structdianafea_1_1_stress_free_expansion_handler_type.html":[5,0,6,58]
+"structdianafea_1_1_import_symmetric_tensor_3_012u_01_4.html":[5,0,6,54]
 };

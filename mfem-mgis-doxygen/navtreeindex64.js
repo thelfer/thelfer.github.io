@@ -1,5 +1,8 @@
 var NAVTREEINDEX64 =
 {
+"structtfel_1_1math_1_1internals_1_1_quantity_reference_ownership_policy.html#a9de8f3dd87ddda3012e1592aab07f3ff":[5,0,16,5,1,57,0],
+"structtfel_1_1math_1_1internals_1_1_quantity_reference_ownership_policy.html#a9fafc40226ca8159623f706dc53ec2a5":[5,0,16,5,1,57,6],
+"structtfel_1_1math_1_1internals_1_1_quantity_reference_ownership_policy.html#ad49ec98aaf7a5b6ede328008e79a1f1d":[5,0,16,5,1,57,8],
 "structtfel_1_1math_1_1internals_1_1_quantity_value_ownership_policy.html":[5,0,16,5,1,58],
 "structtfel_1_1math_1_1internals_1_1_quantity_value_ownership_policy.html#a11e7398faa217c245d897871960a04e4":[5,0,16,5,1,58,4],
 "structtfel_1_1math_1_1internals_1_1_quantity_value_ownership_policy.html#a448ec97c317e99f8da9007ce6455339f":[5,0,16,5,1,58,3],
@@ -246,8 +249,5 @@ var NAVTREEINDEX64 =
 "structtfel_1_1math_1_1parser_1_1_external_castem_function.html":[5,0,16,5,2,43],
 "structtfel_1_1math_1_1parser_1_1_external_castem_function.html#aed4dbb0244b2ec3008b2a8663b540c85":[5,0,16,5,2,43,0],
 "structtfel_1_1math_1_1parser_1_1_external_cyrano_function.html":[5,0,16,5,2,64],
-"structtfel_1_1math_1_1parser_1_1_external_cyrano_function.html#a04ca2a1b40db9d39518546f6ad958449":[5,0,16,5,2,64,1],
-"structtfel_1_1math_1_1parser_1_1_external_cyrano_function.html#a62ff50e52b8b97ee8fef5e8624899336":[5,0,16,5,2,64,0],
-"structtfel_1_1math_1_1parser_1_1_external_function.html":[5,0,16,5,2,65],
-"structtfel_1_1math_1_1parser_1_1_external_function_expr.html":[5,0,16,5,2,66]
+"structtfel_1_1math_1_1parser_1_1_external_cyrano_function.html#a04ca2a1b40db9d39518546f6ad958449":[5,0,16,5,2,64,1]
 };

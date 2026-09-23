@@ -410,6 +410,9 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_material.html">Material</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple structure describing a material an the associated data.  <a href="structmfem__mgis_1_1_material.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_material_quantity_provider_search_result.html">MaterialQuantityProviderSearchResult</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">result of the search of the behaviour integrator providing a given quantity (gradient, thermodynamic force or internal state variable) on a given location.  <a href="structmfem__mgis_1_1_material_quantity_provider_search_result.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_mean_thermodynamic_forces.html">MeanThermodynamicForces</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">a post-processing which computes the mean values of each components of the thermodynamic forces and print them in a file.  <a href="structmfem__mgis_1_1_mean_thermodynamic_forces.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1220,6 +1223,17 @@ const <a class="el" href="structmgis_1_1behaviour_1_1_material_state_manager.htm
 <tr class="separator:a2a0e6d2f19a85fc193a829b44db29028"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc351bbcea5b942aab44ddd1ef14fdb8" id="r_afc351bbcea5b942aab44ddd1ef14fdb8"><td class="memItemLeft" align="right" valign="top">MFEM_MGIS_EXPORT <a class="el" href="structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html">ImmutablePartialQuadratureFunctionView</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfem__mgis.html#afc351bbcea5b942aab44ddd1ef14fdb8">getInternalStateVariable</a> (const <a class="el" href="structmfem__mgis_1_1_material.html">Material</a> &amp;, const std::string_view, const Material::StateSelection=Material::END_OF_TIME_STEP)</td></tr>
 <tr class="separator:afc351bbcea5b942aab44ddd1ef14fdb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9d0e3a31cdaa1dc16a902d5ffb9d1f0" id="r_ad9d0e3a31cdaa1dc16a902d5ffb9d1f0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfem__mgis.html#ad9d0e3a31cdaa1dc16a902d5ffb9d1f0">isInvalid</a> (const <a class="el" href="structmfem__mgis_1_1_material_quantity_provider_search_result.html">MaterialQuantityProviderSearchResult</a> &amp;r) noexcept</td></tr>
+<tr class="separator:ad9d0e3a31cdaa1dc16a902d5ffb9d1f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adca4ea7b989d99c564cb36a37cf301a2" id="r_adca4ea7b989d99c564cb36a37cf301a2"><td class="memItemLeft" align="right" valign="top">MFEM_MGIS_EXPORT std::optional&lt; <a class="el" href="structmfem__mgis_1_1_material_quantity_provider_search_result.html">MaterialQuantityProviderSearchResult</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfem__mgis.html#adca4ea7b989d99c564cb36a37cf301a2">hasGradientProvider</a> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, const <a class="el" href="structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html">AbstractNonLinearEvolutionProblem</a> &amp;, const <a class="el" href="namespacemfem__mgis.html#a10c9b98525562464d3e00bba26b08618">LocationIdentifier</a> &amp;, std::string_view) noexcept</td></tr>
+<tr class="memdesc:adca4ea7b989d99c564cb36a37cf301a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">search the behaviour integrator providing the given gradient on the given location  <br /></td></tr>
+<tr class="separator:adca4ea7b989d99c564cb36a37cf301a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8a982588f99d4e7c3d05867f4e38125" id="r_ab8a982588f99d4e7c3d05867f4e38125"><td class="memItemLeft" align="right" valign="top">MFEM_MGIS_EXPORT std::optional&lt; <a class="el" href="structmfem__mgis_1_1_material_quantity_provider_search_result.html">MaterialQuantityProviderSearchResult</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfem__mgis.html#ab8a982588f99d4e7c3d05867f4e38125">hasThermodynamicForceProvider</a> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, const <a class="el" href="structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html">AbstractNonLinearEvolutionProblem</a> &amp;, const <a class="el" href="namespacemfem__mgis.html#a10c9b98525562464d3e00bba26b08618">LocationIdentifier</a> &amp;, std::string_view) noexcept</td></tr>
+<tr class="memdesc:ab8a982588f99d4e7c3d05867f4e38125"><td class="mdescLeft">&#160;</td><td class="mdescRight">search the behaviour integrator providing the given thermodynamic force on the given location  <br /></td></tr>
+<tr class="separator:ab8a982588f99d4e7c3d05867f4e38125"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfcbbd567a3f89cca87b9b8a4c211ab6" id="r_adfcbbd567a3f89cca87b9b8a4c211ab6"><td class="memItemLeft" align="right" valign="top">MFEM_MGIS_EXPORT std::optional&lt; <a class="el" href="structmfem__mgis_1_1_material_quantity_provider_search_result.html">MaterialQuantityProviderSearchResult</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfem__mgis.html#adfcbbd567a3f89cca87b9b8a4c211ab6">hasInternalStateVariableProvider</a> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, const <a class="el" href="structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html">AbstractNonLinearEvolutionProblem</a> &amp;, const <a class="el" href="namespacemfem__mgis.html#a10c9b98525562464d3e00bba26b08618">LocationIdentifier</a> &amp;, std::string_view) noexcept</td></tr>
+<tr class="memdesc:adfcbbd567a3f89cca87b9b8a4c211ab6"><td class="mdescLeft">&#160;</td><td class="mdescRight">search the behaviour integrator providing the given internal state variable on the given location  <br /></td></tr>
+<tr class="separator:adfcbbd567a3f89cca87b9b8a4c211ab6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1fe7ca131dc127ee5a875966c0430eaf" id="r_a1fe7ca131dc127ee5a875966c0430eaf"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfem__mgis.html#a1fe7ca131dc127ee5a875966c0430eaf">isInvalid</a> (const <a class="el" href="namespacemfem__mgis.html#a10c9b98525562464d3e00bba26b08618">LocationIdentifier</a> &amp;l) noexcept</td></tr>
 <tr class="separator:a1fe7ca131dc127ee5a875966c0430eaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d3b39f39ea601925c8ef182814a0425" id="r_a7d3b39f39ea601925c8ef182814a0425"><td class="memItemLeft" align="right" valign="top">MFEM_MGIS_EXPORT bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfem__mgis.html#a7d3b39f39ea601925c8ef182814a0425">operator==</a> (const <a class="el" href="structmfem__mgis_1_1_mesh_discretization.html">MeshDiscretization</a> &amp;, const <a class="el" href="structmfem__mgis_1_1_mesh_discretization.html">MeshDiscretization</a> &amp;) noexcept</td></tr>
@@ -6640,6 +6654,189 @@ template&lt;&gt; </div>
 
 </div>
 </div>
+<a id="adca4ea7b989d99c564cb36a37cf301a2" name="adca4ea7b989d99c564cb36a37cf301a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adca4ea7b989d99c564cb36a37cf301a2">&#9670;&#160;</a></span>hasGradientProvider()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MFEM_MGIS_EXPORT std::optional&lt; <a class="el" href="structmfem__mgis_1_1_material_quantity_provider_search_result.html">MaterialQuantityProviderSearchResult</a> &gt; mfem_mgis::hasGradientProvider </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmgis_1_1_context.html">Context</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html">AbstractNonLinearEvolutionProblem</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacemfem__mgis.html#a10c9b98525562464d3e00bba26b08618">LocationIdentifier</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>search the behaviour integrator providing the given gradient on the given location </p>
+<dl class="section return"><dt>Returns</dt><dd>the result of the search. An empty value is returned if an error occured, in which case the error is reported in the execution context. Not finding a unique provider is not considered as an error: this information is reported by the status of the result.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">ctx</td><td>execution context </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td>non linear evolution problem </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">l</td><td>location </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>name of the gradient</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>behaviour integrators are currently only defined on materials, so no provider can be found on a boundary. </dd></dl>
+
+</div>
+</div>
+<a id="adfcbbd567a3f89cca87b9b8a4c211ab6" name="adfcbbd567a3f89cca87b9b8a4c211ab6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfcbbd567a3f89cca87b9b8a4c211ab6">&#9670;&#160;</a></span>hasInternalStateVariableProvider()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MFEM_MGIS_EXPORT std::optional&lt; <a class="el" href="structmfem__mgis_1_1_material_quantity_provider_search_result.html">MaterialQuantityProviderSearchResult</a> &gt; mfem_mgis::hasInternalStateVariableProvider </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmgis_1_1_context.html">Context</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html">AbstractNonLinearEvolutionProblem</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacemfem__mgis.html#a10c9b98525562464d3e00bba26b08618">LocationIdentifier</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>search the behaviour integrator providing the given internal state variable on the given location </p>
+<dl class="section return"><dt>Returns</dt><dd>the result of the search. An empty value is returned if an error occured, in which case the error is reported in the execution context. Not finding a unique provider is not considered as an error: this information is reported by the status of the result.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">ctx</td><td>execution context </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td>non linear evolution problem </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">l</td><td>location </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>name of the internal state variable</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>behaviour integrators are currently only defined on materials, so no provider can be found on a boundary. </dd></dl>
+
+</div>
+</div>
+<a id="ab8a982588f99d4e7c3d05867f4e38125" name="ab8a982588f99d4e7c3d05867f4e38125"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8a982588f99d4e7c3d05867f4e38125">&#9670;&#160;</a></span>hasThermodynamicForceProvider()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MFEM_MGIS_EXPORT std::optional&lt; <a class="el" href="structmfem__mgis_1_1_material_quantity_provider_search_result.html">MaterialQuantityProviderSearchResult</a> &gt; mfem_mgis::hasThermodynamicForceProvider </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmgis_1_1_context.html">Context</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html">AbstractNonLinearEvolutionProblem</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacemfem__mgis.html#a10c9b98525562464d3e00bba26b08618">LocationIdentifier</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>search the behaviour integrator providing the given thermodynamic force on the given location </p>
+<dl class="section return"><dt>Returns</dt><dd>the result of the search. An empty value is returned if an error occured, in which case the error is reported in the execution context. Not finding a unique provider is not considered as an error: this information is reported by the status of the result.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">ctx</td><td>execution context </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td>non linear evolution problem </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">l</td><td>location </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>name of the thermodynamic force</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>behaviour integrators are currently only defined on materials, so no provider can be found on a boundary. </dd></dl>
+
+</div>
+</div>
 <a id="a319ee59726c0b3e9b1c834ef58ceeaa3" name="a319ee59726c0b3e9b1c834ef58ceeaa3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a319ee59726c0b3e9b1c834ef58ceeaa3">&#9670;&#160;</a></span>info()</h2>
 
@@ -6899,7 +7096,7 @@ template&lt;&gt; </div>
 </div>
 </div>
 <a id="a1fe7ca131dc127ee5a875966c0430eaf" name="a1fe7ca131dc127ee5a875966c0430eaf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1fe7ca131dc127ee5a875966c0430eaf">&#9670;&#160;</a></span>isInvalid()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fe7ca131dc127ee5a875966c0430eaf">&#9670;&#160;</a></span>isInvalid() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -6925,6 +7122,39 @@ template&lt;&gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">l</td><td>location identifier </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad9d0e3a31cdaa1dc16a902d5ffb9d1f0" name="ad9d0e3a31cdaa1dc16a902d5ffb9d1f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9d0e3a31cdaa1dc16a902d5ffb9d1f0">&#9670;&#160;</a></span>isInvalid() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool mfem_mgis::isInvalid </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structmfem__mgis_1_1_material_quantity_provider_search_result.html">MaterialQuantityProviderSearchResult</a> &amp;&#160;</td>
+          <td class="paramname"><em>r</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>if the search failed, i.e. if no unique provider was found </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">r</td><td>result of the search </td></tr>
   </table>
   </dd>
 </dl>
@@ -8927,7 +9157,7 @@ template&lt;bool parallel&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemfem__mgis.html">mfem_mgis</a></li>
-    <li class="footer">Generated on Wed Sep 23 2026 19:03:25 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Sep 23 2026 21:46:01 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

@@ -64,6 +64,7 @@ var dir_3a137169c64f9653d81364b844f1dd68 =
     [ "LoopCouplingScheme.hxx", "_loop_coupling_scheme_8hxx.html", "_loop_coupling_scheme_8hxx" ],
     [ "Material.hxx", "_material_8hxx.html", "_material_8hxx" ],
     [ "Material.ixx", "_material_8ixx.html", null ],
+    [ "MaterialQuantityProviderSearch.hxx", "_material_quantity_provider_search_8hxx.html", "_material_quantity_provider_search_8hxx" ],
     [ "MeanThermodynamicForces.hxx", "_mean_thermodynamic_forces_8hxx.html", "_mean_thermodynamic_forces_8hxx" ],
     [ "MeanThermodynamicForces.ixx", "_mean_thermodynamic_forces_8ixx.html", null ],
     [ "MechanicalPostProcessings.hxx", "_mechanical_post_processings_8hxx.html", null ],

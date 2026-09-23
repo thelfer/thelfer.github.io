@@ -1,5 +1,11 @@
 var NAVTREEINDEX43 =
 {
+"structmfront_1_1bbrick_1_1_gurson_tvergaard_needleman1982_stress_criterion.html":[5,0,11,0,14],
+"structmfront_1_1bbrick_1_1_gurson_tvergaard_needleman1982_stress_criterion.html#a4d390f367aa283b9fc5920f892fd220c":[5,0,11,0,14,7],
+"structmfront_1_1bbrick_1_1_gurson_tvergaard_needleman1982_stress_criterion.html#a6b53796935d0b129d8d63717e004a68d":[5,0,11,0,14,1],
+"structmfront_1_1bbrick_1_1_gurson_tvergaard_needleman1982_stress_criterion.html#a85ca6899d5df2479a8d918f2cdf906c1":[5,0,11,0,14,2],
+"structmfront_1_1bbrick_1_1_gurson_tvergaard_needleman1982_stress_criterion.html#aaa2b0ecac717f03ac288beb9d64094bb":[5,0,11,0,14,6],
+"structmfront_1_1bbrick_1_1_gurson_tvergaard_needleman1982_stress_criterion.html#aab6f04dea880dc757cf66435f7ab4f6e":[5,0,11,0,14,5],
 "structmfront_1_1bbrick_1_1_gurson_tvergaard_needleman1982_stress_criterion.html#ab6a0017f7784d02b6688d9b9285e6229":[5,0,11,0,14,0],
 "structmfront_1_1bbrick_1_1_gurson_tvergaard_needleman1982_stress_criterion.html#ac70621ab52b3d6ddd8584223cebfe1e9":[5,0,11,0,14,3],
 "structmfront_1_1bbrick_1_1_gurson_tvergaard_needleman1982_stress_criterion.html#aceae372d923085f1e8abf6d4fa5d0763":[5,0,11,0,14,4],
@@ -243,11 +249,5 @@ var NAVTREEINDEX43 =
 "structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a2df515a759a7373d1adafba4c908c9cc":[5,0,11,0,33,10],
 "structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a3554aa288e52e64f366767a51d376afa":[5,0,11,0,33,11],
 "structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a35f8b03dda6037214fa82fcd1bf905e6":[5,0,11,0,33,14],
-"structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a4affd2652f4dc378b65d93c95978e0a5":[5,0,11,0,33,1],
-"structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a69b9bd9605854b5c75fbf461dcdda5e1":[5,0,11,0,33,9],
-"structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a7a88da8c8adf3b6255748f251a8907f3":[5,0,11,0,33,0],
-"structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a8ad8589bad836ab32e3689c0dc0fd059":[5,0,11,0,33,13],
-"structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a94e93ec4268a291fb029a8868c6f61a3":[5,0,11,0,33,15],
-"structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a9dae8c80a3fcf825d77823959924f008":[5,0,11,0,33,5],
-"structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#aa719ff63fc66f8b1eb8d3ed04dd80d0e":[5,0,11,0,33,4]
+"structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a4affd2652f4dc378b65d93c95978e0a5":[5,0,11,0,33,1]
 };

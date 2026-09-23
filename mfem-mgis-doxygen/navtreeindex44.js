@@ -1,5 +1,11 @@
 var NAVTREEINDEX44 =
 {
+"structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a69b9bd9605854b5c75fbf461dcdda5e1":[5,0,11,0,33,9],
+"structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a7a88da8c8adf3b6255748f251a8907f3":[5,0,11,0,33,0],
+"structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a8ad8589bad836ab32e3689c0dc0fd059":[5,0,11,0,33,13],
+"structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a94e93ec4268a291fb029a8868c6f61a3":[5,0,11,0,33,15],
+"structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a9dae8c80a3fcf825d77823959924f008":[5,0,11,0,33,5],
+"structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#aa719ff63fc66f8b1eb8d3ed04dd80d0e":[5,0,11,0,33,4],
 "structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#ae75d3c5e988de8cb98dd5fdfc4ac8c52":[5,0,11,0,33,3],
 "structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#aeec65807e4373cc702133f88f20b9a83":[5,0,11,0,33,7],
 "structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#af29de5d8130e512078340d7615bccc7b":[5,0,11,0,33,6],
@@ -243,11 +249,5 @@ var NAVTREEINDEX44 =
 "structmfront_1_1bbrick_1_1_stress_potential.html#a8ffbf600e74506f126e9c038f6b0a4ce":[5,0,11,0,57,3],
 "structmfront_1_1bbrick_1_1_stress_potential.html#a974a48d661e1b3397a3cce6b64050562":[5,0,11,0,57,0],
 "structmfront_1_1bbrick_1_1_stress_potential.html#aa9933a8f126d10dd947a27956333af58":[5,0,11,0,57,6],
-"structmfront_1_1bbrick_1_1_stress_potential.html#aacce7973bbffba4788c67b13ac116f8d":[5,0,11,0,57,13],
-"structmfront_1_1bbrick_1_1_stress_potential.html#abe35dfd1637c49e2781faf94b55fb98f":[5,0,11,0,57,11],
-"structmfront_1_1bbrick_1_1_stress_potential.html#abf8d7f7d72a5d1e64b89e9ba54d60afb":[5,0,11,0,57,4],
-"structmfront_1_1bbrick_1_1_stress_potential.html#ac37c4320fb11c64e6d1b2079d495cecb":[5,0,11,0,57,7],
-"structmfront_1_1bbrick_1_1_stress_potential.html#afd7f30f6a8946b9f2076c13d6fa51138":[5,0,11,0,57,16],
-"structmfront_1_1bbrick_1_1_stress_potential_factory.html":[5,0,11,0,58],
-"structmfront_1_1bbrick_1_1_stress_potential_factory.html#a67c614f48c5392f7c670a9ed1149abbf":[5,0,11,0,58,0]
+"structmfront_1_1bbrick_1_1_stress_potential.html#aacce7973bbffba4788c67b13ac116f8d":[5,0,11,0,57,13]
 };

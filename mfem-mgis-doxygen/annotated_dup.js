@@ -500,6 +500,7 @@ var annotated_dup =
         [ "TestParameters", "structmfem__mgis_1_1unit__tests_1_1_test_parameters.html", null ],
         [ "UniaxialTestResults", "structmfem__mgis_1_1unit__tests_1_1_uniaxial_test_results.html", "structmfem__mgis_1_1unit__tests_1_1_uniaxial_test_results" ]
       ] ],
+      [ "AbstractAdditionalConvergenceCriterion", "structmfem__mgis_1_1_abstract_additional_convergence_criterion.html", "structmfem__mgis_1_1_abstract_additional_convergence_criterion" ],
       [ "AbstractBehaviourIntegrator", "structmfem__mgis_1_1_abstract_behaviour_integrator.html", "structmfem__mgis_1_1_abstract_behaviour_integrator" ],
       [ "AbstractBoundaryCondition", "structmfem__mgis_1_1_abstract_boundary_condition.html", "structmfem__mgis_1_1_abstract_boundary_condition" ],
       [ "AbstractConvergenceFailureHandler", "structmfem__mgis_1_1_abstract_convergence_failure_handler.html", "structmfem__mgis_1_1_abstract_convergence_failure_handler" ],

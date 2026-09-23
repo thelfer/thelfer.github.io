@@ -1,7 +1,5 @@
 var NAVTREEINDEX15 =
 {
-"structansys_1_1_ansys_behaviour_handler_1_1_thermal_expansion_coefficient_tensor_initializer.html":[5,0,1,0,5],
-"structansys_1_1_ansys_compute_stiffness_tensor.html":[5,0,1,1],
 "structansys_1_1_ansys_compute_stiffness_tensor_3_01ansys_1_1_s_t_a_n_d_a_r_d_f_i_n_i_t_e_s_t_r_ae8df2b8ea2f499c05e9beff86fe9f2bf.html":[5,0,1,2],
 "structansys_1_1_ansys_compute_stiffness_tensor_3_01ansys_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_e2ff91416c765ba5f644903b10593a381.html":[5,0,1,12],
 "structansys_1_1_ansys_compute_stiffness_tensor_3_01ansys_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_e452fe75dbdacf2d0b4f4c46231208da2.html":[5,0,1,8],
@@ -249,5 +247,7 @@ var NAVTREEINDEX15 =
 "structcastem_1_1_castem_behaviour_handler_1_1_error.html":[5,0,4,0,5],
 "structcastem_1_1_castem_behaviour_handler_1_1_general_consistent_tangent_operator_computer.html":[5,0,4,0,6],
 "structcastem_1_1_castem_behaviour_handler_1_1_gradient_initialiser_with_stress_free_expansion.html":[5,0,4,0,8],
-"structcastem_1_1_castem_behaviour_handler_1_1_gradient_initialiser_with_stress_free_expansion.html#a006ae3deff3f198d8dcc87abbd3c8c4b":[5,0,4,0,8,3]
+"structcastem_1_1_castem_behaviour_handler_1_1_gradient_initialiser_with_stress_free_expansion.html#a006ae3deff3f198d8dcc87abbd3c8c4b":[5,0,4,0,8,3],
+"structcastem_1_1_castem_behaviour_handler_1_1_gradient_initialiser_with_stress_free_expansion.html#a03b71725db4fc87546610287d5fd7c91":[5,0,4,0,8,0],
+"structcastem_1_1_castem_behaviour_handler_1_1_gradient_initialiser_with_stress_free_expansion.html#a5e4cfa2e73c7eb319fccc993e2961d5b":[5,0,4,0,8,1]
 };

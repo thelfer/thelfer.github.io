@@ -1,5 +1,6 @@
 var namespacemfem__mgis =
 [
+    [ "AbstractAdditionalConvergenceCriterion", "structmfem__mgis_1_1_abstract_additional_convergence_criterion.html", "structmfem__mgis_1_1_abstract_additional_convergence_criterion" ],
     [ "AbstractBehaviourIntegrator", "structmfem__mgis_1_1_abstract_behaviour_integrator.html", "structmfem__mgis_1_1_abstract_behaviour_integrator" ],
     [ "AbstractBoundaryCondition", "structmfem__mgis_1_1_abstract_boundary_condition.html", "structmfem__mgis_1_1_abstract_boundary_condition" ],
     [ "AbstractConvergenceFailureHandler", "structmfem__mgis_1_1_abstract_convergence_failure_handler.html", "structmfem__mgis_1_1_abstract_convergence_failure_handler" ],
@@ -341,7 +342,6 @@ var namespacemfem__mgis =
     [ "getNumberOfComponents", "namespacemfem__mgis.html#a74a1b6ee5ee8c84303bdcc934b000658", null ],
     [ "getNumberOfComponents", "namespacemfem__mgis.html#ac7bda13d28706472960be90fbad1e0ff", null ],
     [ "getNumberOfComponents", "namespacemfem__mgis.html#a5f1d3ac1407ea68c4ae17416ea96e54d", null ],
-    [ "getNumIterations", "namespacemfem__mgis.html#a952f618eb941af098f38fcb96a3cd371", null ],
     [ "getOutputStream", "namespacemfem__mgis.html#a11adbe6d24e85e9ecb4056c1ee711c55", null ],
     [ "getShortDescription", "namespacemfem__mgis.html#a9fd623096dfa111b7a182462f7764eb0", null ],
     [ "getSpace", "namespacemfem__mgis.html#a6c52774228ba7cc1a06bfa5d0347d115", null ],

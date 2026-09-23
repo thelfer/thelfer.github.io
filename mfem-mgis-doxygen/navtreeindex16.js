@@ -1,7 +1,5 @@
 var NAVTREEINDEX16 =
 {
-"structcastem_1_1_castem_behaviour_handler_1_1_gradient_initialiser_with_stress_free_expansion.html#a03b71725db4fc87546610287d5fd7c91":[5,0,4,0,8,0],
-"structcastem_1_1_castem_behaviour_handler_1_1_gradient_initialiser_with_stress_free_expansion.html#a5e4cfa2e73c7eb319fccc993e2961d5b":[5,0,4,0,8,1],
 "structcastem_1_1_castem_behaviour_handler_1_1_gradient_initialiser_with_stress_free_expansion.html#ac09978e538f2cf61d921d0c5c55c0c1a":[5,0,4,0,8,2],
 "structcastem_1_1_castem_behaviour_handler_1_1_gradient_initialiser_without_stress_free_expansion.html":[5,0,4,0,7],
 "structcastem_1_1_castem_behaviour_handler_1_1_gradient_initialiser_without_stress_free_expansion.html#a1530a2d5d5b6608f2fa38f13feeb2bf5":[5,0,4,0,7,0],
@@ -249,5 +247,7 @@ var NAVTREEINDEX16 =
 "structdianafea_1_1_extract_and_convert_tangent_operator_3_01tfel_1_1material_1_1_modelling_hypot40607908a4df715540cdcd479274d229.html":[5,0,6,49],
 "structdianafea_1_1_import_gradients.html":[5,0,6,50],
 "structdianafea_1_1_import_gradients_3_01tfel_1_1material_1_1_modelling_hypothesis_1_1_p_l_a_n_e_s_t_r_e_s_s_01_4.html":[5,0,6,51],
-"structdianafea_1_1_import_symmetric_tensor.html":[5,0,6,52]
+"structdianafea_1_1_import_symmetric_tensor.html":[5,0,6,52],
+"structdianafea_1_1_import_symmetric_tensor_3_011u_01_4.html":[5,0,6,53],
+"structdianafea_1_1_import_symmetric_tensor_3_012u_01_4.html":[5,0,6,54]
 };

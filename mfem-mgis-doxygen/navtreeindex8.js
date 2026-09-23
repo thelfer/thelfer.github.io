@@ -9,9 +9,8 @@ var NAVTREEINDEX8 =
 "_solver_options_8hxx.html#af03819f6751327d35c6ce6b4e847f4d8af0a723ef95ea97d8476d5b39e8bf3328":[6,0,1,0,0,0,1,0,4,19,2,2],
 "_solver_utilities_8hxx.html":[6,0,0,0,3,3],
 "_solver_utilities_8hxx.html#a63f58852f574c95ee06b1570d08c66f2":[6,0,0,0,3,3,0],
-"_solver_utilities_8hxx.html#a952f618eb941af098f38fcb96a3cd371":[6,0,0,0,3,3,1],
-"_solver_utilities_8hxx.html#ac282a67ff60b4498b8ea293a89bdeee1":[6,0,0,0,3,3,2],
-"_solver_utilities_8hxx.html#ac8c41cf81750747c9067f5516690cd1e":[6,0,0,0,3,3,3],
+"_solver_utilities_8hxx.html#ac282a67ff60b4498b8ea293a89bdeee1":[6,0,0,0,3,3,1],
+"_solver_utilities_8hxx.html#ac8c41cf81750747c9067f5516690cd1e":[6,0,0,0,3,3,2],
 "_solver_work_space_8hxx.html":[6,0,1,0,0,0,1,0,4,20],
 "_solver_work_space_8hxx.html#af2d9d4e72e668600916d2105ea73520d":[6,0,1,0,0,0,1,0,4,20,1],
 "_sort_eigen_values_8hxx.html":[6,0,1,0,0,0,1,0,6,5,18,0,6],
@@ -249,5 +248,6 @@ var NAVTREEINDEX8 =
 "_t_f_e_l_2_material_2_harmonic_sum_of_norton_hoff_viscoplastic_flows_8hxx.html#af6f990bec2524217303f97dcf5a780c1":[6,0,1,0,0,0,1,0,6,4,29,2],
 "_t_f_e_l_2_material_2_michel_and_suquet1992_hollow_sphere_stress_criterion_8hxx.html":[6,0,1,0,0,0,1,0,6,4,64],
 "_t_f_e_l_2_material_2_michel_and_suquet1992_hollow_sphere_stress_criterion_8hxx.html#a380596783ba73f152991311e379ae146":[6,0,1,0,0,0,1,0,6,4,64,5],
-"_t_f_e_l_2_material_2_michel_and_suquet1992_hollow_sphere_stress_criterion_8hxx.html#a40fcab695c46d1b07c2102427e0d7b10":[6,0,1,0,0,0,1,0,6,4,64,3]
+"_t_f_e_l_2_material_2_michel_and_suquet1992_hollow_sphere_stress_criterion_8hxx.html#a40fcab695c46d1b07c2102427e0d7b10":[6,0,1,0,0,0,1,0,6,4,64,3],
+"_t_f_e_l_2_material_2_michel_and_suquet1992_hollow_sphere_stress_criterion_8hxx.html#a4f491037cf51fcec70265e9c0dc64c5a":[6,0,1,0,0,0,1,0,6,4,64,8]
 };

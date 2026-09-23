@@ -91,7 +91,6 @@ var hierarchy =
     [ "mgis::function::customization_points::AbsoluteValue< tfel::math::View< const TensorType > >", "structmgis_1_1function_1_1customization__points_1_1_absolute_value_3_01tfel_1_1math_1_1_view_3_01const_01_tensor_type_01_4_01_4.html", null ],
     [ "mgis::function::internals::AbsoluteValueOperator", "structmgis_1_1function_1_1internals_1_1_absolute_value_operator.html", null ],
     [ "tfel::math::AbsSum< T >", "structtfel_1_1math_1_1_abs_sum.html", null ],
-    [ "mfem_mgis::AbstractAdditionalConvergenceCriterion", "structmfem__mgis_1_1_abstract_additional_convergence_criterion.html", null ],
     [ "mfront::generic_parallel::material_property::AbstractBackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_abstract_backend.html", [
       [ "mfront::generic_parallel::material_property::BackendBase", "structmfront_1_1generic__parallel_1_1material__property_1_1_backend_base.html", [
         [ "mfront::generic_parallel::material_property::CUDABackendBase", "structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend_base.html", null ],
@@ -806,7 +805,6 @@ var hierarchy =
     ] ],
     [ "mgis::function::internals::CellIndexTypeSelector< true, Space >", "structmgis_1_1function_1_1internals_1_1_cell_index_type_selector_3_01true_00_01_space_01_4.html", null ],
     [ "mgis::function::internals::CellWorkspaceSelector< true, Space >", "structmgis_1_1function_1_1internals_1_1_cell_workspace_selector_3_01true_00_01_space_01_4.html", null ],
-    [ "mfem_mgis::AbstractAdditionalConvergenceCriterion::CheckArguments", "structmfem__mgis_1_1_abstract_additional_convergence_criterion_1_1_check_arguments.html", null ],
     [ "mfront::CheckInitializeMethodsOptions", "structmfront_1_1_check_initialize_methods_options.html", null ],
     [ "tfel::material::CheckThermalDataValidity< Behaviour >", "structtfel_1_1material_1_1_check_thermal_data_validity.html", null ],
     [ "tfel::math::internals::CheckUnitCompatibilityImplementation< Unit, Type >", "structtfel_1_1math_1_1internals_1_1_check_unit_compatibility_implementation.html", null ],
@@ -1748,8 +1746,8 @@ var hierarchy =
     [ "dianafea::DianaFEABehaviourHandler< H, Behaviour >::DoNothingInitializer", "structdianafea_1_1_diana_f_e_a_behaviour_handler_1_1_do_nothing_initializer.html", null ],
     [ "lsdyna::LSDYNABehaviourHandler< H, Behaviour >::DoNothingInitializer", "structlsdyna_1_1_l_s_d_y_n_a_behaviour_handler_1_1_do_nothing_initializer.html", null ],
     [ "lsdyna::LSDYNAExplicitInterface< H, T, Behaviour >::DoNothingInitializer", "structlsdyna_1_1_l_s_d_y_n_a_explicit_interface_1_1_do_nothing_initializer.html", null ],
-    [ "tfel::math::dotProduct< N >", "structtfel_1_1math_1_1dot_product.html", null ],
     [ "tfel::math::DotProduct< N, M >", "structtfel_1_1math_1_1_dot_product.html", null ],
+    [ "tfel::math::dotProduct< N >", "structtfel_1_1math_1_1dot_product.html", null ],
     [ "tfel::math::dotProduct< 0u >", "structtfel_1_1math_1_1dot_product_3_010u_01_4.html", null ],
     [ "tfel::math::DotProduct< 0u, M >", "structtfel_1_1math_1_1_dot_product_3_010u_00_01_m_01_4.html", null ],
     [ "tfel::math::internals::DPK1_DF_to_DTAU_DF_Converter< N >", "structtfel_1_1math_1_1internals_1_1_d_p_k1___d_f__to___d_t_a_u___d_f___converter.html", null ],

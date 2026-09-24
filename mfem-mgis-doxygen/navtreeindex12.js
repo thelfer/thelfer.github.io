@@ -1,5 +1,6 @@
 var NAVTREEINDEX12 =
 {
+"functions_vars_x.html":[5,3,2,24],
 "functions_vars_y.html":[5,3,2,25],
 "functions_vars_z.html":[5,3,2,26],
 "functions_w.html":[5,3,0,23],
@@ -240,14 +241,13 @@ var NAVTREEINDEX12 =
 "namespacemembers_vars.html":[3,1,2],
 "namespacemfem__mgis.html":[3,0,0],
 "namespacemfem__mgis.html#a02704c734d28929ce399e4ae4c1422e6":[3,0,0,237],
-"namespacemfem__mgis.html#a0312dcc6663ab942d1277cbd4ffb90e6":[3,0,0,353],
+"namespacemfem__mgis.html#a0312dcc6663ab942d1277cbd4ffb90e6":[3,0,0,354],
 "namespacemfem__mgis.html#a03e82f0b94a681b66e06e96a416b3738":[3,0,0,194],
 "namespacemfem__mgis.html#a050f945156aa60dd3846f5f84710370e":[3,0,0,247],
-"namespacemfem__mgis.html#a0a1c65429884ef0585a525f70f54cb85":[3,0,0,379],
-"namespacemfem__mgis.html#a0a5f24b58ca7f89327512bad312f6161":[3,0,0,343],
-"namespacemfem__mgis.html#a0cc89b182a05320865a3147dc86637cd":[3,0,0,340],
-"namespacemfem__mgis.html#a0ce3d7dfb84da72f31e81a6e8fa522c6":[3,0,0,361],
+"namespacemfem__mgis.html#a0a1c65429884ef0585a525f70f54cb85":[3,0,0,380],
+"namespacemfem__mgis.html#a0a5f24b58ca7f89327512bad312f6161":[3,0,0,344],
+"namespacemfem__mgis.html#a0cc89b182a05320865a3147dc86637cd":[3,0,0,341],
+"namespacemfem__mgis.html#a0ce3d7dfb84da72f31e81a6e8fa522c6":[3,0,0,362],
 "namespacemfem__mgis.html#a10c9b98525562464d3e00bba26b08618":[3,0,0,198],
-"namespacemfem__mgis.html#a119737110a719b6ed096fd0e0c16ea76":[3,0,0,345],
-"namespacemfem__mgis.html#a11adbe6d24e85e9ecb4056c1ee711c55":[3,0,0,315]
+"namespacemfem__mgis.html#a119737110a719b6ed096fd0e0c16ea76":[3,0,0,346]
 };

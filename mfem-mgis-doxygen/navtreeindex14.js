@@ -1,5 +1,7 @@
 var NAVTREEINDEX14 =
 {
+"spack_2opt_2spack_2linux-zen2_2mgis-master-bs26uunyidp3apeqihomdmwhg57kgl6a_2include_2_m_g_i_s_2_behaviour_2_behaviour_8hxx.html#a6e4cd8be4198e7d847c1e93a1569a0e1":[6,0,1,0,0,0,0,0,0,0,0,18],
+"spack_2opt_2spack_2linux-zen2_2mgis-master-bs26uunyidp3apeqihomdmwhg57kgl6a_2include_2_m_g_i_s_2_behaviour_2_behaviour_8hxx.html#a6fb2955d86fc2fb61f3553e87dbbd94c":[6,0,1,0,0,0,0,0,0,0,0,10],
 "spack_2opt_2spack_2linux-zen2_2mgis-master-bs26uunyidp3apeqihomdmwhg57kgl6a_2include_2_m_g_i_s_2_behaviour_2_behaviour_8hxx.html#a72314fbaa5dbe22c6e53dc715625ea23":[6,0,1,0,0,0,0,0,0,0,0,11],
 "spack_2opt_2spack_2linux-zen2_2mgis-master-bs26uunyidp3apeqihomdmwhg57kgl6a_2include_2_m_g_i_s_2_behaviour_2_behaviour_8hxx.html#a723ba5c07a120279a04628804602ab85":[6,0,1,0,0,0,0,0,0,0,0,32],
 "spack_2opt_2spack_2linux-zen2_2mgis-master-bs26uunyidp3apeqihomdmwhg57kgl6a_2include_2_m_g_i_s_2_behaviour_2_behaviour_8hxx.html#a792be9b831c1e25b7624e61b0c880d7f":[6,0,1,0,0,0,0,0,0,0,0,27],
@@ -247,7 +249,5 @@ var NAVTREEINDEX14 =
 "structansys_1_1_ansys_behaviour_handler_1_1_gradient_initialiser_without_stress_free_expansion.html":[5,0,1,0,1],
 "structansys_1_1_ansys_behaviour_handler_1_1_gradient_initialiser_without_stress_free_expansion.html#a1b8cb4136c6c9406e9f4d4ba05d421f6":[5,0,1,0,1,0],
 "structansys_1_1_ansys_behaviour_handler_1_1_integrator.html":[5,0,1,0,3],
-"structansys_1_1_ansys_behaviour_handler_1_1_stiffness_operator_initializer.html":[5,0,1,0,4],
-"structansys_1_1_ansys_behaviour_handler_1_1_thermal_expansion_coefficient_tensor_initializer.html":[5,0,1,0,5],
-"structansys_1_1_ansys_compute_stiffness_tensor.html":[5,0,1,1]
+"structansys_1_1_ansys_behaviour_handler_1_1_stiffness_operator_initializer.html":[5,0,1,0,4]
 };

@@ -15,9 +15,9 @@ var _config_8hxx =
       [ "RAISE", "_config_8hxx.html#a0fb947e2c8078a01e391feafa0bd1b9da22b61bc49292970095594840b2de557d", null ],
       [ "ABORT", "_config_8hxx.html#a0fb947e2c8078a01e391feafa0bd1b9da8d12a2ca7e5a64036d7251a3eda51a38", null ]
     ] ],
-    [ "abort", "_config_8hxx.html#a0629eb66a27324064e63412b0583223b", null ],
+    [ "abort", "_config_8hxx.html#a62b9d8eb466eb3346ff913abd7056249", null ],
     [ "setTerminateHandler", "_config_8hxx.html#a138a6bdc47e00ef35c48e4cd678d7e36", null ],
-    [ "terminate", "_config_8hxx.html#a529a5cd45c137150a5fac7755eaa0772", null ],
+    [ "terminate", "_config_8hxx.html#a24298acaa60d366d6daef9765a0e462b", null ],
     [ "contract_violation_policy", "_config_8hxx.html#a79b9a5a544ae0b29e030bc5510503628", null ],
     [ "default_error_report_policy", "_config_8hxx.html#a7e07631d8c78c74705d4d62ca6698f05", null ],
     [ "dynamic_extent", "_config_8hxx.html#ae69dc42a95f45bf4ffb676c0e9b64722", null ]

@@ -35,7 +35,7 @@ var searchData=
   ['isotropictridimensionalstationarynonlinearheattransferbehaviourintegrator_32',['IsotropicTridimensionalStationaryNonLinearHeatTransferBehaviourIntegrator',['../structmfem__mgis_1_1_isotropic_tridimensional_stationary_non_linear_heat_transfer_behaviour_integrator.html#a07ad9519650abec2a8dc9e8690621b5a',1,'mfem_mgis::IsotropicTridimensionalStationaryNonLinearHeatTransferBehaviourIntegrator']]],
   ['isrequired_33',['isRequired',['../structmfem__mgis_1_1_dependency_base.html#ae1dd1128b4e97ac14d1a511c72c94ba9',1,'mfem_mgis::DependencyBase']]],
   ['isscalar_34',['isScalar',['../structmfem__mgis_1_1_partial_quadrature_function_data_layout.html#ab8d18e77b592a96de0eac88d0f105699',1,'mfem_mgis::PartialQuadratureFunctionDataLayout']]],
-  ['isslibing_35',['isSlibing',['../structmfem__mgis_1_1_finite_element_discretization.html#a8243e157c3aa700188c4d76573fa6e24',1,'mfem_mgis::FiniteElementDiscretization']]],
+  ['issibling_35',['isSibling',['../structmfem__mgis_1_1_finite_element_discretization.html#a9acd9d9d3f0bf308adfeee7f0d9c72e8',1,'mfem_mgis::FiniteElementDiscretization']]],
   ['istrueonallprocesses_36',['isTrueOnAllProcesses',['../namespacemfem__mgis.html#a0cc89b182a05320865a3147dc86637cd',1,'mfem_mgis']]],
   ['isvalidonallprocesses_37',['isValidOnAllProcesses',['../namespacemfem__mgis.html#a68eeb817409eacacf8fd348f6083c21c',1,'mfem_mgis']]],
   ['iterativecouplingscheme_38',['IterativeCouplingScheme',['../structmfem__mgis_1_1_iterative_coupling_scheme.html#ae3e114f318d66b561303b98dae95b56b',1,'mfem_mgis::IterativeCouplingScheme']]]

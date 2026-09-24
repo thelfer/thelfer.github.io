@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['category_0',['Category',['../structmfem__mgis_1_1_paraview_export_integration_point_results_at_nodes_base_1_1_material_integration_point_result_base.html#a3229ad5faaad08d97cdb50cd240bff76',1,'mfem_mgis::ParaviewExportIntegrationPointResultsAtNodesBase::MaterialIntegrationPointResultBase']]]
+  ['behaviourtype_0',['behaviourtype',['../structmgis_1_1behaviour_1_1_behaviour_description.html#a443379838de05873285dc8074e29c866',1,'mgis::behaviour::BehaviourDescription::BehaviourType'],['../structtfel_1_1material_1_1_mechanical_behaviour_base.html#a6a789d98416e282ec88b6a5c300968af',1,'tfel::material::MechanicalBehaviourBase::BehaviourType']]],
+  ['boundstype_1',['BoundsType',['../structmfront_1_1_variable_bounds_description.html#a717ded1ded8da8f800a1d58feafab7fe',1,'mfront::VariableBoundsDescription']]]
 ];

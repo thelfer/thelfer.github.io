@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['nonlinearform_0',['NonlinearForm',['../namespacemfem__mgis.html#a603d2c35f3a2ae4903ae8b479e777377',1,'mfem_mgis']]],
-  ['nonlinearformintegrator_1',['NonlinearFormIntegrator',['../namespacemfem__mgis.html#a171bb8e85c68136a41a0b656662e46ce',1,'mfem_mgis']]]
+  ['j2ocoefficients_0',['J2OCoefficients',['../_orthotropic_plasticity_8hxx.html#a62fad0f0d0c554697afef27b740dbb0a',1,'tfel::material']]],
+  ['j3ocoefficients_1',['J3OCoefficients',['../_orthotropic_plasticity_8hxx.html#a54fd6c0605754328b4b7805d031f2227',1,'tfel::material']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['list_0',['Deprecated List',['../deprecated.html',1,'']]]
+  ['project_0',['An introduction to the MFEM/MGIS project',['../index.html',1,'']]]
 ];

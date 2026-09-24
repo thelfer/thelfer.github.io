@@ -1,4 +1,0 @@
-var structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix_implementation =
-[
-    [ "type", "structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix_implementation.html#aa29dc8a8060a417f8aa930b9ae923292", null ]
-];

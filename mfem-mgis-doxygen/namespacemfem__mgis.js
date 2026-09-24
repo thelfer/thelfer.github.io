@@ -342,6 +342,7 @@ var namespacemfem__mgis =
     [ "getNumberOfComponents", "namespacemfem__mgis.html#a74a1b6ee5ee8c84303bdcc934b000658", null ],
     [ "getNumberOfComponents", "namespacemfem__mgis.html#ac7bda13d28706472960be90fbad1e0ff", null ],
     [ "getNumberOfComponents", "namespacemfem__mgis.html#a5f1d3ac1407ea68c4ae17416ea96e54d", null ],
+    [ "getNumberOfIterationsAtConvergence", "namespacemfem__mgis.html#a8f0e6a6f26faadbd36c420165755076f", null ],
     [ "getOutputStream", "namespacemfem__mgis.html#a11adbe6d24e85e9ecb4056c1ee711c55", null ],
     [ "getShortDescription", "namespacemfem__mgis.html#a9fd623096dfa111b7a182462f7764eb0", null ],
     [ "getSpace", "namespacemfem__mgis.html#a6c52774228ba7cc1a06bfa5d0347d115", null ],

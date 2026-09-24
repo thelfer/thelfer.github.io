@@ -12,5 +12,6 @@ var searchData=
   ['isspecialized_9',['isSpecialized',['../structmgis_1_1internal_1_1_invalid_value_traits_3_1_1mfem__mgis_1_1_location_identifier_01_4.html#abf756cbb311d5cd7164c43388d534b16',1,'mgis::internal::InvalidValueTraits&lt;::mfem_mgis::LocationIdentifier &gt;']]],
   ['isvalid_10',['isValid',['../structmfem__mgis_1_1_abstract_time_step_validator_1_1_result.html#a9848db57cb3cef2ea7388521ad8f36dd',1,'mfem_mgis::AbstractTimeStepValidator::Result']]],
   ['items_11',['items',['../structmfem__mgis_1_1_coupling_scheme_base.html#ab540797f2c6444a773fe9e86c88381e9',1,'mfem_mgis::CouplingSchemeBase']]],
-  ['iterations_12',['iterations',['../structmfem__mgis_1_1_non_linear_resolution_output.html#a661e46181c19bd0138549219f037c6d0',1,'mfem_mgis::NonLinearResolutionOutput']]]
+  ['iterations_12',['iterations',['../structmfem__mgis_1_1_non_linear_resolution_output.html#a661e46181c19bd0138549219f037c6d0',1,'mfem_mgis::NonLinearResolutionOutput']]],
+  ['iterations_5finformation_13',['iterations_information',['../structmfem__mgis_1_1_non_linear_resolution_output.html#a8faf0a56f13095454648b12839fe2587',1,'mfem_mgis::NonLinearResolutionOutput::iterations_information'],['../structmfem__mgis_1_1_non_linear_solver_base.html#ac1a8f17254378f06a8df893765299190',1,'mfem_mgis::NonLinearSolverBase::iterations_information']]]
 ];

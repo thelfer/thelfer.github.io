@@ -4,5 +4,6 @@ var structmfem__mgis_1_1_non_linear_resolution_output =
     [ "final_residual_norm", "structmfem__mgis_1_1_non_linear_resolution_output.html#a19eccbe3856f3770dba347063f015bfb", null ],
     [ "initial_residual_norm", "structmfem__mgis_1_1_non_linear_resolution_output.html#a2f8880ea60cc085750fa4a135aee7320", null ],
     [ "iterations", "structmfem__mgis_1_1_non_linear_resolution_output.html#a661e46181c19bd0138549219f037c6d0", null ],
+    [ "iterations_information", "structmfem__mgis_1_1_non_linear_resolution_output.html#a8faf0a56f13095454648b12839fe2587", null ],
     [ "status", "structmfem__mgis_1_1_non_linear_resolution_output.html#a057c04648a6dbf8ee440bacac05ebfd7", null ]
 ];

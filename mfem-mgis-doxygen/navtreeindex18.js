@@ -1,5 +1,7 @@
 var NAVTREEINDEX18 =
 {
+"structmfem__mgis_1_1_view_specifications.html#ac597069be3b5627ef7931634ca4d13e7":[4,0,0,184,1],
+"structmfem__mgis_1_1_view_specifications.html#ac597069be3b5627ef7931634ca4d13e7":[2,0,0,183,1],
 "structmfem__mgis_1_1unit__tests_1_1_test_parameters.html":[4,0,0,0,0],
 "structmfem__mgis_1_1unit__tests_1_1_uniaxial_test_results.html":[4,0,0,0,1],
 "structmfem__mgis_1_1unit__tests_1_1_uniaxial_test_results.html#a1a7d7fa48b9faf63f23fa39a9ea510eb":[4,0,0,0,1,0],

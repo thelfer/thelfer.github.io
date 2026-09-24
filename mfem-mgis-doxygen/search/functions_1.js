@@ -3,7 +3,7 @@ var searchData=
   ['begin_0',['begin',['../structmfem__mgis_1_1_parameters.html#a9d7b4deca5702e6a1a8571b745cfb959',1,'mfem_mgis::Parameters']]],
   ['behaviourintegratorbase_1',['BehaviourIntegratorBase',['../structmfem__mgis_1_1_behaviour_integrator_base.html#aed3ae697f0c5c412ed676bac4d2d35c8',1,'mfem_mgis::BehaviourIntegratorBase']]],
   ['bidimensionalmicromorphicdamagebehaviourintegrator_2',['BidimensionalMicromorphicDamageBehaviourIntegrator',['../structmfem__mgis_1_1_bidimensional_micromorphic_damage_behaviour_integrator.html#a28e01c97ce474f00d7f0193a4a20d239',1,'mfem_mgis::BidimensionalMicromorphicDamageBehaviourIntegrator']]],
-  ['borrow_3',['borrow',['../structmfem__mgis_1_1_partial_quadrature_function.html#a69633c7c8ff0af458ad6d651b7056f66',1,'mfem_mgis::PartialQuadratureFunction']]],
+  ['borrow_3',['borrow',['../structmfem__mgis_1_1_partial_quadrature_function.html#ad768c707065c8dc5732c9d0015a7704c',1,'mfem_mgis::PartialQuadratureFunction']]],
   ['build_5fname_4',['build_name',['../_profiler_8hxx.html#a27f825a1eb0ae7a16d5845f4eb0fb9b3',1,'mfem_mgis::Profiler::OutputManager']]],
   ['buildfacesdescription_5',['buildfacesdescription',['../namespacemfem__mgis.html#abbc07134b3f64e37f5225773e2f53f72',1,'mfem_mgis::buildFacesDescription(NonLinearEvolutionProblem &amp;, const size_type)'],['../namespacemfem__mgis.html#a5e121653637d5a55bb33aff81a25d5d9',1,'mfem_mgis::buildFacesDescription(NonLinearEvolutionProblemImplementation&lt; parallel &gt; &amp;, const size_type)']]],
   ['buildfactory_6',['buildFactory',['../namespacemfem__mgis.html#ada30125c9410e6f7a441573612b41934',1,'mfem_mgis']]],

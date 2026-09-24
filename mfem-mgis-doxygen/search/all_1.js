@@ -43,7 +43,7 @@ var searchData=
   ['bids_40',['bids',['../structmfem__mgis_1_1_uniform_imposed_pressure_boundary_condition.html#a00c59640559d98ac78009dc7c70e905e',1,'mfem_mgis::UniformImposedPressureBoundaryCondition']]],
   ['bilinearform_41',['BilinearForm',['../namespacemfem__mgis.html#a87a49e7fbd2e09201c20505da151d5b0',1,'mfem_mgis']]],
   ['bilinearformintegrator_42',['BilinearFormIntegrator',['../namespacemfem__mgis.html#ac763cee3ce2c96743d4072401dc6eb0c',1,'mfem_mgis']]],
-  ['borrow_43',['borrow',['../structmfem__mgis_1_1_partial_quadrature_function.html#a69633c7c8ff0af458ad6d651b7056f66',1,'mfem_mgis::PartialQuadratureFunction']]],
+  ['borrow_43',['borrow',['../structmfem__mgis_1_1_partial_quadrature_function.html#ad768c707065c8dc5732c9d0015a7704c',1,'mfem_mgis::PartialQuadratureFunction']]],
   ['boundaries_44',['Boundaries',['../structmfem__mgis_1_1_mesh_discretization.html#a0bf544b7db9b16174b823f5dcf65afa9',1,'mfem_mgis::MeshDiscretization']]],
   ['boundary_5fconditions_45',['boundary_conditions',['../structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a35ac796c702e47a1746b3d06076541a9',1,'mfem_mgis::NonLinearEvolutionProblemImplementationBase']]],
   ['boundary_5fidentifier_46',['boundary_identifier',['../structmfem__mgis_1_1_mesh_discretization_1_1_location_identifier.html#a2abb68d343ab2fbfef7f395be65986e6',1,'mfem_mgis::MeshDiscretization::LocationIdentifier']]],

@@ -275,14 +275,6 @@ var hierarchy =
     [ "mfem_mgis::ParaviewExportIntegrationPointResultsAtNodesBase", "structmfem__mgis_1_1_paraview_export_integration_point_results_at_nodes_base.html", [
       [ "mfem_mgis::ParaviewExportIntegrationPointResultsAtNodesImplementation< parallel >", "structmfem__mgis_1_1_paraview_export_integration_point_results_at_nodes_implementation.html", null ]
     ] ],
-    [ "mfem_mgis::PartialQuadratureFunctionDataLayout", "structmfem__mgis_1_1_partial_quadrature_function_data_layout.html", [
-      [ "mfem_mgis::ImmutablePartialQuadratureFunctionView", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html", [
-        [ "mfem_mgis::PartialQuadratureFunctionView", "structmfem__mgis_1_1_partial_quadrature_function_view.html", [
-          [ "mfem_mgis::PartialQuadratureFunction", "structmfem__mgis_1_1_partial_quadrature_function.html", null ]
-        ] ],
-        [ "mfem_mgis::QPEvaluatorResult", "structmfem__mgis_1_1_q_p_evaluator_result.html", null ]
-      ] ]
-    ] ],
     [ "mfem_mgis::PartialQuadratureSpace", "structmfem__mgis_1_1_partial_quadrature_space.html", null ],
     [ "mfem_mgis::PartialQuadratureSpaceIdentifiersManager", "structmfem__mgis_1_1_partial_quadrature_space_identifiers_manager.html", [
       [ "mfem_mgis::StateManager", "structmfem__mgis_1_1_state_manager.html", null ]
@@ -341,5 +333,15 @@ var hierarchy =
     [ "std::vector", null, [
       [ "mfem_mgis::PartialQuadratureFunctionsSet", "structmfem__mgis_1_1_partial_quadrature_functions_set.html", null ],
       [ "mfem_mgis::Simulation::TimesDescription", "structmfem__mgis_1_1_simulation_1_1_times_description.html", null ]
+    ] ],
+    [ "mfem_mgis::ViewSpecifications", "structmfem__mgis_1_1_view_specifications.html", [
+      [ "mfem_mgis::PartialQuadratureFunctionDataLayout", "structmfem__mgis_1_1_partial_quadrature_function_data_layout.html", [
+        [ "mfem_mgis::ImmutablePartialQuadratureFunctionView", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html", [
+          [ "mfem_mgis::PartialQuadratureFunctionView", "structmfem__mgis_1_1_partial_quadrature_function_view.html", [
+            [ "mfem_mgis::PartialQuadratureFunction", "structmfem__mgis_1_1_partial_quadrature_function.html", null ]
+          ] ],
+          [ "mfem_mgis::QPEvaluatorResult", "structmfem__mgis_1_1_q_p_evaluator_result.html", null ]
+        ] ]
+      ] ]
     ] ]
 ];

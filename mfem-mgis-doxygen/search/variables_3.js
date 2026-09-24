@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['data_5fbegin_0',['data_begin',['../structmfem__mgis_1_1_partial_quadrature_function_data_layout.html#a3be9a6ed41200d4bb8876894881bdfaa',1,'mfem_mgis::PartialQuadratureFunctionDataLayout']]],
-  ['data_5fsize_1',['data_size',['../structmfem__mgis_1_1_partial_quadrature_function_data_layout.html#a983d422faeb82e657feb35e945fd6a4c',1,'mfem_mgis::PartialQuadratureFunctionDataLayout']]],
-  ['data_5fstride_2',['data_stride',['../structmfem__mgis_1_1_partial_quadrature_function_data_layout.html#addbaa48a1a6f3ccdbe958983a663a393',1,'mfem_mgis::PartialQuadratureFunctionDataLayout']]],
+  ['data_5fbegin_0',['data_begin',['../structmfem__mgis_1_1_view_specifications.html#a4da1e8a604cdbf7e32d0c378fb3e6636',1,'mfem_mgis::ViewSpecifications']]],
+  ['data_5fsize_1',['data_size',['../structmfem__mgis_1_1_view_specifications.html#ac597069be3b5627ef7931634ca4d13e7',1,'mfem_mgis::ViewSpecifications']]],
+  ['data_5fstride_2',['data_stride',['../structmfem__mgis_1_1_view_specifications.html#a70a39ef612bbf3c8bfe6002508eb9108',1,'mfem_mgis::ViewSpecifications']]],
   ['dirichlet_5fboundary_5fconditions_3',['dirichlet_boundary_conditions',['../structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a93682ab3ce77065855c505bdb46a802a',1,'mfem_mgis::NonLinearEvolutionProblemImplementationBase']]],
   ['discardlinearsolverfailure_4',['discardLinearSolverFailure',['../structmfem__mgis_1_1_non_linear_solver_base.html#a03b9b0ff0bbdb2596b4b64527037cb53',1,'mfem_mgis::NonLinearSolverBase']]],
   ['dof_5',['dof',['../structmfem__mgis_1_1_imposed_dirichlet_boundary_condition_at_closest_node.html#a9c5f062ee911cca3a3ae0e270ea1881b',1,'mfem_mgis::ImposedDirichletBoundaryConditionAtClosestNode']]],

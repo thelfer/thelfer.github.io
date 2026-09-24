@@ -1,7 +1,5 @@
 var NAVTREEINDEX55 =
 {
-"structtfel_1_1fsalgo_1_1max__element_3_011u_01_4.html":[5,0,16,2,24],
-"structtfel_1_1fsalgo_1_1min__element.html":[5,0,16,2,25],
 "structtfel_1_1fsalgo_1_1min__element_3_010u_01_4.html":[5,0,16,2,26],
 "structtfel_1_1fsalgo_1_1min__element_3_011u_01_4.html":[5,0,16,2,27],
 "structtfel_1_1fsalgo_1_1swap__ranges.html":[5,0,16,2,28],
@@ -249,5 +247,7 @@ var NAVTREEINDEX55 =
 "structtfel_1_1material_1_1_mechanical_behaviour_base.html#a4a640145f889ccba1b0035d8456f0233":[5,0,16,4,62,4],
 "structtfel_1_1material_1_1_mechanical_behaviour_base.html#a4a640145f889ccba1b0035d8456f0233a28b610f1efd58320f0f3c6d0ad460dbc":[5,0,16,4,62,4,3],
 "structtfel_1_1material_1_1_mechanical_behaviour_base.html#a4a640145f889ccba1b0035d8456f0233a41e149b7fb241c9cc56eac1d1e8b8830":[5,0,16,4,62,4,2],
-"structtfel_1_1material_1_1_mechanical_behaviour_base.html#a4a640145f889ccba1b0035d8456f0233a4d8259a24391d6c1581c7db65f1eaba5":[5,0,16,4,62,4,1]
+"structtfel_1_1material_1_1_mechanical_behaviour_base.html#a4a640145f889ccba1b0035d8456f0233a4d8259a24391d6c1581c7db65f1eaba5":[5,0,16,4,62,4,1],
+"structtfel_1_1material_1_1_mechanical_behaviour_base.html#a4a640145f889ccba1b0035d8456f0233abe1cebe402d160e8c83a1196c85e18e8":[5,0,16,4,62,4,4],
+"structtfel_1_1material_1_1_mechanical_behaviour_base.html#a4a640145f889ccba1b0035d8456f0233aca498cae632a87309aa8e04de3915ded":[5,0,16,4,62,4,0]
 };

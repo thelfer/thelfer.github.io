@@ -1,7 +1,5 @@
 var NAVTREEINDEX42 =
 {
-"structmfront_1_1_umat_small_strain_m_test_file_generator.html#aa6237e5a7c16666d6fa7811cee5e5202":[5,0,11,120,12],
-"structmfront_1_1_umat_small_strain_m_test_file_generator.html#aaf63f9f2e45bedbe695906b8e709a961":[5,0,11,120,10],
 "structmfront_1_1_umat_small_strain_m_test_file_generator.html#ab6b870c4dd1a98a6c5256a68e891b212":[5,0,11,120,9],
 "structmfront_1_1_umat_small_strain_m_test_file_generator.html#ac1019e1684fb5ee020e9f9ffba130659":[5,0,11,120,5],
 "structmfront_1_1_umat_small_strain_m_test_file_generator.html#ac4981114bf53495c6b7c5a9c7485a43c":[5,0,11,120,6],
@@ -249,5 +247,7 @@ var NAVTREEINDEX42 =
 "structmfront_1_1bbrick_1_1_gurson_tvergaard_needleman1982_stress_criterion.html":[5,0,11,0,14],
 "structmfront_1_1bbrick_1_1_gurson_tvergaard_needleman1982_stress_criterion.html#a4d390f367aa283b9fc5920f892fd220c":[5,0,11,0,14,7],
 "structmfront_1_1bbrick_1_1_gurson_tvergaard_needleman1982_stress_criterion.html#a6b53796935d0b129d8d63717e004a68d":[5,0,11,0,14,1],
-"structmfront_1_1bbrick_1_1_gurson_tvergaard_needleman1982_stress_criterion.html#a85ca6899d5df2479a8d918f2cdf906c1":[5,0,11,0,14,2]
+"structmfront_1_1bbrick_1_1_gurson_tvergaard_needleman1982_stress_criterion.html#a85ca6899d5df2479a8d918f2cdf906c1":[5,0,11,0,14,2],
+"structmfront_1_1bbrick_1_1_gurson_tvergaard_needleman1982_stress_criterion.html#aaa2b0ecac717f03ac288beb9d64094bb":[5,0,11,0,14,6],
+"structmfront_1_1bbrick_1_1_gurson_tvergaard_needleman1982_stress_criterion.html#aab6f04dea880dc757cf66435f7ab4f6e":[5,0,11,0,14,5]
 };

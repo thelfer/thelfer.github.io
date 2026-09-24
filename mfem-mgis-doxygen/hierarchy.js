@@ -1746,8 +1746,8 @@ var hierarchy =
     [ "dianafea::DianaFEABehaviourHandler< H, Behaviour >::DoNothingInitializer", "structdianafea_1_1_diana_f_e_a_behaviour_handler_1_1_do_nothing_initializer.html", null ],
     [ "lsdyna::LSDYNABehaviourHandler< H, Behaviour >::DoNothingInitializer", "structlsdyna_1_1_l_s_d_y_n_a_behaviour_handler_1_1_do_nothing_initializer.html", null ],
     [ "lsdyna::LSDYNAExplicitInterface< H, T, Behaviour >::DoNothingInitializer", "structlsdyna_1_1_l_s_d_y_n_a_explicit_interface_1_1_do_nothing_initializer.html", null ],
-    [ "tfel::math::dotProduct< N >", "structtfel_1_1math_1_1dot_product.html", null ],
     [ "tfel::math::DotProduct< N, M >", "structtfel_1_1math_1_1_dot_product.html", null ],
+    [ "tfel::math::dotProduct< N >", "structtfel_1_1math_1_1dot_product.html", null ],
     [ "tfel::math::dotProduct< 0u >", "structtfel_1_1math_1_1dot_product_3_010u_01_4.html", null ],
     [ "tfel::math::DotProduct< 0u, M >", "structtfel_1_1math_1_1_dot_product_3_010u_00_01_m_01_4.html", null ],
     [ "tfel::math::internals::DPK1_DF_to_DTAU_DF_Converter< N >", "structtfel_1_1math_1_1internals_1_1_d_p_k1___d_f__to___d_t_a_u___d_f___converter.html", null ],
@@ -3088,6 +3088,14 @@ var hierarchy =
     [ "mfem_mgis::ParaviewExportIntegrationPointResultsAtNodes", "structmfem__mgis_1_1_paraview_export_integration_point_results_at_nodes.html", null ],
     [ "mfem_mgis::ParaviewExportIntegrationPointResultsAtNodesBase", "structmfem__mgis_1_1_paraview_export_integration_point_results_at_nodes_base.html", [
       [ "mfem_mgis::ParaviewExportIntegrationPointResultsAtNodesImplementation< parallel >", "structmfem__mgis_1_1_paraview_export_integration_point_results_at_nodes_implementation.html", null ]
+    ] ],
+    [ "mfem_mgis::PartialQuadratureFunctionDataLayout", "structmfem__mgis_1_1_partial_quadrature_function_data_layout.html", [
+      [ "mfem_mgis::ImmutablePartialQuadratureFunctionView", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html", [
+        [ "mfem_mgis::PartialQuadratureFunctionView", "structmfem__mgis_1_1_partial_quadrature_function_view.html", [
+          [ "mfem_mgis::PartialQuadratureFunction", "structmfem__mgis_1_1_partial_quadrature_function.html", null ]
+        ] ],
+        [ "mfem_mgis::QPEvaluatorResult", "structmfem__mgis_1_1_q_p_evaluator_result.html", null ]
+      ] ]
     ] ],
     [ "mfem_mgis::PartialQuadratureSpace", "structmfem__mgis_1_1_partial_quadrature_space.html", null ],
     [ "mfem_mgis::PartialQuadratureSpaceIdentifiersManager", "structmfem__mgis_1_1_partial_quadrature_space_identifiers_manager.html", [
@@ -4528,16 +4536,6 @@ var hierarchy =
     [ "tfel::math::internals::ViewsArrayBase< true, MappedType, ViewIndexingPolicyType >", "structtfel_1_1math_1_1internals_1_1_views_array_base_3_01true_00_01_mapped_type_00_01_view_indexing_policy_type_01_4.html", null ],
     [ "tfel::math::internals::ViewsArrayDefaultViewIndexingPolicy< is_scalar, MappedType >", "structtfel_1_1math_1_1internals_1_1_views_array_default_view_indexing_policy.html", null ],
     [ "tfel::math::internals::ViewsArrayDefaultViewIndexingPolicy< true, MappedType >", "structtfel_1_1math_1_1internals_1_1_views_array_default_view_indexing_policy_3_01true_00_01_mapped_type_01_4.html", null ],
-    [ "mfem_mgis::ViewSpecifications", "structmfem__mgis_1_1_view_specifications.html", [
-      [ "mfem_mgis::PartialQuadratureFunctionDataLayout", "structmfem__mgis_1_1_partial_quadrature_function_data_layout.html", [
-        [ "mfem_mgis::ImmutablePartialQuadratureFunctionView", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html", [
-          [ "mfem_mgis::PartialQuadratureFunctionView", "structmfem__mgis_1_1_partial_quadrature_function_view.html", [
-            [ "mfem_mgis::PartialQuadratureFunction", "structmfem__mgis_1_1_partial_quadrature_function.html", null ]
-          ] ],
-          [ "mfem_mgis::QPEvaluatorResult", "structmfem__mgis_1_1_q_p_evaluator_result.html", null ]
-        ] ]
-      ] ]
-    ] ],
     [ "mfront::BehaviourData::VolumeSwellingStressFreeExpansion", "structmfront_1_1_behaviour_data_1_1_volume_swelling_stress_free_expansion.html", null ],
     [ "mgis::function::internals::VonMisesStressOperator", "structmgis_1_1function_1_1internals_1_1_von_mises_stress_operator.html", null ],
     [ "mfront::DSLBase::WordAnalyser", "structmfront_1_1_d_s_l_base_1_1_word_analyser.html", [

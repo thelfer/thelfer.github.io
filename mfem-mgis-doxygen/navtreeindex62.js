@@ -1,7 +1,5 @@
 var NAVTREEINDEX62 =
 {
-"structtfel_1_1math_1_1_runtime_row_major_matrix_indexing_policy.html#ae5244a913edebbd699d0c254a3350a2c":[5,0,16,5,505,11],
-"structtfel_1_1math_1_1_runtime_row_major_matrix_indexing_policy.html#af09b91b673cf7bbb633c10502ded45c0":[5,0,16,5,505,2],
 "structtfel_1_1math_1_1_runtime_vector_array_policy.html":[5,0,16,5,506],
 "structtfel_1_1math_1_1_runtime_vector_indexing_policy.html":[5,0,16,5,507],
 "structtfel_1_1math_1_1_runtime_vector_indexing_policy.html#a29de7902b7ca7f4744027cb4b6052aaf":[5,0,16,5,507,8],
@@ -249,5 +247,7 @@ var NAVTREEINDEX62 =
 "structtfel_1_1math_1_1_tiny_non_linear_solver_base.html#a753f17be5e00f103bbc08e55c80434e5":[5,0,16,5,604,12],
 "structtfel_1_1math_1_1_tiny_non_linear_solver_base.html#a76658da327a59857cb10d960d634f942":[5,0,16,5,604,22],
 "structtfel_1_1math_1_1_tiny_non_linear_solver_base.html#a78709e2a78df8db74c3aba230ecd3b2e":[5,0,16,5,604,5],
-"structtfel_1_1math_1_1_tiny_non_linear_solver_base.html#a7ea0466dd1fbff82d4f052880485f827":[5,0,16,5,604,21]
+"structtfel_1_1math_1_1_tiny_non_linear_solver_base.html#a7ea0466dd1fbff82d4f052880485f827":[5,0,16,5,604,21],
+"structtfel_1_1math_1_1_tiny_non_linear_solver_base.html#a909c76932f890ee8446c489a0af320a4":[5,0,16,5,604,20],
+"structtfel_1_1math_1_1_tiny_non_linear_solver_base.html#a96ccdb6602ceddb81846fcfcb5a2a684":[5,0,16,5,604,27]
 };

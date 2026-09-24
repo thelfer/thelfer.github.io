@@ -1,7 +1,5 @@
 var NAVTREEINDEX61 =
 {
-"structtfel_1_1math_1_1_indexing_policies_compatiblity_check_base.html":[5,0,16,5,314],
-"structtfel_1_1math_1_1_integer_evaluator.html":[5,0,16,5,315],
 "structtfel_1_1math_1_1_integer_evaluator.html#a0d4f941a0ab215fa5ff73aa8216f4590":[5,0,16,5,315,12],
 "structtfel_1_1math_1_1_integer_evaluator.html#a3a753c3d1d2f75a2e7af4c9f3df52927":[5,0,16,5,315,10],
 "structtfel_1_1math_1_1_integer_evaluator.html#a7690e5f588ba0d2cfcb613376bfc1481":[5,0,16,5,315,11],
@@ -249,5 +247,7 @@ var NAVTREEINDEX61 =
 "structtfel_1_1math_1_1_runtime_row_major_matrix_indexing_policy.html#a882599fd905d29d70c617b7adf22fafd":[5,0,16,5,505,8],
 "structtfel_1_1math_1_1_runtime_row_major_matrix_indexing_policy.html#a8bdc5773f6c9265d7a672a09d4349a1f":[5,0,16,5,505,4],
 "structtfel_1_1math_1_1_runtime_row_major_matrix_indexing_policy.html#acfb545c4439b9eb81a79a4224aec45c6":[5,0,16,5,505,1],
-"structtfel_1_1math_1_1_runtime_row_major_matrix_indexing_policy.html#adf53327bee25a46eb789a48ae9966bb6":[5,0,16,5,505,9]
+"structtfel_1_1math_1_1_runtime_row_major_matrix_indexing_policy.html#adf53327bee25a46eb789a48ae9966bb6":[5,0,16,5,505,9],
+"structtfel_1_1math_1_1_runtime_row_major_matrix_indexing_policy.html#ae5244a913edebbd699d0c254a3350a2c":[5,0,16,5,505,11],
+"structtfel_1_1math_1_1_runtime_row_major_matrix_indexing_policy.html#af09b91b673cf7bbb633c10502ded45c0":[5,0,16,5,505,2]
 };

@@ -1,7 +1,5 @@
 var NAVTREEINDEX38 =
 {
-"structmfront_1_1_file_description.html#a5c06fb85fcd89414b71a5767c81a453f":[5,0,11,50,8],
-"structmfront_1_1_file_description.html#a7e43919856e60d87dcfd561fa6bce082":[5,0,11,50,5],
 "structmfront_1_1_file_description.html#a874386c2dc17be5674ff1ad64e653395":[5,0,11,50,4],
 "structmfront_1_1_file_description.html#ac96de5662a41cb10748e290f5bd37135":[5,0,11,50,9],
 "structmfront_1_1_file_description.html#ad3b7c9435805bd109ae513efccc9d80c":[5,0,11,50,0],
@@ -249,5 +247,7 @@ var NAVTREEINDEX38 =
 "structmfront_1_1_isotropic_behaviour_code_generator_base.html#ad9fd3e094569af80ae7251981d080456":[5,0,11,72,2],
 "structmfront_1_1_isotropic_behaviour_code_generator_base.html#af9efa418dee972d4470a28b24b0b3dff":[5,0,11,72,1],
 "structmfront_1_1_isotropic_mises_creep_code_generator.html":[5,0,11,73],
-"structmfront_1_1_isotropic_mises_creep_code_generator.html#a3541dfd0d07a5fa2aa0714d66d3c7a5b":[5,0,11,73,1]
+"structmfront_1_1_isotropic_mises_creep_code_generator.html#a3541dfd0d07a5fa2aa0714d66d3c7a5b":[5,0,11,73,1],
+"structmfront_1_1_isotropic_mises_creep_code_generator.html#a7908dddc28c3202539ce84d4f78865dc":[5,0,11,73,3],
+"structmfront_1_1_isotropic_mises_creep_code_generator.html#ab17c51193788b491af187155a0700ff8":[5,0,11,73,2]
 };

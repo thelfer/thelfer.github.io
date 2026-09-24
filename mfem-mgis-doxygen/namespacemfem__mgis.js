@@ -182,7 +182,6 @@ var namespacemfem__mgis =
     [ "UniformImposedPressureBoundaryCondition", "structmfem__mgis_1_1_uniform_imposed_pressure_boundary_condition.html", "structmfem__mgis_1_1_uniform_imposed_pressure_boundary_condition" ],
     [ "UniformScalarQPEvaluator", "structmfem__mgis_1_1_uniform_scalar_q_p_evaluator.html", "structmfem__mgis_1_1_uniform_scalar_q_p_evaluator" ],
     [ "UniformScalarQPEvaluatorBase", "structmfem__mgis_1_1_uniform_scalar_q_p_evaluator_base.html", "structmfem__mgis_1_1_uniform_scalar_q_p_evaluator_base" ],
-    [ "ViewSpecifications", "structmfem__mgis_1_1_view_specifications.html", "structmfem__mgis_1_1_view_specifications" ],
     [ "ParameterValueConcept", "conceptmfem__mgis_1_1_parameter_value_concept.html", null ],
     [ "Behaviour", "namespacemfem__mgis.html#af1bbdd50177aa79ee73db7bca8e4d03c", null ],
     [ "BilinearForm", "namespacemfem__mgis.html#a87a49e7fbd2e09201c20505da151d5b0", null ],

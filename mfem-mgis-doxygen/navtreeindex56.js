@@ -1,7 +1,5 @@
 var NAVTREEINDEX56 =
 {
-"structtfel_1_1material_1_1_mechanical_behaviour_base.html#a4a640145f889ccba1b0035d8456f0233abe1cebe402d160e8c83a1196c85e18e8":[5,0,16,4,62,4,4],
-"structtfel_1_1material_1_1_mechanical_behaviour_base.html#a4a640145f889ccba1b0035d8456f0233aca498cae632a87309aa8e04de3915ded":[5,0,16,4,62,4,0],
 "structtfel_1_1material_1_1_mechanical_behaviour_base.html#a6a789d98416e282ec88b6a5c300968af":[5,0,16,4,62,1],
 "structtfel_1_1material_1_1_mechanical_behaviour_base.html#a6a789d98416e282ec88b6a5c300968afa062992d0fa302cecbbca7dfd9b846cb4":[5,0,16,4,62,1,3],
 "structtfel_1_1material_1_1_mechanical_behaviour_base.html#a6a789d98416e282ec88b6a5c300968afa3225da1381ba385b9dc47de3248a4ec9":[5,0,16,4,62,1,1],
@@ -249,5 +247,7 @@ var NAVTREEINDEX56 =
 "structtfel_1_1material_1_1internals_1_1_compute_orthotropic_stiffness_tensor_i_3_012u_00_01_stifde67922ba16d135c7164a3752fa6d5ef.html":[5,0,16,4,1,32],
 "structtfel_1_1material_1_1internals_1_1_compute_orthotropic_stiffness_tensor_i_3_013u_00_01smt_01_4.html":[5,0,16,4,1,34],
 "structtfel_1_1material_1_1internals_1_1_compute_orthotropic_stiffness_tensor_i_i.html":[5,0,16,4,1,35],
-"structtfel_1_1material_1_1internals_1_1_compute_orthotropic_stiffness_tensor_i_i_3_01_modelling_1ede495ab181d9d69cf0b25800a845b2.html":[5,0,16,4,1,37]
+"structtfel_1_1material_1_1internals_1_1_compute_orthotropic_stiffness_tensor_i_i_3_01_modelling_1ede495ab181d9d69cf0b25800a845b2.html":[5,0,16,4,1,37],
+"structtfel_1_1material_1_1internals_1_1_compute_orthotropic_stiffness_tensor_i_i_3_01_modelling_28e8c3318fdcedac3e484dbdc796c742.html":[5,0,16,4,1,36],
+"structtfel_1_1material_1_1internals_1_1_inverse_langevin_function.html":[5,0,16,4,1,38]
 };

@@ -1,7 +1,5 @@
 var NAVTREEINDEX57 =
 {
-"structtfel_1_1material_1_1internals_1_1_compute_orthotropic_stiffness_tensor_i_i_3_01_modelling_28e8c3318fdcedac3e484dbdc796c742.html":[5,0,16,4,1,36],
-"structtfel_1_1material_1_1internals_1_1_inverse_langevin_function.html":[5,0,16,4,1,38],
 "structtfel_1_1material_1_1internals_1_1_inverse_langevin_function_3_01tfel_1_1material_1_1_inver5c835493bb048147cfe236570e10368d.html":[5,0,16,4,1,39],
 "structtfel_1_1material_1_1internals_1_1_inverse_langevin_function_3_01tfel_1_1material_1_1_inver960b332bdcf497ca432d26836ecb80e4.html":[5,0,16,4,1,41],
 "structtfel_1_1material_1_1internals_1_1_inverse_langevin_function_3_01tfel_1_1material_1_1_inverd0d6d436096d57cd3fb601a692ced0d7.html":[5,0,16,4,1,40],
@@ -249,5 +247,7 @@ var NAVTREEINDEX57 =
 "structtfel_1_1math_1_1_derivative_type_dispatcher_3_01_scalar_tag_00_01_matrix_tag_00_01_scalar_55980c9d9faf234cad9c9d1d524ba52e.html":[5,0,16,5,165],
 "structtfel_1_1math_1_1_derivative_type_dispatcher_3_01_scalar_tag_00_01_matrix_tag_00_01_scalar_55980c9d9faf234cad9c9d1d524ba52e.html#a59f01999036ab46e0577b3c39b70293b":[5,0,16,5,165,0],
 "structtfel_1_1math_1_1_derivative_type_dispatcher_3_01_scalar_tag_00_01_s_t2to_s_t2_tag_00_01_sc46506b47b278b886b4424c3100012372.html":[5,0,16,5,166],
-"structtfel_1_1math_1_1_derivative_type_dispatcher_3_01_scalar_tag_00_01_s_t2to_s_t2_tag_00_01_sc46506b47b278b886b4424c3100012372.html#adcff309d20082b5f8c22c93854864080":[5,0,16,5,166,0]
+"structtfel_1_1math_1_1_derivative_type_dispatcher_3_01_scalar_tag_00_01_s_t2to_s_t2_tag_00_01_sc46506b47b278b886b4424c3100012372.html#adcff309d20082b5f8c22c93854864080":[5,0,16,5,166,0],
+"structtfel_1_1math_1_1_derivative_type_dispatcher_3_01_scalar_tag_00_01_s_t2to_t2_tag_00_01_scalfd44843b1dcd7856fccbe3c1f5f48d65.html":[5,0,16,5,167],
+"structtfel_1_1math_1_1_derivative_type_dispatcher_3_01_scalar_tag_00_01_s_t2to_t2_tag_00_01_scalfd44843b1dcd7856fccbe3c1f5f48d65.html#aeda1f803ce65ab9f300d669bba9ce037":[5,0,16,5,167,0]
 };

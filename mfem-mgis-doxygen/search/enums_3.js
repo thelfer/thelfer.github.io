@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['datafileformat_0',['DataFileFormat',['../namespacemfem__mgis.html#a4a761cab7627a92e523fa1c34347ea79',1,'mfem_mgis']]],
-  ['ddif2state_1',['DDIF2State',['../_d_d_i_f2_base_8hxx.html#a30703d1299a32ba3a0696df2b2c7b775',1,'tfel::material']]],
-  ['dependencystatus_2',['DependencyStatus',['../structmfem__mgis_1_1_dependency_base.html#a4e1c79fa80b860238e56e5c91e916503',1,'mfem_mgis::DependencyBase']]],
-  ['dsltarget_3',['DSLTarget',['../structmfront_1_1_abstract_d_s_l.html#ae9f53194d2e8ff2d4ba6299cf4e35423',1,'mfront::AbstractDSL']]]
+  ['integrationoperator_0',['IntegrationOperator',['../namespacemfem__mgis.html#a73a830d83c7c7d1101ab885739b12ea5',1,'mfem_mgis']]],
+  ['integrationtype_1',['IntegrationType',['../namespacemfem__mgis.html#a80dd307c07c02bc42b80d745903a8e3a',1,'mfem_mgis']]]
 ];

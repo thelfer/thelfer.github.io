@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['k_0',['K',['../structtfel_1_1math_1_1t2tot2.html#affb050163c6a50948a61f1558c405451',1,'tfel::math::t2tot2']]],
-  ['keepcommentboundaries_1',['keepCommentBoundaries',['../structtfel_1_1utilities_1_1_cxx_tokenizer.html#a2055ec58c4cdb5e9dc515740665948b2',1,'tfel::utilities::CxxTokenizer']]]
+  ['load_0',['load',['../namespacemfem__mgis.html#a0a5f24b58ca7f89327512bad312f6161',1,'mfem_mgis::load(Context &amp;, const std::string &amp;, const std::string &amp;, const Hypothesis) noexcept'],['../namespacemfem__mgis.html#ad5d5eb05eec2589b7bf904f8fa078aa6',1,'mfem_mgis::load(const std::string &amp;, const std::string &amp;, const Hypothesis)']]],
+  ['loopcouplingscheme_1',['loopcouplingscheme',['../structmfem__mgis_1_1_loop_coupling_scheme.html#af6f8de6f01267ade6f3743fd0cdeabb6',1,'mfem_mgis::LoopCouplingScheme::LoopCouplingScheme(Context &amp;ctx, const MeshDiscretization &amp;)'],['../structmfem__mgis_1_1_loop_coupling_scheme.html#a2aa5eba7944917260b352567cea7a9f9',1,'mfem_mgis::LoopCouplingScheme::LoopCouplingScheme(Context &amp;ctx, const MeshDiscretization &amp;, const Parameters &amp;)']]]
 ];

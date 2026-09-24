@@ -682,8 +682,7 @@ var annotated_dup =
       [ "UniformHeatSourceBoundaryCondition", "structmfem__mgis_1_1_uniform_heat_source_boundary_condition.html", "structmfem__mgis_1_1_uniform_heat_source_boundary_condition" ],
       [ "UniformImposedPressureBoundaryCondition", "structmfem__mgis_1_1_uniform_imposed_pressure_boundary_condition.html", "structmfem__mgis_1_1_uniform_imposed_pressure_boundary_condition" ],
       [ "UniformScalarQPEvaluator", "structmfem__mgis_1_1_uniform_scalar_q_p_evaluator.html", "structmfem__mgis_1_1_uniform_scalar_q_p_evaluator" ],
-      [ "UniformScalarQPEvaluatorBase", "structmfem__mgis_1_1_uniform_scalar_q_p_evaluator_base.html", "structmfem__mgis_1_1_uniform_scalar_q_p_evaluator_base" ],
-      [ "ViewSpecifications", "structmfem__mgis_1_1_view_specifications.html", "structmfem__mgis_1_1_view_specifications" ]
+      [ "UniformScalarQPEvaluatorBase", "structmfem__mgis_1_1_uniform_scalar_q_p_evaluator_base.html", "structmfem__mgis_1_1_uniform_scalar_q_p_evaluator_base" ]
     ] ],
     [ "mfmtg", null, [
       [ "AbstractTestCase", "structmfmtg_1_1_abstract_test_case.html", "structmfmtg_1_1_abstract_test_case" ],

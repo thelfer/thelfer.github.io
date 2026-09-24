@@ -1,5 +1,9 @@
 var NAVTREEINDEX63 =
 {
+"structtfel_1_1math_1_1_tiny_broyden_solver.html#a144f5fa8ee8125f7cfaec3ad72cde2cf":[5,0,16,5,595,2],
+"structtfel_1_1math_1_1_tiny_broyden_solver.html#a340dfa0c38f6b827a4b065de1314f94d":[5,0,16,5,595,1],
+"structtfel_1_1math_1_1_tiny_broyden_solver.html#a3a15f8b9812e22f1013041b9f109a27e":[5,0,16,5,595,0],
+"structtfel_1_1math_1_1_tiny_broyden_solver.html#a7dee396f4d10ffe294bf386a3b414abb":[5,0,16,5,595,5],
 "structtfel_1_1math_1_1_tiny_broyden_solver.html#a86c33db5f6748ef5aa6e222ccfae03d6":[5,0,16,5,595,3],
 "structtfel_1_1math_1_1_tiny_broyden_solver.html#a8754279fc2b699dd9cac87fbbce43d6a":[5,0,16,5,595,4],
 "structtfel_1_1math_1_1_tiny_broyden_solver.html#aa4f060b773546411deacb0637cf0eed9":[5,0,16,5,595,6],
@@ -245,9 +249,5 @@ var NAVTREEINDEX63 =
 "structtfel_1_1math_1_1internals_1_1_derivative_view_from_tiny_matrix_implementation_3_01false_00e6d948d0ac41edbf956f134c4328f3a5.html":[5,0,16,5,1,15],
 "structtfel_1_1math_1_1internals_1_1_derivative_view_from_tiny_matrix_implementation_3_01false_00e6d948d0ac41edbf956f134c4328f3a5.html#a4a0c2c61f18c674d2a6b7e303a6b05fc":[5,0,16,5,1,15,1],
 "structtfel_1_1math_1_1internals_1_1_derivative_view_from_tiny_matrix_implementation_3_01false_00e6d948d0ac41edbf956f134c4328f3a5.html#adbf14a475964e2d53bcb003466d4c160":[5,0,16,5,1,15,0],
-"structtfel_1_1math_1_1internals_1_1_derivative_view_from_tiny_matrix_implementation_3_01true_00_51dc67be2e2fde4070449892af08346d.html":[5,0,16,5,1,17],
-"structtfel_1_1math_1_1internals_1_1_derivative_view_from_tiny_matrix_implementation_3_01true_00_51dc67be2e2fde4070449892af08346d.html#a15f10647bebcc22c4aab55acfb372a33":[5,0,16,5,1,17,0],
-"structtfel_1_1math_1_1internals_1_1_derivative_view_from_tiny_matrix_implementation_3_01true_00_51dc67be2e2fde4070449892af08346d.html#a39cc8790d01a2cc80448378d32adfdd0":[5,0,16,5,1,17,1],
-"structtfel_1_1math_1_1internals_1_1_derivative_view_from_tiny_matrix_implementation_3_01true_00_8df22c3011e033d5eb88f7d909969e18.html":[5,0,16,5,1,16],
-"structtfel_1_1math_1_1internals_1_1_derivative_view_from_tiny_matrix_implementation_3_01true_00_8df22c3011e033d5eb88f7d909969e18.html#a9de5a0b4b86038da1183f485eb54a80f":[5,0,16,5,1,16,0]
+"structtfel_1_1math_1_1internals_1_1_derivative_view_from_tiny_matrix_implementation_3_01true_00_51dc67be2e2fde4070449892af08346d.html":[5,0,16,5,1,17]
 };

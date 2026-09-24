@@ -1,5 +1,9 @@
 var NAVTREEINDEX58 =
 {
+"structtfel_1_1math_1_1_cubic_spline.html#a8489404098d091a62d17d486e2b4767b":[5,0,16,5,150,11],
+"structtfel_1_1math_1_1_cubic_spline.html#ab35f1278ea4f5952149dc6308c3c0acb":[5,0,16,5,150,5],
+"structtfel_1_1math_1_1_cubic_spline.html#abc9f1e27467b8bf8c30096311ee975c9":[5,0,16,5,150,8],
+"structtfel_1_1math_1_1_cubic_spline.html#aceda519929893f7d7e1eebd1efe01865":[5,0,16,5,150,10],
 "structtfel_1_1math_1_1_cubic_spline.html#ae2c4c568a557b44d0fb9bccc284394f1":[5,0,16,5,150,1],
 "structtfel_1_1math_1_1_cubic_spline.html#afaa13aa466a932e6ec2adca28d1693f0":[5,0,16,5,150,7],
 "structtfel_1_1math_1_1_cubic_spline_1_1_point_comparator.html":[5,0,16,5,150,0],
@@ -245,9 +249,5 @@ var NAVTREEINDEX58 =
 "structtfel_1_1math_1_1_expr_3_01_s_t2to_s_t2_result_type_00_01_s_t2to_s_t2_s_t2to_s_t2_product_expr_3_013u_01_4_01_4.html":[5,0,16,5,212],
 "structtfel_1_1math_1_1_expr_3_01_s_t2to_s_t2_result_type_00_01_s_t2to_s_t2_s_t2to_s_t2_product_expr_3_013u_01_4_01_4.html#a4e637049f1d6fb43fba6e1ec97eb2714":[5,0,16,5,212,2],
 "structtfel_1_1math_1_1_expr_3_01_s_t2to_s_t2_result_type_00_01_s_t2to_s_t2_s_t2to_s_t2_product_expr_3_013u_01_4_01_4.html#a6562f76c92ef4802f45b4ffba3cf5ef2":[5,0,16,5,212,3],
-"structtfel_1_1math_1_1_expr_3_01_s_t2to_s_t2_result_type_00_01_s_t2to_s_t2_s_t2to_s_t2_product_expr_3_013u_01_4_01_4.html#a72898242087cc86714dbe9e08d1a307f":[5,0,16,5,212,1],
-"structtfel_1_1math_1_1_expr_3_01_s_t2to_s_t2_result_type_00_01_s_t2to_s_t2_s_t2to_s_t2_product_expr_3_013u_01_4_01_4.html#a7678a7743119bdfe6373e2e423d236e1":[5,0,16,5,212,0],
-"structtfel_1_1math_1_1_expr_3_01_s_t2to_s_t2_result_type_00_01_s_t2to_s_t2_s_t2to_s_t2_product_expr_3_013u_01_4_01_4.html#aaed2c5d5a60f0dda31f718755025a33d":[5,0,16,5,212,4],
-"structtfel_1_1math_1_1_expr_3_01_s_t2to_s_t2_result_type_00_01_stensor_square_derivative_expr_3_011u_01_4_01_4.html":[5,0,16,5,213],
-"structtfel_1_1math_1_1_expr_3_01_s_t2to_s_t2_result_type_00_01_stensor_square_derivative_expr_3_011u_01_4_01_4.html#a3f62a6bed83d1b4f19417c5ecbaab0f8":[5,0,16,5,213,2]
+"structtfel_1_1math_1_1_expr_3_01_s_t2to_s_t2_result_type_00_01_s_t2to_s_t2_s_t2to_s_t2_product_expr_3_013u_01_4_01_4.html#a72898242087cc86714dbe9e08d1a307f":[5,0,16,5,212,1]
 };

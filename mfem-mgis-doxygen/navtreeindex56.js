@@ -1,5 +1,9 @@
 var NAVTREEINDEX56 =
 {
+"structtfel_1_1material_1_1_logarithmic_strain_handler_3_013u_00_01_stress_type_01_4.html":[5,0,16,4,58],
+"structtfel_1_1material_1_1_logarithmic_strain_handler_3_013u_00_01_stress_type_01_4.html#a03185486de59909e84aab8e7f6030df8":[5,0,16,4,58,20],
+"structtfel_1_1material_1_1_logarithmic_strain_handler_3_013u_00_01_stress_type_01_4.html#a0f246610c58a0e570f2074b4bbfda681":[5,0,16,4,58,25],
+"structtfel_1_1material_1_1_logarithmic_strain_handler_3_013u_00_01_stress_type_01_4.html#a19437b22304f58b283968a51c9311143":[5,0,16,4,58,15],
 "structtfel_1_1material_1_1_logarithmic_strain_handler_3_013u_00_01_stress_type_01_4.html#a2893c635430deda491def1dbcaed4141":[5,0,16,4,58,4],
 "structtfel_1_1material_1_1_logarithmic_strain_handler_3_013u_00_01_stress_type_01_4.html#a2ae9d3de1b3bb83de0153f03d9e6d773":[5,0,16,4,58,12],
 "structtfel_1_1material_1_1_logarithmic_strain_handler_3_013u_00_01_stress_type_01_4.html#a2ceb06b7a9e8715de131732648de7094":[5,0,16,4,58,13],
@@ -245,9 +249,5 @@ var NAVTREEINDEX56 =
 "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_sphere.html":[5,0,16,4,0,0,19],
 "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_sphere_distribution.html":[5,0,16,4,0,0,20],
 "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_spheroid.html":[5,0,16,4,0,0,21],
-"structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_transverse_isotropic_distribution.html":[5,0,16,4,0,0,22],
-"structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_user_defined_distribution_of_spheroids.html":[5,0,16,4,0,0,23],
-"structtfel_1_1material_1_1internals_1_1_compute_hill_tensor.html":[5,0,16,4,1,0],
-"structtfel_1_1material_1_1internals_1_1_compute_hill_tensor_3_01_h_00_01tfel_1_1material_1_1_ort86d5362ae77229748dc6ad300ef07328.html":[5,0,16,4,1,2],
-"structtfel_1_1material_1_1internals_1_1_compute_hill_tensor_3_01_h_00_01tfel_1_1material_1_1_ort86d5362ae77229748dc6ad300ef07328.html#ab2ceffa49a1c5eab6dcf50f7dcea1df6":[5,0,16,4,1,2,0]
+"structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_transverse_isotropic_distribution.html":[5,0,16,4,0,0,22]
 };

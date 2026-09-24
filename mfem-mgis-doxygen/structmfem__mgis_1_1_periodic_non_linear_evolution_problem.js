@@ -9,6 +9,7 @@ var structmfem__mgis_1_1_periodic_non_linear_evolution_problem =
     [ "addBoundaryCondition", "structmfem__mgis_1_1_periodic_non_linear_evolution_problem.html#aaa411564bc313edf05c7f9f9fcc9c8cb", null ],
     [ "getMacroscopicGradients", "structmfem__mgis_1_1_periodic_non_linear_evolution_problem.html#a90bd69f9d9b724d2f3371ee343eff502", null ],
     [ "setMacroscopicGradientsEvolution", "structmfem__mgis_1_1_periodic_non_linear_evolution_problem.html#a5028453ff3c8e0de10eab25628fc230b", null ],
+    [ "setup", "structmfem__mgis_1_1_periodic_non_linear_evolution_problem.html#afa06a392f07d6de6029980fa9a030a61", null ],
     [ "setup", "structmfem__mgis_1_1_periodic_non_linear_evolution_problem.html#a9affae3ff08120f595ef3790350add74", null ],
     [ "macroscopic_gradients_evolution", "structmfem__mgis_1_1_periodic_non_linear_evolution_problem.html#a29bb5d791c9fb3826907632f311a86b1", null ]
 ];

@@ -5,7 +5,6 @@ var structmfem__mgis_1_1_abstract_non_linear_solver =
     [ "~AbstractNonLinearSolver", "structmfem__mgis_1_1_abstract_non_linear_solver.html#a350495f65294f2fd2258f9a33f4adaf9", null ],
     [ "addNewUnknownsEstimateActions", "structmfem__mgis_1_1_abstract_non_linear_solver.html#a910cd6791d2819a21ee5ca7874e95c7f", null ],
     [ "GetInitialNorm", "structmfem__mgis_1_1_abstract_non_linear_solver.html#af599d5f11b53f7a2edf7319062091414", null ],
-    [ "getIterationsInformation", "structmfem__mgis_1_1_abstract_non_linear_solver.html#a5f17a619a110c5a686db06aaf1210295", null ],
     [ "isLinearSolverFailureDiscarded", "structmfem__mgis_1_1_abstract_non_linear_solver.html#a814abe3b855b27d9491d932a83ebbe5c", null ],
     [ "setContext", "structmfem__mgis_1_1_abstract_non_linear_solver.html#a54c59c09d356aed6498bd6d120a2b747", null ],
     [ "setLinearSolver", "structmfem__mgis_1_1_abstract_non_linear_solver.html#aa83724718e7996ff4e69b5f13aed9408", null ],

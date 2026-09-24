@@ -1,5 +1,7 @@
 var NAVTREEINDEX37 =
 {
+"structmfront_1_1_behaviour_query.html#aa16e92801e0a6eb8edcfb44dfe427abf":[5,0,11,25,5],
+"structmfront_1_1_behaviour_query.html#ac1e329c1913c629fb470990864ec92ae":[5,0,11,25,2],
 "structmfront_1_1_behaviour_query.html#acbaaf20b3cddde2c0693e10c3a2fbaf9":[5,0,11,25,0],
 "structmfront_1_1_behaviour_variable_description.html":[5,0,11,26],
 "structmfront_1_1_behaviour_variable_description.html#a022e4a65eac9d5b7c0326d446ce5c673":[5,0,11,26,9],
@@ -247,7 +249,5 @@ var NAVTREEINDEX37 =
 "structmfront_1_1_default_d_s_l_base.html#aed0c46fd1c2cc2682916581430edde2d":[5,0,11,39,3],
 "structmfront_1_1_default_finite_strain_code_generator.html":[5,0,11,40],
 "structmfront_1_1_default_finite_strain_code_generator.html#a1a2af80a86936037bfb477668d812d6d":[5,0,11,40,1],
-"structmfront_1_1_default_finite_strain_code_generator.html#a9d254374766594e5c9f5d1ec5dba091b":[5,0,11,40,0],
-"structmfront_1_1_default_finite_strain_d_s_l.html":[5,0,11,41],
-"structmfront_1_1_default_finite_strain_d_s_l.html#a58e60c69009e247280f20c93771f3926":[5,0,11,41,2]
+"structmfront_1_1_default_finite_strain_code_generator.html#a9d254374766594e5c9f5d1ec5dba091b":[5,0,11,40,0]
 };

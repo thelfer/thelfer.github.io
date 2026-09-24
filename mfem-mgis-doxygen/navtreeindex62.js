@@ -1,5 +1,7 @@
 var NAVTREEINDEX62 =
 {
+"structtfel_1_1math_1_1_result_type.html#a1de78cf537c37d9ee1e9269e4d6e9bc3":[5,0,16,5,418,0],
+"structtfel_1_1math_1_1_result_type.html#a5ceb9809a3e1521d0910eb415ab5403b":[5,0,16,5,418,3],
 "structtfel_1_1math_1_1_result_type.html#ab8aa37387e7b16376e12c44554e79219":[5,0,16,5,418,2],
 "structtfel_1_1math_1_1_result_type.html#ad52644350a45ae83e73d1595a044b748":[5,0,16,5,418,1],
 "structtfel_1_1math_1_1_result_type_3_01_quantity_type_00_01_scalar_type_00_01_op_div_01_4.html":[5,0,16,5,423],
@@ -247,7 +249,5 @@ var NAVTREEINDEX62 =
 "structtfel_1_1math_1_1_tiny_broyden_solver.html#a144f5fa8ee8125f7cfaec3ad72cde2cf":[5,0,16,5,595,2],
 "structtfel_1_1math_1_1_tiny_broyden_solver.html#a340dfa0c38f6b827a4b065de1314f94d":[5,0,16,5,595,1],
 "structtfel_1_1math_1_1_tiny_broyden_solver.html#a3a15f8b9812e22f1013041b9f109a27e":[5,0,16,5,595,0],
-"structtfel_1_1math_1_1_tiny_broyden_solver.html#a7dee396f4d10ffe294bf386a3b414abb":[5,0,16,5,595,5],
-"structtfel_1_1math_1_1_tiny_broyden_solver.html#a86c33db5f6748ef5aa6e222ccfae03d6":[5,0,16,5,595,3],
-"structtfel_1_1math_1_1_tiny_broyden_solver.html#a8754279fc2b699dd9cac87fbbce43d6a":[5,0,16,5,595,4]
+"structtfel_1_1math_1_1_tiny_broyden_solver.html#a7dee396f4d10ffe294bf386a3b414abb":[5,0,16,5,595,5]
 };

@@ -1,7 +1,7 @@
 var NAVTREEINDEX7 =
 {
-"_partial_quadrature_function_8hxx.html#aced32cfb285cbd2575c36a1f1e513380":[6,0,0,0,91,4],
-"_partial_quadrature_function_8hxx.html#ae4b55bc34613cffde682efc7fb5693f0":[6,0,0,0,91,10],
+"_partial_quadrature_function_8hxx.html#aced32cfb285cbd2575c36a1f1e513380":[6,0,0,0,91,5],
+"_partial_quadrature_function_8hxx.html#ae4b55bc34613cffde682efc7fb5693f0":[6,0,0,0,91,11],
 "_partial_quadrature_function_8ixx.html":[6,0,0,0,92],
 "_partial_quadrature_functions_set_8hxx.html":[6,0,0,0,93],
 "_partial_quadrature_space_8hxx.html":[6,0,0,0,94],

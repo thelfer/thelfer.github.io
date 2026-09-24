@@ -1,5 +1,7 @@
 var NAVTREEINDEX63 =
 {
+"structtfel_1_1math_1_1_tiny_broyden_solver.html#a86c33db5f6748ef5aa6e222ccfae03d6":[5,0,16,5,595,3],
+"structtfel_1_1math_1_1_tiny_broyden_solver.html#a8754279fc2b699dd9cac87fbbce43d6a":[5,0,16,5,595,4],
 "structtfel_1_1math_1_1_tiny_broyden_solver.html#aa4f060b773546411deacb0637cf0eed9":[5,0,16,5,595,6],
 "structtfel_1_1math_1_1_tiny_levenberg_marquardt_solver.html":[5,0,16,5,596],
 "structtfel_1_1math_1_1_tiny_levenberg_marquardt_solver.html#a0dd0e9fc086c9deaad012f153ff11c06":[5,0,16,5,596,2],
@@ -247,7 +249,5 @@ var NAVTREEINDEX63 =
 "structtfel_1_1math_1_1internals_1_1_derivative_view_from_tiny_matrix_implementation_3_01true_00_51dc67be2e2fde4070449892af08346d.html#a15f10647bebcc22c4aab55acfb372a33":[5,0,16,5,1,17,0],
 "structtfel_1_1math_1_1internals_1_1_derivative_view_from_tiny_matrix_implementation_3_01true_00_51dc67be2e2fde4070449892af08346d.html#a39cc8790d01a2cc80448378d32adfdd0":[5,0,16,5,1,17,1],
 "structtfel_1_1math_1_1internals_1_1_derivative_view_from_tiny_matrix_implementation_3_01true_00_8df22c3011e033d5eb88f7d909969e18.html":[5,0,16,5,1,16],
-"structtfel_1_1math_1_1internals_1_1_derivative_view_from_tiny_matrix_implementation_3_01true_00_8df22c3011e033d5eb88f7d909969e18.html#a9de5a0b4b86038da1183f485eb54a80f":[5,0,16,5,1,16,0],
-"structtfel_1_1math_1_1internals_1_1_derivative_view_from_tiny_matrix_implementation_3_01true_00_8df22c3011e033d5eb88f7d909969e18.html#ae944e9bf86309f7e0c332f20a03b797e":[5,0,16,5,1,16,1],
-"structtfel_1_1math_1_1internals_1_1_expression_test.html":[5,0,16,5,1,26]
+"structtfel_1_1math_1_1internals_1_1_derivative_view_from_tiny_matrix_implementation_3_01true_00_8df22c3011e033d5eb88f7d909969e18.html#a9de5a0b4b86038da1183f485eb54a80f":[5,0,16,5,1,16,0]
 };

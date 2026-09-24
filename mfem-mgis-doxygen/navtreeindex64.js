@@ -1,5 +1,7 @@
 var NAVTREEINDEX64 =
 {
+"structtfel_1_1math_1_1internals_1_1_derivative_view_from_tiny_matrix_implementation_3_01true_00_8df22c3011e033d5eb88f7d909969e18.html#ae944e9bf86309f7e0c332f20a03b797e":[5,0,16,5,1,16,1],
+"structtfel_1_1math_1_1internals_1_1_expression_test.html":[5,0,16,5,1,26],
 "structtfel_1_1math_1_1internals_1_1_expression_test_3_01_expr_3_01_result_type_00_01_operation_01_4_01_4.html":[5,0,16,5,1,27],
 "structtfel_1_1math_1_1internals_1_1_f_s_e_s_analytical_symmetric_eigensolver2x2.html":[5,0,16,5,1,28],
 "structtfel_1_1math_1_1internals_1_1_f_s_e_s_analytical_symmetric_eigensolver3x3.html":[5,0,16,5,1,29],
@@ -247,7 +249,5 @@ var NAVTREEINDEX64 =
 "structtfel_1_1math_1_1parser_1_1_evaluator_function_wrapper_3_017u_01_4.html":[5,0,16,5,2,28],
 "structtfel_1_1math_1_1parser_1_1_evaluator_function_wrapper_3_018u_01_4.html":[5,0,16,5,2,29],
 "structtfel_1_1math_1_1parser_1_1_evaluator_function_wrapper_3_019u_01_4.html":[5,0,16,5,2,30],
-"structtfel_1_1math_1_1parser_1_1_evaluator_proxy.html":[5,0,16,5,2,31],
-"structtfel_1_1math_1_1parser_1_1_evaluator_proxy1_p1_v.html":[5,0,16,5,2,32],
-"structtfel_1_1math_1_1parser_1_1_evaluator_proxy1_p2_v.html":[5,0,16,5,2,33]
+"structtfel_1_1math_1_1parser_1_1_evaluator_proxy.html":[5,0,16,5,2,31]
 };

@@ -1,5 +1,7 @@
 var NAVTREEINDEX68 =
 {
+"structtfel_1_1system_1_1system_call.html":[5,0,16,7,51],
+"structtfel_1_1system_1_1wfstream.html":[5,0,16,7,57],
 "structtfel_1_1system_1_1wstream_view.html":[5,0,16,7,58],
 "structtfel_1_1tests_1_1_multiple_test_outputs.html":[5,0,16,8,0],
 "structtfel_1_1tests_1_1_multiple_test_outputs.html#a057f6bc9e460d657d22650b14c8d9032":[5,0,16,8,0,8],
@@ -247,7 +249,5 @@ var NAVTREEINDEX68 =
 "structtfel_1_1utilities_1_1_argument.html#a8d9d96a1a3a44897e4889ff3b733860e":[5,0,16,11,1,3],
 "structtfel_1_1utilities_1_1_argument.html#aa30bb4a61f7fbd2e2f57ae7b7170de9f":[5,0,16,11,1,2],
 "structtfel_1_1utilities_1_1_argument.html#ac4740a19626b7cd679ec57c64d615c2e":[5,0,16,11,1,0],
-"structtfel_1_1utilities_1_1_argument.html#aca01d07a440000791374fe33b1f54250":[5,0,16,11,1,8],
-"structtfel_1_1utilities_1_1_argument.html#ae2dcf6f14993ddcac5c1a4386002761c":[5,0,16,11,1,7],
-"structtfel_1_1utilities_1_1_argument.html#ae917373da319c862c87890ac9abd989f":[5,0,16,11,1,6]
+"structtfel_1_1utilities_1_1_argument.html#aca01d07a440000791374fe33b1f54250":[5,0,16,11,1,8]
 };

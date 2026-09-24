@@ -1,5 +1,7 @@
 var NAVTREEINDEX42 =
 {
+"structmfront_1_1_u_m_a_t_interface_base.html#a59ef499478f4c714bf9fcfccbd66e1ab":[5,0,11,119,26],
+"structmfront_1_1_u_m_a_t_interface_base.html#a5a99657ff3ceba137d57b0b5e2077c83":[5,0,11,119,6],
 "structmfront_1_1_u_m_a_t_interface_base.html#a71a0f736b7668dd0e0f278950196f76d":[5,0,11,119,12],
 "structmfront_1_1_u_m_a_t_interface_base.html#a765d5902ed0b287218ddd33689e3e6fd":[5,0,11,119,16],
 "structmfront_1_1_u_m_a_t_interface_base.html#a8b86a575fd85151cf659bcce4e98ee36":[5,0,11,119,15],
@@ -247,7 +249,5 @@ var NAVTREEINDEX42 =
 "structmfront_1_1bbrick_1_1_d_d_i_f2_stress_potential.html#a7e58405252e239d66d714a6e48888926":[5,0,11,0,11,8],
 "structmfront_1_1bbrick_1_1_d_d_i_f2_stress_potential.html#ab84c59668f6bc8047bc69d894e645321":[5,0,11,0,11,7],
 "structmfront_1_1bbrick_1_1_d_d_i_f2_stress_potential.html#abbf0936bd2a8de845b8ae69e9101f807":[5,0,11,0,11,5],
-"structmfront_1_1bbrick_1_1_d_d_i_f2_stress_potential.html#ac2199f2b752cd85415bc2172e2baff57":[5,0,11,0,11,9],
-"structmfront_1_1bbrick_1_1_d_d_i_f2_stress_potential.html#ae8a4ede6d04a826c6c3a241e133a1877":[5,0,11,0,11,4],
-"structmfront_1_1bbrick_1_1_d_d_i_f2_stress_potential.html#aebb5ad8ad3d4aa1d057ecc1891b1e8a1":[5,0,11,0,11,6]
+"structmfront_1_1bbrick_1_1_d_d_i_f2_stress_potential.html#ac2199f2b752cd85415bc2172e2baff57":[5,0,11,0,11,9]
 };

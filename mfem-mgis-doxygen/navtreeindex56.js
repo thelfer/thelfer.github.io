@@ -1,15 +1,5 @@
 var NAVTREEINDEX56 =
 {
-"structtfel_1_1material_1_1_logarithmic_strain_handler_3_012u_00_01_stress_type_01_4.html#ad5d506d5346a93915b2aa36a475fb379":[5,0,16,4,57,23],
-"structtfel_1_1material_1_1_logarithmic_strain_handler_3_012u_00_01_stress_type_01_4.html#af30832cdc9e6e30512194da7ba0646cc":[5,0,16,4,57,10],
-"structtfel_1_1material_1_1_logarithmic_strain_handler_3_012u_00_01_stress_type_01_4.html#af33e75e0a7b36bc9f4474da1f6e9e23f":[5,0,16,4,57,7],
-"structtfel_1_1material_1_1_logarithmic_strain_handler_3_012u_00_01_stress_type_01_4.html#afb4ac40c1823ebc71f30adc62e68b6e9":[5,0,16,4,57,5],
-"structtfel_1_1material_1_1_logarithmic_strain_handler_3_013u_00_01_stress_type_01_4.html":[5,0,16,4,58],
-"structtfel_1_1material_1_1_logarithmic_strain_handler_3_013u_00_01_stress_type_01_4.html#a03185486de59909e84aab8e7f6030df8":[5,0,16,4,58,20],
-"structtfel_1_1material_1_1_logarithmic_strain_handler_3_013u_00_01_stress_type_01_4.html#a0f246610c58a0e570f2074b4bbfda681":[5,0,16,4,58,25],
-"structtfel_1_1material_1_1_logarithmic_strain_handler_3_013u_00_01_stress_type_01_4.html#a19437b22304f58b283968a51c9311143":[5,0,16,4,58,15],
-"structtfel_1_1material_1_1_logarithmic_strain_handler_3_013u_00_01_stress_type_01_4.html#a2893c635430deda491def1dbcaed4141":[5,0,16,4,58,4],
-"structtfel_1_1material_1_1_logarithmic_strain_handler_3_013u_00_01_stress_type_01_4.html#a2ae9d3de1b3bb83de0153f03d9e6d773":[5,0,16,4,58,12],
 "structtfel_1_1material_1_1_logarithmic_strain_handler_3_013u_00_01_stress_type_01_4.html#a2ceb06b7a9e8715de131732648de7094":[5,0,16,4,58,13],
 "structtfel_1_1material_1_1_logarithmic_strain_handler_3_013u_00_01_stress_type_01_4.html#a37c06d56a5745c2866900c86d460d500":[5,0,16,4,58,18],
 "structtfel_1_1material_1_1_logarithmic_strain_handler_3_013u_00_01_stress_type_01_4.html#a4038677f9f9d3b9e9d0202a27b07db86":[5,0,16,4,58,22],
@@ -249,5 +239,15 @@ var NAVTREEINDEX56 =
 "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_microstructure.html":[5,0,16,4,0,0,15],
 "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_oriented_distribution.html":[5,0,16,4,0,0,16],
 "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_particulate_microstructure.html":[5,0,16,4,0,0,17],
-"structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_phase.html":[5,0,16,4,0,0,18]
+"structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_phase.html":[5,0,16,4,0,0,18],
+"structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_sphere.html":[5,0,16,4,0,0,19],
+"structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_sphere_distribution.html":[5,0,16,4,0,0,20],
+"structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_spheroid.html":[5,0,16,4,0,0,21],
+"structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_transverse_isotropic_distribution.html":[5,0,16,4,0,0,22],
+"structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_user_defined_distribution_of_spheroids.html":[5,0,16,4,0,0,23],
+"structtfel_1_1material_1_1internals_1_1_compute_hill_tensor.html":[5,0,16,4,1,0],
+"structtfel_1_1material_1_1internals_1_1_compute_hill_tensor_3_01_h_00_01tfel_1_1material_1_1_ort86d5362ae77229748dc6ad300ef07328.html":[5,0,16,4,1,2],
+"structtfel_1_1material_1_1internals_1_1_compute_hill_tensor_3_01_h_00_01tfel_1_1material_1_1_ort86d5362ae77229748dc6ad300ef07328.html#ab2ceffa49a1c5eab6dcf50f7dcea1df6":[5,0,16,4,1,2,0],
+"structtfel_1_1material_1_1internals_1_1_compute_hill_tensor_3_01_h_00_01tfel_1_1material_1_1_ortc06cd032f674232bb6f8c6133e0bde21.html":[5,0,16,4,1,1],
+"structtfel_1_1material_1_1internals_1_1_compute_hill_tensor_3_01_h_00_01tfel_1_1material_1_1_ortc06cd032f674232bb6f8c6133e0bde21.html#a4c2788e253703707d8fe24b4d587c4b1":[5,0,16,4,1,1,0]
 };

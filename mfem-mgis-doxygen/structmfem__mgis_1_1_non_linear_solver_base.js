@@ -6,7 +6,6 @@ var structmfem__mgis_1_1_non_linear_solver_base =
     [ "addNewUnknownsEstimateActions", "structmfem__mgis_1_1_non_linear_solver_base.html#a6e841b404efd98bdc79cd4ea3dafc007", null ],
     [ "computeResidual", "structmfem__mgis_1_1_non_linear_solver_base.html#ad9695acb6773060bbbbd9bf0e46486db", null ],
     [ "GetInitialNorm", "structmfem__mgis_1_1_non_linear_solver_base.html#a26653f8db29ca694738f0f871ad24081", null ],
-    [ "getIterationsInformation", "structmfem__mgis_1_1_non_linear_solver_base.html#a9ead23acb6f58e88e4899a9fcdcb3333", null ],
     [ "getJacobian", "structmfem__mgis_1_1_non_linear_solver_base.html#a2150a8888e27e90a5310d9c361f5f758", null ],
     [ "isLinearSolverFailureDiscarded", "structmfem__mgis_1_1_non_linear_solver_base.html#a412b5ee6b410eb70d9c666352e280a66", null ],
     [ "processNewUnknownsEstimate", "structmfem__mgis_1_1_non_linear_solver_base.html#a30a4aaabaf71a7098106f1a716c75a0e", null ],
@@ -18,7 +17,6 @@ var structmfem__mgis_1_1_non_linear_solver_base =
     [ "unsetReferenceResidualNorm", "structmfem__mgis_1_1_non_linear_solver_base.html#a0bd57e837edb636a94083701c839be6f", null ],
     [ "ctx_ptr", "structmfem__mgis_1_1_non_linear_solver_base.html#ad36737bb1c622e6e64e6452124a19bf0", null ],
     [ "discardLinearSolverFailure", "structmfem__mgis_1_1_non_linear_solver_base.html#a03b9b0ff0bbdb2596b4b64527037cb53", null ],
-    [ "iterations_information", "structmfem__mgis_1_1_non_linear_solver_base.html#ac1a8f17254378f06a8df893765299190", null ],
     [ "nue_actions", "structmfem__mgis_1_1_non_linear_solver_base.html#a83240f5bb0049d02fb3f757caf577287", null ],
     [ "reference_residual_norm", "structmfem__mgis_1_1_non_linear_solver_base.html#ac412d3f7ea31d7806ba90f9c478ce5df", null ]
 ];

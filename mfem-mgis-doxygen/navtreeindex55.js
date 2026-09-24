@@ -1,15 +1,5 @@
 var NAVTREEINDEX55 =
 {
-"structtfel_1_1config_1_1internals_1_1_jacobian_type.html":[5,0,16,0,0,6],
-"structtfel_1_1config_1_1internals_1_1_jacobian_type_3_011u_00_01_t_00_01false_01_4.html":[5,0,16,0,0,7],
-"structtfel_1_1config_1_1internals_1_1_jacobian_type_3_011u_00_01_t_00_01use__qt_01_4.html":[5,0,16,0,0,8],
-"structtfel_1_1config_1_1internals_1_1_jacobian_type_3_01_n_00_01_t_00_01false_01_4.html":[5,0,16,0,0,9],
-"structtfel_1_1config_1_1internals_1_1_position_type.html":[5,0,16,0,0,10],
-"structtfel_1_1config_1_1internals_1_1_position_type_3_011u_00_01_t_00_01false_01_4.html":[5,0,16,0,0,11],
-"structtfel_1_1config_1_1internals_1_1_position_type_3_011u_00_01_t_00_01use__qt_01_4.html":[5,0,16,0,0,12],
-"structtfel_1_1config_1_1internals_1_1_position_type_3_01_n_00_01_t_00_01false_01_4.html":[5,0,16,0,0,13],
-"structtfel_1_1config_1_1internals_1_1_spatial_grad_type.html":[5,0,16,0,0,14],
-"structtfel_1_1config_1_1internals_1_1_spatial_grad_type_3_011u_00_01_t_00_01false_01_4.html":[5,0,16,0,0,15],
 "structtfel_1_1config_1_1internals_1_1_spatial_grad_type_3_011u_00_01_t_00_01use__qt_01_4.html":[5,0,16,0,0,16],
 "structtfel_1_1config_1_1internals_1_1_spatial_grad_type_3_01_n_00_01_t_00_01false_01_4.html":[5,0,16,0,0,17],
 "structtfel_1_1config_1_1internals_1_1_temperature_gradient_type.html":[5,0,16,0,0,18],
@@ -249,5 +239,15 @@ var NAVTREEINDEX55 =
 "structtfel_1_1material_1_1_logarithmic_strain_handler_3_012u_00_01_stress_type_01_4.html#abffbf72ae1c75e62856cba28cc378fb0":[5,0,16,4,57,13],
 "structtfel_1_1material_1_1_logarithmic_strain_handler_3_012u_00_01_stress_type_01_4.html#ac7f49f6d16a8796b746ef7f96576b2b9":[5,0,16,4,57,0],
 "structtfel_1_1material_1_1_logarithmic_strain_handler_3_012u_00_01_stress_type_01_4.html#aca3860fd6a0e41107d2e2297d12e2e7f":[5,0,16,4,57,15],
-"structtfel_1_1material_1_1_logarithmic_strain_handler_3_012u_00_01_stress_type_01_4.html#ad38f40b43f85639694cfb179548c3bba":[5,0,16,4,57,21]
+"structtfel_1_1material_1_1_logarithmic_strain_handler_3_012u_00_01_stress_type_01_4.html#ad38f40b43f85639694cfb179548c3bba":[5,0,16,4,57,21],
+"structtfel_1_1material_1_1_logarithmic_strain_handler_3_012u_00_01_stress_type_01_4.html#ad5d506d5346a93915b2aa36a475fb379":[5,0,16,4,57,23],
+"structtfel_1_1material_1_1_logarithmic_strain_handler_3_012u_00_01_stress_type_01_4.html#af30832cdc9e6e30512194da7ba0646cc":[5,0,16,4,57,10],
+"structtfel_1_1material_1_1_logarithmic_strain_handler_3_012u_00_01_stress_type_01_4.html#af33e75e0a7b36bc9f4474da1f6e9e23f":[5,0,16,4,57,7],
+"structtfel_1_1material_1_1_logarithmic_strain_handler_3_012u_00_01_stress_type_01_4.html#afb4ac40c1823ebc71f30adc62e68b6e9":[5,0,16,4,57,5],
+"structtfel_1_1material_1_1_logarithmic_strain_handler_3_013u_00_01_stress_type_01_4.html":[5,0,16,4,58],
+"structtfel_1_1material_1_1_logarithmic_strain_handler_3_013u_00_01_stress_type_01_4.html#a03185486de59909e84aab8e7f6030df8":[5,0,16,4,58,20],
+"structtfel_1_1material_1_1_logarithmic_strain_handler_3_013u_00_01_stress_type_01_4.html#a0f246610c58a0e570f2074b4bbfda681":[5,0,16,4,58,25],
+"structtfel_1_1material_1_1_logarithmic_strain_handler_3_013u_00_01_stress_type_01_4.html#a19437b22304f58b283968a51c9311143":[5,0,16,4,58,15],
+"structtfel_1_1material_1_1_logarithmic_strain_handler_3_013u_00_01_stress_type_01_4.html#a2893c635430deda491def1dbcaed4141":[5,0,16,4,58,4],
+"structtfel_1_1material_1_1_logarithmic_strain_handler_3_013u_00_01_stress_type_01_4.html#a2ae9d3de1b3bb83de0153f03d9e6d773":[5,0,16,4,58,12]
 };

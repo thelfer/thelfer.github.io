@@ -2,7 +2,7 @@ var annotated_dup =
 [
     [ "mfem_mgis", "namespacemfem__mgis.html", [
       [ "unit_tests", null, [
-        [ "TestParameters", "structmfem__mgis_1_1unit__tests_1_1_test_parameters.html", null ],
+        [ "TestParameters", "structmfem__mgis_1_1unit__tests_1_1_test_parameters.html", "structmfem__mgis_1_1unit__tests_1_1_test_parameters" ],
         [ "UniaxialTestResults", "structmfem__mgis_1_1unit__tests_1_1_uniaxial_test_results.html", "structmfem__mgis_1_1unit__tests_1_1_uniaxial_test_results" ]
       ] ],
       [ "AbstractBehaviourIntegrator", "structmfem__mgis_1_1_abstract_behaviour_integrator.html", "structmfem__mgis_1_1_abstract_behaviour_integrator" ],

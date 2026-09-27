@@ -6,8 +6,6 @@ var structmfem__mgis_1_1_behaviour_integrator_base =
     [ "checkHypothesis", "structmfem__mgis_1_1_behaviour_integrator_base.html#a95d20170956bbf358b45c7abbc676c2a", null ],
     [ "checkIfAFiniteStrainBehaviourIsDeclared", "structmfem__mgis_1_1_behaviour_integrator_base.html#a261fdeee151cfbb7a506245f7bfd613d", null ],
     [ "cleanup", "structmfem__mgis_1_1_behaviour_integrator_base.html#a50c5f9a1136fa0f70f930d76dbfeb837", null ],
-    [ "getMaterial", "structmfem__mgis_1_1_behaviour_integrator_base.html#aed587171572d2bb69003de24a271f05c", null ],
-    [ "getMaterial", "structmfem__mgis_1_1_behaviour_integrator_base.html#a7c37bdeb8d3e115205a1c32e31c2336f", null ],
     [ "getMaterial", "structmfem__mgis_1_1_behaviour_integrator_base.html#a8db188678ae001f42cf3b226a8f8f4e2", null ],
     [ "getMaterial", "structmfem__mgis_1_1_behaviour_integrator_base.html#a08030e31c5a12582323b18ba9f1befe0", null ],
     [ "getPartialQuadratureSpace", "structmfem__mgis_1_1_behaviour_integrator_base.html#a2b852fc4b323f2697f019895902b7f74", null ],

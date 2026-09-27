@@ -5,8 +5,6 @@ var structmfem__mgis_1_1_periodic_non_linear_evolution_problem =
     [ "~PeriodicNonLinearEvolutionProblem", "structmfem__mgis_1_1_periodic_non_linear_evolution_problem.html#a63bacf97733cea9e19a7e6c04f460a99", null ],
     [ "addBoundaryCondition", "structmfem__mgis_1_1_periodic_non_linear_evolution_problem.html#af013903a84b3e816d42ba46ae5b08dfe", null ],
     [ "addBoundaryCondition", "structmfem__mgis_1_1_periodic_non_linear_evolution_problem.html#a913e55cbd76d8592a91bda51cc84589b", null ],
-    [ "addBoundaryCondition", "structmfem__mgis_1_1_periodic_non_linear_evolution_problem.html#a61f803c0c9ad88d73f51049129d18b09", null ],
-    [ "addBoundaryCondition", "structmfem__mgis_1_1_periodic_non_linear_evolution_problem.html#aaa411564bc313edf05c7f9f9fcc9c8cb", null ],
     [ "getMacroscopicGradients", "structmfem__mgis_1_1_periodic_non_linear_evolution_problem.html#a90bd69f9d9b724d2f3371ee343eff502", null ],
     [ "setMacroscopicGradientsEvolution", "structmfem__mgis_1_1_periodic_non_linear_evolution_problem.html#a5028453ff3c8e0de10eab25628fc230b", null ],
     [ "setup", "structmfem__mgis_1_1_periodic_non_linear_evolution_problem.html#a9affae3ff08120f595ef3790350add74", null ],

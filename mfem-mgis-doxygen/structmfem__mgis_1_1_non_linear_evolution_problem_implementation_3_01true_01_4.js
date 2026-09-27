@@ -5,13 +5,9 @@ var structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01true_01
     [ "~NonLinearEvolutionProblemImplementation", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01true_01_4.html#a2de650695f56cd48f71144a15c7cd997", null ],
     [ "addBoundaryCondition", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01true_01_4.html#a47b152ebe4a5f7b7b9183ccd412462a6", null ],
     [ "addBoundaryCondition", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01true_01_4.html#ac078f3366cf2ddc71615bbea953b5ad4", null ],
-    [ "addBoundaryCondition", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01true_01_4.html#a3ebc59f0856c30c1593b63a9384cc4e4", null ],
-    [ "addBoundaryCondition", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01true_01_4.html#afe27b60f3d85537bf24849a630a6e6cd", null ],
-    [ "addPostProcessing", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01true_01_4.html#a180eaf0697a82e4b91afae07edb1d729", null ],
+    [ "addPostProcessing", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01true_01_4.html#a50210e6f4c2b101e27c0bb932d352a20", null ],
     [ "addPostProcessing", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01true_01_4.html#ac2a18614de258025202306e0c44c1f43", null ],
     [ "addPostProcessing", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01true_01_4.html#a7dbe0d039894703746af8930fc444149", null ],
-    [ "addPostProcessing", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01true_01_4.html#a5e3f2079b12eaa193c3ecb4f911c0c65", null ],
-    [ "addPostProcessing", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01true_01_4.html#a3cd8f909eca37584eb97bde725be05c9", null ],
     [ "computePrediction", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01true_01_4.html#a3d64cac849f23419470ed29c195e421e", null ],
     [ "executeInitialPostProcessings", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01true_01_4.html#af837be4439dc4b7efbcdca3d8e5fa563", null ],
     [ "executePostProcessings", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01true_01_4.html#a41c04861d757d33f0f8f07904238812b", null ],
@@ -23,6 +19,5 @@ var structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01true_01
     [ "markDegreesOfFreedomHandledByDirichletBoundaryConditions", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01true_01_4.html#ab073eab0d70fc7acb1ceb2eefd0de953", null ],
     [ "setLinearSolver", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01true_01_4.html#a5ab216a04ab82b7a7d8f4579460bb6b5", null ],
     [ "setLinearSolver", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01true_01_4.html#a55a7404a7e000d295eca38346c0bfc98", null ],
-    [ "setLinearSolver", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01true_01_4.html#a37775632d6ff21189903656268f02b5b", null ],
     [ "postprocessings", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01true_01_4.html#a4b6f81a9a7e01effb2ca20b930b60aa8", null ]
 ];

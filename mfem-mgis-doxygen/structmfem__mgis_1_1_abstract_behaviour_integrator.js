@@ -5,8 +5,6 @@ var structmfem__mgis_1_1_abstract_behaviour_integrator =
     [ "computeInnerForces", "structmfem__mgis_1_1_abstract_behaviour_integrator.html#a5796dbf1cfaa8f65b8a4512f287fe2d8", null ],
     [ "getIntegrationPointWeight", "structmfem__mgis_1_1_abstract_behaviour_integrator.html#a07fc39e5ab5c3df16a2e02f0ab708f43", null ],
     [ "getIntegrationRule", "structmfem__mgis_1_1_abstract_behaviour_integrator.html#af58def095eaef2f65e0416289dba75c8", null ],
-    [ "getMaterial", "structmfem__mgis_1_1_abstract_behaviour_integrator.html#a332c12da99e6cb3d0067faccc66909c3", null ],
-    [ "getMaterial", "structmfem__mgis_1_1_abstract_behaviour_integrator.html#af316725ec5b4c3f8ef799a942c142eba", null ],
     [ "getMaterial", "structmfem__mgis_1_1_abstract_behaviour_integrator.html#abaf8eedafbee664233631c23db48ed23", null ],
     [ "getMaterial", "structmfem__mgis_1_1_abstract_behaviour_integrator.html#a1e8b45ee487d6b7b366066b6a3723b11", null ],
     [ "getPartialQuadratureSpace", "structmfem__mgis_1_1_abstract_behaviour_integrator.html#ac6e6099279007c7f6601c6095e6a665b", null ],

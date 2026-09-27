@@ -18,7 +18,7 @@ var searchData=
   ['linearsolverhandler_15',['LinearSolverHandler',['../structmfem__mgis_1_1_linear_solver_handler.html',1,'mfem_mgis']]],
   ['linearsolverhandler_2ehxx_16',['LinearSolverHandler.hxx',['../_linear_solver_handler_8hxx.html',1,'']]],
   ['linearsolverpreconditioner_17',['LinearSolverPreconditioner',['../namespacemfem__mgis.html#a57b39971ceedd0078eb70a35eb48df87',1,'mfem_mgis']]],
-  ['load_18',['load',['../namespacemfem__mgis.html#ad5d5eb05eec2589b7bf904f8fa078aa6',1,'mfem_mgis::load(const std::string &amp;, const std::string &amp;, const Hypothesis)'],['../namespacemfem__mgis.html#a0a5f24b58ca7f89327512bad312f6161',1,'mfem_mgis::load(Context &amp;, const std::string &amp;, const std::string &amp;, const Hypothesis) noexcept']]],
+  ['load_18',['load',['../namespacemfem__mgis.html#a0a5f24b58ca7f89327512bad312f6161',1,'mfem_mgis']]],
   ['local_5fvalues_5fstorage_19',['local_values_storage',['../structmfem__mgis_1_1_partial_quadrature_function.html#ae59b8a8351297014e858564dc07aff57',1,'mfem_mgis::PartialQuadratureFunction']]],
   ['localdependenciesanalysisoutput_20',['LocalDependenciesAnalysisOutput',['../structmfem__mgis_1_1_q_p_evaluators_factory_1_1_local_dependencies_analysis_output.html',1,'mfem_mgis::QPEvaluatorsFactory']]],
   ['location_21',['location',['../structmfem__mgis_1_1_mesh_discretization.html#a6507520a10b924705f062fbad6fddf61',1,'mfem_mgis::MeshDiscretization::Location'],['../structmfem__mgis_1_1_finite_element_spaces_manager_1_1_get_finite_element_space_on_sub_mesh_arguments.html#ade1cb20b094250008cd04f0e4800d823',1,'mfem_mgis::FiniteElementSpacesManager::GetFiniteElementSpaceOnSubMeshArguments::location']]],

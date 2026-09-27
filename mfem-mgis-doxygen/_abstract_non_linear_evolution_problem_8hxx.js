@@ -21,9 +21,13 @@ var _abstract_non_linear_evolution_problem_8hxx =
       [ "CONSTANT_GRADIENTS_INTEGRATION_PREDICTION", "_abstract_non_linear_evolution_problem_8hxx.html#a639f12cd43aca880d50f6aaa96f46812ad4124ca7c6746018083289561edd68c3", null ]
     ] ],
     [ "getBoundariesIdentifiers", "_abstract_non_linear_evolution_problem_8hxx.html#a48e2e627cb6b2cb9c79a30fe81670ef3", null ],
+    [ "getBoundariesIdentifiers", "_abstract_non_linear_evolution_problem_8hxx.html#a6e6898f80921edf45df8a0585ec88b86", null ],
     [ "getBoundaryIdentifier", "_abstract_non_linear_evolution_problem_8hxx.html#a28d464fbd864f005e88a532281d97e5a", null ],
+    [ "getBoundaryIdentifier", "_abstract_non_linear_evolution_problem_8hxx.html#a79471df4b01619bcd8a19013f4a07960", null ],
     [ "getMaterialIdentifier", "_abstract_non_linear_evolution_problem_8hxx.html#afefb93558fb042b026817160726b1c58", null ],
+    [ "getMaterialIdentifier", "_abstract_non_linear_evolution_problem_8hxx.html#ab4ba92a51e08aa4c7ac047fa812cd617", null ],
     [ "getMaterialsIdentifiers", "_abstract_non_linear_evolution_problem_8hxx.html#ac205078afc8ecd3a594a6d13c5f318cc", null ],
+    [ "getMaterialsIdentifiers", "_abstract_non_linear_evolution_problem_8hxx.html#aff75e43950338d38f7634cfecf411eef", null ],
     [ "getMPICommunicator", "_abstract_non_linear_evolution_problem_8hxx.html#a96c929df3dd3dc4e612444dc9976a1f7", null ],
     [ "isMainProcess", "_abstract_non_linear_evolution_problem_8hxx.html#a77cb535fe4af2651dce233d8e5ac3802", null ]
 ];

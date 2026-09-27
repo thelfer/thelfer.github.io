@@ -15,11 +15,7 @@ var structmfem__mgis_1_1_parameters =
     [ "insert", "structmfem__mgis_1_1_parameters.html#a64ce50cf754a5fa11cafb63879b55436", null ],
     [ "insert", "structmfem__mgis_1_1_parameters.html#ac63c13f5f8ef69eb3153dc1c9a761aa6", null ],
     [ "insert", "structmfem__mgis_1_1_parameters.html#af4153caeb33c96d420b7e8624f6433e2", null ],
-    [ "insert", "structmfem__mgis_1_1_parameters.html#a5c7ec28c8558fd707b1eddfdd0053497", null ],
-    [ "insert", "structmfem__mgis_1_1_parameters.html#abc35eff1b2a3b5d1ce2c62726290d1ea", null ],
-    [ "insert", "structmfem__mgis_1_1_parameters.html#acf63c1390d05c6fd7012d5f3623b5ad0", null ],
     [ "insert", "structmfem__mgis_1_1_parameters.html#abd7f5a1ba1b055cd26986a033ebf3d70", null ],
-    [ "insert", "structmfem__mgis_1_1_parameters.html#a0e811d6469fbef7ebfbad73b78d09bfc", null ],
     [ "operator=", "structmfem__mgis_1_1_parameters.html#a7819261c1832ff75ae4e1b2ce0c8bf48", null ],
     [ "operator=", "structmfem__mgis_1_1_parameters.html#aa1545854f7ce2b1dc40fefbd7a1ed787", null ],
     [ "replaceOrInsert", "structmfem__mgis_1_1_parameters.html#a6f535e81ad5c78e31eb4fc5b5f84186c", null ]

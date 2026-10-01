@@ -6,7 +6,7 @@ var _periodic_non_linear_evolution_problem_8hxx =
       [ "FIX_YMIN", "_periodic_non_linear_evolution_problem_8hxx.html#a4f516466773bd5cb447aa783a319f0e5a21cec1e906863829876e26759b1c1182", null ],
       [ "FIX_ZMIN", "_periodic_non_linear_evolution_problem_8hxx.html#a4f516466773bd5cb447aa783a319f0e5adbdff845cb0ab37f57d25c9118bd9ca2", null ]
     ] ],
-    [ "getNodesDistance", "_periodic_non_linear_evolution_problem_8hxx.html#a9051d1fe9e0456d1bda7c0b3b987d09c", null ],
+    [ "getNodesDistance", "_periodic_non_linear_evolution_problem_8hxx.html#a44e944d3ad5648626ae4f4517305c6b3", null ],
     [ "setPeriodicBoundaryConditions", "_periodic_non_linear_evolution_problem_8hxx.html#a54e6fcfda6087a39a06a4550ce30ac18", null ],
     [ "setPeriodicBoundaryConditions", "_periodic_non_linear_evolution_problem_8hxx.html#a0e640046145d86147c3a526fa0c20d06", null ],
     [ "setPeriodicBoundaryConditions", "_periodic_non_linear_evolution_problem_8hxx.html#a030b8dea423e7a08ad069fc091b23901", null ],

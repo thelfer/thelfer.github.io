@@ -19,6 +19,5 @@ var structmfem__mgis_1_1_orthotropic_tridimensional_stationary_non_linear_heat_t
     [ "updateResidual", "structmfem__mgis_1_1_orthotropic_tridimensional_stationary_non_linear_heat_transfer_behaviour_integrator.html#a440e4893b534a20912ad2457a17219bb", null ],
     [ "updateStiffnessMatrix", "structmfem__mgis_1_1_orthotropic_tridimensional_stationary_non_linear_heat_transfer_behaviour_integrator.html#a39baf6b5334126e9abaeb5f1267a3763", null ],
     [ "StandardBehaviourIntegratorCRTPBase< OrthotropicTridimensionalStationaryNonLinearHeatTransferBehaviourIntegrator >", "structmfem__mgis_1_1_orthotropic_tridimensional_stationary_non_linear_heat_transfer_behaviour_integrator.html#a4c76aaacf5217258df1a6d7f50acd571", null ],
-    [ "rotation_matrix", "structmfem__mgis_1_1_orthotropic_tridimensional_stationary_non_linear_heat_transfer_behaviour_integrator.html#a663238dacf8a00fd0a69d56b89f838d2", null ],
     [ "uesv", "structmfem__mgis_1_1_orthotropic_tridimensional_stationary_non_linear_heat_transfer_behaviour_integrator.html#a16a9050b46796ce16afb62a65406b9ee", null ]
 ];

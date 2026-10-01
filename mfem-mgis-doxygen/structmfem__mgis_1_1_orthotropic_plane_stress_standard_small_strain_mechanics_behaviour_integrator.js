@@ -16,6 +16,5 @@ var structmfem__mgis_1_1_orthotropic_plane_stress_standard_small_strain_mechanic
     [ "updateJacobian", "structmfem__mgis_1_1_orthotropic_plane_stress_standard_small_strain_mechanics_behaviour_integrator.html#a36c23c4d2935637ca0a17eee042fb0a4", null ],
     [ "updateResidual", "structmfem__mgis_1_1_orthotropic_plane_stress_standard_small_strain_mechanics_behaviour_integrator.html#acf5a12888ca2321ed17b34981b032575", null ],
     [ "updateStiffnessMatrix", "structmfem__mgis_1_1_orthotropic_plane_stress_standard_small_strain_mechanics_behaviour_integrator.html#a4c82d0cceb8a4aedde069bf497a6c8e0", null ],
-    [ "StandardBehaviourIntegratorCRTPBase< OrthotropicPlaneStressStandardSmallStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_orthotropic_plane_stress_standard_small_strain_mechanics_behaviour_integrator.html#a268d3fe0bf072d86a4aabf4f9f24f075", null ],
-    [ "rotation_matrix", "structmfem__mgis_1_1_orthotropic_plane_stress_standard_small_strain_mechanics_behaviour_integrator.html#a29386dac92c163ca1abecb9f93b0a472", null ]
+    [ "StandardBehaviourIntegratorCRTPBase< OrthotropicPlaneStressStandardSmallStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_orthotropic_plane_stress_standard_small_strain_mechanics_behaviour_integrator.html#a268d3fe0bf072d86a4aabf4f9f24f075", null ]
 ];

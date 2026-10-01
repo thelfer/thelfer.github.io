@@ -53,6 +53,7 @@ var structmfem__mgis_1_1_simulation =
     [ "numberOfTimeStepsBetweenPostProcessings", "structmfem__mgis_1_1_simulation.html#a9928f73720ffe6e3887b5e76714d4652", null ],
     [ "physicalSystem", "structmfem__mgis_1_1_simulation.html#ab5fb012d2c772bbee56dcc244f3d6db0", null ],
     [ "postProcessingTasks", "structmfem__mgis_1_1_simulation.html#aa2b8220abdffaaa2710c853c065e92c6", null ],
+    [ "stopOnPostProcessingFailure", "structmfem__mgis_1_1_simulation.html#a72a65e377073bbb06e67f9981389e5b2", null ],
     [ "timeBetweenPostProcessings", "structmfem__mgis_1_1_simulation.html#a154dacd3fe71c29b135917431bc1a142", null ],
     [ "timeIncrementComputers", "structmfem__mgis_1_1_simulation.html#ab977b54bf3611c0d295ff6e54faff52a", null ],
     [ "timesDescription", "structmfem__mgis_1_1_simulation.html#a6433a0e22a9e18be1534c2b131fd8758", null ],

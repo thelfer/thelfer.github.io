@@ -1,6 +1,5 @@
 var _q_p_evaluator_8ixx =
 [
-    [ "allocateWorkspace", "_q_p_evaluator_8ixx.html#af836635dded7ee625f8b97ace857f443", null ],
     [ "check", "_q_p_evaluator_8ixx.html#aeff75dce53e7cbee03c02b194f56dd70", null ],
     [ "check", "_q_p_evaluator_8ixx.html#a24367780ecf069dac10d814c7f0b8572", null ],
     [ "check", "_q_p_evaluator_8ixx.html#a21263ea98ed5227f6ff873872cfb390a", null ],

@@ -262,7 +262,6 @@ var namespacemfem__mgis =
     [ "abort", "namespacemfem__mgis.html#a13efa9dc8f10f74dcdb03a31964dfbe9", null ],
     [ "abort", "namespacemfem__mgis.html#a22581878f41434d60164552d41dc6a91", null ],
     [ "addPartialQuadratureFunctions", "namespacemfem__mgis.html#a95814188c7e98ad8ded0e55b8bf12da0", null ],
-    [ "allocateWorkspace", "namespacemfem__mgis.html#af836635dded7ee625f8b97ace857f443", null ],
     [ "assign", "namespacemfem__mgis.html#a1506fd2f3cc90adf1490a1dbd530fea4", null ],
     [ "assign", "namespacemfem__mgis.html#a14b7a9e2ca68669f9cb1274c33249abf", null ],
     [ "assign_values", "namespacemfem__mgis.html#a7ed678c0b117e3edb4a38f8bac5255b8", null ],

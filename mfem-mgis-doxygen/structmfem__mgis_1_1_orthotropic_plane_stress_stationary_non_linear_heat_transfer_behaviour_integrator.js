@@ -19,6 +19,5 @@ var structmfem__mgis_1_1_orthotropic_plane_stress_stationary_non_linear_heat_tra
     [ "updateResidual", "structmfem__mgis_1_1_orthotropic_plane_stress_stationary_non_linear_heat_transfer_behaviour_integrator.html#a28c42d5617ae5aecc1661e0a4ea47e45", null ],
     [ "updateStiffnessMatrix", "structmfem__mgis_1_1_orthotropic_plane_stress_stationary_non_linear_heat_transfer_behaviour_integrator.html#a515e5961d6fdbf4c88309ad2ca5e4062", null ],
     [ "StandardBehaviourIntegratorCRTPBase< OrthotropicPlaneStressStationaryNonLinearHeatTransferBehaviourIntegrator >", "structmfem__mgis_1_1_orthotropic_plane_stress_stationary_non_linear_heat_transfer_behaviour_integrator.html#a30ebd746b3258367994000f7aed43296", null ],
-    [ "rotation_matrix", "structmfem__mgis_1_1_orthotropic_plane_stress_stationary_non_linear_heat_transfer_behaviour_integrator.html#ab609e7534e041f2a3280bce9a1540285", null ],
     [ "uesv", "structmfem__mgis_1_1_orthotropic_plane_stress_stationary_non_linear_heat_transfer_behaviour_integrator.html#a23335fc1eaf8984f84d58c0bb7c42d0d", null ]
 ];

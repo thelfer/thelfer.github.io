@@ -13,6 +13,5 @@ var structmfem__mgis_1_1_orthotropic_plane_stress_standard_finite_strain_mechani
     [ "rotateThermodynamicForces", "structmfem__mgis_1_1_orthotropic_plane_stress_standard_finite_strain_mechanics_behaviour_integrator.html#a62d94005fb6c9860044c4a7093af24b7", null ],
     [ "updateJacobian", "structmfem__mgis_1_1_orthotropic_plane_stress_standard_finite_strain_mechanics_behaviour_integrator.html#a18749e5624a8ede83b20d1c7de527cc7", null ],
     [ "updateResidual", "structmfem__mgis_1_1_orthotropic_plane_stress_standard_finite_strain_mechanics_behaviour_integrator.html#ae977eebef3620cb3ac3259b68ebc5207", null ],
-    [ "StandardBehaviourIntegratorCRTPBase< OrthotropicPlaneStressStandardFiniteStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_orthotropic_plane_stress_standard_finite_strain_mechanics_behaviour_integrator.html#aa7c078a6110f192e5583fd1dfed8b357", null ],
-    [ "rotation_matrix", "structmfem__mgis_1_1_orthotropic_plane_stress_standard_finite_strain_mechanics_behaviour_integrator.html#a53a5195c546d4b6c089962ea8b0a33ca", null ]
+    [ "StandardBehaviourIntegratorCRTPBase< OrthotropicPlaneStressStandardFiniteStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_orthotropic_plane_stress_standard_finite_strain_mechanics_behaviour_integrator.html#aa7c078a6110f192e5583fd1dfed8b357", null ]
 ];

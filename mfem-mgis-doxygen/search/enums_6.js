@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['status_0',['Status',['../structmfem__mgis_1_1_material_quantity_provider_search_result.html#a9ee7c3dc014d970f03cad9e585164c25',1,'mfem_mgis::MaterialQuantityProviderSearchResult']]]
+  ['predictionoperator_0',['PredictionOperator',['../namespacemfem__mgis.html#a48e078ec8d415cbe6176da998e2d23b0',1,'mfem_mgis']]],
+  ['predictionstrategy_1',['PredictionStrategy',['../namespacemfem__mgis.html#a639f12cd43aca880d50f6aaa96f46812',1,'mfem_mgis']]]
 ];

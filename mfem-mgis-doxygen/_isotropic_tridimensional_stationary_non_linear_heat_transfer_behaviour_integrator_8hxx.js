@@ -1,0 +1,6 @@
+var _isotropic_tridimensional_stationary_non_linear_heat_transfer_behaviour_integrator_8hxx =
+[
+    [ "mfem_mgis::BehaviourIntegratorTraits< IsotropicTridimensionalStationaryNonLinearHeatTransferBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_isotropic_tridimensional_stationary_non_lie14e5cb5dd488b8c265cfe42f20567ec.html", null ],
+    [ "mfem_mgis::IsotropicTridimensionalStationaryNonLinearHeatTransferBehaviourIntegrator", "structmfem__mgis_1_1_isotropic_tridimensional_stationary_non_linear_heat_transfer_behaviour_integrator.html", "structmfem__mgis_1_1_isotropic_tridimensional_stationary_non_linear_heat_transfer_behaviour_integrator" ],
+    [ "mfem_mgis::IsotropicTridimensionalStationaryNonLinearHeatTransferBehaviourIntegrator::RotationMatrix", "structmfem__mgis_1_1_isotropic_tridimensional_stationary_non_linear_heat_transfer_behaviour_integrator_1_1_rotation_matrix.html", null ]
+];

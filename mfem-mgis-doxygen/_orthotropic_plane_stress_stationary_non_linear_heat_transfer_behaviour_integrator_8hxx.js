@@ -1,0 +1,5 @@
+var _orthotropic_plane_stress_stationary_non_linear_heat_transfer_behaviour_integrator_8hxx =
+[
+    [ "mfem_mgis::BehaviourIntegratorTraits< OrthotropicPlaneStressStationaryNonLinearHeatTransferBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_orthotropic_plane_stress_stationary_non_li305b39e3239fc561e5f9eb21b39001bc.html", null ],
+    [ "mfem_mgis::OrthotropicPlaneStressStationaryNonLinearHeatTransferBehaviourIntegrator", "structmfem__mgis_1_1_orthotropic_plane_stress_stationary_non_linear_heat_transfer_behaviour_integrator.html", "structmfem__mgis_1_1_orthotropic_plane_stress_stationary_non_linear_heat_transfer_behaviour_integrator" ]
+];

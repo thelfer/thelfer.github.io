@@ -1,6 +1,27 @@
 var _geometry_8hxx =
 [
     [ "Point", "_geometry_8hxx.html#aeb5358079d39166b8927e87d6e6cef46", null ],
-    [ "computeCurvilinearAbscissae", "_geometry_8hxx.html#ad811358020ac9c9b7e745b96a844ba89", null ],
-    [ "computeCurvilinearAbscissae", "_geometry_8hxx.html#a85dac7a739ccd6c21f9f5ed3c16a8832", null ]
+    [ "computeCurvilinearAbscissae", "_geometry_8hxx.html#adbfca3881f97ddc00d98df57fcf39896", null ],
+    [ "computeCurvilinearAbscissae", "_geometry_8hxx.html#a21d854d9fa475412fb59705a9b0cdbee", null ],
+    [ "makePoint", "_geometry_8hxx.html#af18e7b83c0b899b02f409971d3b354a1", null ],
+    [ "makePoint", "_geometry_8hxx.html#a540b8557e17b2069a0d8f358dac2c16e", null ],
+    [ "makePoint< 2 >", "_geometry_8hxx.html#a1874d329f4446ba4c715f4a7d7dd013b", null ],
+    [ "makePoint< 2 >", "_geometry_8hxx.html#a3488eeb1e0af41a7a76ad1c571d3dcf0", null ],
+    [ "makePoint< 3 >", "_geometry_8hxx.html#a9e1e8d44f4adc5c5d605badb87cc25bd", null ],
+    [ "makePoint< 3 >", "_geometry_8hxx.html#a627afbd76b3f9348d3b9ce6b82ffd041", null ],
+    [ "makePointsOnCurve", "_geometry_8hxx.html#a84b34fae7d7361930f93730b8cfe3f69", null ],
+    [ "makePointsOnCurve", "_geometry_8hxx.html#acc8dc2ce86320dbf4084d46cd2a928b8", null ],
+    [ "makePointsOnCurve< 2 >", "_geometry_8hxx.html#a05b8d04d5c46b3cca1e830e3645c5bf8", null ],
+    [ "makePointsOnCurve< 2 >", "_geometry_8hxx.html#ab4a4ed4d8afc0cd99ea108d355f104c1", null ],
+    [ "makePointsOnCurve< 3 >", "_geometry_8hxx.html#a0307e3e857910d85dfaad79befdde377", null ],
+    [ "makePointsOnCurve< 3 >", "_geometry_8hxx.html#a28f5657050be4000fc2ed41c5f654d87", null ],
+    [ "makePointsSet", "_geometry_8hxx.html#ae5bbd879ec261363780eb03303660f68", null ],
+    [ "makePointsSet", "_geometry_8hxx.html#a0ee208495c7e3d97a24c566dba6f3f7a", null ],
+    [ "makePointsSet< 2 >", "_geometry_8hxx.html#a8aaa61e2dfcc24aeff07d433bc9de737", null ],
+    [ "makePointsSet< 2 >", "_geometry_8hxx.html#a28137c8e7a51d554331715194f909bec", null ],
+    [ "makePointsSet< 3 >", "_geometry_8hxx.html#a3d6ca02fb9722109875da4abc15ffecf", null ],
+    [ "makePointsSet< 3 >", "_geometry_8hxx.html#aec45ad28e4cdd3d3f5995fc59e2163ab", null ],
+    [ "toString", "_geometry_8hxx.html#a54df1bf79d9a2c606ee7aef0fa5e9b75", null ],
+    [ "toString< 2 >", "_geometry_8hxx.html#afdf4e74637244885d18c786d11eed571", null ],
+    [ "toString< 3 >", "_geometry_8hxx.html#ae1ed89d7c6955bd5ba6e1837f57dbe5f", null ]
 ];

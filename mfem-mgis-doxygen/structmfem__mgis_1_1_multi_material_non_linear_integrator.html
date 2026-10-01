@@ -115,7 +115,7 @@ $(document).ready(function(){initNavTree('structmfem__mgis_1_1_multi_material_no
 </div><!--header-->
 <div class="contents">
 
-<p>base class for non linear integrators based on an MGIS' behaviours. This class manages an mapping associating a material and its identifier  
+<p>non linear integrator based on MGIS behaviours.  
  <a href="structmfem__mgis_1_1_multi_material_non_linear_integrator.html#details">More...</a></p>
 
 <p><code>#include &lt;/home/runner/work/mfem-mgis/mfem-mgis/include/MFEMMGIS/MultiMaterialNonLinearIntegrator.hxx&gt;</code></p>
@@ -135,52 +135,58 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>Behaviour</b> = mgis
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af4bedd78230037266e1de52f0f92c434" id="r_af4bedd78230037266e1de52f0f92c434"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_multi_material_non_linear_integrator.html#af4bedd78230037266e1de52f0f92c434">MultiMaterialNonLinearIntegrator</a> (std::shared_ptr&lt; const <a class="el" href="structmfem__mgis_1_1_finite_element_discretization.html">FiniteElementDiscretization</a> &gt;, const <a class="el" href="namespacemfem__mgis.html#a915e172b595d0784f01c7dd361a8bd60">Hypothesis</a>)</td></tr>
-<tr class="memdesc:af4bedd78230037266e1de52f0f92c434"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor  <br /></td></tr>
-<tr class="separator:af4bedd78230037266e1de52f0f92c434"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac38968db654d6a1f417269067e3b053d" id="r_ac38968db654d6a1f417269067e3b053d"><td class="memItemLeft" align="right" valign="top"><a id="ac38968db654d6a1f417269067e3b053d" name="ac38968db654d6a1f417269067e3b053d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>AssembleElementVector</b> (const mfem::FiniteElement &amp;, mfem::ElementTransformation &amp;, const mfem::Vector &amp;, mfem::Vector &amp;) override</td></tr>
-<tr class="separator:ac38968db654d6a1f417269067e3b053d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7bddf50bc546905b6a542b41d57c843" id="r_ab7bddf50bc546905b6a542b41d57c843"><td class="memItemLeft" align="right" valign="top"><a id="ab7bddf50bc546905b6a542b41d57c843" name="ab7bddf50bc546905b6a542b41d57c843"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>AssembleElementGrad</b> (const mfem::FiniteElement &amp;, mfem::ElementTransformation &amp;, const mfem::Vector &amp;, mfem::DenseMatrix &amp;) override</td></tr>
-<tr class="separator:ab7bddf50bc546905b6a542b41d57c843"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a759d598f4337b913a51602c93a596b96" id="r_a759d598f4337b913a51602c93a596b96"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a759d598f4337b913a51602c93a596b96">integrate</a> (const mfem::FiniteElement &amp;, mfem::ElementTransformation &amp;, const mfem::Vector &amp;, const <a class="el" href="namespacemfem__mgis.html#a80dd307c07c02bc42b80d745903a8e3a">IntegrationType</a>)</td></tr>
-<tr class="memdesc:a759d598f4337b913a51602c93a596b96"><td class="mdescLeft">&#160;</td><td class="mdescRight">integrate the behaviour for the current estimate of the unknowns at the end of the time step.  <br /></td></tr>
-<tr class="separator:a759d598f4337b913a51602c93a596b96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a457f842b6fbfcf340b5c9ad59f73f876" id="r_a457f842b6fbfcf340b5c9ad59f73f876"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a457f842b6fbfcf340b5c9ad59f73f876">MultiMaterialNonLinearIntegrator</a> (std::shared_ptr&lt; const <a class="el" href="structmfem__mgis_1_1_finite_element_discretization.html">FiniteElementDiscretization</a> &gt; fed, const <a class="el" href="namespacemfem__mgis.html#a915e172b595d0784f01c7dd361a8bd60">Hypothesis</a> h)</td></tr>
+<tr class="memdesc:a457f842b6fbfcf340b5c9ad59f73f876"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor  <br /></td></tr>
+<tr class="separator:a457f842b6fbfcf340b5c9ad59f73f876"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84a82cbb853c0426c28be05ff858965d" id="r_a84a82cbb853c0426c28be05ff858965d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a84a82cbb853c0426c28be05ff858965d">AssembleElementVector</a> (const mfem::FiniteElement &amp;e, mfem::ElementTransformation &amp;tr, const mfem::Vector &amp;U, mfem::Vector &amp;F) override</td></tr>
+<tr class="memdesc:a84a82cbb853c0426c28be05ff858965d"><td class="mdescLeft">&#160;</td><td class="mdescRight">compute the contribution of the given element to the residual  <br /></td></tr>
+<tr class="separator:a84a82cbb853c0426c28be05ff858965d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6ca519c8f5d02c22c4d011f8b6c67ac" id="r_aa6ca519c8f5d02c22c4d011f8b6c67ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_multi_material_non_linear_integrator.html#aa6ca519c8f5d02c22c4d011f8b6c67ac">AssembleElementGrad</a> (const mfem::FiniteElement &amp;e, mfem::ElementTransformation &amp;tr, const mfem::Vector &amp;U, mfem::DenseMatrix &amp;K) override</td></tr>
+<tr class="memdesc:aa6ca519c8f5d02c22c4d011f8b6c67ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">compute the contribution of the given element to the jacobian  <br /></td></tr>
+<tr class="separator:aa6ca519c8f5d02c22c4d011f8b6c67ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f95b835e179ee014659c74e7bf09f3e" id="r_a5f95b835e179ee014659c74e7bf09f3e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a5f95b835e179ee014659c74e7bf09f3e">integrate</a> (const mfem::FiniteElement &amp;e, mfem::ElementTransformation &amp;tr, const mfem::Vector &amp;U, const <a class="el" href="namespacemfem__mgis.html#a80dd307c07c02bc42b80d745903a8e3a">IntegrationType</a> it)</td></tr>
+<tr class="memdesc:a5f95b835e179ee014659c74e7bf09f3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">integrate the behaviour for the current estimate of the unknowns at the end of the time step.  <br /></td></tr>
+<tr class="separator:a5f95b835e179ee014659c74e7bf09f3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6ddcbdde2fbe035412c4b253601d989" id="r_ad6ddcbdde2fbe035412c4b253601d989"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacemfem__mgis.html#aee59940f912d12c96b219f5a92ddaf3c">real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_multi_material_non_linear_integrator.html#ad6ddcbdde2fbe035412c4b253601d989">getTimeIncrement</a> () const noexcept</td></tr>
 <tr class="separator:ad6ddcbdde2fbe035412c4b253601d989"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f22ce4d7419c9d42d76e1cf0af9cedf" id="r_a8f22ce4d7419c9d42d76e1cf0af9cedf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a8f22ce4d7419c9d42d76e1cf0af9cedf">setTimeIncrement</a> (const <a class="el" href="namespacemfem__mgis.html#aee59940f912d12c96b219f5a92ddaf3c">real</a>)</td></tr>
-<tr class="memdesc:a8f22ce4d7419c9d42d76e1cf0af9cedf"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the value of the time increment  <br /></td></tr>
-<tr class="separator:a8f22ce4d7419c9d42d76e1cf0af9cedf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9007ffa6c20fb39c9d9be894750c254" id="r_ac9007ffa6c20fb39c9d9be894750c254"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_multi_material_non_linear_integrator.html#ac9007ffa6c20fb39c9d9be894750c254">setup</a> (Context &amp;, const <a class="el" href="namespacemfem__mgis.html#aee59940f912d12c96b219f5a92ddaf3c">real</a>, const <a class="el" href="namespacemfem__mgis.html#aee59940f912d12c96b219f5a92ddaf3c">real</a>) noexcept</td></tr>
-<tr class="memdesc:ac9007ffa6c20fb39c9d9be894750c254"><td class="mdescLeft">&#160;</td><td class="mdescRight">method called before each resolution  <br /></td></tr>
-<tr class="separator:ac9007ffa6c20fb39c9d9be894750c254"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77b19996def381d936499d3451c9fc00" id="r_a77b19996def381d936499d3451c9fc00"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a77b19996def381d936499d3451c9fc00">addBehaviourIntegrator</a> (Context &amp;, const std::string &amp;, const <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a>, const std::string &amp;, const std::string &amp;, const <a class="el" href="structmfem__mgis_1_1_parameters.html">Parameters</a> &amp;={}) noexcept</td></tr>
-<tr class="memdesc:a77b19996def381d936499d3451c9fc00"><td class="mdescLeft">&#160;</td><td class="mdescRight">add a new behaviour integrator  <br /></td></tr>
-<tr class="separator:a77b19996def381d936499d3451c9fc00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a522e7d8cdc97186f6cb01836c031a8c0" id="r_a522e7d8cdc97186f6cb01836c031a8c0"><td class="memItemLeft" align="right" valign="top">OptionalReference&lt; const <a class="el" href="structmfem__mgis_1_1_material.html">Material</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a522e7d8cdc97186f6cb01836c031a8c0">getMaterial</a> (Context &amp;, const <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a>, const <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a>) const noexcept</td></tr>
-<tr class="separator:a522e7d8cdc97186f6cb01836c031a8c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1862c97a4b99c7d5a3f055c899659a81" id="r_a1862c97a4b99c7d5a3f055c899659a81"><td class="memItemLeft" align="right" valign="top">OptionalReference&lt; <a class="el" href="structmfem__mgis_1_1_material.html">Material</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a1862c97a4b99c7d5a3f055c899659a81">getMaterial</a> (Context &amp;, const <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a>, const <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a>) noexcept</td></tr>
-<tr class="separator:a1862c97a4b99c7d5a3f055c899659a81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a9e1513b6cf5b92115ffd37f3ff1696" id="r_a1a9e1513b6cf5b92115ffd37f3ff1696"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a1a9e1513b6cf5b92115ffd37f3ff1696">getNumberOfBehaviourIntegrators</a> (Context &amp;, const <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a>) const noexcept</td></tr>
-<tr class="separator:a1a9e1513b6cf5b92115ffd37f3ff1696"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33a1c1975e10755a94dc3d46596493e4" id="r_a33a1c1975e10755a94dc3d46596493e4"><td class="memItemLeft" align="right" valign="top">OptionalReference&lt; const <a class="el" href="structmfem__mgis_1_1_abstract_behaviour_integrator.html">AbstractBehaviourIntegrator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a33a1c1975e10755a94dc3d46596493e4">getBehaviourIntegrator</a> (Context &amp;, const <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a>, const <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a>) const noexcept</td></tr>
-<tr class="separator:a33a1c1975e10755a94dc3d46596493e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7adf77640790c2f67cec85ef28eb48c0" id="r_a7adf77640790c2f67cec85ef28eb48c0"><td class="memItemLeft" align="right" valign="top">OptionalReference&lt; <a class="el" href="structmfem__mgis_1_1_abstract_behaviour_integrator.html">AbstractBehaviourIntegrator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a7adf77640790c2f67cec85ef28eb48c0">getBehaviourIntegrator</a> (Context &amp;, const <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a>, const <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a>) noexcept</td></tr>
-<tr class="separator:a7adf77640790c2f67cec85ef28eb48c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9335787954121b32e0894b23e5fa009" id="r_aa9335787954121b32e0894b23e5fa009"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_multi_material_non_linear_integrator.html#aa9335787954121b32e0894b23e5fa009">setTimeIncrement</a> (const <a class="el" href="namespacemfem__mgis.html#aee59940f912d12c96b219f5a92ddaf3c">real</a> dt)</td></tr>
+<tr class="memdesc:aa9335787954121b32e0894b23e5fa009"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the value of the time increment  <br /></td></tr>
+<tr class="separator:aa9335787954121b32e0894b23e5fa009"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1293b3cfa66801674c348adb5e20076" id="r_ae1293b3cfa66801674c348adb5e20076"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_multi_material_non_linear_integrator.html#ae1293b3cfa66801674c348adb5e20076">setup</a> (Context &amp;ctx, const <a class="el" href="namespacemfem__mgis.html#aee59940f912d12c96b219f5a92ddaf3c">real</a> t, const <a class="el" href="namespacemfem__mgis.html#aee59940f912d12c96b219f5a92ddaf3c">real</a> dt) noexcept</td></tr>
+<tr class="memdesc:ae1293b3cfa66801674c348adb5e20076"><td class="mdescLeft">&#160;</td><td class="mdescRight">method called before each resolution  <br /></td></tr>
+<tr class="separator:ae1293b3cfa66801674c348adb5e20076"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83b65b84869abbc6ddc78a2e3e90a9d7" id="r_a83b65b84869abbc6ddc78a2e3e90a9d7"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a83b65b84869abbc6ddc78a2e3e90a9d7">addBehaviourIntegrator</a> (Context &amp;ctx, const std::string &amp;n, const <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a> m, const std::string &amp;l, const std::string &amp;b, const <a class="el" href="structmfem__mgis_1_1_parameters.html">Parameters</a> &amp;params={}) noexcept</td></tr>
+<tr class="memdesc:a83b65b84869abbc6ddc78a2e3e90a9d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">add a new behaviour integrator  <br /></td></tr>
+<tr class="separator:a83b65b84869abbc6ddc78a2e3e90a9d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc104835192236c5366594fec66216dc" id="r_adc104835192236c5366594fec66216dc"><td class="memItemLeft" align="right" valign="top">OptionalReference&lt; const <a class="el" href="structmfem__mgis_1_1_material.html">Material</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_multi_material_non_linear_integrator.html#adc104835192236c5366594fec66216dc">getMaterial</a> (Context &amp;ctx, const <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a> m, const <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a> b) const noexcept</td></tr>
+<tr class="memdesc:adc104835192236c5366594fec66216dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the material with the given id  <br /></td></tr>
+<tr class="separator:adc104835192236c5366594fec66216dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45a146af1795b82c04ac5fb42c467c09" id="r_a45a146af1795b82c04ac5fb42c467c09"><td class="memItemLeft" align="right" valign="top">OptionalReference&lt; <a class="el" href="structmfem__mgis_1_1_material.html">Material</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a45a146af1795b82c04ac5fb42c467c09">getMaterial</a> (Context &amp;ctx, const <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a> m, const <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a> b) noexcept</td></tr>
+<tr class="memdesc:a45a146af1795b82c04ac5fb42c467c09"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the material with the given id  <br /></td></tr>
+<tr class="separator:a45a146af1795b82c04ac5fb42c467c09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ae01ab672ee3d55938af1332fd62523" id="r_a5ae01ab672ee3d55938af1332fd62523"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a5ae01ab672ee3d55938af1332fd62523">getNumberOfBehaviourIntegrators</a> (Context &amp;ctx, const <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a> m) const noexcept</td></tr>
+<tr class="memdesc:a5ae01ab672ee3d55938af1332fd62523"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the number of behaviour integrators associated with the given material id  <br /></td></tr>
+<tr class="separator:a5ae01ab672ee3d55938af1332fd62523"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae75d6e16890a98e613f6640f07fde86c" id="r_ae75d6e16890a98e613f6640f07fde86c"><td class="memItemLeft" align="right" valign="top">OptionalReference&lt; const <a class="el" href="structmfem__mgis_1_1_abstract_behaviour_integrator.html">AbstractBehaviourIntegrator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_multi_material_non_linear_integrator.html#ae75d6e16890a98e613f6640f07fde86c">getBehaviourIntegrator</a> (Context &amp;ctx, const <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a> m, const <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a> b) const noexcept</td></tr>
+<tr class="memdesc:ae75d6e16890a98e613f6640f07fde86c"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the behaviour integrator with the given material id  <br /></td></tr>
+<tr class="separator:ae75d6e16890a98e613f6640f07fde86c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32b679e7d18cb8b9d684aba760d00207" id="r_a32b679e7d18cb8b9d684aba760d00207"><td class="memItemLeft" align="right" valign="top">OptionalReference&lt; <a class="el" href="structmfem__mgis_1_1_abstract_behaviour_integrator.html">AbstractBehaviourIntegrator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a32b679e7d18cb8b9d684aba760d00207">getBehaviourIntegrator</a> (Context &amp;ctx, const <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a> m, const <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a> b) noexcept</td></tr>
+<tr class="memdesc:a32b679e7d18cb8b9d684aba760d00207"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the behaviour integrator with the given material id  <br /></td></tr>
+<tr class="separator:a32b679e7d18cb8b9d684aba760d00207"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53381983513641b195c2cb0dd5ce1350" id="r_a53381983513641b195c2cb0dd5ce1350"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a53381983513641b195c2cb0dd5ce1350">revert</a> ()</td></tr>
 <tr class="memdesc:a53381983513641b195c2cb0dd5ce1350"><td class="mdescLeft">&#160;</td><td class="mdescRight">revert the internal state variables.  <br /></td></tr>
 <tr class="separator:a53381983513641b195c2cb0dd5ce1350"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa594ddff86b698ad120d4f320836306a" id="r_aa594ddff86b698ad120d4f320836306a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_multi_material_non_linear_integrator.html#aa594ddff86b698ad120d4f320836306a">update</a> ()</td></tr>
 <tr class="memdesc:aa594ddff86b698ad120d4f320836306a"><td class="mdescLeft">&#160;</td><td class="mdescRight">update the internal state variables.  <br /></td></tr>
 <tr class="separator:aa594ddff86b698ad120d4f320836306a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2665fcbcfcffe3cecdc3d569246b2415" id="r_a2665fcbcfcffe3cecdc3d569246b2415"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a2665fcbcfcffe3cecdc3d569246b2415">setMacroscopicGradients</a> (std::span&lt; const <a class="el" href="namespacemfem__mgis.html#aee59940f912d12c96b219f5a92ddaf3c">real</a> &gt;)</td></tr>
-<tr class="memdesc:a2665fcbcfcffe3cecdc3d569246b2415"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the macroscropic gradients  <br /></td></tr>
-<tr class="separator:a2665fcbcfcffe3cecdc3d569246b2415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a975b9f0af09b266b8b41a2c5c885b669" id="r_a975b9f0af09b266b8b41a2c5c885b669"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a975b9f0af09b266b8b41a2c5c885b669">setMacroscopicGradients</a> (std::span&lt; const <a class="el" href="namespacemfem__mgis.html#aee59940f912d12c96b219f5a92ddaf3c">real</a> &gt; g)</td></tr>
+<tr class="memdesc:a975b9f0af09b266b8b41a2c5c885b669"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the macroscopic gradients  <br /></td></tr>
+<tr class="separator:a975b9f0af09b266b8b41a2c5c885b669"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef3bfa89a2b7374dc1e25e0be1243349" id="r_aef3bfa89a2b7374dc1e25e0be1243349"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_multi_material_non_linear_integrator.html#aef3bfa89a2b7374dc1e25e0be1243349">getAssignedMaterialsIdentifiers</a> () const</td></tr>
 <tr class="separator:aef3bfa89a2b7374dc1e25e0be1243349"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64413dfe974024d622bcfd5daba5b0d0" id="r_a64413dfe974024d622bcfd5daba5b0d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmfem__mgis_1_1_linearized_operators.html">LinearizedOperators</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a64413dfe974024d622bcfd5daba5b0d0">getLinearizedOperators</a> (const mfem::Vector &amp;)</td></tr>
-<tr class="separator:a64413dfe974024d622bcfd5daba5b0d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac648d2cca2ed43e619df4203a765975a" id="r_ac648d2cca2ed43e619df4203a765975a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmfem__mgis_1_1_linearized_operators.html">LinearizedOperators</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_multi_material_non_linear_integrator.html#ac648d2cca2ed43e619df4203a765975a">getLinearizedOperators</a> (const mfem::Vector &amp;u)</td></tr>
+<tr class="memdesc:ac648d2cca2ed43e619df4203a765975a"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the linearized operators  <br /></td></tr>
+<tr class="separator:ac648d2cca2ed43e619df4203a765975a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6399b018af23e8a8c1564d88113cf0f2" id="r_a6399b018af23e8a8c1564d88113cf0f2"><td class="memItemLeft" align="right" valign="top"><a id="a6399b018af23e8a8c1564d88113cf0f2" name="a6399b018af23e8a8c1564d88113cf0f2"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>~MultiMaterialNonLinearIntegrator</b> () override</td></tr>
 <tr class="memdesc:a6399b018af23e8a8c1564d88113cf0f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">destructor <br /></td></tr>
@@ -190,7 +196,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>AssembleElementGrad</
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a9945a8806f3dfb8ae10a5879415c2d3c" id="r_a9945a8806f3dfb8ae10a5879415c2d3c"><td class="memItemLeft" align="right" valign="top"><a id="a9945a8806f3dfb8ae10a5879415c2d3c" name="a9945a8806f3dfb8ae10a5879415c2d3c"></a>
 const std::shared_ptr&lt; const <a class="el" href="structmfem__mgis_1_1_finite_element_discretization.html">FiniteElementDiscretization</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>fe_discretization</b></td></tr>
-<tr class="memdesc:a9945a8806f3dfb8ae10a5879415c2d3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">underlying finite element space <br /></td></tr>
+<tr class="memdesc:a9945a8806f3dfb8ae10a5879415c2d3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">underlying finite element discretization <br /></td></tr>
 <tr class="separator:a9945a8806f3dfb8ae10a5879415c2d3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa271550c9455cc29a062881c04c34428" id="r_aa271550c9455cc29a062881c04c34428"><td class="memItemLeft" align="right" valign="top"><a id="aa271550c9455cc29a062881c04c34428" name="aa271550c9455cc29a062881c04c34428"></a>
 const <a class="el" href="namespacemfem__mgis.html#a915e172b595d0784f01c7dd361a8bd60">Hypothesis</a>&#160;</td><td class="memItemRight" valign="bottom"><b>hypothesis</b></td></tr>
@@ -202,10 +208,11 @@ std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmf
 <tr class="separator:a46ea8d2654692d09a1dc717774511a64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>base class for non linear integrators based on an MGIS' behaviours. This class manages an mapping associating a material and its identifier </p>
+<div class="textblock"><p>non linear integrator based on MGIS behaviours. </p>
+<p>This class manages a mapping between the material identifiers and the behaviour integrators. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="af4bedd78230037266e1de52f0f92c434" name="af4bedd78230037266e1de52f0f92c434"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4bedd78230037266e1de52f0f92c434">&#9670;&#160;</a></span>MultiMaterialNonLinearIntegrator()</h2>
+<a id="a457f842b6fbfcf340b5c9ad59f73f876" name="a457f842b6fbfcf340b5c9ad59f73f876"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a457f842b6fbfcf340b5c9ad59f73f876">&#9670;&#160;</a></span>MultiMaterialNonLinearIntegrator()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -214,13 +221,13 @@ std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmf
           <td class="memname">mfem_mgis::MultiMaterialNonLinearIntegrator::MultiMaterialNonLinearIntegrator </td>
           <td>(</td>
           <td class="paramtype">std::shared_ptr&lt; const <a class="el" href="structmfem__mgis_1_1_finite_element_discretization.html">FiniteElementDiscretization</a> &gt;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>fed</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="namespacemfem__mgis.html#a915e172b595d0784f01c7dd361a8bd60">Hypothesis</a>&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramname"><em>h</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -242,8 +249,8 @@ std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmf
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a77b19996def381d936499d3451c9fc00" name="a77b19996def381d936499d3451c9fc00"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a77b19996def381d936499d3451c9fc00">&#9670;&#160;</a></span>addBehaviourIntegrator()</h2>
+<a id="a83b65b84869abbc6ddc78a2e3e90a9d7" name="a83b65b84869abbc6ddc78a2e3e90a9d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83b65b84869abbc6ddc78a2e3e90a9d7">&#9670;&#160;</a></span>addBehaviourIntegrator()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -255,37 +262,37 @@ std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmf
           <td class="memname">std::optional&lt; <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a> &gt; mfem_mgis::MultiMaterialNonLinearIntegrator::addBehaviourIntegrator </td>
           <td>(</td>
           <td class="paramtype">Context &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>ctx</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>n</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a>&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>m</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>l</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>b</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="structmfem__mgis_1_1_parameters.html">Parameters</a> &amp;&#160;</td>
-          <td class="paramname"> = <code>{}</code>&#160;</td>
+          <td class="paramname"><em>params</em> = <code>{}</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -316,6 +323,124 @@ std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmf
 
 </div>
 </div>
+<a id="aa6ca519c8f5d02c22c4d011f8b6c67ac" name="aa6ca519c8f5d02c22c4d011f8b6c67ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6ca519c8f5d02c22c4d011f8b6c67ac">&#9670;&#160;</a></span>AssembleElementGrad()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mfem_mgis::MultiMaterialNonLinearIntegrator::AssembleElementGrad </td>
+          <td>(</td>
+          <td class="paramtype">const mfem::FiniteElement &amp;&#160;</td>
+          <td class="paramname"><em>e</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">mfem::ElementTransformation &amp;&#160;</td>
+          <td class="paramname"><em>tr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const mfem::Vector &amp;&#160;</td>
+          <td class="paramname"><em>U</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">mfem::DenseMatrix &amp;&#160;</td>
+          <td class="paramname"><em>K</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>compute the contribution of the given element to the jacobian </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">e</td><td>finite element </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">tr</td><td>finite element transformation </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">U</td><td>current estimate of the unknowns </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">K</td><td>element stiffness matrix </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a84a82cbb853c0426c28be05ff858965d" name="a84a82cbb853c0426c28be05ff858965d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84a82cbb853c0426c28be05ff858965d">&#9670;&#160;</a></span>AssembleElementVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mfem_mgis::MultiMaterialNonLinearIntegrator::AssembleElementVector </td>
+          <td>(</td>
+          <td class="paramtype">const mfem::FiniteElement &amp;&#160;</td>
+          <td class="paramname"><em>e</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">mfem::ElementTransformation &amp;&#160;</td>
+          <td class="paramname"><em>tr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const mfem::Vector &amp;&#160;</td>
+          <td class="paramname"><em>U</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">mfem::Vector &amp;&#160;</td>
+          <td class="paramname"><em>F</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>compute the contribution of the given element to the residual </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">e</td><td>finite element </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">tr</td><td>finite element transformation </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">U</td><td>current estimate of the unknowns </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">F</td><td>element contribution to the residual </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="aef3bfa89a2b7374dc1e25e0be1243349" name="aef3bfa89a2b7374dc1e25e0be1243349"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aef3bfa89a2b7374dc1e25e0be1243349">&#9670;&#160;</a></span>getAssignedMaterialsIdentifiers()</h2>
 
@@ -334,8 +459,8 @@ std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmf
 
 </div>
 </div>
-<a id="a33a1c1975e10755a94dc3d46596493e4" name="a33a1c1975e10755a94dc3d46596493e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a33a1c1975e10755a94dc3d46596493e4">&#9670;&#160;</a></span>getBehaviourIntegrator() <span class="overload">[1/2]</span></h2>
+<a id="ae75d6e16890a98e613f6640f07fde86c" name="ae75d6e16890a98e613f6640f07fde86c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae75d6e16890a98e613f6640f07fde86c">&#9670;&#160;</a></span>getBehaviourIntegrator() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -347,19 +472,19 @@ std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmf
           <td class="memname">OptionalReference&lt; const <a class="el" href="structmfem__mgis_1_1_abstract_behaviour_integrator.html">AbstractBehaviourIntegrator</a> &gt; mfem_mgis::MultiMaterialNonLinearIntegrator::getBehaviourIntegrator </td>
           <td>(</td>
           <td class="paramtype">Context &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>ctx</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a>&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>m</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a>&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -373,20 +498,22 @@ std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmf
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the behaviour integrator with the given material id </dd></dl>
+
+<p>return the behaviour integrator with the given material id </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">ctx</td><td>execution context </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">m</td><td>material id </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>behaviour id </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>behaviour integrator id </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>the behaviour integrator </dd></dl>
 
 </div>
 </div>
-<a id="a7adf77640790c2f67cec85ef28eb48c0" name="a7adf77640790c2f67cec85ef28eb48c0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7adf77640790c2f67cec85ef28eb48c0">&#9670;&#160;</a></span>getBehaviourIntegrator() <span class="overload">[2/2]</span></h2>
+<a id="a32b679e7d18cb8b9d684aba760d00207" name="a32b679e7d18cb8b9d684aba760d00207"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32b679e7d18cb8b9d684aba760d00207">&#9670;&#160;</a></span>getBehaviourIntegrator() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -398,19 +525,19 @@ std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmf
           <td class="memname">OptionalReference&lt; <a class="el" href="structmfem__mgis_1_1_abstract_behaviour_integrator.html">AbstractBehaviourIntegrator</a> &gt; mfem_mgis::MultiMaterialNonLinearIntegrator::getBehaviourIntegrator </td>
           <td>(</td>
           <td class="paramtype">Context &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>ctx</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a>&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>m</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a>&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -424,20 +551,22 @@ std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmf
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the behaviour integrator with the given material id </dd></dl>
+
+<p>return the behaviour integrator with the given material id </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">ctx</td><td>execution context </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">m</td><td>material id </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>behaviour id </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>behaviour integrator id </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>the behaviour integrator </dd></dl>
 
 </div>
 </div>
-<a id="a64413dfe974024d622bcfd5daba5b0d0" name="a64413dfe974024d622bcfd5daba5b0d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a64413dfe974024d622bcfd5daba5b0d0">&#9670;&#160;</a></span>getLinearizedOperators()</h2>
+<a id="ac648d2cca2ed43e619df4203a765975a" name="ac648d2cca2ed43e619df4203a765975a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac648d2cca2ed43e619df4203a765975a">&#9670;&#160;</a></span>getLinearizedOperators()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -446,11 +575,13 @@ std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmf
           <td class="memname"><a class="el" href="structmfem__mgis_1_1_linearized_operators.html">LinearizedOperators</a> mfem_mgis::MultiMaterialNonLinearIntegrator::getLinearizedOperators </td>
           <td>(</td>
           <td class="paramtype">const mfem::Vector &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><em>u</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>return the linearized operators </p>
 <dl class="section return"><dt>Returns</dt><dd>linearized operators </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -458,12 +589,12 @@ std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmf
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>: those linearized operators used the consistent tangent operators and thermodynamic forces computed by the integration. The user is responible for calling the behaviour integration before using those operators </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>those linearized operators use the consistent tangent operators and thermodynamic forces computed by the integration. The user is responsible for calling the behaviour integration before using those operators </dd></dl>
 
 </div>
 </div>
-<a id="a522e7d8cdc97186f6cb01836c031a8c0" name="a522e7d8cdc97186f6cb01836c031a8c0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a522e7d8cdc97186f6cb01836c031a8c0">&#9670;&#160;</a></span>getMaterial() <span class="overload">[1/2]</span></h2>
+<a id="adc104835192236c5366594fec66216dc" name="adc104835192236c5366594fec66216dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc104835192236c5366594fec66216dc">&#9670;&#160;</a></span>getMaterial() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -475,19 +606,19 @@ std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmf
           <td class="memname">OptionalReference&lt; const <a class="el" href="structmfem__mgis_1_1_material.html">Material</a> &gt; mfem_mgis::MultiMaterialNonLinearIntegrator::getMaterial </td>
           <td>(</td>
           <td class="paramtype">Context &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>ctx</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a>&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>m</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a>&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -501,20 +632,22 @@ std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmf
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the material with the given id </dd></dl>
+
+<p>return the material with the given id </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">ctx</td><td>execution context </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">m</td><td>material id </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>behaviour id </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>behaviour integrator id </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>the material </dd></dl>
 
 </div>
 </div>
-<a id="a1862c97a4b99c7d5a3f055c899659a81" name="a1862c97a4b99c7d5a3f055c899659a81"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1862c97a4b99c7d5a3f055c899659a81">&#9670;&#160;</a></span>getMaterial() <span class="overload">[2/2]</span></h2>
+<a id="a45a146af1795b82c04ac5fb42c467c09" name="a45a146af1795b82c04ac5fb42c467c09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45a146af1795b82c04ac5fb42c467c09">&#9670;&#160;</a></span>getMaterial() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -526,19 +659,19 @@ std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmf
           <td class="memname">OptionalReference&lt; <a class="el" href="structmfem__mgis_1_1_material.html">Material</a> &gt; mfem_mgis::MultiMaterialNonLinearIntegrator::getMaterial </td>
           <td>(</td>
           <td class="paramtype">Context &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>ctx</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a>&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>m</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a>&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -552,20 +685,22 @@ std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmf
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the material with the given id </dd></dl>
+
+<p>return the material with the given id </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">ctx</td><td>execution context </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">m</td><td>material id </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>behaviour id </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>behaviour integrator id </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>the material </dd></dl>
 
 </div>
 </div>
-<a id="a1a9e1513b6cf5b92115ffd37f3ff1696" name="a1a9e1513b6cf5b92115ffd37f3ff1696"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a9e1513b6cf5b92115ffd37f3ff1696">&#9670;&#160;</a></span>getNumberOfBehaviourIntegrators()</h2>
+<a id="a5ae01ab672ee3d55938af1332fd62523" name="a5ae01ab672ee3d55938af1332fd62523"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ae01ab672ee3d55938af1332fd62523">&#9670;&#160;</a></span>getNumberOfBehaviourIntegrators()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -577,13 +712,13 @@ std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmf
           <td class="memname">std::optional&lt; <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a> &gt; mfem_mgis::MultiMaterialNonLinearIntegrator::getNumberOfBehaviourIntegrators </td>
           <td>(</td>
           <td class="paramtype">Context &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>ctx</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a>&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramname"><em>m</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -597,7 +732,8 @@ std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmf
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the number of behaviour integrators associated with the given material id</dd></dl>
+
+<p>return the number of behaviour integrators associated with the given material id </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">ctx</td><td>execution context </td></tr>
@@ -605,6 +741,7 @@ std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmf
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>the number of behaviour integrators </dd></dl>
 
 </div>
 </div>
@@ -634,8 +771,8 @@ std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmf
 
 </div>
 </div>
-<a id="a759d598f4337b913a51602c93a596b96" name="a759d598f4337b913a51602c93a596b96"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a759d598f4337b913a51602c93a596b96">&#9670;&#160;</a></span>integrate()</h2>
+<a id="a5f95b835e179ee014659c74e7bf09f3e" name="a5f95b835e179ee014659c74e7bf09f3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f95b835e179ee014659c74e7bf09f3e">&#9670;&#160;</a></span>integrate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -644,25 +781,25 @@ std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmf
           <td class="memname">bool mfem_mgis::MultiMaterialNonLinearIntegrator::integrate </td>
           <td>(</td>
           <td class="paramtype">const mfem::FiniteElement &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>e</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">mfem::ElementTransformation &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>tr</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const mfem::Vector &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>U</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="namespacemfem__mgis.html#a80dd307c07c02bc42b80d745903a8e3a">IntegrationType</a>&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramname"><em>it</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -676,12 +813,13 @@ std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmf
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">e</td><td>finite element </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">tr</td><td>finite element transformation </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">u</td><td>current estimate of the unknowns </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">tr</td><td>finite element transformation </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">U</td><td>current estimate of the unknowns </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">it</td><td>integration type </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>true on success </dd></dl>
 
 </div>
 </div>
@@ -705,8 +843,8 @@ std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmf
 
 </div>
 </div>
-<a id="a2665fcbcfcffe3cecdc3d569246b2415" name="a2665fcbcfcffe3cecdc3d569246b2415"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2665fcbcfcffe3cecdc3d569246b2415">&#9670;&#160;</a></span>setMacroscopicGradients()</h2>
+<a id="a975b9f0af09b266b8b41a2c5c885b669" name="a975b9f0af09b266b8b41a2c5c885b669"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a975b9f0af09b266b8b41a2c5c885b669">&#9670;&#160;</a></span>setMacroscopicGradients()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -715,13 +853,13 @@ std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmf
           <td class="memname">void mfem_mgis::MultiMaterialNonLinearIntegrator::setMacroscopicGradients </td>
           <td>(</td>
           <td class="paramtype">std::span&lt; const <a class="el" href="namespacemfem__mgis.html#aee59940f912d12c96b219f5a92ddaf3c">real</a> &gt;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><em>g</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>set the macroscropic gradients </p>
+<p>set the macroscopic gradients </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">g</td><td>macroscopic gradients </td></tr>
@@ -731,8 +869,8 @@ std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmf
 
 </div>
 </div>
-<a id="a8f22ce4d7419c9d42d76e1cf0af9cedf" name="a8f22ce4d7419c9d42d76e1cf0af9cedf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f22ce4d7419c9d42d76e1cf0af9cedf">&#9670;&#160;</a></span>setTimeIncrement()</h2>
+<a id="aa9335787954121b32e0894b23e5fa009" name="aa9335787954121b32e0894b23e5fa009"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9335787954121b32e0894b23e5fa009">&#9670;&#160;</a></span>setTimeIncrement()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -741,7 +879,7 @@ std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmf
           <td class="memname">void mfem_mgis::MultiMaterialNonLinearIntegrator::setTimeIncrement </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="namespacemfem__mgis.html#aee59940f912d12c96b219f5a92ddaf3c">real</a>&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><em>dt</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -757,8 +895,8 @@ std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmf
 
 </div>
 </div>
-<a id="ac9007ffa6c20fb39c9d9be894750c254" name="ac9007ffa6c20fb39c9d9be894750c254"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9007ffa6c20fb39c9d9be894750c254">&#9670;&#160;</a></span>setup()</h2>
+<a id="ae1293b3cfa66801674c348adb5e20076" name="ae1293b3cfa66801674c348adb5e20076"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1293b3cfa66801674c348adb5e20076">&#9670;&#160;</a></span>setup()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -770,19 +908,19 @@ std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmf
           <td class="memname">bool mfem_mgis::MultiMaterialNonLinearIntegrator::setup </td>
           <td>(</td>
           <td class="paramtype">Context &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>ctx</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="namespacemfem__mgis.html#aee59940f912d12c96b219f5a92ddaf3c">real</a>&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>t</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="namespacemfem__mgis.html#aee59940f912d12c96b219f5a92ddaf3c">real</a>&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramname"><em>dt</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -806,6 +944,7 @@ std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmf
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>true on success </dd></dl>
 
 </div>
 </div>
@@ -838,7 +977,7 @@ std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="structmf
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemfem__mgis.html">mfem_mgis</a></li><li class="navelem"><a class="el" href="structmfem__mgis_1_1_multi_material_non_linear_integrator.html">MultiMaterialNonLinearIntegrator</a></li>
-    <li class="footer">Generated on Wed Sep 30 2026 14:12:35 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu Oct 1 2026 07:26:08 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

@@ -7,6 +7,8 @@ var _profiler_8hxx =
     [ "printTimeTable", "_profiler_8hxx.html#a07d43b5c37b573374d1c60de6b5daf62", null ],
     [ "reduce_max", "_profiler_8hxx.html#a726a639eab875e5b43ee4302d58c025d", null ],
     [ "sum", "_profiler_8hxx.html#a5ef5615f1a2aa27e0d04316f16394418", null ],
+    [ "sum", "_profiler_8hxx.html#ae8175a0b1edab10c1fdc437fd46aa1c6", null ],
+    [ "sum", "_profiler_8hxx.html#ab95758e2d81a4b517508cda666fec69e", null ],
     [ "writeFile", "_profiler_8hxx.html#a5921ab539cf309503e6aab2b42549856", null ],
     [ "writeFile", "_profiler_8hxx.html#a76f1dabbfac30d52baea3991a88ce175", null ]
 ];

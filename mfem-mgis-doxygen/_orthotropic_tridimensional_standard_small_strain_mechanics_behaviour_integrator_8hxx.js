@@ -1,0 +1,5 @@
+var _orthotropic_tridimensional_standard_small_strain_mechanics_behaviour_integrator_8hxx =
+[
+    [ "mfem_mgis::BehaviourIntegratorTraits< OrthotropicTridimensionalStandardSmallStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_orthotropic_tridimensional_standard_small_5a4f15b906d3c681863e254a22446e58.html", null ],
+    [ "mfem_mgis::OrthotropicTridimensionalStandardSmallStrainMechanicsBehaviourIntegrator", "structmfem__mgis_1_1_orthotropic_tridimensional_standard_small_strain_mechanics_behaviour_integrator.html", "structmfem__mgis_1_1_orthotropic_tridimensional_standard_small_strain_mechanics_behaviour_integrator" ]
+];

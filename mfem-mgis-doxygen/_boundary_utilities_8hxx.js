@@ -1,5 +1,5 @@
 var _boundary_utilities_8hxx =
 [
-    [ "buildFacesDescription", "_boundary_utilities_8hxx.html#a5e121653637d5a55bb33aff81a25d5d9", null ],
-    [ "getElementsDegreesOfFreedomOnBoundary", "_boundary_utilities_8hxx.html#ab1621eeb28aed5124640f9c77ec1819f", null ]
+    [ "buildFacesDescription", "_boundary_utilities_8hxx.html#ace4a5e392a54dda57833490a14697c70", null ],
+    [ "getElementsDegreesOfFreedomOnBoundary", "_boundary_utilities_8hxx.html#a45ead7b8aeaadb374c7ffa1691e66637", null ]
 ];

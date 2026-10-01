@@ -1,7 +1,11 @@
 var _faltus2026_regularized_behaviour_integrators_8hxx =
 [
-    [ "mfem_mgis::Faltus2026RegularizedIsotropicBehaviourIntegratorBaseDispatch< Hypothesis::PLANESTRAIN >", "structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator_base_dispatch_3_01_hyaa26bf8bf73500ccbab0c0881c6776f0.html", null ],
-    [ "mfem_mgis::Faltus2026RegularizedIsotropicBehaviourIntegratorBaseDispatch< Hypothesis::PLANESTRESS >", "structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator_base_dispatch_3_01_hy84eb42220287bea87d37518f2e58db7e.html", null ],
-    [ "mfem_mgis::Faltus2026RegularizedIsotropicBehaviourIntegratorBaseDispatch< Hypothesis::TRIDIMENSIONAL >", "structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator_base_dispatch_3_01_hy585a1f6e00216ee05121fca4c0a3aaad.html", null ],
-    [ "mfem_mgis::Faltus2026RegularizedIsotropicBehaviourIntegrator< H >", "structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator.html", "structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator" ]
+    [ "mfem_mgis::Faltus2026RegularizedIsotropicBehaviourIntegratorBaseDispatch< Hypothesis::PLANESTRAIN >", "structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator_base_dispatch_3_01_hyaa26bf8bf73500ccbab0c0881c6776f0.html", "structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator_base_dispatch_3_01_hyaa26bf8bf73500ccbab0c0881c6776f0" ],
+    [ "mfem_mgis::Faltus2026RegularizedIsotropicBehaviourIntegratorBaseDispatch< Hypothesis::PLANESTRESS >", "structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator_base_dispatch_3_01_hy84eb42220287bea87d37518f2e58db7e.html", "structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator_base_dispatch_3_01_hy84eb42220287bea87d37518f2e58db7e" ],
+    [ "mfem_mgis::Faltus2026RegularizedIsotropicBehaviourIntegratorBaseDispatch< Hypothesis::TRIDIMENSIONAL >", "structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator_base_dispatch_3_01_hy585a1f6e00216ee05121fca4c0a3aaad.html", "structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator_base_dispatch_3_01_hy585a1f6e00216ee05121fca4c0a3aaad" ],
+    [ "mfem_mgis::Faltus2026RegularizedIsotropicBehaviourIntegrator< H >", "structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator.html", "structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator" ],
+    [ "Faltus2026RegularizedIsotropicBehaviourIntegratorBase", "_faltus2026_regularized_behaviour_integrators_8hxx.html#ad38ea1624ea68a1c04b3af70a50a3cde", null ],
+    [ "generatePlaneStrainFaltus2026RegularizedMechanicalBehaviourIntegrators", "_faltus2026_regularized_behaviour_integrators_8hxx.html#af749b8ee3028cd7b6a975247897f978a", null ],
+    [ "generatePlaneStressFaltus2026RegularizedMechanicalBehaviourIntegrators", "_faltus2026_regularized_behaviour_integrators_8hxx.html#acd4e722e79687abea10f0a668f5c295c", null ],
+    [ "generateTridimensionalFaltus2026RegularizedMechanicalBehaviourIntegrators", "_faltus2026_regularized_behaviour_integrators_8hxx.html#a38b0af8cd5d400dcf36bd9ffde3cb784", null ]
 ];

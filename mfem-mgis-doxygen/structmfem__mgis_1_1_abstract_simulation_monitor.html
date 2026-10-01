@@ -113,27 +113,27 @@ $(document).ready(function(){initNavTree('structmfem__mgis_1_1_abstract_simulati
 </div><!--header-->
 <div class="contents">
 
-<p>an abstract class used to monitor a simulation at the end of each successful time step or a the end of the simulation  
+<p>an abstract class used to monitor a simulation at the end of each successful time step or at the end of the simulation  
  <a href="structmfem__mgis_1_1_abstract_simulation_monitor.html#details">More...</a></p>
 
 <p><code>#include &lt;/home/runner/work/mfem-mgis/mfem-mgis/include/MFEMMGIS/AbstractSimulationMonitor.hxx&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aec9efaf7fabc5afd8abb50603c65a54a" id="r_aec9efaf7fabc5afd8abb50603c65a54a"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_abstract_simulation_monitor.html#aec9efaf7fabc5afd8abb50603c65a54a">execute</a> (Context &amp;, const <a class="el" href="structmfem__mgis_1_1_simulation_output.html">SimulationOutput</a> &amp;, const bool) noexcept=0</td></tr>
-<tr class="memdesc:aec9efaf7fabc5afd8abb50603c65a54a"><td class="mdescLeft">&#160;</td><td class="mdescRight">execute the monitor  <br /></td></tr>
-<tr class="separator:aec9efaf7fabc5afd8abb50603c65a54a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a977661a184cb358bf853a58f58d975b6" id="r_a977661a184cb358bf853a58f58d975b6"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_abstract_simulation_monitor.html#a977661a184cb358bf853a58f58d975b6">execute</a> (Context &amp;ctx, const <a class="el" href="structmfem__mgis_1_1_simulation_output.html">SimulationOutput</a> &amp;output, const bool endOfSimulation) noexcept=0</td></tr>
+<tr class="memdesc:a977661a184cb358bf853a58f58d975b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">execute the monitor  <br /></td></tr>
+<tr class="separator:a977661a184cb358bf853a58f58d975b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80adbe46d22f5a2fa3e936ff7c71ff5c" id="r_a80adbe46d22f5a2fa3e936ff7c71ff5c"><td class="memItemLeft" align="right" valign="top"><a id="a80adbe46d22f5a2fa3e936ff7c71ff5c" name="a80adbe46d22f5a2fa3e936ff7c71ff5c"></a>
 virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~AbstractSimulationMonitor</b> () noexcept</td></tr>
 <tr class="memdesc:a80adbe46d22f5a2fa3e936ff7c71ff5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">destructor <br /></td></tr>
 <tr class="separator:a80adbe46d22f5a2fa3e936ff7c71ff5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>an abstract class used to monitor a simulation at the end of each successful time step or a the end of the simulation </p>
-<p>Such monitor can be used to report meaningful information to the user such about the convergence or the resources usage. </p>
+<div class="textblock"><p>an abstract class used to monitor a simulation at the end of each successful time step or at the end of the simulation </p>
+<p>Such monitors can be used to report meaningful information to the user about the convergence or the resources usage. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="aec9efaf7fabc5afd8abb50603c65a54a" name="aec9efaf7fabc5afd8abb50603c65a54a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec9efaf7fabc5afd8abb50603c65a54a">&#9670;&#160;</a></span>execute()</h2>
+<a id="a977661a184cb358bf853a58f58d975b6" name="a977661a184cb358bf853a58f58d975b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a977661a184cb358bf853a58f58d975b6">&#9670;&#160;</a></span>execute()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -145,19 +145,19 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~AbstractSimulatio
           <td class="memname">virtual bool mfem_mgis::AbstractSimulationMonitor::execute </td>
           <td>(</td>
           <td class="paramtype">Context &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>ctx</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="structmfem__mgis_1_1_simulation_output.html">SimulationOutput</a> &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>output</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const bool&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramname"><em>endOfSimulation</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -175,12 +175,13 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~AbstractSimulatio
 <p>execute the monitor </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">ctx</td><td>execution context </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">output</td><td>output of the call to <code><a class="el" href="structmfem__mgis_1_1_physical_system.html#a1089b8d30e992ea9bf531daaf7906e99" title="compute the next state">PhysicalSystem::computeNextState</a></code> </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">ctx</td><td>execution context </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">output</td><td>outputs of the simulation </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">endOfSimulation</td><td>boolean stating if the simulation is over </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>true on success </dd></dl>
 
 </div>
 </div>
@@ -193,7 +194,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~AbstractSimulatio
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemfem__mgis.html">mfem_mgis</a></li><li class="navelem"><a class="el" href="structmfem__mgis_1_1_abstract_simulation_monitor.html">AbstractSimulationMonitor</a></li>
-    <li class="footer">Generated on Wed Sep 30 2026 14:12:35 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu Oct 1 2026 07:26:08 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

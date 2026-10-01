@@ -125,7 +125,7 @@ Inheritance diagram for mfem_mgis::AbstractPostProcessing:</div>
   <map id="mfem_5Fmgis::AbstractPostProcessing_map" name="mfem_5Fmgis::AbstractPostProcessing_map">
 <area href="structmfem__mgis_1_1_post_processing_base.html" title="a base class suitable for most post-processings" alt="mfem_mgis::PostProcessingBase" shape="rect" coords="134,56,393,80"/>
 <area href="structmfem__mgis_1_1_curves_post_processing.html" title="post-processing meant to export values extracted using instances of the AbstractCurve struct to a fil..." alt="mfem_mgis::CurvesPostProcessing" shape="rect" coords="0,112,259,136"/>
-<area href="structmfem__mgis_1_1_points_set_curves_post_processing.html" title="post-processing meant to export values extracted using instances of the AbstractCurve struct to a fil..." alt="mfem_mgis::PointsSetCurvesPostProcessing" shape="rect" coords="269,112,528,136"/>
+<area href="structmfem__mgis_1_1_points_set_curves_post_processing.html" title="post-processing meant to export the values of grid functions on a points set to a file." alt="mfem_mgis::PointsSetCurvesPostProcessing" shape="rect" coords="269,112,528,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -137,12 +137,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a71b1e473569edb96b76b81bb99d24bcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85cfae535f50a0f991e0e60b113c4d73" id="r_a85cfae535f50a0f991e0e60b113c4d73"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="structmfem__mgis_1_1_physical_system.html">PhysicalSystem</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_abstract_post_processing.html#a85cfae535f50a0f991e0e60b113c4d73">getPhysicalSystem</a> () const noexcept=0</td></tr>
 <tr class="separator:a85cfae535f50a0f991e0e60b113c4d73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7bbbc4234625c78eff84d4faf8aa1e68" id="r_a7bbbc4234625c78eff84d4faf8aa1e68"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_abstract_post_processing.html#a7bbbc4234625c78eff84d4faf8aa1e68">executeInitialPostProcessingTasks</a> (Context &amp;, const <a class="el" href="namespacemfem__mgis.html#aee59940f912d12c96b219f5a92ddaf3c">real</a>) noexcept=0</td></tr>
-<tr class="memdesc:a7bbbc4234625c78eff84d4faf8aa1e68"><td class="mdescLeft">&#160;</td><td class="mdescRight">execute the post-processing at the beginning of the simulation. For instance, this method may display the initial values of the state variables.  <br /></td></tr>
-<tr class="separator:a7bbbc4234625c78eff84d4faf8aa1e68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58456ccc3c56a0a8646ec7940f8225d0" id="r_a58456ccc3c56a0a8646ec7940f8225d0"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_abstract_post_processing.html#a58456ccc3c56a0a8646ec7940f8225d0">executePostProcessingTasks</a> (Context &amp;, const <a class="el" href="structmfem__mgis_1_1_time_step.html">TimeStep</a> &amp;, const bool) noexcept=0</td></tr>
-<tr class="memdesc:a58456ccc3c56a0a8646ec7940f8225d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">execute the post-processing at the end of a time step, after convergence.  <br /></td></tr>
-<tr class="separator:a58456ccc3c56a0a8646ec7940f8225d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a852be0a5ddf0e74181615eb41e2bd9af" id="r_a852be0a5ddf0e74181615eb41e2bd9af"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_abstract_post_processing.html#a852be0a5ddf0e74181615eb41e2bd9af">executeInitialPostProcessingTasks</a> (Context &amp;ctx, const <a class="el" href="namespacemfem__mgis.html#aee59940f912d12c96b219f5a92ddaf3c">real</a> t) noexcept=0</td></tr>
+<tr class="memdesc:a852be0a5ddf0e74181615eb41e2bd9af"><td class="mdescLeft">&#160;</td><td class="mdescRight">execute the post-processing at the beginning of the simulation. For instance, this method may display the initial values of the state variables.  <br /></td></tr>
+<tr class="separator:a852be0a5ddf0e74181615eb41e2bd9af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afab1877198c657013a0c2e7df9d15f27" id="r_afab1877198c657013a0c2e7df9d15f27"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_abstract_post_processing.html#afab1877198c657013a0c2e7df9d15f27">executePostProcessingTasks</a> (Context &amp;ctx, const <a class="el" href="structmfem__mgis_1_1_time_step.html">TimeStep</a> &amp;ts, const bool isPostProcessingRequired) noexcept=0</td></tr>
+<tr class="memdesc:afab1877198c657013a0c2e7df9d15f27"><td class="mdescLeft">&#160;</td><td class="mdescRight">execute the post-processing at the end of a time step, after convergence.  <br /></td></tr>
+<tr class="separator:afab1877198c657013a0c2e7df9d15f27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac79804727951339a4803eac9342d780e" id="r_ac79804727951339a4803eac9342d780e"><td class="memItemLeft" align="right" valign="top"><a id="ac79804727951339a4803eac9342d780e" name="ac79804727951339a4803eac9342d780e"></a>
 virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~AbstractPostProcessing</b> () noexcept</td></tr>
 <tr class="memdesc:ac79804727951339a4803eac9342d780e"><td class="mdescLeft">&#160;</td><td class="mdescRight">destructor <br /></td></tr>
@@ -151,8 +151,8 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~AbstractPostProce
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>an abstract class describing a post-processing </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a7bbbc4234625c78eff84d4faf8aa1e68" name="a7bbbc4234625c78eff84d4faf8aa1e68"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7bbbc4234625c78eff84d4faf8aa1e68">&#9670;&#160;</a></span>executeInitialPostProcessingTasks()</h2>
+<a id="a852be0a5ddf0e74181615eb41e2bd9af" name="a852be0a5ddf0e74181615eb41e2bd9af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a852be0a5ddf0e74181615eb41e2bd9af">&#9670;&#160;</a></span>executeInitialPostProcessingTasks()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -164,13 +164,13 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~AbstractPostProce
           <td class="memname">virtual bool mfem_mgis::AbstractPostProcessing::executeInitialPostProcessingTasks </td>
           <td>(</td>
           <td class="paramtype">Context &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>ctx</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="namespacemfem__mgis.html#aee59940f912d12c96b219f5a92ddaf3c">real</a>&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramname"><em>t</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -189,18 +189,18 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~AbstractPostProce
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">ctx</td><td>execution context </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>initial time step</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>initial time </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>if required, the time at the beginning of the time step can be retrieved from the clock hold by the physical system </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true on success </dd></dl>
 
-<p>Implemented in <a class="el" href="structmfem__mgis_1_1_curves_post_processing.html#afca2ba89c30f006df19e4df524c0038c">mfem_mgis::CurvesPostProcessing</a>, and <a class="el" href="structmfem__mgis_1_1_points_set_curves_post_processing.html#aa6cda272359d5f28471cfb2877401852">mfem_mgis::PointsSetCurvesPostProcessing</a>.</p>
+<p>Implemented in <a class="el" href="structmfem__mgis_1_1_curves_post_processing.html#adf63ba9480b0e398a590c64eceb01fa0">mfem_mgis::CurvesPostProcessing</a>, and <a class="el" href="structmfem__mgis_1_1_points_set_curves_post_processing.html#a23af46fa3a1016495ece306d956c6144">mfem_mgis::PointsSetCurvesPostProcessing</a>.</p>
 
 </div>
 </div>
-<a id="a58456ccc3c56a0a8646ec7940f8225d0" name="a58456ccc3c56a0a8646ec7940f8225d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58456ccc3c56a0a8646ec7940f8225d0">&#9670;&#160;</a></span>executePostProcessingTasks()</h2>
+<a id="afab1877198c657013a0c2e7df9d15f27" name="afab1877198c657013a0c2e7df9d15f27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afab1877198c657013a0c2e7df9d15f27">&#9670;&#160;</a></span>executePostProcessingTasks()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -212,19 +212,19 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~AbstractPostProce
           <td class="memname">virtual bool mfem_mgis::AbstractPostProcessing::executePostProcessingTasks </td>
           <td>(</td>
           <td class="paramtype">Context &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>ctx</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="structmfem__mgis_1_1_time_step.html">TimeStep</a> &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>ts</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const bool&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramname"><em>isPostProcessingRequired</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -244,12 +244,13 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~AbstractPostProce
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">ctx</td><td>execution context </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">ts</td><td>description of the time step </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">isPostProcessingRequired</td><td>boolean stating that if the time at the end of the time step is a post-processing time. By default, the end of a temporal sequence is a post-processing time (but the definition of other post-processing times is possible). The implementations shall let the user choose if the post-processing must executed at every time steps or only at post-processing times by accepting an <code>allTimes</code> parameter. The default behavior is left to the implementation, but the following rule of thumb is that a lightweight post-processing shall be excuted by default at each end of time steps and that an heavy post-processing (in execution time and/or size of the generated file(s)) shall be executed at post-processing times by default. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">isPostProcessingRequired</td><td>boolean stating if the time at the end of the time step is a post-processing time. By default, the end of a temporal sequence is a post-processing time (but the definition of other post-processing times is possible). The implementations shall let the user choose if the post-processing must be executed at every time step or only at post-processing times by accepting an <code>AllTimeSteps</code> parameter. The default behavior is left to the implementation, but the following rule of thumb is that a lightweight post-processing shall be executed by default at each end of time steps and that a heavy post-processing (in execution time and/or size of the generated file(s)) shall be executed at post-processing times by default. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>true on success </dd></dl>
 
-<p>Implemented in <a class="el" href="structmfem__mgis_1_1_curves_post_processing.html#a66d31504543e91836e94feaa8da1579a">mfem_mgis::CurvesPostProcessing</a>, and <a class="el" href="structmfem__mgis_1_1_points_set_curves_post_processing.html#a478a03707c159225eab82660fe391699">mfem_mgis::PointsSetCurvesPostProcessing</a>.</p>
+<p>Implemented in <a class="el" href="structmfem__mgis_1_1_curves_post_processing.html#ae893f2977405fe759796cc1d435938e0">mfem_mgis::CurvesPostProcessing</a>, and <a class="el" href="structmfem__mgis_1_1_points_set_curves_post_processing.html#a48bc41c8ef1f305e6956af3463390e15">mfem_mgis::PointsSetCurvesPostProcessing</a>.</p>
 
 </div>
 </div>
@@ -346,7 +347,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~AbstractPostProce
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemfem__mgis.html">mfem_mgis</a></li><li class="navelem"><a class="el" href="structmfem__mgis_1_1_abstract_post_processing.html">AbstractPostProcessing</a></li>
-    <li class="footer">Generated on Wed Sep 30 2026 14:12:35 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu Oct 1 2026 07:26:08 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

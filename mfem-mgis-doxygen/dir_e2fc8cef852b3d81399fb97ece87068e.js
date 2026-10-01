@@ -4,6 +4,7 @@ var dir_e2fc8cef852b3d81399fb97ece87068e =
     [ "AbstractPostProcessing.hxx", "_abstract_post_processing_8hxx.html", "_abstract_post_processing_8hxx" ],
     [ "CurvesPostProcessing.hxx", "_curves_post_processing_8hxx.html", "_curves_post_processing_8hxx" ],
     [ "CurvesWriter.hxx", "_curves_writer_8hxx.html", "_curves_writer_8hxx" ],
+    [ "GridFunctionValuesCurve.hxx", "_grid_function_values_curve_8hxx.html", "_grid_function_values_curve_8hxx" ],
     [ "MultipleCurves.hxx", "_multiple_curves_8hxx.html", "_multiple_curves_8hxx" ],
     [ "PointsSetCurves.hxx", "_points_set_curves_8hxx.html", "_points_set_curves_8hxx" ],
     [ "PointsSetCurvesPostProcessing.hxx", "_points_set_curves_post_processing_8hxx.html", "_points_set_curves_post_processing_8hxx" ],

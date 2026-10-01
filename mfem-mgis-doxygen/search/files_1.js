@@ -6,5 +6,6 @@ var searchData=
   ['behaviourintegratortraits_2ehxx_3',['BehaviourIntegratorTraits.hxx',['../_behaviour_integrator_traits_8hxx.html',1,'']]],
   ['bidimensionalmicromorphicdamagebehaviourintegrator_2ehxx_4',['BidimensionalMicromorphicDamageBehaviourIntegrator.hxx',['../_bidimensional_micromorphic_damage_behaviour_integrator_8hxx.html',1,'']]],
   ['boundaryutilities_2ehxx_5',['BoundaryUtilities.hxx',['../_boundary_utilities_8hxx.html',1,'']]],
-  ['boundaryutilities_2eixx_6',['BoundaryUtilities.ixx',['../_boundary_utilities_8ixx.html',1,'']]]
+  ['boundaryutilities_2eixx_6',['BoundaryUtilities.ixx',['../_boundary_utilities_8ixx.html',1,'']]],
+  ['buffer_2ehxx_7',['Buffer.hxx',['../_buffer_8hxx.html',1,'']]]
 ];

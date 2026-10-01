@@ -131,6 +131,7 @@ var hierarchy =
         [ "mfem_mgis::StoredEnergyPostProcessing< parallel >", "structmfem__mgis_1_1_stored_energy_post_processing.html", null ]
       ] ],
       [ "mfem_mgis::MeanThermodynamicForces< parallel >", "structmfem__mgis_1_1_mean_thermodynamic_forces.html", null ],
+      [ "mfem_mgis::ParaviewExportIntegrationPointPostProcessingsResultsAtNodes< parallel >", "structmfem__mgis_1_1_paraview_export_integration_point_post_processings_results_at_nodes.html", null ],
       [ "mfem_mgis::ParaviewExportIntegrationPointResultsAtNodesImplementation< parallel >", "structmfem__mgis_1_1_paraview_export_integration_point_results_at_nodes_implementation.html", null ],
       [ "mfem_mgis::ParaviewExportResults< parallel >", "structmfem__mgis_1_1_paraview_export_results.html", null ]
     ] ],
@@ -279,6 +280,7 @@ var hierarchy =
     [ "mfem_mgis::PartialQuadratureSpaceIdentifiersManager", "structmfem__mgis_1_1_partial_quadrature_space_identifiers_manager.html", [
       [ "mfem_mgis::StateManager", "structmfem__mgis_1_1_state_manager.html", null ]
     ] ],
+    [ "mfem_mgis::PartialQuadratureSpaceInformation", "structmfem__mgis_1_1_partial_quadrature_space_information.html", null ],
     [ "mfem_mgis::PhysicalSystem", "structmfem__mgis_1_1_physical_system.html", null ],
     [ "mfem_mgis::PlaneStrainStandardFiniteStrainMechanicsBehaviourIntegratorBase", "structmfem__mgis_1_1_plane_strain_standard_finite_strain_mechanics_behaviour_integrator_base.html", [
       [ "mfem_mgis::FBarIsotropicPlaneStrainBehaviourIntegrator", "structmfem__mgis_1_1_f_bar_isotropic_plane_strain_behaviour_integrator.html", null ],
@@ -318,6 +320,7 @@ var hierarchy =
     [ "mfem_mgis::IsotropicTridimensionalStandardSmallStrainMechanicsBehaviourIntegrator::RotationMatrix", "structmfem__mgis_1_1_isotropic_tridimensional_standard_small_strain_mechanics_behaviour_integrator_1_1_rotation_matrix.html", null ],
     [ "mfem_mgis::IsotropicTridimensionalStationaryNonLinearHeatTransferBehaviourIntegrator::RotationMatrix", "structmfem__mgis_1_1_isotropic_tridimensional_stationary_non_linear_heat_transfer_behaviour_integrator_1_1_rotation_matrix.html", null ],
     [ "mfem_mgis::TransientHeatTransferBehaviourIntegrator::RotationMatrix", "structmfem__mgis_1_1_transient_heat_transfer_behaviour_integrator_1_1_rotation_matrix.html", null ],
+    [ "mfem_mgis::RotationMatrixEvaluator", "structmfem__mgis_1_1_rotation_matrix_evaluator.html", null ],
     [ "mfem_mgis::RotationMatrixQPEvaluator", "structmfem__mgis_1_1_rotation_matrix_q_p_evaluator.html", null ],
     [ "mfem_mgis::Simulation", "structmfem__mgis_1_1_simulation.html", null ],
     [ "mfem_mgis::Simulation::SimulationRunState", "structmfem__mgis_1_1_simulation_1_1_simulation_run_state.html", null ],
@@ -328,6 +331,9 @@ var hierarchy =
       [ "mfem_mgis::FBarOrthotropicTridimensionalBehaviourIntegrator", "structmfem__mgis_1_1_f_bar_orthotropic_tridimensional_behaviour_integrator.html", null ],
       [ "mfem_mgis::IsotropicTridimensionalStandardFiniteStrainMechanicsBehaviourIntegrator", "structmfem__mgis_1_1_isotropic_tridimensional_standard_finite_strain_mechanics_behaviour_integrator.html", null ],
       [ "mfem_mgis::OrthotropicTridimensionalStandardFiniteStrainMechanicsBehaviourIntegrator", "structmfem__mgis_1_1_orthotropic_tridimensional_standard_finite_strain_mechanics_behaviour_integrator.html", null ]
+    ] ],
+    [ "std::true_type", null, [
+      [ "mgis::function::LightweightViewTraits< mfem_mgis::PartialQuadratureFunctionView >", "structmgis_1_1function_1_1_lightweight_view_traits_3_01mfem__mgis_1_1_partial_quadrature_function_view_01_4.html", null ]
     ] ],
     [ "mfem_mgis::unit_tests::UniaxialTestResults", "structmfem__mgis_1_1unit__tests_1_1_uniaxial_test_results.html", null ],
     [ "std::vector", null, [

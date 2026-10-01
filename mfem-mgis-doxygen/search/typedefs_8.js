@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['mainfunctionarguments_0',['MainFunctionArguments',['../namespacemfem__mgis.html#af57871a527a6e0d72a95122dd686f19f',1,'mfem_mgis']]],
-  ['materialaxis3d_1',['MaterialAxis3D',['../namespacemfem__mgis.html#a31a11823d771a88dbfc66d1b1ec1ebe4',1,'mfem_mgis']]],
-  ['materialidentifier_2',['MaterialIdentifier',['../structmfem__mgis_1_1_mesh_discretization.html#a8926ba9e7d85c3bf4106b03e3aa443b9',1,'mfem_mgis::MeshDiscretization']]],
-  ['mayabort_3',['MayAbort',['../_config_8hxx.html#a78280268a5d0c3d6eeed8e438a1642a5',1,'mfem_mgis::attributes']]],
-  ['maythrow_4',['MayThrow',['../_config_8hxx.html#a3ee4701c2ee61ec2155fae9858fd649a',1,'mfem_mgis::attributes']]],
-  ['mesh_5',['Mesh',['../namespacemfem__mgis.html#a990c3900c22231a90960bc742791edc5',1,'mfem_mgis']]]
+  ['linearform_0',['LinearForm',['../namespacemfem__mgis.html#a03e82f0b94a681b66e06e96a416b3738',1,'mfem_mgis']]],
+  ['linearformintegrator_1',['LinearFormIntegrator',['../namespacemfem__mgis.html#a7b48cd5134a040c1918c0692327d0973',1,'mfem_mgis']]],
+  ['linearsolver_2',['LinearSolver',['../namespacemfem__mgis.html#aefa0d77e7956dfd3aa58b5a348850982',1,'mfem_mgis']]],
+  ['linearsolverpreconditioner_3',['LinearSolverPreconditioner',['../namespacemfem__mgis.html#a57b39971ceedd0078eb70a35eb48df87',1,'mfem_mgis']]],
+  ['list_4',['list',['../namespacemfem__mgis.html#a3e74460324f0b833d30b130573ec5818',1,'mfem_mgis']]],
+  ['locationidentifier_5',['LocationIdentifier',['../namespacemfem__mgis.html#a10c9b98525562464d3e00bba26b08618',1,'mfem_mgis']]]
 ];

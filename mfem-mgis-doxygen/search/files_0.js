@@ -19,5 +19,6 @@ var searchData=
   ['abstracttimeincrementcomputer_2ehxx_16',['AbstractTimeIncrementComputer.hxx',['../_abstract_time_increment_computer_8hxx.html',1,'']]],
   ['abstracttimestepvalidator_2ehxx_17',['AbstractTimeStepValidator.hxx',['../_abstract_time_step_validator_8hxx.html',1,'']]],
   ['algorithms_2ehxx_18',['Algorithms.hxx',['../_algorithms_8hxx.html',1,'']]],
-  ['analyticaltests_2ehxx_19',['AnalyticalTests.hxx',['../_analytical_tests_8hxx.html',1,'']]]
+  ['algorithms_2eixx_19',['Algorithms.ixx',['../_algorithms_8ixx.html',1,'']]],
+  ['analyticaltests_2ehxx_20',['AnalyticalTests.hxx',['../_analytical_tests_8hxx.html',1,'']]]
 ];

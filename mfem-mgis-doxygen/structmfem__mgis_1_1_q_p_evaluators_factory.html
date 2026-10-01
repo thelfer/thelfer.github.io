@@ -111,18 +111,20 @@ $(document).ready(function(){initNavTree('structmfem__mgis_1_1_q_p_evaluators_fa
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="structmfem__mgis_1_1_q_p_evaluators_factory-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">mfem_mgis::QPEvaluatorsFactory Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>abstract factory for quadrature point evaluators  
+ <a href="structmfem__mgis_1_1_q_p_evaluators_factory.html#details">More...</a></p>
 
 <p><code>#include &lt;/home/runner/work/mfem-mgis/mfem-mgis/include/MFEMMGIS/QPEvaluator/QPEvaluatorsFactory.hxx&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_q_p_evaluators_factory_1_1_local_dependencies_analysis_output.html">LocalDependenciesAnalysisOutput</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">structure return by the <code>analyseDependencies</code> method  <a href="structmfem__mgis_1_1_q_p_evaluators_factory_1_1_local_dependencies_analysis_output.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">structure returned by the <code>analyseDependencies</code> method  <a href="structmfem__mgis_1_1_q_p_evaluators_factory_1_1_local_dependencies_analysis_output.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
@@ -131,9 +133,6 @@ Public Types</h2></td></tr>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>Generator</b> = std::shared_ptr&lt; <a class="el" href="structmfem__mgis_1_1_abstract_q_p_evaluator_generator.html">AbstractQPEvaluatorGenerator</a> &gt;</td></tr>
 <tr class="memdesc:a3ac223fbff6cc53992733689b06694ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple alias <br /></td></tr>
 <tr class="separator:a3ac223fbff6cc53992733689b06694ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42390ca0e56731119b632d3dbba9b382" id="r_a42390ca0e56731119b632d3dbba9b382"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_q_p_evaluators_factory.html#a42390ca0e56731119b632d3dbba9b382">GeneratorsContainer</a> = std::map&lt; <a class="el" href="namespacemfem__mgis.html#a10c9b98525562464d3e00bba26b08618">LocationIdentifier</a>, std::map&lt; std::shared_ptr&lt; const <a class="el" href="structmfem__mgis_1_1_partial_quadrature_space.html">PartialQuadratureSpace</a> &gt;, std::map&lt; std::string, <a class="el" href="structmfem__mgis_1_1_q_p_evaluators_factory.html#a3ac223fbff6cc53992733689b06694ba">Generator</a> &gt; &gt; &gt;</td></tr>
-<tr class="memdesc:a42390ca0e56731119b632d3dbba9b382"><td class="mdescLeft">&#160;</td><td class="mdescRight">generate an evaluator on the given mesh set and quadrature id.  <br /></td></tr>
-<tr class="separator:a42390ca0e56731119b632d3dbba9b382"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -153,145 +152,32 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1936901300c0706a86addb4113efc32a" id="r_a1936901300c0706a86addb4113efc32a"><td class="memItemLeft" align="right" valign="top"><a id="a1936901300c0706a86addb4113efc32a" name="a1936901300c0706a86addb4113efc32a"></a>
 <a class="el" href="structmfem__mgis_1_1_q_p_evaluators_factory.html">QPEvaluatorsFactory</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="structmfem__mgis_1_1_q_p_evaluators_factory.html">QPEvaluatorsFactory</a> &amp;)=delete</td></tr>
 <tr class="separator:a1936901300c0706a86addb4113efc32a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8efcc5d4c853cd14013b29d30497aded" id="r_a8efcc5d4c853cd14013b29d30497aded"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_q_p_evaluators_factory.html#a8efcc5d4c853cd14013b29d30497aded">containsGenerator</a> (const std::shared_ptr&lt; const <a class="el" href="structmfem__mgis_1_1_partial_quadrature_space.html">PartialQuadratureSpace</a> &gt;, const TimeStepStage, const std::string &amp;) const noexcept</td></tr>
-<tr class="separator:a8efcc5d4c853cd14013b29d30497aded"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18e91ddbc22c88664d4ece203c2a29f9" id="r_a18e91ddbc22c88664d4ece203c2a29f9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmfem__mgis_1_1_q_p_evaluators_factory.html#a42390ca0e56731119b632d3dbba9b382">GeneratorsContainer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_q_p_evaluators_factory.html#a18e91ddbc22c88664d4ece203c2a29f9">getGeneratorsContainer</a> (const TimeStepStage) noexcept</td></tr>
-<tr class="separator:a18e91ddbc22c88664d4ece203c2a29f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6acd87485b23f0d630d49f98f9190a08" id="r_a6acd87485b23f0d630d49f98f9190a08"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structmfem__mgis_1_1_q_p_evaluators_factory.html#a42390ca0e56731119b632d3dbba9b382">GeneratorsContainer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_q_p_evaluators_factory.html#a6acd87485b23f0d630d49f98f9190a08">getGeneratorsContainer</a> (const TimeStepStage) const noexcept</td></tr>
-<tr class="separator:a6acd87485b23f0d630d49f98f9190a08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02e5836ceb19556b33410c7559514d47" id="r_a02e5836ceb19556b33410c7559514d47"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_q_p_evaluators_factory.html#a02e5836ceb19556b33410c7559514d47">getRegisteredGeneratorsList</a> (const TimeStepStage) const noexcept</td></tr>
-<tr class="separator:a02e5836ceb19556b33410c7559514d47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86cf85cbfe5916612b70ccaea53d9abd" id="r_a86cf85cbfe5916612b70ccaea53d9abd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_q_p_evaluators_factory.html#a86cf85cbfe5916612b70ccaea53d9abd">containsGenerator</a> (const std::shared_ptr&lt; const <a class="el" href="structmfem__mgis_1_1_partial_quadrature_space.html">PartialQuadratureSpace</a> &gt; qspace, const TimeStepStage s, const std::string &amp;n) const noexcept</td></tr>
+<tr class="memdesc:a86cf85cbfe5916612b70ccaea53d9abd"><td class="mdescLeft">&#160;</td><td class="mdescRight">check if a generator has been declared  <br /></td></tr>
+<tr class="separator:a86cf85cbfe5916612b70ccaea53d9abd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64a16e1f47e8cfd8822bd44257ed8863" id="r_a64a16e1f47e8cfd8822bd44257ed8863"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_q_p_evaluators_factory.html#a64a16e1f47e8cfd8822bd44257ed8863">getRegisteredGeneratorsList</a> () const noexcept</td></tr>
+<tr class="separator:a64a16e1f47e8cfd8822bd44257ed8863"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a396862e13b1414930d8911c5d3c590e6" id="r_a396862e13b1414930d8911c5d3c590e6"><td class="memItemLeft" align="right" valign="top"><a id="a396862e13b1414930d8911c5d3c590e6" name="a396862e13b1414930d8911c5d3c590e6"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~QPEvaluatorsFactory</b> () noexcept</td></tr>
+<tr class="memdesc:a396862e13b1414930d8911c5d3c590e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">destructor <br /></td></tr>
+<tr class="separator:a396862e13b1414930d8911c5d3c590e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a8de1dc86d1ffb7cd4a693cb8eb21bff3" id="r_a8de1dc86d1ffb7cd4a693cb8eb21bff3"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_q_p_evaluators_factory.html#a8de1dc86d1ffb7cd4a693cb8eb21bff3">getLocationDescription</a> (const std::shared_ptr&lt; const <a class="el" href="structmfem__mgis_1_1_partial_quadrature_space.html">PartialQuadratureSpace</a> &gt;, const TimeStepStage) noexcept</td></tr>
-<tr class="separator:a8de1dc86d1ffb7cd4a693cb8eb21bff3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a813b290f4fff55370ac29ea18dee549b" id="r_a813b290f4fff55370ac29ea18dee549b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmfem__mgis_1_1_q_p_evaluators_factory.html#a42390ca0e56731119b632d3dbba9b382">GeneratorsContainer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_q_p_evaluators_factory.html#a813b290f4fff55370ac29ea18dee549b">generatorsAtTheBeginningOfTheTimeStep</a></td></tr>
-<tr class="memdesc:a813b290f4fff55370ac29ea18dee549b"><td class="mdescLeft">&#160;</td><td class="mdescRight">list of registered generators computing values of the beginning of the time step, sorted by mesh sets, quadrature id's and name  <br /></td></tr>
-<tr class="separator:a813b290f4fff55370ac29ea18dee549b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae11ccb14248bb7296d0fd57f499f0995" id="r_ae11ccb14248bb7296d0fd57f499f0995"><td class="memItemLeft" align="right" valign="top"><a id="ae11ccb14248bb7296d0fd57f499f0995" name="ae11ccb14248bb7296d0fd57f499f0995"></a>
-<a class="el" href="structmfem__mgis_1_1_q_p_evaluators_factory.html#a42390ca0e56731119b632d3dbba9b382">GeneratorsContainer</a>&#160;</td><td class="memItemRight" valign="bottom"><b>generatorsAtTheEndOfTheTimeStep</b></td></tr>
-<tr class="memdesc:ae11ccb14248bb7296d0fd57f499f0995"><td class="mdescLeft">&#160;</td><td class="mdescRight">list of registered generators computing values of the end of the time step, sorted by mesh sets, quadrature id's and name <br /></td></tr>
-<tr class="separator:ae11ccb14248bb7296d0fd57f499f0995"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4df4e0ec12039db142777023e7c71db1" id="r_a4df4e0ec12039db142777023e7c71db1"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_q_p_evaluators_factory.html#a4df4e0ec12039db142777023e7c71db1">getLocationDescription</a> (const std::shared_ptr&lt; const <a class="el" href="structmfem__mgis_1_1_partial_quadrature_space.html">PartialQuadratureSpace</a> &gt; qspace, const TimeStepStage s) noexcept</td></tr>
+<tr class="memdesc:a4df4e0ec12039db142777023e7c71db1"><td class="mdescLeft">&#160;</td><td class="mdescRight">describe a location  <br /></td></tr>
+<tr class="separator:a4df4e0ec12039db142777023e7c71db1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This class is an abstract factory for quadrature point evaluators evaluators, i.e. which provides methods to:</p>
+<div class="textblock"><p>abstract factory for quadrature point evaluators </p>
+<p>This class is an abstract factory for quadrature point evaluators, i.e. which provides methods to:</p>
 <ol type="1">
-<li>registrer generators of quadrature point evaluators stored by name, material identifier and equivalent partial quadrature space.</li>
+<li>register generators of quadrature point evaluators stored by name, material identifier and equivalent partial quadrature space.</li>
 <li>handle the generation of evaluators. </li>
 </ol>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a42390ca0e56731119b632d3dbba9b382" name="a42390ca0e56731119b632d3dbba9b382"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a42390ca0e56731119b632d3dbba9b382">&#9670;&#160;</a></span>GeneratorsContainer</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="structmfem__mgis_1_1_q_p_evaluators_factory.html#a42390ca0e56731119b632d3dbba9b382">mfem_mgis::QPEvaluatorsFactory::GeneratorsContainer</a> =  std::map&lt;<a class="el" href="namespacemfem__mgis.html#a10c9b98525562464d3e00bba26b08618">LocationIdentifier</a>, std::map&lt;std::shared_ptr&lt;const <a class="el" href="structmfem__mgis_1_1_partial_quadrature_space.html">PartialQuadratureSpace</a>&gt;, std::map&lt;std::string, <a class="el" href="structmfem__mgis_1_1_q_p_evaluators_factory.html#a3ac223fbff6cc53992733689b06694ba">Generator</a>&gt; &gt;&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>generate an evaluator on the given mesh set and quadrature id. </p>
-<pre class="fragment">          \brief register a new evaluator generator
-          \param[in] ctx: execution context.
-          \param[in] qspace: partial quadrature space
-          \param[in] s: stage in the time step
-          \param[in] n: name of the evaluator
-          \param[in] g: generator
-         &amp;zwj;/
-</pre><p> [[nodiscard]] bool registerGenerator(
-Context &amp;,
-const std::shared_ptr&lt;const PartialQuadratureSpace&gt;,
-const TimeStepStage,
-const std::string &amp;,
-const Generator &amp;) noexcept; /*! </p><pre class="fragment">          \param[in] ctx: execution context.
-          \param[in] qspace: partial quadrature space
-          \param[in] s: stage in the time step
-          \param[in] d: description of the evaluator
-
-          \return a shared pointer to the evaluator. If the evaluation
-</pre><p> failed, the shared pointer is empty. &zwj;/ [[nodiscard]] std::shared_ptr&lt;AbstractQPEvaluator&gt; generate(
-Context &amp;,
-const std::shared_ptr&lt;const PartialQuadratureSpace&gt;,
-const TimeStepStage,
-const QPEvaluatorDescription &amp;) const noexcept; /*!</p>
-<p>generate an evaluator on the given mesh set and quadrature id. </p><pre class="fragment">          \param[in] ctx: execution context.
-          \param[in] qspace: partial quadrature space
-          \param[in] s: stage in the time step
-          \param[in] n: name of the evaluator
-
-          \return a shared pointer to the evaluator. If the evaluation
-</pre><p> failed, the shared pointer is empty. &zwj;/ [[nodiscard]] std::shared_ptr&lt;AbstractQPEvaluator&gt; generate(
-Context &amp;,
-const std::shared_ptr&lt;const PartialQuadratureSpace&gt;,
-const TimeStepStage,
-const std::string &amp;) const noexcept; /*!</p>
-<p>generate an evaluator on the given mesh set and quadrature id. </p><pre class="fragment">          \param[in] ctx: execution context.
-          \param[in] m: mesh set on which the evaluator is defined.
-          \param[in] s: stage in the time step
-          \param[in] d: description of the evaluator
-
-          \return a shared pointer to the evaluator. If the evaluation
-</pre><p> failed, the shared pointer is empty.</p>
-<dl class="section note"><dt>Note</dt><dd>the quadrature is unspecified. This call can only work if the evaluator is avaiable for only one quadrature. &zwj;/ [[nodiscard]] std::shared_ptr&lt;AbstractQPEvaluator&gt; generate(
-Context &amp;,
-const size_type,
-const TimeStepStage,
-const QPEvaluatorDescription &amp;) const noexcept; /*!</dd></dl>
-<p>generate an evaluator on the given mesh set and quadrature id. param[in] ctx: execution context. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">m</td><td>mesh set on which the evaluator is defined. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td>stage in the time step </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>name of the evaluator</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>a shared pointer to the evaluator. If the evaluation failed, the shared pointer is empty.</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>the quadrature is unspecified. This call can only work if the evaluator is avaiable for only one quadrature. &zwj;/ [[nodiscard]] std::shared_ptr&lt;AbstractQPEvaluator&gt; generate(
-Context &amp;,
-const size_type,
-const TimeStepStage,
-const std::string &amp;) const noexcept; /*!</dd></dl>
-<p>generate a set of evaluators on the given mesh set and quadrature id. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">ctx</td><td>execution context. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">m</td><td>mesh set on which the evaluator is defined. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td>stage in the time step </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">descriptions</td><td>description of the evaluators</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>the quadrature is unspecified. This call can only work if the evaluator for each mesh set is avaiable for only one quadrature. &zwj;/ [[nodiscard]] std::optional&lt; std::vector&lt;std::pair&lt;size_type, std::shared_ptr&lt;AbstractQPEvaluator&gt;&gt;&gt;&gt; generate(Context &amp;,
-const size_type,
-const TimeStepStage,
-const std::vector&lt;QPEvaluatorDescription&gt; &amp;) const noexcept; /*!</dd></dl>
-<p>generate a set of evaluators on the given mesh set and quadrature id. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">ctx</td><td>execution context. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">m</td><td>mesh set on which the evaluator is defined. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td>stage in the time step </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">names</td><td>names of the evaluators</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>the quadrature is unspecified. This call can only work if the evaluator for each mesh set is avaialble for only one quadrature. &zwj;/ [[nodiscard]] std::optional&lt; std::vector&lt;std::pair&lt;size_type, std::shared_ptr&lt;AbstractQPEvaluator&gt;&gt;&gt;&gt; generate(Context &amp;,
-const size_type,
-const TimeStepStage,
-const std::vector&lt;std::string&gt; &amp;) const noexcept; ! </dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>the list of registered generators [[nodiscard]] std::string getRegisteredGeneratorsList() const noexcept; ! destructor ~QPEvaluatorsFactory() noexcept;</dd></dl>
-<p>private: /*!</p>
-<p>a simple alias </p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a8efcc5d4c853cd14013b29d30497aded" name="a8efcc5d4c853cd14013b29d30497aded"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8efcc5d4c853cd14013b29d30497aded">&#9670;&#160;</a></span>containsGenerator()</h2>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a86cf85cbfe5916612b70ccaea53d9abd" name="a86cf85cbfe5916612b70ccaea53d9abd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86cf85cbfe5916612b70ccaea53d9abd">&#9670;&#160;</a></span>containsGenerator()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -303,19 +189,19 @@ const std::vector&lt;std::string&gt; &amp;) const noexcept; ! </dd></dl>
           <td class="memname">bool mfem_mgis::QPEvaluatorsFactory::containsGenerator </td>
           <td>(</td>
           <td class="paramtype">const std::shared_ptr&lt; const <a class="el" href="structmfem__mgis_1_1_partial_quadrature_space.html">PartialQuadratureSpace</a> &gt;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>qspace</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const TimeStepStage&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>s</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -329,7 +215,9 @@ const std::vector&lt;std::string&gt; &amp;) const noexcept; ! </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>if a generator associated with the given partial quadrature space, quadrature id and time set stage has been declared.</dd></dl>
+
+<p>check if a generator has been declared </p>
+<dl class="section return"><dt>Returns</dt><dd>if a generator associated with the given partial quadrature space, time step stage and name has been declared.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">qspace</td><td>partial quadrature space </td></tr>
@@ -341,74 +229,8 @@ const std::vector&lt;std::string&gt; &amp;) const noexcept; ! </dd></dl>
 
 </div>
 </div>
-<a id="a6acd87485b23f0d630d49f98f9190a08" name="a6acd87485b23f0d630d49f98f9190a08"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6acd87485b23f0d630d49f98f9190a08">&#9670;&#160;</a></span>getGeneratorsContainer() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="structmfem__mgis_1_1_q_p_evaluators_factory.html#a42390ca0e56731119b632d3dbba9b382">GeneratorsContainer</a> &amp; mfem_mgis::QPEvaluatorsFactory::getGeneratorsContainer </td>
-          <td>(</td>
-          <td class="paramtype">const TimeStepStage&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>fields associated with the given stage in the time step </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td>stage in the time step </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a18e91ddbc22c88664d4ece203c2a29f9" name="a18e91ddbc22c88664d4ece203c2a29f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18e91ddbc22c88664d4ece203c2a29f9">&#9670;&#160;</a></span>getGeneratorsContainer() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structmfem__mgis_1_1_q_p_evaluators_factory.html#a42390ca0e56731119b632d3dbba9b382">GeneratorsContainer</a> &amp; mfem_mgis::QPEvaluatorsFactory::getGeneratorsContainer </td>
-          <td>(</td>
-          <td class="paramtype">const TimeStepStage&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>generators associated with the given stage in the time step </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td>stage in the time step </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a8de1dc86d1ffb7cd4a693cb8eb21bff3" name="a8de1dc86d1ffb7cd4a693cb8eb21bff3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8de1dc86d1ffb7cd4a693cb8eb21bff3">&#9670;&#160;</a></span>getLocationDescription()</h2>
+<a id="a4df4e0ec12039db142777023e7c71db1" name="a4df4e0ec12039db142777023e7c71db1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4df4e0ec12039db142777023e7c71db1">&#9670;&#160;</a></span>getLocationDescription()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -420,13 +242,13 @@ const std::vector&lt;std::string&gt; &amp;) const noexcept; ! </dd></dl>
           <td class="memname">static std::string mfem_mgis::QPEvaluatorsFactory::getLocationDescription </td>
           <td>(</td>
           <td class="paramtype">const std::shared_ptr&lt; const <a class="el" href="structmfem__mgis_1_1_partial_quadrature_space.html">PartialQuadratureSpace</a> &gt;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>qspace</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const TimeStepStage&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramname"><em>s</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -440,11 +262,12 @@ const std::vector&lt;std::string&gt; &amp;) const noexcept; ! </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>describe a location </p>
 <dl class="section return"><dt>Returns</dt><dd>a description of the given location usable in an error message </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">m</td><td>mesh set on which the evaluator is defined. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">qid</td><td>quadrature id for which the evaluator is defined. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">qspace</td><td>partial quadrature space on which the evaluator is defined. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td>stage in the time step </td></tr>
   </table>
   </dd>
@@ -452,8 +275,8 @@ const std::vector&lt;std::string&gt; &amp;) const noexcept; ! </dd></dl>
 
 </div>
 </div>
-<a id="a02e5836ceb19556b33410c7559514d47" name="a02e5836ceb19556b33410c7559514d47"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a02e5836ceb19556b33410c7559514d47">&#9670;&#160;</a></span>getRegisteredGeneratorsList()</h2>
+<a id="a64a16e1f47e8cfd8822bd44257ed8863" name="a64a16e1f47e8cfd8822bd44257ed8863"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64a16e1f47e8cfd8822bd44257ed8863">&#9670;&#160;</a></span>getRegisteredGeneratorsList()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -464,7 +287,6 @@ const std::vector&lt;std::string&gt; &amp;) const noexcept; ! </dd></dl>
         <tr>
           <td class="memname">std::string mfem_mgis::QPEvaluatorsFactory::getRegisteredGeneratorsList </td>
           <td>(</td>
-          <td class="paramtype">const TimeStepStage&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
@@ -475,40 +297,7 @@ const std::vector&lt;std::string&gt; &amp;) const noexcept; ! </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the list of registered generators for the given time step stage </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td>stage in the time step </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a813b290f4fff55370ac29ea18dee549b" name="a813b290f4fff55370ac29ea18dee549b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a813b290f4fff55370ac29ea18dee549b">&#9670;&#160;</a></span>generatorsAtTheBeginningOfTheTimeStep</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structmfem__mgis_1_1_q_p_evaluators_factory.html#a42390ca0e56731119b632d3dbba9b382">GeneratorsContainer</a> mfem_mgis::QPEvaluatorsFactory::generatorsAtTheBeginningOfTheTimeStep</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>list of registered generators computing values of the beginning of the time step, sorted by mesh sets, quadrature id's and name </p>
-<pre class="fragment">          \brief check if the dependencies of the given evaluator are met
-          \param[in] m: registered generators
-          \param[in] n: name of the evaluator
-          \param[in] previous_dependencies: list of the previous iterations
-         &amp;zwj;/
-</pre><p> <a class="el" href="structmfem__mgis_1_1_q_p_evaluators_factory_1_1_local_dependencies_analysis_output.html" title="structure return by the analyseDependencies method">LocalDependenciesAnalysisOutput</a> analyseDependencies(
-Context &amp;,
-const std::map&lt;std::string, Generator&gt; &amp;,
-const std::string &amp;n,
-const std::vector&lt;QPEvaluatorDescription&gt; &amp;) const noexcept; /*!  </p>
+<dl class="section return"><dt>Returns</dt><dd>the list of registered generators </dd></dl>
 
 </div>
 </div>
@@ -521,7 +310,7 @@ const std::vector&lt;QPEvaluatorDescription&gt; &amp;) const noexcept; /*!  </p>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemfem__mgis.html">mfem_mgis</a></li><li class="navelem"><a class="el" href="structmfem__mgis_1_1_q_p_evaluators_factory.html">QPEvaluatorsFactory</a></li>
-    <li class="footer">Generated on Wed Sep 30 2026 14:12:35 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu Oct 1 2026 07:26:09 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

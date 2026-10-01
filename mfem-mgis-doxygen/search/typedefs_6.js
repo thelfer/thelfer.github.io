@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['implicitgradientregularizationresult_0',['ImplicitGradientRegularizationResult',['../namespacemfem__mgis.html#af40c446f462999002ee8572b07b525ae',1,'mfem_mgis']]],
-  ['initializationtask_1',['InitializationTask',['../structmfem__mgis_1_1_simulation.html#abbf93b00e8ed588b647e19aabe829bf6',1,'mfem_mgis::Simulation']]],
-  ['iterativesolver_2',['IterativeSolver',['../namespacemfem__mgis.html#ad3b1bd6f967c6c58ae2164b884396dd8',1,'mfem_mgis']]]
+  ['hypothesis_0',['hypothesis',['../structmfem__mgis_1_1_non_linear_evolution_problem.html#ac78aad290b94b53ffd41a08b359d3616',1,'mfem_mgis::NonLinearEvolutionProblem::Hypothesis'],['../structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01true_01_4.html#a70616432ca2f9b9570f408f302f8b029',1,'mfem_mgis::NonLinearEvolutionProblemImplementation&lt; true &gt;::Hypothesis'],['../structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01false_01_4.html#a757b44a4c57b51d94fe14c7a1db58592',1,'mfem_mgis::NonLinearEvolutionProblemImplementation&lt; false &gt;::Hypothesis'],['../structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a3340e66635c2af62480ac09453bf6ebc',1,'mfem_mgis::NonLinearEvolutionProblemImplementationBase::Hypothesis'],['../namespacemfem__mgis.html#a915e172b595d0784f01c7dd361a8bd60',1,'mfem_mgis::Hypothesis']]]
 ];

@@ -26,15 +26,15 @@ var NAVTREE =
 [
   [ "mfem-mgis", "index.html", [
     [ "An introduction to the MFEM/MGIS project", "index.html", null ],
-    [ "Bibliography", "citelist.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
-        [ "All", "namespacemembers.html", null ],
-        [ "Functions", "namespacemembers_func.html", null ],
+        [ "All", "namespacemembers.html", "namespacemembers_dup" ],
+        [ "Functions", "namespacemembers_func.html", "namespacemembers_func" ],
         [ "Variables", "namespacemembers_vars.html", null ],
         [ "Typedefs", "namespacemembers_type.html", null ],
-        [ "Enumerations", "namespacemembers_enum.html", null ]
+        [ "Enumerations", "namespacemembers_enum.html", null ],
+        [ "Enumerator", "namespacemembers_eval.html", null ]
       ] ]
     ] ],
     [ "Concepts", "concepts.html", "concepts" ],
@@ -48,11 +48,16 @@ var NAVTREE =
         [ "Variables", "functions_vars.html", "functions_vars" ],
         [ "Typedefs", "functions_type.html", null ],
         [ "Enumerations", "functions_enum.html", null ],
+        [ "Enumerator", "functions_eval.html", null ],
         [ "Related Symbols", "functions_rela.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ]
+      [ "File List", "files.html", "files_dup" ],
+      [ "File Members", "globals.html", [
+        [ "All", "globals.html", null ],
+        [ "Macros", "globals_defs.html", null ]
+      ] ]
     ] ]
   ] ]
 ];
@@ -60,23 +65,26 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_abstract_behaviour_integrator_8hxx.html",
-"_parameter_8hxx.html",
-"namespacemfem__mgis.html#a28d464fbd864f005e88a532281d97e5a",
-"structmfem__mgis_1_1_abstract_boundary_condition.html#abf54c6b581c1dfee0ecdfcda56d108ba",
-"structmfem__mgis_1_1_abstract_q_p_evaluator.html#a96e1d5018375f51389498ab5520875ae",
-"structmfem__mgis_1_1_compute_resultant_force_on_boundary_common.html#a76b590fc3640606ebf3a9eaafd5a4d11",
-"structmfem__mgis_1_1_exit_status.html#a91556b625e115d6830e31e2ca5f5ca1e",
-"structmfem__mgis_1_1_first_iteration_convergence_criterion.html#acbe10f94f40caae4bec985a5a4f60505",
-"structmfem__mgis_1_1_isotropic_plane_stress_standard_small_strain_mechanics_behaviour_integrator.html#a98260ee2dbe1fb387dc7f1add731a140",
-"structmfem__mgis_1_1_material_quantity_provider_search_result.html#ad93971ff7c54acd029eeb886c55619e4",
-"structmfem__mgis_1_1_multiple_curves.html#a00e44d39c3557964da8aab972c1d0e58",
-"structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a634c01fbf433b12d509a337ace26ef99",
-"structmfem__mgis_1_1_orthotropic_plane_strain_stationary_non_linear_heat_transfer_behaviour_integrator.html#a61aec1f8c212febf2cef54d6a404ab91",
-"structmfem__mgis_1_1_parameters.html#a91ef928497b9dd3c76b3075dcaeb1e8a",
-"structmfem__mgis_1_1_partial_quadrature_functions_set.html#a492334baad68c888f3b29ebab6bad15a",
-"structmfem__mgis_1_1_prediction_policy.html#aecb6b7968d6da8e871b0c126cd9788d9",
-"structmfem__mgis_1_1_simulation_1_1_times_description.html#a81087b0a58ab6c03d1163ed3680945b3",
-"structmfem__mgis_1_1_uniform_imposed_pressure_boundary_condition.html#a8eb9f2e5d827e52823a7e02aff77aa5b"
+"_m_f_e_m_forward_8hxx.html#a25ba04adaf648f69a2d19bc66a598a82",
+"_points_set_curves_post_processing_8hxx.html",
+"namespacemfem__mgis.html#a1c5af1e960b59988d2700962bd6e7597",
+"namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368",
+"structmfem__mgis_1_1_abstract_non_linear_evolution_problem.html#a5fa435eb77ad4e9c0f55914167466eb1",
+"structmfem__mgis_1_1_behaviour_integrator_base.html#ad86c41efbedcac24c5a62dd8a0c18e09",
+"structmfem__mgis_1_1_default_convergence_failure_handler.html#a1a8fb7878af2fe7016849b58ff9112a3",
+"structmfem__mgis_1_1_f_bar_orthotropic_plane_strain_behaviour_integrator.html#a0dc90d441ccdfca09e00893ee1235263",
+"structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#a37a998712ec5c9c36435bfb72f2834dc",
+"structmfem__mgis_1_1_isotropic_plane_stress_stationary_non_linear_heat_transfer_behaviour_integrator.html#a5346661d0424d627da834654573f78d7",
+"structmfem__mgis_1_1_mean_thermodynamic_forces.html",
+"structmfem__mgis_1_1_multi_material_non_linear_integrator.html",
+"structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01true_01_4.html#a47479f51b1df3fa38fc07292286002fe",
+"structmfem__mgis_1_1_orthotropic_bidimensional_micromorphic_damage_behaviour_integrator.html#a6db8bca096b7cbb525b952368c28ba00",
+"structmfem__mgis_1_1_orthotropic_tridimensional_standard_finite_strain_mechanics_behaviour_integrator.html#a6a702300fc8b6fd11eeb69b5b49fbb35",
+"structmfem__mgis_1_1_paraview_export_integration_point_results_at_nodes.html#a9e81cdaef9d32e4db80a0fc2143d254b",
+"structmfem__mgis_1_1_partial_quadrature_space_identifiers_manager.html#a3a1046ac477c819b74fcc17aa946cef3",
+"structmfem__mgis_1_1_q_p_dependency.html#af5d6482f2f5f48e57f717ac539ec9305",
+"structmfem__mgis_1_1_simulation_output.html#a2fee3caa4d197b43c4aaee4889512666",
+"structmfem__mgis_1_1_uniform_imposed_pressure_boundary_condition.html#a87e1edb314d0815509e61cd04933731c"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

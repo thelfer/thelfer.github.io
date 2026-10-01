@@ -1,0 +1,5 @@
+var _orthotropic_plane_stress_standard_finite_strain_mechanics_behaviour_integrator_8hxx =
+[
+    [ "mfem_mgis::BehaviourIntegratorTraits< OrthotropicPlaneStressStandardFiniteStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_orthotropic_plane_stress_standard_finite_s237fb33c5765bbc5b84b15bd6a23998e.html", null ],
+    [ "mfem_mgis::OrthotropicPlaneStressStandardFiniteStrainMechanicsBehaviourIntegrator", "structmfem__mgis_1_1_orthotropic_plane_stress_standard_finite_strain_mechanics_behaviour_integrator.html", "structmfem__mgis_1_1_orthotropic_plane_stress_standard_finite_strain_mechanics_behaviour_integrator" ]
+];

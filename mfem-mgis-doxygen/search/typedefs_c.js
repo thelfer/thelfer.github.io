@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['secondfunctiontype_0',['SecondFunctionType',['../structmfem__mgis_1_1_standard_q_p_evaluator.html#a99cb5540201896e9e1864bb1d7bc5029',1,'mfem_mgis::StandardQPEvaluator']]],
-  ['size_5ftype_1',['size_type',['../namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368',1,'mfem_mgis']]],
-  ['submesh_2',['SubMesh',['../namespacemfem__mgis.html#ad9e05df2ee2047fcf81f7571cce0bb27',1,'mfem_mgis']]]
+  ['parametervalidator_0',['ParameterValidator',['../structmfem__mgis_1_1_parameters_validator.html#a85880083bd434953d6de0246c87c25a4',1,'mfem_mgis::ParametersValidator']]],
+  ['parametervariant_1',['ParameterVariant',['../namespacemfem__mgis.html#a63112b5e58b87cb3a1c12f01fba77cf2',1,'mfem_mgis']]],
+  ['point_2',['Point',['../namespacemfem__mgis.html#aeb5358079d39166b8927e87d6e6cef46',1,'mfem_mgis']]],
+  ['postprocessingtask_3',['PostProcessingTask',['../structmfem__mgis_1_1_simulation.html#a592f3293df11071e88d88e1d28ee914b',1,'mfem_mgis::Simulation']]]
 ];

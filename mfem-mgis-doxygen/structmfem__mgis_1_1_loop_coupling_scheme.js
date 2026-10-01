@@ -1,11 +1,11 @@
 var structmfem__mgis_1_1_loop_coupling_scheme =
 [
-    [ "LoopCouplingScheme", "structmfem__mgis_1_1_loop_coupling_scheme.html#af6f8de6f01267ade6f3743fd0cdeabb6", null ],
-    [ "LoopCouplingScheme", "structmfem__mgis_1_1_loop_coupling_scheme.html#a2aa5eba7944917260b352567cea7a9f9", null ],
+    [ "LoopCouplingScheme", "structmfem__mgis_1_1_loop_coupling_scheme.html#a48777c17a8a20a3ded5a0f099e3ae213", null ],
+    [ "LoopCouplingScheme", "structmfem__mgis_1_1_loop_coupling_scheme.html#a93a957ee05f98a721621ead4edc01d05", null ],
     [ "~LoopCouplingScheme", "structmfem__mgis_1_1_loop_coupling_scheme.html#a1602bc33b9678e07d174236a60e8518d", null ],
-    [ "addConvergenceCriterion", "structmfem__mgis_1_1_loop_coupling_scheme.html#a5efaeebdbfbf499e071c80cccd8497b5", null ],
-    [ "computeNextState", "structmfem__mgis_1_1_loop_coupling_scheme.html#a6632385454b1d7a8b18cdecc372e5d2d", null ],
-    [ "describe", "structmfem__mgis_1_1_loop_coupling_scheme.html#a8705dc18b53b837c274e2ad291c545f9", null ],
+    [ "addConvergenceCriterion", "structmfem__mgis_1_1_loop_coupling_scheme.html#afb84eb295047c88c92aa80ed2f7696c6", null ],
+    [ "computeNextState", "structmfem__mgis_1_1_loop_coupling_scheme.html#ac59b9fa59847c48f2add15a440a33c26", null ],
+    [ "describe", "structmfem__mgis_1_1_loop_coupling_scheme.html#a2e079a99b66861a298790b80de784bd9", null ],
     [ "getName", "structmfem__mgis_1_1_loop_coupling_scheme.html#aaa97e64402d2c874d963059bc8b01cd8", null ],
-    [ "setNumberOfIterations", "structmfem__mgis_1_1_loop_coupling_scheme.html#a8dcb4ec3de21a97bcc86098b58c71a5e", null ]
+    [ "setNumberOfIterations", "structmfem__mgis_1_1_loop_coupling_scheme.html#a7570701f36366d54b92b793c841cab26", null ]
 ];

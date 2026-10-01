@@ -1,10 +1,10 @@
 var structmfem__mgis_1_1_grid_function_values_curve =
 [
-    [ "GridFunctionValuesCurve", "structmfem__mgis_1_1_grid_function_values_curve.html#a9901ef52d566c47171fb20949f0d4274", null ],
+    [ "GridFunctionValuesCurve", "structmfem__mgis_1_1_grid_function_values_curve.html#abc4b078960410691dd6a1adc6549d91a", null ],
     [ "~GridFunctionValuesCurve", "structmfem__mgis_1_1_grid_function_values_curve.html#a41431452c7df128a3e3a8264096e7948", null ],
-    [ "addPoints", "structmfem__mgis_1_1_grid_function_values_curve.html#aa28e5373b8079527a02e0f022df12480", null ],
+    [ "addPoints", "structmfem__mgis_1_1_grid_function_values_curve.html#a4a8bae9470519309703fd1f81ee4d742", null ],
     [ "getDescriptions", "structmfem__mgis_1_1_grid_function_values_curve.html#a5a5c70420df653143de33e6e8e5969e8", null ],
-    [ "getValues", "structmfem__mgis_1_1_grid_function_values_curve.html#abbaefeecd5bbb9cd89cc6c33168f84b1", null ],
-    [ "setGridRunction", "structmfem__mgis_1_1_grid_function_values_curve.html#a5230d3c18e140f4054af48fc9824b2ce", null ],
-    [ "setGridRunction", "structmfem__mgis_1_1_grid_function_values_curve.html#aedcf8e762ea4f23d0622155e1eaf7883", null ]
+    [ "getValues", "structmfem__mgis_1_1_grid_function_values_curve.html#a65917092867e295ca3cfd7c2f95b194d", null ],
+    [ "setGridRunction", "structmfem__mgis_1_1_grid_function_values_curve.html#ad4b996e9b0ac4e148ab5cb03bd5d19ca", null ],
+    [ "setGridRunction", "structmfem__mgis_1_1_grid_function_values_curve.html#ad6562a5e985a0954f513ea9d4b2f738c", null ]
 ];

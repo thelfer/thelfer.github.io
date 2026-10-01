@@ -1,5 +1,9 @@
 var searchData=
 [
-  ['nonlinearform_0',['NonlinearForm',['../namespacemfem__mgis.html#a603d2c35f3a2ae4903ae8b479e777377',1,'mfem_mgis']]],
-  ['nonlinearformintegrator_1',['NonlinearFormIntegrator',['../namespacemfem__mgis.html#a171bb8e85c68136a41a0b656662e46ce',1,'mfem_mgis']]]
+  ['mainfunctionarguments_0',['MainFunctionArguments',['../namespacemfem__mgis.html#af57871a527a6e0d72a95122dd686f19f',1,'mfem_mgis']]],
+  ['materialaxis3d_1',['MaterialAxis3D',['../namespacemfem__mgis.html#a31a11823d771a88dbfc66d1b1ec1ebe4',1,'mfem_mgis']]],
+  ['materialidentifier_2',['materialidentifier',['../structmfem__mgis_1_1_mesh_discretization.html#a8926ba9e7d85c3bf4106b03e3aa443b9',1,'mfem_mgis::MeshDiscretization::MaterialIdentifier'],['../namespacemfem__mgis.html#aa85e203284494c26c731a327c4bb5e58',1,'mfem_mgis::MaterialIdentifier']]],
+  ['mayabort_3',['MayAbort',['../_config_8hxx.html#a78280268a5d0c3d6eeed8e438a1642a5',1,'mfem_mgis::attributes']]],
+  ['maythrow_4',['MayThrow',['../_config_8hxx.html#a3ee4701c2ee61ec2155fae9858fd649a',1,'mfem_mgis::attributes']]],
+  ['mesh_5',['Mesh',['../namespacemfem__mgis.html#a990c3900c22231a90960bc742791edc5',1,'mfem_mgis']]]
 ];

@@ -1,7 +1,10 @@
 var _solver_utilities_8hxx =
 [
     [ "getIterativeSolverParametersList", "_solver_utilities_8hxx.html#a63f58852f574c95ee06b1570d08c66f2", null ],
-    [ "getNumberOfIterationsAtConvergence", "_solver_utilities_8hxx.html#a8f0e6a6f26faadbd36c420165755076f", null ],
-    [ "setSolverParameters", "_solver_utilities_8hxx.html#ac282a67ff60b4498b8ea293a89bdeee1", null ],
-    [ "setSolverParameters", "_solver_utilities_8hxx.html#ac8c41cf81750747c9067f5516690cd1e", null ]
+    [ "getNumberOfIterationsAtConvergence", "_solver_utilities_8hxx.html#a7d3b6fa17640a0cfd4e6fb54f62cf736", null ],
+    [ "hasConverged", "_solver_utilities_8hxx.html#add6345c15fbfa8a175e2f53f10f527d5", null ],
+    [ "setSolverParameters", "_solver_utilities_8hxx.html#a32abb4915e46767c19ada186511c774b", null ],
+    [ "setSolverParameters", "_solver_utilities_8hxx.html#a5f4351a78363db1306e82d6b0a389f44", null ],
+    [ "setSolverParameters", "_solver_utilities_8hxx.html#ab30a3d9e169fd01d3ff20d8ff1006ed8", null ],
+    [ "setSolverParameters", "_solver_utilities_8hxx.html#a1aa73ee9241bc427ac1e06bd967891ce", null ]
 ];

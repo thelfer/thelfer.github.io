@@ -281,6 +281,7 @@ var namespacemfem__mgis =
     [ "checkParameters", "namespacemfem__mgis.html#acfccd791ae7e39ced1ee5a990072a664", null ],
     [ "checkParameters", "namespacemfem__mgis.html#a9ac679d3b2a4b8f8e927176f15fd543b", null ],
     [ "checkParameters", "namespacemfem__mgis.html#a9e5d66d12d973e9e13af8b08d37f4217", null ],
+    [ "clearHypreErrors", "namespacemfem__mgis.html#a75ba91eed4071018633d9b65856a2b29", null ],
     [ "compareToAnalyticalSolution", "namespacemfem__mgis.html#a9b8a808106c78d207d45d030a25e0e2d", null ],
     [ "computeCauchyStress", "namespacemfem__mgis.html#a4c9924d8e7d27abd6f615aed08d634c6", null ],
     [ "computeCauchyStress", "namespacemfem__mgis.html#ac6cb609288d2257ca408b52608086f56", null ],

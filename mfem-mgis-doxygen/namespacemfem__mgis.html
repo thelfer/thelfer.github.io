@@ -1859,6 +1859,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>check</b> (AbstractEr
 <tr class="memitem:a5f4351a78363db1306e82d6b0a389f44" id="r_a5f4351a78363db1306e82d6b0a389f44"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_config_8hxx.html#ad83a2ff92ae6eb1d8ae6c2d40c2424c8">MFEM_MGIS_EXPORT</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfem__mgis.html#a5f4351a78363db1306e82d6b0a389f44">setSolverParameters</a> (<a class="el" href="_config_8hxx.html#afa2c4e2732b394702b75d9c0fad0bf41">attributes::Throwing</a> <a class="el" href="namespacemfem__mgis.html#a369cfb3d002b0a63c4a639a75cacb646">throwing</a>, mfem::PetscNonlinearSolver &amp;s, const <a class="el" href="structmfem__mgis_1_1_parameters.html">Parameters</a> &amp;params)</td></tr>
 <tr class="memdesc:a5f4351a78363db1306e82d6b0a389f44"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the parameters of a PETSc solver  <br /></td></tr>
 <tr class="separator:a5f4351a78363db1306e82d6b0a389f44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75ba91eed4071018633d9b65856a2b29" id="r_a75ba91eed4071018633d9b65856a2b29"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_config_8hxx.html#ad83a2ff92ae6eb1d8ae6c2d40c2424c8">MFEM_MGIS_EXPORT</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfem__mgis.html#a75ba91eed4071018633d9b65856a2b29">clearHypreErrors</a> () noexcept</td></tr>
+<tr class="memdesc:a75ba91eed4071018633d9b65856a2b29"><td class="mdescLeft">&#160;</td><td class="mdescRight">clear the errors raised by hypre during the last linear solve  <br /></td></tr>
+<tr class="separator:a75ba91eed4071018633d9b65856a2b29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add6345c15fbfa8a175e2f53f10f527d5" id="r_add6345c15fbfa8a175e2f53f10f527d5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_config_8hxx.html#ad83a2ff92ae6eb1d8ae6c2d40c2424c8">MFEM_MGIS_EXPORT</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfem__mgis.html#add6345c15fbfa8a175e2f53f10f527d5">hasConverged</a> (const <a class="el" href="namespacemfem__mgis.html#aefa0d77e7956dfd3aa58b5a348850982">LinearSolver</a> &amp;ls) noexcept</td></tr>
 <tr class="memdesc:add6345c15fbfa8a175e2f53f10f527d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">check if the linear solver has converged  <br /></td></tr>
 <tr class="separator:add6345c15fbfa8a175e2f53f10f527d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -3337,6 +3340,34 @@ this function shall only be used in constructors or functions with the <code><a 
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if all parameters are valid </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>prefer using <code><a class="el" href="structmfem__mgis_1_1_parameters_validator.html" title="a helper structure used to validate a dictionary of parameters.">ParametersValidator</a></code> </dd></dl>
+
+</div>
+</div>
+<a id="a75ba91eed4071018633d9b65856a2b29" name="a75ba91eed4071018633d9b65856a2b29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75ba91eed4071018633d9b65856a2b29">&#9670;&#160;</a></span>clearHypreErrors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_config_8hxx.html#ad83a2ff92ae6eb1d8ae6c2d40c2424c8">MFEM_MGIS_EXPORT</a> void mfem_mgis::clearHypreErrors </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>clear the errors raised by hypre during the last linear solve </p>
+<p>The Krylov solvers of hypre raise <code>HYPRE_ERROR_CONV</code> when they reach their maximum number of iterations and MFEM does not clear it: the next hypre solver driven by MFEM would then abort. This function does nothing without MPI. </p>
 
 </div>
 </div>
@@ -13112,7 +13143,7 @@ template&lt;bool parallel&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemfem__mgis.html">mfem_mgis</a></li>
-    <li class="footer">Generated on Fri Oct 2 2026 14:49:20 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Oct 2 2026 14:51:19 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

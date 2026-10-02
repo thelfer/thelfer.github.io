@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['parallel_0',['parallel',['../structmfem__mgis_1_1_mesh_discretization.html#a7b83e433e381bf8a522a273599de18c6',1,'mfem_mgis::MeshDiscretization::Parallel'],['../structmfem__mgis_1_1unit__tests_1_1_test_parameters.html#a553d298d8b6ff821285961b7e17d2c68',1,'mfem_mgis::unit_tests::TestParameters::parallel']]],
+  ['parallel_0',['parallel',['../structmfem__mgis_1_1unit__tests_1_1_test_parameters.html#a553d298d8b6ff821285961b7e17d2c68',1,'mfem_mgis::unit_tests::TestParameters::parallel'],['../structmfem__mgis_1_1_mesh_discretization.html#a7b83e433e381bf8a522a273599de18c6',1,'mfem_mgis::MeshDiscretization::Parallel']]],
   ['petsc_5fsolver_1',['petsc_solver',['../structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a97f5942145270a701ef8d2c13403c773',1,'mfem_mgis::NonLinearEvolutionProblemImplementationBase']]],
   ['physicalsystem_2',['physicalsystem',['../structmfem__mgis_1_1_post_processing_base.html#aac6b773205944ba832fa5acb3e27a20b',1,'mfem_mgis::PostProcessingBase::physicalSystem'],['../structmfem__mgis_1_1_simulation.html#ab5fb012d2c772bbee56dcc244f3d6db0',1,'mfem_mgis::Simulation::physicalSystem']]],
   ['pimpl_3',['pimpl',['../structmfem__mgis_1_1_mesh_discretization.html#a4f409d6e86d5a05b8d4511439eb689a8',1,'mfem_mgis::MeshDiscretization::pimpl'],['../structmfem__mgis_1_1_non_linear_evolution_problem.html#a291dc6f95ede4f7b4a03d5a3a94c7e46',1,'mfem_mgis::NonLinearEvolutionProblem::pimpl']]],

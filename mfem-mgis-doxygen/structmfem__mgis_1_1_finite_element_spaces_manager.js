@@ -13,8 +13,5 @@ var structmfem__mgis_1_1_finite_element_spaces_manager =
     [ "getFiniteElementSpace", "structmfem__mgis_1_1_finite_element_spaces_manager.html#ab22d8c5c4a3152b8088b6c6465d89b09", null ],
     [ "getMeshDiscretization", "structmfem__mgis_1_1_finite_element_spaces_manager.html#a60ef94f6aa6fa3ba75c85e717db26916", null ],
     [ "manages", "structmfem__mgis_1_1_finite_element_spaces_manager.html#a25a3025f2b0437e0575761a073b8656d", null ],
-    [ "manages", "structmfem__mgis_1_1_finite_element_spaces_manager.html#aa23bef50becdfeaec9ce35295bc8e8ac", null ],
-    [ "setNodalFiniteElementSpace", "structmfem__mgis_1_1_finite_element_spaces_manager.html#a5ea94986e69104955805329c0bc50390", null ],
-    [ "setNodalFiniteElementSpace", "structmfem__mgis_1_1_finite_element_spaces_manager.html#ab65458bd8a0ab2c70e939d1db83d5216", null ],
-    [ "setNodalFiniteElementSpace", "structmfem__mgis_1_1_finite_element_spaces_manager.html#a6e665e334d3c80c16cce69225e30f69c", null ]
+    [ "manages", "structmfem__mgis_1_1_finite_element_spaces_manager.html#aa23bef50becdfeaec9ce35295bc8e8ac", null ]
 ];

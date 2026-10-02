@@ -1,8 +1,10 @@
 var structmfem__mgis_1_1_behaviour_integrator_base =
 [
+    [ "CheckBehaviourVariablesSizesArguments", "structmfem__mgis_1_1_behaviour_integrator_base_1_1_check_behaviour_variables_sizes_arguments.html", "structmfem__mgis_1_1_behaviour_integrator_base_1_1_check_behaviour_variables_sizes_arguments" ],
     [ "~BehaviourIntegratorBase", "structmfem__mgis_1_1_behaviour_integrator_base.html#ae224f5fe739d2c9ed1a703d6f4ba0a29", null ],
     [ "BehaviourIntegratorBase", "structmfem__mgis_1_1_behaviour_integrator_base.html#a014dd99071eb78293bc3509f3cfb9309", null ],
     [ "checkBehaviourSymmetry", "structmfem__mgis_1_1_behaviour_integrator_base.html#aba0b1465d46621887395b3ad83b52380", null ],
+    [ "checkBehaviourVariablesSizes", "structmfem__mgis_1_1_behaviour_integrator_base.html#a93b6141ed77543571696a14ba5f764c4", null ],
     [ "checkHypothesis", "structmfem__mgis_1_1_behaviour_integrator_base.html#ad86c41efbedcac24c5a62dd8a0c18e09", null ],
     [ "checkIfAFiniteStrainBehaviourIsDeclared", "structmfem__mgis_1_1_behaviour_integrator_base.html#a3a1986a9e0888b7d2f8ccaf0f99b15a5", null ],
     [ "cleanup", "structmfem__mgis_1_1_behaviour_integrator_base.html#a33ebb3c33a1c7c793470b7233b6c85e5", null ],

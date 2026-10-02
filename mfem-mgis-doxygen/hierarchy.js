@@ -198,6 +198,7 @@ var hierarchy =
     [ "mfem_mgis::BehaviourIntegratorTraits< OrthotropicTridimensionalStandardSmallStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_orthotropic_tridimensional_standard_small_5a4f15b906d3c681863e254a22446e58.html", null ],
     [ "mfem_mgis::BehaviourIntegratorTraits< OrthotropicTridimensionalStationaryNonLinearHeatTransferBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_orthotropic_tridimensional_stationary_non_f3c5025a602c5357d2adce42482f7d73.html", null ],
     [ "mfem_mgis::BehaviourIntegratorTraits< TransientHeatTransferBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_transient_heat_transfer_behaviour_integrator_01_4.html", null ],
+    [ "mfem_mgis::BehaviourIntegratorBase::CheckBehaviourVariablesSizesArguments", "structmfem__mgis_1_1_behaviour_integrator_base_1_1_check_behaviour_variables_sizes_arguments.html", null ],
     [ "mfem_mgis::ComputeResultantForceOnBoundary< parallel >", "structmfem__mgis_1_1_compute_resultant_force_on_boundary.html", null ],
     [ "mfem_mgis::ComputeResultantForceOnBoundaryCommon", "structmfem__mgis_1_1_compute_resultant_force_on_boundary_common.html", [
       [ "mfem_mgis::ComputeResultantForceOnBoundary< false >", "structmfem__mgis_1_1_compute_resultant_force_on_boundary_3_01false_01_4.html", null ],

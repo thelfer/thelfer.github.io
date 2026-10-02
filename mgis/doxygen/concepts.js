@@ -8,6 +8,7 @@ var concepts =
           [ "mutable_return_value", "conceptmgis_1_1function_1_1internals_1_1mutable__return__value.html", null ],
           [ "same_decay_type", "conceptmgis_1_1function_1_1internals_1_1same__decay__type.html", null ]
         ] ],
+        [ "DataViewConcept", "conceptmgis_1_1function_1_1_data_view_concept.html", null ],
         [ "EvaluatorConcept", "conceptmgis_1_1function_1_1_evaluator_concept.html", null ],
         [ "ElementEvaluatorConcept", "conceptmgis_1_1function_1_1_element_evaluator_concept.html", null ],
         [ "QuadratureEvaluatorConcept", "conceptmgis_1_1function_1_1_quadrature_evaluator_concept.html", null ],

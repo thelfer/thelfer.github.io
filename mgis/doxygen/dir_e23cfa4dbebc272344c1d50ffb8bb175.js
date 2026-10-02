@@ -4,6 +4,8 @@ var dir_e23cfa4dbebc272344c1d50ffb8bb175 =
     [ "CoalescedMemoryAccessCompositeTensorsView.ixx", "_coalesced_memory_access_composite_tensors_view_8ixx.html", null ],
     [ "CoalescedMemoryAccessTensorView.hxx", "_coalesced_memory_access_tensor_view_8hxx.html", "_coalesced_memory_access_tensor_view_8hxx" ],
     [ "CoalescedMemoryAccessTensorView.ixx", "_coalesced_memory_access_tensor_view_8ixx.html", null ],
+    [ "DataView.hxx", "_data_view_8hxx.html", "_data_view_8hxx" ],
+    [ "General.hxx", "_general_8hxx.html", null ],
     [ "MechanicalOperations.hxx", "_mechanical_operations_8hxx.html", "_mechanical_operations_8hxx" ],
     [ "Mechanics.hxx", "_mechanics_8hxx.html", "_mechanics_8hxx" ],
     [ "Mechanics.ixx", "_mechanics_8ixx.html", "_mechanics_8ixx" ],

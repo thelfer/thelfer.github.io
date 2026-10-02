@@ -107,6 +107,7 @@ var hierarchy =
     [ "mgis::Context::FailureHandler< policy >", "structmgis_1_1_context_1_1_failure_handler.html", null ],
     [ "std::false_type", null, [
       [ "mgis::function::LightweightViewTraits< FunctionType >", "structmgis_1_1function_1_1_lightweight_view_traits.html", null ],
+      [ "mgis::function::internals::IsDataView< T >", "structmgis_1_1function_1_1internals_1_1_is_data_view.html", null ],
       [ "mgis::function::internals::IsTensor< T >", "structmgis_1_1function_1_1internals_1_1_is_tensor.html", null ]
     ] ],
     [ "mgis::behaviour::FiniteStrainBehaviourOptions", "structmgis_1_1behaviour_1_1_finite_strain_behaviour_options.html", null ],
@@ -333,6 +334,9 @@ var hierarchy =
       [ "mgis::function::LightweightViewTraits< FunctionView< Space, layout, is_mutable > >", "structmgis_1_1function_1_1_lightweight_view_traits_3_01_function_view_3_01_space_00_01layout_00_01is__mutable_01_4_01_4.html", null ],
       [ "mgis::function::LightweightViewTraits< QuantityView< FunctionType, UnitType > >", "structmgis_1_1function_1_1_lightweight_view_traits_3_01_quantity_view_3_01_function_type_00_01_unit_type_01_4_01_4.html", null ],
       [ "mgis::function::LightweightViewTraits< TensorView< FunctionType, TensorType > >", "structmgis_1_1function_1_1_lightweight_view_traits_3_01_tensor_view_3_01_function_type_00_01_tensor_type_01_4_01_4.html", null ],
+      [ "mgis::function::internals::IsDataView<::std::span< T, Extent > >", "structmgis_1_1function_1_1internals_1_1_is_data_view_3_1_1std_1_1span_3_01_t_00_01_extent_01_4_01_4.html", null ],
+      [ "mgis::function::internals::IsDataView<::tfel::math::CoalescedView< MappedType, IndexingPolicyType > >", "structmgis_1_1function_1_1internals_1_1_is_data_view_3_1_1tfel_1_1math_1_1_coalesced_view_3_01_m7d1e1045fe0b15857b0f97b624ef238e.html", null ],
+      [ "mgis::function::internals::IsDataView<::tfel::math::View< MappedType, IndexingPolicyType > >", "structmgis_1_1function_1_1internals_1_1_is_data_view_3_1_1tfel_1_1math_1_1_view_3_01_mapped_typeeec4aaae2f34ecd81aad33dcb7186bd3.html", null ],
       [ "mgis::function::internals::IsTensor< tfel::math::fsarray< N, ValueType > >", "structmgis_1_1function_1_1internals_1_1_is_tensor_3_01tfel_1_1math_1_1fsarray_3_01_n_00_01_value_type_01_4_01_4.html", null ],
       [ "mgis::function::internals::IsTensor< tfel::math::st2tost2< N, ValueType > >", "structmgis_1_1function_1_1internals_1_1_is_tensor_3_01tfel_1_1math_1_1st2tost2_3_01_n_00_01_value_type_01_4_01_4.html", null ],
       [ "mgis::function::internals::IsTensor< tfel::math::st2tot2< N, ValueType > >", "structmgis_1_1function_1_1internals_1_1_is_tensor_3_01tfel_1_1math_1_1st2tot2_3_01_n_00_01_value_type_01_4_01_4.html", null ],

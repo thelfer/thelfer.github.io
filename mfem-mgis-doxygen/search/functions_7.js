@@ -7,5 +7,6 @@ var searchData=
   ['hasinternalstatevariableprovider_4',['hasInternalStateVariableProvider',['../namespacemfem__mgis.html#a917bb22db61c95579a8464346a328b20',1,'mfem_mgis']]],
   ['hasmaterial_5',['hasmaterial',['../structmfem__mgis_1_1_abstract_behaviour_integrator.html#aca5fe85b4af037ece000a1ccb5f00b3e',1,'mfem_mgis::AbstractBehaviourIntegrator::hasMaterial()'],['../structmfem__mgis_1_1_behaviour_integrator_base.html#a3d1e581975b68c5dba21970a8903e451',1,'mfem_mgis::BehaviourIntegratorBase::hasMaterial()']]],
   ['hasprovider_6',['hasProvider',['../structmfem__mgis_1_1_dependency_base.html#ac18907f2ea1f47616f7a5f9614049795',1,'mfem_mgis::DependencyBase']]],
-  ['hasthermodynamicforceprovider_7',['hasThermodynamicForceProvider',['../namespacemfem__mgis.html#a373f6395fda1b1b541b5a61fc3d952a2',1,'mfem_mgis']]]
+  ['hasthermodynamicforceprovider_7',['hasThermodynamicForceProvider',['../namespacemfem__mgis.html#a373f6395fda1b1b541b5a61fc3d952a2',1,'mfem_mgis']]],
+  ['havesamethermodynamicforces_8',['haveSameThermodynamicForces',['../_non_linear_evolution_problem_implementation_8ixx.html#a7772c0dd5e42f008e119cbbecd434cf3',1,'mfem_mgis::internals']]]
 ];

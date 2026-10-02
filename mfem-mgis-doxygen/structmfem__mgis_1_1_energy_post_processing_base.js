@@ -5,5 +5,6 @@ var structmfem__mgis_1_1_energy_post_processing_base =
     [ "computeEnergies", "structmfem__mgis_1_1_energy_post_processing_base.html#a221a08dcca3046190bc4a5a7e331d1f1", null ],
     [ "execute", "structmfem__mgis_1_1_energy_post_processing_base.html#a15f62593932016c13143fea8376a45f5", null ],
     [ "executeInitialPostProcessing", "structmfem__mgis_1_1_energy_post_processing_base.html#acf37f2111e2aba6b0618010e64ba154c", null ],
+    [ "behaviour_integrators", "structmfem__mgis_1_1_energy_post_processing_base.html#a14d5e7c325e4e21b34d4306c7fd3f0e3", null ],
     [ "materials_identifiers", "structmfem__mgis_1_1_energy_post_processing_base.html#a98f9deac8ce5419a05b82fcf486122f4", null ]
 ];

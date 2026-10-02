@@ -28,6 +28,7 @@ var annotated_dup =
       [ "AbstractTimeStepValidator", "structmfem__mgis_1_1_abstract_time_step_validator.html", "structmfem__mgis_1_1_abstract_time_step_validator" ],
       [ "BehaviourIntegratorBase", "structmfem__mgis_1_1_behaviour_integrator_base.html", "structmfem__mgis_1_1_behaviour_integrator_base" ],
       [ "BehaviourIntegratorFactory", "structmfem__mgis_1_1_behaviour_integrator_factory.html", "structmfem__mgis_1_1_behaviour_integrator_factory" ],
+      [ "BehaviourIntegratorsSelection", "structmfem__mgis_1_1_behaviour_integrators_selection.html", "structmfem__mgis_1_1_behaviour_integrators_selection" ],
       [ "BehaviourIntegratorTraits", "structmfem__mgis_1_1_behaviour_integrator_traits.html", null ],
       [ "BehaviourIntegratorTraits< FBarIsotropicPlaneStrainBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_f_bar_isotropic_plane_strain_behaviour_integrator_01_4.html", null ],
       [ "BehaviourIntegratorTraits< FBarIsotropicTridimensionalBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_f_bar_isotropic_tridimensional_behaviour_integrator_01_4.html", null ],

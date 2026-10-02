@@ -174,6 +174,7 @@ var hierarchy =
     [ "mfem_mgis::ParametersValidator::AddArguments", "structmfem__mgis_1_1_parameters_validator_1_1_add_arguments.html", null ],
     [ "mfem_mgis::MeshDiscretization::AttributesList", "structmfem__mgis_1_1_mesh_discretization_1_1_attributes_list.html", null ],
     [ "mfem_mgis::BehaviourIntegratorFactory", "structmfem__mgis_1_1_behaviour_integrator_factory.html", null ],
+    [ "mfem_mgis::BehaviourIntegratorsSelection", "structmfem__mgis_1_1_behaviour_integrators_selection.html", null ],
     [ "mfem_mgis::BehaviourIntegratorTraits< BehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits.html", null ],
     [ "mfem_mgis::BehaviourIntegratorTraits< FBarIsotropicPlaneStrainBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_f_bar_isotropic_plane_strain_behaviour_integrator_01_4.html", null ],
     [ "mfem_mgis::BehaviourIntegratorTraits< FBarIsotropicTridimensionalBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_f_bar_isotropic_tridimensional_behaviour_integrator_01_4.html", null ],

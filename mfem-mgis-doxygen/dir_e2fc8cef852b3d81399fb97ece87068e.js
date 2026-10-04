@@ -6,6 +6,7 @@ var dir_e2fc8cef852b3d81399fb97ece87068e =
     [ "CurvesWriter.hxx", "_curves_writer_8hxx.html", "_curves_writer_8hxx" ],
     [ "GridFunctionValuesCurve.hxx", "_grid_function_values_curve_8hxx.html", "_grid_function_values_curve_8hxx" ],
     [ "MultipleCurves.hxx", "_multiple_curves_8hxx.html", "_multiple_curves_8hxx" ],
+    [ "NonLinearEvolutionProblemPostProcessingBase.hxx", "_non_linear_evolution_problem_post_processing_base_8hxx.html", "_non_linear_evolution_problem_post_processing_base_8hxx" ],
     [ "PointsSetCurves.hxx", "_points_set_curves_8hxx.html", "_points_set_curves_8hxx" ],
     [ "PointsSetCurvesPostProcessing.hxx", "_points_set_curves_post_processing_8hxx.html", "_points_set_curves_post_processing_8hxx" ],
     [ "PointsSetCurvesWriter.hxx", "_points_set_curves_writer_8hxx.html", "_points_set_curves_writer_8hxx" ],

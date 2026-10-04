@@ -126,20 +126,17 @@ var hierarchy =
       ] ]
     ] ],
     [ "mfem_mgis::AbstractNonLinearEvolutionProblemPostProcessing< parallel >", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem_post_processing.html", [
-      [ "mfem_mgis::EnergyPostProcessingBase< parallel >", "structmfem__mgis_1_1_energy_post_processing_base.html", [
-        [ "mfem_mgis::DissipatedEnergyPostProcessing< parallel >", "structmfem__mgis_1_1_dissipated_energy_post_processing.html", null ],
-        [ "mfem_mgis::StoredEnergyPostProcessing< parallel >", "structmfem__mgis_1_1_stored_energy_post_processing.html", null ]
-      ] ],
-      [ "mfem_mgis::MeanThermodynamicForces< parallel >", "structmfem__mgis_1_1_mean_thermodynamic_forces.html", null ],
-      [ "mfem_mgis::ParaviewExportIntegrationPointPostProcessingsResultsAtNodes< parallel >", "structmfem__mgis_1_1_paraview_export_integration_point_post_processings_results_at_nodes.html", null ],
-      [ "mfem_mgis::ParaviewExportIntegrationPointResultsAtNodesImplementation< parallel >", "structmfem__mgis_1_1_paraview_export_integration_point_results_at_nodes_implementation.html", null ],
-      [ "mfem_mgis::ParaviewExportResults< parallel >", "structmfem__mgis_1_1_paraview_export_results.html", null ]
+      [ "mfem_mgis::ParaviewExportIntegrationPointPostProcessingsResultsAtNodes< parallel >", "structmfem__mgis_1_1_paraview_export_integration_point_post_processings_results_at_nodes.html", null ]
     ] ],
     [ "mfem_mgis::AbstractNonLinearEvolutionProblemPostProcessing< false >", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem_post_processing_3_01false_01_4.html", [
-      [ "mfem_mgis::ComputeResultantForceOnBoundary< false >", "structmfem__mgis_1_1_compute_resultant_force_on_boundary_3_01false_01_4.html", null ]
+      [ "mfem_mgis::NonLinearEvolutionProblemPostProcessingBase< false >", "structmfem__mgis_1_1_non_linear_evolution_problem_post_processing_base_3_01false_01_4.html", [
+        [ "mfem_mgis::ComputeResultantForceOnBoundary< false >", "structmfem__mgis_1_1_compute_resultant_force_on_boundary_3_01false_01_4.html", null ]
+      ] ]
     ] ],
     [ "mfem_mgis::AbstractNonLinearEvolutionProblemPostProcessing< true >", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem_post_processing_3_01true_01_4.html", [
-      [ "mfem_mgis::ComputeResultantForceOnBoundary< true >", "structmfem__mgis_1_1_compute_resultant_force_on_boundary_3_01true_01_4.html", null ]
+      [ "mfem_mgis::NonLinearEvolutionProblemPostProcessingBase< true >", "structmfem__mgis_1_1_non_linear_evolution_problem_post_processing_base_3_01true_01_4.html", [
+        [ "mfem_mgis::ComputeResultantForceOnBoundary< true >", "structmfem__mgis_1_1_compute_resultant_force_on_boundary_3_01true_01_4.html", null ]
+      ] ]
     ] ],
     [ "mfem_mgis::AbstractNonLinearSolverGenerator", "structmfem__mgis_1_1_abstract_non_linear_solver_generator.html", [
       [ "mfem_mgis::StandardNonLinearSolverGenerator< SolverType >", "structmfem__mgis_1_1_standard_non_linear_solver_generator.html", null ]
@@ -261,6 +258,15 @@ var hierarchy =
       [ "mfem_mgis::FiniteElementDiscretization", "structmfem__mgis_1_1_finite_element_discretization.html", null ]
     ] ],
     [ "mfem_mgis::NonLinearEvolutionProblemImplementation< parallel >", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation.html", null ],
+    [ "mfem_mgis::NonLinearEvolutionProblemPostProcessingBase< parallel >", "structmfem__mgis_1_1_non_linear_evolution_problem_post_processing_base.html", [
+      [ "mfem_mgis::EnergyPostProcessingBase< parallel >", "structmfem__mgis_1_1_energy_post_processing_base.html", [
+        [ "mfem_mgis::DissipatedEnergyPostProcessing< parallel >", "structmfem__mgis_1_1_dissipated_energy_post_processing.html", null ],
+        [ "mfem_mgis::StoredEnergyPostProcessing< parallel >", "structmfem__mgis_1_1_stored_energy_post_processing.html", null ]
+      ] ],
+      [ "mfem_mgis::MeanThermodynamicForces< parallel >", "structmfem__mgis_1_1_mean_thermodynamic_forces.html", null ],
+      [ "mfem_mgis::ParaviewExportIntegrationPointResultsAtNodesImplementation< parallel >", "structmfem__mgis_1_1_paraview_export_integration_point_results_at_nodes_implementation.html", null ],
+      [ "mfem_mgis::ParaviewExportResults< parallel >", "structmfem__mgis_1_1_paraview_export_results.html", null ]
+    ] ],
     [ "NonlinearForm", null, [
       [ "mfem_mgis::NonLinearEvolutionProblemImplementation< false >", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01false_01_4.html", null ],
       [ "mfem_mgis::NonLinearEvolutionProblemImplementation< true >", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01true_01_4.html", null ]

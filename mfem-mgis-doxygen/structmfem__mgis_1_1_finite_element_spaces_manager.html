@@ -116,7 +116,7 @@ $(document).ready(function(){initNavTree('structmfem__mgis_1_1_finite_element_sp
 </div><!--header-->
 <div class="contents">
 
-<p>This class manages similar finite element spaces, denoted as siblings. They share the same finite element collection and are defined on the same mesh or on one of its submeshes, but may have different vectorial dimensions.  
+<p>This class manages similar finite element spaces, denoted as siblings. They share the same finite element collection and are defined on the same mesh or on one of its submeshes, but may have different vectorial dimensions. The degrees of freedom of all those finite element spaces are ordered in the same way (see the <code>FiniteElementSpaceOrdering</code> parameter).  
  <a href="structmfem__mgis_1_1_finite_element_spaces_manager.html#details">More...</a></p>
 
 <p><code>#include &lt;/home/runner/work/mfem-mgis/mfem-mgis/include/MFEMMGIS/FiniteElementSpacesManager.hxx&gt;</code></p>
@@ -188,9 +188,12 @@ static const char *const&#160;</td><td class="memItemRight" valign="bottom"><b>F
 static const char *const&#160;</td><td class="memItemRight" valign="bottom"><b>FiniteElementOrder</b></td></tr>
 <tr class="memdesc:a97d07ba29190599fb2d0992c18574022"><td class="mdescLeft">&#160;</td><td class="mdescRight">string associated to the <code>FiniteElementOrder</code> parameter <br /></td></tr>
 <tr class="separator:a97d07ba29190599fb2d0992c18574022"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d83d5bf573af6d83de2e8c1dd945b68" id="r_a7d83d5bf573af6d83de2e8c1dd945b68"><td class="memItemLeft" align="right" valign="top">static const char *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_finite_element_spaces_manager.html#a7d83d5bf573af6d83de2e8c1dd945b68">FiniteElementSpaceOrdering</a></td></tr>
+<tr class="memdesc:a7d83d5bf573af6d83de2e8c1dd945b68"><td class="mdescLeft">&#160;</td><td class="mdescRight">string associated to the <code>FiniteElementSpaceOrdering</code> parameter  <br /></td></tr>
+<tr class="separator:a7d83d5bf573af6d83de2e8c1dd945b68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This class manages similar finite element spaces, denoted as siblings. They share the same finite element collection and are defined on the same mesh or on one of its submeshes, but may have different vectorial dimensions. </p>
+<div class="textblock"><p>This class manages similar finite element spaces, denoted as siblings. They share the same finite element collection and are defined on the same mesh or on one of its submeshes, but may have different vectorial dimensions. The degrees of freedom of all those finite element spaces are ordered in the same way (see the <code>FiniteElementSpaceOrdering</code> parameter). </p>
 <p>This class is designed to be lightweight, movable and copyable </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aab37af39ad178bd6bb4d4a2f33846fbe" name="aab37af39ad178bd6bb4d4a2f33846fbe"></a>
@@ -311,10 +314,11 @@ static const char *const&#160;</td><td class="memItemRight" valign="bottom"><b>F
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">ctx</td><td>execution context </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">m</td><td>mesh discretization </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">c</td><td>finite element collection </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">c</td><td>finite element collection</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>the degrees of freedom are ordered by nodes (<code>byNODES</code>) </dd></dl>
 
 </div>
 </div>
@@ -367,7 +371,7 @@ static const char *const&#160;</td><td class="memItemRight" valign="bottom"><b>F
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the list of parameters allowing to build a finite element collection.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the list of parameters allowing to build a finite element collection and to select the ordering of the degrees of freedom of the finite element spaces.</dd></dl>
 <p>Those parameters are used when the mesh discretization is already built. </p>
 
 </div>
@@ -678,6 +682,37 @@ template&lt;bool parallel&gt; </div>
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a7d83d5bf573af6d83de2e8c1dd945b68" name="a7d83d5bf573af6d83de2e8c1dd945b68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d83d5bf573af6d83de2e8c1dd945b68">&#9670;&#160;</a></span>FiniteElementSpaceOrdering</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* const mfem_mgis::FiniteElementSpacesManager::FiniteElementSpaceOrdering</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>string associated to the <code>FiniteElementSpaceOrdering</code> parameter </p>
+<p>This parameter selects the ordering of the degrees of freedom of the finite element spaces:</p>
+<ul>
+<li><code>byNODES</code> (default): all the values of the first component, then all the values of the second component, etc. (<code>XX...YY...ZZ...</code>).</li>
+<li><code>byVDIM</code>: all the components of the first node, then all the components of the second node, etc. (<code>XYZXYZ...</code>).</li>
+</ul>
+<dl class="section note"><dt>Note</dt><dd>the <code>Elasticity</code> strategy of the <code>HypreBoomerAMG</code> preconditioner requires the <code>byVDIM</code> ordering. </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following files:<ul>
 <li><a class="el" href="_finite_element_spaces_manager_8hxx.html">FiniteElementSpacesManager.hxx</a></li>
 <li><a class="el" href="_finite_element_spaces_manager_8ixx.html">FiniteElementSpacesManager.ixx</a></li>
@@ -688,7 +723,7 @@ template&lt;bool parallel&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemfem__mgis.html">mfem_mgis</a></li><li class="navelem"><a class="el" href="structmfem__mgis_1_1_finite_element_spaces_manager.html">FiniteElementSpacesManager</a></li>
-    <li class="footer">Generated on Mon Oct 5 2026 07:50:12 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Oct 6 2026 14:27:55 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

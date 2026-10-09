@@ -1,6 +1,7 @@
 var _microstructure_linear_homogenization_8ixx =
 [
-    [ "computeDilute", "_microstructure_linear_homogenization_8ixx.html#aa8ad7bb64a820753f103fe3c6cda2719", null ],
-    [ "computeMoriTanaka", "_microstructure_linear_homogenization_8ixx.html#a836db63426659db4058d276d011c7564", null ],
-    [ "computeSelfConsistent", "_microstructure_linear_homogenization_8ixx.html#aa0211f20b0d0b9df42ea6c9f6e195206", null ]
+    [ "computeAsymmetricSelfConsistent", "_microstructure_linear_homogenization_8ixx.html#a3b58593775f52c3049153bca3a45016d", null ],
+    [ "computeDilute", "_microstructure_linear_homogenization_8ixx.html#abea331833191af402c87b9def93f39be", null ],
+    [ "computeMoriTanaka", "_microstructure_linear_homogenization_8ixx.html#a9c9faa21be4432db204b0b7ee136aa3d", null ],
+    [ "computeSelfConsistent", "_microstructure_linear_homogenization_8ixx.html#a4e70b0832fab110f89b3da66bf5d67a0", null ]
 ];

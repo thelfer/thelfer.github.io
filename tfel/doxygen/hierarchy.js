@@ -2625,9 +2625,6 @@ var hierarchy =
     [ "tfel::material::homogenization::elasticity::Microstructure< N, StressType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_microstructure.html", [
       [ "tfel::material::homogenization::elasticity::ParticulateMicrostructure< N, StressType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_particulate_microstructure.html", null ]
     ] ],
-    [ "tfel::material::homogenization::elasticity::Microstructure< 3u, StressType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_microstructure.html", [
-      [ "tfel::material::homogenization::elasticity::Polycrystal< StressType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_polycrystal.html", null ]
-    ] ],
     [ "tfel::fsalgo::min_element< N >", "structtfel_1_1fsalgo_1_1min__element.html", null ],
     [ "tfel::fsalgo::min_element< 0u >", "structtfel_1_1fsalgo_1_1min__element_3_010u_01_4.html", null ],
     [ "tfel::fsalgo::min_element< 1u >", "structtfel_1_1fsalgo_1_1min__element_3_011u_01_4.html", null ],
@@ -2779,9 +2776,7 @@ var hierarchy =
     [ "tfel::material::homogenization::elasticity::Phase< N, StressType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_phase.html", [
       [ "tfel::material::homogenization::elasticity::InclusionDistribution< 3u, StressType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_inclusion_distribution.html", [
         [ "tfel::material::homogenization::elasticity::IsotropicDistribution< StressType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_isotropic_distribution.html", null ],
-        [ "tfel::material::homogenization::elasticity::OrientedDistribution< StressType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_oriented_distribution.html", [
-          [ "tfel::material::homogenization::elasticity::Grain< StressType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_grain.html", null ]
-        ] ],
+        [ "tfel::material::homogenization::elasticity::OrientedDistribution< StressType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_oriented_distribution.html", null ],
         [ "tfel::material::homogenization::elasticity::SphereDistribution< StressType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_sphere_distribution.html", null ],
         [ "tfel::material::homogenization::elasticity::TransverseIsotropicDistribution< StressType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_transverse_isotropic_distribution.html", null ],
         [ "tfel::material::homogenization::elasticity::UserDefinedDistributionOfSpheroids< StressType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_user_defined_distribution_of_spheroids.html", null ]

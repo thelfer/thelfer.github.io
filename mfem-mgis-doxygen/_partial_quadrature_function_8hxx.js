@@ -25,14 +25,8 @@ var _partial_quadrature_function_8hxx =
     [ "update", "_partial_quadrature_function_8hxx.html#acb86729d2c6aaff81529ac8496f47b97", null ],
     [ "update", "_partial_quadrature_function_8hxx.html#adc9dc23ba67e96a85e6961d929258eb8", null ],
     [ "updateGridFunction", "_partial_quadrature_function_8hxx.html#a1c5af1e960b59988d2700962bd6e7597", null ],
-    [ "updateGridFunction", "_partial_quadrature_function_8hxx.html#af7d4cd7348a8d145ba9864474d3cd23f", null ],
-    [ "updateGridFunction", "_partial_quadrature_function_8hxx.html#af95feb9ee57e5c42a4881006f95ff853", null ],
     [ "updateGridFunction< false >", "_partial_quadrature_function_8hxx.html#a7638bbc7c97717084f4200f10eebb299", null ],
-    [ "updateGridFunction< false >", "_partial_quadrature_function_8hxx.html#ae24e6c8b74b0fd2ec8587cc640d4764d", null ],
-    [ "updateGridFunction< false >", "_partial_quadrature_function_8hxx.html#a65bcb390b93417a018f1ef7bb0e57930", null ],
     [ "updateGridFunction< true >", "_partial_quadrature_function_8hxx.html#a9e545e768ce7c9c4a3f378424c6598e1", null ],
-    [ "updateGridFunction< true >", "_partial_quadrature_function_8hxx.html#a763b91e202c0922d039aef6f4dda4d43", null ],
-    [ "updateGridFunction< true >", "_partial_quadrature_function_8hxx.html#aa30bc00b249212f48b959320d9efeab0", null ],
     [ "view", "_partial_quadrature_function_8hxx.html#a1290ec34ed8a42fbc8102836c1b85922", null ],
     [ "view", "_partial_quadrature_function_8hxx.html#a67128e60aa5bffe5fbb4dee908ed331d", null ]
 ];

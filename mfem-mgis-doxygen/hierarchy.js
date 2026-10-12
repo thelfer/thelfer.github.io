@@ -209,6 +209,7 @@ var hierarchy =
     [ "mfem_mgis::DependencyBase", "structmfem__mgis_1_1_dependency_base.html", [
       [ "mfem_mgis::QPDependency", "structmfem__mgis_1_1_q_p_dependency.html", null ]
     ] ],
+    [ "mfem_mgis::ElementsMapping", "structmfem__mgis_1_1_elements_mapping.html", null ],
     [ "mfem_mgis::ExitStatus", "structmfem__mgis_1_1_exit_status.html", null ],
     [ "mfem_mgis::ParaviewExportIntegrationPointResultsAtNodesBase::ExportedFunctionsDescription", "structmfem__mgis_1_1_paraview_export_integration_point_results_at_nodes_base_1_1_exported_functions_description.html", null ],
     [ "Faltus2026RegularizedIsotropicBehaviourIntegratorBase", null, [

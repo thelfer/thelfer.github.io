@@ -71,6 +71,7 @@ var annotated_dup =
       [ "DependencyBase", "structmfem__mgis_1_1_dependency_base.html", "structmfem__mgis_1_1_dependency_base" ],
       [ "DirichletBoundaryConditionBase", "structmfem__mgis_1_1_dirichlet_boundary_condition_base.html", "structmfem__mgis_1_1_dirichlet_boundary_condition_base" ],
       [ "DissipatedEnergyPostProcessing", "structmfem__mgis_1_1_dissipated_energy_post_processing.html", "structmfem__mgis_1_1_dissipated_energy_post_processing" ],
+      [ "ElementsMapping", "structmfem__mgis_1_1_elements_mapping.html", "structmfem__mgis_1_1_elements_mapping" ],
       [ "EnergyPostProcessingBase", "structmfem__mgis_1_1_energy_post_processing_base.html", "structmfem__mgis_1_1_energy_post_processing_base" ],
       [ "ExitStatus", "structmfem__mgis_1_1_exit_status.html", "structmfem__mgis_1_1_exit_status" ],
       [ "Faltus2026RegularizedIsotropicBehaviourIntegrator", "structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator.html", "structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator" ],

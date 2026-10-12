@@ -1,5 +1,6 @@
 var _mesh_discretization_8hxx =
 [
+    [ "mfem_mgis::ElementsMapping", "structmfem__mgis_1_1_elements_mapping.html", "structmfem__mgis_1_1_elements_mapping" ],
     [ "mfem_mgis::MeshDiscretization", "structmfem__mgis_1_1_mesh_discretization.html", "structmfem__mgis_1_1_mesh_discretization" ],
     [ "mfem_mgis::MeshDiscretization::AttributesList", "structmfem__mgis_1_1_mesh_discretization_1_1_attributes_list.html", "structmfem__mgis_1_1_mesh_discretization_1_1_attributes_list" ],
     [ "mfem_mgis::MeshDiscretization::RawLocationIdentifier< Location >", "structmfem__mgis_1_1_mesh_discretization_1_1_raw_location_identifier.html", "structmfem__mgis_1_1_mesh_discretization_1_1_raw_location_identifier" ],
@@ -12,6 +13,9 @@ var _mesh_discretization_8hxx =
     [ "getBoundariesAttributes", "_mesh_discretization_8hxx.html#ad9f2a526429cb58c2b272d1c02db43ca", null ],
     [ "getBoundariesIdentifiers", "_mesh_discretization_8hxx.html#a8c3e95883f87cc2e3f247b75a9337f84", null ],
     [ "getInformation< MeshDiscretization >", "_mesh_discretization_8hxx.html#a3739eb221457e71570f41afe8de7f755", null ],
+    [ "getInverseMapping", "_mesh_discretization_8hxx.html#a1213bbabc2f23413613bd9b92ae9357d", null ],
+    [ "getLocationDescription", "_mesh_discretization_8hxx.html#a2ecdb79cb07ecc9837ff525768880b78", null ],
+    [ "getLocationDescription", "_mesh_discretization_8hxx.html#a47b0ce3d6af240a84358c7bfd90081aa", null ],
     [ "getMaterialsAttributes", "_mesh_discretization_8hxx.html#a92bf72a207c29e4a4e4532bfcf8c2f84", null ],
     [ "getMaterialsIdentifiers", "_mesh_discretization_8hxx.html#a6cbb40a791a75ac665559e08053a27da", null ],
     [ "getMPICommunicator", "_mesh_discretization_8hxx.html#abd3211b3f56564443851635e4b747324", null ],

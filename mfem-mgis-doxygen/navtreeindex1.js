@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"_l2_projection_8hxx.html#ac230a765cc9f5ccf8fff5583cf68af11":[4,0,0,0,75,5],
 "_l2_projection_8hxx.html#add3b866cb1b2cea2b14c58ca86a2751c":[4,0,0,0,75,4],
 "_l2_projection_8hxx.html#af40c446f462999002ee8572b07b525ae":[4,0,0,0,75,1],
 "_l2_projection_8hxx.html#afc9c4f063958a6260a629fa4da04f933":[4,0,0,0,75,6],
@@ -93,6 +94,7 @@ var NAVTREEINDEX1 =
 "_mesh_discretization_8hxx.html#a47b0ce3d6af240a84358c7bfd90081aa":[4,0,0,0,85,15],
 "_mesh_discretization_8hxx.html#a4b54d45ed80db41105d38e4f75f3fd74":[4,0,0,0,85,9],
 "_mesh_discretization_8hxx.html#a4e7655a8b86760b849364a8bc47ce72f":[4,0,0,0,85,24],
+"_mesh_discretization_8hxx.html#a5580c443d31f4b5fbb331ef3acfcfb8f":[4,0,0,0,85,33],
 "_mesh_discretization_8hxx.html#a5e096616306d16811bd29d24228e6812":[4,0,0,0,85,22],
 "_mesh_discretization_8hxx.html#a60944b7fa164f7ca027c9fc792c1d429":[4,0,0,0,85,25],
 "_mesh_discretization_8hxx.html#a6cbb40a791a75ac665559e08053a27da":[4,0,0,0,85,17],
@@ -247,7 +249,5 @@ var NAVTREEINDEX1 =
 "_partial_quadrature_space_8hxx.html#aad36f93d95c051d2f171b2fb1e9bfb8c":[4,0,0,0,120,6],
 "_partial_quadrature_space_8ixx.html":[4,0,0,0,121],
 "_partial_quadrature_space_identifiers_manager_8hxx.html":[4,0,0,0,122],
-"_periodic_non_linear_evolution_problem_8hxx.html":[4,0,0,0,123],
-"_periodic_non_linear_evolution_problem_8hxx.html#a030b8dea423e7a08ad069fc091b23901":[4,0,0,0,123,5],
-"_periodic_non_linear_evolution_problem_8hxx.html#a0e640046145d86147c3a526fa0c20d06":[4,0,0,0,123,4]
+"_periodic_non_linear_evolution_problem_8hxx.html":[4,0,0,0,123]
 };

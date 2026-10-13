@@ -532,6 +532,8 @@ var namespacemfem__mgis =
     [ "setSolverParameters", "namespacemfem__mgis.html#ab30a3d9e169fd01d3ff20d8ff1006ed8", null ],
     [ "setSolverParameters", "namespacemfem__mgis.html#a1aa73ee9241bc427ac1e06bd967891ce", null ],
     [ "synchronize", "namespacemfem__mgis.html#a818ab549d4e10897430bdbf67afb0fb5", null ],
+    [ "synchronize", "namespacemfem__mgis.html#a5580c443d31f4b5fbb331ef3acfcfb8f", null ],
+    [ "synchronize", "namespacemfem__mgis.html#a150dc3fa5bcc62be3e44928e1a93b029", null ],
     [ "synchronize", "namespacemfem__mgis.html#aad36f93d95c051d2f171b2fb1e9bfb8c", null ],
     [ "toString", "namespacemfem__mgis.html#a54df1bf79d9a2c606ee7aef0fa5e9b75", null ],
     [ "toString< 2 >", "namespacemfem__mgis.html#afdf4e74637244885d18c786d11eed571", null ],

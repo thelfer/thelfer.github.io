@@ -24,6 +24,7 @@ var _config_8hxx =
     [ "raise_if", "_config_8hxx.html#a3a0c22d90b78d3b12edb1aba5bfb65c6", null ],
     [ "reportUnsupportedParallelComputations", "_config_8hxx.html#afed1fe6aa5515193e3f6f09ad0d65b35", null ],
     [ "setPETSc", "_config_8hxx.html#a7ebd13f7a04b3b88e4e0b84ec9e38e20", null ],
+    [ "synchronize", "_config_8hxx.html#a150dc3fa5bcc62be3e44928e1a93b029", null ],
     [ "usePETSc", "_config_8hxx.html#a2ff7adfdf020de05197c6479a2dc243b", null ],
     [ "dynamic_extent", "_config_8hxx.html#a0a1c65429884ef0585a525f70f54cb85", null ],
     [ "may_abort", "_config_8hxx.html#a62968ac46d7dc89372462352cc2c622b", null ],

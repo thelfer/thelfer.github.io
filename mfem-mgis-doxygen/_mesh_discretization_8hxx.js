@@ -32,5 +32,6 @@ var _mesh_discretization_8hxx =
     [ "makePointsSet< 2 >", "_mesh_discretization_8hxx.html#af26b4bf14d0cb5db301d972b65bf2728", null ],
     [ "makePointsSet< 3 >", "_mesh_discretization_8hxx.html#ae8bef568286927b8a9922ea583e5aba1", null ],
     [ "operator!=", "_mesh_discretization_8hxx.html#a3fc9f69a58262c4e3fee83b361250b07", null ],
-    [ "operator==", "_mesh_discretization_8hxx.html#abb19e7876d5afcb5dceaaa4cbfac5737", null ]
+    [ "operator==", "_mesh_discretization_8hxx.html#abb19e7876d5afcb5dceaaa4cbfac5737", null ],
+    [ "synchronize", "_mesh_discretization_8hxx.html#a5580c443d31f4b5fbb331ef3acfcfb8f", null ]
 ];

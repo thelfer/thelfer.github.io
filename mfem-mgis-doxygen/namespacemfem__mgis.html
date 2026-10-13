@@ -2640,8 +2640,11 @@ template&lt;QPEvaluatorConcept QPEvaluatorType&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true on success, false on failure</dd></dl>
-<dl class="section pre"><dt>Precondition</dt><dd>both views must have the same number of components. </dd></dl>
-<dl class="section note"><dt>Note</dt><dd>partial quadrature spaces of the views may be different, we only require them to have the same location and the same size. The elements of both spaces must however be numbered in the same way, which is not the case for a boundary seen from the whole mesh and from a submesh, see <code><a class="el" href="structmfem__mgis_1_1_mesh_discretization.html#a8bc57081cbeb867cdb0cfe2e07dc169f">MeshDiscretization::getElementsMapping</a></code>. </dd></dl>
+<p>Both views must be defined on the same mesh discretization and on the same location, and must have the same number of components. Their partial quadrature spaces may be different:</p>
+<ul>
+<li>if both spaces are built on the same mesh, they must have the same size, and the values are copied in the order of the integration points.</li>
+<li>if the spaces are built on different meshes of the mesh discretization (the whole mesh, a submesh of materials or a submesh of boundaries), the values are copied element by element, using <code><a class="el" href="structmfem__mgis_1_1_mesh_discretization.html#a8bc57081cbeb867cdb0cfe2e07dc169f">MeshDiscretization::getElementsMapping</a></code>. Matching elements must have the same number of integration points. The copy fails if <code>getElementsMapping</code> fails, e.g. for boundary elements of a submesh of materials not oriented as in the whole mesh. In parallel, this case is collective. </li>
+</ul>
 
 </div>
 </div>
@@ -13905,7 +13908,7 @@ template&lt;bool parallel&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemfem__mgis.html">mfem_mgis</a></li>
-    <li class="footer">Generated on Mon Oct 12 2026 18:48:48 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Oct 13 2026 05:57:24 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

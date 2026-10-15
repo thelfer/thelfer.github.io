@@ -11,6 +11,7 @@ var structmfem__mgis_1_1_behaviour_integrator_base =
     [ "getMaterial", "structmfem__mgis_1_1_behaviour_integrator_base.html#a8aa825b48046b2d66af2611459abb758", null ],
     [ "getMaterial", "structmfem__mgis_1_1_behaviour_integrator_base.html#a7bce2299f4db9ddec1952bf928832cfb", null ],
     [ "getPartialQuadratureSpace", "structmfem__mgis_1_1_behaviour_integrator_base.html#a2b852fc4b323f2697f019895902b7f74", null ],
+    [ "getPartialQuadratureSpacePointer", "structmfem__mgis_1_1_behaviour_integrator_base.html#a07378f77969b76143f9b9405eeac4ce8", null ],
     [ "getTimeIncrement", "structmfem__mgis_1_1_behaviour_integrator_base.html#a2a39193d8f781c65e38765c463b6390a", null ],
     [ "hasMaterial", "structmfem__mgis_1_1_behaviour_integrator_base.html#a3d1e581975b68c5dba21970a8903e451", null ],
     [ "performsLocalBehaviourIntegration", "structmfem__mgis_1_1_behaviour_integrator_base.html#a86dd6f965189c730a0ba97c0ef79ec8a", null ],

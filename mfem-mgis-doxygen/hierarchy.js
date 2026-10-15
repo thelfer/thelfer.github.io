@@ -285,10 +285,7 @@ var hierarchy =
     [ "mfem_mgis::ParaviewExportIntegrationPointResultsAtNodesBase", "structmfem__mgis_1_1_paraview_export_integration_point_results_at_nodes_base.html", [
       [ "mfem_mgis::ParaviewExportIntegrationPointResultsAtNodesImplementation< parallel >", "structmfem__mgis_1_1_paraview_export_integration_point_results_at_nodes_implementation.html", null ]
     ] ],
-    [ "mfem_mgis::PartialQuadratureSpace", "structmfem__mgis_1_1_partial_quadrature_space.html", null ],
-    [ "mfem_mgis::PartialQuadratureSpaceIdentifiersManager", "structmfem__mgis_1_1_partial_quadrature_space_identifiers_manager.html", [
-      [ "mfem_mgis::StateManager", "structmfem__mgis_1_1_state_manager.html", null ]
-    ] ],
+    [ "mfem_mgis::internals::PartialQuadratureSpaceImplementation", "structmfem__mgis_1_1internals_1_1_partial_quadrature_space_implementation.html", null ],
     [ "mfem_mgis::PartialQuadratureSpaceInformation", "structmfem__mgis_1_1_partial_quadrature_space_information.html", null ],
     [ "mfem_mgis::PhysicalSystem", "structmfem__mgis_1_1_physical_system.html", null ],
     [ "mfem_mgis::PlaneStrainStandardFiniteStrainMechanicsBehaviourIntegratorBase", "structmfem__mgis_1_1_plane_strain_standard_finite_strain_mechanics_behaviour_integrator_base.html", [
@@ -333,6 +330,7 @@ var hierarchy =
     [ "mfem_mgis::RotationMatrixQPEvaluator", "structmfem__mgis_1_1_rotation_matrix_q_p_evaluator.html", null ],
     [ "mfem_mgis::Simulation", "structmfem__mgis_1_1_simulation.html", null ],
     [ "mfem_mgis::Simulation::SimulationRunState", "structmfem__mgis_1_1_simulation_1_1_simulation_run_state.html", null ],
+    [ "mfem_mgis::StateManager", "structmfem__mgis_1_1_state_manager.html", null ],
     [ "mfem_mgis::unit_tests::TestParameters", "structmfem__mgis_1_1unit__tests_1_1_test_parameters.html", null ],
     [ "mfem_mgis::TimeStep", "structmfem__mgis_1_1_time_step.html", null ],
     [ "mfem_mgis::TridimensionalStandardFiniteStrainMechanicsBehaviourIntegratorBase", "structmfem__mgis_1_1_tridimensional_standard_finite_strain_mechanics_behaviour_integrator_base.html", [

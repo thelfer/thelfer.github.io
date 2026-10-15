@@ -122,7 +122,6 @@ var dir_3a137169c64f9653d81364b844f1dd68 =
     [ "PartialQuadratureFunctionUtilities.hxx", "_partial_quadrature_function_utilities_8hxx.html", "_partial_quadrature_function_utilities_8hxx" ],
     [ "PartialQuadratureSpace.hxx", "_partial_quadrature_space_8hxx.html", "_partial_quadrature_space_8hxx" ],
     [ "PartialQuadratureSpace.ixx", "_partial_quadrature_space_8ixx.html", null ],
-    [ "PartialQuadratureSpaceIdentifiersManager.hxx", "_partial_quadrature_space_identifiers_manager_8hxx.html", "_partial_quadrature_space_identifiers_manager_8hxx" ],
     [ "PeriodicNonLinearEvolutionProblem.hxx", "_periodic_non_linear_evolution_problem_8hxx.html", "_periodic_non_linear_evolution_problem_8hxx" ],
     [ "PhysicalSystem.hxx", "_physical_system_8hxx.html", "_physical_system_8hxx" ],
     [ "PlaneStrainStandardFiniteStrainMechanicsBehaviourIntegratorBase.hxx", "_plane_strain_standard_finite_strain_mechanics_behaviour_integrator_base_8hxx.html", "_plane_strain_standard_finite_strain_mechanics_behaviour_integrator_base_8hxx" ],

@@ -170,6 +170,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a25a3025f2b0437e0575761a073b8656d" id="r_a25a3025f2b0437e0575761a073b8656d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_finite_element_spaces_manager.html#a25a3025f2b0437e0575761a073b8656d">manages</a> (const <a class="el" href="namespacemfem__mgis.html#a25ba04adaf648f69a2d19bc66a598a82">FiniteElementSpace</a>&lt; false &gt; &amp;s) const noexcept</td></tr>
 <tr class="memdesc:a25a3025f2b0437e0575761a073b8656d"><td class="mdescLeft">&#160;</td><td class="mdescRight">check if a finite element space is managed by this manager  <br /></td></tr>
 <tr class="separator:a25a3025f2b0437e0575761a073b8656d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd441d40d7c7d3718003b676a37c0dfc" id="r_afd441d40d7c7d3718003b676a37c0dfc"><td class="memItemLeft" align="right" valign="top">std::optional&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_finite_element_spaces_manager.html#afd441d40d7c7d3718003b676a37c0dfc">areMappable</a> (Context &amp;ctx, const PartialQuadratureSpace &amp;s1, const PartialQuadratureSpace &amp;s2) const noexcept</td></tr>
+<tr class="separator:afd441d40d7c7d3718003b676a37c0dfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a9dc46910df3862239641b0145ac2ad" id="r_a4a9dc46910df3862239641b0145ac2ad"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_finite_element_spaces_manager.html#a4a9dc46910df3862239641b0145ac2ad">getIdentifier</a> (Context &amp;ctx, const PartialQuadratureSpace &amp;s) const noexcept</td></tr>
+<tr class="memdesc:a4a9dc46910df3862239641b0145ac2ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the identifier of a partial quadrature space  <br /></td></tr>
+<tr class="separator:a4a9dc46910df3862239641b0145ac2ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace6d3923cc8598d3b012d8ce7d2cd0db" id="r_ace6d3923cc8598d3b012d8ce7d2cd0db"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfem__mgis_1_1_finite_element_spaces_manager.html#ace6d3923cc8598d3b012d8ce7d2cd0db">operator==</a> (const <a class="el" href="structmfem__mgis_1_1_finite_element_spaces_manager.html">FiniteElementSpacesManager</a> &amp;rhs) const noexcept</td></tr>
+<tr class="separator:ace6d3923cc8598d3b012d8ce7d2cd0db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -323,6 +330,58 @@ static const char *const&#160;</td><td class="memItemRight" valign="bottom"><b>F
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="afd441d40d7c7d3718003b676a37c0dfc" name="afd441d40d7c7d3718003b676a37c0dfc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd441d40d7c7d3718003b676a37c0dfc">&#9670;&#160;</a></span>areMappable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt; bool &gt; mfem_mgis::FiniteElementSpacesManager::areMappable </td>
+          <td>(</td>
+          <td class="paramtype">Context &amp;&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const PartialQuadratureSpace &amp;&#160;</td>
+          <td class="paramname"><em>s1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const PartialQuadratureSpace &amp;&#160;</td>
+          <td class="paramname"><em>s2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>if two quadrature spaces can be mapped, i.e. that we can find a path to transfer data between quadrature functions defined on those two spaces.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">ctx</td><td>execution context </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">s1</td><td>first partial quadrature space </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">s2</td><td>second partial quadrature space</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>if one of the quadrature spaces is defined on a finite element spaces that is not managed , this method returns false </dd></dl>
+
+</div>
+</div>
 <a id="a46537a7b7cd8d3370cb55fa9d36db3a9" name="a46537a7b7cd8d3370cb55fa9d36db3a9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a46537a7b7cd8d3370cb55fa9d36db3a9">&#9670;&#160;</a></span>getFiniteElementCollection()</h2>
 
@@ -560,6 +619,53 @@ template&lt;bool parallel&gt; </div>
 
 </div>
 </div>
+<a id="a4a9dc46910df3862239641b0145ac2ad" name="a4a9dc46910df3862239641b0145ac2ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a9dc46910df3862239641b0145ac2ad">&#9670;&#160;</a></span>getIdentifier()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt; <a class="el" href="namespacemfem__mgis.html#ad00be4118572b247d20260b90137c368">size_type</a> &gt; mfem_mgis::FiniteElementSpacesManager::getIdentifier </td>
+          <td>(</td>
+          <td class="paramtype">Context &amp;&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const PartialQuadratureSpace &amp;&#160;</td>
+          <td class="paramname"><em>s</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>return the identifier of a partial quadrature space </p>
+<dl class="section return"><dt>Returns</dt><dd>the identifier associated with the given partial quadrature space.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">ctx</td><td>execution context </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td>partial quadrature space</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This identifier may be used for distinct locations. </dd></dl>
+
+</div>
+</div>
 <a id="a60ef94f6aa6fa3ba75c85e717db26916" name="a60ef94f6aa6fa3ba75c85e717db26916"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a60ef94f6aa6fa3ba75c85e717db26916">&#9670;&#160;</a></span>getMeshDiscretization()</h2>
 
@@ -682,6 +788,39 @@ template&lt;bool parallel&gt; </div>
 
 </div>
 </div>
+<a id="ace6d3923cc8598d3b012d8ce7d2cd0db" name="ace6d3923cc8598d3b012d8ce7d2cd0db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace6d3923cc8598d3b012d8ce7d2cd0db">&#9670;&#160;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool mfem_mgis::FiniteElementSpacesManager::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structmfem__mgis_1_1_finite_element_spaces_manager.html">FiniteElementSpacesManager</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>if the given finite element spaces manager shares the same implementation</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">rhs</td><td>right hand side </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="a7d83d5bf573af6d83de2e8c1dd945b68" name="a7d83d5bf573af6d83de2e8c1dd945b68"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7d83d5bf573af6d83de2e8c1dd945b68">&#9670;&#160;</a></span>FiniteElementSpaceOrdering</h2>
@@ -723,7 +862,7 @@ template&lt;bool parallel&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemfem__mgis.html">mfem_mgis</a></li><li class="navelem"><a class="el" href="structmfem__mgis_1_1_finite_element_spaces_manager.html">FiniteElementSpacesManager</a></li>
-    <li class="footer">Generated on Tue Oct 13 2026 07:56:57 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu Oct 15 2026 20:58:14 for mfem-mgis by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

@@ -1,6 +1,6 @@
 var _partial_quadrature_space_8hxx =
 [
-    [ "mfem_mgis::PartialQuadratureSpace", "structmfem__mgis_1_1_partial_quadrature_space.html", "structmfem__mgis_1_1_partial_quadrature_space" ],
+    [ "mfem_mgis::internals::PartialQuadratureSpaceImplementation", "structmfem__mgis_1_1internals_1_1_partial_quadrature_space_implementation.html", "structmfem__mgis_1_1internals_1_1_partial_quadrature_space_implementation" ],
     [ "mfem_mgis::PartialQuadratureSpaceInformation", "structmfem__mgis_1_1_partial_quadrature_space_information.html", "structmfem__mgis_1_1_partial_quadrature_space_information" ],
     [ "getInformation", "_partial_quadrature_space_8hxx.html#a80076a0a027f370428cb829a6aad7749", null ],
     [ "getInformation< PartialQuadratureSpace >", "_partial_quadrature_space_8hxx.html#a69f3207e5b8b7fcfe72867b361e8857e", null ],

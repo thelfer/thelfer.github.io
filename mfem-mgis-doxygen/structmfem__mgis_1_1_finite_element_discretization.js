@@ -8,6 +8,7 @@ var structmfem__mgis_1_1_finite_element_discretization =
     [ "FiniteElementDiscretization", "structmfem__mgis_1_1_finite_element_discretization.html#a314ed50ddbbf462d15c26ffb42baf1e0", null ],
     [ "FiniteElementDiscretization", "structmfem__mgis_1_1_finite_element_discretization.html#acf61927826670cac689e7a0446c1adae", null ],
     [ "~FiniteElementDiscretization", "structmfem__mgis_1_1_finite_element_discretization.html#add984e545b7b9906d62f419f989b13df", null ],
+    [ "areMappable", "structmfem__mgis_1_1_finite_element_discretization.html#a30a8852fefcfd6be5a659fdf44967a9a", null ],
     [ "getBoundariesIdentifiers", "structmfem__mgis_1_1_finite_element_discretization.html#a0a77446b5741d5b2a842fcd156840733", null ],
     [ "getBoundariesNames", "structmfem__mgis_1_1_finite_element_discretization.html#aaf30d55f463077e87d18845380358beb", null ],
     [ "getBoundaryIdentifier", "structmfem__mgis_1_1_finite_element_discretization.html#a060a11a5b88d00fb5f96b25f89f5be33", null ],

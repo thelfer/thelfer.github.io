@@ -1,6 +1,9 @@
 var annotated_dup =
 [
     [ "mfem_mgis", "namespacemfem__mgis.html", [
+      [ "internals", null, [
+        [ "PartialQuadratureSpaceImplementation", "structmfem__mgis_1_1internals_1_1_partial_quadrature_space_implementation.html", "structmfem__mgis_1_1internals_1_1_partial_quadrature_space_implementation" ]
+      ] ],
       [ "unit_tests", null, [
         [ "TestParameters", "structmfem__mgis_1_1unit__tests_1_1_test_parameters.html", "structmfem__mgis_1_1unit__tests_1_1_test_parameters" ],
         [ "UniaxialTestResults", "structmfem__mgis_1_1unit__tests_1_1_uniaxial_test_results.html", "structmfem__mgis_1_1unit__tests_1_1_uniaxial_test_results" ]
@@ -150,8 +153,6 @@ var annotated_dup =
       [ "PartialQuadratureFunctionDataLayout", "structmfem__mgis_1_1_partial_quadrature_function_data_layout.html", "structmfem__mgis_1_1_partial_quadrature_function_data_layout" ],
       [ "PartialQuadratureFunctionsSet", "structmfem__mgis_1_1_partial_quadrature_functions_set.html", "structmfem__mgis_1_1_partial_quadrature_functions_set" ],
       [ "PartialQuadratureFunctionView", "structmfem__mgis_1_1_partial_quadrature_function_view.html", "structmfem__mgis_1_1_partial_quadrature_function_view" ],
-      [ "PartialQuadratureSpace", "structmfem__mgis_1_1_partial_quadrature_space.html", "structmfem__mgis_1_1_partial_quadrature_space" ],
-      [ "PartialQuadratureSpaceIdentifiersManager", "structmfem__mgis_1_1_partial_quadrature_space_identifiers_manager.html", "structmfem__mgis_1_1_partial_quadrature_space_identifiers_manager" ],
       [ "PartialQuadratureSpaceInformation", "structmfem__mgis_1_1_partial_quadrature_space_information.html", "structmfem__mgis_1_1_partial_quadrature_space_information" ],
       [ "PeriodicNonLinearEvolutionProblem", "structmfem__mgis_1_1_periodic_non_linear_evolution_problem.html", "structmfem__mgis_1_1_periodic_non_linear_evolution_problem" ],
       [ "PhysicalSystem", "structmfem__mgis_1_1_physical_system.html", "structmfem__mgis_1_1_physical_system" ],

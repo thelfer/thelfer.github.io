@@ -1,7 +1,7 @@
 var structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base =
 [
     [ "Hypothesis", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a3340e66635c2af62480ac09453bf6ebc", null ],
-    [ "NonLinearEvolutionProblemImplementationBase", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a86612bbd0ce8f7ce3c4ffc4d955926f1", null ],
+    [ "NonLinearEvolutionProblemImplementationBase", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a2afcf92e54be2d3fb5eb830ca3a6b3b7", null ],
     [ "~NonLinearEvolutionProblemImplementationBase", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a4d4304f9a1490d2e5a79c1e41b6175ea", null ],
     [ "addBehaviourIntegrator", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a0fd9f80c54bfc5199f118e3e8787a632", null ],
     [ "addBehaviourIntegrator", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#ab52c2c7b1b59f87a3a2f788cf0eecb33", null ],
@@ -15,9 +15,7 @@ var structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base =
     [ "getBoundaryIdentifier", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a1d8c265ad9185ab003d590366d867530", null ],
     [ "getDirichletBoundaryConditions", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#aad6ac9f29c39611a11a139719c5e6369", null ],
     [ "getEssentialDegreesOfFreedom", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a55133f4f0819b1d9270a5d1c815484c1", null ],
-    [ "getFiniteElementDiscretization", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#ad081064e484e7ad42d057190342ee099", null ],
-    [ "getFiniteElementDiscretization", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#aee885805aafdf4491beaf28b141af694", null ],
-    [ "getFiniteElementDiscretizationPointer", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a680bbb69d770634bf26c840730538d75", null ],
+    [ "getFiniteElementDiscretization", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#aaa05ffa091863a90aeda568db9b5e03a", null ],
     [ "getLinearizedOperators", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a00214d1b5ba03f2e90ff8404952f934a", null ],
     [ "getMaterial", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a2be88e898ea3b11bff1523ca34ee7901", null ],
     [ "getMaterial", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#afae9433833afb0b0adfeb81f22ccd9c6", null ],
@@ -43,7 +41,7 @@ var structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base =
     [ "updateLinearSolver", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a6e965c6cd94d9b00f268d01ef0c9fd0c", null ],
     [ "boundary_conditions", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a35ac796c702e47a1746b3d06076541a9", null ],
     [ "dirichlet_boundary_conditions", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a93682ab3ce77065855c505bdb46a802a", null ],
-    [ "fe_discretization", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#ab0e62c94ecf3b48258a0db3145fc476a", null ],
+    [ "fe_discretization", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#af03cf1065d4dc2706ead887bcf4799e1", null ],
     [ "hasStiffnessOperatorsBeenComputed", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a9a906072851560dcf792e71f77b7bdac", null ],
     [ "hypothesis", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a84e14cbe30f3fae632bb8e61c070982e", null ],
     [ "initialization_phase", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_base.html#a5bd20574b5c1b64497609097713368af", null ],

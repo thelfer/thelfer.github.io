@@ -1,7 +1,7 @@
 var structmfem__mgis_1_1_multi_material_non_linear_integrator =
 [
     [ "Behaviour", "structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a5a3df215f49eec2a09f6a9cbfe3dfbd9", null ],
-    [ "MultiMaterialNonLinearIntegrator", "structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a457f842b6fbfcf340b5c9ad59f73f876", null ],
+    [ "MultiMaterialNonLinearIntegrator", "structmfem__mgis_1_1_multi_material_non_linear_integrator.html#ad619f6c6b4deb1ec31920f8ff685dc3b", null ],
     [ "~MultiMaterialNonLinearIntegrator", "structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a6399b018af23e8a8c1564d88113cf0f2", null ],
     [ "addBehaviourIntegrator", "structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a83b65b84869abbc6ddc78a2e3e90a9d7", null ],
     [ "AssembleElementGrad", "structmfem__mgis_1_1_multi_material_non_linear_integrator.html#aa6ca519c8f5d02c22c4d011f8b6c67ac", null ],
@@ -21,6 +21,6 @@ var structmfem__mgis_1_1_multi_material_non_linear_integrator =
     [ "setup", "structmfem__mgis_1_1_multi_material_non_linear_integrator.html#ae1293b3cfa66801674c348adb5e20076", null ],
     [ "update", "structmfem__mgis_1_1_multi_material_non_linear_integrator.html#aa594ddff86b698ad120d4f320836306a", null ],
     [ "behaviour_integrators", "structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a46ea8d2654692d09a1dc717774511a64", null ],
-    [ "fe_discretization", "structmfem__mgis_1_1_multi_material_non_linear_integrator.html#a9945a8806f3dfb8ae10a5879415c2d3c", null ],
+    [ "fe_discretization", "structmfem__mgis_1_1_multi_material_non_linear_integrator.html#aece4a253eeb1a43b8ec60b264833af04", null ],
     [ "hypothesis", "structmfem__mgis_1_1_multi_material_non_linear_integrator.html#aa271550c9455cc29a062881c04c34428", null ]
 ];

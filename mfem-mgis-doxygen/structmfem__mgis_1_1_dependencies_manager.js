@@ -10,5 +10,5 @@ var structmfem__mgis_1_1_dependencies_manager =
     [ "analyseDependencies", "structmfem__mgis_1_1_dependencies_manager.html#a067fe0fac3c77d5727b60bced91d740c", null ],
     [ "declareDependency", "structmfem__mgis_1_1_dependencies_manager.html#ae34c28d515244ef9001af9571bafa23e", null ],
     [ "resolveDependencies", "structmfem__mgis_1_1_dependencies_manager.html#a76d5bc1ad6fd2a8e7ea9374889be513b", null ],
-    [ "setProvider", "structmfem__mgis_1_1_dependencies_manager.html#ada1a58103e3364dcee7616a2e0daac21", null ]
+    [ "setProvider", "structmfem__mgis_1_1_dependencies_manager.html#a900cddc23f39781895fedb8bef97f900", null ]
 ];

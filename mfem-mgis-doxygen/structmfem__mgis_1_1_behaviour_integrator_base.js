@@ -2,7 +2,7 @@ var structmfem__mgis_1_1_behaviour_integrator_base =
 [
     [ "CheckBehaviourVariablesSizesArguments", "structmfem__mgis_1_1_behaviour_integrator_base_1_1_check_behaviour_variables_sizes_arguments.html", "structmfem__mgis_1_1_behaviour_integrator_base_1_1_check_behaviour_variables_sizes_arguments" ],
     [ "~BehaviourIntegratorBase", "structmfem__mgis_1_1_behaviour_integrator_base.html#ae224f5fe739d2c9ed1a703d6f4ba0a29", null ],
-    [ "BehaviourIntegratorBase", "structmfem__mgis_1_1_behaviour_integrator_base.html#a014dd99071eb78293bc3509f3cfb9309", null ],
+    [ "BehaviourIntegratorBase", "structmfem__mgis_1_1_behaviour_integrator_base.html#aae8727a9e03087d04ef54d80133a9fe5", null ],
     [ "checkBehaviourSymmetry", "structmfem__mgis_1_1_behaviour_integrator_base.html#aba0b1465d46621887395b3ad83b52380", null ],
     [ "checkBehaviourVariablesSizes", "structmfem__mgis_1_1_behaviour_integrator_base.html#a93b6141ed77543571696a14ba5f764c4", null ],
     [ "checkHypothesis", "structmfem__mgis_1_1_behaviour_integrator_base.html#ad86c41efbedcac24c5a62dd8a0c18e09", null ],
@@ -11,7 +11,6 @@ var structmfem__mgis_1_1_behaviour_integrator_base =
     [ "getMaterial", "structmfem__mgis_1_1_behaviour_integrator_base.html#a8aa825b48046b2d66af2611459abb758", null ],
     [ "getMaterial", "structmfem__mgis_1_1_behaviour_integrator_base.html#a7bce2299f4db9ddec1952bf928832cfb", null ],
     [ "getPartialQuadratureSpace", "structmfem__mgis_1_1_behaviour_integrator_base.html#a2b852fc4b323f2697f019895902b7f74", null ],
-    [ "getPartialQuadratureSpacePointer", "structmfem__mgis_1_1_behaviour_integrator_base.html#a07378f77969b76143f9b9405eeac4ce8", null ],
     [ "getTimeIncrement", "structmfem__mgis_1_1_behaviour_integrator_base.html#a2a39193d8f781c65e38765c463b6390a", null ],
     [ "hasMaterial", "structmfem__mgis_1_1_behaviour_integrator_base.html#a3d1e581975b68c5dba21970a8903e451", null ],
     [ "performsLocalBehaviourIntegration", "structmfem__mgis_1_1_behaviour_integrator_base.html#a86dd6f965189c730a0ba97c0ef79ec8a", null ],

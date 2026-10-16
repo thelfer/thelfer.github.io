@@ -1,10 +1,9 @@
 var structmfem__mgis_1_1_partial_quadrature_function_view =
 [
-    [ "PartialQuadratureFunctionView", "structmfem__mgis_1_1_partial_quadrature_function_view.html#aeb3db1e032b7a331af12650965f6c495", null ],
+    [ "PartialQuadratureFunctionView", "structmfem__mgis_1_1_partial_quadrature_function_view.html#ae9cc4197d2814c0b44a6444416be4c04", null ],
     [ "PartialQuadratureFunctionView", "structmfem__mgis_1_1_partial_quadrature_function_view.html#aeacc8b9c128f4523eaee84507349e57d", null ],
     [ "PartialQuadratureFunctionView", "structmfem__mgis_1_1_partial_quadrature_function_view.html#a83c768e7719d7047cf0bcf68d4345e65", null ],
-    [ "PartialQuadratureFunctionView", "structmfem__mgis_1_1_partial_quadrature_function_view.html#ada91bacf9dd0a07c29e8eeeb2ac2d5f0", null ],
-    [ "PartialQuadratureFunctionView", "structmfem__mgis_1_1_partial_quadrature_function_view.html#ae37b12c4781a585b8ea85330f3f39194", null ],
+    [ "PartialQuadratureFunctionView", "structmfem__mgis_1_1_partial_quadrature_function_view.html#a7d48c991c04ef7a07eed58ad42bad37f", null ],
     [ "data", "structmfem__mgis_1_1_partial_quadrature_function_view.html#a03744d23d383ef756edcf4add2df3a54", null ],
     [ "data", "structmfem__mgis_1_1_partial_quadrature_function_view.html#a7603f2628cb341c37b716c31023a676e", null ],
     [ "data", "structmfem__mgis_1_1_partial_quadrature_function_view.html#ac83eea5dd6c5bdc0aa6875959eea187f", null ],
@@ -23,7 +22,7 @@ var structmfem__mgis_1_1_partial_quadrature_function_view =
     [ "getValues", "structmfem__mgis_1_1_partial_quadrature_function_view.html#ac416d5fe3e5b058653264c46a7984064", null ],
     [ "operator()", "structmfem__mgis_1_1_partial_quadrature_function_view.html#ac908f2258ec55d7b1a41f35a50852a17", null ],
     [ "operator()", "structmfem__mgis_1_1_partial_quadrature_function_view.html#a4cff93eee8c118fda295ca8f21ff5eb4", null ],
-    [ "operator=", "structmfem__mgis_1_1_partial_quadrature_function_view.html#af07279d04cdb2afe791beec923639387", null ],
-    [ "operator=", "structmfem__mgis_1_1_partial_quadrature_function_view.html#a0475fe3858389eec9a1d81b6033e671a", null ],
+    [ "operator=", "structmfem__mgis_1_1_partial_quadrature_function_view.html#a48a1353a712336dcec97af9ab3c489c9", null ],
+    [ "operator=", "structmfem__mgis_1_1_partial_quadrature_function_view.html#a6145d0c8e907d16f82fca13b7c0c9292", null ],
     [ "mutable_values", "structmfem__mgis_1_1_partial_quadrature_function_view.html#a54accd8ede95bd91c4ede3a97dea0a64", null ]
 ];

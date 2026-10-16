@@ -285,6 +285,9 @@ var hierarchy =
     [ "mfem_mgis::ParaviewExportIntegrationPointResultsAtNodesBase", "structmfem__mgis_1_1_paraview_export_integration_point_results_at_nodes_base.html", [
       [ "mfem_mgis::ParaviewExportIntegrationPointResultsAtNodesImplementation< parallel >", "structmfem__mgis_1_1_paraview_export_integration_point_results_at_nodes_implementation.html", null ]
     ] ],
+    [ "mfem_mgis::PartialQuadratureFunctionStorage", "structmfem__mgis_1_1_partial_quadrature_function_storage.html", [
+      [ "mfem_mgis::PartialQuadratureFunction", "structmfem__mgis_1_1_partial_quadrature_function.html", null ]
+    ] ],
     [ "mfem_mgis::internals::PartialQuadratureSpaceImplementation", "structmfem__mgis_1_1internals_1_1_partial_quadrature_space_implementation.html", null ],
     [ "mfem_mgis::PartialQuadratureSpaceInformation", "structmfem__mgis_1_1_partial_quadrature_space_information.html", null ],
     [ "mfem_mgis::PhysicalSystem", "structmfem__mgis_1_1_physical_system.html", null ],
@@ -309,6 +312,9 @@ var hierarchy =
     ] ],
     [ "mfem_mgis::QPEvaluationOptions", "structmfem__mgis_1_1_q_p_evaluation_options.html", null ],
     [ "mfem_mgis::QPEvaluatorDescription", "structmfem__mgis_1_1_q_p_evaluator_description.html", null ],
+    [ "mfem_mgis::QPEvaluatorResultStorage", "structmfem__mgis_1_1_q_p_evaluator_result_storage.html", [
+      [ "mfem_mgis::QPEvaluatorResult", "structmfem__mgis_1_1_q_p_evaluator_result.html", null ]
+    ] ],
     [ "mfem_mgis::QPEvaluatorsFactory", "structmfem__mgis_1_1_q_p_evaluators_factory.html", null ],
     [ "mfem_mgis::MeshDiscretization::RawLocationIdentifier< Location >", "structmfem__mgis_1_1_mesh_discretization_1_1_raw_location_identifier.html", null ],
     [ "mfem_mgis::AbstractTimeStepValidator::Result", "structmfem__mgis_1_1_abstract_time_step_validator_1_1_result.html", null ],

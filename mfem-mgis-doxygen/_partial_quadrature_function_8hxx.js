@@ -4,6 +4,7 @@ var _partial_quadrature_function_8hxx =
     [ "mfem_mgis::PartialQuadratureFunctionDataLayout", "structmfem__mgis_1_1_partial_quadrature_function_data_layout.html", "structmfem__mgis_1_1_partial_quadrature_function_data_layout" ],
     [ "mfem_mgis::ImmutablePartialQuadratureFunctionView", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view" ],
     [ "mfem_mgis::PartialQuadratureFunctionView", "structmfem__mgis_1_1_partial_quadrature_function_view.html", "structmfem__mgis_1_1_partial_quadrature_function_view" ],
+    [ "mfem_mgis::PartialQuadratureFunctionStorage", "structmfem__mgis_1_1_partial_quadrature_function_storage.html", "structmfem__mgis_1_1_partial_quadrature_function_storage" ],
     [ "mfem_mgis::PartialQuadratureFunction", "structmfem__mgis_1_1_partial_quadrature_function.html", "structmfem__mgis_1_1_partial_quadrature_function" ],
     [ "mgis::function::LightweightViewTraits< mfem_mgis::PartialQuadratureFunctionView >", "structmgis_1_1function_1_1_lightweight_view_traits_3_01mfem__mgis_1_1_partial_quadrature_function_view_01_4.html", null ],
     [ "mfem_mgis::QPEvaluatorConcept", "conceptmfem__mgis_1_1_q_p_evaluator_concept.html", null ],

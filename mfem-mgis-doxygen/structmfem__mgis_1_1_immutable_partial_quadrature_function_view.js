@@ -1,11 +1,10 @@
 var structmfem__mgis_1_1_immutable_partial_quadrature_function_view =
 [
-    [ "ImmutablePartialQuadratureFunctionView", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#af348ec79a9d48ba5f2b9546a1222bfca", null ],
+    [ "ImmutablePartialQuadratureFunctionView", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#a27d8f768689d71d4e38513972dbf0d03", null ],
     [ "ImmutablePartialQuadratureFunctionView", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#a2ca4439049923fcb06de61aa43422f4b", null ],
     [ "ImmutablePartialQuadratureFunctionView", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#ad13f18429924a612ab8dc0fcb08c4e5c", null ],
     [ "~ImmutablePartialQuadratureFunctionView", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#a5df2e4f8b459f2b594e75e5211554fd1", null ],
-    [ "ImmutablePartialQuadratureFunctionView", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#a8a6f22ca25778f7053f57660e8045561", null ],
-    [ "ImmutablePartialQuadratureFunctionView", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#a07b8fbc3d55faca223132e23a21b03a2", null ],
+    [ "ImmutablePartialQuadratureFunctionView", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#a84493ef912cc1d29d9d20e7732d88a06", null ],
     [ "checkCompatibility", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#a53f18070ef00f8e5b3528a257d803301", null ],
     [ "data", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#a7603f2628cb341c37b716c31023a676e", null ],
     [ "data", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#a2732faf31bcf9660a8f6c54997f5ea3f", null ],
@@ -15,12 +14,11 @@ var structmfem__mgis_1_1_immutable_partial_quadrature_function_view =
     [ "getIntegrationPointValues", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#ae5d6c7359fabde40183357937f53ac63", null ],
     [ "getIntegrationPointValues", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#ae81f3b0e92d2b592215bc4cb8b065f8e", null ],
     [ "getPartialQuadratureSpace", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#a945f204f5ef9b28a88743d9922b620d8", null ],
-    [ "getPartialQuadratureSpacePointer", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#a1acbc03821a46b80c62a4f3485cbe64b", null ],
     [ "getValues", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#ac416d5fe3e5b058653264c46a7984064", null ],
     [ "operator()", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#a37a998712ec5c9c36435bfb72f2834dc", null ],
     [ "operator()", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#a8c35392e37c7ef3df0c3e13df49bb057", null ],
-    [ "operator=", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#acc53258d5f6abe8f37fff9cf41bc249a", null ],
-    [ "operator=", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#ad2ad17ed343968e47ef8c8e6c714e216", null ],
+    [ "operator=", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#a1bcf13392b95e9243d146eb31d4c55dc", null ],
+    [ "operator=", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#a45ff849bec3bcbf621160510e3227373", null ],
     [ "immutable_values", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#a68ab308fcd73139da210dc7bcc6bcc6b", null ],
-    [ "qspace", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#af877bf6f95e0328d6a641673d46d91da", null ]
+    [ "qspace", "structmfem__mgis_1_1_immutable_partial_quadrature_function_view.html#ac43243029fa92f7f65d9da4867b5885c", null ]
 ];

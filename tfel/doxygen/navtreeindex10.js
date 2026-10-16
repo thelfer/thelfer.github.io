@@ -1,5 +1,11 @@
 var NAVTREEINDEX10 =
 {
+"_tiny_newton_raphson_8hxx.html":[8,0,0,3,5,4,12],
+"_tiny_newton_raphson_solver_8hxx.html":[8,0,0,3,5,69],
+"_tiny_newton_raphson_solver_8ixx.html":[8,0,0,3,5,10,8],
+"_tiny_non_linear_solver_base_8hxx.html":[8,0,0,3,5,10,9],
+"_tiny_non_linear_solver_base_8ixx.html":[8,0,0,3,5,10,10],
+"_tiny_permutation_8hxx.html":[8,0,0,3,5,7,6],
 "_tiny_permutation_8ixx.html":[8,0,0,3,5,7,7],
 "_tiny_powell_dog_leg_algorithm_base_8hxx.html":[8,0,0,3,5,10,11],
 "_tiny_powell_dog_leg_algorithm_base_8hxx.html#a2af6a76863040300a210e557ebd47fd9":[8,0,0,3,5,10,11,0],
@@ -241,13 +247,7 @@ var NAVTREEINDEX10 =
 "classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01t10044100cd14acb9bc802281bcf3ae2a.html#a49a5d28b3a5f3dbbe8a6c25c684b284a":[5,0,9,1,66,0],
 "classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01tbf06afb66908e808b431d53dcc59e8c9.html":[7,0,14,6,70],
 "classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01tbf06afb66908e808b431d53dcc59e8c9.html":[5,0,9,1,67],
-"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01tbf06afb66908e808b431d53dcc59e8c9.html#a1baba1fbf2a8996449d68a651522a31b":[7,0,14,6,70,0],
 "classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01tbf06afb66908e808b431d53dcc59e8c9.html#a1baba1fbf2a8996449d68a651522a31b":[5,0,9,1,67,0],
-"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01tbf1ae1e3b95820a5dd3c27859c733c90.html":[7,0,14,6,68],
-"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01tbf1ae1e3b95820a5dd3c27859c733c90.html":[5,0,9,1,65],
-"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01tbf1ae1e3b95820a5dd3c27859c733c90.html#a4c56fd9ae25348031a74f0ffa694dc1a":[7,0,14,6,68,0],
-"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01tbf1ae1e3b95820a5dd3c27859c733c90.html#a4c56fd9ae25348031a74f0ffa694dc1a":[5,0,9,1,65,0],
-"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_matrix_tag_00_01_scalar_tag_00_01tmatcb5739c87051c9db3928bba8ca3f3bcd.html":[7,0,14,6,71],
-"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_matrix_tag_00_01_scalar_tag_00_01tmatcb5739c87051c9db3928bba8ca3f3bcd.html":[5,0,9,1,68],
-"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_matrix_tag_00_01_scalar_tag_00_01tmatf3f12531f4ed3673e765e2df2218dcdf.html":[7,0,14,6,72]
+"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01tbf06afb66908e808b431d53dcc59e8c9.html#a1baba1fbf2a8996449d68a651522a31b":[7,0,14,6,70,0],
+"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01tbf1ae1e3b95820a5dd3c27859c733c90.html":[7,0,14,6,68]
 };

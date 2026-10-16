@@ -1,5 +1,11 @@
 var NAVTREEINDEX51 =
 {
+"structmfront_1_1bbrick_1_1_hill1948_stress_criterion.html#a0f32ac4d2e93f8b7f80c722118095a6f":[7,0,10,0,16,7],
+"structmfront_1_1bbrick_1_1_hill1948_stress_criterion.html#a11748864408884ef899e8f4088e4bd76":[7,0,10,0,16,10],
+"structmfront_1_1bbrick_1_1_hill1948_stress_criterion.html#a1eb7913d75601bdcb6ed3f292da878a4":[7,0,10,0,16,5],
+"structmfront_1_1bbrick_1_1_hill1948_stress_criterion.html#a279a60c1294108a3b4200fa648c6eb49":[7,0,10,0,16,6],
+"structmfront_1_1bbrick_1_1_hill1948_stress_criterion.html#a2a3b2158b223b37eeeba6e6b01016935":[7,0,10,0,16,0],
+"structmfront_1_1bbrick_1_1_hill1948_stress_criterion.html#a82c27e6bd951cc8998c9c38776d0b3d8":[7,0,10,0,16,3],
 "structmfront_1_1bbrick_1_1_hill1948_stress_criterion.html#a948124dc75bae6a63accd7d4dd5b813f":[7,0,10,0,16,1],
 "structmfront_1_1bbrick_1_1_hill1948_stress_criterion.html#abae696ae42858318419a980151e89440":[7,0,10,0,16,4],
 "structmfront_1_1bbrick_1_1_hill1948_stress_criterion.html#abedb0a440107f232678658e80428e0aa":[7,0,10,0,16,8],
@@ -243,11 +249,5 @@ var NAVTREEINDEX51 =
 "structmfront_1_1bbrick_1_1_norton_hoff_viscoplastic_flow.html#a842d21d7332f8ce62366e95db339b91d":[7,0,10,0,34,10],
 "structmfront_1_1bbrick_1_1_norton_hoff_viscoplastic_flow.html#aa1b59d63af5788bc6c810186e4a3d022":[7,0,10,0,34,3],
 "structmfront_1_1bbrick_1_1_norton_hoff_viscoplastic_flow.html#ad5fe46dc2092059d1a48abf87008fe70":[7,0,10,0,34,7],
-"structmfront_1_1bbrick_1_1_option_description.html":[7,0,10,0,35],
-"structmfront_1_1bbrick_1_1_option_description.html#a082baf33d8f69bd02f8eba7503b60c2d":[7,0,10,0,35,9],
-"structmfront_1_1bbrick_1_1_option_description.html#a16d7b24356d060df4371406ba83b9d62":[7,0,10,0,35,8],
-"structmfront_1_1bbrick_1_1_option_description.html#a1b3732787b4d8927c1fc981c7702dda9":[7,0,10,0,35,3],
-"structmfront_1_1bbrick_1_1_option_description.html#a1e73b78101e76624601c8057507702f2":[7,0,10,0,35,12],
-"structmfront_1_1bbrick_1_1_option_description.html#a23fad421ed5b4200f338d1a642640179":[7,0,10,0,35,0],
-"structmfront_1_1bbrick_1_1_option_description.html#a23fad421ed5b4200f338d1a642640179a220cf7465086a68136ec93360fed2a96":[7,0,10,0,35,0,0]
+"structmfront_1_1bbrick_1_1_option_description.html":[7,0,10,0,35]
 };

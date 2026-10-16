@@ -1,5 +1,7 @@
 var NAVTREEINDEX90 =
 {
+"structtfel_1_1typetraits_1_1_is_complex_3_01const_01_quantity_type_01_4.html":[7,0,14,10,40],
+"structtfel_1_1typetraits_1_1_is_fundamental_numeric_type.html":[7,0,14,10,42],
 "structtfel_1_1typetraits_1_1_is_fundamental_numeric_type_3_01_quantity_type_01_4.html":[7,0,14,10,46],
 "structtfel_1_1typetraits_1_1_is_fundamental_numeric_type_3_01_t_01_4.html":[7,0,14,10,47],
 "structtfel_1_1typetraits_1_1_is_fundamental_numeric_type_3_01cadna_1_1numeric__type_3_01_t_01_4_01_4.html":[7,0,14,10,43],
@@ -247,7 +249,5 @@ var NAVTREEINDEX90 =
 "structtfel_1_1utilities_1_1_data_structure.html#a32aa8ebe10030b86fd62ba5b13b010aa":[7,0,14,12,12,6],
 "structtfel_1_1utilities_1_1_data_structure.html#a3db3a462ded08a187e23394f87f163bc":[7,0,14,12,12,1],
 "structtfel_1_1utilities_1_1_data_structure.html#a51ee3d176627adf104266f210784610a":[7,0,14,12,12,7],
-"structtfel_1_1utilities_1_1_data_structure.html#a788d0352c1668e86d62d624b0bc9a464":[7,0,14,12,12,5],
-"structtfel_1_1utilities_1_1_data_structure.html#a8cc5bfd74be8dc581fe2d3b2130713cc":[7,0,14,12,12,2],
-"structtfel_1_1utilities_1_1_data_structure.html#a99f03307dc29154ba2782f5c764d69da":[7,0,14,12,12,0]
+"structtfel_1_1utilities_1_1_data_structure.html#a788d0352c1668e86d62d624b0bc9a464":[7,0,14,12,12,5]
 };

@@ -8,6 +8,7 @@ var structtfel_1_1check_1_1_configuration =
     [ "available_components", "structtfel_1_1check_1_1_configuration.html#a1cd3489c4fd546615acd5e6b3a65710c", null ],
     [ "clean_up", "structtfel_1_1check_1_1_configuration.html#a61be60669d8a550fed0021b7a85bfc08", null ],
     [ "directory", "structtfel_1_1check_1_1_configuration.html#a0a1b2231855bfa7e43bf0c277d65b0a3", null ],
+    [ "discard_clean_up_on_failure", "structtfel_1_1check_1_1_configuration.html#a691f57be0cf67aa0e77bed5077240773", null ],
     [ "discard_commands_failure", "structtfel_1_1check_1_1_configuration.html#a08170ac857389900e3bbb97015f9a355", null ],
     [ "environments", "structtfel_1_1check_1_1_configuration.html#a8af7e7be07c3c5947ad2ac551342dd18", null ],
     [ "log", "structtfel_1_1check_1_1_configuration.html#a67c31d85c5c574a46372e7787c7550f2", null ],

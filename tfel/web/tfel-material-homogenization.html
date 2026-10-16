@@ -1,0 +1,2033 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>The TFEL/Material homogenization library</title>
+        <meta name="author" content="Antoine MARTIN" />
+            <meta name="date" content="2026-09-09" />
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  background-color: #f8f8f8; }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+      code span.al { color: #ef2929; } /* Alert */
+      code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #204a87; } /* Attribute */
+      code span.bn { color: #0000cf; } /* BaseN */
+      code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4e9a06; } /* Char */
+      code span.cn { color: #8f5902; } /* Constant */
+      code span.co { color: #8f5902; font-style: italic; } /* Comment */
+      code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+      code span.dt { color: #204a87; } /* DataType */
+      code span.dv { color: #0000cf; } /* DecVal */
+      code span.er { color: #a40000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #0000cf; } /* Float */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+      code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+      code span.ot { color: #8f5902; } /* Other */
+      code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+      code span.ss { color: #4e9a06; } /* SpecialString */
+      code span.st { color: #4e9a06; } /* String */
+      code span.va { color: #000000; } /* Variable */
+      code span.vs { color: #4e9a06; } /* VerbatimString */
+      code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+        <header>
+      <ul id="nav">
+	<li><a href="news.html">News</a></li>
+	<li><a href="index.html">Overview</a>
+	  <ul>
+	    <li><a>Domain specific languages</a>
+	      <ul>
+		<li><a href="material-properties.html">Material properties</a></li>
+		<li><a href="behaviours.html">Mechanical behaviours</a></li>
+		<li><a href="models.html">Models</a></li>
+	      </ul>
+            </li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting started</a>
+	  <ul>
+	    <li><a href="https://github.com/thelfer/tfel/">Github repository</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/releases">Download</a></li>
+	    <li><a href="release-notes.html">Release notes</a>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		    <li><a href="release-notes-3.0.8.html">Version 3.0.8</a></li>
+		    <li><a href="release-notes-3.0.9.html">Version 3.0.9</a></li>
+		    <li><a href="release-notes-3.0.10.html">Version 3.0.10</a></li>
+		    <li><a href="release-notes-3.0.11.html">Version 3.0.11</a></li>
+		    <li><a href="release-notes-3.0.12.html">Version 3.0.12</a></li>
+		    <li><a href="release-notes-3.0.13.html">Version 3.0.13</a></li>
+		    <li><a href="release-notes-3.0.14.html">Version 3.0.14</a></li>
+		    <li><a href="release-notes-3.0.15.html">Version 3.0.15</a></li>
+		    <li><a href="release-notes-3.0.16.html">Version 3.0.16</a></li>
+		    <li><a href="release-notes-3.0.17.html">Version 3.0.17</a></li>
+		    <li><a href="release-notes-3.0.18.html">Version 3.0.18</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		    <li><a href="release-notes-3.1.8.html">Version 3.1.8</a></li>
+		    <li><a href="release-notes-3.1.9.html">Version 3.1.9</a></li>
+		    <li><a href="release-notes-3.1.10.html">Version 3.1.10</a></li>
+		    <li><a href="release-notes-3.1.11.html">Version 3.1.11</a></li>
+		    <li><a href="release-notes-3.1.12.html">Version 3.1.12</a></li>
+		    <li><a href="release-notes-3.1.13.html">Version 3.1.13</a></li>
+		    <li><a href="release-notes-3.1.14.html">Version 3.1.14</a></li>
+		    <li><a href="release-notes-3.1.15.html">Version 3.1.15</a></li>
+		    <li><a href="release-notes-3.1.16.html">Version 3.1.16</a></li>
+		    <li><a href="release-notes-3.1.17.html">Version 3.1.17</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		    <li><a href="release-notes-3.2.5.html">Version 3.2.5</a></li>
+		    <li><a href="release-notes-3.2.6.html">Version 3.2.6</a></li>
+		    <li><a href="release-notes-3.2.7.html">Version 3.2.7</a></li>
+		    <li><a href="release-notes-3.2.8.html">Version 3.2.8</a></li>
+		    <li><a href="release-notes-3.2.9.html">Version 3.2.9</a></li>
+		    <li><a href="release-notes-3.2.10.html">Version 3.2.10</a></li>
+		    <li><a href="release-notes-3.2.11.html">Version 3.2.11</a></li>
+		    <li><a href="release-notes-3.2.12.html">Version 3.2.12</a></li>
+		    <li><a href="release-notes-3.2.13.html">Version 3.2.13</a></li>
+		    <li><a href="release-notes-3.2.14.html">Version 3.2.14</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		    <li><a href="release-notes-3.3.2.html">Version 3.3.2</a></li>
+		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
+		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
+		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
+		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
+		    <li><a href="release-notes-3.3.7.html">Version 3.3.7</a></li>
+		    <li><a href="release-notes-3.3.8.html">Version 3.3.8</a></li>
+		    <li><a href="release-notes-3.3.9.html">Version 3.3.9</a></li>
+		    <li><a href="release-notes-3.3.10.html">Version 3.3.10</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.1.html">Version 3.4.1</a></li>
+		    <li><a href="release-notes-3.4.2.html">Version 3.4.2</a></li>
+		    <li><a href="release-notes-3.4.3.html">Version 3.4.3</a></li>
+		    <li><a href="release-notes-3.4.4.html">Version 3.4.4</a></li>
+		    <li><a href="release-notes-3.4.5.html">Version 3.4.5</a></li>
+		    <li><a href="release-notes-3.4.6.html">Version 3.4.6</a></li>
+		    <li><a href="release-notes-3.4.7.html">Version 3.4.7</a></li>
+		    <li><a href="release-notes-3.4.8.html">Version 3.4.8</a></li>
+		    <li><a href="release-notes-3.4.9.html">Version 3.4.9</a></li>
+		    <li><a href="release-notes-3.4.10.html">Version 3.4.10</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		    <li><a href="release-notes-4.0.1.html">Version 4.0.1</a></li>
+		    <li><a href="release-notes-4.0.2.html">Version 4.0.2</a></li>
+		    <li><a href="release-notes-4.0.3.html">Version 4.0.3</a></li>
+		    <li><a href="release-notes-4.0.4.html">Version 4.0.4</a></li>
+		    <li><a href="release-notes-4.0.5.html">Version 4.0.5</a></li>
+		    <li><a href="release-notes-4.0.6.html">Version 4.0.6</a></li>
+		    <li><a href="release-notes-4.0.7.html">Version 4.0.7</a></li>
+		    <li><a href="release-notes-4.0.8.html">Version 4.0.8</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.1.html">Version 4.1.0</a></li>
+		    <li><a href="release-notes-4.1.1.html">Version 4.1.1</a></li>
+		    <li><a href="release-notes-4.1.2.html">Version 4.1.2</a></li>
+		    <li><a href="release-notes-4.1.3.html">Version 4.1.3</a></li>
+		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
+		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
+		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.2.html">Version 4.2.0</a></li>
+		    <li><a href="release-notes-4.2.1.html">Version 4.2.1</a></li>
+		    <li><a href="release-notes-4.2.2.html">Version 4.2.2</a></li>
+		    <li><a href="release-notes-4.2.3.html">Version 4.2.3</a></li>
+		    <li><a href="release-notes-4.2.4.html">Version 4.2.4</a></li>
+		    <li><a href="release-notes-4.2.5.html">Version 4.2.5</a></li>
+		    <li><a href="release-notes-4.2.6.html">Version 4.2.6</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 5.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-5.0.html">Version 5.0.0</a></li>
+		    <li><a href="release-notes-5.0.1.html">Version 5.0.1</a></li>
+		    <li><a href="release-notes-5.0.2.html">Version 5.0.2</a></li>
+		    <li><a href="release-notes-5.0.3.html">Version 5.0.3</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 5.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-5.1.html">Version 5.1.0</a></li>
+		    <li><a href="release-notes-5.1.1.html">Version 5.1.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 5.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-5.2.html">Version 5.2.0</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a href="coverity-scan.html">Coverity scan</a></li>
+	    <li><a href="install.html">Installation</a></li>
+	  </ul>
+	</li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="documentations.html">General documentation</a></li>
+	    <li><a href="gallery.html">Gallery</a></li>
+	    <li><a href="https://thelfer.github.io/tfel/doxygen/index.html">Doxygen documentation</a></li>
+	    <li><a>MFront</a>
+	      <ul>
+		<li><a href="tutorial.html">Tutorial</a></li>
+		<li><a href="implicit-dsl.html">The Implicit DSL</a></li>
+		<li><a href="benchmark.html">Benchmark</a></li>
+		<li><a href="parameters.html">Parameters</a></li>
+		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
+                 <li><a href="behaviour-variable.html">Behaviour variables</a></li>
+		<li><a href="interfaces.html">Solver interfaces</a>
+		  <ul>
+		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
+		    <li><a href="aster.html">Code-Aster</a></li>
+    		    <li><a href="abaqus.html">Abaqus</a></li>
+		    <li><a href="zmat.html">ZeBuLoN</a></li>
+   		    <li><a href="calculix.html">CalculiX</a></li>
+		    <!-- <li><a >TMFFT</a></li> -->
+		    <li><a href="cyrano.html">Cyrano</a></li>
+   		    <li><a href="generic-material-property-interface.html">Generic interface for material properties</a></li>
+   		    <li><a href="generic-behaviours-interface.html">Generic interface for behaviours</a></li>
+		  </ul>
+		</li>
+                 <li><a>MFront keywords</a>
+    	              <ul>
+    	        <li><a href="Default-keywords.html">Default</a></li>
+    	        <li><a href="DefaultCZM-keywords.html">DefaultCZM</a></li>
+    	        <li><a href="DefaultFiniteStrain-keywords.html">DefaultFiniteStrain</a></li>
+    	        <li><a href="DefaultGenericBehaviour-keywords.html">DefaultGenericBehaviour</a></li>
+    	        <li><a href="DefaultModel-keywords.html">DefaultModel</a></li>
+    	        <li><a href="Implicit-keywords.html">Implicit</a></li>
+    	        <li><a href="ImplicitCZM-keywords.html">ImplicitCZM</a></li>
+    	        <li><a href="ImplicitFiniteStrain-keywords.html">ImplicitFiniteStrain</a></li>
+    	        <li><a href="ImplicitGenericBehaviour-keywords.html">ImplicitGenericBehaviour</a></li>
+    	        <li><a href="ImplicitModel-keywords.html">ImplicitModel</a></li>
+    	        <li><a href="ImplicitII-keywords.html">ImplicitII</a></li>
+    	        <li><a href="IsotropicMisesCreep-keywords.html">IsotropicMisesCreep</a></li>
+    	        <li><a href="IsotropicMisesPlasticFlow-keywords.html">IsotropicMisesPlasticFlow</a></li>
+    	        <li><a href="IsotropicPlasticMisesFlow-keywords.html">IsotropicPlasticMisesFlow</a></li>
+    	        <li><a href="IsotropicStrainHardeningMisesCreep-keywords.html">IsotropicStrainHardeningMisesCreep</a></li>
+    	        <li><a href="MaterialLaw-keywords.html">MaterialLaw</a></li>
+    	        <li><a href="MaterialProperty-keywords.html">MaterialProperty</a></li>
+    	        <li><a href="Model-keywords.html">Model</a></li>
+    	        <li><a href="MultipleIsotropicMisesFlows-keywords.html">MultipleIsotropicMisesFlows</a></li>
+    	        <li><a href="RungeKutta-keywords.html">RungeKutta</a></li>
+    	        <li><a href="RungeKuttaFiniteStrain-keywords.html">RungeKuttaFiniteStrain</a></li>
+    	        <li><a href="RungeKuttaGenericBehaviour-keywords.html">RungeKuttaGenericBehaviour</a></li>
+    	        <li><a href="RungeKuttaModel-keywords.html">RungeKuttaModel</a></li>
+    	      </ul>
+                </li>
+	      </ul>
+	    </li>
+	    <li><a href="mtest.html">MTest</a>
+               <ul>
+	      <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
+              <li><a href="MTest-keywords.html">MTest keywords</a></li>
+	      </ul>
+            </li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
+	    <li><a>TFEL libraries</a>
+	      <ul>
+		<li><a href="libraries_usage.html">Usage of the TFEL libraries in C++</a></li>
+		<li><a href="tfel-math.html">TFEL/Math</a></li>
+                 <ul>
+		  <li><a href="tfel-math-numerical-integration.html">Numerical integeration</a></li>
+		  <li><a href="tfel-math-data-interpolation.html">Data interpolation</a></li>
+	        </ul>
+		<li><a href="tfel-material.html">TFEL/Material</a></li>
+		<li><a href="tfel-material-homogenization.html">TFEL/Material homogenization</a></li>
+                 <li><a href="glossary.html">Glossary</a></li>
+                 <li><a href="physical-constants.html">Physical constants</a></li>
+		<li><a href="tfel-mfront-database.html">TFELMFrontDatabase</a></li>
+	      </ul>
+	    </li>
+	    <li><a>Python modules</a>
+	      <ul>
+		<li><a href="tfel-python.html">TFEL modules</a></li>
+		<li><a href="mfront-python.html">mfront module</a></li>
+		<li><a href="mtest-python.html">mtest module</a></li>
+	      </ul>
+	    </li>
+	    <li><a href="publications.html">Publications</a></li>
+	    <li><a href="faq.html">FAQ</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
+	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="search.html">Search on this site</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/discussions">Forum</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Bug report</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Feature request</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+<div id="header">
+<h1 class="title">The TFEL/Material homogenization library</h1>
+<h2 class="author">Antoine MARTIN</h2>
+<h3 class="date">09/09/2026</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#introduction" id="toc-introduction">Introduction</a></li>
+<li><a href="#eshelby-hill-and-localisation-tensors"
+id="toc-eshelby-hill-and-localisation-tensors">Eshelby, Hill and
+localisation tensors</a>
+<ul>
+<li><a href="#theoretical-background"
+id="toc-theoretical-background">Theoretical background</a></li>
+<li><a href="#computation-in-isotropic-reference-medium"
+id="toc-computation-in-isotropic-reference-medium">Computation in
+isotropic reference medium</a></li>
+<li><a href="#computation-in-anisotropic-reference-medium"
+id="toc-computation-in-anisotropic-reference-medium">Computation in
+anisotropic reference medium</a></li>
+</ul></li>
+<li><a href="#two-phase-composites"
+id="toc-two-phase-composites">Two-phase composites</a>
+<ul>
+<li><a href="#homogenization-schemes"
+id="toc-homogenization-schemes">Homogenization schemes</a></li>
+<li><a
+href="#second-moments-of-the-strains-hashin-shtrikman-two-phase-composite"
+id="toc-second-moments-of-the-strains-hashin-shtrikman-two-phase-composite">Second-moments
+of the strains (Hashin-Shtrikman two-phase composite)</a></li>
+</ul></li>
+<li><a href="#homogenization-bounds"
+id="toc-homogenization-bounds">Homogenization bounds</a></li>
+<li><a href="#polyphasic-microstructures"
+id="toc-polyphasic-microstructures">Polyphasic microstructures</a>
+<ul>
+<li><a href="#description-of-the-components-of-a-microstructure"
+id="toc-description-of-the-components-of-a-microstructure">Description
+of the components of a microstructure</a></li>
+<li><a href="#construction-of-a-microstructure"
+id="toc-construction-of-a-microstructure">Construction of a
+microstructure</a></li>
+<li><a href="#computation-of-homogenization-schemes"
+id="toc-computation-of-homogenization-schemes">Computation of
+homogenization schemes</a></li>
+<li><a href="#strain-localisation-tensors-on-each-phase"
+id="toc-strain-localisation-tensors-on-each-phase">Strain localisation
+tensors on each phase</a></li>
+<li><a href="#prescribing-a-polarisation-on-each-phase"
+id="toc-prescribing-a-polarisation-on-each-phase">Prescribing a
+polarisation on each phase</a></li>
+<li><a href="#second-moments-of-the-strains"
+id="toc-second-moments-of-the-strains">Second-moments of the
+strains</a></li>
+</ul></li>
+</ul>
+</div>
+<h1 id="introduction">Introduction</h1>
+<p>The homogenization functions are part of the namespace
+<code>tfel::material::homogenization</code>. A specialization for
+elasticity is defined:
+<code>tfel::material::homogenization::elasticity</code>. Note that the
+functionalities below are also available in the <code>Python</code>
+module (see the doc <a
+href="tfel-python.html#the-tfel.material.homogenization-module">here</a>).</p>
+<h1 id="eshelby-hill-and-localisation-tensors">Eshelby, Hill and
+localisation tensors</h1>
+<h2 id="theoretical-background">Theoretical background</h2>
+<h3 id="eshelby-and-hill-tensors">Eshelby and Hill tensors</h3>
+<p>Let us consider a uniform stress-free strain <span
+class="math inline">\(\underline{\varepsilon}^\mathrm{T}\)</span>
+applied in an ellipsoidal volume embedded in an infinite homogeneous
+medium whose elasticity is <span
+class="math inline">\(\underline{\underline{\mathbf{C}}}_0\)</span>:</p>
+<p><span class="math inline">\(\underline{\sigma }=
+\underline{\underline{\mathbf{C}}}_0:(\underline{\varepsilon }-
+\underline{\varepsilon}^\mathrm{T})\quad\Leftrightarrow
+\quad\underline{\sigma }=
+\underline{\underline{\mathbf{C}}}_0:\underline{\varepsilon
+}+\underline{\tau}, \quad \underline{\tau}=
+-\underline{\underline{\mathbf{C}}}_0:\underline{\varepsilon}^\mathrm{T}\)</span></p>
+<p>where <span class="math inline">\(\underline{\tau}\)</span> is the
+polarization tensor. The strain tensor inside the ellipsoid is uniform
+and given by</p>
+<p><span
+class="math inline">\(\underline{\varepsilon}=\underline{\underline{\mathbf{S}}}_0:\underline{\varepsilon}^\mathrm{T}\)</span></p>
+<p>where <span
+class="math inline">\(\underline{\underline{\mathbf{S}}}_0\)</span> is
+the Eshelby tensor. The Hill tensor <span
+class="math inline">\(\underline{\underline{\mathbf{P}}}_0\)</span>
+gives the strain tensor inside the ellipsoid as a function of <span
+class="math inline">\(\underline{\tau}\)</span> rather than <span
+class="math inline">\(\underline{\varepsilon}^\mathrm{T}\)</span>:</p>
+<p><span
+class="math inline">\(\underline{\varepsilon}=-\underline{\underline{\mathbf{P}}}_0:\underline{\tau},\quad\text{with}\quad\underline{\underline{\mathbf{P}}}_0=\underline{\underline{\mathbf{S}}}_0:\underline{\underline{\mathbf{C}}}_0^{-1}\)</span>.</p>
+<figure>
+<img src="./img/ellipsoide_C0.png" style="width:35.0%"
+alt="Ellipsoidal inclusion" />
+<figcaption aria-hidden="true">Ellipsoidal inclusion</figcaption>
+</figure>
+<h3 id="localisation-tensor">Localisation tensor</h3>
+<p>Now we consider the same ellipsoid embedded in the medium <span
+class="math inline">\(\underline{\underline{\mathbf{C}}}_0\)</span>, but
+the ellipsoid has now an elasticity <span
+class="math inline">\(\underline{\underline{\mathbf{C}}}_i\)</span>:</p>
+<p><span class="math inline">\(\underline{\sigma }=
+\underline{\underline{\mathbf{C}}}_i:\underline{\varepsilon}\)</span></p>
+<p>An external uniform strain <span
+class="math inline">\(\underline{E}\)</span> is applied at infinity. We
+can show that the strain field within the ellipsoid is again uniform and
+given by</p>
+<p><span class="math inline">\(\underline{\varepsilon }=
+\underline{\underline{\mathbf{A}}}_i:\underline{E},\qquad\text{where}\quad  \underline{\underline{\mathbf{A}}}_i
+= \left[\underline{\underline{\mathbf{I}}} +
+\underline{\underline{\mathbf{P}}}_0:\left(\underline{\underline{\mathbf{C}}}_i
+-\underline{\underline{\mathbf{C}}}_0\right)\right]^ {-1}\)</span></p>
+<p>and <span
+class="math inline">\(\underline{\underline{\mathbf{A}}}_i\)</span> is
+called the strain localisation (or concentration) tensor.</p>
+<h3
+id="expression-of-eshelby-tensor-for-a-spheroidal-inclusion-in-an-isotropic-matrix">Expression
+of Eshelby tensor for a spheroidal inclusion in an isotropic matrix</h3>
+<p>For a spheroidal inclusion embedded in an isotropic matrix, the
+Eshelby tensor can be found in <span class="citation"
+data-cites="torquato_2002">[1]</span>, Sec. 17.2.2 (see also the Hill
+tensor in <span class="citation" data-cites="parnell_2016">[2]</span>,
+Sec. 5.1.3). We first introduce a parameter <span
+class="math inline">\(q\)</span> which depends on the spheroid aspect
+ratio <span class="math inline">\(e=b/a\)</span>, where <span
+class="math inline">\(b\)</span> is the length of the axisymmetric axis
+and <span class="math inline">\(a\)</span> the length of the two equal
+axes:</p>
+<p><span class="math inline">\(q(e)= \left\{\substack{\dfrac{e}{(e^2 -
+1)^{3/2}}\left(e \sqrt{e^2 - 1} - \mathrm{Acosh}(e)\right)\quad\text{for
+prolate spheroids}\,(e&gt;1)\\ \dfrac{e}{(1 -
+e^2)^{3/2}}\left(\mathrm{cos}^{-1}(e) - e \sqrt{1 -
+e^2}\right)\quad\text{for oblate
+spheroids}\,(e&lt;1)}\right.\)</span></p>
+<p>and assuming the axis <span class="math inline">\(b\)</span> aligned
+with the direction <span class="math inline">\(3\)</span>, we have</p>
+<p><span class="math inline">\(S_{1111} = S_{2222} = \dfrac{3}{8 (1 -
+\nu)}\dfrac{e^2}{e^2-1} + \dfrac{q(e)}{4(1 - \nu)}\left(1-2\nu -
+\dfrac{9}{4(e^2-1)}\right)\)</span></p>
+<p><span class="math inline">\(S_{1122} = S_{2211} = \dfrac{1}{4(1 -
+\nu)}\left(\dfrac{e^2}{2(e^2-1)} - q(e)\left(1-2\nu +
+\dfrac{3}{4(e^2-1)}\right)\right)\)</span></p>
+<p><span class="math inline">\(S_{1133} = S_{2233} = \dfrac{1}{2(1 -
+\nu)}\left(-\dfrac{e^2}{e^2-1} +
+\dfrac{q(e)}{2}\left(\dfrac{3e^2}{e^2-1}- 1 +
+2\nu\right)\right)\)</span></p>
+<p><span class="math inline">\(S_{3311} = S_{3322} = \dfrac{1}{2(1 -
+\nu)}\left(2\nu-1 - \dfrac{1}{e^2-1} + q(e)\left(1-2\nu +
+\dfrac{3}{2(e^2-1)}\right)\right)\)</span></p>
+<p><span class="math inline">\(S_{3333} = \dfrac{1}{2(1 -
+\nu)}\left(1-2\nu + \dfrac{3 e^2 - 1}{e^2-1} - q(e)\left(1-2\nu +
+\dfrac{3 e^2}{e^2-1}\right)\right)\)</span></p>
+<p><span class="math inline">\(S_{1212} = \dfrac{1}{4(1 -
+\nu)}\left(\dfrac{e^2}{2(e^2-1)} + q(e)\left(1-2\nu -
+\dfrac{3}{4(e^2-1)}\right)\right)\)</span></p>
+<p><span class="math inline">\(S_{1313} = S_{2323} = \dfrac{1}{4(1 -
+\nu)}\left(1-2\nu - \dfrac{e^2 + 1}{e^2-1} - \dfrac{q(e)}{2}\left(1-2\nu
+- \dfrac{3(e^2 + 1)}{e^2-1}\right)\right)\)</span></p>
+<p>where <span class="math inline">\(\nu\)</span> is the Poisson ratio
+related to <span
+class="math inline">\(\underline{\underline{\mathbf{C}}}_0\)</span>, and
+the other components are null.</p>
+<h3
+id="expression-of-eshelby-tensor-for-an-ellipsoidal-inclusion-in-an-isotropic-matrix">Expression
+of Eshelby tensor for an ellipsoidal inclusion in an isotropic
+matrix</h3>
+<p>For a general ellipsoid with three different semi-axes, the formula
+can be found in <span class="citation"
+data-cites="eshelby_1957">[3]</span>. We assume that <span
+class="math inline">\(a &gt; b &gt; c\)</span> are the semi-lengths of
+the axes respectively aligned with the directions <span
+class="math inline">\(1,2,3\)</span>. We introduce</p>
+<p><span class="math inline">\(Q = \dfrac{3}{8\pi(1 - \nu)}\qquad\qquad
+R = \dfrac{1-2\nu}{8\pi(1 - \nu)}\qquad\qquad \theta =
+\mathrm{sin}^{-1}\left(\sqrt{1 - c^2 / a^2}\right)\qquad\qquad
+k=\sqrt{(a^2 - b^2) / (a^2 - c^2)}\)</span></p>
+<p>and we use the incomplete elliptic integrals of the first and second
+kind:</p>
+<p><span class="math inline">\(F = F(\theta,k)\qquad E = E(\theta,
+k)\qquad\)</span> (that can be computed via <code>std::ellint_1</code>
+and <code>std::ellint_2</code> in <code>C++</code>).</p>
+<p>We also define</p>
+<p><span class="math inline">\(I_a=\dfrac{4\,\pi\,a\,b\,c}{(a^2 -
+b^2)\,\sqrt{a^2 - c^2}}(F - E)\qquad\qquad I_c=\dfrac{4\,\pi\, a \, b \,
+c}{(b^2 - c^2)\,\sqrt{a^2 - c^2}}\left(b\,\dfrac{\sqrt{a^2 - c^2}}{a\,c}
+- E\right)\)</span></p>
+<p>and <span class="math inline">\(\quad I_b=4 \pi - I_a -
+I_c,\qquad\)</span> and</p>
+<p><span class="math inline">\(I_{ab}=\dfrac{I_b - I_a}{3(a^2 -
+b^2)}\qquad\qquad I_{ac}=\dfrac{4\pi/3 - I_a - I_{ab}(a^2 - b^2)}{a^2 -
+c^2}\qquad\qquad I_{aa}=\dfrac{4\pi}{3a^2} - I_{ab} -
+I_{ac}\)</span></p>
+<p><span class="math inline">\(I_{bc}=\dfrac{4\pi/3 - I_c - I_{ac}(c^2 -
+a^2)}{c^2 - b^2}\qquad\qquad I_{bb}=\dfrac{4\pi}{3b^2} - I_{ab} -
+I_{bc}\qquad\qquad I_{cc}=\dfrac{4\pi}{3c^2} - I_{bc} -
+I_{ac}\)</span></p>
+<p>The components of the Eshelby tensor are then given by</p>
+<p><span class="math inline">\(S_{1111} = Q\,a^2\,I_{aa} +
+R\,I_a\qquad\qquad S_{1122} = Q\,b^2\,I_{ab} - R\,I_a\qquad\qquad
+S_{1133} = Q\,c^2\,I_{ac} - R\,I_a\)</span></p>
+<p><span class="math inline">\(S_{2211} = Q\,a^2\,I_{ab} -
+R\,I_b\qquad\qquad S_{2222} = Q\,b^2\,I_{bb} + R\,I_b\qquad\qquad
+S_{2233} = Q\,c^2\,I_{bc} - R\,I_b\)</span></p>
+<p><span class="math inline">\(S_{3311} = Q\,a^2\,I_{ac} -
+R\,I_c\qquad\qquad S_{3322} = Q\,b^2\,I_{bc} - R\,I_c\qquad\qquad
+S_{3333} = Q\,c^2\,I_{cc} + R\,I_c\)</span></p>
+<p><span class="math inline">\(S_{1212} = \dfrac12\left(Q\,I_{ab}\,(a^2
++ b^2) + R\,(I_a + I_b)\right)\)</span></p>
+<p><span class="math inline">\(S_{1313} = \dfrac12\left(Q\,I_{ac}\,(a^2
++ c^2) + R\,(I_a + I_c)\right)\)</span></p>
+<p><span class="math inline">\(S_{2323} = \dfrac12\left(Q\,I_{bc}\,(b^2
++ c^2) + R\,(I_b + I_c)\right)\)</span></p>
+<p>and the other components are null.</p>
+<h3
+id="general-expression-of-hill-tensor-for-an-ellipsoidal-inclusion-in-an-anisotropic-matrix">General
+expression of Hill tensor for an ellipsoidal inclusion in an anisotropic
+matrix</h3>
+<p>For a general ellipsoid embedded in an anisotropic matrix, we can
+refer to <span class="citation" data-cites="masson_2007">[4]</span>. We
+give first the expression of Hill tensor, and Eshelby tensor is obtain
+by a left multiplication by the elastic stiffness tensor of the matrix.
+We assume that <span class="math inline">\(a,b,c\)</span> are the
+semi-lengths of the axes respectively aligned with the directions <span
+class="math inline">\(1,2,3\)</span>. The components of Hill tensor
+are</p>
+<p><span
+class="math inline">\(P_{ijkl}=\dfrac1{4\pi}\int_{\phi=0}^{2\pi}\int_{\theta=0}^{\pi}
+M_{ijkl}(\theta,\phi)\,\mathrm{sin}(\theta)\,\mathrm{d}\theta\,\mathrm{d}\phi\)</span></p>
+<p>where</p>
+<p><span
+class="math inline">\(M_{ijkl}(\theta,\phi)=\dfrac1{4}\left(A_{jk}^{-1}x_i\,x_l+A_{ik}^{-1}x_j\,x_l+A_{jl}^{-1}x_i\,x_k+A_{il}^{-1}x_j\,x_k\right)\)</span></p>
+<p>and <span class="math inline">\(A_{ij}^{-1}\)</span> is the component
+<span class="math inline">\(i,j\)</span> of the inverse of the <span
+class="math inline">\(3\times 3\)</span> acoustic matrix <span
+class="math inline">\(\underline{A}=\vec
+x.\underline{\underline{\mathbf{C}}}_0.\vec x\)</span>, and</p>
+<p><span class="math inline">\(x_1=\dfrac{\sin\theta\cos\phi}a\qquad
+x_2=\dfrac{\sin\theta\sin\phi}b\qquad
+x_3=\dfrac{\cos\theta}c\)</span></p>
+<h2 id="computation-in-isotropic-reference-medium">Computation in
+isotropic reference medium</h2>
+<h3 id="eshelby-and-hill-tensors-1">Eshelby and Hill tensors</h3>
+<p>The header <code>IsotropicEshelbyTensor.hxx</code> introduces the
+computation of the Eshelby tensors and Hill tensors of general
+ellipsoids embedded in an isotropic medium.</p>
+<p>We can compute the Hill tensors as follows:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> tfel<span class="op">::</span>material<span class="op">::</span>homogenization<span class="op">::</span>elasticity<span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> P0 <span class="op">=</span> computeSphereHillPolarisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">);</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> P0_axi <span class="op">=</span> computeAxisymmetricalHillPolarisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">,</span>n_a<span class="op">,</span>e<span class="op">);</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> P0_ellipsoid <span class="op">=</span> computeHillPolarisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>n_b<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span></code></pre></div>
+<p>Here, the first line computes the Hill tensor for a sphere. The
+second one computes the Hill tensor for an axisymmetrical ellipsoid (or
+spheroidal inclusion). The user must provide the normal vector
+<code>n_a</code> for the axis, and <code>e</code> for the aspect ratio.
+The third line computes the Hill tensor of a more general ellipsoid
+whose semi-axis lengths are
+<code>a</code>,<code>b</code>,<code>c</code>. The axis <code>a</code> is
+related to direction given by <code>n_a</code> and <code>b</code> is
+related to the direction given by <code>n_b</code>, which must be normal
+to <code>n_a</code> (see the figure above).</p>
+<p>An <code>IsotropicModuli</code> can also be passed for the
+elasticity, as follows:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> IM0<span class="op">=</span>YoungNuModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">);</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> P0 <span class="op">=</span> computeSphereHillPolarisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">);</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> P0_axi <span class="op">=</span> computeAxisymmetricalHillPolarisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>n_a<span class="op">,</span>e<span class="op">);</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> P0_ellipsoid <span class="op">=</span> computeHillPolarisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>n_b<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span></code></pre></div>
+<p>The Eshelby tensors can be computed as follows:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> S0 <span class="op">=</span> computeSphereEshelbyTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>nu0<span class="op">);</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> S0_axi <span class="op">=</span> computeAxisymmetricalEshelbyTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>nu0<span class="op">,</span>e<span class="op">);</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> S0_ellipsoid <span class="op">=</span> computeEshelbyTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>nu0<span class="op">,</span>a<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span></code></pre></div>
+<p>Note that the Eshelby tensors are not related to a basis, so that it
+is recommended to use the Hill tensors instead. In 2 dimensional
+framework, Eshelby tensors and Hill tensors are computed as follows:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> S0_D <span class="op">=</span> computeDiskPlaneStrainEshelbyTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>nu0<span class="op">);</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> S0_C <span class="op">=</span> computePlaneStrainEshelbyTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>nu0<span class="op">,</span>e<span class="op">);</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> IM0<span class="op">=</span>YoungNuModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">);</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> P0_D <span class="op">=</span> computeDiskPlaneStrainHillTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">);</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> P0_C <span class="op">=</span> computePlaneStrainHillTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>b<span class="op">);</span></span></code></pre></div>
+<p>The <code>computeDiskPlaneStrain</code> refers to a disk in plane
+strain framework, whereas the <code>computePlaneStrain</code> refers to
+an ellipse oriented by <code>n_a</code>, in a plane strain
+framework.</p>
+<h3 id="localisation-or-concentration-tensors">Localisation (or
+concentration) tensors</h3>
+<p>The header <code>LocalisationTensor.hxx</code> also introduces the
+computation of the strain localisation tensors of an ellipsoid. These
+localisation tensors can be computed as follows:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> A <span class="op">=</span> computeSphereLocalisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">,</span>Ei<span class="op">,</span>nui<span class="op">);</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> A_axi <span class="op">=</span> computeAxisymmetricalLocalisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">,</span>Ei<span class="op">,</span>nui<span class="op">,</span>n_a<span class="op">,</span>e<span class="op">);</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> A_ellipsoid <span class="op">=</span> computeLocalisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">,</span>Ei<span class="op">,</span>nui<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>n_b<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span></code></pre></div>
+<p>Here, the subscript <code>i</code> refers to the inclusion. Here
+again, an <code>IsotropicModuli</code> can be passed for the elasticity,
+as follows:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> IM0<span class="op">=</span>YoungNuModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">);</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> IMi<span class="op">=</span>YoungNuModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span>Ei<span class="op">,</span>nui<span class="op">);</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> A <span class="op">=</span> computeSphereLocalisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>IMi<span class="op">);</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> A_axi <span class="op">=</span> computeAxisymmetricalLocalisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>IMi<span class="op">,</span>n_a<span class="op">,</span>e<span class="op">);</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> A_ellipsoid <span class="op">=</span> computeLocalisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>IMi<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>n_b<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span></code></pre></div>
+<p>Note that if the elasticity of the inclusion is not isotropic, an
+anisotropic elasticity <code>C_i</code> can be provided, assuming that
+this elasticity is expressed in the same basis as the one defined by
+<code>n_a,n_b</code> (the local basis of the inclusion):</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> A_aniso <span class="op">=</span> computeLocalisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>C_i<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>n_b<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span></code></pre></div>
+<p>In 2 dimensional framework, localisation tensors are computed as
+follows:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> A_D <span class="op">=</span> computeDiskPlaneStrainLocalisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>C_i<span class="op">);</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> A_C <span class="op">=</span> computePlaneStrainLocalisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>C_i<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>b<span class="op">);</span></span></code></pre></div>
+<h2 id="computation-in-anisotropic-reference-medium">Computation in
+anisotropic reference medium</h2>
+<p>The header <code>AnisotropicEshelbyTensor.hxx</code> introduces the
+computation of the Eshelby tensors and Hill tensors of general
+ellipsoids embedded in an anisotropic medium. The anisotropic elasticity
+<span
+class="math inline">\(\underline{\underline{\mathbf{C}}}_0\)</span> must
+be expressed in the global basis.</p>
+<p>These tensors can be computed as follows:</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> P0 <span class="op">=</span> computeAnisotropicHillTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>C0<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>n_b<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> P0_2d <span class="op">=</span> computePlaneStrainAnisotropicHillTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>C0<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>b<span class="op">);</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> S0 <span class="op">=</span> computeAnisotropicEshelbyTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>C0<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>n_b<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> S0_2d <span class="op">=</span> computePlaneStrainAnisotropicEshelbyTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>C0<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>b<span class="op">);</span></span></code></pre></div>
+<p>The tensors are computed via an integration on a bi-dimensional
+domain. The integration is iterative, and the user can provide the
+number of iterations (basically, it corresponds to the number of
+subdivisions in each domain direction). Hence, more iterations lead to
+more accurate results, but take longer to compute. The default number of
+iterations is <code>12</code>, but it is recommended to increase it for
+sharp ellipsoids:</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="bu">std::</span>size_t it <span class="op">=</span> <span class="dv">10</span><span class="op">;</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> P0 <span class="op">=</span> computeAnisotropicHillTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>C0<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>n_b<span class="op">,</span>b<span class="op">,</span>c<span class="op">,</span><span class="dv">10</span><span class="op">);</span></span></code></pre></div>
+<p>The localisation tensors are introduced in the same header
+<code>AnisotropicEshelbyTensor.hxx</code>. We can do as follows:</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> A <span class="op">=</span> computeAnisotropicLocalisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>C0_glob<span class="op">,</span>Ci_loc<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>n_b<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> A_2d <span class="op">=</span> computePlaneStrainAnisotropicLocalisationTensor<span class="op">&lt;</span>stress<span class="op">&gt;(</span>C0_glob<span class="op">,</span>Ci_loc<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>b<span class="op">);</span></span></code></pre></div>
+<p>The user must provide the elasticity of the inclusion as a
+<code>st2tost2</code> <code>Ci_loc</code>, and if it is not isotropic,
+it must be provided in the local basis defined by
+<code>n_a,n_b</code>.</p>
+<h1 id="two-phase-composites">Two-phase composites</h1>
+<p>Note that the functionalities below are also available in the
+<code>Python</code> module (see the doc <a
+href="tfel-python.html#two-phase-composites">here</a>). See also <a
+href="BiphasicLinearHomogenization.html">here</a> a tutorial on the
+computation of homogenized schemes for two-phase particulate
+microstructures.</p>
+<p>Different classical mean-field homogenization tools are implemented
+for two-phase composites. They only deal with isotropic matrices and
+locally isotropic inclusions (for more complex composites, see the
+section “Polyphasic microstructures”).</p>
+<h2 id="homogenization-schemes">Homogenization schemes</h2>
+<p>The homogenization schemes for two-phase composites are introduced by
+the header <code>LinearHomogenizationSchemes.hxx</code>. The available
+schemes are:</p>
+<ul>
+<li>Mori-Tanaka scheme</li>
+<li>dilute scheme</li>
+<li>Ponte Castaneda and Willis scheme</li>
+</ul>
+<p>Each scheme is based on the average of the localisation tensor <span
+class="math inline">\(\underline{\underline{\mathbf{A}}}_i\)</span>
+defined above. This average is computed assuming different distributions
+of ellipsoids. Hence, different cases are considered:</p>
+<ul>
+<li>spheres (no orientations)</li>
+<li>oriented ellipsoids (two vectors <span
+class="math inline">\(\underline{n}_a,\underline{n}_b\)</span> define
+the orientation)</li>
+<li>uniform isotropic distribution of orientations (the ellipsoids have
+no preferential orientation)</li>
+<li>transverse isotropic distribution of orientations (one axis <span
+class="math inline">\(\underline{n}_a\)</span> of the ellipsoid is
+fixed, the others are uniformly distributed in the transverse
+plane)</li>
+</ul>
+<figure>
+<img src="./img/distributions.png" style="width:100.0%"
+alt="The three distributions of orientations considered here: oriented, isotropic, and transverse isotropic" />
+<figcaption aria-hidden="true">The three distributions of orientations
+considered here: oriented, isotropic, and transverse
+isotropic</figcaption>
+</figure>
+<p>Hence we can compute the homogenized stiffness returned by the
+available schemes. For example, for the distribution of spheres:</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> IM0<span class="op">=</span>YoungNuModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">);</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> IMi<span class="op">=</span>YoungNuModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span>Ei<span class="op">,</span>nui<span class="op">);</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> KG_DS <span class="op">=</span> computeSphereDiluteScheme<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>f<span class="op">,</span>IMi<span class="op">);</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> KG_MT <span class="op">=</span> computeSphereMoriTanakaScheme<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>f<span class="op">,</span>IMi<span class="op">);</span></span></code></pre></div>
+<p>Note that the two above schemes return a <code>KGModuli</code> object
+(see <a href="tfel-material.html#isotropic-elastic-moduli">here</a>).
+Also, <code>f</code> is the volume fraction, and the subscript
+<code>0</code> refers to the matrix, and the subscript <code>i</code>
+refers to the inclusion.</p>
+<p>For the oriented inclusions, we can do:</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> C_DS <span class="op">=</span> computeOrientedDiluteScheme<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>f<span class="op">,</span>IMi<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>n_b<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> C_MT <span class="op">=</span> computeOrientedMoriTanakaScheme<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>f<span class="op">,</span>IMi<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>n_b<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> C_PCW <span class="op">=</span> computeOrientedPCWScheme<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>f<span class="op">,</span>IMi<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>n_b<span class="op">,</span>b<span class="op">,</span>c<span class="op">,</span>D<span class="op">);</span></span></code></pre></div>
+<p>Here, the three above schemes return <code>st2tost2</code> objects.
+Note that <code>PCW</code> refers to the Ponte-Castaneda and Willis
+scheme. For this scheme, a <code>Distribution</code> object must be
+created by the user. It is defined by two vectors <span
+class="math inline">\(\underline{n}_a,\underline{n}_b\)</span> and three
+lengths <span class="math inline">\(a,b,c\)</span> that define the
+ellipsoid which defines the distribution:</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>Distribution<span class="op">&lt;</span>stress<span class="op">&gt;</span> D <span class="op">=</span> <span class="op">{.</span>n_a <span class="op">=</span> n_a<span class="op">,</span> <span class="op">.</span>a <span class="op">=</span> a<span class="op">,</span> <span class="op">.</span>n_b <span class="op">=</span> n_b<span class="op">,</span> <span class="op">.</span>b <span class="op">=</span> b<span class="op">,</span> <span class="op">.</span>c <span class="op">=</span> c<span class="op">};</span></span></code></pre></div>
+<figure>
+<img src="./img/distributions_PCW.png" style="width:100.0%"
+alt="The three distributions of orientations can be considered with PCW scheme, but a big ellipsoid defines the spatial distribution of inclusions" />
+<figcaption aria-hidden="true">The three distributions of orientations
+can be considered with PCW scheme, but a big ellipsoid defines the
+spatial distribution of inclusions</figcaption>
+</figure>
+<p>Indeed, in the Ponte-Castaneda and Willis scheme, there is a
+difference between the ellipsoid which defines the distribution of the
+inclusions, and the ellipsoid which defines the shape of the inclusions
+(in the image above, we represent the distribution <code>D</code> of
+inclusions by a big ellipsoid, with colored axes). A bigger axis for
+<code>D</code> means that along this axis, the distribution of
+inclusions is more diluted. A short axis means that, on the contrary,
+the distribution is denser along this axis.</p>
+<p>For the isotropic distribution of ellipsoids, we can do:</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> KG_DS <span class="op">=</span> computeIsotropicDiluteScheme<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>f<span class="op">,</span>IMi<span class="op">,</span>a<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> KG_MT <span class="op">=</span> computeIsotropicMoriTanakaScheme<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>f<span class="op">,</span>IMi<span class="op">,</span>a<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> C_PCW <span class="op">=</span> computeIsotropicPCWScheme<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>f<span class="op">,</span>IMi<span class="op">,</span>a<span class="op">,</span>b<span class="op">,</span>c<span class="op">,</span>D<span class="op">);</span></span></code></pre></div>
+<p>Here, the two first schemes return <code>KGModuli</code> objects,
+whereas <code>computeIsotropicPCWScheme</code> returns a
+<code>st2tost2</code> object. For this latter case, the ellipsoids have
+indeed a uniform isotropic distribution of orientations, but the user
+might use a non-isotropic <code>Distribution D</code> (it corresponds to
+the configuration at the center on the image). And finally, we can
+consider a transverse isotropic distribution of inclusions:</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> C_DS <span class="op">=</span> computeTransverseIsotropicDiluteScheme<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>f<span class="op">,</span>IMi<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> C_MT <span class="op">=</span> computeTransverseIsotropicMoriTanakaScheme<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>f<span class="op">,</span>IMi<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> C_PCW <span class="op">=</span> computeTransverseIsotropicPCWScheme<span class="op">&lt;</span>stress<span class="op">&gt;(</span>IM0<span class="op">,</span>f<span class="op">,</span>IMi<span class="op">,</span>n_a<span class="op">,</span>a<span class="op">,</span>b<span class="op">,</span>c<span class="op">,</span>D<span class="op">);</span></span></code></pre></div>
+<p>Here, the three above schemes return <code>st2tost2</code> objects.
+Because the functions are based on the average of the localisation
+tensor <span
+class="math inline">\(\underline{\underline{\mathbf{A}}}_i\)</span>
+associated with each distribution, a <code>Base</code> function is also
+defined for each scheme, that only takes in argument the average of the
+localisation tensor <code>A_av</code>. We then can compute a homogenized
+stiffness with a very general averaged localisator:</p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> C_DS <span class="op">=</span> computeDiluteScheme<span class="op">&lt;</span>stress<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">,</span>f<span class="op">,</span>Ei<span class="op">,</span>nui<span class="op">,</span>A_av<span class="op">);</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> C_MT <span class="op">=</span> computeMoriTanakaScheme<span class="op">&lt;</span>stress<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">,</span>f<span class="op">,</span>Ei<span class="op">,</span>nui<span class="op">,</span>A_av<span class="op">);</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> C_PCW <span class="op">=</span> computePCWScheme<span class="op">&lt;</span>stress<span class="op">&gt;(</span>E0<span class="op">,</span>nu0<span class="op">,</span>f<span class="op">,</span>Ei<span class="op">,</span>nui<span class="op">,</span>A_av<span class="op">,</span>D<span class="op">);</span></span></code></pre></div>
+<p>Here, the three above schemes return <code>st2tost2</code>
+objects.</p>
+<h2
+id="second-moments-of-the-strains-hashin-shtrikman-two-phase-composite">Second-moments
+of the strains (Hashin-Shtrikman two-phase composite)</h2>
+<p>Some functions (defined in the header
+HomogenizationSecondMoments.hxx) allow to compute the second moments of
+the strains when considering a Hashin-Shtrikman type microstructure.
+More precisely, we consider isotropic spherical inclusions embedded in
+an isotropic matrix, and we compute the following moments:</p>
+<p><span
+class="math inline">\(\langle\varepsilon_{eq}^2\rangle_r\qquad\text{and}\qquad\langle\varepsilon_{m}^2\rangle_r\)</span></p>
+<p>on each phase <span class="math inline">\(r\)</span>, <span
+class="math inline">\(\varepsilon_{eq}\)</span> being the equivalent
+strain and <span class="math inline">\(\varepsilon_{m}\)</span> being
+the third of the trace of the strain. We hence write</p>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> kg0 <span class="op">=</span> KGModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span>K0<span class="op">,</span>G0<span class="op">);</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> kgr <span class="op">=</span> KGModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span>K1<span class="op">,</span>G1<span class="op">);</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> tfel<span class="op">::</span>material<span class="op">::</span>homogenization<span class="op">::</span>elasticity<span class="op">;</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> em2r <span class="op">=</span> computeMeanSquaredHydrostaticStrain<span class="op">(</span>kg0<span class="op">,</span>fr<span class="op">,</span>kgr<span class="op">,</span>em2<span class="op">,</span>eeq2<span class="op">);</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> em20<span class="op">=</span><span class="bu">std::</span>get<span class="op">&lt;</span><span class="dv">0</span><span class="op">&gt;(</span>em2<span class="op">);</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> em2i<span class="op">=</span><span class="bu">std::</span>get<span class="op">&lt;</span><span class="dv">1</span><span class="op">&gt;(</span>em2<span class="op">);</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> eeq2r <span class="op">=</span> computeMeanSquaredEquivalentStrain<span class="op">(</span>kg0<span class="op">,</span>fr<span class="op">,</span>kgr<span class="op">,</span>em2<span class="op">,</span>eeq2<span class="op">);</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> eeq20<span class="op">=</span><span class="bu">std::</span>get<span class="op">&lt;</span><span class="dv">0</span><span class="op">&gt;(</span>eeq2<span class="op">);</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> eeq2i<span class="op">=</span><span class="bu">std::</span>get<span class="op">&lt;</span><span class="dv">1</span><span class="op">&gt;(</span>eeq2<span class="op">);</span></span></code></pre></div>
+<p>Here the functions appearing at lines 4 and 7 need 5 arguments:
+isotropic modulus of the matrix <code>kg0</code>, volume fraction of
+spheres, isotropic modulus of the inclusions <code>kgr</code>, but also
+the second moments of the total strain: <code>em2</code> for the
+hydrostatic part and <code>eeq2</code> for the deviatoric part. The
+functions return <code>std::pair</code>, each element of the
+<code>pair</code> corresponds to a phase (matrix or spheres).</p>
+<h1 id="homogenization-bounds">Homogenization bounds</h1>
+<p>Different homogenization bounds are implemented for N-phase
+composites and are introduced by the header
+<code>LinearHomogenizationBounds.hxx</code>. The available bounds
+are:</p>
+<ul>
+<li>Voigt bound (general elasticity on each phase)</li>
+<li>Reuss bound (general elasticity on each phase)</li>
+<li>Hashin-Shtrikman bounds (locally isotropic phases)</li>
+</ul>
+<p>Here are some examples of computation:</p>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">//Voigt and Reuss bounds</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>vector<span class="op">&lt;</span>real<span class="op">&gt;</span> tab_f<span class="op">={</span>real<span class="op">(</span><span class="fl">0.2</span><span class="op">),</span>real<span class="op">(</span><span class="fl">0.8</span><span class="op">)};</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> C0 <span class="op">=</span> stress<span class="op">(</span><span class="fl">1e9</span><span class="op">)*</span>Stensor4<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>real<span class="op">&gt;::</span>Id<span class="op">();</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> C1 <span class="op">=</span> stress<span class="op">(</span><span class="fl">1e7</span><span class="op">)*</span>Stensor4<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>real<span class="op">&gt;::</span>Id<span class="op">();</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>vector<span class="op">&lt;</span>Stensor4<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>stress<span class="op">&gt;&gt;</span> tab_C<span class="op">={</span>C0<span class="op">,</span>C1<span class="op">};</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> Stensor4<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>real<span class="op">&gt;</span> CV <span class="op">=</span> computeVoigtStiffness<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span> stress<span class="op">&gt;(</span>tab_f<span class="op">,</span> tab_C<span class="op">);</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> Stensor4<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>real<span class="op">&gt;</span> CR <span class="op">=</span> computeReussStiffness<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span> stress<span class="op">&gt;(</span>tab_f<span class="op">,</span> tab_C<span class="op">);</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="co">//Hashin-Shtrikman bounds</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> K0<span class="op">=</span>stress<span class="op">(</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span><span class="op">);</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> G0<span class="op">=</span>stress<span class="op">(</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span><span class="op">);</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> K1<span class="op">=</span>stress<span class="op">(</span><span class="dv">2</span><span class="op">/</span><span class="dv">3</span><span class="op">);</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> G1<span class="op">=</span>stress<span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> K2<span class="op">=</span>stress<span class="op">(</span><span class="dv">5</span><span class="op">/</span><span class="dv">3</span><span class="op">);</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> G2<span class="op">=</span>stress<span class="op">(</span><span class="dv">5</span><span class="op">/</span><span class="dv">2</span><span class="op">);</span></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>vector<span class="op">&lt;</span>real<span class="op">&gt;</span> tab_f<span class="op">={</span>real<span class="op">(</span><span class="fl">0.1</span><span class="op">),</span>real<span class="op">(</span><span class="fl">0.8</span><span class="op">),</span>real<span class="op">(</span><span class="fl">0.1</span><span class="op">)};</span></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>vector<span class="op">&lt;</span>stress<span class="op">&gt;</span> tab_K<span class="op">={</span>K0<span class="op">,</span>K1<span class="op">,</span>K2<span class="op">};</span></span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>vector<span class="op">&lt;</span>stress<span class="op">&gt;</span> tab_mu<span class="op">={</span>G0<span class="op">,</span>G1<span class="op">,</span>G2<span class="op">};</span></span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> pair <span class="op">=</span> computeIsotropicHashinShtrikmanBounds<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span> stress<span class="op">&gt;(</span>tab_f<span class="op">,</span> tab_K<span class="op">,</span> tab_mu<span class="op">);</span></span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> LB <span class="op">=</span> <span class="bu">std::</span>get<span class="op">&lt;</span><span class="dv">0</span><span class="op">&gt;(</span>pair<span class="op">);</span></span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> K_L <span class="op">=</span> <span class="bu">std::</span>get<span class="op">&lt;</span><span class="dv">0</span><span class="op">&gt;(</span>LB<span class="op">);</span></span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> mu_L <span class="op">=</span> <span class="bu">std::</span>get<span class="op">&lt;</span><span class="dv">1</span><span class="op">&gt;(</span>LB<span class="op">);</span></span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> UB <span class="op">=</span> <span class="bu">std::</span>get<span class="op">&lt;</span><span class="dv">1</span><span class="op">&gt;(</span>pair<span class="op">);</span></span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> K_U <span class="op">=</span> <span class="bu">std::</span>get<span class="op">&lt;</span><span class="dv">0</span><span class="op">&gt;(</span>UB<span class="op">);</span></span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> mu_U <span class="op">=</span> <span class="bu">std::</span>get<span class="op">&lt;</span><span class="dv">1</span><span class="op">&gt;(</span>UB<span class="op">);</span></span></code></pre></div>
+<p>Note that Voigt and Reuss bounds work on <code>st2tost2</code> (or
+<code>Stensor4</code>) objects, whereas Hashin-Shtrikman bounds work on
+bulk and shear moduli. The number of phases is arbitrary, and the
+dimension is 2 or 3.</p>
+<h1 id="polyphasic-microstructures">Polyphasic microstructures</h1>
+<p>In TFEL, 2 types of microstructures are defined:</p>
+<ul>
+<li><code>ParticulateMicrostructure</code></li>
+<li><code>Polycrystal</code></li>
+</ul>
+<p>A <code>ParticulateMicrostructure</code> object represents a very
+general matrix-inclusion microstructure. A <code>Polycrystal</code> is a
+microstructure composed of grains, in which there is no matrix
+phase.</p>
+<p>Note that the functionalities below are also available in the
+<code>Python</code> module (see the doc <a
+href="tfel-python.html#polyphasic-microstructures">here</a>).</p>
+<h2 id="description-of-the-components-of-a-microstructure">Description
+of the components of a microstructure</h2>
+<p>We here describe the main components of a microstructure:
+<code>Phase</code>, <code>Inclusion</code>, <code>Grain</code>, and
+<code>InclusionDistribution</code> objects. These objects are introduced
+in the header <code>PhaseDescription.hxx</code>.</p>
+<h3 id="the-phase-class">The <code>Phase</code> class</h3>
+<p>The <code>Phase class</code> has three attributes:</p>
+<ul>
+<li><code>fraction</code> (<code>real</code> type)</li>
+<li><code>isotropic</code> (<code>bool</code> type, private
+attribute)</li>
+<li><code>stiffness</code> (<code>st2tost2</code> type, private
+attribute)</li>
+</ul>
+<p>and three methods:</p>
+<ul>
+<li><code>isIsotropic</code></li>
+<li><code>changeElasticityOfPhase</code></li>
+<li><code>getElasticityOfPhase</code></li>
+</ul>
+<p><code>isIsotropic()</code> returns a <code>bool</code> stating if the
+phase is considered isotropic or not. Again, the value of this
+<code>bool</code> depends on the way the <code>Phase</code> was
+constructed. By doing</p>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> C0<span class="op">=</span>tfel<span class="op">::</span>math<span class="op">::</span>st2tost2<span class="op">&lt;</span>stress<span class="op">&gt;::</span>Id<span class="op">();</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>Phase<span class="op">&lt;</span>stress<span class="op">&gt;</span> ph<span class="op">(</span>f<span class="op">,</span>C0<span class="op">);</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> b <span class="op">=</span> ph<span class="op">.</span>isIsotropic<span class="op">();</span></span></code></pre></div>
+<p><code>b</code> will have the value <code>false</code>, whereas by
+doing</p>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> KG<span class="op">=</span>tfel<span class="op">::</span>material<span class="op">::</span>KGModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span>k<span class="op">,</span>g<span class="op">);</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>Phase<span class="op">&lt;</span>stress<span class="op">&gt;</span> ph<span class="op">(</span>f<span class="op">,</span>KG<span class="op">);</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> b <span class="op">=</span> ph<span class="op">.</span>isIsotropic<span class="op">();</span></span></code></pre></div>
+<p><code>b</code> will have the value <code>true</code>. Hence, when a
+<code>ParticulateMicrostructure</code> is instantiated, it automatically
+instantiates a <code>Phase</code> object corresponding to the attribute
+<code>matrix_phase</code>. However, we note that the user can construct
+a microstructure without using <code>Phase</code> instantiation
+directly.</p>
+<h3 id="the-inclusion-class">The <code>Inclusion class</code></h3>
+<p>Before describing the <code>InclusionDistribution class</code>, we
+must describe the <code>Inclusion class</code>. This latter is
+characterized by its unique attribute: <code>semiLengths</code>. It is a
+<code>std::array</code> of <code>N</code> lengths, which are the
+semi-lengths of the ellipsoid/ellipse, where <code>N</code> is the
+dimension considered (2 or 3). Hence, <code>Inclusion</code> has two
+template parameters: <code>Inclusion&lt;N,LengthType&gt;</code>. Some
+particular <code>Inclusion</code> objects are also defined:</p>
+<ul>
+<li><code>Ellipsoid</code> (child of <code>Inclusion</code> in 3d)</li>
+<li><code>Spheroid</code> (child of <code>Ellipsoid</code> with the last
+two semi-lengths identical)</li>
+<li><code>Sphere</code> (child of <code>Spheroid</code> with 3
+semi-lengths equal to unity)</li>
+</ul>
+<p>Let us try:</p>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>Ellipsoid<span class="op">&lt;</span>length<span class="op">&gt;</span> ellipsoid1<span class="op">(</span>a<span class="op">,</span>b<span class="op">,</span>c<span class="op">);</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>Spheroid<span class="op">&lt;</span>length<span class="op">&gt;</span> spheroid1<span class="op">(</span>a<span class="op">,</span>b<span class="op">);</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>Sphere<span class="op">&lt;</span>length<span class="op">&gt;</span> sphere1<span class="op">();</span></span></code></pre></div>
+<h3 id="the-grain-class">The <code>Grain class</code></h3>
+<p>The <code>Grain class</code> is a child of the
+<code>Phase class</code> and hence has a volume fraction and a
+stiffness. It has also an attribute <code>inclusion</code> which is an
+<code>Inclusion</code> object. Also, this inclusion is oriented by two
+vectors <code>n_a</code> and <code>n_b</code>. This means that the first
+semi-axis of the inclusion is aligned with <code>n_a</code> whereas the
+second is aligned with <code>n_b</code>. This two vectors are attributes
+of the <code>Grain</code>. We can instantiate a <code>Grain</code> as
+follows:</p>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> KGi<span class="op">=</span>tfel<span class="op">::</span>material<span class="op">::</span>KGModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span>Ki<span class="op">,</span>Gi<span class="op">);</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>Ellipsoid<span class="op">&lt;</span>length<span class="op">&gt;</span> ellipsoid1<span class="op">(</span>a<span class="op">,</span> b<span class="op">,</span> c<span class="op">);</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>tfel<span class="op">::</span>math<span class="op">::</span>tvector<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span> real<span class="op">&gt;</span> n_a <span class="op">=</span> <span class="op">{</span><span class="fl">1.</span><span class="op">,</span> <span class="fl">0.</span><span class="op">,</span> <span class="fl">0.</span><span class="op">};</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>tfel<span class="op">::</span>math<span class="op">::</span>tvector<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span> real<span class="op">&gt;</span> n_b <span class="op">=</span> <span class="op">{</span><span class="fl">0.</span><span class="op">,</span> <span class="fl">1.</span><span class="op">,</span> <span class="fl">0.</span><span class="op">};</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> frac <span class="op">=</span> real<span class="op">(</span><span class="fl">0.2</span><span class="op">);</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>Grain<span class="op">&lt;</span>stress<span class="op">&gt;</span> grain1<span class="op">(</span>ellipsoid1<span class="op">,</span> frac<span class="op">,</span> KGi<span class="op">,</span>n_a<span class="op">,</span>n_b<span class="op">);</span></span></code></pre></div>
+<p>The <code>Grain</code> has also methods:</p>
+<ul>
+<li><code>computeMeanLocalisator</code></li>
+<li><code>computeDerivativesOfMeanLocalisator</code></li>
+</ul>
+<p>The <code>computeMeanLocalisator</code> method takes a reference
+stiffness as an argument and compute the localisation tensor of the
+<code>Grain</code> assuming that it is embedded in a reference medium
+with this stiffness:</p>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> KG0<span class="op">=</span>tfel<span class="op">::</span>material<span class="op">::</span>KGModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span>K0<span class="op">,</span>G0<span class="op">);</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> A_grain <span class="op">=</span> grain1<span class="op">.</span>computeMeanLocalisator<span class="op">(</span>KG0<span class="op">);</span></span></code></pre></div>
+<p>The <code>computeDerivativesOfMeanLocalisator</code> method takes a
+reference stiffness as an argument and a <code>std::array</code> of 4
+reals. This array contains the derivatives of the material parameters
+<code>K0,G0,Ki,Gi</code> w.r.t. a parameter <span
+class="math inline">\(\lambda\)</span>. The
+<code>computeDerivativesOfMeanLocalisator</code> method hence returns
+the derivative of the localisation tensor of the grain w.r.t. <span
+class="math inline">\(\lambda\)</span>. Hence, we can compute the
+derivatives of this localisation tensor as follows:</p>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> dA_dk0 <span class="op">=</span> grain1<span class="op">.</span>computeDerivativesOfMeanLocalisator<span class="op">(</span>KG0<span class="op">,{</span><span class="fl">1.</span><span class="op">,</span><span class="fl">0.</span><span class="op">,</span><span class="fl">0.</span><span class="op">,</span><span class="fl">0.</span><span class="op">});</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> dA_dmu0 <span class="op">=</span> grain1<span class="op">.</span>computeDerivativesOfMeanLocalisator<span class="op">(</span>KG0<span class="op">,{</span><span class="fl">0.</span><span class="op">,</span><span class="fl">1.</span><span class="op">,</span><span class="fl">0.</span><span class="op">,</span><span class="fl">0.</span><span class="op">});</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> dA_dki <span class="op">=</span> grain1<span class="op">.</span>computeDerivativesOfMeanLocalisator<span class="op">(</span>KG0<span class="op">,{</span><span class="fl">0.</span><span class="op">,</span><span class="fl">0.</span><span class="op">,</span><span class="fl">1.</span><span class="op">,</span><span class="fl">0.</span><span class="op">});</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> dA_dmui <span class="op">=</span> grain1<span class="op">.</span>computeDerivativesOfMeanLocalisator<span class="op">(</span>KG0<span class="op">,{</span><span class="fl">0.</span><span class="op">,</span><span class="fl">0.</span><span class="op">,</span><span class="fl">0.</span><span class="op">,</span><span class="fl">1.</span><span class="op">});</span></span></code></pre></div>
+<p>Note however that the derivation is available only for distributions
+of spheroidal inclusions, with a locally isotropic elasticity.</p>
+<h3 id="the-inclusiondistribution-class">The
+<code>InclusionDistribution class</code></h3>
+<p>The <code>InclusionDistribution class</code> is an abstract class
+which represents a distribution of inclusions. It is a child of the
+<code>Phase class</code>, and it is used to represent the distribution
+of inclusions in a <code>ParticulateMicrostructure</code>.</p>
+<p>Each <code>InclusionDistribution</code> object has four
+attributes:</p>
+<ul>
+<li><code>inclusion</code> (which is of type <code>Inclusion</code>, see
+above),</li>
+<li><code>fraction</code> (attribute as a <code>Phase</code>
+object)</li>
+<li><code>stiffness</code> (private attribute as a <code>Phase</code>
+object)</li>
+<li><code>isotropic</code> (private attribute as a <code>Phase</code>
+object).</li>
+</ul>
+<p>It has also two methods:</p>
+<ul>
+<li><code>computeMeanLocalisator</code></li>
+<li><code>computeDerivativesOfMeanLocalisator</code></li>
+</ul>
+<p>(and also the attributes of a <code>Phase</code> object). The
+<code>computeMeanLocalisator</code> method computes the mean strain
+localisation (or concentration) tensor in the inclusions when they are
+embedded in a matrix. The
+<code>computeDerivativesOfMeanLocalisator</code> method computes the
+derivative of the average localisation tensor of the inclusion
+distribution w.r.t. <span class="math inline">\(\lambda\)</span>. These
+methods are presented in the sequel for the 5 types of inclusion
+distributions.</p>
+<p>There are 5 child <code>class</code> of the
+<code>InclusionDistribution class</code>:</p>
+<ul>
+<li><code>SphereDistribution</code> (distribution of spheres)</li>
+<li><code>IsotropicDistribution</code> (isotropic distribution of
+ellipsoids)</li>
+<li><code>TransverseDistribution</code> (transverse isotropic
+distribution of ellipsoids)</li>
+<li><code>OrientedDistribution</code> (aligned distribution of
+ellipsoids)</li>
+<li><code>UserDefinedDistributionOfSpheroids</code> (distribution of
+spheroids defined with orientation tensors)</li>
+</ul>
+<p>Here are some examples of instantiation:</p>
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> KGi<span class="op">=</span>tfel<span class="op">::</span>material<span class="op">::</span>KGModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span>Ki<span class="op">,</span>Gi<span class="op">);</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>SphereDistribution<span class="op">&lt;</span>stress<span class="op">&gt;</span> distrib_sph<span class="op">(</span>sphere1<span class="op">,</span>f<span class="op">,</span>KGi<span class="op">);</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>IsotropicDistribution<span class="op">&lt;</span>stress<span class="op">&gt;</span> distrib_ell<span class="op">(</span>ellipsoid1<span class="op">,</span>f<span class="op">,</span>KGi<span class="op">);</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>tfel<span class="op">::</span>math<span class="op">::</span>tvector<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span> real<span class="op">&gt;</span> n_a <span class="op">=</span> <span class="op">{</span><span class="fl">1.</span><span class="op">,</span> <span class="fl">0.</span><span class="op">,</span> <span class="fl">0.</span><span class="op">};</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>tfel<span class="op">::</span>math<span class="op">::</span>tvector<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span> real<span class="op">&gt;</span> n_b <span class="op">=</span> <span class="op">{</span><span class="fl">0.</span><span class="op">,</span> <span class="fl">1.</span><span class="op">,</span> <span class="fl">0.</span><span class="op">};</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>OrientedDistribution<span class="op">&lt;</span>stress<span class="op">&gt;</span> distrib_O<span class="op">(</span>ellipsoid1<span class="op">,</span>f<span class="op">,</span>KGi<span class="op">,</span>n_a<span class="op">,</span>n_b<span class="op">);</span></span></code></pre></div>
+<p>The <code>TransverseDistribution</code> is a special case which
+requires specifying which axis of the ellipsoid (or spheroid) will
+remain fixed when the two other axes rotate:</p>
+<div class="sourceCode" id="cb27"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="dt">unsigned</span> <span class="dt">short</span> <span class="dt">int</span> index <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>TransverseIsotropicDistribution<span class="op">&lt;</span>stress<span class="op">&gt;</span> distrib_TI<span class="op">(</span>ellipsoid1<span class="op">,</span>f<span class="op">,</span>KGi<span class="op">,</span>n_a<span class="op">,</span>index<span class="op">);</span></span></code></pre></div>
+<p>The index can be 0,1 or 2. For a spheroid, giving <code>2</code> for
+the <code>index</code> is the same as giving <code>1</code>, because
+these 2 axes have the same length.</p>
+<p>Note that the <code>OrientedDistribution</code> can be instantiated
+with a <code>Stensor4</code> object as elasticity. It is also possible
+for a <code>SphereDistribution</code>. It can be useful for considering
+anisotropic inclusions. However, the basis in which the
+<code>Stensor4</code> elasticity is defined is the local basis for the
+<code>OrientedDistribution</code>, that is, the basis defined by
+<code>n_a</code> and <code>n_b</code> passed as arguments. For a
+<code>SphereDistribution</code>, it is the global basis.</p>
+<p>The <code>UserDefinedDistributionOfSpheroids</code> is a distribution
+of <code>Spheroid</code> (3d-objects, with two equal axes, see above).
+It is defined with two tensors: a second-order tensor <span
+class="math inline">\(\underline{A}_2\)</span> and a fourth-order tensor
+<span class="math inline">\(\underline{A}_4\)</span>:</p>
+<p><span class="math display">\[
+\underline{A}_2=\langle\vec n\otimes\vec
+n\rangle\qquad\underline{A}_4=\langle\vec n\otimes\vec n\otimes\vec
+n\otimes\vec n\rangle
+\]</span></p>
+<p>This distribution can be instantiated as follows, with the help of
+the Walpole Basis (see <a
+href="tfel-math.html#higher-order-objects-defined-as-derivatives">here</a>
+the documentation).</p>
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> tfel<span class="op">::</span>math<span class="op">;</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>tvector<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span> real<span class="op">&gt;</span> n_a <span class="op">=</span> <span class="op">{</span><span class="fl">1.</span><span class="op">,</span> <span class="fl">0.</span><span class="op">,</span> <span class="fl">0.</span><span class="op">};</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>tvector<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span> real<span class="op">&gt;</span> n_b <span class="op">=</span> <span class="op">{</span><span class="fl">0.</span><span class="op">,</span> <span class="fl">1.</span><span class="op">,</span> <span class="fl">0.</span><span class="op">};</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> stensor<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>real<span class="op">&gt;</span> A2 <span class="op">=</span> <span class="fl">1.</span><span class="op">/</span><span class="dv">2</span><span class="op">*</span>TransverseIsotropicWalpoleBasis<span class="op">&lt;</span>real<span class="op">&gt;::</span>q<span class="op">(</span>n_b<span class="op">);</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> E2d<span class="op">=</span>TransverseIsotropicWalpoleBasis<span class="op">&lt;</span>real<span class="op">&gt;::</span>E2<span class="op">(</span>n_b<span class="op">);</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> Fd<span class="op">=</span>TransverseIsotropicWalpoleBasis<span class="op">&lt;</span>real<span class="op">&gt;::</span>F<span class="op">(</span>n_b<span class="op">);</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> st2tost2<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>real<span class="op">&gt;</span> A4 <span class="op">=</span> <span class="fl">1.</span><span class="op">/</span><span class="dv">2</span><span class="op">*</span>E2d<span class="op">+</span><span class="fl">1.</span><span class="op">/</span><span class="dv">4</span><span class="op">*</span>Fd<span class="op">;</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>UserDefinedDistributionOfSpheroids<span class="op">&lt;</span>stress<span class="op">&gt;</span> distribution<span class="op">(</span>spheroid1<span class="op">,</span> f<span class="op">,</span> KGi<span class="op">,</span> A2<span class="op">,</span> A4<span class="op">);</span></span></code></pre></div>
+<p>The <code>computeMeanLocalisator</code> method can be used as
+follows:</p>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>Ai<span class="op">=</span>ell_dist<span class="op">.</span>computeMeanLocalisator<span class="op">(</span>IM0<span class="op">);</span></span></code></pre></div>
+<p>Note that in the latter case, passing <code>C0</code>, a
+<code>Stensor4</code> object as an argument of the method will return an
+error, because it will be considered that the matrix is not isotropic,
+so that computing an average localisator of a distribution of ellipsoids
+in an anisotropic matrix is impossible (too complicated). However, it
+can be done for other kinds of distributions, like sphere distributions
+or distributions of oriented inclusions:</p>
+<div class="sourceCode" id="cb30"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>A1<span class="op">=</span>distrib_sph<span class="op">.</span>computeMeanLocalisator<span class="op">(</span>C0<span class="op">,</span><span class="dv">10</span><span class="op">);</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>A2<span class="op">=</span>distrib_O<span class="op">.</span>computeMeanLocalisator<span class="op">(</span>C0<span class="op">,</span><span class="dv">10</span><span class="op">);</span></span></code></pre></div>
+<p>Here, the integer <code>10</code> is the number of subdivisions in
+the integration process in the computation of the Hill tensor relative
+to the inclusions. It is <code>12</code> by default.</p>
+<p>The <code>computeDerivativesOfMeanLocalisator</code> method works as
+for the <code>Grain</code> object.</p>
+<p>Note that the 5 <code>InclusionDistribution</code> classes are
+currently available in 3d only.</p>
+<h2 id="construction-of-a-microstructure">Construction of a
+microstructure</h2>
+<h3 id="the-particulatemicrostructure">The
+<code>ParticulateMicrostructure</code></h3>
+<p>The <code>ParticulateMicrostructure class</code> is available in 3d
+an 2d via 2 template parameters:
+<code>ParticulateMicrostructure&lt;N,stress&gt;</code> with
+<code>N</code> the dimension. For the details, see the file
+‘MicrostructureDescription.hxx’ which introduces the
+<code>class</code>.</p>
+<figure>
+<img src="./img/ParticulateMicrostructure.png" style="width:50.0%"
+alt="The ParticulateMicrostructure class is made of a matrix which embeds different distributions of inclusions" />
+<figcaption aria-hidden="true">The
+<code>ParticulateMicrostructure class</code> is made of a matrix which
+embeds different distributions of inclusions</figcaption>
+</figure>
+<p>A <code>ParticulateMicrostructure</code> consists of a matrix, in
+which are embedded several distributions of inclusions. The class has
+three (private) attributes:</p>
+<ul>
+<li><code>number_of_phases</code></li>
+<li><code>matrix_phase</code></li>
+<li><code>inclusion_phases</code></li>
+</ul>
+<p>The <code>matrix_phase</code> is of type <code>Phase</code>,
+described below.</p>
+<p>The <code>inclusion_phases</code> is a <code>std::vector</code> of
+pointers on <code>InclusionDistribution</code> objects (which represent
+the distributions of inclusions). This class is also described
+below.</p>
+<p>We can instantiate a <code>ParticulateMicrostructure</code> as
+follows, passing the matrix elasticity as an argument:</p>
+<div class="sourceCode" id="cb31"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> tfel<span class="op">::</span>material<span class="op">::</span>homogenization<span class="op">::</span>elasticity<span class="op">;</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> IM0<span class="op">=</span>tfel<span class="op">::</span>material<span class="op">::</span>KGModuli<span class="op">&lt;</span>stress<span class="op">&gt;(</span><span class="fl">1e7</span><span class="op">,</span><span class="fl">1e7</span><span class="op">);</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>micro_1<span class="op">=</span>ParticulateMicrostructure<span class="op">(</span>IM0<span class="op">);</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> C0 <span class="op">=</span> stress<span class="op">(</span><span class="fl">1e9</span><span class="op">)*</span>Stensor4<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>real<span class="op">&gt;::</span>Id<span class="op">();</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>micro_2<span class="op">=</span>ParticulateMicrostructure<span class="op">(</span>C0<span class="op">);</span></span></code></pre></div>
+<p>The <code>ParticulateMicrostructure</code> has also some methods (see
+‘MicrostructureDescription.hxx’ for details). The following ones allow
+to get some attributes of the class:</p>
+<ul>
+<li><code>getNumberOfPhases</code></li>
+<li><code>getMatrixFraction</code> (attribute <code>fraction</code> of
+<code>matrix_phase</code>)</li>
+<li><code>getMatrixElasticity</code> (attribute <code>stiffness</code>
+of <code>matrix_phase</code>)</li>
+<li><code>isIsotropicMatrix</code> (private attribute
+<code>isotropic</code> of <code>matrix_phase</code>)</li>
+</ul>
+<p>The last method returns a boolean which states if the matrix is
+considered isotropic or not. In fact, depending on how the
+<code>ParticulateMicrostructure</code> was instantiated, the matrix is
+considered isotropic or not. For example, by doing</p>
+<div class="sourceCode" id="cb32"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> val_1<span class="op">=</span>micro_1<span class="op">.</span>isIsotropicMatrix<span class="op">();</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> val_2<span class="op">=</span>micro_2<span class="op">.</span>isIsotropicMatrix<span class="op">();</span></span></code></pre></div>
+<p><code>val_1</code> will be <code>True</code> because
+<code>micro_1</code> was instantiated above with a
+<code>KGModuli</code>, whereas <code>val_2</code> will be
+<code>False</code>. Note that <code>False</code> does not mean that the
+matrix elasticity is not isotropic, but that it is CONSIDERED as not
+isotropic.</p>
+<p>Other methods allow to add/remove <code>InclusionDistribution</code>
+objects to the attribute <code>inclusion_phases</code>, and also to
+modify the properties of the phases:</p>
+<ul>
+<li><code>getInclusionPhase</code></li>
+<li><code>addInclusionPhase</code></li>
+<li><code>removeInclusionPhase</code></li>
+<li><code>changeElasticityOfMatrixPhase</code></li>
+<li><code>changeElasticityOfInclusionPhase</code></li>
+<li><code>changeFractionOfInclusionPhase</code></li>
+</ul>
+<p>We can construct our <code>ParticulateMicrostructure</code> by adding
+some <code>InclusionDistribution</code> objects:</p>
+<div class="sourceCode" id="cb33"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>micro_1<span class="op">.</span>addInclusionPhase<span class="op">(</span>distrib_sph<span class="op">);</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout<span class="op">&lt;&lt;</span> micro_1<span class="op">.</span>getNumberOfPhases<span class="op">()&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout<span class="op">&lt;&lt;</span> micro_1<span class="op">.</span>getMatrixFraction<span class="op">()&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>micro_1<span class="op">.</span>addInclusionPhase<span class="op">(</span>distrib_ell<span class="op">);</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout<span class="op">&lt;&lt;</span> micro_1<span class="op">.</span>getNumberOfPhases<span class="op">()&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout<span class="op">&lt;&lt;</span> micro_1<span class="op">.</span>getMatrixFraction<span class="op">()&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span></code></pre></div>
+<p>or remove them:</p>
+<div class="sourceCode" id="cb34"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>micro_1<span class="op">.</span>removeInclusionPhase<span class="op">(</span><span class="dv">0</span><span class="op">);</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout<span class="op">&lt;&lt;</span> micro_1<span class="op">.</span>getNumberOfPhases<span class="op">()&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout<span class="op">&lt;&lt;</span> micro_1<span class="op">.</span>getMatrixFraction<span class="op">()&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span></code></pre></div>
+<p>At this stage, we have added the distribution of spheres
+<code>distrib_sph</code>, and added the isotropic distribution of
+ellipsoids <code>distrib_ell</code>. After that, we have removed the
+first inclusion distribution (number <code>0</code>), which is the
+distribution of spheres. Hence, only one
+<code>InclusionDistribution</code> object remains in the microstructure.
+We can get this distribution by doing:</p>
+<div class="sourceCode" id="cb35"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> ell_dist<span class="op">=</span>micro_1<span class="op">.</span>getInclusionPhase<span class="op">(</span><span class="dv">0</span><span class="op">);</span></span></code></pre></div>
+<p>A last method of the <code>ParticulateMicrostructure</code> object
+allows to change the elasticity of the matrix phase:</p>
+<div class="sourceCode" id="cb36"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>micro_1<span class="op">.</span>changeElasticityOfMatrixPhase<span class="op">(</span>C0<span class="op">);</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout<span class="op">&lt;&lt;</span> micro_1<span class="op">.</span>getMatrixElasticity<span class="op">()&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout<span class="op">&lt;&lt;</span> micro_1<span class="op">.</span>isIsotropicMatrix<span class="op">()&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span></code></pre></div>
+<p>Here we see that the matrix is no more isotropic because it was
+replaced via a <code>Stensor4</code> object <code>C0</code>.</p>
+<h3 id="the-polycrystal">The <code>Polycrystal</code></h3>
+<p>A <code>Polycrystal</code> consists of a collection of grains. The
+class has three (private) attributes:</p>
+<ul>
+<li><code>number_of_grains</code></li>
+<li><code>total_fraction</code> (may be under 1 but never over 1)</li>
+<li><code>grains</code></li>
+</ul>
+<p><code>grains</code> is a <code>std::vector</code> of pointers on
+<code>Grain</code> objects, a class which is described below.</p>
+<p>We can instantiate a <code>Polycrystal</code> as follows:</p>
+<div class="sourceCode" id="cb37"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> tfel<span class="op">::</span>material<span class="op">::</span>homogenization<span class="op">::</span>elasticity<span class="op">;</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>Polycrystal poly<span class="op">;</span></span></code></pre></div>
+<p>We can add some grains to our polycrystal:</p>
+<div class="sourceCode" id="cb38"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>poly<span class="op">.</span>addGrain<span class="op">(</span>grain1<span class="op">);</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>poly<span class="op">.</span>addGrain<span class="op">(</span>grain2<span class="op">);</span></span></code></pre></div>
+<p>and we can remove grains:</p>
+<div class="sourceCode" id="cb39"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>poly<span class="op">.</span>removeGrain<span class="op">(</span><span class="dv">0</span><span class="op">);</span></span></code></pre></div>
+<p>The other methods available for a <code>Polycrystal</code> are:</p>
+<ul>
+<li><code>changeElasticityOfGrain</code></li>
+<li><code>changeFractionOfGrain</code></li>
+<li><code>getNumberOfGrains</code></li>
+<li><code>getTotalFraction</code></li>
+<li><code>getGrain</code></li>
+</ul>
+<p>Note that we cannot add a grain when its volume fraction is such that
+the polycrystal would have a volume fraction superior to 1. Similarly,
+we cannot change the fraction of a grain if the new fraction is such
+that the polycrystal would have a fraction superior to 1.</p>
+<h2 id="computation-of-homogenization-schemes">Computation of
+homogenization schemes</h2>
+<p>The file <code>MicrostructureLinearHomogenization.hxx</code>
+introduces the homogenization schemes.</p>
+<p>The following homogenization schemes are available for
+<code>ParticulateMicrostructure</code> objects:</p>
+<ul>
+<li><code>computeDilute</code> (dilute scheme)</li>
+<li><code>computeMoriTanaka</code> (Mori-Tanaka scheme)</li>
+<li><code>computeAsymmetricSelfConsistent</code> (Asymmetric
+Self-Consistent scheme)</li>
+</ul>
+<p>These functions take a <code>ParticulateMicrostructure</code> as an
+argument. For a <code>Polycrystal</code>, the available homogenization
+scheme is:</p>
+<ul>
+<li><code>computeSelfConsistent</code> (Self-consistent scheme)</li>
+</ul>
+<p>This function takes a <code>Polycrystal</code> as an argument.</p>
+<p>All these functions return a <code>HomogenizationScheme</code>
+object. This object is a structure with the following attributes:</p>
+<ul>
+<li><code>homogenized_stiffness</code></li>
+<li><code>effective_polarisation</code></li>
+<li><code>mean_strain_localisation_tensors</code></li>
+<li><code>derivative_of_homogenized_stiffness_wrt_kr</code></li>
+<li><code>derivative_of_homogenized_stiffness_wrt_mur</code></li>
+</ul>
+<h3 id="dilute-scheme">Dilute scheme</h3>
+<p>We note <span
+class="math inline">\(\underline{\underline{\mathbf{C}}}_0\)</span> the
+elasticity of the matrix phase and <span
+class="math inline">\(\underline{\underline{\mathbf{C}}}_i\,(1\leq i\leq
+N-1)\)</span> the elasticities of the N-1 other phases. We also note
+<span class="math inline">\(f_i\,(0\leq i\leq N-1)\)</span> the volume
+fractions of all phases. The homogenized stiffness of the dilute scheme
+reads</p>
+<p><span
+class="math inline">\(\underline{\underline{\mathbf{C}}}^{\mathrm{DS}}=\underline{\underline{\mathbf{C}}}_0+\sum_{i=1}^{N-1}f_i\,\left(\underline{\underline{\mathbf{C}}}_i-\underline{\underline{\mathbf{C}}}_0\right):\underline{\underline{\mathbf{A}}}_i^{\mathrm{DS}}\)</span></p>
+<p>where <span
+class="math inline">\(\underline{\underline{\mathbf{A}}}_i^{\mathrm{DS}}\)</span>
+is the average localisation tensor on phase <span
+class="math inline">\(i\)</span>. For a unique ellipsoid this tensor is
+exactly the localisation tensor of this ellipsoid embedded in the matrix
+phase. For a collection of ellipsoids, this is the average of all
+individual localisation tensors relative to each ellipsoid. Note that
+above formula is equivalent to</p>
+<p><span
+class="math inline">\(\underline{\underline{\mathbf{C}}}^{\mathrm{DS}}=\sum_{i=0}^{N-1}f_i\,\underline{\underline{\mathbf{C}}}_i:\underline{\underline{\mathbf{A}}}_i^{\mathrm{DS}}\)</span></p>
+<p>where <span
+class="math inline">\(\underline{\underline{\mathbf{A}}}_0^{\mathrm{DS}}=\dfrac1{f_0}\left(\underline{\underline{\mathbf{I}}}-\sum_{i=1}^{N-1}
+f_i\,\underline{\underline{\mathbf{A}}}_i^{\mathrm{DS}}\right)\)</span>.
+Let us try:</p>
+<div class="sourceCode" id="cb40"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> hmDS<span class="op">=</span>computeDilute<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>stress<span class="op">&gt;(</span>micro_1<span class="op">);</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout<span class="op">&lt;&lt;</span> <span class="st">&quot;CDS: &quot;</span><span class="op">&lt;&lt;</span> hmDS<span class="op">.</span>homogenized_stiffness <span class="op">&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span></code></pre></div>
+<p>The isotropic character of the matrix when computing the strain
+localisators will depend on what
+<code>micro_1.isIsotropicMatrix()</code> returns. Hence, it is important
+to initialize the matrix or the microstructure with the appropriate
+elastic moduli. If it is not isotropic, a numerical integration is
+performed, and an optional integer
+<code>max_iter_anisotropic_integration</code> can be passed to specify
+the number of subdivisions in the integration (the default value of this
+integer is <code>12</code>).</p>
+<div class="sourceCode" id="cb41"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>micro_1<span class="op">.</span>changeElasticityOfMatrixPhase<span class="op">(</span>C0<span class="op">);</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>micro_1<span class="op">.</span>removeInclusionPhase<span class="op">(</span><span class="dv">0</span><span class="op">);</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>OrientedDistribution<span class="op">&lt;</span>stress<span class="op">&gt;</span> distrib_O<span class="op">(</span>ellipsoid1<span class="op">,</span>f<span class="op">,</span>KGi<span class="op">,</span>n_a<span class="op">,</span>n_b<span class="op">);</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>micro_1<span class="op">.</span>addInclusionPhase<span class="op">(</span>distrib_O<span class="op">);</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> max_iter_anisotropic_integration <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> hmDS_aniso<span class="op">=</span>computeDilute<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>stress<span class="op">&gt;(</span>micro_1<span class="op">,</span>max_iter_anisotropic_integration<span class="op">);</span></span></code></pre></div>
+<p>Note however that the numerical integration can be performed only for
+a spherical inclusion, or an oriented ellipsoidal inclusion.</p>
+<h3 id="mori-tanaka-scheme">Mori-Tanaka scheme</h3>
+<p>The homogenized stiffness of the Mori-Tanaka scheme reads</p>
+<p><span
+class="math inline">\(\underline{\underline{\mathbf{C}}}^{\mathrm{MT}}=\underline{\underline{\mathbf{C}}}_0+\sum_{i=1}^{N-1}f_i\,\left(\underline{\underline{\mathbf{C}}}_i-\underline{\underline{\mathbf{C}}}_0\right):\underline{\underline{\mathbf{A}}}_i^{\mathrm{MT}}\)</span></p>
+<p>where <span
+class="math inline">\(\underline{\underline{\mathbf{A}}}_i^{\mathrm{MT}}=\underline{\underline{\mathbf{A}}}_i^{\mathrm{DS}}:\left(\sum_{j=0}^{N-1}f_j\,\underline{\underline{\mathbf{A}}}_j^{\mathrm{DS}}\right)^{-1}\)</span>,
+but with now <span
+class="math inline">\(\underline{\underline{\mathbf{A}}}_0^{\mathrm{DS}}=\underline{\underline{\mathbf{I}}}\)</span>.
+Note that we have also:</p>
+<p><span
+class="math inline">\(\underline{\underline{\mathbf{C}}}^{\mathrm{MT}}=\sum_{i=0}^{N-1}f_i\,\underline{\underline{\mathbf{C}}}_i:\underline{\underline{\mathbf{A}}}_i^{\mathrm{MT}}\)</span>.</p>
+<p>Let us try:</p>
+<div class="sourceCode" id="cb42"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> hmMT<span class="op">=</span>computeMoriTanaka<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>stress<span class="op">&gt;(</span>micro_1<span class="op">);</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout<span class="op">&lt;&lt;</span> <span class="st">&quot;CMT: &quot;</span><span class="op">&lt;&lt;</span> hmMT<span class="op">.</span>homogenized_stiffness <span class="op">&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span></code></pre></div>
+<p>As for the dilute scheme, the matrix can be anisotropic in some
+cases. The isotropic character of the matrix will depend on what
+<code>micro_1.isIsotropicMatrix()</code> returns and hence on the
+initialization of the microstructure. If it is not isotropic, a
+numerical integration is performed, and the optional integer
+<code>max_iter_anisotropic_integration</code> can be specified.</p>
+<div class="sourceCode" id="cb43"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> hmMT_aniso<span class="op">=</span>computeMoriTanaka<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>stress<span class="op">&gt;(</span>micro_1<span class="op">,</span>max_iter_anisotropic_integration<span class="op">);</span></span></code></pre></div>
+<p>Here again the numerical integration can be performed only for a
+spherical inclusion, or an oriented ellipsoidal inclusion.</p>
+<h3 id="asymmetric-self-consistent-scheme-with-matrix-phase">Asymmetric
+self-consistent scheme (with matrix phase)</h3>
+<p>We now consider a particulate microstructure in which the phase 0
+plays the role of a matrix: it embeds the inclusions <span
+class="math inline">\((1\leq i\leq N-1)\)</span>. This case is different
+from the traditional self-consistent scheme and different variants of
+the self-consistent scheme are available to account for this difference.
+We use here the asymmetric self-consistent scheme proposed in <span
+class="citation" data-cites="saevik_2012">[5]</span>. This turns into a
+dilute scheme for which the localisation tensor in the inclusions is
+computed by considering the Hill tensor relative to a reference medium
+equal to the homogenized medium. We choose a criterium <span
+class="math inline">\(\epsilon\)</span> and the initial elasticity is
+chosen as the elasticity <span
+class="math inline">\(\underline{\underline{\mathbf{C}}}_0\)</span> of
+the matrix. We hence have the following algorithm:</p>
+<ol type="1">
+<li><p>Set <span
+class="math inline">\(\quad\underline{\underline{\mathbf{C}}}^{\mathrm{ASC}}_{0}=\underline{\underline{\mathbf{C}}}_{0},\quad\)</span>
+<span class="math inline">\(n=0,\quad\)</span> and<br />
+(=+1).</p></li>
+<li><p>While <span class="math inline">\(\quad\xi &gt;
+\epsilon\quad\)</span>, do: <span
+class="math inline">\(\quad\underline{\underline{\mathbf{C}}}^{\mathrm{ASC}}_{n+1}=\underline{\underline{\mathbf{C}}}_0+\sum_
+{i=1}^{N-1}f_i\,\left(\underline{\underline{\mathbf{C}}}_i-\underline{\underline{\mathbf{C}}}_0\right):\underline{\underline{\mathbf{A}}}_i^{\mathrm{ASC},n},\quad\)</span><br />
+increment <span class="math inline">\(n\)</span> and compute the
+relative difference <span
+class="math inline">\(\xi=\displaystyle\frac{\displaystyle
+||\underline{\underline{\mathbf{C}}}^{\mathrm{ASC}}_{n+1}-\underline{\underline{\mathbf{C}}}^{\mathrm{ASC}}_{n}||}{\displaystyle
+||
+\underline{\underline{\mathbf{C}}}^{\mathrm{ASC}}_{n}||}\)</span></p></li>
+</ol>
+<p>where <span
+class="math inline">\(\underline{\underline{\mathbf{A}}}_i^{\mathrm{ASC},n}\)</span>
+is the average localisation tensor on phase i, assumed this phase is
+embedded in a matrix whose elasticity is the homogenized elasticity
+<span
+class="math inline">\(\underline{\underline{\mathbf{C}}}^{\mathrm{ASC}}_{n}\)</span>
+obtained at previous step <span class="math inline">\(n\)</span>. To be
+more precise, for a unique ellipsoid whose orientation is given by <span
+class="math inline">\((\vec n_a,\vec n_b)\)</span>, we have</p>
+<p><span
+class="math inline">\(\tilde{\underline{\underline{\mathbf{A}}}}_i^{\mathrm{ASC},n}=\tilde{\underline{\underline{\mathbf{A}}}}_i^{\mathrm{ASC},n}(\vec
+n_a,\vec n_b) =\left [\underline{\underline{\mathbf{I}}} +
+\underline{\underline{\mathbf{P}}}_i^{\mathrm {ASC},n}(\vec n_a,\vec
+n_b):\left(\underline{\underline{\mathbf{C}}}_i
+-\underline{\underline{\mathbf{C}}}^{\mathrm{ASC}}_{n}\right)\right]^{-1}\)</span></p>
+<p>where <span
+class="math inline">\(\underline{\underline{\mathbf{P}}}_i^{\mathrm{ASC},n}(\vec
+n_a,\vec n_b)\)</span> is the Hill tensor related to the ellipsoid
+embedded in a homogeneous medium whose elasticity is <span
+class="math inline">\(\underline{\underline{\mathbf{C}}}^{\mathrm{ASC}}_{n}\)</span>.
+And, for a collection of ellipsoids, we have</p>
+<p><span
+class="math inline">\(\underline{\underline{\mathbf{A}}}_i^{\mathrm{ASC},n}=\langle\tilde{\underline{\underline{\mathbf{A}}}}_i^{\mathrm{ASC},n}(\vec
+n_a,\vec n_b)\rangle_{\vec n_a,\vec n_b}\)</span></p>
+<p>where <span class="math inline">\(\langle.\rangle_{\vec n_a,\vec
+n_b}\)</span> stands for the average on all orientations. Let us
+try:</p>
+<div class="sourceCode" id="cb44"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> epsilon <span class="op">=</span> <span class="fl">1e-6</span><span class="op">;</span> <span class="co">// the epsilon which terminates the algorithm</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> isotropic <span class="op">=</span> <span class="kw">true</span><span class="op">;</span> <span class="co">// to compute the Hill tensors with an isotropic reference medium</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> hmASC<span class="op">=</span>computeAsymmetricSelfConsistent<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>stress<span class="op">&gt;(</span>micro_1<span class="op">,</span>epsilon<span class="op">,</span>isotropic<span class="op">);</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout<span class="op">&lt;&lt;</span> <span class="st">&quot;CASC: &quot;</span><span class="op">&lt;&lt;</span> hmASC<span class="op">.</span>homogenized_stiffness <span class="op">&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span></code></pre></div>
+<p>Here a boolean <code>isotropic</code> is passed as an argument to
+specify if the reference medium <span
+class="math inline">\(\underline{\underline{\mathbf{C}}}^{\mathrm{ASC}}_{n}\)</span>
+is considered isotropic when computing the Hill tensor <span
+class="math inline">\(\underline{\underline{\mathbf{P}}}_i^{\mathrm{ASC},n}(\vec
+n_a,\vec n_b)\)</span>. If <code>isotropic</code> is <code>true</code>,
+an isotropic projection is performed for <span
+class="math inline">\(\underline{\underline{\mathbf{C}}}^{\mathrm{SC}}_{n}\)</span>
+at each step of the iterative algorithm. Otherwise, we can put
+<code>false</code>, so that a numerical integration (resulting in a
+slower computation) will be performed to compute the Hill tensor at each
+iteration of the algorithm. Moreover, the optional integer
+<code>max_iter_anisotropic_integration</code> can also be used as for
+the other schemes (its default value is here <code>8</code>):</p>
+<div class="sourceCode" id="cb45"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>hmASC_aniso<span class="op">=</span>computeAsymmetricSelfConsistent<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>stress<span class="op">&gt;(</span>micro_1<span class="op">,</span>epsilon<span class="op">,</span><span class="kw">not</span><span class="op">(</span>isotropic<span class="op">),</span>max_iter_anisotropic_integration<span class="op">);</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout<span class="op">&lt;&lt;</span> <span class="st">&quot;CASC: &quot;</span><span class="op">&lt;&lt;</span> hmASC_aniso<span class="op">.</span>homogenized_stiffness <span class="op">&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span></code></pre></div>
+<p>Note that the numerical integration is performed only when the
+<code>InclusionDistribution</code> objects are
+<code>SphereDistribution</code> or <code>OrientedDistribution</code>
+only.</p>
+<h3 id="self-consistent-scheme-without-matrix-phase">Self-consistent
+scheme (without matrix phase)</h3>
+<p>Here we consider a microstructure in which there is no phase
+(typically, a polycrystal). There is N phases, labelled from <span
+class="math inline">\(1\)</span> to <span
+class="math inline">\(N\)</span>. The homogenized stiffness of the
+Self-consistent scheme is obtained via an iterative process. Let us fix
+<span class="math inline">\(\epsilon\)</span> a tolerance criterium and
+<span
+class="math inline">\(\underline{\underline{\mathbf{C}}}_{\mathrm{ini}}\)</span>
+an initial elasticity guess. The algorithm is as follows:</p>
+<ol type="1">
+<li><p>Set <span
+class="math inline">\(\quad\underline{\underline{\mathbf{C}}}^{\mathrm{SC}}_{0}=\underline{\underline{\mathbf{C}}}_{\mathrm{ini}},\quad\)</span>
+<span class="math inline">\(n=0,\quad\)</span> and <span
+class="math inline">\(\quad\xi=\epsilon+1\)</span>.</p></li>
+<li><p>While <span class="math inline">\(\quad\xi &gt;
+\epsilon\quad\)</span>, do: <span
+class="math inline">\(\quad\underline{\underline{\mathbf{C}}}^{\mathrm{SC}}_{n+1}=\sum_{i=1}^{N}f_i\,\underline{\underline{\mathbf{C}}}_i:\underline{\underline{\mathbf{A}}}_i^{\mathrm{SC},n},\quad\)</span>
+increment <span class="math inline">\(n\)</span> and compute the
+relative difference <span
+class="math inline">\(\xi=\displaystyle\frac{\displaystyle
+||\underline{\underline{\mathbf{C}}}^{\mathrm{SC}}_{n+1}-\underline{\underline{\mathbf{C}}}^{\mathrm{SC}}_{n}||}{\displaystyle
+||\underline{\underline{\mathbf{C}}}^{\mathrm{SC}}_{n}||}\)</span></p></li>
+</ol>
+<p>where <span
+class="math inline">\(\underline{\underline{\mathbf{A}}}_i^{\mathrm{SC},n}=\underline{\underline{\mathbf{A}}}_i^{\mathrm{DSC},n}:\left(\sum_{i=1}^{N}f_i\,\underline{\underline{\mathbf{A}}}_i^{\mathrm{DSC},n}\right)^{-1}\)</span>
+and <span
+class="math inline">\(\underline{\underline{\mathbf{A}}}_i^{\mathrm{DSC},n}\)</span>
+is the average localisation tensor on phase i, assumed this phase is
+embedded in a matrix whose elasticity is the homogenized elasticity
+<span
+class="math inline">\(\underline{\underline{\mathbf{C}}}^{\mathrm{SC}}_{n}\)</span>
+obtained at previous step <span class="math inline">\(n\)</span>. To be
+more precise, for a unique <code>Grain</code> object whose orientation
+is given by <span class="math inline">\((\vec n_a,\vec n_b)\)</span>, we
+have</p>
+<p><span
+class="math inline">\(\underline{\underline{\mathbf{A}}}_i^{\mathrm{DSC},n}=\underline{\underline{\mathbf{A}}}_i^{\mathrm{DSC},n}(\vec
+n_a,\vec n_b)=\left[\underline{\underline{\mathbf{I}}} +
+\underline{\underline{\mathbf{P}}}_i^{\mathrm{SC},n}(\vec n_a,\vec
+n_b):\left(\underline{\underline{\mathbf{C}}}_i
+-\underline{\underline{\mathbf{C}}}^{\mathrm{SC}}_{n}\right)\right]^{-1}\)</span></p>
+<p>where <span
+class="math inline">\(\underline{\underline{\mathbf{P}}}_i^{\mathrm{SC},n}(\vec
+n_a,\vec n_b)\)</span> is the Hill tensor related to the ellipsoid
+embedded in a homogeneous medium whose elasticity is <span
+class="math inline">\(\underline{\underline{\mathbf{C}}}^{\mathrm{SC}}_{n}\)</span>.
+Let us try:</p>
+<div class="sourceCode" id="cb46"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> Cini<span class="op">=</span>C0<span class="op">;</span> <span class="co">// initial guess</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> hmSC<span class="op">=</span>computeSelfConsistent<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>stress<span class="op">&gt;(</span>poly<span class="op">,</span>epsilon<span class="op">,</span>Cini<span class="op">,</span>isotropic<span class="op">);</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout<span class="op">&lt;&lt;</span> <span class="st">&quot;CSC: &quot;</span><span class="op">&lt;&lt;</span> hmSC<span class="op">.</span>homogenized_stiffness <span class="op">&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span></code></pre></div>
+<p>We note that <code>computeSelfConsistent</code> takes a
+<code>Polycrystal</code> as an argument, but also <code>epsilon</code>
+as the tolerance criterium, and <code>Cini</code> as the initial guess
+(a <code>st2tost2</code> object). Here again, for the computation of the
+Hill tensor <span
+class="math inline">\(\underline{\underline{\mathbf{P}}}_i^{\mathrm{SC},n}(\vec
+n_a,\vec n_b)\)</span>, we specify with the boolean
+<code>isotropic</code>, if the reference elasticity <span
+class="math inline">\(\underline{\underline{\mathbf{C}}}^{\mathrm{SC}}_{n}\)</span>
+is considered isotropic or not. The anisotropic case is treated as above
+for the asymmetric self-consistent scheme.</p>
+<div class="sourceCode" id="cb47"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>hmSC_iso<span class="op">=</span>computeSelfConsistent<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>stress<span class="op">&gt;(</span>poly<span class="op">,</span>epsilon<span class="op">,</span>Cini<span class="op">,</span><span class="kw">true</span><span class="op">);</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>hmSC_aniso<span class="op">=</span>computeSelfConsistent<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>stress<span class="op">&gt;(</span>poly<span class="op">,</span>epsilon<span class="op">,</span>Cini<span class="op">,</span><span class="kw">false</span><span class="op">,</span>max_iter_anisotropic_integration<span class="op">);</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout<span class="op">&lt;&lt;</span> <span class="st">&quot;SC iso: &quot;</span><span class="op">&lt;&lt;</span> hmSC_iso<span class="op">.</span>homogenized_stiffness<span class="op">&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout<span class="op">&lt;&lt;</span> <span class="st">&quot;SC aniso: &quot;</span><span class="op">&lt;&lt;</span> hmSC_aniso<span class="op">.</span>homogenized_stiffness<span class="op">&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span></code></pre></div>
+<h2 id="strain-localisation-tensors-on-each-phase">Strain localisation
+tensors on each phase</h2>
+<p>The localisation tensors correspond to the fourth-order tensors
+related to each phase. For previous schemes, these tensors are <span
+class="math inline">\(\underline{\underline{\mathbf{A}}}_i^{\mathrm{DS}},\underline{\underline{\mathbf{A}}}_i^{\mathrm{MT}},\underline{\underline{\mathbf{A}}}_i^{\mathrm{ASC}},\underline{\underline{\mathbf{A}}}_i^{\mathrm{SC}}\)</span>.
+We can recover these tensors as follows:</p>
+<div class="sourceCode" id="cb48"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>A_i_DS<span class="op">=</span>hmDS<span class="op">.</span>mean_strain_localisation_tensors<span class="op">;</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout<span class="op">&lt;&lt;</span><span class="st">&quot;A_0_DS: &quot;</span><span class="op">&lt;&lt;</span> A_i_DS<span class="op">[</span><span class="dv">0</span><span class="op">]&lt;&lt;</span><span class="st">&quot;A_1_DS: &quot;</span><span class="op">&lt;&lt;</span> A_i_DS<span class="op">[</span><span class="dv">1</span><span class="op">]&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span></code></pre></div>
+<p>The attribute <code>mean_strain_localisation_tensors</code> is a
+<code>std::vector</code> which contains <code>st2tost2</code> objects,
+as many as the number of phases.</p>
+<h2 id="prescribing-a-polarisation-on-each-phase">Prescribing a
+polarisation on each phase</h2>
+<p>We can also add a polarisation <span
+class="math inline">\(\underline{\tau}_i\)</span> on each phase <span
+class="math inline">\(i\)</span>. This leads to the following effective
+polarisation (see Eq. (5.14) from <span class="citation"
+data-cites="willis_mechanics_2001">[6]</span>):</p>
+<p><span
+class="math inline">\(\underline{\tau}^{\mathrm{eff}}=\sum_{i=1}^{N}f_i\,{\underline{\underline{\mathbf{A}}}_i}^T:\underline{\tau}_i\)</span></p>
+<p>The polarisations are prescribed with a <code>std::vector</code> of
+<code>stensor</code> objects. This vector must have the same number of
+phases as the microstructure. Let us try:</p>
+<div class="sourceCode" id="cb49"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> P0 <span class="op">=</span> Stensor<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>stress<span class="op">&gt;::</span>zero<span class="op">();</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> Stensor<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>stress<span class="op">&gt;</span> P1 <span class="op">=</span> <span class="op">{</span>stress<span class="op">(</span><span class="fl">6.e8</span><span class="op">),</span>stress<span class="op">(</span><span class="fl">6.e8</span><span class="op">),</span>stress<span class="op">(</span><span class="fl">6.e8</span><span class="op">),</span>stress<span class="op">(</span><span class="fl">0.</span><span class="op">),</span>stress<span class="op">(</span><span class="fl">0.</span><span class="op">),</span>stress<span class="op">(</span><span class="fl">0.</span><span class="op">)};</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> pola<span class="op">={</span>P0<span class="op">,</span>P1<span class="op">};</span></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> hmDS_pola<span class="op">=</span>computeDilute<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span>stress<span class="op">&gt;(</span>micro_1<span class="op">,</span><span class="dv">0</span><span class="op">,</span>pola<span class="op">);</span></span></code></pre></div>
+<p>Note that here we must also specify the parameter
+<code>max_iter_anisotropic_integration</code> before the optional
+argument <code>pola</code>. Here this integer is 0 because it will not
+be used, given that the matrix phase is isotropic (see first line). And
+we can recover the effective polarisation:</p>
+<div class="sourceCode" id="cb50"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> P_eff_DS<span class="op">=</span>hmDS_pola<span class="op">.</span>effective_polarisation<span class="op">;</span></span></code></pre></div>
+<p>Note also that if there is no polarisation vector (or if it is a
+vector with zero element), the effective polarisation is null.</p>
+<h2 id="second-moments-of-the-strains">Second-moments of the
+strains</h2>
+<h3 id="how-to-obtain-them">How to obtain them</h3>
+<p>The second-moments of the strains are classically obtained with the
+derivatives of the homogenized stiffness w.r.t. the elastic moduli.
+These derivatives are also provided by the
+<code>HomogenizationScheme</code>, in the case the phases are locally
+isotropic (and only in 3D). This can be done as follows:</p>
+<div class="sourceCode" id="cb51"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> compute_derivatives <span class="op">=</span> <span class="kw">true</span><span class="op">;</span> <span class="co">// to enable the computation of derivatives</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> h_DS <span class="op">=</span> computeDilute<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span> stress<span class="op">&gt;(</span>micro_1<span class="op">,</span><span class="dv">0</span><span class="op">,{},</span>compute_derivatives<span class="op">);</span> <span class="co">// here the 0 and {} correspond to unused parameters</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> dCDS_dkr <span class="op">=</span> h_DS<span class="op">.</span>derivative_of_homogenized_stiffness_wrt_kr<span class="op">;</span></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> dCDS_dmur <span class="op">=</span> h_DS<span class="op">.</span>derivative_of_homogenized_stiffness_wrt_mur<span class="op">;</span></span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout <span class="op">&lt;&lt;</span> dCDS_dkr<span class="op">[</span><span class="dv">0</span><span class="op">](</span><span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">)</span> <span class="op">&lt;&lt;</span> <span class="bu">std::</span>endl<span class="op">;</span></span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> h_MT <span class="op">=</span> computeMoriTanaka<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span> stress<span class="op">&gt;(</span>micro_1<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="op">{},</span> compute_derivatives<span class="op">);</span> <span class="co">// here the 0 and {} correspond to unused parameters</span></span>
+<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> dCMT_dkr <span class="op">=</span> h_MT<span class="op">.</span>derivative_of_homogenized_stiffness_wrt_kr<span class="op">;</span></span>
+<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> dCMT_dmur <span class="op">=</span> h_MT<span class="op">.</span>derivative_of_homogenized_stiffness_wrt_mur<span class="op">;</span></span></code></pre></div>
+<p>Here, a boolean <code>compute_derivatives</code> is passed as the
+last argument of the function <code>computeDilute</code>. This boolean
+(whose default value is <code>false</code>) specifies if the derivatives
+of the homogenized stiffness must be computed or not. If it is not
+computed (or if a dimension different from 3 is used), the attribute
+<code>.derivative_of_homogenized_stiffness_wrt_kr</code> is an empty
+<code>std::vector</code>. If it is computed, this attribute is a
+<code>std::vector</code> which contains as many tensors as the number of
+phases. The tensor number <code>i</code> is a <code>st2tost2</code>
+object corresponding to the derivative of the homogenized stiffness
+w.r.t. the bulk modulus of phase <code>i</code>. This is the same for
+the attribute
+<code>.derivative_of_homogenized_stiffness_wrt_mur</code>.</p>
+<p>For the other schemes, we can do:</p>
+<div class="sourceCode" id="cb52"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> compute_derivatives <span class="op">=</span> <span class="kw">true</span><span class="op">;</span> <span class="co">// to enable the computation of derivatives</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> isotropic <span class="op">=</span> <span class="kw">true</span><span class="op">;</span> <span class="co">// to enable the isotropic projection for computing the Hill tensors</span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> epsilon <span class="op">=</span> real<span class="op">(</span><span class="fl">1e-5</span><span class="op">);</span> <span class="co">// which terminates the self-consistent algorithm</span></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> h_ASC <span class="op">=</span> computeAsymmetricSelfConsistent<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span> stress<span class="op">&gt;(</span>micro_1<span class="op">,</span> epsilon<span class="op">,</span> isotropic<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="op">{},</span> compute_derivatives<span class="op">);</span> <span class="co">// 0 and {} are unused parameters</span></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> dCASC_dkr <span class="op">=</span> h_ASC<span class="op">.</span>derivative_of_homogenized_stiffness_wrt_kr<span class="op">;</span></span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> dCASC_dmur <span class="op">=</span> h_ASC<span class="op">.</span>derivative_of_homogenized_stiffness_wrt_mur<span class="op">;</span></span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> h_SC <span class="op">=</span> computeSelfConsistent<span class="op">&lt;</span><span class="dv">3</span><span class="bu">u</span><span class="op">,</span> stress<span class="op">&gt;(</span>poly<span class="op">,</span> epsilon<span class="op">,</span> Cini<span class="op">,</span> isotropic<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="op">{},</span> compute_derivatives<span class="op">);</span> <span class="co">// 0 and {} are unused parameters</span></span>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> dCSC_dkr <span class="op">=</span> h_SC<span class="op">.</span>derivative_of_homogenized_stiffness_wrt_kr<span class="op">;</span></span>
+<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> dCSC_dmur <span class="op">=</span> h_SC<span class="op">.</span>derivative_of_homogenized_stiffness_wrt_mur<span class="op">;</span></span></code></pre></div>
+<h3 id="analytical-formulas-implemented-in-tfel">Analytical formulas
+(implemented in TFEL)</h3>
+<p>We here give the analytical derivatives of the homogenized
+stiffnesses, implemented in TFEL. We assume that all phases are locally
+isotropic (but the homogenized stiffness may be anisotropic), and we
+perform the derivation of <span
+class="math inline">\(\underline{\underline{\mathbf{C}}}^{\mathrm{hom}}\)</span>
+w.r.t. the moduli <span class="math inline">\(k_i,\mu_i\)</span> of the
+phases. The distribution of inclusions (for the particulate
+microstructures) can be of very general type (particularly, a
+<code>UserDefinedDistributionOfSpheroids</code> can be considered).
+However, the inclusions must be spheroidals, and the general ellipsoidal
+shape (with 3 different semi-axes) is not yet considered.</p>
+<h4 id="dilute-scheme-1">Dilute scheme</h4>
+<p>For the dilute scheme, we note with a dot <span
+class="math inline">\(\,\dot{}\,\)</span> the derivation w.r.t. the
+desired parameter. We have:</p>
+<p><span
+class="math inline">\(\dot{\underline{\underline{\mathbf{C}}}}^{\mathrm{DS}}=\dot{\underline{\underline{\mathbf{C}}}}_0+\sum_{i=1}^{N-1}f_i\,\left[\left(\dot{\underline{\underline{\mathbf{C}}}}_i-\dot{\underline{\underline{\mathbf{C}}}}_0\right):\underline{\underline{\mathbf{A}}}_i^{\mathrm{DS}}+\left(\underline{\underline{\mathbf{C}}}_i-\underline{\underline{\mathbf{C}}}_0\right):\dot{\underline{\underline{\mathbf{A}}}}_i^{\mathrm{DS}}\right]\)</span></p>
+<p>The derivation w.r.t <span class="math inline">\(k_i\)</span> (or
+<span class="math inline">\(\mu_i\)</span>) where <span
+class="math inline">\(i\geq 1\)</span> is</p>
+<p><span class="math inline">\(\displaystyle\frac{\displaystyle
+\mathrm{d}\,
+\underline{\underline{\mathbf{C}}}^{\mathrm{DS}}}{\displaystyle
+\mathrm{d}\,
+k_i}=f_i\,\left[3\,\underline{\underline{\mathbf{J}}}:\underline{\underline{\mathbf{A}}}_i^
+{\mathrm{DS}}+\left(\underline{\underline{\mathbf{C}}}_i-\underline{\underline{\mathbf{C}}}_0\right):\displaystyle\frac{\displaystyle
+\mathrm{d}\,
+\underline{\underline{\mathbf{A}}}_i^{\mathrm{DS}}}{\displaystyle
+\mathrm{d}\, k_i}\right]\)</span></p>
+<p>And the derivation w.r.t. <span class="math inline">\(k_0\)</span>
+(or <span class="math inline">\(\mu_0\)</span>) is</p>
+<p><span class="math inline">\(\displaystyle\frac{\displaystyle
+\mathrm{d}\,
+\underline{\underline{\mathbf{C}}}^{\mathrm{DS}}}{\displaystyle
+\mathrm{d}\,
+k_0}=3\,f_0\,\underline{\underline{\mathbf{J}}}:\underline{\underline{\mathbf{A}}}_0^{\mathrm{DS}}+\sum_{i=1}^{N-1}f_i\,\left(\underline{\underline{\mathbf{C}}}_i-\underline{\underline{\mathbf{C}}}_0\right):\displaystyle\frac{\displaystyle
+\mathrm{d}\,
+\underline{\underline{\mathbf{A}}}_i^{\mathrm{DS}}}{\displaystyle
+\mathrm{d}\, k_0}\)</span></p>
+<p>For <span class="math inline">\(i\geq 1\)</span>, <span
+class="math inline">\(\dot{\underline{\underline{\mathbf{A}}}}_i^{\mathrm{DS}}\)</span>
+is relative to the phase <span class="math inline">\(i\)</span>, and
+this phase may be a distribution of spheroids. We hence have</p>
+<p><span
+class="math inline">\(\dot{\underline{\underline{\mathbf{A}}}}_i^{\mathrm{DS}}=\langle\dot{\underline{\underline{\mathbf{A}}}}_i^{\mathrm{DS}}(\vec
+n_i)\rangle\)</span></p>
+<p>where the average is performed on all the orientations <span
+class="math inline">\(\vec n_i\)</span> related to the distribution
+<span class="math inline">\(i\)</span>. This average is peformed via the
+Walpole basis (see also <span class="citation"
+data-cites="martin_mean_2026">[7]</span> for more details):</p>
+<p><span
+class="math inline">\(\langle\dot{\underline{\underline{\mathbf{A}}}}_i^{\mathrm{DS}}(\vec
+n_i)\rangle=\dot{a}_1 \langle\underline{\underline{\mathbf{E}}}_1(\vec
+n_i)\rangle + \dot{a}_2 \langle\underline{\underline{\mathbf{E}}}_2(\vec
+n_i)\rangle+ \dot{a}_3 \langle\underline{\underline{\mathbf{E}}}_3(\vec
+n_i)\rangle + \dot{a}_4 \langle\underline{\underline{\mathbf{E}}}_4(\vec
+n_i)\rangle + \dot{a}_F \langle\underline{\underline{\mathbf{F}}}(\vec
+n_i)\rangle+\dot{a}_G \langle\underline{\underline{\mathbf{G}}}(\vec
+n_i)\rangle\)</span></p>
+<p>The averages <span
+class="math inline">\(\langle\underline{\underline{\mathbf{E}}}_1(\vec
+n_i)\rangle,\langle\underline{\underline{\mathbf{E}}}_2(\vec
+n_i)\rangle,\langle\underline{\underline{\mathbf{E}}}_3(\vec
+n_i)\rangle,\langle\underline{\underline{\mathbf{E}}}_4(\vec
+n_i)\rangle,\langle\underline{\underline{\mathbf{F}}}(\vec
+n_i)\rangle,\langle\underline{\underline{\mathbf{G}}}(\vec
+n_i)\rangle\)</span> are given in <span class="citation"
+data-cites="martin_mean_2026">[7]</span>, as well as the derivatives
+<span
+class="math inline">\(\dot{a}_1,\dot{a}_2,\dot{a}_3,\dot{a}_4,\dot{a}_F,\dot{a}_G\)</span>.</p>
+<h4 id="mori-tanaka-scheme-1">Mori-Tanaka scheme</h4>
+<p>We again note with a dot <span
+class="math inline">\(\,\dot{}\,\)</span> the derivation w.r.t. the
+desired parameter. We have:</p>
+<p><span
+class="math inline">\(\dot{\underline{\underline{\mathbf{C}}}}^{\mathrm{MT}}=\sum_{i=0}^{N-1}f_i\,\left[\dot{\underline{\underline{\mathbf{C}}}}_i:\underline{\underline{\mathbf{A}}}_i^{\mathrm{MT}}+\underline{\underline{\mathbf{C}}}_i:\dot{\underline{\underline{\mathbf{A}}}}_i^{\mathrm{MT}}\right]\)</span></p>
+<p>The derivation w.r.t <span class="math inline">\(k_i\)</span> (or
+<span class="math inline">\(\mu_i\)</span>) where <span
+class="math inline">\(i\geq 0\)</span> is</p>
+<p><span class="math inline">\(\displaystyle\frac{\displaystyle
+\mathrm{d}\,
+\underline{\underline{\mathbf{C}}}^{\mathrm{MT}}}{\displaystyle
+\mathrm{d}\,
+k_i}=3\,f_i\,\underline{\underline{\mathbf{J}}}:\underline{\underline{\mathbf{A}}}_i^
+{\mathrm{MT}}+\sum_{j=0}^{N-1}\,f_j\,\underline{\underline{\mathbf{C}}}_j:\displaystyle\frac{\displaystyle
+\mathrm{d}\,
+\underline{\underline{\mathbf{A}}}_j^{\mathrm{MT}}}{\displaystyle
+\mathrm{d}\,
+k_i}=3\,f_i\,\underline{\underline{\mathbf{J}}}:\underline{\underline{\mathbf{A}}}_i^{\mathrm{MT}}+f_0\,\underline{\underline{\mathbf{C}}}_0:\displaystyle\frac{\displaystyle
+\mathrm{d}\,
+\underline{\underline{\mathbf{A}}}_0^{\mathrm{MT}}}{\displaystyle
+\mathrm{d}\,
+k_i}+\sum_{j=1}^{N-1}\,f_j\,\underline{\underline{\mathbf{C}}}_j:\displaystyle\frac{\displaystyle
+\mathrm{d}\,
+\underline{\underline{\mathbf{A}}}_j^{\mathrm{MT}}}{\displaystyle
+\mathrm{d}\, k_i}\)</span></p>
+<p>and because <span
+class="math inline">\(\underline{\underline{\mathbf{A}}}_j^{\mathrm{MT}}=\underline{\underline{\mathbf{A}}}_j^{\mathrm{DS}}:\left(\overline{\underline{\underline{\mathbf{A}}}}^
+{\mathrm{DS}}\right)^{-1}\,\)</span>, with <span
+class="math inline">\(\quad\overline{\underline{\underline{\mathbf{A}}}}^{\mathrm{DS}}=\sum_{k=0}^{N-1}f_k\,
+\underline{\underline{\mathbf{A}}}_k^{\mathrm{DS}}\)</span>, we have</p>
+<p><span class="math inline">\(\displaystyle\frac{\displaystyle
+\mathrm{d}\,
+\underline{\underline{\mathbf{A}}}_j^{\mathrm{MT}}}{\displaystyle
+\mathrm{d}\, k_i}=\delta_{ij}\,\displaystyle\frac{\displaystyle
+\mathrm{d}\,
+\underline{\underline{\mathbf{A}}}_j^{\mathrm{DS}}}{\displaystyle
+\mathrm{d}\,
+k_j}:\left(\overline{\underline{\underline{\mathbf{A}}}}^{\mathrm{DS}}\right)^{-1}-f_i\,\underline{\underline{\mathbf{A}}}_j^{\mathrm{DS}}:\left(\overline{\underline{\underline{\mathbf{A}}}}^{\mathrm{DS}}\right)^{-1}:\displaystyle\frac{\displaystyle
+\mathrm{d}\,
+\underline{\underline{\mathbf{A}}}_i^{\mathrm{DS}}}{\displaystyle
+\mathrm{d}\,
+k_i}:\left(\overline{\underline{\underline{\mathbf{A}}}}^{\mathrm{DS}}\right)^{-1}\quad
+(i\geq 1)\)</span></p>
+<p><span class="math inline">\(\displaystyle\frac{\displaystyle
+\mathrm{d}\,
+\underline{\underline{\mathbf{A}}}_j^{\mathrm{MT}}}{\displaystyle
+\mathrm{d}\, k_0}=\displaystyle\frac{\displaystyle \mathrm{d}\,
+\underline{\underline{\mathbf{A}}}_j^{\mathrm{DS}}}{\displaystyle
+\mathrm{d}\, k_0}:\left
+(\overline{\underline{\underline{\mathbf{A}}}}^{\mathrm{DS}}\right)^{-1}-\underline{\underline{\mathbf{A}}}_j^{\mathrm{DS}}:\sum_{k=1}^{N-1}f_k\,\left(\overline{\underline{\underline{\mathbf{A}}}}^{\mathrm{DS}}\right)^{-1}:\displaystyle\frac{\displaystyle
+\mathrm{d}\,
+\underline{\underline{\mathbf{A}}}_k^{\mathrm{DS}}}{\displaystyle
+\mathrm{d}\,
+k_0}:\left(\overline{\underline{\underline{\mathbf{A}}}}^{\mathrm{DS}}\right)^{-1}\)</span></p>
+<p>(note that <span
+class="math inline">\(\underline{\underline{\mathbf{A}}}_0^{\mathrm{DS}}=\underline{\underline{\mathbf{I}}}\)</span>
+so that <span
+class="math inline">\(\dot{\underline{\underline{\mathbf{A}}}}_0^{\mathrm{DS}}
+=\underline{\underline{\mathbf{0}}}\)</span>). And particularly, for
+<span class="math inline">\(j=0\)</span> we have</p>
+<p><span class="math inline">\(\displaystyle\frac{\displaystyle
+\mathrm{d}\,
+\underline{\underline{\mathbf{A}}}_0^{\mathrm{MT}}}{\displaystyle
+\mathrm{d}\, k_i}=-f_i\,\left(\overline
+{\underline{\underline{\mathbf{A}}}}^{\mathrm{DS}}\right)^{-1}:\displaystyle\frac{\displaystyle
+\mathrm{d}\,
+\underline{\underline{\mathbf{A}}}_i^{\mathrm{DS}}}{\displaystyle
+\mathrm{d}\, k_i}:\left(\overline
+{\underline{\underline{\mathbf{A}}}}^{\mathrm{DS}}\right)^{-1}\quad
+(i\geq 1)\)</span></p>
+<p><span class="math inline">\(\displaystyle\frac{\displaystyle
+\mathrm{d}\,
+\underline{\underline{\mathbf{A}}}_0^{\mathrm{MT}}}{\displaystyle
+\mathrm{d}\, k_0}=-\sum_{k=1}^{N-1}f_k\,
+\left(\overline{\underline{\underline{\mathbf{A}}}}^{\mathrm{DS}}\right)^{-1}:\displaystyle\frac{\displaystyle
+\mathrm{d}\,
+\underline{\underline{\mathbf{A}}}_k^{\mathrm{DS}}}{\displaystyle
+\mathrm{d}\, k_0}
+:\left(\overline{\underline{\underline{\mathbf{A}}}}^{\mathrm{DS}}\right)^{-1}\)</span></p>
+<p>and the derivative <span
+class="math inline">\(\dot{\underline{\underline{\mathbf{A}}}}_i^{\mathrm{DS}}\)</span>
+when <span class="math inline">\(i\geq 1\)</span> is the same as for the
+dilute scheme.</p>
+<h4 id="asymmetric-self-consistent-scheme">Asymmetric self-consistent
+scheme</h4>
+<p>For the asymmetric self-consistent scheme, the derivatives are
+available only when the isotropic projection is considered to compute
+the Hill tensors (however, this does not mean that the final homogenized
+stiffness is necessarily isotropic). Let us note <span
+class="math inline">\(p\)</span> the final number of iterations used in
+the iterative algorithm. We have</p>
+<p><span
+class="math inline">\(\dot{\underline{\underline{\mathbf{C}}}}^{\mathrm{ASC}}_{p}=\dot{\underline{\underline{\mathbf{C}}}}_0+\sum_
+{i=1}^{N-1}f_i\,\left[\left(\dot{\underline{\underline{\mathbf{C}}}}_i-\dot{\underline{\underline{\mathbf{C}}}}_0\right):\underline{\underline{\mathbf{A}}}_i^{\mathrm{ASC},p-1}+\left(\underline{\underline{\mathbf{C}}}_i-\underline{\underline{\mathbf{C}}}_0\right):\dot{\underline{\underline{\mathbf{A}}}}_i^{\mathrm{ASC},p-1}\right]\)</span></p>
+<p>The derivative <span
+class="math inline">\(\dot{\underline{\underline{\mathbf{A}}}}_i^{\mathrm{ASC},p-1}\)</span>
+may be related to a distribution of spheroidal inclusions so that we use
+the Walpole basis, as explained above for the dilute scheme. This gives
+us partial derivatives of <span
+class="math inline">\(\underline{\underline{\mathbf{A}}}_i^{\mathrm{ASC},p-1}\)</span>
+w.r.t. <span class="math inline">\(k_i,\mu_i\quad(i\geq 1)\)</span> and
+<span
+class="math inline">\(k^{\mathrm{ASC},p-1},\mu^{\mathrm{ASC},p-1}\)</span>
+(the reference medium). All these partial derivatives are given in <span
+class="citation" data-cites="martin_mean_2026">[7]</span>. Then, we use
+the chain rule:</p>
+<p><span class="math inline">\(\displaystyle\frac{\displaystyle
+\mathrm{d}\,
+\underline{\underline{\mathbf{A}}}_i^{\mathrm{ASC},p-1}}{\displaystyle
+\mathrm{d}\, k_j}=\delta_{ij}\displaystyle\frac{\displaystyle \partial
+\underline{\underline{\mathbf{A}}}_i^{\mathrm{ASC},p-1}}{\displaystyle
+\partial k_i}+\displaystyle\frac{\displaystyle \partial
+\underline{\underline{\mathbf{A}}}_i^{\mathrm{ASC},p-1}}{\displaystyle
+\partial k^{\mathrm{ASC},p-1}}.\displaystyle\frac{\displaystyle
+\mathrm{d}\, k^{\mathrm{ASC},p-1}}{\displaystyle \mathrm{d}\,
+k_j}+\displaystyle\frac{\displaystyle \partial
+\underline{\underline{\mathbf{A}}}_i^{\mathrm{ASC},p-1}}{\displaystyle
+\partial \mu^{\mathrm{ASC},p-1}}.\displaystyle\frac{\displaystyle
+\mathrm{d}\, \mu^{\mathrm{ASC},p-1}}{\displaystyle \mathrm{d}\,
+k_j}\quad(j\geq 1)\)</span></p>
+<p><span class="math inline">\(\displaystyle\frac{\displaystyle
+\mathrm{d}\,
+\underline{\underline{\mathbf{A}}}_i^{\mathrm{ASC},p-1}}{\displaystyle
+\mathrm{d}\, k_0}=\displaystyle\frac{\displaystyle \partial
+\underline{\underline{\mathbf{A}}}_i^{\mathrm{ASC},p-1}}{\displaystyle
+\partial k^{\mathrm{ASC},p-1}}.\displaystyle\frac{\displaystyle
+\mathrm{d}\, k^{\mathrm{ASC},p-1}}{\displaystyle \mathrm{d}\,
+k_0}+\displaystyle\frac{\displaystyle \partial
+\underline{\underline{\mathbf{A}}}_i^{\mathrm{ASC},p-1}}{\displaystyle
+\partial \mu^{\mathrm{ASC},p-1}}.\displaystyle\frac{\displaystyle
+\mathrm{d}\, \mu^{\mathrm{ASC},p-1}}{\displaystyle \mathrm{d}\,
+k_0}\)</span></p>
+<p>The total derivatives of <span
+class="math inline">\(k^{\mathrm{ASC},p-1}\)</span> and <span
+class="math inline">\(\mu^{\mathrm{ASC},p-1}\)</span> are computed via
+the derivative of <span
+class="math inline">\(\underline{\underline{\mathbf{C}}}^{\mathrm{ASC}}_{p-1}\)</span>
+(given above):</p>
+<p><span class="math inline">\(\displaystyle\frac{\displaystyle
+\mathrm{d}\,
+{\underline{\underline{\mathbf{C}}}}^{\mathrm{ASC}}_{p-1}}{\displaystyle
+\mathrm{d}\, k_0}=3\,\underline{\underline{\mathbf{J}}}+\sum_
+{i=1}^{N-1}f_i\,\left[-3\,\underline{\underline{\mathbf{J}}}:\underline{\underline{\mathbf{A}}}_i^{\mathrm
+{ASC},p-2}+\left(\underline{\underline{\mathbf{C}}}_i-\underline{\underline{\mathbf{C}}}_0\right):\displaystyle\frac{\displaystyle
+\mathrm{d}\,
+{\underline{\underline{\mathbf{A}}}}_i^{\mathrm{ASC},p-2}}{\displaystyle
+\mathrm{d}\, k_0}\right]\)</span></p>
+<p><span class="math inline">\(\displaystyle\frac{\displaystyle
+\mathrm{d}\,
+{\underline{\underline{\mathbf{C}}}}^{\mathrm{ASC}}_{p-1}}{\displaystyle
+\mathrm{d}\,
+\mu_0}=2\,\underline{\underline{\mathbf{K}}}+\sum_{i=1}^{N-1}f_i\,\left[-2\,\underline{\underline{\mathbf{K}}}:\underline{\underline{\mathbf{A}}}_i^{\mathrm{ASC},p-2}+\left(\underline{\underline{\mathbf{C}}}_i-\underline{\underline{\mathbf{C}}}_0\right):\displaystyle\frac{\displaystyle
+\mathrm{d}\,
+{\underline{\underline{\mathbf{A}}}}_i^{\mathrm{ASC},p-2}}{\displaystyle
+\mathrm{d}\, \mu_0}\right]\)</span></p>
+<p><span class="math inline">\(\displaystyle\frac{\displaystyle
+\mathrm{d}\,
+{\underline{\underline{\mathbf{C}}}}^{\mathrm{ASC}}_{p-1}}{\displaystyle
+\mathrm{d}\,
+k_j}=3\,f_j\,\underline{\underline{\mathbf{J}}}:\underline{\underline{\mathbf{A}}}_j^{\mathrm{ASC},p-2}+\sum_{i=1}^{N-1}f_i\,\left[\left(\underline{\underline{\mathbf{C}}}_i-\underline{\underline{\mathbf{C}}}_0\right):\displaystyle\frac{\displaystyle
+\mathrm{d}\,
+{\underline{\underline{\mathbf{A}}}}_i^{\mathrm{ASC},p-2}}{\displaystyle
+\mathrm{d}\, k_j}\right]\qquad(j\geq 1)\)</span></p>
+<p><span class="math inline">\(\displaystyle\frac{\displaystyle
+\mathrm{d}\,
+{\underline{\underline{\mathbf{C}}}}^{\mathrm{ASC}}_{p-1}}{\displaystyle
+\mathrm{d}\,
+\mu_j}=2\,f_j\,\underline{\underline{\mathbf{K}}}:\underline{\underline{\mathbf{A}}}_j^{\mathrm{ASC},p-2}+\sum_{i=1}^{N-1}f_i\,\left[\left(\underline{\underline{\mathbf{C}}}_i-\underline{\underline{\mathbf{C}}}_0\right):\displaystyle\frac{\displaystyle
+\mathrm{d}\,
+{\underline{\underline{\mathbf{A}}}}_i^{\mathrm{ASC},p-2}}{\displaystyle
+\mathrm{d}\, \mu_j}\right]\qquad(j\geq 1)\)</span></p>
+<p>Note however that an isotropic projection is performed for <span
+class="math inline">\(\underline{\underline{\mathbf{C}}}^{\mathrm{ASC}}_{p-1},...,
+\underline{\underline{\mathbf{C}}}^{\mathrm{ASC}}_0\)</span>. Hence, we
+have</p>
+<p><span
+class="math inline">\(\dot{k}^{\mathrm{ASC}}_{p-1}=\dfrac13\,\dot{\underline{\underline{\mathbf{C}}}}^{\mathrm{ASC}}_{p-1}::\underline{\underline{\mathbf{J}}},
+\qquad\dot{\mu}^{\mathrm{ASC}}_{p-1}=\dfrac1{10}\,\dot{\underline{\underline{\mathbf{C}}}}^{\mathrm{ASC}}_{p-1}::\underline{\underline{\mathbf{K}}}\)</span></p>
+<h4 id="self-consistent-scheme">Self-consistent scheme</h4>
+<p>Again here, the derivatives are available only when the isotropic
+projection is considered. Let us note <span
+class="math inline">\(p\)</span> the final number of iterations used in
+the iterative algorithm. We have</p>
+<p><span
+class="math inline">\(\dot{\underline{\underline{\mathbf{C}}}}^{\mathrm{SC}}_{p}=\sum_{i=1}^{N}f_i\,\left[\dot{\underline{\underline{\mathbf{C}}}}_i:\underline{\underline{\mathbf{A}}}_i^{\mathrm{SC},p-1}+\underline{\underline{\mathbf{C}}}_i:\dot{\underline{\underline{\mathbf{A}}}}_i^{\mathrm{SC},p-1}\right]\)</span></p>
+<p>and we have <span
+class="math inline">\(\underline{\underline{\mathbf{A}}}_i^{\mathrm{SC},p-1}=\underline{\underline{\mathbf{A}}}_i^{\mathrm{DSC},p-1}:\left(\overline{\underline{\underline{\mathbf{A}}}}^{\mathrm{DSC},p-1}\right)^{-1}\,\)</span>,
+with <span
+class="math inline">\(\quad\overline{\underline{\underline{\mathbf{A}}}}^{\mathrm{DSC},p-1}=\sum_{k=1}^{N}f_k\,\underline{\underline{\mathbf{A}}}_k^{\mathrm{DSC},p-1}\)</span>.</p>
+<p>We hence have</p>
+<p><span class="math inline">\(\displaystyle\frac{\displaystyle
+\mathrm{d}\,
+\underline{\underline{\mathbf{A}}}_i^{\mathrm{SC},p-1}}{\displaystyle
+\mathrm{d}\, k_j}=\displaystyle\frac{\displaystyle \mathrm{d}\,
+\underline{\underline{\mathbf{A}}}_i^{\mathrm{DSC},p-1}}{\displaystyle
+\mathrm{d}\,
+k_j}:\left(\overline{\underline{\underline{\mathbf{A}}}}^{\mathrm{DSC},p-1}\right)^{-1}-\underline{\underline{\mathbf{A}}}_i^{\mathrm{DSC},p-1}:\sum_{k=1}^{N}f_k\,\left(\overline{\underline{\underline{\mathbf{A}}}}^{\mathrm{DSC},p-1}\right)^{-1}:\displaystyle\frac{\displaystyle
+\mathrm{d}\,
+\underline{\underline{\mathbf{A}}}_k^{\mathrm{DSC},p-1}}{\displaystyle
+\mathrm{d}\,
+k_j}:\left(\overline{\underline{\underline{\mathbf{A}}}}^{\mathrm{DSC},p-1}\right)^{-1}\quad
+(i,j\geq 1)\)</span></p>
+<p>And the derivatives of <span
+class="math inline">\(\underline{\underline{\mathbf{A}}}_i^{\mathrm{DSC},p-1}\)</span>
+are obtained as for the asymmetric self-consistent scheme presented
+above:</p>
+<p><span class="math inline">\(\displaystyle\frac{\displaystyle
+\mathrm{d}\,
+\underline{\underline{\mathbf{A}}}_i^{\mathrm{DSC},p-1}}{\displaystyle
+\mathrm{d}\, k_j}=\delta_{ij}\displaystyle\frac{\displaystyle \partial
+\underline{\underline{\mathbf{A}}}_i^{\mathrm{DSC},p-1}}{\displaystyle
+\partial k_i}+\displaystyle\frac{\displaystyle \partial
+\underline{\underline{\mathbf{A}}}_i^{\mathrm{DSC},p-1}}{\displaystyle
+\partial k^{\mathrm{SC},p-1}}.\displaystyle\frac{\displaystyle
+\mathrm{d}\, k^{\mathrm{SC},p-1}}{\displaystyle \mathrm{d}\,
+k_j}+\displaystyle\frac{\displaystyle \partial
+\underline{\underline{\mathbf{A}}}_i^{\mathrm{DSC},p-1}}{\displaystyle
+\partial \mu^{\mathrm{SC},p-1}}.\displaystyle\frac{\displaystyle
+\mathrm{d}\, \mu^{\mathrm{SC}, p-1}}{\displaystyle \mathrm{d}\,
+k_j}\quad(i,j\geq 1)\)</span></p>
+<p>The partial derivatives are given by <span class="citation"
+data-cites="martin_mean_2026">[7]</span>. The derivatives of <span
+class="math inline">\(k^{\mathrm{SC},p-1}\)</span> and <span
+class="math inline">\(\mu^{\mathrm{SC},p-1}\)</span> are deduced from
+the derivative of <span
+class="math inline">\(\underline{\underline{\mathbf{C}}}^{\mathrm{SC}}_{p-1}\)</span>
+and we have:</p>
+<p><span class="math inline">\(\displaystyle\frac{\displaystyle
+\mathrm{d}\,
+\underline{\underline{\mathbf{C}}}^{\mathrm{SC}}_{p-1}}{\displaystyle
+\mathrm{d}\,
+k_j}=3\,f_j\,\underline{\underline{\mathbf{J}}}:\underline{\underline{\mathbf{A}}}_j^{\mathrm{SC},p-2}+\sum_{i=1}^{N}f_i\,\underline{\underline{\mathbf{C}}}_i:\displaystyle\frac{\displaystyle
+\mathrm{d}\,
+\underline{\underline{\mathbf{A}}}_i^{\mathrm{SC},p-2}}{\displaystyle
+\mathrm{d}\, k_j}\quad(j\geq 1)\)</span></p>
+<p>and we have again</p>
+<p><span
+class="math inline">\(\dot{k}^{\mathrm{SC}}_{p-1}=\dfrac13\,\dot{\underline{\underline{\mathbf{C}}}}^{\mathrm{SC}}_{p-1}::\underline{\underline{\mathbf{J}}},
+\qquad\dot{\mu}^{\mathrm{SC}}_{p-1}=\dfrac1{10}\,\dot{\underline{\underline{\mathbf{C}}}}^{\mathrm{SC}}_{p-1}::\underline{\underline{\mathbf{K}}}\)</span></p>
+<!-- Local IspellDict: english -->
+<div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-torquato_2002" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div
+class="csl-right-inline"><span class="smallcaps">Torquato</span>,
+Salvatore. <a href="https://doi.org/10.1007/978-1-4757-6355-3">Random
+heterogeneous materials. Microstructure and macroscopic properties</a>.
+Springer, 2002. </div>
+</div>
+<div id="ref-parnell_2016" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div
+class="csl-right-inline"><span class="smallcaps">Parnell</span>, J. W.
+The <span>Eshelby</span>, <span>Hill</span>, moment and concentration
+tensors for ellipsoidal inhomogeneities in the <span>Newtonian</span>
+potential problem and linear elastostatics. <em>Journal of
+Elasticity</em>. 2016. Vol. 125, no. 2, p. 231–294. DOI <a
+href="https://doi.org/10.1007/s10659-016-9573-6">10.1007/s10659-016-9573-6</a>.
+</div>
+</div>
+<div id="ref-eshelby_1957" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div
+class="csl-right-inline"><span class="smallcaps">Eshelby</span>, John
+Douglas. The determination of the elastic field of an ellipsoidal
+inclusion, and related problems. <em>Proceedings of the Royal Society
+A</em>. 1957. Vol. 241, no. 1226. DOI <a
+href="https://doi.org/10.1098/rspa.1957.0133">10.1098/rspa.1957.0133</a>.
+</div>
+</div>
+<div id="ref-masson_2007" class="csl-entry" role="listitem">
+<div class="csl-left-margin">4. </div><div
+class="csl-right-inline"><span class="smallcaps">Masson</span>, Renaud.
+New explicit expressions of the <span>Hill</span> polarization tensor
+for general anisotropic elastic solids. <em>International Journal of
+Solids and Structures</em>. 2007. Vol. 45, no. 3-4, p. 757–769. DOI <a
+href="https://doi.org/10.1016/j.ijsolstr.2007.08.035">10.1016/j.ijsolstr.2007.08.035</a>.
+</div>
+</div>
+<div id="ref-saevik_2012" class="csl-entry" role="listitem">
+<div class="csl-left-margin">5. </div><div
+class="csl-right-inline"><span class="smallcaps">Sævik</span>, P. N.,
+<span class="smallcaps">Berre</span>, I., <span
+class="smallcaps">Jakobsen</span>, M. and <span
+class="smallcaps">Lien</span>, M. Electrical conductivity of fractured
+media: A computational study of the self-consistent method. <em>SEG
+Technical Program Expanded Abstracts</em>. 2012. Vol. 31, no. 1, p. 1–5.
+DOI <a
+href="https://doi.org/10.1190/segam2012-1026.1">10.1190/segam2012-1026.1</a>.
+</div>
+</div>
+<div id="ref-willis_mechanics_2001" class="csl-entry" role="listitem">
+<div class="csl-left-margin">6. </div><div
+class="csl-right-inline"><span class="smallcaps">Willis</span>, J. R.
+Mechanics of <span>Composites</span>. Ecole Polytechnique, Département
+de Mécanique, 2001. </div>
+</div>
+<div id="ref-martin_mean_2026" class="csl-entry" role="listitem">
+<div class="csl-left-margin">7. </div><div
+class="csl-right-inline"><span class="smallcaps">Martin</span>, Antoine.
+Mean field homogenization schemes for composites with prolate and oblate
+spheroids: Use of the orientation tensors and computation of the strain
+second-moments. 2026. Available from: <a
+href="https://hal.science/hal-05686847v1">https://hal.science/hal-05686847v1</a></div>
+</div>
+</div>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

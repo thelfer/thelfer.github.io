@@ -352,6 +352,7 @@
 		  <li><a href="tfel-math-data-interpolation.html">Data interpolation</a></li>
 	        </ul>
 		<li><a href="tfel-material.html">TFEL/Material</a></li>
+		<li><a href="tfel-material-homogenization.html">TFEL/Material homogenization</a></li>
                  <li><a href="glossary.html">Glossary</a></li>
                  <li><a href="physical-constants.html">Physical constants</a></li>
 		<li><a href="tfel-mfront-database.html">TFELMFrontDatabase</a></li>
@@ -867,8 +868,8 @@ class="header-section-number">6</span> New <code>TFEL/Material</code>
 features</h1>
 <h2 data-number="6.1" id="homogenization"><span
 class="header-section-number">6.1</span> Homogenization</h2>
-<p>The following methods of the ParticulateMicrostructure objects are
-able to modify the microstructure:</p>
+<p>The following methods of the <code>ParticulateMicrostructure</code>
+objects are able to modify the microstructure:</p>
 <ul>
 <li><code>changeElasticityOfMatrixPhase</code></li>
 <li><code>changeElasticityOfInclusionPhase</code></li>
@@ -879,6 +880,25 @@ a distribution of spheroids defined by two orientation tensors. This
 distribution can be used in a <code>ParticulateMicrostructure</code> and
 the associated homogenization schemes can be used with these
 microstructures.</p>
+<p>The <code>Polycrystal</code> object has been added to deal with
+homogenization schemes which do not assume that there is a matrix phase.
+An object <code>Grain</code> was created for this class of
+microstructures.</p>
+<p>The <code>computeSelfConsistentScheme</code> has been modified in
+order to be more consistent with the literature. Now, This scheme takes
+a <code>Polycrystal</code> in which no matrix phase exists. For the
+<code>ParticulateMicrostructure</code>, the function
+<code>computeAsymmetricSelfConsistentScheme</code> has been introduced,
+which corresponds to a variant of the Self-Consistent scheme for which
+the matrix phase plays a particular role.</p>
+<p>In the homogenization schemes relative to the
+<code>ParticulateMicrostructure</code>, the computation of the
+derivatives of the homogenized stiffness tensor w.r.t. the isotropic
+moduli is available. It can be obtained by using the attributes
+<code>.derivative_of_homogenized_stiffness_wrt_kr</code> and
+<code>.derivative_of_homogenized_stiffness_wrt_mur</code> of the
+<code>HomogenizationScheme</code> object (only for isotropic
+phases).</p>
 <h1 data-number="7" id="new-features-in-tfel-check"><span
 class="header-section-number">7</span> New features in
 <code>tfel-check</code></h1>

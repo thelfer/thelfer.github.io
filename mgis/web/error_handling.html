@@ -355,7 +355,7 @@ results are stored on the stack.</li>
 object holding if those results are stored on the heap. In this case,
 the failure of the function is indicated by the fact that the underlying
 pointer is null.</li>
-<li>a class to which an <code>InvalidValue</code> object is implicitly
+<li>a class to which an <code>InvalidResult</code> object is implicitly
 convertible.</li>
 </ul>
 <blockquote>
@@ -420,6 +420,15 @@ libraries.</li>
 <p>For convenience, the <code>registerErrorMessage</code> always returns
 an invalid value, i.e. a value that is convertible to any of the
 returned type described in the previous section.</p>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>In some rare case, it may happen that the implicit conversion is
+leading to a compile-time error ambiguous. This is for instance the case
+for functions returning an optional of a type that can be invalid. In
+this case, one may remove the ambiguity by specifying the expected
+return type a template parameter of the
+<code>registerErrorMessage</code> method.</p>
+</blockquote>
 <p>By default, the error messages are packed up to the moment when
 error(s) must be reported to the end-user. The error messages can then
 be retrieved by the <code>getErrorMessage</code> method (or

@@ -88,7 +88,7 @@
     <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-        <header>
+    <header>
       <ul id="nav">
 	<li><a href="news.html">News</a></li>
 	<li><a href="index.html">Overview</a>
@@ -389,7 +389,7 @@
     </header>
 <div id="header">
 <h1 class="title">Automation of unit-tests of scientific tools using
-<code>tfel-check</code></h1>
+tfel-check</h1>
 <h2 class="author">Thomas Helfer, Stéphane Bernaud</h2>
 <h3 class="date">21/11/2017</h3>
 </div>
@@ -407,8 +407,9 @@ class="toc-section-number">1.3</span> A first example</a></li>
 <li><a href="#a-more-complex-example"
 id="toc-a-more-complex-example"><span
 class="toc-section-number">1.4</span> A more complex example</a></li>
-<li><a href="#commands-failure" id="toc-commands-failure"><span
-class="toc-section-number">1.5</span> Commands failure</a></li>
+<li><a href="#command-failure-handling"
+id="toc-command-failure-handling"><span
+class="toc-section-number">1.5</span> Command failure handling</a></li>
 </ul></li>
 <li><a href="#sec:tfel_check:input_files"
 id="toc-sec:tfel_check:input_files"><span
@@ -419,139 +420,148 @@ id="toc-list-of-available-keywords"><span
 class="toc-section-number">2.1</span> List of available
 keywords</a></li>
 </ul></li>
+<li><a href="#comparing-values-between-files"
+id="toc-comparing-values-between-files"><span
+class="toc-section-number">3</span> Comparing values between files</a>
+<ul>
+<li><a href="#sec:tfel_check:comparison_types"
+id="toc-sec:tfel_check:comparison_types"><span
+class="toc-section-number">3.1</span> Comparison types</a></li>
+<li><a href="#sec:tfel_check:interpolation_methods"
+id="toc-sec:tfel_check:interpolation_methods"><span
+class="toc-section-number">3.2</span> Interpolation methods</a></li>
+<li><a href="#multi-column-comparisons"
+id="toc-multi-column-comparisons"><span
+class="toc-section-number">3.3</span> Multi-column comparisons</a></li>
+<li><a href="#practical-examples" id="toc-practical-examples"><span
+class="toc-section-number">3.4</span> Practical examples</a></li>
+</ul></li>
 <li><a href="#sec:tfel_check:configuration_files"
 id="toc-sec:tfel_check:configuration_files"><span
-class="toc-section-number">3</span> Description of the configuration
+class="toc-section-number">4</span> Description of the configuration
 files</a>
 <ul>
 <li><a href="#defining-environment-variables-in-configuration-files"
 id="toc-defining-environment-variables-in-configuration-files"><span
-class="toc-section-number">3.1</span> Defining environment variables in
+class="toc-section-number">4.1</span> Defining environment variables in
 configuration files</a></li>
 </ul></li>
 <li><a href="#sec:tfel_check:default_components"
 id="toc-sec:tfel_check:default_components"><span
-class="toc-section-number">4</span> Default components</a></li>
-<li><a
-href="#automatic-declaration-of-substitutions-for-tfel-executables-and-python-interpreter"
-id="toc-automatic-declaration-of-substitutions-for-tfel-executables-and-python-interpreter"><span
-class="toc-section-number">5</span> Automatic declaration of
-substitutions for <code>TFEL</code> executables and <code>python</code>
-interpreter</a></li>
+class="toc-section-number">5</span> Default components</a></li>
+<li><a href="#automatic-declaration-of-substitutions"
+id="toc-automatic-declaration-of-substitutions"><span
+class="toc-section-number">6</span> Automatic declaration of
+substitutions</a></li>
 <li><a href="#command-line-arguments"
 id="toc-command-line-arguments"><span
-class="toc-section-number">6</span> Command line arguments</a></li>
+class="toc-section-number">7</span> Command line arguments</a>
+<ul>
+<li><a href="#summary-of-options" id="toc-summary-of-options"><span
+class="toc-section-number">7.1</span> Summary of options</a></li>
+<li><a href="#usage-examples" id="toc-usage-examples"><span
+class="toc-section-number">7.2</span> Usage examples</a></li>
+</ul></li>
 </ul>
 </div>
-<p><code>tfel-check</code> is a tool designed to launch unit-tests and
-provide tools to test the outputs. <code>tfel-check</code> mostly
-targets scientific applications which do not have in-house ability to
-compare their results to reference results.</p>
+<p><code>tfel-check</code> is a tool designed to automate unit tests for
+scientific applications and provide utilities to compare their outputs
+against reference results. It is particularly useful for applications
+that lack built-in validation capabilities.</p>
 <h1 data-number="1" id="overview"><span
 class="header-section-number">1</span> Overview</h1>
 <h2 data-number="1.1" id="basic-usage"><span
 class="header-section-number">1.1</span> Basic usage</h2>
-<p>The basic usage of <code>tfel-check</code> is simply to call
-<code>tfel-check</code> without options:</p>
+<p>The simplest way to use <code>tfel-check</code> is to invoke it
+without arguments:</p>
 <div class="sourceCode" id="cb1"><pre
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tfel-check</span></code></pre></div>
-<p><code>tfel-check</code> will then execute the tests and comparisons
-described in every file with the extension <code>.check</code> in the
-current directory and, recursively, in all the subdirectories. The
-syntax of of those files are described in Section 2.</p>
-<p>One may also specify only a set of files to be considered, as
-follows:</p>
+<p>This executes all <code>.check</code> files in the current directory
+and its subdirectories. The syntax of <code>.check</code> files is
+described in Section 2.</p>
+<p>To run specific test files, list them explicitly:</p>
 <div class="sourceCode" id="cb2"><pre
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tfel-check test1.check test2.check</span></code></pre></div>
-<p>One may also specify a configuration file using the
-<code>--config</code> command line option, as follows:</p>
+<p>A configuration file can be specified using the <code>--config</code>
+option:</p>
 <div class="sourceCode" id="cb3"><pre
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tfel-check <span class="at">--config</span><span class="op">=</span>test.config</span></code></pre></div>
-<p>The configuration files are described in Section 3.</p>
-<p>Substitution strings can be specified in configuration files or in
-the command line, as follows:</p>
+<p>Configuration files are described in Section 4.</p>
+<p>Substitution strings can be defined in configuration files or via the
+command line:</p>
 <div class="sourceCode" id="cb4"><pre
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tfel-check <span class="at">--@python@</span><span class="op">=</span>python3.5</span></code></pre></div>
-<p>With this option, every occurrence of <code>@python@</code> will be
-replaced by <code>python3.5</code>.</p>
+<p>This replaces all occurrences of <code>@python@</code> with
+<code>python3.5</code>.</p>
 <h2 data-number="1.2" id="parallelization"><span
 class="header-section-number">1.2</span> Parallelization</h2>
-<p>The commands described in different <code>.check</code> files can now
-be run in distinct processes.</p>
-<p>Note that the command described in a <code>.check</code> are still
-run sequentially.</p>
-<p>By default, as in previous versions, only one process is used.</p>
-<h3 data-number="1.2.1"
-id="specifying-the-number-of-jobs-run-simultaneously"><span
-class="header-section-number">1.2.1</span> Specifying the number of jobs
-run simultaneously</h3>
-<p>The command line argument <code>--jobs</code> (<code>-j</code>) allow
-specifying the number of jobs run simultaneously.</p>
+<p>Commands in different <code>.check</code> files can be executed in
+parallel processes. Commands within a single <code>.check</code> file
+are always run sequentially.</p>
+<p>By default, <code>tfel-check</code> uses a single process.</p>
+<h3 data-number="1.2.1" id="controlling-parallel-execution"><span
+class="header-section-number">1.2.1</span> Controlling parallel
+execution</h3>
+<p>The <code>--jobs</code> (<code>-j</code>) option specifies the number
+of parallel jobs. If not provided, <code>tfel-check</code> uses the
+number of available CPU cores.</p>
+<h4 data-number="1.2.1.1" id="job-limit"><span
+class="header-section-number">1.2.1.1</span> Job limit</h4>
 <p>If no option is given to <code>--jobs</code>, the number of available
 cores is used, if the system provide this information.</p>
-<h4 data-number="1.2.1.1" id="limit-on-the-number-of-jobs"><span
-class="header-section-number">1.2.1.1</span> Limit on the number of
+<h4 data-number="1.2.1.2" id="limit-on-the-number-of-jobs"><span
+class="header-section-number">1.2.1.2</span> Limit on the number of
 jobs</h4>
 <p>By default, this number must be lower than the number of cores
-available. This limit can be discarded by
-passing<code>--discard-jobs-limit=true</code> to
-<code>tfel-check</code>.</p>
+available. This limit can be discarded by passing
+<code>--discard-jobs-limit=true</code> to <code>tfel-check</code>.</p>
 <h3 data-number="1.2.2" id="caution"><span
 class="header-section-number">1.2.2</span> Caution</h3>
-<p>The user must take care that the commands described in
-<code>.check</code> files can be run in parallel.</p>
+<p>Ensure that parallel execution is safe for your test suite:</p>
 <ul>
-<li>the jobs shall no exhaust memory.</li>
-<li>the jobs shall not access concurrently to the same resources.</li>
+<li>Jobs must not exhaust available memory.</li>
+<li>Jobs must not concurrently access shared resources (e.g., files,
+directories).</li>
 </ul>
-<p>A typical example of conflict would be to have two
-<code>.check</code> files in the same directory that call
-<code>mfront</code> to build somes shared libraries: the two
-<code>MFront</code>’s processes may write concurrently files in the
-<code>src</code> and <code>include</code> directories, leading to an
-undefined behaviour.</p>
-<p>Another example would be to use <code>@CleanDirectories</code> and
-<code>@CleanFiles</code> commands inappropriately and erase data used by
-commands of other <code>.check</code> files.</p>
-<h3 data-number="1.2.3"
-id="synchronizing-the-output-on-the-terminal"><span
-class="header-section-number">1.2.3</span> Synchronizing the output on
-the terminal</h3>
-<p>By default, the output on the terminal are <strong>not</strong>
-synchronized, which means that the completion of every individual step
-(command execution, results comparisons, etc.) in a job is displayed
-immediately.</p>
-<p>Using the command line argument
-<code>--synchronize-terminal-output</code> (which expects a boolean
-option), this behaviour can be changed. If synchronized, the output of
-each job is stored in a buffer and then displayed at the end of the job
-completion.</p>
+<p>For example, running two <code>.check</code> files that invoke
+<code>mfront</code> to build shared libraries in the same directory may
+cause race conditions, as both processes could write to
+<code>src/</code> or <code>include/</code> simultaneously.</p>
+<p>Similarly, improper use of <code>@CleanDirectories</code> or
+<code>@CleanFiles</code> may delete data required by other
+<code>.check</code> files.</p>
+<h3 data-number="1.2.3" id="terminal-output-synchronization"><span
+class="header-section-number">1.2.3</span> Terminal output
+synchronization</h3>
+<p>By default, terminal output is <strong>not synchronized</strong>,
+meaning that individual steps (command execution, comparisons, etc.) are
+displayed immediately.</p>
+<p>To synchronize output, use
+<code>--synchronize-terminal-output=true</code>. This buffers each job’s
+output and displays it only after the job completes.</p>
 <h2 data-number="1.3" id="a-first-example"><span
 class="header-section-number">1.3</span> A first example</h2>
-<p>Let us consider this simple test file:</p>
+<p>Consider the following simple <code>.check</code> file:</p>
 <div class="sourceCode" id="cb5"><pre
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Requires <span class="op">{</span><span class="st">&quot;tfel::madnex&quot;</span><span class="op">,</span><span class="st">&quot;mfront::python&quot;</span><span class="op">};</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Command <span class="st">&quot;@python@ OverridableImplementation.py&quot;</span><span class="op">;</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Command <span class="st">&quot;mfront-query --author --material=A316LN --behaviour=Plasticity_SRMA2022 Plasticity.madnex&quot;</span><span class="op">{</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  expected_output <span class="op">:</span> <span class="st">&quot;John Mac Enroe&quot;</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
-<p>The first line, which begins with the <code>@Requires</code>
-keywords, provides a list of required components. In this case, the
-components <code>tfel::madnex</code> and <code>mfront::python</code> are
-required to execute the tests described in this file. The tests are
-skipped if those requirements are not met. The definition of components
-can be done in a configuration file, as detailed in Section 3. The
-components defined by defaults by <code>tfel-check</code> is described
-in Section 4.</p>
-<p>The second line specifies the first command to be run and begins with
-the <code>@Command</code> keyword. It is followed by the command to be
-launched. The <code>@python@</code> syntax designates that a
-substitution string must be provided to precise the <code>python</code>
-interpreter to be used.</p>
-<p>The third line specifies a second command which launches
-<code>mfront-query</code> and a first test which compares the command
-line output to an expected one.</p>
-<p>This file can can be launched as follows:</p>
+<ul>
+<li><p>The <code>@Requires</code> keyword lists required components
+(<code>tfel::madnex</code> and <code>mfront::python</code>). If these
+are unavailable, tests are skipped. Components can be defined in
+configuration files (see Section 4). Default components are listed in
+Section 5.</p></li>
+<li><p>The <code>@Command</code> keyword executes a command. The
+<code>@python@</code> syntax is a substitution string that must be
+defined (e.g., via <code>--@python@=python3.5</code>).</p></li>
+<li><p>The second <code>@Command</code> includes a test that validates
+the command’s output against the expected string
+<code>"John Mac Enroe"</code>.</p></li>
+</ul>
+<p>To run this file:</p>
 <div class="sourceCode" id="cb6"><pre
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tfel-check <span class="at">--@python@</span><span class="op">=</span>python3.5 madnex.check</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">entering</span> directory <span class="st">&#39;/tmp/madnex&#39;</span></span>
@@ -561,28 +571,19 @@ class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="ex">**</span> Exec-3 mfront-query <span class="at">--author</span> <span class="at">--material</span><span class="op">=</span>A316LN <span class="at">--behaviour</span><span class="op">=</span>Plast... <span class="pp">[</span><span class="ss">SUCCESS</span><span class="pp">]</span></span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> end of test <span class="st">&#39;./madnex.check&#39;</span>                                         <span class="pp">[</span><span class="ss">SUCCESS</span><span class="pp">]</span></span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="ex">======</span></span></code></pre></div>
-<p>This command produces several files:</p>
+<p>This generates the following files:</p>
 <ul>
-<li><code>tfel-check.log</code>: this file contains the output of
-<code>tfel-check</code>. This file is created in the directory where
-<code>tfel-check</code> has been invoked.</li>
-<li><code>madnex.checklog</code>: this file contains a summary of the
-execution of the commands and test described in the
-<code>madnex.check</code> file. A similar file is created for each file
-considered by <code>tfel-check</code>.</li>
-<li>Three files <code>madnex-Exec-1.out</code>,
-<code>madnex-Exec-2.out</code> and <code>madnex-Exec-3.out</code>
-associated to the three commands listed in the <code>madnex.check</code>
-file. Those files contain the output of each command and the execution
-time of the command.</li>
-<li><code>TEST-madnex.xml</code> is an <code>XML</code> file conforming
-the <code>JUnit</code> standard that summarises the results and which is
-suitable for the integration of the test case in the <a
-href="https://www.jenkins.io/"><code>jenkins</code> automation
-server</a>.</li>
+<li><code>tfel-check.log</code>: Global log file in the invocation
+directory.</li>
+<li><code>madnex.checklog</code>: Summary of command executions and
+tests for <code>madnex.check</code>.</li>
+<li><code>madnex-Exec-1.out</code>, <code>madnex-Exec-2.out</code>,
+<code>madnex-Exec-3.out</code>: Output and execution time for each
+command.</li>
+<li><code>TEST-madnex.xml</code>: JUnit-compatible XML file for
+integration with <a href="https://www.jenkins.io/">Jenkins</a>.</li>
 </ul>
-<p>If the requirements are not met, the execution and the tests are
-marked as skipped:</p>
+<p>If requirements are unmet, tests are skipped:</p>
 <div class="sourceCode" id="cb7"><pre
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tfel-check</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">entering</span> directory <span class="st">&#39;/tmp/madnex&#39;</span></span>
@@ -592,7 +593,7 @@ class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="ex">**</span> Exec-3 mfront-query <span class="at">--author</span> <span class="at">--material</span><span class="op">=</span>A316LN <span class="at">--behaviour</span><span class="op">=</span>Plast... <span class="pp">[</span><span class="ss">SKIPPED</span><span class="pp">]</span></span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> end of test <span class="st">&#39;./madnex.check&#39;</span>                                         <span class="pp">[</span><span class="ss">SUCCESS</span><span class="pp">]</span></span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="ex">======</span></span></code></pre></div>
-<p>If the execution of a command fails, this is reported as follows:</p>
+<p>Command failures are reported as follows:</p>
 <div class="sourceCode" id="cb8"><pre
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tfel-check <span class="at">--@python@</span><span class="op">=</span>python2.7</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">entering</span> directory <span class="st">&#39;/tmp/madnex&#39;</span></span>
@@ -604,40 +605,37 @@ class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="ex">======</span></span></code></pre></div>
 <h2 data-number="1.4" id="a-more-complex-example"><span
 class="header-section-number">1.4</span> A more complex example</h2>
-<p>For this second example, let us consider a tensile test simulated
-using the <code>Cast3M</code> finite element solver. The test case uses
-an <code>MFront</code> file to define the behaviour and generates a text
-file called
-<code>ImplicitSimoMieheElastoPlasticityUniaxialTesting-castem.res</code>
-containing the evolution of the stress along the tensile axis as a
-function of time.</p>
-<p>The <code>ImplicitSimoMieheElastoPlasticity.check</code> file has the
-following content:</p>
+<p>Consider a tensile test simulated with the <code>Cast3M</code> finite
+element solver. An <code>MFront</code> file defines the material
+behaviour, and the simulation generates a result file
+(<code>ImplicitSimoMieheElastoPlasticityUniaxialTesting-castem.res</code>)
+containing the stress evolution along the tensile axis over time.</p>
+<p>The <code>ImplicitSimoMieheElastoPlasticity.check</code> file:</p>
 <div class="sourceCode" id="cb9"><pre
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Requires <span class="op">{</span><span class="st">&quot;Cast3M&quot;</span><span class="op">,</span> <span class="st">&quot;mfront::behaviour::castem_interface&quot;</span><span class="op">};</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Command <span class="st">&quot;mfront --obuild --interface=castem ImplicitSimoMieheElastoPlasticity.mfront&quot;</span><span class="op">;</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Command <span class="st">&quot;@castem@ ImplicitSimoMieheElastoPlasticityUniaxialTesting.dgibi&quot;</span><span class="op">;</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Precision <span class="dv">100</span><span class="op">;</span> <span class="co">// criterion for the check, here a difference of 100Pa is allowed</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Precision <span class="dv">100</span><span class="op">;</span> <span class="co">// absolute tolerance: 100 Pa</span></span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Test <span class="st">&quot;ImplicitSimoMieheElastoPlasticityUniaxialTesting-castem.res&quot;</span></span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;ImplicitSimoMieheElastoPlasticityUniaxialTesting-castem.ref&quot;</span> <span class="dv">2</span><span class="op">;</span></span></code></pre></div>
-<p>The first line specifies that the <code>Cast3M</code> component must
-be available and that the support of the <code>Cast3M</code> interface
-is available in <code>MFront</code>. The second line compiles the
-behaviour.</p>
-<p>The third one launches the <code>Cast3M</code> simulation. This line
-assumes that a substitution string for the <code>@castem@</code> pattern
-has been defined.</p>
-<p>The fifth line specifies an absolute criterion to compare the current
-results to the reference ones. The last line defines the test to be
-performed: the values of the second column of the two specified files
-are compared using an absolute criteria.</p>
-<p>To trigger those tests, the following config file, called
-<code>castem.config</code> can be used:</p>
+<ul>
+<li>The <code>@Requires</code> keyword ensures <code>Cast3M</code> and
+its <code>MFront</code> interface are available.</li>
+<li>The first <code>@Command</code> compiles the behaviour.</li>
+<li>The second <code>@Command</code> runs the <code>Cast3M</code>
+simulation, using the <code>@castem@</code> substitution.</li>
+<li><code>@Precision 100</code> sets an absolute tolerance of 100 Pa for
+comparisons.</li>
+<li>The <code>@Test</code> keyword compares the second column of the
+result and reference files.</li>
+</ul>
+<p>A configuration file (<code>castem.config</code>) defines the
+substitution:</p>
 <div class="sourceCode" id="cb10"><pre
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>components <span class="op">:</span> <span class="op">{</span><span class="st">&quot;Cast3M&quot;</span><span class="op">};</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>substitutions <span class="op">:</span> <span class="op">{</span><span class="st">&quot;castem&quot;</span><span class="op">:</span> <span class="st">&quot;castem2019_PLEIADES&quot;</span><span class="op">};</span></span></code></pre></div>
-<p>The tests are run as follows:</p>
+<p>Run the test with:</p>
 <div class="sourceCode" id="cb11"><pre
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tfel-check <span class="at">--config</span><span class="op">=</span>castem.config</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">entering</span> directory <span class="st">&#39;/tmp/tfel-check&#39;</span></span>
@@ -646,17 +644,13 @@ class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href=
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="ex">**</span> Exec-2 castem2019_PLEIADES ImplicitSimoMieheElastoPlasticityUnia... <span class="pp">[</span><span class="ss">SUCCESS</span><span class="pp">]</span></span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="ex">**</span> Compare-1 <span class="st">&#39;ImplicitSimoMieheElastoPlasticityUniaxialTesting-cast... [SUCCESS]</span></span>
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="st">* end of test &#39;</span>./ImplicitSimoMieheElastoPlasticity.check<span class="st">&#39;              [SUCCESS]</span></span></code></pre></div>
-<h2 data-number="1.5" id="commands-failure"><span
-class="header-section-number">1.5</span> Commands failure</h2>
-<p>By default, <code>tfel-check</code> discards a command failure if at
-least one test is defined. The rationale behind this choice is that some
-command may succeed in producing the expected results but may still fail
-to exit properly.</p>
-<p>This behavior can be controlled by the
-<code>--discard-commands-failure</code> which takes <code>true</code> or
-<code>false</code> as argument.</p>
-<h3 data-number="1.5.1" id="example-of-usage"><span
-class="header-section-number">1.5.1</span> Example of usage</h3>
+<h2 data-number="1.5" id="command-failure-handling"><span
+class="header-section-number">1.5</span> Command failure handling</h2>
+<p>By default, <code>tfel-check</code> ignores command failures if at
+least one test is defined. This accounts for cases where a command
+produces correct results but exits with a non-zero status.</p>
+<p>Use <code>--discard-commands-failure</code> to control this
+behaviour:</p>
 <div class="sourceCode" id="cb12"><pre
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tfel-check <span class="at">--discard-commands-failure</span><span class="op">=</span>false</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">entering</span> directory <span class="st">&#39;/tmp/tests&#39;</span></span>
@@ -675,194 +669,496 @@ class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href=
 <h1 data-number="2" id="sec:tfel_check:input_files"><span
 class="header-section-number">2</span> Description of the input
 files</h1>
+<p><code>.check</code> files describe tests and comparisons using a set
+of keywords.</p>
 <h2 data-number="2.1" id="list-of-available-keywords"><span
 class="header-section-number">2.1</span> List of available keywords</h2>
 <h3 data-number="2.1.1" id="the-requires-keyword"><span
 class="header-section-number">2.1.1</span> The <code>@Requires</code>
 keyword</h3>
-<p>The <code>@Requires</code> keyword specifies the components that are
-required to run the tests described in the considered input file.</p>
+<p>The <code>@Requires</code> keyword lists the components required to
+run the tests in the file. If any component is unavailable, all tests in
+the file are skipped.</p>
 <h3 data-number="2.1.2" id="the-environment-keyword"><span
 class="header-section-number">2.1.2</span> The <code>@Environment</code>
 keyword</h3>
-<p>The <code>@Environment</code> keyword specifies a set of environment
-variables that will be defined accessible to the commands.</p>
+<p>The <code>@Environment</code> keyword defines environment variables
+for commands:</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Environment <span class="op">{</span><span class="st">&quot;VAR1&quot;</span><span class="op">:</span> <span class="st">&quot;value1&quot;</span><span class="op">,</span> <span class="st">&quot;VAR2&quot;</span><span class="op">:</span> <span class="st">&quot;value2&quot;</span><span class="op">};</span></span></code></pre></div>
 <h3 data-number="2.1.3" id="the-command-keyword"><span
 class="header-section-number">2.1.3</span> The <code>@Command</code>
 keyword</h3>
-<p>The <code>@Command</code> keyword specifies a command to be
-launched.</p>
-<p>This keyword has the following options:</p>
+<p>The <code>@Command</code> keyword executes a command. It supports the
+following options:</p>
 <ul>
-<li><code>expected_output</code>: a string (single line output) or an
-array of strings (multiline output) specifying the expected output. If
-the actual output differs from the expected one, the tests is marked as
-failed.</li>
-<li><code>expected_numerical_output</code>, which allows to test the
-numerical output of a command. This option must be defined as a map with
-two entries:
+<li><code>expected_output</code>: Expected output as a string (single
+line) or an array of strings (multiline). The test fails if the actual
+output differs.</li>
+<li><code>expected_numerical_output</code>: Tests numerical output.
+Requires a map with:
 <ul>
-<li><code>value</code>: the expected value</li>
-<li><code>criterion_value</code>: the criterion value used to test the
-output</li>
+<li><code>value</code>: Expected numerical value.</li>
+<li><code>criterion_value</code>: Tolerance for the comparison.</li>
 </ul></li>
-<li><code>output_validation_regex</code>, which allows to specify a
-regular expression which shall validate the output of the command. The
-output of the command is concatenated in a single string for the
-test.</li>
-<li><code>shall_fail</code>: a boolean stating if the command shall
-succeed or fail.</li>
+<li><code>output_validation_regex</code>: Regular expression to validate
+the command output. The output is concatenated into a single string for
+validation.</li>
+<li><code>shall_fail</code>: Boolean. If <code>true</code>, the command
+must fail for the test to pass.</li>
 </ul>
+<p>Example:</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Command <span class="st">&quot;echo 42&quot;</span> <span class="op">{</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  expected_output<span class="op">:</span> <span class="st">&quot;42&quot;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Command <span class="st">&quot;./my_script&quot;</span> <span class="op">{</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  shall_fail<span class="op">:</span> <span class="kw">true</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <h3 data-number="2.1.4" id="the-precision-keyword"><span
 class="header-section-number">2.1.4</span> The <code>@Precision</code>
 keyword</h3>
-<p>The <code>@Precision</code> keyword specifies the comparison
-criterion used to compare the current values and the reference ones.</p>
-<div class="sourceCode" id="cb13"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Precision <span class="fl">1.e-6</span><span class="op">;</span></span></code></pre></div>
+<p>The <code>@Precision</code> keyword sets the tolerance(s) for value
+comparisons.</p>
+<ul>
+<li>For <code>Absolute</code>, <code>Relative</code>, or
+<code>Area</code> comparisons: a single value.</li>
+<li>For <code>RelativeAndAbsolute</code> or <code>Mixed</code>
+comparisons: two values (relative and absolute).</li>
+</ul>
+<p>Example:</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Precision <span class="fl">1.e-6</span><span class="op">;</span>       <span class="co">// single precision for Absolute/Relative</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Precision <span class="fl">1.e-3</span> <span class="fl">1.</span><span class="op">;</span>    <span class="co">// relative and absolute precision for Mixed</span></span></code></pre></div>
 <h3 data-number="2.1.5" id="the-test-keyword"><span
 class="header-section-number">2.1.5</span> The <code>@Test</code>
 keyword</h3>
-<p>The <code>@Test</code> keyword specifies two files to compare which
-represents respectively the current simulated values and the reference
-ones.</p>
+<p>The <code>@Test</code> keyword compares two files (current results
+and reference).</p>
+<p>Syntax:</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Test <span class="op">&lt;</span>results_file<span class="op">&gt;</span> <span class="op">&lt;</span>reference_file<span class="op">&gt;</span> <span class="op">[</span>columns<span class="op">];</span></span></code></pre></div>
+<ul>
+<li><code>results_file</code>: Path to the file containing current
+results.</li>
+<li><code>reference_file</code>: Path to the file containing reference
+values.</li>
+<li><code>columns</code>: Optional list of column indices or names to
+compare (default: all columns).</li>
+</ul>
+<p>Examples:</p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Test <span class="ch">&#39;r</span><span class="er">esults.res</span><span class="ch">&#39;</span> <span class="ch">&#39;r</span><span class="er">eference.res</span><span class="ch">&#39;</span><span class="op">;</span>           <span class="co">// compare all columns</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Test <span class="ch">&#39;r</span><span class="er">esults.res</span><span class="ch">&#39;</span> <span class="ch">&#39;r</span><span class="er">eference.res</span><span class="ch">&#39;</span> <span class="dv">2</span><span class="op">;</span>        <span class="co">// compare column 2</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Test <span class="ch">&#39;r</span><span class="er">esults.res</span><span class="ch">&#39;</span> <span class="ch">&#39;r</span><span class="er">eference.res</span><span class="ch">&#39;</span> <span class="ch">&#39;B&#39;</span><span class="op">;</span>     <span class="co">// compare column named &#39;B&#39;</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Test <span class="ch">&#39;r</span><span class="er">esults.res</span><span class="ch">&#39;</span> <span class="ch">&#39;r</span><span class="er">eference.res</span><span class="ch">&#39;</span> <span class="dv">1</span> <span class="dv">3</span> <span class="dv">5</span><span class="op">;</span>   <span class="co">// compare columns 1, 3, and 5</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Test <span class="ch">&#39;r</span><span class="er">esults.res</span><span class="ch">&#39;</span> <span class="ch">&#39;r</span><span class="er">eference.res</span><span class="ch">&#39;</span> <span class="ch">&#39;A&#39;</span> <span class="ch">&#39;B&#39;</span><span class="op">;</span> <span class="co">// compare columns named &#39;A&#39; and &#39;B&#39;</span></span></code></pre></div>
 <h3 data-number="2.1.6" id="the-testtype-keyword"><span
 class="header-section-number">2.1.6</span> The <code>@TestType</code>
 keyword</h3>
-<p>The <code>@TestType</code> keyword specifies how the comparison
-between the simulated values and the reference values shall be
-performed.</p>
-<p>The following kind of comparison are available:</p>
+<p>The <code>@TestType</code> keyword defines the comparison method for
+values. Available types:</p>
 <ul>
-<li><code>Absolute</code>:</li>
-<li><code>Relative</code>:</li>
-<li><code>RelativeAndAbsolute</code>:</li>
-<li><code>Mixed</code>:</li>
-<li><code>Area</code>:</li>
+<li><code>Absolute</code>: Absolute difference between values must be ≤
+precision.</li>
+<li><code>Relative</code>: Relative difference between values must be ≤
+precision.</li>
+<li><code>RelativeAndAbsolute</code>: Combines relative and absolute
+criteria. Requires two precision values.</li>
+<li><code>Mixed</code>: Mixed relative/absolute comparison. Requires two
+precision values.</li>
+<li><code>Area</code>: Compares the area under the curve. Requires a
+single precision value.</li>
 </ul>
+<p>Example:</p>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TestType Absolute<span class="op">;</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Precision <span class="fl">1.e-6</span><span class="op">;</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Test <span class="ch">&#39;r</span><span class="er">esults.res</span><span class="ch">&#39;</span> <span class="ch">&#39;r</span><span class="er">eference.res</span><span class="ch">&#39;</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TestType RelativeAndAbsolute<span class="op">;</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Precision <span class="fl">1.e-3</span> <span class="fl">1.e-6</span><span class="op">;</span> <span class="co">// relative and absolute tolerances</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Test <span class="ch">&#39;r</span><span class="er">esults.res</span><span class="ch">&#39;</span> <span class="ch">&#39;r</span><span class="er">eference.res</span><span class="ch">&#39;</span> <span class="dv">2</span><span class="op">;</span></span></code></pre></div>
 <h3 data-number="2.1.7" id="the-interpolation-keyword"><span
 class="header-section-number">2.1.7</span> The
 <code>@Interpolation</code> keyword</h3>
-<p>The <code>@Interpolation</code> keyword specifies how the reference
-values can be interpolated. The following interpolations are
-available:</p>
+<p>The <code>@Interpolation</code> keyword specifies how reference
+values are interpolated for comparison. This is useful when the
+reference and result files have different abscissa values (e.g., time
+steps).</p>
+<p>Available interpolation methods:</p>
 <ul>
-<li><code>None</code>:</li>
-<li><code>Linear</code>:</li>
-<li><code>Spline</code>:</li>
-<li><code>LocalSpline</code>:</li>
+<li><code>None</code>: No interpolation. Abscissa values must match
+exactly.</li>
+<li><code>Linear</code>: Linear interpolation between reference
+points.</li>
+<li><code>Spline</code>: Cubic spline interpolation.</li>
+<li><code>LocalSpline</code>: Local spline interpolation (avoids global
+smoothness constraints).</li>
 </ul>
-<h1 data-number="3" id="sec:tfel_check:configuration_files"><span
-class="header-section-number">3</span> Description of the configuration
+<p>The <code>using</code> clause specifies the column to use as the
+interpolation abscissa. The <code>AllowLessResults</code> option allows
+the result file to have fewer points than the reference.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Interpolation Linear <span class="kw">using</span> <span class="ch">&#39;t</span><span class="er">ime</span><span class="ch">&#39;</span><span class="op">;</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Interpolation Spline <span class="kw">using</span> <span class="ch">&#39;t</span><span class="er">ps</span><span class="ch">&#39;</span> AllowLessResults<span class="op">;</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>          <span class="er">@</span>Interpolation LocalSpline <span class="kw">using</span> <span class="ch">&#39;x&#39;</span><span class="op">;</span></span></code></pre></div>
+<h4 data-number="2.1.7.1" id="interpolation-for-integration"><span
+class="header-section-number">2.1.7.1</span> Interpolation for
+integration</h4>
+<p>For <code>Area</code> comparisons, an additional interpolation can be
+specified for integration:</p>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TestType Area interpolation Spline <span class="kw">using</span> <span class="ch">&#39;t</span><span class="er">ime</span><span class="ch">&#39;</span><span class="op">;</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Precision <span class="fl">0.1</span><span class="op">;</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Test <span class="ch">&#39;r</span><span class="er">esults.res</span><span class="ch">&#39;</span> <span class="ch">&#39;r</span><span class="er">eference.res</span><span class="ch">&#39;</span> <span class="ch">&#39;y&#39;</span><span class="op">;</span></span></code></pre></div>
+<h1 data-number="3" id="comparing-values-between-files"><span
+class="header-section-number">3</span> Comparing values between
 files</h1>
-<p>Configuration files can be used to define:</p>
+<p><code>tfel-check</code> provides powerful tools to compare numerical
+results against reference data. This section details the available
+comparison types, interpolation methods, and precision settings.</p>
+<h2 data-number="3.1" id="sec:tfel_check:comparison_types"><span
+class="header-section-number">3.1</span> Comparison types</h2>
+<p>The <code>@TestType</code> keyword defines how values are compared.
+Each type has specific use cases:</p>
+<h3 data-number="3.1.1" id="absolute-comparison"><span
+class="header-section-number">3.1.1</span> Absolute comparison</h3>
+<p>Checks if the absolute difference between corresponding values is
+within the specified precision.</p>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TestType Absolute<span class="op">;</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Precision <span class="fl">1.e-6</span><span class="op">;</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Test <span class="ch">&#39;r</span><span class="er">esults.res</span><span class="ch">&#39;</span> <span class="ch">&#39;r</span><span class="er">eference.res</span><span class="ch">&#39;</span> <span class="dv">1</span><span class="op">;</span></span></code></pre></div>
+<p><strong>Use case</strong>: Suitable for quantities with a known
+absolute tolerance (e.g., stress in Pa).</p>
+<h3 data-number="3.1.2" id="relative-comparison"><span
+class="header-section-number">3.1.2</span> Relative comparison</h3>
+<p>Checks if the relative difference between corresponding values is
+within the specified precision.</p>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TestType Relative<span class="op">;</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Precision <span class="fl">1.e-3</span><span class="op">;</span> <span class="co">// 0.1% tolerance</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Test <span class="ch">&#39;r</span><span class="er">esults.res</span><span class="ch">&#39;</span> <span class="ch">&#39;r</span><span class="er">eference.res</span><span class="ch">&#39;</span> <span class="dv">1</span><span class="op">;</span></span></code></pre></div>
+<p><strong>Use case</strong>: Ideal for quantities where relative
+accuracy matters (e.g., normalized values).</p>
+<h3 data-number="3.1.3" id="relative-and-absolute-comparison"><span
+class="header-section-number">3.1.3</span> Relative and Absolute
+comparison</h3>
+<p>Combines both criteria: the test passes if <strong>either</strong>
+the relative <strong>or</strong> the absolute difference is within
+tolerance.</p>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TestType RelativeAndAbsolute<span class="op">;</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Precision <span class="fl">1.e-3</span> <span class="fl">1.e-6</span><span class="op">;</span> <span class="co">// relative and absolute tolerances</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Test <span class="ch">&#39;r</span><span class="er">esults.res</span><span class="ch">&#39;</span> <span class="ch">&#39;r</span><span class="er">eference.res</span><span class="ch">&#39;</span> <span class="dv">1</span><span class="op">;</span></span></code></pre></div>
+<p><strong>Use case</strong>: Flexible comparison for quantities that
+may have small absolute values (where relative comparison fails) or
+large values (where absolute comparison is too strict).</p>
+<h3 data-number="3.1.4" id="mixed-comparison"><span
+class="header-section-number">3.1.4</span> Mixed comparison</h3>
+<p>Combines both criteria: the test passes if <strong>both</strong> the
+relative <strong>and</strong> the absolute differences are within
+tolerance.</p>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TestType Mixed<span class="op">;</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Precision <span class="fl">1.e-3</span> <span class="fl">1.e-6</span><span class="op">;</span> <span class="co">// relative and absolute tolerances</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Test <span class="ch">&#39;r</span><span class="er">esults.res</span><span class="ch">&#39;</span> <span class="ch">&#39;r</span><span class="er">eference.res</span><span class="ch">&#39;</span> <span class="dv">1</span><span class="op">;</span></span></code></pre></div>
+<p><strong>Use case</strong>: Strict comparison where both relative and
+absolute accuracy must be satisfied.</p>
+<h3 data-number="3.1.5" id="area-comparison"><span
+class="header-section-number">3.1.5</span> Area comparison</h3>
+<p>Compares the area under the curve (integral) of the specified
+columns. Requires an interpolation method for the reference data.</p>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TestType Area interpolation Spline <span class="kw">using</span> <span class="ch">&#39;t</span><span class="er">ime</span><span class="ch">&#39;</span><span class="op">;</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Precision <span class="fl">0.1</span><span class="op">;</span> <span class="co">// 10% tolerance on the area</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Test <span class="ch">&#39;r</span><span class="er">esults.res</span><span class="ch">&#39;</span> <span class="ch">&#39;r</span><span class="er">eference.res</span><span class="ch">&#39;</span> <span class="ch">&#39;s</span><span class="er">tress</span><span class="ch">&#39;</span><span class="op">;</span></span></code></pre></div>
+<p><strong>Use case</strong>: Useful for validating global quantities
+(e.g., total energy, work done) where pointwise differences may be less
+important.</p>
+<h2 data-number="3.2" id="sec:tfel_check:interpolation_methods"><span
+class="header-section-number">3.2</span> Interpolation methods</h2>
+<p>Interpolation is required when the abscissa values (e.g., time,
+strain) in the result and reference files do not match. The
+<code>@Interpolation</code> keyword specifies how reference data is
+interpolated.</p>
+<h3 data-number="3.2.1" id="no-interpolation"><span
+class="header-section-number">3.2.1</span> No interpolation</h3>
+<p>No interpolation is performed. The abscissa values in both files must
+match exactly.</p>
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Interpolation None<span class="op">;</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Test <span class="ch">&#39;r</span><span class="er">esults.res</span><span class="ch">&#39;</span> <span class="ch">&#39;r</span><span class="er">eference.res</span><span class="ch">&#39;</span> <span class="dv">1</span><span class="op">;</span></span></code></pre></div>
+<p><strong>Use case</strong>: Fastest method when both files use
+identical abscissa values.</p>
+<h3 data-number="3.2.2" id="linear-interpolation"><span
+class="header-section-number">3.2.2</span> Linear interpolation</h3>
+<p>Linear interpolation between reference points.</p>
+<div class="sourceCode" id="cb27"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Interpolation Linear <span class="kw">using</span> <span class="ch">&#39;t</span><span class="er">ime</span><span class="ch">&#39;</span><span class="op">;</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Test <span class="ch">&#39;r</span><span class="er">esults.res</span><span class="ch">&#39;</span> <span class="ch">&#39;r</span><span class="er">eference.res</span><span class="ch">&#39;</span> <span class="ch">&#39;s</span><span class="er">tress</span><span class="ch">&#39;</span><span class="op">;</span></span></code></pre></div>
+<p><strong>Use case</strong>: Simple and robust for most smooth
+data.</p>
+<h3 data-number="3.2.3" id="spline-interpolation"><span
+class="header-section-number">3.2.3</span> Spline interpolation</h3>
+<p>Cubic spline interpolation for smooth curves.</p>
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Interpolation Spline <span class="kw">using</span> <span class="ch">&#39;s</span><span class="er">train</span><span class="ch">&#39;</span><span class="op">;</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Test <span class="ch">&#39;r</span><span class="er">esults.res</span><span class="ch">&#39;</span> <span class="ch">&#39;r</span><span class="er">eference.res</span><span class="ch">&#39;</span> <span class="ch">&#39;s</span><span class="er">tress</span><span class="ch">&#39;</span><span class="op">;</span></span></code></pre></div>
+<p><strong>Use case</strong>: High-quality interpolation for smooth data
+with continuous second derivatives.</p>
+<h3 data-number="3.2.4" id="local-spline-interpolation"><span
+class="header-section-number">3.2.4</span> Local Spline
+interpolation</h3>
+<p>Local spline interpolation avoids global smoothness constraints,
+making it more robust for noisy or non-smooth data.</p>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Interpolation LocalSpline <span class="kw">using</span> <span class="ch">&#39;t</span><span class="er">ime</span><span class="ch">&#39;</span> AllowLessResults<span class="op">;</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Test <span class="ch">&#39;r</span><span class="er">esults.res</span><span class="ch">&#39;</span> <span class="ch">&#39;r</span><span class="er">eference.res</span><span class="ch">&#39;</span> <span class="ch">&#39;s</span><span class="er">tress</span><span class="ch">&#39;</span><span class="op">;</span></span></code></pre></div>
+<p><strong>Use case</strong>: Preferred for data with sharp transitions
+or when the result file has fewer points than the reference.</p>
+<h3 data-number="3.2.5" id="allowing-fewer-results"><span
+class="header-section-number">3.2.5</span> Allowing fewer results</h3>
+<p>The <code>AllowLessResults</code> option allows the result file to
+have fewer data points than the reference file. This is useful when the
+simulation uses adaptive time-stepping or when reference data is highly
+resolved.</p>
+<div class="sourceCode" id="cb30"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Interpolation Linear <span class="kw">using</span> <span class="ch">&#39;t</span><span class="er">ime</span><span class="ch">&#39;</span> AllowLessResults<span class="op">;</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Test <span class="ch">&#39;r</span><span class="er">esults.res</span><span class="ch">&#39;</span> <span class="ch">&#39;r</span><span class="er">eference.res</span><span class="ch">&#39;</span> <span class="dv">1</span><span class="op">;</span></span></code></pre></div>
+<h2 data-number="3.3" id="multi-column-comparisons"><span
+class="header-section-number">3.3</span> Multi-column comparisons</h2>
+<p>Multiple columns can be compared in a single <code>@Test</code>
+directive by listing their indices or names.</p>
+<div class="sourceCode" id="cb31"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TestType Absolute<span class="op">;</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Precision <span class="fl">1.e-6</span><span class="op">;</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Test <span class="ch">&#39;r</span><span class="er">esults.res</span><span class="ch">&#39;</span> <span class="ch">&#39;r</span><span class="er">eference.res</span><span class="ch">&#39;</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span><span class="op">;</span>       <span class="co">// compare columns 1, 2, and 3</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Test <span class="ch">&#39;r</span><span class="er">esults.res</span><span class="ch">&#39;</span> <span class="ch">&#39;r</span><span class="er">eference.res</span><span class="ch">&#39;</span> <span class="ch">&#39;A&#39;</span> <span class="ch">&#39;B&#39;</span><span class="op">;</span>    <span class="co">// compare columns named &#39;A&#39; and &#39;B&#39;</span></span></code></pre></div>
+<p><strong>Note</strong>: All specified columns are compared using the
+same <code>@TestType</code> and <code>@Precision</code>.</p>
+<h2 data-number="3.4" id="practical-examples"><span
+class="header-section-number">3.4</span> Practical examples</h2>
+<h3 data-number="3.4.1" id="example-1-simple-absolute-comparison"><span
+class="header-section-number">3.4.1</span> Example 1: Simple absolute
+comparison</h3>
+<p>Compare the second column of two files with an absolute tolerance of
+1e-6:</p>
+<div class="sourceCode" id="cb32"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TestType Absolute<span class="op">;</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Precision <span class="fl">1.e-6</span><span class="op">;</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Test <span class="ch">&#39;r</span><span class="er">esults.res</span><span class="ch">&#39;</span> <span class="ch">&#39;r</span><span class="er">eference.res</span><span class="ch">&#39;</span> <span class="dv">2</span><span class="op">;</span></span></code></pre></div>
+<h3 data-number="3.4.2"
+id="example-2-relative-comparison-with-interpolation"><span
+class="header-section-number">3.4.2</span> Example 2: Relative
+comparison with interpolation</h3>
+<p>Compare stress-strain curves where the strain values (column 1)
+differ between files:</p>
+<div class="sourceCode" id="cb33"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TestType Relative<span class="op">;</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Precision <span class="fl">1.e-3</span><span class="op">;</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Interpolation Spline <span class="kw">using</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Test <span class="ch">&#39;r</span><span class="er">esults.res</span><span class="ch">&#39;</span> <span class="ch">&#39;r</span><span class="er">eference.res</span><span class="ch">&#39;</span> <span class="dv">2</span><span class="op">;</span></span></code></pre></div>
+<h3 data-number="3.4.3"
+id="example-3-mixed-comparison-with-local-spline"><span
+class="header-section-number">3.4.3</span> Example 3: Mixed comparison
+with local spline</h3>
+<p>Strict comparison of temperature evolution with local spline
+interpolation:</p>
+<div class="sourceCode" id="cb34"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TestType Mixed<span class="op">;</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Precision <span class="fl">1.e-4</span> <span class="fl">1.e-6</span><span class="op">;</span> <span class="co">// relative and absolute tolerances</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Interpolation LocalSpline <span class="kw">using</span> <span class="ch">&#39;t</span><span class="er">ime</span><span class="ch">&#39;</span> AllowLessResults<span class="op">;</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Test <span class="ch">&#39;r</span><span class="er">esults.res</span><span class="ch">&#39;</span> <span class="ch">&#39;r</span><span class="er">eference.res</span><span class="ch">&#39;</span> <span class="ch">&#39;t</span><span class="er">emperature</span><span class="ch">&#39;</span><span class="op">;</span></span></code></pre></div>
+<h3 data-number="3.4.4"
+id="example-4-area-comparison-for-energy-validation"><span
+class="header-section-number">3.4.4</span> Example 4: Area comparison
+for energy validation</h3>
+<p>Compare the total energy (area under the force-displacement
+curve):</p>
+<div class="sourceCode" id="cb35"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TestType Area interpolation Linear <span class="kw">using</span> <span class="ch">&#39;d</span><span class="er">isplacement</span><span class="ch">&#39;</span><span class="op">;</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Precision <span class="fl">0.5</span><span class="op">;</span> <span class="co">// 0.5% tolerance on the area</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Test <span class="ch">&#39;r</span><span class="er">esults.res</span><span class="ch">&#39;</span> <span class="ch">&#39;r</span><span class="er">eference.res</span><span class="ch">&#39;</span> <span class="ch">&#39;f</span><span class="er">orce</span><span class="ch">&#39;</span><span class="op">;</span></span></code></pre></div>
+<h3 data-number="3.4.5"
+id="example-5-multi-column-comparison-with-different-precisions"><span
+class="header-section-number">3.4.5</span> Example 5: Multi-column
+comparison with different precisions</h3>
+<p>Compare multiple columns with different precisions (requires separate
+<code>@Test</code> directives):</p>
+<div class="sourceCode" id="cb36"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TestType Absolute<span class="op">;</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Precision <span class="fl">1.e-3</span><span class="op">;</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Test <span class="ch">&#39;r</span><span class="er">esults.res</span><span class="ch">&#39;</span> <span class="ch">&#39;r</span><span class="er">eference.res</span><span class="ch">&#39;</span> <span class="ch">&#39;s</span><span class="er">tress</span><span class="ch">&#39;</span><span class="op">;</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TestType Relative<span class="op">;</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Precision <span class="fl">1.e-4</span><span class="op">;</span></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Test <span class="ch">&#39;r</span><span class="er">esults.res</span><span class="ch">&#39;</span> <span class="ch">&#39;r</span><span class="er">eference.res</span><span class="ch">&#39;</span> <span class="ch">&#39;s</span><span class="er">train</span><span class="ch">&#39;</span><span class="op">;</span></span></code></pre></div>
+<h1 data-number="4" id="sec:tfel_check:configuration_files"><span
+class="header-section-number">4</span> Description of the configuration
+files</h1>
+<p>Configuration files define:</p>
 <ul>
-<li>substitution strings</li>
-<li>available components</li>
-<li>environment variables</li>
+<li>Substitution strings (e.g., <code>@python@</code> →
+<code>python3.5</code>).</li>
+<li>Available components (e.g., <code>Cast3M</code>,
+<code>tfel::madnex</code>).</li>
+<li>Environment variables.</li>
 </ul>
-<p>The syntax of configuration file is loosely inspired by the
-<code>JSON</code> format and looks like:</p>
-<div class="sourceCode" id="cb14"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>components <span class="op">:</span> <span class="op">{</span><span class="st">&quot;pleiades::python&quot;</span><span class="op">};</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>substitutions <span class="op">:</span> <span class="op">{</span><span class="st">&quot;python&quot;</span> <span class="op">:</span> <span class="st">&quot;python3.5&quot;</span><span class="op">};</span></span></code></pre></div>
-<h2 data-number="3.1"
+<p>The syntax is JSON-inspired:</p>
+<div class="sourceCode" id="cb37"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>components<span class="op">:</span> <span class="op">{</span><span class="st">&quot;Cast3M&quot;</span><span class="op">,</span> <span class="st">&quot;tfel::madnex&quot;</span><span class="op">};</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>substitutions<span class="op">:</span> <span class="op">{</span><span class="st">&quot;python&quot;</span><span class="op">:</span> <span class="st">&quot;python3.5&quot;</span><span class="op">,</span> <span class="st">&quot;castem&quot;</span><span class="op">:</span> <span class="st">&quot;castem2019&quot;</span><span class="op">};</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>environment_variables<span class="op">:</span> <span class="op">{</span><span class="st">&quot;CXXFLAGS&quot;</span><span class="op">:</span> <span class="st">&quot;-Wall&quot;</span><span class="op">,</span> <span class="st">&quot;OMP_NUM_THREADS&quot;</span><span class="op">:</span> <span class="st">&quot;4&quot;</span><span class="op">};</span></span></code></pre></div>
+<h2 data-number="4.1"
 id="defining-environment-variables-in-configuration-files"><span
-class="header-section-number">3.1</span> Defining environment variables
+class="header-section-number">4.1</span> Defining environment variables
 in configuration files</h2>
-<p>The <code>environment_variables</code> section introduce a map
-defining a set of environment variables.</p>
-<h3 data-number="3.1.1" id="example-of-usage-1"><span
-class="header-section-number">3.1.1</span> Example of usage</h3>
-<div class="sourceCode" id="cb15"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>environment_variables<span class="op">:</span> <span class="op">{</span><span class="st">&quot;CXXFLAGS&quot;</span><span class="op">:</span> <span class="st">&quot;-Wall&quot;</span><span class="op">};</span></span></code></pre></div>
-<h3 data-number="3.1.2" id="caution-1"><span
-class="header-section-number">3.1.2</span> Caution</h3>
+<p>The <code>environment_variables</code> section defines a map of
+environment variables:</p>
+<div class="sourceCode" id="cb38"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>environment_variables<span class="op">:</span> <span class="op">{</span><span class="st">&quot;CXXFLAGS&quot;</span><span class="op">:</span> <span class="st">&quot;-Wall&quot;</span><span class="op">,</span> <span class="st">&quot;MPI_ROOT&quot;</span><span class="op">:</span> <span class="st">&quot;/path/to/mpi&quot;</span><span class="op">};</span></span></code></pre></div>
+<h3 data-number="4.1.1" id="caution-1"><span
+class="header-section-number">4.1.1</span> Caution</h3>
 <ul>
-<li>An environment variable can only be defined once in configuration
-files</li>
-<li>If an environment variable is defined in a configuration file and in
-a test file (through the <code>@Environment</code> keyword), the latter
-definition is used.</li>
+<li>Environment variables can only be defined <strong>once</strong>
+across all configuration files.</li>
+<li>If an environment variable is defined in both a configuration file
+and a test file (via <code>@Environment</code>), the test file’s
+definition takes precedence.</li>
 </ul>
-<h1 data-number="4" id="sec:tfel_check:default_components"><span
-class="header-section-number">4</span> Default components</h1>
-<p>Some components are conditionally defined by
-<code>tfel-check</code>.</p>
+<h1 data-number="5" id="sec:tfel_check:default_components"><span
+class="header-section-number">5</span> Default components</h1>
+<p><code>tfel-check</code> automatically defines components based on the
+enabled features:</p>
 <ul>
-<li>If the <code>python</code> bindings of the <code>TFEL</code> project
-have been enabled, the following components are declared:
+<li>If <code>TFEL</code>’s Python bindings are enabled:
 <code>tfel::python</code> and <code>mfront::python</code>.</li>
-<li>If the <code>madnex</code> support has been enabled, the component
-<code>tfel::madnex</code> is declared.</li>
+<li>If <code>madnex</code> support is enabled:
+<code>tfel::madnex</code>.</li>
+<li>For each <code>MFront</code> material property interface:
+<code>mfront::material_property::&lt;name&gt;_interface</code>.</li>
+<li>For each <code>MFront</code> behaviour interface:
+<code>mfront::behaviour::&lt;name&gt;_interface</code>.</li>
+<li>For each <code>MFront</code> model interface:
+<code>mfront::model::&lt;name&gt;_interface</code>.</li>
 </ul>
-<p>For each <code>MFront</code>’ interface for material properties, a
-component called
-<code>mfront::material_property::&lt;name&gt;_interface</code> is
-defined, where <code>&lt;name&gt;</code> shall be replaced by the name
-of the interface.</p>
-<p>For each behaviour interface, a component named
-<code>mfront::behaviour::&lt;name&gt;_interface</code> is declared,
-where <code>&lt;name&gt;</code> is the name of the interface.</p>
-<p>For each model interface, a component named
-<code>mfront::model::&lt;name&gt;_interface</code> is declared, where
-<code>&lt;name&gt;</code> is the name of the interface.</p>
-<p>Those default components can be listed using the
-<code>--list-default-components</code> command line options, as
-follows:</p>
-<div class="sourceCode" id="cb16"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="er">$</span> tfel<span class="op">-</span>check <span class="op">--</span>list<span class="op">-</span><span class="cf">default</span><span class="op">-</span>components</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> tfel<span class="op">::</span>python</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>python</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> tfel<span class="op">::</span>madnex</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>C<span class="op">++</span>_interface</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>Cpp_interface</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>Cxx_interface</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>Python_interface</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>c_interface</span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>c<span class="op">++</span>_interface</span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>cpp_interface</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>cpptest_interface</span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>cxx_interface</span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>excel_interface</span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>excel<span class="op">-</span>internal_interface</span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>gnuplot_interface</span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>mfront_interface</span>
-<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>octave_interface</span>
-<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>material_property<span class="op">::</span>python_interface</span>
-<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>behaviour<span class="op">::</span>generic_interface</span>
-<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> mfront<span class="op">::</span>model<span class="op">::</span>mfront_interface</span></code></pre></div>
-<h1 data-number="5"
-id="automatic-declaration-of-substitutions-for-tfel-executables-and-python-interpreter"><span
-class="header-section-number">5</span> Automatic declaration of
-substitutions for <code>TFEL</code> executables and <code>python</code>
-interpreter</h1>
-<p>The following substitutions are automatically declared:
-<code>@mfront@</code>, <code>@mfront-query@</code>,
-<code>@mtest@</code>, <code>@mfront-doc@</code>,
-<code>@mfm-test-generator@</code>.</p>
-<p>In <code>python</code> bindings are enabled, the <code>@python</code>
-substitution is also automatically declared.</p>
-<p>Those substitutions are declared after reading the configuration
-files and after parsing the command line arguments, so those default
-substitutions can be overridden by the user.</p>
-<h1 data-number="6" id="command-line-arguments"><span
-class="header-section-number">6</span> Command line arguments</h1>
-<p>A description of the available command line arguments is displayed by
-passing <code>--help</code> (<code>-h</code>) to
-<code>tfel-check</code>.</p>
-<pre><code>Usage: tfel-check [options] [files]
-
-Available options are : 
---config, -c                    : add a configuration file
---discard-commands-failure      : discard command&#39;s failure if comparisons are ok (default behaviour). If no comparisons is declared, command&#39;s failure is never ignored.
---discard-jobs-limit            : disable test on the number of jobs allowed to run simultaneously.
---help, -h                      : Display this message
---jobs, -j                      : specifies the number of jobs (commands) to run simultaneously
---list-default-components       : list all default components
---synchronize-terminal-output   : synchronize the terminal output in parallel (false by default). If synchronized, the results of each `.check` file is diplayed after its full completion.
---use-terminal-colors           : use terminal colors for terminal output (std::cout).
---version, -v                   : Display version information</code></pre>
+<p>To list all default components, use:</p>
+<div class="sourceCode" id="cb39"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tfel-check <span class="at">--list-default-components</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> tfel::python</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> mfront::python</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> tfel::madnex</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> mfront::material_property::C++_interface</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> mfront::material_property::c_interface</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> mfront::behaviour::generic_interface</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> mfront::model::mfront_interface</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a><span class="ex">...</span></span></code></pre></div>
+<h1 data-number="6" id="automatic-declaration-of-substitutions"><span
+class="header-section-number">6</span> Automatic declaration of
+substitutions</h1>
+<p><code>tfel-check</code> automatically declares substitutions for
+<code>TFEL</code> executables:</p>
+<ul>
+<li><code>@mfront@</code></li>
+<li><code>@mfront-query@</code></li>
+<li><code>@mtest@</code></li>
+<li><code>@mfront-doc@</code></li>
+<li><code>@mfm-test-generator@</code></li>
+</ul>
+<p>If Python bindings are enabled, <code>@python</code> is also
+declared.</p>
+<p>These default substitutions are applied <strong>after</strong>
+reading configuration files and command-line arguments, so they can be
+overridden by the user.</p>
+<h1 data-number="7" id="command-line-arguments"><span
+class="header-section-number">7</span> Command line arguments</h1>
+<p>For a full list of command-line options, run:</p>
+<div class="sourceCode" id="cb40"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tfel-check <span class="at">--help</span></span></code></pre></div>
+<h2 data-number="7.1" id="summary-of-options"><span
+class="header-section-number">7.1</span> Summary of options</h2>
+<table>
+<colgroup>
+<col style="width: 38%" />
+<col style="width: 61%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>--clean-up</code></td>
+<td>clean generated files and directories listed by the
+<code>@CleanFiles</code> and <code>@CleanDirectories</code> keywords in
+case of success.</td>
+</tr>
+<tr class="even">
+<td><code>--discard-clean-up-on-failure</code></td>
+<td>don’t clean generated files and directories listed by the
+<code>@CleanFiles</code> and <code>@CleanDirectories</code> keywords in
+case of failure (true by default).</td>
+</tr>
+<tr class="odd">
+<td><code>--config, -c</code></td>
+<td>Add a configuration file.</td>
+</tr>
+<tr class="even">
+<td><code>--discard-commands-failure</code></td>
+<td>Ignore command failures if comparisons pass (default:
+<code>true</code>). If no comparisons are defined, failures are never
+ignored.</td>
+</tr>
+<tr class="odd">
+<td><code>--discard-jobs-limit</code></td>
+<td>Disable the limit on parallel jobs (default: enforced).</td>
+</tr>
+<tr class="even">
+<td><code>--help, -h</code></td>
+<td>Display help message.</td>
+</tr>
+<tr class="odd">
+<td><code>--jobs, -j</code></td>
+<td>Number of parallel jobs (default: number of CPU cores).</td>
+</tr>
+<tr class="even">
+<td><code>--list-default-components</code></td>
+<td>List all default components.</td>
+</tr>
+<tr class="odd">
+<td><code>--synchronize-terminal-output</code></td>
+<td>Synchronize terminal output in parallel (default:
+<code>false</code>).</td>
+</tr>
+<tr class="even">
+<td><code>--use-terminal-colors</code></td>
+<td>Use terminal colors for output.</td>
+</tr>
+<tr class="odd">
+<td><code>--version, -v</code></td>
+<td>Display version information.</td>
+</tr>
+</tbody>
+</table>
+<h2 data-number="7.2" id="usage-examples"><span
+class="header-section-number">7.2</span> Usage examples</h2>
+<p>Run all <code>.check</code> files in the current directory:</p>
+<div class="sourceCode" id="cb41"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tfel-check</span></code></pre></div>
+<p>Run specific files with 4 parallel jobs:</p>
+<div class="sourceCode" id="cb42"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tfel-check <span class="at">-j</span> 4 test1.check test2.check</span></code></pre></div>
+<p>List default components:</p>
+<div class="sourceCode" id="cb43"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tfel-check <span class="at">--list-default-components</span></span></code></pre></div>
+<p>Override a substitution and enable terminal colors:</p>
+<div class="sourceCode" id="cb44"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tfel-check <span class="at">--@python@</span><span class="op">=</span>python3.10 <span class="at">--use-terminal-colors</span><span class="op">=</span>true</span></code></pre></div>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

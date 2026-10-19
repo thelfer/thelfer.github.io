@@ -7,7 +7,7 @@ var _unary_operation_8hxx =
     [ "mgis::function::internals::unary_operation_modifier2_impl< CallableType >", "structmgis_1_1function_1_1internals_1_1unary__operation__modifier2__impl.html", "structmgis_1_1function_1_1internals_1_1unary__operation__modifier2__impl" ],
     [ "mgis::function::customization_points::AbsoluteValue< real >", "structmgis_1_1function_1_1customization__points_1_1_absolute_value_3_01real_01_4.html", null ],
     [ "mgis::function::customization_points::AbsoluteValue< std::span< const real, N > >", "structmgis_1_1function_1_1customization__points_1_1_absolute_value_3_01std_1_1span_3_01const_01real_00_01_n_01_4_01_4.html", null ],
-    [ "mgis::function::customization_points::AbsoluteValue< std::array< const real, N > >", "structmgis_1_1function_1_1customization__points_1_1_absolute_value_3_01std_1_1array_3_01const_01real_00_01_n_01_4_01_4.html", null ],
+    [ "mgis::function::customization_points::AbsoluteValue< std::array< real, N > >", "structmgis_1_1function_1_1customization__points_1_1_absolute_value_3_01std_1_1array_3_01real_00_01_n_01_4_01_4.html", null ],
     [ "mgis::function::customization_points::MaximumComponent< real >", "structmgis_1_1function_1_1customization__points_1_1_maximum_component_3_01real_01_4.html", null ],
     [ "mgis::function::customization_points::MaximumComponent< std::span< const real, N > >", "structmgis_1_1function_1_1customization__points_1_1_maximum_component_3_01std_1_1span_3_01const_01real_00_01_n_01_4_01_4.html", null ],
     [ "mgis::function::customization_points::MaximumComponent< std::array< real, N > >", "structmgis_1_1function_1_1customization__points_1_1_maximum_component_3_01std_1_1array_3_01real_00_01_n_01_4_01_4.html", null ],

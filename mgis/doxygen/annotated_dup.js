@@ -53,7 +53,7 @@ var annotated_dup =
         [ "customization_points", null, [
           [ "AbsoluteValue", "structmgis_1_1function_1_1customization__points_1_1_absolute_value.html", null ],
           [ "AbsoluteValue< real >", "structmgis_1_1function_1_1customization__points_1_1_absolute_value_3_01real_01_4.html", null ],
-          [ "AbsoluteValue< std::array< const real, N > >", "structmgis_1_1function_1_1customization__points_1_1_absolute_value_3_01std_1_1array_3_01const_01real_00_01_n_01_4_01_4.html", null ],
+          [ "AbsoluteValue< std::array< real, N > >", "structmgis_1_1function_1_1customization__points_1_1_absolute_value_3_01std_1_1array_3_01real_00_01_n_01_4_01_4.html", null ],
           [ "AbsoluteValue< std::span< const real, N > >", "structmgis_1_1function_1_1customization__points_1_1_absolute_value_3_01std_1_1span_3_01const_01real_00_01_n_01_4_01_4.html", null ],
           [ "AbsoluteValue< TensorType >", "structmgis_1_1function_1_1customization__points_1_1_absolute_value_3_01_tensor_type_01_4.html", null ],
           [ "AbsoluteValue< tfel::math::View< const TensorType > >", "structmgis_1_1function_1_1customization__points_1_1_absolute_value_3_01tfel_1_1math_1_1_view_3_01const_01_tensor_type_01_4_01_4.html", null ],

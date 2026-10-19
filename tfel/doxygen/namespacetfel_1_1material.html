@@ -289,7 +289,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives information about its Behaviour argument. All behaviour shall specialise this class.  <a href="structtfel_1_1material_1_1_mechanical_behaviour_traits.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1material_1_1_metallic_c_f_c_generic_sliding_systems_interaction_matrix.html">MetallicCFCGenericSlidingSystemsInteractionMatrix</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given six interaction coefficients, this class builds only once a generic interaction matrix. This class shall not be called if the interaction coefficients may evolve with time~: the matrix is only compute at the first call.  <a href="structtfel_1_1material_1_1_metallic_c_f_c_generic_sliding_systems_interaction_matrix.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given six interaction coefficients, this class builds a generic interaction matrix. The matrix is computed at each call.  <a href="structtfel_1_1material_1_1_metallic_c_f_c_generic_sliding_systems_interaction_matrix.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1material_1_1_metallic_c_f_c_sliding_systems.html">MetallicCFCSlidingSystems</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -927,14 +927,14 @@ Functions</h2></td></tr>
 <tr class="memitem:a92ebe85ccd6127d2ae05a7dbb23c5506"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE std::tuple&lt; real, real &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetfel_1_1material.html#a92ebe85ccd6127d2ae05a7dbb23c5506">computeChuNeedleman1980StrainBasedNucleationModelPorosityRateFactorAndDerivative</a> (const <a class="el" href="structtfel_1_1material_1_1_chu_needleman1980_strain_based_nucleation_model_parameters.html">ChuNeedleman1980StrainBasedNucleationModelParameters</a>&lt; real &gt; &amp;, const real)</td></tr>
 <tr class="memdesc:a92ebe85ccd6127d2ae05a7dbb23c5506"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes the porosity rate factor \(A_{n}\) as defined by the nucleation model of Chu and Needleman and its derivative \(\frac{\partial A_{n}}{\partial p}\) with respect to the equivalent plastic strain \(p\).  <br /></td></tr>
 <tr class="separator:a92ebe85ccd6127d2ae05a7dbb23c5506"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76787042b4910d62f74c33a3f86d6b79" id="r_a76787042b4910d62f74c33a3f86d6b79"><td class="memTemplParams" colspan="2">template&lt;typename real &gt; </td></tr>
-<tr class="memitem:a76787042b4910d62f74c33a3f86d6b79"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetfel_1_1material.html#a76787042b4910d62f74c33a3f86d6b79">computeChuNeedleman1980StrainBasedNucleationModelPorosityIncrement</a> (const <a class="el" href="structtfel_1_1material_1_1_chu_needleman1980_strain_based_nucleation_model_parameters.html">ChuNeedleman1980StrainBasedNucleationModelParameters</a>&lt; real &gt; &amp;, const real)</td></tr>
-<tr class="memdesc:a76787042b4910d62f74c33a3f86d6b79"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes the porosity increment \(A_{n}\) as defined by the nucleation model of Chu and Needleman.  <br /></td></tr>
-<tr class="separator:a76787042b4910d62f74c33a3f86d6b79"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7272707396394c9b674911d9e3ff71d" id="r_af7272707396394c9b674911d9e3ff71d"><td class="memTemplParams" colspan="2">template&lt;typename real &gt; </td></tr>
-<tr class="memitem:af7272707396394c9b674911d9e3ff71d"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE std::tuple&lt; real, real &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetfel_1_1material.html#af7272707396394c9b674911d9e3ff71d">computeChuNeedleman1980StrainBasedNucleationModelPorosityIncrementAndDerivative</a> (const <a class="el" href="structtfel_1_1material_1_1_chu_needleman1980_strain_based_nucleation_model_parameters.html">ChuNeedleman1980StrainBasedNucleationModelParameters</a>&lt; real &gt; &amp;, const real)</td></tr>
-<tr class="memdesc:af7272707396394c9b674911d9e3ff71d"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes the porosity increment defined by the nucleation model of Chu and Needleman and its derivative with respect to the increment of the equivalent plastic strain \(p\).  <br /></td></tr>
-<tr class="separator:af7272707396394c9b674911d9e3ff71d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a494f99f4ba0648dc56586006d865e404" id="r_a494f99f4ba0648dc56586006d865e404"><td class="memTemplParams" colspan="2">template&lt;typename real &gt; </td></tr>
+<tr class="memitem:a494f99f4ba0648dc56586006d865e404"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetfel_1_1material.html#a494f99f4ba0648dc56586006d865e404">computeChuNeedleman1980StrainBasedNucleationModelPorosityIncrement</a> (const <a class="el" href="structtfel_1_1material_1_1_chu_needleman1980_strain_based_nucleation_model_parameters.html">ChuNeedleman1980StrainBasedNucleationModelParameters</a>&lt; real &gt; &amp;, const real, const real, const real)</td></tr>
+<tr class="memdesc:a494f99f4ba0648dc56586006d865e404"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes the porosity increment \(A_{n}\) as defined by the nucleation model of Chu and Needleman.  <br /></td></tr>
+<tr class="separator:a494f99f4ba0648dc56586006d865e404"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad98f127647a6149683984f1420cb72cf" id="r_ad98f127647a6149683984f1420cb72cf"><td class="memTemplParams" colspan="2">template&lt;typename real &gt; </td></tr>
+<tr class="memitem:ad98f127647a6149683984f1420cb72cf"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE std::tuple&lt; real, real &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetfel_1_1material.html#ad98f127647a6149683984f1420cb72cf">computeChuNeedleman1980StrainBasedNucleationModelPorosityIncrementAndDerivative</a> (const <a class="el" href="structtfel_1_1material_1_1_chu_needleman1980_strain_based_nucleation_model_parameters.html">ChuNeedleman1980StrainBasedNucleationModelParameters</a>&lt; real &gt; &amp;, const real, const real, const real)</td></tr>
+<tr class="memdesc:ad98f127647a6149683984f1420cb72cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes the porosity increment defined by the nucleation model of Chu and Needleman and its derivative with respect to the increment of the equivalent plastic strain \(p\).  <br /></td></tr>
+<tr class="separator:ad98f127647a6149683984f1420cb72cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57755405be76867f4f2800735c0b40d6" id="r_a57755405be76867f4f2800735c0b40d6"><td class="memTemplParams" colspan="2">template&lt;typename real &gt; </td></tr>
 <tr class="memitem:a57755405be76867f4f2800735c0b40d6"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetfel_1_1material.html#a57755405be76867f4f2800735c0b40d6">computeChuNeedleman1980StrainBasedNucleationModelPorosityRateFactor</a> (const <a class="el" href="structtfel_1_1material_1_1_chu_needleman1980_strain_based_nucleation_model_parameters.html">ChuNeedleman1980StrainBasedNucleationModelParameters</a>&lt; real &gt; &amp;params, const real p)</td></tr>
 <tr class="memdesc:a57755405be76867f4f2800735c0b40d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes the porosity rate factor \(A_{n}\) as defined by the nucleation model of Chu and Needleman.  <br /></td></tr>
@@ -943,13 +943,13 @@ Functions</h2></td></tr>
 <tr class="memitem:a67ab4ed94bd042a4f3e82370146674c8"><td class="memTemplItemLeft" align="right" valign="top">std::tuple&lt; real, real &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetfel_1_1material.html#a67ab4ed94bd042a4f3e82370146674c8">computeChuNeedleman1980StrainBasedNucleationModelPorosityRateFactorAndDerivative</a> (const <a class="el" href="structtfel_1_1material_1_1_chu_needleman1980_strain_based_nucleation_model_parameters.html">ChuNeedleman1980StrainBasedNucleationModelParameters</a>&lt; real &gt; &amp;params, const real p)</td></tr>
 <tr class="memdesc:a67ab4ed94bd042a4f3e82370146674c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes the porosity rate factor \(A_{n}\) as defined by the nucleation model of Chu and Needleman and its derivative \(\frac{\partial A_{n}}{\partial p}\) with respect to the equivalent plastic strain \(p\).  <br /></td></tr>
 <tr class="separator:a67ab4ed94bd042a4f3e82370146674c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0dfac425f6fc68ab515d4f17632b4bb1" id="r_a0dfac425f6fc68ab515d4f17632b4bb1"><td class="memTemplParams" colspan="2"><a id="a0dfac425f6fc68ab515d4f17632b4bb1" name="a0dfac425f6fc68ab515d4f17632b4bb1"></a>
-template&lt;typename real &gt; </td></tr>
-<tr class="memitem:a0dfac425f6fc68ab515d4f17632b4bb1"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><b>computeChuNeedleman1980StrainBasedNucleationModelPorosityIncrement</b> (const <a class="el" href="structtfel_1_1material_1_1_chu_needleman1980_strain_based_nucleation_model_parameters.html">ChuNeedleman1980StrainBasedNucleationModelParameters</a>&lt; real &gt; &amp;params, const real p, const real dp, const real)</td></tr>
+<tr class="memitem:a0dfac425f6fc68ab515d4f17632b4bb1" id="r_a0dfac425f6fc68ab515d4f17632b4bb1"><td class="memTemplParams" colspan="2">template&lt;typename real &gt; </td></tr>
+<tr class="memitem:a0dfac425f6fc68ab515d4f17632b4bb1"><td class="memTemplItemLeft" align="right" valign="top">real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetfel_1_1material.html#a0dfac425f6fc68ab515d4f17632b4bb1">computeChuNeedleman1980StrainBasedNucleationModelPorosityIncrement</a> (const <a class="el" href="structtfel_1_1material_1_1_chu_needleman1980_strain_based_nucleation_model_parameters.html">ChuNeedleman1980StrainBasedNucleationModelParameters</a>&lt; real &gt; &amp;params, const real p, const real dp, const real)</td></tr>
+<tr class="memdesc:a0dfac425f6fc68ab515d4f17632b4bb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes the porosity increment \(A_{n}\) as defined by the nucleation model of Chu and Needleman.  <br /></td></tr>
 <tr class="separator:a0dfac425f6fc68ab515d4f17632b4bb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6acbd5143ec3df1adf5855e960fd8974" id="r_a6acbd5143ec3df1adf5855e960fd8974"><td class="memTemplParams" colspan="2"><a id="a6acbd5143ec3df1adf5855e960fd8974" name="a6acbd5143ec3df1adf5855e960fd8974"></a>
-template&lt;typename real &gt; </td></tr>
-<tr class="memitem:a6acbd5143ec3df1adf5855e960fd8974"><td class="memTemplItemLeft" align="right" valign="top">std::tuple&lt; real, real &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>computeChuNeedleman1980StrainBasedNucleationModelPorosityIncrementAndDerivative</b> (const <a class="el" href="structtfel_1_1material_1_1_chu_needleman1980_strain_based_nucleation_model_parameters.html">ChuNeedleman1980StrainBasedNucleationModelParameters</a>&lt; real &gt; &amp;params, const real p, const real dp, const real)</td></tr>
+<tr class="memitem:a6acbd5143ec3df1adf5855e960fd8974" id="r_a6acbd5143ec3df1adf5855e960fd8974"><td class="memTemplParams" colspan="2">template&lt;typename real &gt; </td></tr>
+<tr class="memitem:a6acbd5143ec3df1adf5855e960fd8974"><td class="memTemplItemLeft" align="right" valign="top">std::tuple&lt; real, real &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetfel_1_1material.html#a6acbd5143ec3df1adf5855e960fd8974">computeChuNeedleman1980StrainBasedNucleationModelPorosityIncrementAndDerivative</a> (const <a class="el" href="structtfel_1_1material_1_1_chu_needleman1980_strain_based_nucleation_model_parameters.html">ChuNeedleman1980StrainBasedNucleationModelParameters</a>&lt; real &gt; &amp;params, const real p, const real dp, const real)</td></tr>
+<tr class="memdesc:a6acbd5143ec3df1adf5855e960fd8974"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes the porosity increment defined by the nucleation model of Chu and Needleman and its derivative with respect to the increment of the equivalent plastic strain \(p\).  <br /></td></tr>
 <tr class="separator:a6acbd5143ec3df1adf5855e960fd8974"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aded5282b86848e33a8931aafe0315633" id="r_aded5282b86848e33a8931aafe0315633"><td class="memTemplParams" colspan="2">template&lt;typename StressStensorType &gt; </td></tr>
 <tr class="memitem:aded5282b86848e33a8931aafe0315633"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetfel_1_1material.html#aded5282b86848e33a8931aafe0315633">operator&lt;&lt;</a> (std::ostream &amp;, const <a class="el" href="structtfel_1_1material_1_1_chu_needleman1980_stress_based_nucleation_model_parameters.html">ChuNeedleman1980StressBasedNucleationModelParameters</a>&lt; StressStensorType &gt; &amp;)</td></tr>
@@ -4161,8 +4161,8 @@ template&lt;typename StressStensor &gt; </div>
 
 </div>
 </div>
-<a id="a76787042b4910d62f74c33a3f86d6b79" name="a76787042b4910d62f74c33a3f86d6b79"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a76787042b4910d62f74c33a3f86d6b79">&#9670;&#160;</a></span>computeChuNeedleman1980StrainBasedNucleationModelPorosityIncrement()</h2>
+<a id="a494f99f4ba0648dc56586006d865e404" name="a494f99f4ba0648dc56586006d865e404"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a494f99f4ba0648dc56586006d865e404">&#9670;&#160;</a></span>computeChuNeedleman1980StrainBasedNucleationModelPorosityIncrement() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4173,7 +4173,19 @@ template&lt;typename real &gt; </div>
           <td class="memname">TFEL_HOST_DEVICE real tfel::material::computeChuNeedleman1980StrainBasedNucleationModelPorosityIncrement </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structtfel_1_1material_1_1_chu_needleman1980_strain_based_nucleation_model_parameters.html">ChuNeedleman1980StrainBasedNucleationModelParameters</a>&lt; real &gt; &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>params</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const real&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const real&#160;</td>
+          <td class="paramname"><em>dp</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -4200,15 +4212,77 @@ template&lt;typename real &gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">params</td><td>parameters </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td>equivalent plastic strain </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td>equivalent plastic strain at the beginning of the time step. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dp</td><td>increment of the equivalent plastic strain. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">theta</td><td>parameter of the theta method (unused). </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="af7272707396394c9b674911d9e3ff71d" name="af7272707396394c9b674911d9e3ff71d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af7272707396394c9b674911d9e3ff71d">&#9670;&#160;</a></span>computeChuNeedleman1980StrainBasedNucleationModelPorosityIncrementAndDerivative()</h2>
+<a id="a0dfac425f6fc68ab515d4f17632b4bb1" name="a0dfac425f6fc68ab515d4f17632b4bb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0dfac425f6fc68ab515d4f17632b4bb1">&#9670;&#160;</a></span>computeChuNeedleman1980StrainBasedNucleationModelPorosityIncrement() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename real &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">real tfel::material::computeChuNeedleman1980StrainBasedNucleationModelPorosityIncrement </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structtfel_1_1material_1_1_chu_needleman1980_strain_based_nucleation_model_parameters.html">ChuNeedleman1980StrainBasedNucleationModelParameters</a>&lt; real &gt; &amp;&#160;</td>
+          <td class="paramname"><em>params</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const real&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const real&#160;</td>
+          <td class="paramname"><em>dp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const real&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>computes the porosity increment \(A_{n}\) as defined by the nucleation model of Chu and Needleman. </p>
+<p>Chu, C. C., and A. Needleman. 1980. “Void Nucleation Effects in Biaxially Stretched Sheets.” Journal of Engineering Materials and Technology 102 (3): 249–56</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">real</td><td>numeric type</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">params</td><td>parameters </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td>equivalent plastic strain at the beginning of the time step. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dp</td><td>increment of the equivalent plastic strain. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">theta</td><td>parameter of the theta method (unused). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad98f127647a6149683984f1420cb72cf" name="ad98f127647a6149683984f1420cb72cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad98f127647a6149683984f1420cb72cf">&#9670;&#160;</a></span>computeChuNeedleman1980StrainBasedNucleationModelPorosityIncrementAndDerivative() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4219,7 +4293,19 @@ template&lt;typename real &gt; </div>
           <td class="memname">TFEL_HOST_DEVICE std::tuple&lt; real, real &gt; tfel::material::computeChuNeedleman1980StrainBasedNucleationModelPorosityIncrementAndDerivative </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structtfel_1_1material_1_1_chu_needleman1980_strain_based_nucleation_model_parameters.html">ChuNeedleman1980StrainBasedNucleationModelParameters</a>&lt; real &gt; &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>params</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const real&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const real&#160;</td>
+          <td class="paramname"><em>dp</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -4246,7 +4332,69 @@ template&lt;typename real &gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">params</td><td>parameters </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td>equivalent plastic strain </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td>equivalent plastic strain at the beginning of the time step. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dp</td><td>increment of the equivalent plastic strain. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">theta</td><td>parameter of the theta method (unused). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6acbd5143ec3df1adf5855e960fd8974" name="a6acbd5143ec3df1adf5855e960fd8974"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6acbd5143ec3df1adf5855e960fd8974">&#9670;&#160;</a></span>computeChuNeedleman1980StrainBasedNucleationModelPorosityIncrementAndDerivative() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename real &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::tuple&lt; real, real &gt; tfel::material::computeChuNeedleman1980StrainBasedNucleationModelPorosityIncrementAndDerivative </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structtfel_1_1material_1_1_chu_needleman1980_strain_based_nucleation_model_parameters.html">ChuNeedleman1980StrainBasedNucleationModelParameters</a>&lt; real &gt; &amp;&#160;</td>
+          <td class="paramname"><em>params</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const real&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const real&#160;</td>
+          <td class="paramname"><em>dp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const real&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>computes the porosity increment defined by the nucleation model of Chu and Needleman and its derivative with respect to the increment of the equivalent plastic strain \(p\). </p>
+<p>Chu, C. C., and A. Needleman. 1980. “Void Nucleation Effects in Biaxially Stretched Sheets.” Journal of Engineering Materials and Technology 102 (3): 249–56</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">real</td><td>numeric type</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">params</td><td>parameters </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td>equivalent plastic strain at the beginning of the time step. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dp</td><td>increment of the equivalent plastic strain. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">theta</td><td>parameter of the theta method (unused). </td></tr>
   </table>
   </dd>
 </dl>
@@ -10972,7 +11120,7 @@ template&lt;typename T1 , typename T2 &gt; </div>
 <div class="line">  df_dp   = -n_p*K_p*tmp;</div>
 <div class="line">}</div>
 <div class="ttc" id="anamespacetfel_1_1material_html"><div class="ttname"><a href="namespacetfel_1_1material.html">tfel::material</a></div><div class="ttdoc">This namespace contains classes and functions related to mechanics and material description....</div><div class="ttdef"><b>Definition</b> AnisotropicEshelbyTensor.hxx:22</div></div>
-<div class="ttc" id="anamespacetfel_1_1material_html_aaa182d34bd245f4768e7794da7cf06af"><div class="ttname"><a href="namespacetfel_1_1material.html#aaa182d34bd245f4768e7794da7cf06af">tfel::material::computeRambergOsgoodParameters</a></div><div class="ttdeci">TFEL_HOST_DEVICE void computeRambergOsgoodParameters(T1 &amp;K, T1 &amp;n, const T2 E, const T2 Rp02, const T2 Rm, const T2 Ag)</div><div class="ttdoc">This function computes the RambergOsgood paramters K and n which allow the approximation of the tract...</div><div class="ttdef"><b>Definition</b> RambergOsgood.hxx:68</div></div>
+<div class="ttc" id="anamespacetfel_1_1material_html_aaa182d34bd245f4768e7794da7cf06af"><div class="ttname"><a href="namespacetfel_1_1material.html#aaa182d34bd245f4768e7794da7cf06af">tfel::material::computeRambergOsgoodParameters</a></div><div class="ttdeci">TFEL_HOST_DEVICE void computeRambergOsgoodParameters(T1 &amp;K, T1 &amp;n, const T2 E, const T2 Rp02, const T2 Rm, const T2 Ag)</div><div class="ttdoc">This function computes the RambergOsgood paramters K and n which allow the approximation of the tract...</div><div class="ttdef"><b>Definition</b> RambergOsgood.hxx:69</div></div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">K</td><td>first RambergOsgood paramter </td></tr>
@@ -16205,7 +16353,7 @@ template&lt;unsigned short int N, <a class="el" href="concepttfel_1_1math_1_1_sc
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetfel.html">tfel</a></li><li class="navelem"><a class="el" href="namespacetfel_1_1material.html">material</a></li>
-    <li class="footer">Generated on Mon Oct 19 2026 23:13:55 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Mon Oct 19 2026 23:28:27 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

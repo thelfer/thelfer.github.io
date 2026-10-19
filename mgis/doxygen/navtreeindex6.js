@@ -215,7 +215,8 @@ var NAVTREEINDEX6 =
 "structmgis_1_1function_1_1_strided_coalesced_memory_access_tensor_view.html#a6655b24eb22dfcb4fa980fa61873c3a5":[3,0,1,3,47,3],
 "structmgis_1_1function_1_1_tensor_modifier.html":[3,0,1,3,49],
 "structmgis_1_1function_1_1_tensor_modifier.html#a1525bc233c43e8895bd8f9d73648a36b":[3,0,1,3,49,0],
-"structmgis_1_1function_1_1_tensor_modifier.html#acd241eec7b44cb36eab94758c2ce3b3f":[3,0,1,3,49,1],
+"structmgis_1_1function_1_1_tensor_modifier.html#acd241eec7b44cb36eab94758c2ce3b3f":[3,0,1,3,49,2],
+"structmgis_1_1function_1_1_tensor_modifier.html#ae39ec33cfe7162236cace8c46e086567":[3,0,1,3,49,1],
 "structmgis_1_1function_1_1_tensor_view.html":[3,0,1,3,50],
 "structmgis_1_1function_1_1_tensor_view.html#a0f3c2b747bc8bbe3402c9bc01220deeb":[3,0,1,3,50,11],
 "structmgis_1_1function_1_1_tensor_view.html#a16e8353f458241f40b69904ccc8033fe":[3,0,1,3,50,7],
@@ -248,6 +249,5 @@ var NAVTREEINDEX6 =
 "structmgis_1_1function_1_1_uniform_evaluator.html":[3,0,1,3,53],
 "structmgis_1_1function_1_1_uniform_evaluator.html#a04081f01a156bbc126dcfe534b9dea7a":[3,0,1,3,53,5],
 "structmgis_1_1function_1_1_uniform_evaluator.html#a4492696270da87b038ea2131934ab69b":[3,0,1,3,53,11],
-"structmgis_1_1function_1_1_uniform_evaluator.html#a56a356c5e5c7430b0d2f2e23c2f695ed":[3,0,1,3,53,2],
-"structmgis_1_1function_1_1_uniform_evaluator.html#a7fce00d8ab9c202e0038103fc0d7964d":[3,0,1,3,53,10]
+"structmgis_1_1function_1_1_uniform_evaluator.html#a56a356c5e5c7430b0d2f2e23c2f695ed":[3,0,1,3,53,2]
 };

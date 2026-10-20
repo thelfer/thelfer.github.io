@@ -4,7 +4,6 @@ var structtfel_1_1check_1_1_column =
     [ "clearValues", "structtfel_1_1check_1_1_column.html#a83c2d956d8730624255582bf017caaa2", null ],
     [ "getData", "structtfel_1_1check_1_1_column.html#acaeb9444813ca7ab90d57dcc3a0ecd6d", null ],
     [ "getFilename", "structtfel_1_1check_1_1_column.html#a9b8dbd553cfeba5a96a1ac30a54fa27a", null ],
-    [ "getLineNumbers", "structtfel_1_1check_1_1_column.html#a5041289b796155c9559c7c00847eb6cc", null ],
     [ "getName", "structtfel_1_1check_1_1_column.html#aa545778074905945552104eb63e9ddeb", null ],
     [ "getValues", "structtfel_1_1check_1_1_column.html#a090b81c52e87b97ebeed140dfe96b4a3", null ],
     [ "resizeValues", "structtfel_1_1check_1_1_column.html#afa8e7ad88861f8d6b107a28556aa8dd3", null ],

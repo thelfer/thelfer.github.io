@@ -1,10 +1,5 @@
 var NAVTREEINDEX11 =
 {
-"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01tbf06afb66908e808b431d53dcc59e8c9.html":[7,0,14,6,70],
-"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01tbf06afb66908e808b431d53dcc59e8c9.html":[5,0,9,1,67],
-"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01tbf06afb66908e808b431d53dcc59e8c9.html#a1baba1fbf2a8996449d68a651522a31b":[5,0,9,1,67,0],
-"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01tbf06afb66908e808b431d53dcc59e8c9.html#a1baba1fbf2a8996449d68a651522a31b":[7,0,14,6,70,0],
-"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01tbf1ae1e3b95820a5dd3c27859c733c90.html":[7,0,14,6,68],
 "classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01tbf1ae1e3b95820a5dd3c27859c733c90.html":[5,0,9,1,65],
 "classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01tbf1ae1e3b95820a5dd3c27859c733c90.html#a4c56fd9ae25348031a74f0ffa694dc1a":[7,0,14,6,68,0],
 "classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01tbf1ae1e3b95820a5dd3c27859c733c90.html#a4c56fd9ae25348031a74f0ffa694dc1a":[5,0,9,1,65,0],
@@ -249,5 +244,10 @@ var NAVTREEINDEX11 =
 "classtfel_1_1math_1_1_unary_result_type_3_01tmatrix_3_01_n_00_01_m_00_01_t_01_4_00_01_op_neg_01_4.html":[5,0,9,1,640],
 "classtfel_1_1math_1_1_unary_result_type_3_01tmatrix_3_01_n_00_01_m_00_01_t_01_4_00_01_op_neg_01_4.html":[7,0,14,6,643],
 "classtfel_1_1math_1_1_vector_matrix_handle.html":[5,0,9,1,647],
-"classtfel_1_1math_1_1_vector_matrix_handle.html":[7,0,14,6,650]
+"classtfel_1_1math_1_1_vector_matrix_handle.html":[7,0,14,6,650],
+"classtfel_1_1math_1_1internals_1_1_power_impl_selector.html":[5,0,9,1,1,42],
+"classtfel_1_1math_1_1internals_1_1_power_impl_selector.html":[7,0,14,6,1,42],
+"classtfel_1_1math_1_1internals_1_1_power_impl_selector_3_01_n_00_011u_01_4.html":[7,0,14,6,1,43],
+"classtfel_1_1math_1_1internals_1_1_power_impl_selector_3_01_n_00_011u_01_4.html":[5,0,9,1,1,43],
+"classtfel_1_1math_1_1internals_1_1_power_impl_selector_3_01_n_00_012u_01_4.html":[7,0,14,6,1,44]
 };

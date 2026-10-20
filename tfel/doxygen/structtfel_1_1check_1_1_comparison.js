@@ -2,7 +2,6 @@ var structtfel_1_1check_1_1_comparison =
 [
     [ "~Comparison", "structtfel_1_1check_1_1_comparison.html#aa7d11a3f03a459b5ace531114b0b9a20", null ],
     [ "compare", "structtfel_1_1check_1_1_comparison.html#a66de8c26aa1952ae098ac69aaa57e829", null ],
-    [ "getLocation", "structtfel_1_1check_1_1_comparison.html#a7600edd661d4f13c35e28ea6c03e4bae", null ],
     [ "getMsgLog", "structtfel_1_1check_1_1_comparison.html#a7fb0e66d2f4c0193ae8dab73b2c52b78", null ],
     [ "hasSucceed", "structtfel_1_1check_1_1_comparison.html#ac964609c5f39f2aa7f6449bbdcc5edef", null ],
     [ "setParameters", "structtfel_1_1check_1_1_comparison.html#a4096ca61be564c424ababc173362c50b", null ],

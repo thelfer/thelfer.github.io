@@ -1090,7 +1090,7 @@ var searchData=
   ['cyranogenericplanestresshandler_2ehxx_1087',['CyranoGenericPlaneStressHandler.hxx',['../_cyrano_generic_plane_stress_handler_8hxx.html',1,'']]],
   ['cyranogetmodellinghypothesis_2ehxx_1088',['CyranoGetModellingHypothesis.hxx',['../_cyrano_get_modelling_hypothesis_8hxx.html',1,'']]],
   ['cyranointegrationfailed_1089',['CyranoIntegrationFailed',['../structcyrano_1_1_cyrano_integration_failed.html',1,'cyrano']]],
-  ['cyranointerface_1090',['cyranointerface',['../structmfront_1_1_cyrano_interface.html',1,'mfront::CyranoInterface'],['../structcyrano_1_1_cyrano_interface.html',1,'cyrano::CyranoInterface&lt; Behaviour &gt;']]],
+  ['cyranointerface_1090',['cyranointerface',['../structcyrano_1_1_cyrano_interface.html',1,'cyrano::CyranoInterface&lt; Behaviour &gt;'],['../structmfront_1_1_cyrano_interface.html',1,'mfront::CyranoInterface']]],
   ['cyranointerface_2ehxx_1091',['CyranoInterface.hxx',['../_cyrano_interface_8hxx.html',1,'']]],
   ['cyranointerfacedispatch_1092',['CyranoInterfaceDispatch',['../structcyrano_1_1_cyrano_interface_dispatch.html',1,'cyrano']]],
   ['cyranointerfacedispatch_2ehxx_1093',['CyranoInterfaceDispatch.hxx',['../_cyrano_interface_dispatch_8hxx.html',1,'']]],

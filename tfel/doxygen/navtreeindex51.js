@@ -1,5 +1,10 @@
 var NAVTREEINDEX51 =
 {
+"structmfront_1_1bbrick_1_1_harmonic_sum_of_norton_hoff_viscoplastic_flows.html#a9455dead30b4dab086d9ec131d37aa45":[7,0,10,0,15,9],
+"structmfront_1_1bbrick_1_1_harmonic_sum_of_norton_hoff_viscoplastic_flows.html#aa56e4bc40e90d99868596c721a996bb5":[7,0,10,0,15,10],
+"structmfront_1_1bbrick_1_1_harmonic_sum_of_norton_hoff_viscoplastic_flows.html#acbb4e06818aec51e91da04f8c017fc99":[7,0,10,0,15,7],
+"structmfront_1_1bbrick_1_1_harmonic_sum_of_norton_hoff_viscoplastic_flows.html#ad04cb2c31a03fab7b2361c3a31919392":[7,0,10,0,15,6],
+"structmfront_1_1bbrick_1_1_hill1948_stress_criterion.html":[7,0,10,0,16],
 "structmfront_1_1bbrick_1_1_hill1948_stress_criterion.html#a0f32ac4d2e93f8b7f80c722118095a6f":[7,0,10,0,16,7],
 "structmfront_1_1bbrick_1_1_hill1948_stress_criterion.html#a11748864408884ef899e8f4088e4bd76":[7,0,10,0,16,10],
 "structmfront_1_1bbrick_1_1_hill1948_stress_criterion.html#a1eb7913d75601bdcb6ed3f292da878a4":[7,0,10,0,16,5],
@@ -244,10 +249,5 @@ var NAVTREEINDEX51 =
 "structmfront_1_1bbrick_1_1_norton_hoff_viscoplastic_flow.html#a2605e33d392e1e7083d188524fe36a7d":[7,0,10,0,34,8],
 "structmfront_1_1bbrick_1_1_norton_hoff_viscoplastic_flow.html#a2796c536ff0c514ec60cf9cae70fddae":[7,0,10,0,34,1],
 "structmfront_1_1bbrick_1_1_norton_hoff_viscoplastic_flow.html#a6de995db50323c9d08adc12212bdea11":[7,0,10,0,34,9],
-"structmfront_1_1bbrick_1_1_norton_hoff_viscoplastic_flow.html#a7cd768cb375e54176262dde138007094":[7,0,10,0,34,2],
-"structmfront_1_1bbrick_1_1_norton_hoff_viscoplastic_flow.html#a7e566d846a319368327f3d3e546518b5":[7,0,10,0,34,5],
-"structmfront_1_1bbrick_1_1_norton_hoff_viscoplastic_flow.html#a842d21d7332f8ce62366e95db339b91d":[7,0,10,0,34,10],
-"structmfront_1_1bbrick_1_1_norton_hoff_viscoplastic_flow.html#aa1b59d63af5788bc6c810186e4a3d022":[7,0,10,0,34,3],
-"structmfront_1_1bbrick_1_1_norton_hoff_viscoplastic_flow.html#ad5fe46dc2092059d1a48abf87008fe70":[7,0,10,0,34,7],
-"structmfront_1_1bbrick_1_1_option_description.html":[7,0,10,0,35]
+"structmfront_1_1bbrick_1_1_norton_hoff_viscoplastic_flow.html#a7cd768cb375e54176262dde138007094":[7,0,10,0,34,2]
 };

@@ -1,5 +1,10 @@
 var NAVTREEINDEX8 =
 {
+"_query_utilities_8hxx.html#abf6f3e115f77c2c0dda73a40269c1ad4":[8,0,4,0,0,4,1],
+"_raise_8hxx.html":[8,0,0,3,15],
+"_raise_8hxx.html#a421417a571e317b925c586131927840c":[8,0,0,3,15,1],
+"_raise_8hxx.html#aa47a443a98fc2675ae9dd8dc5d1d3d02":[8,0,0,3,15,2],
+"_raise_8hxx.html#ab078b2be289d5db6af0c3cb08154af56":[8,0,0,3,15,0],
 "_raise_8hxx.html#acc0552cb82c1c7b2d08fc09543ebe495":[8,0,0,3,15,3],
 "_raise_8ixx.html":[8,0,0,3,16],
 "_raise_8ixx.html#a954520237bdbbaaf32fd663f92f71b7d":[8,0,0,3,16,1],
@@ -16,8 +21,8 @@ var NAVTREEINDEX8 =
 "_recursive_find_8hxx.html#ad3fb667b475c440737cce2535eb2242a":[8,0,0,3,7,14,0],
 "_recursive_find_8hxx.html#af326ba8272e5fc5e5aae74c816411b42":[8,0,0,3,7,14,1],
 "_reference_file_comparison_test_8hxx.html":[8,0,5,0,0,80],
-"_relative_and_absolute_comparison_8hxx.html":[8,0,7,0,0,0,15],
-"_relative_comparison_8hxx.html":[8,0,7,0,0,0,16],
+"_relative_and_absolute_comparison_8hxx.html":[8,0,7,0,0,0,17],
+"_relative_comparison_8hxx.html":[8,0,7,0,0,0,18],
 "_result_type_8hxx.html":[8,0,0,3,5,5,24],
 "_result_type_8hxx.html#a148d63c9fac3faf5a99af96ffdb36664":[8,0,0,3,5,5,24,6],
 "_result_type_8hxx.html#a3e66a89d27dd63d28e7b8ddff17fc8c9":[8,0,0,3,5,5,24,5],
@@ -244,10 +249,5 @@ var NAVTREEINDEX8 =
 "_string_algorithms_8hxx.html#a6fb330d1aeec62748350f84993066f69":[8,0,0,3,11,16,10],
 "_string_algorithms_8hxx.html#a8fcc95ab9133342d432b21014557c0b2":[8,0,0,3,11,16,4],
 "_string_algorithms_8hxx.html#a90671a3d7f3546be0d771d58174fb015":[8,0,0,3,11,16,2],
-"_string_algorithms_8hxx.html#aafcff13330662d7893e7272d9ea4057d":[8,0,0,3,11,16,11],
-"_string_algorithms_8hxx.html#abff75eee50399a7900a5367227f1870d":[8,0,0,3,11,16,13],
-"_string_algorithms_8hxx.html#ac2562bd4d14693152957284b41aa97a7":[8,0,0,3,11,16,9],
-"_string_algorithms_8hxx.html#acbd931a6166c8d630f25aa0f4e650126":[8,0,0,3,11,16,0],
-"_string_algorithms_8hxx.html#ae35cd5ed2c74588ee21d308725e0c5fe":[8,0,0,3,11,16,6],
-"_string_algorithms_8hxx.html#af2d98d6937eb7bf21ce24d0632a79a7b":[8,0,0,3,11,16,12]
+"_string_algorithms_8hxx.html#aafcff13330662d7893e7272d9ea4057d":[8,0,0,3,11,16,11]
 };

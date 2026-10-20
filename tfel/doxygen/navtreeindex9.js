@@ -1,7 +1,5 @@
 var NAVTREEINDEX9 =
 {
-"_string_algorithms_8hxx.html#ac2562bd4d14693152957284b41aa97a7":[8,0,0,3,11,16,9],
-"_string_algorithms_8hxx.html#acbd931a6166c8d630f25aa0f4e650126":[8,0,0,3,11,16,0],
 "_string_algorithms_8hxx.html#ae35cd5ed2c74588ee21d308725e0c5fe":[8,0,0,3,11,16,6],
 "_string_algorithms_8hxx.html#af2d98d6937eb7bf21ce24d0632a79a7b":[8,0,0,3,11,16,12],
 "_string_algorithms_8hxx.html#aff637b5857cbba1b928f34478f0e26c2":[8,0,0,3,11,16,3],
@@ -249,5 +247,7 @@ var NAVTREEINDEX9 =
 "_tiny_broyden_solver_8hxx.html":[8,0,0,3,5,65],
 "_tiny_broyden_solver_8ixx.html":[8,0,0,3,5,10,6],
 "_tiny_levenberg_marquardt_solver_8hxx.html":[8,0,0,3,5,66],
-"_tiny_levenberg_marquardt_solver_8ixx.html":[8,0,0,3,5,10,7]
+"_tiny_levenberg_marquardt_solver_8ixx.html":[8,0,0,3,5,10,7],
+"_tiny_matrix_invert_8hxx.html":[8,0,0,3,5,67],
+"_tiny_matrix_invert_8ixx.html":[8,0,0,3,5,8,3]
 };

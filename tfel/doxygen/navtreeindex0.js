@@ -195,7 +195,6 @@ var NAVTREEINDEX0 =
 "_aster_traits_8hxx.html#a6deb03440ecf8cdd7128562bf1522ab8a764c274fb70eba985cba289506b93308":[8,0,2,0,0,2,17,1,2],
 "_aster_traits_8hxx.html#a6deb03440ecf8cdd7128562bf1522ab8ab1ca9fbabd690d1da00d19bc8bedbc9b":[8,0,2,0,0,2,17,1,1],
 "_b_c_c_8hxx.html":[8,0,0,2,2],
-"_backend_base_8hxx.html":[8,0,2,0,0,10,0,1],
 "_backend_factory_8hxx.html":[8,0,2,0,0,10,0,2],
 "_barlat2004_stress_criterion_8hxx.html":[8,0,2,0,0,3,1],
 "_barlat2004_yield_criterion_8hxx.html":[8,0,0,3,4,2],
@@ -249,5 +248,6 @@ var NAVTREEINDEX0 =
 "_behaviour_d_s_l_description_8hxx.html":[8,0,2,0,0,41],
 "_behaviour_d_s_l_description_8hxx.html#a12ed06a17df55b65b84f41eccc9f312e":[8,0,2,0,0,41,2],
 "_behaviour_d_s_l_description_8hxx.html#a26dc1f9e80952f4d823e233a845b3559":[8,0,2,0,0,41,1],
-"_behaviour_d_s_l_description_8hxx.html#ad025dfa2bf6f9ac6710cb8a43ea4b367":[8,0,2,0,0,41,3]
+"_behaviour_d_s_l_description_8hxx.html#ad025dfa2bf6f9ac6710cb8a43ea4b367":[8,0,2,0,0,41,3],
+"_behaviour_d_s_l_utilities_8hxx.html":[8,0,2,0,0,42]
 };

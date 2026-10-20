@@ -17,6 +17,7 @@ var tmatrix_8hxx =
     [ "derivative_view_from_tiny_matrix", "tmatrix_8hxx.html#a01ca08095dda1754ec1294f599a9e042", null ],
     [ "strided_derivative_view_from_tiny_matrix", "tmatrix_8hxx.html#a93bc12ce65b2dc3643cd19cea0c68996", null ],
     [ "TMatrixView", "tmatrix_8hxx.html#a51c29e208b8ef2c33c0a187401120ff0", null ],
+    [ "change_basis", "tmatrix_8hxx.html#a0eda598e0c392f580d6f3250d25c1178", null ],
     [ "map_derivative", "tmatrix_8hxx.html#a6d90351db2eac8c0f488119171475158", null ],
     [ "map_derivative", "tmatrix_8hxx.html#a243f92f9b599479973f5bcc2d3002a7b", null ],
     [ "map_derivative_strided", "tmatrix_8hxx.html#a29e30e34ab940e301cab5a8b460ab6ab", null ],

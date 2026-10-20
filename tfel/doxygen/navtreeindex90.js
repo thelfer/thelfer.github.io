@@ -1,11 +1,5 @@
 var NAVTREEINDEX90 =
 {
-"structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1st2tot2_3_01_n_00_01_t2_01_4_0b4e019f86d9e66cc3f94f958ccbe7436.html":[7,0,14,10,26],
-"structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1stensor_3_01_n_00_01_t2_01_4_09b356b79ec5326398858fabe7e4d4017.html":[7,0,14,10,27],
-"structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1t2tost2_3_01_n_00_01_t2_01_4_06b16cfe3c3f0c4c3d71dfa3fb6d6dea3.html":[7,0,14,10,28],
-"structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1t2tot2_3_01_n_00_01_t2_01_4_00848f252b5cd46b21a2bef8732360a8a6.html":[7,0,14,10,29],
-"structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1tensor_3_01_n_00_01_t2_01_4_004c8fc4db6b6d41f876222c1e80d65e47.html":[7,0,14,10,30],
-"structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1tmatrix_3_01_n_00_01_m_00_01_t37f047bd1efe535e0fc81f632db85462.html":[7,0,14,10,31],
 "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1tvector_3_01_n_00_01_t2_01_4_03e944522e68bca84cb81290beefdce6d.html":[7,0,14,10,32],
 "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1vector_3_01_value_type_01_4_0060b14d73ecc6690fe4e668f2fe2f377b.html":[7,0,14,10,33],
 "structtfel_1_1typetraits_1_1_is_complex.html":[7,0,14,10,38],
@@ -249,5 +243,11 @@ var NAVTREEINDEX90 =
 "structtfel_1_1utilities_1_1_data_parsing_options.html#a1cf583ce9a72ddf37cc2d4a2f6be63d2":[7,0,14,12,11,0],
 "structtfel_1_1utilities_1_1_data_parsing_options.html#a1dcc71cc106fe1c68f392623a49c2e43":[7,0,14,12,11,6],
 "structtfel_1_1utilities_1_1_data_parsing_options.html#a4864c24eaa2212507cdf83d59a321204":[7,0,14,12,11,4],
-"structtfel_1_1utilities_1_1_data_parsing_options.html#a508b09ef5e6b7cad3447b8610f71e7d1":[7,0,14,12,11,2]
+"structtfel_1_1utilities_1_1_data_parsing_options.html#a508b09ef5e6b7cad3447b8610f71e7d1":[7,0,14,12,11,2],
+"structtfel_1_1utilities_1_1_data_parsing_options.html#a9d4b86a33167b67d3a8fa453f1b172b1":[7,0,14,12,11,5],
+"structtfel_1_1utilities_1_1_data_parsing_options.html#a9f80e3b237f14d4a286e48ca8230ddb1":[7,0,14,12,11,8],
+"structtfel_1_1utilities_1_1_data_parsing_options.html#aa6c349cb4fb013c4d5bdbe2f78c2e3d1":[7,0,14,12,11,1],
+"structtfel_1_1utilities_1_1_data_parsing_options.html#adbdd0b37b2693ad1b4c501593a4a4f5b":[7,0,14,12,11,3],
+"structtfel_1_1utilities_1_1_data_parsing_options.html#afa38abe8d14a38e6de772fb8ce2bac33":[7,0,14,12,11,7],
+"structtfel_1_1utilities_1_1_data_structure.html":[7,0,14,12,12]
 };

@@ -129,9 +129,9 @@ template&lt;typename ForwardIterator , typename BinaryPredicate &gt; </td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;unsigned int N&gt;<br />
 class tfel::fsalgo::min_element&lt; N &gt;</div><p><a class="el" href="structtfel_1_1fsalgo_1_1min__element.html" title="min_element finds the smallest element in the range [first, first+N)">min_element</a> finds the smallest element in the range [first, first+N) </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">N</td><td>number of elements of the range.</td></tr>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">N</td><td>number of element to be transformed.</td></tr>
   </table>
   </dd>
 </dl>
@@ -166,16 +166,10 @@ template&lt;typename ForwardIterator &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>It returns the first iterator i in [first, first+N) such that no other iterator in [first, last) points to a value smaller than *i. The return value is first+N if and only if [first, last) is an empty range.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">ForwardIterator</td><td>iterator to the elements. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>It returns the first iterator i in [first, first+N) such that no other iterator in [first, last) points to a value greater than *i. The return value is first+N if and only if [first, last) is an empty range.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td>iterator to the first element</td></tr>
+    <tr><td class="paramname">ForwardIterator,iterator</td><td>to the elements.</td></tr>
   </table>
   </dd>
 </dl>
@@ -228,17 +222,10 @@ template&lt;typename ForwardIterator , typename BinaryPredicate &gt; </div>
 </table>
 </div><div class="memdoc">
 <p>This version version returns the first iterator i in [first, first+N) such that, for every iterator j in [first, first+N), comp(*i, *j) is false, where comp is a binary predicate given in argument</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">ForwardIterator</td><td>iterator to the elements. </td></tr>
-    <tr><td class="paramname">BinaryPredicate</td><td>comparison function </td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td>iterator to the first element </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">comp</td><td>comparison function</td></tr>
+    <tr><td class="paramname">ForwardIterator,iterator</td><td>to the elements. </td></tr>
+    <tr><td class="paramname">BinaryPredicate,comparison</td><td>function</td></tr>
   </table>
   </dd>
 </dl>
@@ -263,7 +250,7 @@ template&lt;typename ForwardIterator , typename BinaryPredicate &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetfel.html">tfel</a></li><li class="navelem"><b>fsalgo</b></li><li class="navelem"><a class="el" href="structtfel_1_1fsalgo_1_1min__element.html">min_element</a></li>
-    <li class="footer">Generated on Tue Oct 20 2026 00:41:22 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Oct 20 2026 00:43:49 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

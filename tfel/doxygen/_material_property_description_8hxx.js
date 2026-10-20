@@ -4,6 +4,6 @@ var _material_property_description_8hxx =
     [ "getMaterialLawLibraryNameBase", "_material_property_description_8hxx.html#a0be1ee7db5018d5e8f0e10bcd4dc4bdd", null ],
     [ "getParametersFileName", "_material_property_description_8hxx.html#a021a573c0fe4102e354e2d596b456336", null ],
     [ "useQuantities", "_material_property_description_8hxx.html#a81850c360bd5cb0e2c96c2328e7edf42", null ],
-    [ "writeBeginningOfMaterialPropertyBody", "_material_property_description_8hxx.html#a7fd311675759dda57f513ffd448012f9", null ],
-    [ "writeScalarStandardTypedefs", "_material_property_description_8hxx.html#a2b8155ca0a8006c5f1e0ed52383b9230", null ]
+    [ "writeBeginningOfMaterialPropertyBody", "_material_property_description_8hxx.html#a0c5b86310aede98e1cbf6a507e82cac0", null ],
+    [ "writeScalarStandardTypedefs", "_material_property_description_8hxx.html#a2e56d81aada88ec2f8e39e3031775b3c", null ]
 ];

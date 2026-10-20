@@ -137,5 +137,7 @@ var namespacetfel_1_1math_1_1internals =
     [ "ViewsArrayBase< true, MappedType, ViewIndexingPolicyType >", "structtfel_1_1math_1_1internals_1_1_views_array_base_3_01true_00_01_mapped_type_00_01_view_indexing_policy_type_01_4.html", "structtfel_1_1math_1_1internals_1_1_views_array_base_3_01true_00_01_mapped_type_00_01_view_indexing_policy_type_01_4" ],
     [ "ViewsArrayDefaultViewIndexingPolicy", "structtfel_1_1math_1_1internals_1_1_views_array_default_view_indexing_policy.html", "structtfel_1_1math_1_1internals_1_1_views_array_default_view_indexing_policy" ],
     [ "ViewsArrayDefaultViewIndexingPolicy< true, MappedType >", "structtfel_1_1math_1_1internals_1_1_views_array_default_view_indexing_policy_3_01true_00_01_mapped_type_01_4.html", "structtfel_1_1math_1_1internals_1_1_views_array_default_view_indexing_policy_3_01true_00_01_mapped_type_01_4" ],
-    [ "getStridedDerivativeSubBlockExtent", "namespacetfel_1_1math_1_1internals.html#a5edebcbf413d500cc54368a54e5834d2", null ]
+    [ "advance", "namespacetfel_1_1math_1_1internals.html#a79ba194e607fff93c0ff57431c0c75eb", null ],
+    [ "getStridedDerivativeSubBlockExtent", "namespacetfel_1_1math_1_1internals.html#a5edebcbf413d500cc54368a54e5834d2", null ],
+    [ "previous", "namespacetfel_1_1math_1_1internals.html#a8aaa9173b903435043857030b84b59e6", null ]
 ];

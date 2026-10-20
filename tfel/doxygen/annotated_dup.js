@@ -608,7 +608,8 @@ var annotated_dup =
           [ "HIPBackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_h_i_p_backend.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_h_i_p_backend" ],
           [ "ParallelSTLBackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_parallel_s_t_l_backend.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_parallel_s_t_l_backend" ],
           [ "SYCLBackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_s_y_c_l_backend.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_s_y_c_l_backend" ]
-        ] ]
+        ] ],
+        [ "CountingIterator", "structmfront_1_1generic__parallel_1_1_counting_iterator.html", "structmfront_1_1generic__parallel_1_1_counting_iterator" ]
       ] ],
       [ "AbaqusExplicitInterface", "structmfront_1_1_abaqus_explicit_interface.html", "structmfront_1_1_abaqus_explicit_interface" ],
       [ "AbaqusExplicitSymbolsGenerator", "structmfront_1_1_abaqus_explicit_symbols_generator.html", "structmfront_1_1_abaqus_explicit_symbols_generator" ],

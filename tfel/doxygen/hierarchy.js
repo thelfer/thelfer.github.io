@@ -1416,6 +1416,7 @@ var hierarchy =
     [ "tfel::fsalgo::copy< 7u >", "structtfel_1_1fsalgo_1_1copy_3_017u_01_4.html", null ],
     [ "tfel::fsalgo::copy< 8u >", "structtfel_1_1fsalgo_1_1copy_3_018u_01_4.html", null ],
     [ "tfel::fsalgo::copy< 9u >", "structtfel_1_1fsalgo_1_1copy_3_019u_01_4.html", null ],
+    [ "mfront::generic_parallel::CountingIterator< IndexType >", "structmfront_1_1generic__parallel_1_1_counting_iterator.html", null ],
     [ "tfel::math::anderson::CovarianceMatrix< real >", "structtfel_1_1math_1_1anderson_1_1_covariance_matrix.html", null ],
     [ "numodis::Crystallo", "structnumodis_1_1_crystallo.html", [
       [ "numodis::Cubic", "structnumodis_1_1_cubic.html", [

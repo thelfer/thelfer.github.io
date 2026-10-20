@@ -40,6 +40,7 @@ var annotated_dup =
         [ "RotationMatrix2D", "structmgis_1_1behaviour_1_1_rotation_matrix2_d.html", "structmgis_1_1behaviour_1_1_rotation_matrix2_d" ],
         [ "RotationMatrix3D", "structmgis_1_1behaviour_1_1_rotation_matrix3_d.html", "structmgis_1_1behaviour_1_1_rotation_matrix3_d" ],
         [ "State", "structmgis_1_1behaviour_1_1_state.html", "structmgis_1_1behaviour_1_1_state" ],
+        [ "UpdateArguments", "structmgis_1_1behaviour_1_1_update_arguments.html", "structmgis_1_1behaviour_1_1_update_arguments" ],
         [ "Variable", "structmgis_1_1behaviour_1_1_variable.html", "structmgis_1_1behaviour_1_1_variable" ]
       ] ],
       [ "fenics", null, [

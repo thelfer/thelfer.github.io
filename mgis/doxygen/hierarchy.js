@@ -365,6 +365,7 @@ var hierarchy =
     ] ],
     [ "mgis::function::UniformEvaluator< Space, N >", "structmgis_1_1function_1_1_uniform_evaluator.html", null ],
     [ "mgis::attributes::UnsafeAttribute", "structmgis_1_1attributes_1_1_unsafe_attribute.html", null ],
+    [ "mgis::behaviour::UpdateArguments", "structmgis_1_1behaviour_1_1_update_arguments.html", null ],
     [ "mgis::behaviour::Variable", "structmgis_1_1behaviour_1_1_variable.html", null ],
     [ "std::variant", null, [
       [ "mgis::behaviour::MaterialStateManager::FieldHolder", "structmgis_1_1behaviour_1_1_material_state_manager_1_1_field_holder.html", null ]

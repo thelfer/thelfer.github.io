@@ -1,5 +1,8 @@
 var NAVTREEINDEX90 =
 {
+"structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1tvector_3_01_n_00_01_t2_01_4_03e944522e68bca84cb81290beefdce6d.html":[7,0,14,10,32],
+"structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1vector_3_01_value_type_01_4_0060b14d73ecc6690fe4e668f2fe2f377b.html":[7,0,14,10,33],
+"structtfel_1_1typetraits_1_1_is_complex.html":[7,0,14,10,38],
 "structtfel_1_1typetraits_1_1_is_complex_3_01_quantity_type_01_4.html":[7,0,14,10,41],
 "structtfel_1_1typetraits_1_1_is_complex_3_01cadna_1_1numeric__type_3_01_t_01_4_01_4.html":[7,0,14,10,39],
 "structtfel_1_1typetraits_1_1_is_complex_3_01const_01_quantity_type_01_4.html":[7,0,14,10,40],
@@ -246,8 +249,5 @@ var NAVTREEINDEX90 =
 "structtfel_1_1utilities_1_1_data_parsing_options.html#aa6c349cb4fb013c4d5bdbe2f78c2e3d1":[7,0,14,12,11,1],
 "structtfel_1_1utilities_1_1_data_parsing_options.html#adbdd0b37b2693ad1b4c501593a4a4f5b":[7,0,14,12,11,3],
 "structtfel_1_1utilities_1_1_data_parsing_options.html#afa38abe8d14a38e6de772fb8ce2bac33":[7,0,14,12,11,7],
-"structtfel_1_1utilities_1_1_data_structure.html":[7,0,14,12,12],
-"structtfel_1_1utilities_1_1_data_structure.html#a141c440e3f1e2f43c4242273526de803":[7,0,14,12,12,4],
-"structtfel_1_1utilities_1_1_data_structure.html#a32aa8ebe10030b86fd62ba5b13b010aa":[7,0,14,12,12,6],
-"structtfel_1_1utilities_1_1_data_structure.html#a3db3a462ded08a187e23394f87f163bc":[7,0,14,12,12,1]
+"structtfel_1_1utilities_1_1_data_structure.html":[7,0,14,12,12]
 };

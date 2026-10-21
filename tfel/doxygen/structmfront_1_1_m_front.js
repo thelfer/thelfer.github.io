@@ -16,6 +16,7 @@ var structmfront_1_1_m_front =
     [ "treatHelpCommands", "structmfront_1_1_m_front.html#a6c332393d031b9654c24738a3b59df67", null ],
     [ "treatHelpCommandsList", "structmfront_1_1_m_front.html#a74e8424e89ac282c0352e0de18a4d746", null ],
     [ "treatNoMelt", "structmfront_1_1_m_front.html#a24f26b30160e4de9fea124a17c65c846", null ],
+    [ "treatSetRPATH", "structmfront_1_1_m_front.html#a539462526d3964bde084df3becce0aee", null ],
     [ "treatSilentBuild", "structmfront_1_1_m_front.html#a6ce8f4207b225591b4f2b2192f608904", null ],
     [ "treatUnknownArgument", "structmfront_1_1_m_front.html#ab472f68652928c6aa0beb93c1e521046", null ],
     [ "defines", "structmfront_1_1_m_front.html#a979a08cc7b061ed5453f532cb13445e0", null ],

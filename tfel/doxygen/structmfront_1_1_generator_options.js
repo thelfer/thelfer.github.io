@@ -15,6 +15,7 @@ var structmfront_1_1_generator_options =
     [ "include_paths", "structmfront_1_1_generator_options.html#a0d20cde48d81c96899eb758426f80be3", null ],
     [ "library_paths", "structmfront_1_1_generator_options.html#abdfe53cd93ee0dd9bac185a106799596", null ],
     [ "olevel", "structmfront_1_1_generator_options.html#a5530ef0e4697929bd1ec5229debd3bfc", null ],
+    [ "setRPATH", "structmfront_1_1_generator_options.html#a1735d173ee9e18ef51a2a4df1e58af47", null ],
     [ "silentBuild", "structmfront_1_1_generator_options.html#a68d4a24cf812f1d08cc8069ab2641fbd", null ],
     [ "sys", "structmfront_1_1_generator_options.html#af3849a32ea23d0cb9c48f0dbefe2aef9", null ]
 ];

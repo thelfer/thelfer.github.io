@@ -771,6 +771,7 @@ var namespacetfel_1_1math =
     [ "change_basis", "namespacetfel_1_1math.html#ac8dd24a2041c386778944f05014cead8", null ],
     [ "change_basis", "namespacetfel_1_1math.html#af7e51eb5a6dbbfa8d984fbdae79438da", null ],
     [ "change_basis", "namespacetfel_1_1math.html#a427438e754be327ae86c6f99bd52ffad", null ],
+    [ "change_basis", "namespacetfel_1_1math.html#a0eda598e0c392f580d6f3250d25c1178", null ],
     [ "checkIndexingPoliciesCompatiblity", "namespacetfel_1_1math.html#a2343bf473bfc76099a5bb99b573855fa", null ],
     [ "checkIndexingPoliciesCompatiblity", "namespacetfel_1_1math.html#a331c0a1318f53ec008ca94d6576d179a", null ],
     [ "checkIndexingPoliciesRuntimeCompatiblity", "namespacetfel_1_1math.html#a86f4c774c2ed2c960998d725f66e5bc3", null ],

@@ -697,7 +697,9 @@ var hierarchy =
     [ "Comparison", "class_comparison.html", null ],
     [ "tfel::check::Comparison", "structtfel_1_1check_1_1_comparison.html", [
       [ "tfel::check::AbsoluteComparison", "structtfel_1_1check_1_1_absolute_comparison.html", null ],
-      [ "tfel::check::AreaComparison", "structtfel_1_1check_1_1_area_comparison.html", null ],
+      [ "tfel::check::AreaComparison", "structtfel_1_1check_1_1_area_comparison.html", [
+        [ "tfel::check::L2Comparison", "structtfel_1_1check_1_1_l2_comparison.html", null ]
+      ] ],
       [ "tfel::check::MixedComparison", "structtfel_1_1check_1_1_mixed_comparison.html", null ],
       [ "tfel::check::RelativeAndAbsoluteComparison", "structtfel_1_1check_1_1_relative_and_absolute_comparison.html", null ],
       [ "tfel::check::RelativeComparison", "structtfel_1_1check_1_1_relative_comparison.html", null ]
@@ -1433,6 +1435,7 @@ var hierarchy =
     [ "tfel::math::CubicSplineCollocationPoint< AbscissaType, ValueType >", "structtfel_1_1math_1_1_cubic_spline_collocation_point.html", null ],
     [ "tfel::math::internals::CubicSplineCollocationPointComparator", "structtfel_1_1math_1_1internals_1_1_cubic_spline_collocation_point_comparator.html", null ],
     [ "mtest::CurrentState", "structmtest_1_1_current_state.html", null ],
+    [ "tfel::check::Curve", "structtfel_1_1check_1_1_curve.html", null ],
     [ "tfel::utilities::CxxTokenizerOptions", "structtfel_1_1utilities_1_1_cxx_tokenizer_options.html", [
       [ "tfel::utilities::CxxTokenizer", "structtfel_1_1utilities_1_1_cxx_tokenizer.html", [
         [ "mfront::DSLBase", "structmfront_1_1_d_s_l_base.html", null ],

@@ -1,5 +1,10 @@
 var NAVTREEINDEX12 =
 {
+"classtfel_1_1math_1_1_unary_result_type_3_01t2tot2_3_01_n_00_01_t_01_4_00_01_op_neg_01_4.html":[5,0,9,1,638],
+"classtfel_1_1math_1_1_unary_result_type_3_01t2tot2_3_01_n_00_01_t_01_4_00_01_op_neg_01_4.html":[7,0,14,6,641],
+"classtfel_1_1math_1_1_unary_result_type_3_01tensor_3_01_n_00_01_t_01_4_00_01_op_neg_01_4.html":[5,0,9,1,639],
+"classtfel_1_1math_1_1_unary_result_type_3_01tensor_3_01_n_00_01_t_01_4_00_01_op_neg_01_4.html":[7,0,14,6,642],
+"classtfel_1_1math_1_1_unary_result_type_3_01tmatrix_3_01_n_00_01_m_00_01_t_01_4_00_01_op_neg_01_4.html":[5,0,9,1,640],
 "classtfel_1_1math_1_1_unary_result_type_3_01tmatrix_3_01_n_00_01_m_00_01_t_01_4_00_01_op_neg_01_4.html":[7,0,14,6,643],
 "classtfel_1_1math_1_1_vector_matrix_handle.html":[5,0,9,1,647],
 "classtfel_1_1math_1_1_vector_matrix_handle.html":[7,0,14,6,650],
@@ -244,10 +249,5 @@ var NAVTREEINDEX12 =
 "functions_func_s.html":[7,3,1,18],
 "functions_func_t.html":[7,3,1,19],
 "functions_func_u.html":[7,3,1,20],
-"functions_func_v.html":[7,3,1,21],
-"functions_func_w.html":[7,3,1,22],
-"functions_func_x.html":[7,3,1,23],
-"functions_func_y.html":[7,3,1,24],
-"functions_func_z.html":[7,3,1,25],
-"functions_func_~.html":[7,3,1,26]
+"functions_func_v.html":[7,3,1,21]
 };

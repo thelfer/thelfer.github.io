@@ -1,5 +1,7 @@
 var NAVTREEINDEX12 =
 {
+"classtfel_1_1math_1_1_unary_result_type_3_01tmatrix_3_01_n_00_01_m_00_01_t_01_4_00_01_op_neg_01_4.html":[7,0,14,6,643],
+"classtfel_1_1math_1_1_vector_matrix_handle.html":[5,0,9,1,647],
 "classtfel_1_1math_1_1_vector_matrix_handle.html":[7,0,14,6,650],
 "classtfel_1_1math_1_1internals_1_1_power_impl_selector.html":[5,0,9,1,1,42],
 "classtfel_1_1math_1_1internals_1_1_power_impl_selector.html":[7,0,14,6,1,42],
@@ -247,7 +249,5 @@ var NAVTREEINDEX12 =
 "functions_func_x.html":[7,3,1,23],
 "functions_func_y.html":[7,3,1,24],
 "functions_func_z.html":[7,3,1,25],
-"functions_func_~.html":[7,3,1,26],
-"functions_g.html":[7,3,0,7],
-"functions_h.html":[7,3,0,8]
+"functions_func_~.html":[7,3,1,26]
 };

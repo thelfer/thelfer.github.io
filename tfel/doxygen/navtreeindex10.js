@@ -1,5 +1,7 @@
 var NAVTREEINDEX10 =
 {
+"_tiny_broyden_solver_8hxx.html":[8,0,0,3,5,65],
+"_tiny_broyden_solver_8ixx.html":[8,0,0,3,5,10,6],
 "_tiny_levenberg_marquardt_solver_8hxx.html":[8,0,0,3,5,66],
 "_tiny_levenberg_marquardt_solver_8ixx.html":[8,0,0,3,5,10,7],
 "_tiny_matrix_invert_8hxx.html":[8,0,0,3,5,67],
@@ -247,7 +249,5 @@ var NAVTREEINDEX10 =
 "classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01t0b923ed0d8cd5df4b79e08a253fa3c8f.html":[7,0,14,6,67],
 "classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01t0b923ed0d8cd5df4b79e08a253fa3c8f.html#ada87a6917c313eff149cd9bea0bf14f0":[7,0,14,6,67,0],
 "classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01t0b923ed0d8cd5df4b79e08a253fa3c8f.html#ada87a6917c313eff149cd9bea0bf14f0":[5,0,9,1,64,0],
-"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01t10044100cd14acb9bc802281bcf3ae2a.html":[7,0,14,6,69],
-"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01t10044100cd14acb9bc802281bcf3ae2a.html":[5,0,9,1,66],
-"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01t10044100cd14acb9bc802281bcf3ae2a.html#a49a5d28b3a5f3dbbe8a6c25c684b284a":[7,0,14,6,69,0]
+"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01t10044100cd14acb9bc802281bcf3ae2a.html":[7,0,14,6,69]
 };

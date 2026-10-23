@@ -1,5 +1,9 @@
 var NAVTREEINDEX51 =
 {
+"structmfront_1_1bbrick_1_1_gurson_tvergaard_needleman1982_stress_criterion.html#ab6a0017f7784d02b6688d9b9285e6229":[7,0,10,0,14,0],
+"structmfront_1_1bbrick_1_1_gurson_tvergaard_needleman1982_stress_criterion.html#ac70621ab52b3d6ddd8584223cebfe1e9":[7,0,10,0,14,3],
+"structmfront_1_1bbrick_1_1_gurson_tvergaard_needleman1982_stress_criterion.html#aceae372d923085f1e8abf6d4fa5d0763":[7,0,10,0,14,4],
+"structmfront_1_1bbrick_1_1_harmonic_sum_of_norton_hoff_viscoplastic_flows.html":[7,0,10,0,15],
 "structmfront_1_1bbrick_1_1_harmonic_sum_of_norton_hoff_viscoplastic_flows.html#a0780a3cbb0a1cb969bb513d8eff44beb":[7,0,10,0,15,8],
 "structmfront_1_1bbrick_1_1_harmonic_sum_of_norton_hoff_viscoplastic_flows.html#a152d76adaabe00a4a8c60bbd19787599":[7,0,10,0,15,0],
 "structmfront_1_1bbrick_1_1_harmonic_sum_of_norton_hoff_viscoplastic_flows.html#a454c22665139a4e2df5377c6a14b4ab6":[7,0,10,0,15,5],
@@ -245,9 +249,5 @@ var NAVTREEINDEX51 =
 "structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a8ad8589bad836ab32e3689c0dc0fd059":[7,0,10,0,33,13],
 "structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a94e93ec4268a291fb029a8868c6f61a3":[7,0,10,0,33,15],
 "structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a9dae8c80a3fcf825d77823959924f008":[7,0,10,0,33,5],
-"structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#aa719ff63fc66f8b1eb8d3ed04dd80d0e":[7,0,10,0,33,4],
-"structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#ae75d3c5e988de8cb98dd5fdfc4ac8c52":[7,0,10,0,33,3],
-"structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#aeec65807e4373cc702133f88f20b9a83":[7,0,10,0,33,7],
-"structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#af29de5d8130e512078340d7615bccc7b":[7,0,10,0,33,6],
-"structmfront_1_1bbrick_1_1_norton_hoff_viscoplastic_flow.html":[7,0,10,0,34]
+"structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#aa719ff63fc66f8b1eb8d3ed04dd80d0e":[7,0,10,0,33,4]
 };

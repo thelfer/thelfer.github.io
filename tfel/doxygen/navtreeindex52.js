@@ -1,5 +1,9 @@
 var NAVTREEINDEX52 =
 {
+"structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#ae75d3c5e988de8cb98dd5fdfc4ac8c52":[7,0,10,0,33,3],
+"structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#aeec65807e4373cc702133f88f20b9a83":[7,0,10,0,33,7],
+"structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#af29de5d8130e512078340d7615bccc7b":[7,0,10,0,33,6],
+"structmfront_1_1bbrick_1_1_norton_hoff_viscoplastic_flow.html":[7,0,10,0,34],
 "structmfront_1_1bbrick_1_1_norton_hoff_viscoplastic_flow.html#a08c3833c26263a78072a28a35f7d6614":[7,0,10,0,34,4],
 "structmfront_1_1bbrick_1_1_norton_hoff_viscoplastic_flow.html#a0eeb45abd37c009519f4fa25a2f23089":[7,0,10,0,34,6],
 "structmfront_1_1bbrick_1_1_norton_hoff_viscoplastic_flow.html#a20f6c95fefeeff73efec30ff7b5b087c":[7,0,10,0,34,0],
@@ -245,9 +249,5 @@ var NAVTREEINDEX52 =
 "structmfront_1_1bbrick_1_1_stress_potential.html#ac37c4320fb11c64e6d1b2079d495cecb":[7,0,10,0,57,7],
 "structmfront_1_1bbrick_1_1_stress_potential.html#afd7f30f6a8946b9f2076c13d6fa51138":[7,0,10,0,57,16],
 "structmfront_1_1bbrick_1_1_stress_potential_factory.html":[7,0,10,0,58],
-"structmfront_1_1bbrick_1_1_stress_potential_factory.html#a67c614f48c5392f7c670a9ed1149abbf":[7,0,10,0,58,0],
-"structmfront_1_1bbrick_1_1_stress_potential_factory.html#a7055205f772d833d16e2a2229bfbe8a5":[7,0,10,0,58,3],
-"structmfront_1_1bbrick_1_1_stress_potential_factory.html#acb48435893bdd7e5d8d95bfe795b7a57":[7,0,10,0,58,1],
-"structmfront_1_1bbrick_1_1_stress_potential_factory.html#aea36fa732f8e849be38a64ab8f9fa475":[7,0,10,0,58,2],
-"structmfront_1_1bbrick_1_1_swift_isotropic_hardening_rule.html":[7,0,10,0,59]
+"structmfront_1_1bbrick_1_1_stress_potential_factory.html#a67c614f48c5392f7c670a9ed1149abbf":[7,0,10,0,58,0]
 };

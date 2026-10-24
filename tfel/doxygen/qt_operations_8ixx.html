@@ -165,27 +165,27 @@ template&lt;StandardArithmeticTypeConcept ScalarType, ImmutableQuantityConcept Q
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">                                                                                 \</div>
-<div class="line">  <span class="keyword">template</span> &lt;ImmutableQuantityConcept QuantityType,                               \</div>
-<div class="line">            StandardArithmeticTypeConcept ScalarType&gt;                            \</div>
-<div class="line">  TFEL_HOST_DEVICE [[nodiscard]] <span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="keyword">operator</span> Op(                     \</div>
-<div class="line">      <span class="keyword">const</span> QuantityType&amp; lhs,                                                   \</div>
-<div class="line">      <span class="keyword">const</span> ScalarType&amp;                                                          \</div>
-<div class="line">          rhs) <span class="keyword">noexcept</span> <span class="keyword">requires</span>(NoUnitImmutableQuantityConcept&lt;QuantityType&gt;) { \</div>
-<div class="line">    <span class="keywordflow">return</span> qt&lt;unit::NoUnit, <span class="keyword">typename</span> <a class="code hl_class" href="structtfel_1_1typetraits_1_1_promote.html">tfel::typetraits::Promote</a>&lt;                  \</div>
-<div class="line">                                base_type&lt;QuantityType&gt;, ScalarType&gt;::type&gt;{     \</div>
-<div class="line">        base_type_cast(lhs) Op rhs};                                             \</div>
-<div class="line">  }                                                                              \</div>
-<div class="line">                                                                                 \</div>
-<div class="line">  <span class="keyword">template</span> &lt;StandardArithmeticTypeConcept ScalarType,                            \</div>
-<div class="line">            ImmutableQuantityConcept QuantityType&gt;                               \</div>
-<div class="line">  TFEL_HOST_DEVICE [[nodiscard]] <span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="keyword">operator</span> Op(                     \</div>
-<div class="line">      <span class="keyword">const</span> ScalarType&amp; lhs,                                                     \</div>
-<div class="line">      <span class="keyword">const</span> QuantityType&amp;                                                        \</div>
-<div class="line">          rhs) <span class="keyword">noexcept</span> <span class="keyword">requires</span>(NoUnitImmutableQuantityConcept&lt;QuantityType&gt;) { \</div>
-<div class="line">    <span class="keywordflow">return</span> qt&lt;unit::NoUnit, <span class="keyword">typename</span> <a class="code hl_class" href="structtfel_1_1typetraits_1_1_promote.html">tfel::typetraits::Promote</a>&lt;                  \</div>
-<div class="line">                                base_type&lt;QuantityType&gt;, ScalarType&gt;::type&gt;{     \</div>
-<div class="line">        lhs Op <a class="code hl_function" href="namespacetfel_1_1math.html#ac8700f69a746143fbb8682f08f632c6f">base_type_cast</a>(rhs)};                                             \</div>
+<b>Value:</b><div class="fragment"><div class="line">                                                                             \</div>
+<div class="line">  <span class="keyword">template</span> &lt;ImmutableQuantityConcept QuantityType,                           \</div>
+<div class="line">            StandardArithmeticTypeConcept ScalarType&gt;                        \</div>
+<div class="line">  [[nodiscard]] TFEL_HOST_DEVICE <span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="keyword">operator</span> Op(                 \</div>
+<div class="line">      <span class="keyword">const</span> QuantityType&amp; lhs, <span class="keyword">const</span> ScalarType&amp; rhs) noexcept               \</div>
+<div class="line">    requires(NoUnitImmutableQuantityConcept&lt;QuantityType&gt;)                   \</div>
+<div class="line">  {                                                                          \</div>
+<div class="line">    <span class="keywordflow">return</span> qt&lt;unit::NoUnit, <span class="keyword">typename</span> <a class="code hl_class" href="structtfel_1_1typetraits_1_1_promote.html">tfel::typetraits::Promote</a>&lt;              \</div>
+<div class="line">                                base_type&lt;QuantityType&gt;, ScalarType&gt;::type&gt;{ \</div>
+<div class="line">        base_type_cast(lhs) Op rhs};                                         \</div>
+<div class="line">  }                                                                          \</div>
+<div class="line">                                                                             \</div>
+<div class="line">  <span class="keyword">template</span> &lt;StandardArithmeticTypeConcept ScalarType,                        \</div>
+<div class="line">            ImmutableQuantityConcept QuantityType&gt;                           \</div>
+<div class="line">  [[nodiscard]] TFEL_HOST_DEVICE <span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="keyword">operator</span> Op(                 \</div>
+<div class="line">      <span class="keyword">const</span> ScalarType&amp; lhs, <span class="keyword">const</span> QuantityType&amp; rhs) noexcept               \</div>
+<div class="line">    requires(NoUnitImmutableQuantityConcept&lt;QuantityType&gt;)                   \</div>
+<div class="line">  {                                                                          \</div>
+<div class="line">    <span class="keywordflow">return</span> qt&lt;unit::NoUnit, <span class="keyword">typename</span> <a class="code hl_class" href="structtfel_1_1typetraits_1_1_promote.html">tfel::typetraits::Promote</a>&lt;              \</div>
+<div class="line">                                base_type&lt;QuantityType&gt;, ScalarType&gt;::type&gt;{ \</div>
+<div class="line">        lhs Op <a class="code hl_function" href="namespacetfel_1_1math.html#ac8700f69a746143fbb8682f08f632c6f">base_type_cast</a>(rhs)};                                         \</div>
 <div class="line">  }</div>
 <div class="ttc" id="anamespacetfel_1_1math_html_ac8700f69a746143fbb8682f08f632c6f"><div class="ttname"><a href="namespacetfel_1_1math.html#ac8700f69a746143fbb8682f08f632c6f">tfel::math::base_type_cast</a></div><div class="ttdeci">TFEL_HOST_DEVICE constexpr decltype(auto) base_type_cast(const Quantity&lt; UnitType, ValueType, OwnershipPolicy &gt; &amp;v) noexcept</div><div class="ttdoc">cast the value to the base type</div><div class="ttdef"><b>Definition</b> qt.hxx:526</div></div>
 <div class="ttc" id="astructtfel_1_1typetraits_1_1_promote_html"><div class="ttname"><a href="structtfel_1_1typetraits_1_1_promote.html">tfel::typetraits::Promote</a></div><div class="ttdoc">Returns the greater type able to contain the type A and B.</div><div class="ttdef"><b>Definition</b> Promote.ixx:340</div></div>
@@ -198,7 +198,7 @@ template&lt;StandardArithmeticTypeConcept ScalarType, ImmutableQuantityConcept Q
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_f1614b9bfb736e18e5ccdeb7e67f6541.html">TFEL</a></li><li class="navelem"><a class="el" href="dir_a2e59eb61bdee22280b7d9c8cef44a72.html">Math</a></li><li class="navelem"><a class="el" href="dir_ecfea2fffea88ace6efc77564881528a.html">Quantity</a></li><li class="navelem"><a class="el" href="qt_operations_8ixx.html">qtOperations.ixx</a></li>
-    <li class="footer">Generated on Sat Oct 24 2026 01:03:15 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Sat Oct 24 2026 01:17:59 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

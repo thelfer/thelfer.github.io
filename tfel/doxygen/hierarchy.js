@@ -96,6 +96,15 @@ var hierarchy =
         ] ]
       ] ]
     ] ],
+    [ "mfront::generic_parallel::AbstractBackendExecutionPolicy", "structmfront_1_1generic__parallel_1_1_abstract_backend_execution_policy.html", [
+      [ "OtherBackendExecutionPolicy", "struct_other_backend_execution_policy.html", null ],
+      [ "mfront::generic_parallel::BackendExecutionPolicyBase", "structmfront_1_1generic__parallel_1_1_backend_execution_policy_base.html", [
+        [ "mfront::generic_parallel::CUDABackendExecutionPolicy", "structmfront_1_1generic__parallel_1_1_c_u_d_a_backend_execution_policy.html", null ],
+        [ "mfront::generic_parallel::HIPBackendExecutionPolicy", "structmfront_1_1generic__parallel_1_1_h_i_p_backend_execution_policy.html", null ],
+        [ "mfront::generic_parallel::ParallelSTLBackendExecutionPolicy", "structmfront_1_1generic__parallel_1_1_parallel_s_t_l_backend_execution_policy.html", null ],
+        [ "mfront::generic_parallel::SyclBackendExecutionPolicy", "structmfront_1_1generic__parallel_1_1_sycl_backend_execution_policy.html", null ]
+      ] ]
+    ] ],
     [ "mfront::AbstractBehaviourBrick", "structmfront_1_1_abstract_behaviour_brick.html", [
       [ "mfront::BehaviourBrickBase", "structmfront_1_1_behaviour_brick_base.html", [
         [ "mfront::DDIF2Brick", "structmfront_1_1_d_d_i_f2_brick.html", null ],
@@ -219,9 +228,9 @@ var hierarchy =
       [ "mfront::ExcelMaterialPropertyInterface", "structmfront_1_1_excel_material_property_interface.html", null ],
       [ "mfront::GenericMaterialPropertyInterfaceBase", "structmfront_1_1_generic_material_property_interface_base.html", [
         [ "mfront::CyranoMaterialPropertyInterface", "structmfront_1_1_cyrano_material_property_interface.html", null ],
-        [ "mfront::GenericMaterialPropertyInterface", "structmfront_1_1_generic_material_property_interface.html", null ]
+        [ "mfront::GenericMaterialPropertyInterface", "structmfront_1_1_generic_material_property_interface.html", null ],
+        [ "mfront::GenericParallelMaterialPropertyInterface", "structmfront_1_1_generic_parallel_material_property_interface.html", null ]
       ] ],
-      [ "mfront::GenericParallelMaterialPropertyInterface", "structmfront_1_1_generic_parallel_material_property_interface.html", null ],
       [ "mfront::GnuplotMaterialPropertyInterface", "structmfront_1_1_gnuplot_material_property_interface.html", null ],
       [ "mfront::JavaMaterialPropertyInterface", "structmfront_1_1_java_material_property_interface.html", null ],
       [ "mfront::OctaveMaterialPropertyInterface", "structmfront_1_1_octave_material_property_interface.html", null ],
@@ -460,6 +469,9 @@ var hierarchy =
       [ "aster::AsterOrthotropicBehaviourHandler< type, H, Behaviour >", "structaster_1_1_aster_orthotropic_behaviour_handler.html", null ]
     ] ],
     [ "mfront::BehaviourData::AxialGrowth", "structmfront_1_1_behaviour_data_1_1_axial_growth.html", null ],
+    [ "mfront::generic_parallel::BackendExecutionCommonPolicy", "structmfront_1_1generic__parallel_1_1_backend_execution_common_policy.html", [
+      [ "mfront::generic_parallel::BackendExecutionPolicyBase", "structmfront_1_1generic__parallel_1_1_backend_execution_policy_base.html", null ]
+    ] ],
     [ "mfront::generic_parallel::material_property::BackendFactory", "structmfront_1_1generic__parallel_1_1material__property_1_1_backend_factory.html", null ],
     [ "tfel::material::BarlatStressAndDerivativesWithRespectToEigenvalues< StressStensor >", "structtfel_1_1material_1_1_barlat_stress_and_derivatives_with_respect_to_eigenvalues.html", null ],
     [ "tfel::math::BaseType< T >", "structtfel_1_1math_1_1_base_type.html", null ],
@@ -516,8 +528,10 @@ var hierarchy =
     [ "tfel::math::BissectionAlgorithmData< NumericType >", "structtfel_1_1math_1_1_bissection_algorithm_data.html", [
       [ "tfel::math::BissectionAlgorithmBase< NumericType >", "structtfel_1_1math_1_1_bissection_algorithm_base.html", null ]
     ] ],
+    [ "mfront::generic_parallel::StatusBlockPool< T, Device >::Block", "classmfront_1_1generic__parallel_1_1_status_block_pool_1_1_block.html", null ],
     [ "tfel::system::BlockingStreamReader", "structtfel_1_1system_1_1_blocking_stream_reader.html", null ],
     [ "tfel::system::BlockingStreamWriter", "structtfel_1_1system_1_1_blocking_stream_writer.html", null ],
+    [ "mfront::GenericMaterialPropertyInterfaceBase::BoundCheck", "structmfront_1_1_generic_material_property_interface_base_1_1_bound_check.html", null ],
     [ "tfel::material::BoundsCheck< N >", "structtfel_1_1material_1_1_bounds_check.html", null ],
     [ "tfel::material::BoundsCheckBase", "structtfel_1_1material_1_1_bounds_check_base.html", [
       [ "tfel::material::BoundsCheck< 1u >", "structtfel_1_1material_1_1_bounds_check_3_011u_01_4.html", null ],
@@ -666,6 +680,7 @@ var hierarchy =
     [ "castem::CastemUnSupportedCaseHandler", "structcastem_1_1_castem_un_supported_case_handler.html", [
       [ "castem::CastemOrthotropicBehaviourHandler< type, H, Behaviour >", "structcastem_1_1_castem_orthotropic_behaviour_handler.html", null ]
     ] ],
+    [ "mfront::generic_parallel::CheckedBackendExecutionPolicy< Policy >", "structmfront_1_1generic__parallel_1_1_checked_backend_execution_policy.html", null ],
     [ "mfront::CheckInitializeMethodsOptions", "structmfront_1_1_check_initialize_methods_options.html", null ],
     [ "tfel::material::CheckThermalDataValidity< Behaviour >", "structtfel_1_1material_1_1_check_thermal_data_validity.html", null ],
     [ "tfel::math::internals::CheckUnitCompatibilityImplementation< Unit, Type >", "structtfel_1_1math_1_1internals_1_1_check_unit_compatibility_implementation.html", null ],
@@ -1434,6 +1449,7 @@ var hierarchy =
     [ "tfel::math::CubicSpline< double >", "structtfel_1_1math_1_1_cubic_spline.html", null ],
     [ "tfel::math::CubicSplineCollocationPoint< AbscissaType, ValueType >", "structtfel_1_1math_1_1_cubic_spline_collocation_point.html", null ],
     [ "tfel::math::internals::CubicSplineCollocationPointComparator", "structtfel_1_1math_1_1internals_1_1_cubic_spline_collocation_point_comparator.html", null ],
+    [ "mfront::generic_parallel::CUDABackendExecutionOptions", "structmfront_1_1generic__parallel_1_1_c_u_d_a_backend_execution_options.html", null ],
     [ "mtest::CurrentState", "structmtest_1_1_current_state.html", null ],
     [ "tfel::check::Curve", "structtfel_1_1check_1_1_curve.html", null ],
     [ "tfel::utilities::CxxTokenizerOptions", "structtfel_1_1utilities_1_1_cxx_tokenizer_options.html", [
@@ -1524,6 +1540,7 @@ var hierarchy =
     [ "tfel::math::internals::DerivativeViewFromTinyMatrixImplementation< false, true, FunctionType, VariableType >", "structtfel_1_1math_1_1internals_1_1_derivative_view_from_tiny_matrix_implementation_3_01false_00e6d948d0ac41edbf956f134c4328f3a5.html", null ],
     [ "tfel::math::internals::DerivativeViewFromTinyMatrixImplementation< true, false, FunctionType, VariableType >", "structtfel_1_1math_1_1internals_1_1_derivative_view_from_tiny_matrix_implementation_3_01true_00_8df22c3011e033d5eb88f7d909969e18.html", null ],
     [ "tfel::math::internals::DerivativeViewFromTinyMatrixImplementation< true, true, FunctionType, VariableType >", "structtfel_1_1math_1_1internals_1_1_derivative_view_from_tiny_matrix_implementation_3_01true_00_51dc67be2e2fde4070449892af08346d.html", null ],
+    [ "mfront::generic_parallel::sycl::DeviceCopies", "structmfront_1_1generic__parallel_1_1sycl_1_1_device_copies.html", null ],
     [ "tfel::math::DiadicProductOperation< T1, T2 >", "structtfel_1_1math_1_1_diadic_product_operation.html", null ],
     [ "dianafea::DianaFEAComputeStiffnessTensor< DianaFEABehaviourType, Hypothesis, DianaFEASymmetryType, bool >", "structdianafea_1_1_diana_f_e_a_compute_stiffness_tensor.html", null ],
     [ "dianafea::DianaFEAComputeStiffnessTensor< dianafea::STANDARDFINITESTRAINBEHAVIOUR, H, stype, b >", "structdianafea_1_1_diana_f_e_a_compute_stiffness_tensor_3_01dianafea_1_1_s_t_a_n_d_a_r_d_f_i_n_ibd2a7d40612a01230d7b5a73a1db2327.html", null ],
@@ -1969,7 +1986,6 @@ var hierarchy =
     [ "mfront::BehaviourDescription::ExternalMFrontMaterialProperty", "structmfront_1_1_behaviour_description_1_1_external_m_front_material_property.html", null ],
     [ "mfront::BehaviourDescription::ExternalModelBasedOnBehaviourVariableFactory", "structmfront_1_1_behaviour_description_1_1_external_model_based_on_behaviour_variable_factory.html", null ],
     [ "mfront::MTestFileGeneratorBase::ExternalStateVariable", "structmfront_1_1_m_test_file_generator_base_1_1_external_state_variable.html", null ],
-    [ "mfront::generic_parallel::material_property::BackendBase::ExtraArgumentOfCFunctions", "structmfront_1_1generic__parallel_1_1material__property_1_1_backend_base_1_1_extra_argument_of_c_functions.html", null ],
     [ "abaqus::ExtractAndConvertTangentOperator< H >", "structabaqus_1_1_extract_and_convert_tangent_operator.html", null ],
     [ "ansys::ExtractAndConvertTangentOperator< H >", "structansys_1_1_extract_and_convert_tangent_operator.html", null ],
     [ "dianafea::ExtractAndConvertTangentOperator< H >", "structdianafea_1_1_extract_and_convert_tangent_operator.html", null ],
@@ -2105,6 +2121,7 @@ var hierarchy =
     [ "tfel::config::internals::HeatFluxVectorType< N, T, use_qt >", "structtfel_1_1config_1_1internals_1_1_heat_flux_vector_type.html", null ],
     [ "tfel::config::internals::HeatFluxVectorType< N, T, false >", "structtfel_1_1config_1_1internals_1_1_heat_flux_vector_type_3_01_n_00_01_t_00_01false_01_4.html", null ],
     [ "mfront::BehaviourDescription::HillTensor", "structmfront_1_1_behaviour_description_1_1_hill_tensor.html", null ],
+    [ "mfront::generic_parallel::HIPBackendExecutionOptions", "structmfront_1_1generic__parallel_1_1_h_i_p_backend_execution_options.html", null ],
     [ "tfel::material::homogenization::elasticity::HomogenizationScheme< N, StressType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_homogenization_scheme.html", null ],
     [ "numodis::IBurgers", "structnumodis_1_1_i_burgers.html", null ],
     [ "numodis::IDirection", "structnumodis_1_1_i_direction.html", null ],
@@ -2815,6 +2832,9 @@ var hierarchy =
     [ "tfel::math::CubicSpline< AbscissaType, ValueType >::PointComparator", "structtfel_1_1math_1_1_cubic_spline_1_1_point_comparator.html", null ],
     [ "tfel::system::PointerBinaryReader< T >", "structtfel_1_1system_1_1_pointer_binary_reader.html", null ],
     [ "tfel::system::PointerBinaryWriter< T >", "structtfel_1_1system_1_1_pointer_binary_writer.html", null ],
+    [ "mfront::GenericMaterialPropertyInterfaceBase::PointEvaluationOptions", "structmfront_1_1_generic_material_property_interface_base_1_1_point_evaluation_options.html", null ],
+    [ "mfront::gpmp::PointStatus", "structmfront_1_1gpmp_1_1_point_status.html", null ],
+    [ "mfront::GenericMaterialPropertyInterfaceBase::PointwiseFunctionDescription", "structmfront_1_1_generic_material_property_interface_base_1_1_pointwise_function_description.html", null ],
     [ "tfel::material::PolyCrystalsSlidingSystems< Ng, GS, NumType >", "structtfel_1_1material_1_1_poly_crystals_sliding_systems.html", null ],
     [ "mfront::bbrick::PorosityNucleationModel", "structmfront_1_1bbrick_1_1_porosity_nucleation_model.html", [
       [ "mfront::bbrick::PorosityNucleationModelBase", "structmfront_1_1bbrick_1_1_porosity_nucleation_model_base.html", [
@@ -3025,6 +3045,7 @@ var hierarchy =
     [ "tfel::math::RungeKutta4< 2, T, VanDerPol< T > >", "classtfel_1_1math_1_1_runge_kutta4.html", [
       [ "VanDerPol< T >", "class_van_der_pol.html", null ]
     ] ],
+    [ "Runtime", "struct_runtime.html", null ],
     [ "std::runtime_error", null, [
       [ "tfel::math::KrigingErrorInsufficientData", "structtfel_1_1math_1_1_kriging_error_insufficient_data.html", null ],
       [ "tfel::math::KrigingErrorInvalidLength", "structtfel_1_1math_1_1_kriging_error_invalid_length.html", null ],
@@ -3226,6 +3247,7 @@ var hierarchy =
     [ "StackAllocatedTinyPowellDogLegNewtonRaphsonSolverWorkspace", null, [
       [ "tfel::math::TinyNonLinearSolverBase< N, NumericType, Child, StackAllocatedTinyPowellDogLegNewtonRaphsonSolverWorkspace >", "structtfel_1_1math_1_1_tiny_non_linear_solver_base.html", null ]
     ] ],
+    [ "mfront::generic_parallel::gpu::StackSizeCheck", "structmfront_1_1generic__parallel_1_1gpu_1_1_stack_size_check.html", null ],
     [ "tfel::math::StandardArrayPolicyAliases< ValueType >", "structtfel_1_1math_1_1_standard_array_policy_aliases.html", [
       [ "tfel::math::StandardArrayPolicy< result_type< ArrayPolicy1::value_type, ArrayPolicy2::value_type, OpDiv >, FixedSizeIndexingPoliciesCartesianProduct< ArrayPolicy1::IndexingPolicy, ArrayPolicy2::IndexingPolicy > >", "structtfel_1_1math_1_1_standard_array_policy.html", [
         [ "tfel::math::FixedSizeArrayDerivativePolicy< ArrayPolicy1, ArrayPolicy2 >", "structtfel_1_1math_1_1_fixed_size_array_derivative_policy.html", null ]
@@ -3252,6 +3274,7 @@ var hierarchy =
     [ "tfel::system::StandardBinaryWriter< T >", "structtfel_1_1system_1_1_standard_binary_writer.html", null ],
     [ "castem::CastemBehaviourHandler< type, H, Behaviour >::StandardPredictionOperatorComputer", "structcastem_1_1_castem_behaviour_handler_1_1_standard_prediction_operator_computer.html", null ],
     [ "cyrano::CyranoBehaviourHandler< H, Behaviour >::StandardPredictionOperatorComputer", "structcyrano_1_1_cyrano_behaviour_handler_1_1_standard_prediction_operator_computer.html", null ],
+    [ "mfront::generic_parallel::StatusBlockPool< T, Device >", "classmfront_1_1generic__parallel_1_1_status_block_pool.html", null ],
     [ "tfel::utilities::internals::StdVariantFromTypeList< List, Types >", "structtfel_1_1utilities_1_1internals_1_1_std_variant_from_type_list.html", null ],
     [ "tfel::utilities::internals::StdVariantFromTypeList< tfel::meta::TLE, Types... >", "structtfel_1_1utilities_1_1internals_1_1_std_variant_from_type_list_3_01tfel_1_1meta_1_1_t_l_e_00_01_types_8_8_8_01_4.html", null ],
     [ "tfel::math::stensor_common", "structtfel_1_1math_1_1stensor__common.html", [
@@ -3414,6 +3437,7 @@ var hierarchy =
       ] ]
     ] ],
     [ "mfront::bbrick::StressPotentialFactory", "structmfront_1_1bbrick_1_1_stress_potential_factory.html", null ],
+    [ "mfront::generic_parallel::sycl::StridedArray< ValueType >", "structmfront_1_1generic__parallel_1_1sycl_1_1_strided_array.html", null ],
     [ "tfel::math::StridedCoalescedAccessPolicy< MappedType, IndexingPolicyType >", "structtfel_1_1math_1_1_strided_coalesced_access_policy.html", null ],
     [ "tfel::math::internals::StridedCoalescedViewsArrayBase< is_scalar, MappedType, ViewIndexingPolicyType >", "structtfel_1_1math_1_1internals_1_1_strided_coalesced_views_array_base.html", [
       [ "tfel::math::StridedCoalescedViewsArray< MappedType, MemoryIndexingPolicyType, ViewIndexingPolicyType >", "structtfel_1_1math_1_1_strided_coalesced_views_array.html", null ]
@@ -3625,12 +3649,16 @@ var hierarchy =
       [ "mtest::Scheme", "structmtest_1_1_scheme.html", [
         [ "mtest::SchemeBase", "structmtest_1_1_scheme_base.html", null ]
       ] ],
-      [ "tfel::tests::TestCase", "structtfel_1_1tests_1_1_test_case.html", null ],
+      [ "tfel::tests::TestCase", "structtfel_1_1tests_1_1_test_case.html", [
+        [ "ExecutionPolicyTest", "struct_execution_policy_test.html", null ],
+        [ "GenericParallelMaterialPropertyTest", "struct_generic_parallel_material_property_test.html", null ]
+      ] ],
       [ "tfel::tests::TestFunctionWrapper< f >", "structtfel_1_1tests_1_1_test_function_wrapper.html", null ]
     ] ],
     [ "mfmtg::TestDescription", "structmfmtg_1_1_test_description.html", null ],
     [ "mtest::TestDescription", "structmtest_1_1_test_description.html", null ],
     [ "tfel::utilities::TestDocumentation", "structtfel_1_1utilities_1_1_test_documentation.html", null ],
+    [ "TestExecution", "struct_test_execution.html", null ],
     [ "tfel::tests::TestManager", "structtfel_1_1tests_1_1_test_manager.html", null ],
     [ "tfel::tests::TestOutput", "structtfel_1_1tests_1_1_test_output.html", [
       [ "tfel::tests::MultipleTestOutputs", "structtfel_1_1tests_1_1_multiple_test_outputs.html", null ],
@@ -3850,7 +3878,6 @@ var hierarchy =
     ] ],
     [ "mfront::SupportedTypes::TypeParsingOptions", "structmfront_1_1_supported_types_1_1_type_parsing_options.html", null ],
     [ "mfront::GenericMaterialPropertyInterfaceBase::TypesDescription", "structmfront_1_1_generic_material_property_interface_base_1_1_types_description.html", null ],
-    [ "mfront::GenericParallelMaterialPropertyInterface::TypesDescription", "structmfront_1_1_generic_parallel_material_property_interface_1_1_types_description.html", null ],
     [ "mfront::SupportedTypes::TypeSize", "structmfront_1_1_supported_types_1_1_type_size.html", null ],
     [ "abaqus::UMATExportThermodynamicForces< H >", "structabaqus_1_1_u_m_a_t_export_thermodynamic_forces.html", null ],
     [ "lsdyna::UMATExportThermodynamicForces< H >", "structlsdyna_1_1_u_m_a_t_export_thermodynamic_forces.html", null ],

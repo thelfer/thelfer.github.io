@@ -1,5 +1,8 @@
 var structmfront_1_1_generic_material_property_interface_base =
 [
+    [ "BoundCheck", "structmfront_1_1_generic_material_property_interface_base_1_1_bound_check.html", "structmfront_1_1_generic_material_property_interface_base_1_1_bound_check" ],
+    [ "PointEvaluationOptions", "structmfront_1_1_generic_material_property_interface_base_1_1_point_evaluation_options.html", "structmfront_1_1_generic_material_property_interface_base_1_1_point_evaluation_options" ],
+    [ "PointwiseFunctionDescription", "structmfront_1_1_generic_material_property_interface_base_1_1_pointwise_function_description.html", "structmfront_1_1_generic_material_property_interface_base_1_1_pointwise_function_description" ],
     [ "TypesDescription", "structmfront_1_1_generic_material_property_interface_base_1_1_types_description.html", null ],
     [ "GenericMaterialPropertyInterfaceBase", "structmfront_1_1_generic_material_property_interface_base.html#a3808da18e9d575274bedceef6f06338b", null ],
     [ "~GenericMaterialPropertyInterfaceBase", "structmfront_1_1_generic_material_property_interface_base.html#a0c0b8883a0d9d780c526ae765e5bb019", null ],

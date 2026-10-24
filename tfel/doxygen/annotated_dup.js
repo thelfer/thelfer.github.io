@@ -598,9 +598,6 @@ var annotated_dup =
         [ "ThermoElasticMaterialPropertiesNumber< H, true, es, true, bs >", "structmfront_1_1gb_1_1_thermo_elastic_material_properties_number_3_01_h_00_01true_00_01es_00_01true_00_01bs_01_4.html", null ]
       ] ],
       [ "generic_parallel", null, [
-        [ "gpu", null, [
-          [ "StackSizeCheck", "structmfront_1_1generic__parallel_1_1gpu_1_1_stack_size_check.html", "structmfront_1_1generic__parallel_1_1gpu_1_1_stack_size_check" ]
-        ] ],
         [ "material_property", null, [
           [ "AbstractBackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_abstract_backend.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_abstract_backend" ],
           [ "BackendBase", "structmfront_1_1generic__parallel_1_1material__property_1_1_backend_base.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_backend_base" ],
@@ -612,25 +609,7 @@ var annotated_dup =
           [ "ParallelSTLBackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_parallel_s_t_l_backend.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_parallel_s_t_l_backend" ],
           [ "SYCLBackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_s_y_c_l_backend.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_s_y_c_l_backend" ]
         ] ],
-        [ "sycl", null, [
-          [ "DeviceCopies", "structmfront_1_1generic__parallel_1_1sycl_1_1_device_copies.html", "structmfront_1_1generic__parallel_1_1sycl_1_1_device_copies" ],
-          [ "StridedArray", "structmfront_1_1generic__parallel_1_1sycl_1_1_strided_array.html", "structmfront_1_1generic__parallel_1_1sycl_1_1_strided_array" ]
-        ] ],
-        [ "AbstractBackendExecutionPolicy", "structmfront_1_1generic__parallel_1_1_abstract_backend_execution_policy.html", "structmfront_1_1generic__parallel_1_1_abstract_backend_execution_policy" ],
-        [ "BackendExecutionCommonPolicy", "structmfront_1_1generic__parallel_1_1_backend_execution_common_policy.html", "structmfront_1_1generic__parallel_1_1_backend_execution_common_policy" ],
-        [ "BackendExecutionPolicyBase", "structmfront_1_1generic__parallel_1_1_backend_execution_policy_base.html", "structmfront_1_1generic__parallel_1_1_backend_execution_policy_base" ],
-        [ "CheckedBackendExecutionPolicy", "structmfront_1_1generic__parallel_1_1_checked_backend_execution_policy.html", "structmfront_1_1generic__parallel_1_1_checked_backend_execution_policy" ],
-        [ "CountingIterator", "structmfront_1_1generic__parallel_1_1_counting_iterator.html", "structmfront_1_1generic__parallel_1_1_counting_iterator" ],
-        [ "CUDABackendExecutionOptions", "structmfront_1_1generic__parallel_1_1_c_u_d_a_backend_execution_options.html", "structmfront_1_1generic__parallel_1_1_c_u_d_a_backend_execution_options" ],
-        [ "CUDABackendExecutionPolicy", "structmfront_1_1generic__parallel_1_1_c_u_d_a_backend_execution_policy.html", "structmfront_1_1generic__parallel_1_1_c_u_d_a_backend_execution_policy" ],
-        [ "HIPBackendExecutionOptions", "structmfront_1_1generic__parallel_1_1_h_i_p_backend_execution_options.html", "structmfront_1_1generic__parallel_1_1_h_i_p_backend_execution_options" ],
-        [ "HIPBackendExecutionPolicy", "structmfront_1_1generic__parallel_1_1_h_i_p_backend_execution_policy.html", "structmfront_1_1generic__parallel_1_1_h_i_p_backend_execution_policy" ],
-        [ "ParallelSTLBackendExecutionPolicy", "structmfront_1_1generic__parallel_1_1_parallel_s_t_l_backend_execution_policy.html", "structmfront_1_1generic__parallel_1_1_parallel_s_t_l_backend_execution_policy" ],
-        [ "StatusBlockPool", "classmfront_1_1generic__parallel_1_1_status_block_pool.html", "classmfront_1_1generic__parallel_1_1_status_block_pool" ],
-        [ "SyclBackendExecutionPolicy", "structmfront_1_1generic__parallel_1_1_sycl_backend_execution_policy.html", "structmfront_1_1generic__parallel_1_1_sycl_backend_execution_policy" ]
-      ] ],
-      [ "gpmp", null, [
-        [ "PointStatus", "structmfront_1_1gpmp_1_1_point_status.html", "structmfront_1_1gpmp_1_1_point_status" ]
+        [ "CountingIterator", "structmfront_1_1generic__parallel_1_1_counting_iterator.html", "structmfront_1_1generic__parallel_1_1_counting_iterator" ]
       ] ],
       [ "AbaqusExplicitInterface", "structmfront_1_1_abaqus_explicit_interface.html", "structmfront_1_1_abaqus_explicit_interface" ],
       [ "AbaqusExplicitSymbolsGenerator", "structmfront_1_1_abaqus_explicit_symbols_generator.html", "structmfront_1_1_abaqus_explicit_symbols_generator" ],
@@ -2533,9 +2512,7 @@ var annotated_dup =
     [ "Column", "class_column.html", null ],
     [ "Comparison", "class_comparison.html", null ],
     [ "CyranoOutputStatus", "struct_cyrano_output_status.html", "struct_cyrano_output_status" ],
-    [ "ExecutionPolicyTest", "struct_execution_policy_test.html", "struct_execution_policy_test" ],
     [ "GenerateTypeList", "class_generate_type_list.html", null ],
-    [ "GenericParallelMaterialPropertyTest", "struct_generic_parallel_material_property_test.html", "struct_generic_parallel_material_property_test" ],
     [ "HasRandomAcessIterator", "class_has_random_acess_iterator.html", null ],
     [ "Interpolation", "class_interpolation.html", null ],
     [ "LinearInterpolation", "class_linear_interpolation.html", null ],
@@ -2546,12 +2523,9 @@ var annotated_dup =
     [ "Name< float >", "struct_name_3_01float_01_4.html", null ],
     [ "Name< long double >", "struct_name_3_01long_01double_01_4.html", null ],
     [ "NoInterpolation", "class_no_interpolation.html", null ],
-    [ "OtherBackendExecutionPolicy", "struct_other_backend_execution_policy.html", "struct_other_backend_execution_policy" ],
     [ "RelativeAndAbsoluteComparison", "class_relative_and_absolute_comparison.html", null ],
     [ "RelativeComparison", "class_relative_comparison.html", null ],
-    [ "Runtime", "struct_runtime.html", null ],
     [ "SplineInterpolation", "class_spline_interpolation.html", null ],
     [ "SplineLocalInterpolation", "class_spline_local_interpolation.html", null ],
-    [ "TestExecution", "struct_test_execution.html", "struct_test_execution" ],
     [ "VanDerPol", "class_van_der_pol.html", null ]
 ];

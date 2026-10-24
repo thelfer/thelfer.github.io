@@ -6,7 +6,6 @@ var files_dup =
     [ "mfront-doc", "dir_8af714db0d5e0021f38a7ae14aaf3def.html", "dir_8af714db0d5e0021f38a7ae14aaf3def" ],
     [ "mfront-query", "dir_3b170b8465c54f6ab7c17669188e11a9.html", "dir_3b170b8465c54f6ab7c17669188e11a9" ],
     [ "mtest", "dir_4504f306d345100c4ae867a496932117.html", "dir_4504f306d345100c4ae867a496932117" ],
-    [ "test-suite", "dir_4c62c5705c93f307172a2812dbe6d6e8.html", "dir_4c62c5705c93f307172a2812dbe6d6e8" ],
     [ "tests", "dir_59425e443f801f1f2fd8bbe4959a3ccf.html", "dir_59425e443f801f1f2fd8bbe4959a3ccf" ],
     [ "tfel-check", "dir_c58ebd62c7d784e755659a6e37885698.html", "dir_c58ebd62c7d784e755659a6e37885698" ],
     [ "tfel-doc", "dir_b8f8d26ad45e2834916036b94711e04f.html", "dir_b8f8d26ad45e2834916036b94711e04f" ],

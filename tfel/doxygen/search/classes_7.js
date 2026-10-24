@@ -21,11 +21,9 @@ var searchData=
   ['hill1948stresscriterion_18',['Hill1948StressCriterion',['../structmfront_1_1bbrick_1_1_hill1948_stress_criterion.html',1,'mfront::bbrick']]],
   ['hilltensor_19',['HillTensor',['../structmfront_1_1_behaviour_description_1_1_hill_tensor.html',1,'mfront::BehaviourDescription']]],
   ['hipbackend_20',['HIPBackend',['../structmfront_1_1generic__parallel_1_1material__property_1_1_h_i_p_backend.html',1,'mfront::generic_parallel::material_property']]],
-  ['hipbackendexecutionoptions_21',['HIPBackendExecutionOptions',['../structmfront_1_1generic__parallel_1_1_h_i_p_backend_execution_options.html',1,'mfront::generic_parallel']]],
-  ['hipbackendexecutionpolicy_22',['HIPBackendExecutionPolicy',['../structmfront_1_1generic__parallel_1_1_h_i_p_backend_execution_policy.html',1,'mfront::generic_parallel']]],
-  ['homogenizationscheme_23',['HomogenizationScheme',['../structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_homogenization_scheme.html',1,'tfel::material::homogenization::elasticity']]],
-  ['hookestresspotential_24',['HookeStressPotential',['../structmfront_1_1bbrick_1_1_hooke_stress_potential.html',1,'mfront::bbrick']]],
-  ['hookestresspotentialbase_25',['HookeStressPotentialBase',['../structmfront_1_1bbrick_1_1_hooke_stress_potential_base.html',1,'mfront::bbrick']]],
-  ['hosford1972stresscriterion_26',['Hosford1972StressCriterion',['../structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html',1,'mfront::bbrick']]],
-  ['hyperbolicsineviscoplasticflow_27',['HyperbolicSineViscoplasticFlow',['../structmfront_1_1bbrick_1_1_hyperbolic_sine_viscoplastic_flow.html',1,'mfront::bbrick']]]
+  ['homogenizationscheme_21',['HomogenizationScheme',['../structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_homogenization_scheme.html',1,'tfel::material::homogenization::elasticity']]],
+  ['hookestresspotential_22',['HookeStressPotential',['../structmfront_1_1bbrick_1_1_hooke_stress_potential.html',1,'mfront::bbrick']]],
+  ['hookestresspotentialbase_23',['HookeStressPotentialBase',['../structmfront_1_1bbrick_1_1_hooke_stress_potential_base.html',1,'mfront::bbrick']]],
+  ['hosford1972stresscriterion_24',['Hosford1972StressCriterion',['../structmfront_1_1bbrick_1_1_hosford1972_stress_criterion.html',1,'mfront::bbrick']]],
+  ['hyperbolicsineviscoplasticflow_25',['HyperbolicSineViscoplasticFlow',['../structmfront_1_1bbrick_1_1_hyperbolic_sine_viscoplastic_flow.html',1,'mfront::bbrick']]]
 ];

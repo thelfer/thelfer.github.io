@@ -10,6 +10,11 @@ var searchData=
   ['mgis_5fbv_5frotatebehaviourgradientsfctptr_7',['mgis_bv_RotateBehaviourGradientsFctPtr',['../_behaviour_fct_ptr_8hxx.html#a83f3a0ae80966fceb7073933337ba6c5',1,'BehaviourFctPtr.hxx']]],
   ['mgis_5fbv_5frotatebehaviourtangentoperatorblocksfctptr_8',['mgis_bv_RotateBehaviourTangentOperatorBlocksFctPtr',['../_behaviour_fct_ptr_8hxx.html#a0b5b1ff88cc52cf03fefcda856806aa6',1,'BehaviourFctPtr.hxx']]],
   ['mgis_5fbv_5frotatebehaviourthermodynamicforcesfctptr_9',['mgis_bv_RotateBehaviourThermodynamicForcesFctPtr',['../_behaviour_fct_ptr_8hxx.html#a1bcc4bcdf33f8af226a1a0cfa0768905',1,'BehaviourFctPtr.hxx']]],
-  ['model_10',['Model',['../_model_8hxx.html#a2735f2e1f0f3e083e9acba3b81fa9381',1,'mgis::model']]],
-  ['mutable_5fvalue_5ftype_11',['mutable_value_type',['../structmgis_1_1function_1_1_fixed_size_view.html#a6aefe8fcd4015f657d9132684348b522',1,'mgis::function::FixedSizeView']]]
+  ['mgis_5fmp_5fbatchconstfield_10',['mgis_mp_BatchConstField',['../_batch_material_property_fct_ptr_8hxx.html#a02f00d96d7a4bf095b2d3a7cdeaba9a4',1,'BatchMaterialPropertyFctPtr.hxx']]],
+  ['mgis_5fmp_5fbatchdata_11',['mgis_mp_BatchData',['../_batch_material_property_fct_ptr_8hxx.html#a45ffc030562f3889d009e89dd9bfab92',1,'BatchMaterialPropertyFctPtr.hxx']]],
+  ['mgis_5fmp_5fbatchfield_12',['mgis_mp_BatchField',['../_batch_material_property_fct_ptr_8hxx.html#a4e80f7756dddb368a5076948595b6b23',1,'BatchMaterialPropertyFctPtr.hxx']]],
+  ['mgis_5fmp_5fbatchoutputstatus_13',['mgis_mp_BatchOutputStatus',['../_batch_material_property_fct_ptr_8hxx.html#a39eaea25703eb63a0883a10df0e34e0c',1,'BatchMaterialPropertyFctPtr.hxx']]],
+  ['mgis_5fmp_5fbatchstatistics_14',['mgis_mp_BatchStatistics',['../_batch_material_property_fct_ptr_8hxx.html#a3603de5bf2ba0cb5168fb3454c780c63',1,'BatchMaterialPropertyFctPtr.hxx']]],
+  ['model_15',['Model',['../_model_8hxx.html#a2735f2e1f0f3e083e9acba3b81fa9381',1,'mgis::model']]],
+  ['mutable_5fvalue_5ftype_16',['mutable_value_type',['../structmgis_1_1function_1_1_fixed_size_view.html#a6aefe8fcd4015f657d9132684348b522',1,'mgis::function::FixedSizeView']]]
 ];

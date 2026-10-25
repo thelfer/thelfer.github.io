@@ -1,5 +1,6 @@
 var _test_case_8hxx =
 [
+    [ "tfel::tests::TestAssertionFailure", "structtfel_1_1tests_1_1_test_assertion_failure.html", "structtfel_1_1tests_1_1_test_assertion_failure" ],
     [ "tfel::tests::TestCase", "structtfel_1_1tests_1_1_test_case.html", "structtfel_1_1tests_1_1_test_case" ],
     [ "TFEL_TESTS_ASSERT", "_test_case_8hxx.html#a562f500d2269b4db7443d585cbffd702", null ],
     [ "TFEL_TESTS_CALLMETHOD", "_test_case_8hxx.html#a2db04f472cff48673527f17081ce98d0", null ],

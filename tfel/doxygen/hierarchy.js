@@ -3029,6 +3029,7 @@ var hierarchy =
       [ "tfel::math::KrigingErrorInsufficientData", "structtfel_1_1math_1_1_kriging_error_insufficient_data.html", null ],
       [ "tfel::math::KrigingErrorInvalidLength", "structtfel_1_1math_1_1_kriging_error_invalid_length.html", null ],
       [ "tfel::math::KrigingErrorNoDataSpecified", "structtfel_1_1math_1_1_kriging_error_no_data_specified.html", null ],
+      [ "tfel::tests::TestAssertionFailure", "structtfel_1_1tests_1_1_test_assertion_failure.html", null ],
       [ "tfel::utilities::GenTypeCastError", "structtfel_1_1utilities_1_1_gen_type_cast_error.html", null ]
     ] ],
     [ "tfel::math::RunTimeCheck< RunTimeProperties >", "structtfel_1_1math_1_1_run_time_check.html", null ],

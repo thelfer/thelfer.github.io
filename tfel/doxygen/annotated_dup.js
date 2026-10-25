@@ -2337,7 +2337,6 @@ var annotated_dup =
         [ "MultipleTestOutputs", "structtfel_1_1tests_1_1_multiple_test_outputs.html", "structtfel_1_1tests_1_1_multiple_test_outputs" ],
         [ "StdStreamTestOutput", "structtfel_1_1tests_1_1_std_stream_test_output.html", "structtfel_1_1tests_1_1_std_stream_test_output" ],
         [ "Test", "structtfel_1_1tests_1_1_test.html", "structtfel_1_1tests_1_1_test" ],
-        [ "TestAssertionFailure", "structtfel_1_1tests_1_1_test_assertion_failure.html", "structtfel_1_1tests_1_1_test_assertion_failure" ],
         [ "TestCase", "structtfel_1_1tests_1_1_test_case.html", "structtfel_1_1tests_1_1_test_case" ],
         [ "TestFunctionWrapper", "structtfel_1_1tests_1_1_test_function_wrapper.html", "structtfel_1_1tests_1_1_test_function_wrapper" ],
         [ "TestManager", "structtfel_1_1tests_1_1_test_manager.html", "structtfel_1_1tests_1_1_test_manager" ],

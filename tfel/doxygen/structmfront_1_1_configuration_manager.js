@@ -29,10 +29,10 @@ var structmfront_1_1_configuration_manager =
     [ "addMaterialPropertyInterfaceOptions", "structmfront_1_1_configuration_manager.html#a3581f47a888c3a49f82e63df6c34058a", null ],
     [ "addModelInterfaceOptions", "structmfront_1_1_configuration_manager.html#a27a175c234b1e95657ab9589ff596127", null ],
     [ "getBehaviourInterfaceOptions", "structmfront_1_1_configuration_manager.html#a916ffe0715246b2b224a2f29d0a40d20", null ],
-    [ "getCompilationOptions", "structmfront_1_1_configuration_manager.html#a23be1fa4f25dcd6f9ac9e39719feefe9", null ],
+    [ "getCompilationOptions", "structmfront_1_1_configuration_manager.html#a75cdd8a6f06444ddb50c1547bf56d269", null ],
     [ "getCompiler", "structmfront_1_1_configuration_manager.html#ad263c0fe4bdad4145782e7ab323e3296", null ],
     [ "getIncludePaths", "structmfront_1_1_configuration_manager.html#a8966b2eb4c647bc6c42747b625b9a7de", null ],
-    [ "getLinkerOptions", "structmfront_1_1_configuration_manager.html#aff772ba7c0749ab5f138eeaea904df75", null ],
+    [ "getLinkerOptions", "structmfront_1_1_configuration_manager.html#a7186c0540d6dce476ddc7d3a51483828", null ],
     [ "getMaterialPropertyInterfaceOptions", "structmfront_1_1_configuration_manager.html#a918e5b2f4227f01f533f9e098cf6580a", null ],
     [ "getModelInterfaceOptions", "structmfront_1_1_configuration_manager.html#a5ca541f1a6c13a70566f278c78b88f6e", null ],
     [ "setCompiler", "structmfront_1_1_configuration_manager.html#a3df1caf7fd1200e758de26dc578531f6", null ]

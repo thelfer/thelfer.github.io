@@ -156,7 +156,7 @@ Static Protected Member Functions</h2></td></tr>
 <tr class="separator:a87455a6a8ecca0dc7cec84a4ee67aad7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>structure in charge of computing the QR decomposition of a matrix. No column permutation is performed. </p>
+<div class="textblock"><p>structure in charge of computing the QR decomposition of a matrix. <a class="el" href="class_column.html" title="Treats the columns in files.">Column</a> permutation is performed. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ab620b3423e3320cb0e93b8a5850b5529" name="ab620b3423e3320cb0e93b8a5850b5529"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab620b3423e3320cb0e93b8a5850b5529">&#9670;&#160;</a></span>back_substitute() <span class="overload">[1/2]</span></h2>
@@ -201,7 +201,7 @@ template&lt;<a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6b
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">v</td><td>: vector of size greater than or equal to the number of columns of a (e.g. the result of tq_product) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">v</td><td>: vector </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">a</td><td>: decomposed matrix </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">d</td><td>: diagonal element of the matrix </td></tr>
   </table>
@@ -259,7 +259,7 @@ template&lt;<a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6b
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">v</td><td>: vector of size greater than or equal to the number of columns of a (e.g. the result of tq_product) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">v</td><td>: vector </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">a</td><td>: decomposed matrix </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">d</td><td>: diagonal element of the matrix </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">e</td><td>: precision </td></tr>
@@ -374,11 +374,11 @@ template&lt;<a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6b
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">m</td><td>: the matrix to be decomposed </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">rdiag</td><td>: diagonal values of the R matrix </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">beta</td><td>: half of the square of the norm of the householder vectors The decomposition is done in-place</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">beta</td><td>: euclidian norm of the columns of m The decomposition is done in-place</td></tr>
   </table>
   </dd>
 </dl>
-<p>This function uses householder transformations to compute a qr factorization of the m by n matrix a. that is, one determines an orthogonal matrix q and an upper trapezoidal matrix r such that a = q*r. the householder transformation for column k, k = 1,2,...,min(m,n), is of the form: [ I - (1/beta(k))*v*v ] where v has zeros in the first k-1 positions. </p>
+<p>This function uses householder transformations to compute a qr factorization of the m by n matrix a. that is, one determines an orthogonal matrix q, and an upper trapezoidal matrix r with diagonal elements of nonincreasing magnitude, such that a = q*r. the householder transformation for column k, k = 1,2,...,min(m,n), is of the form: [ I - (1/beta(k))*v*v ] where v has zeros in the first k-1 positions. </p>
 
 </div>
 </div>
@@ -486,7 +486,7 @@ template&lt;<a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6b
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">v</td><td>: vector to be multiplied </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">a</td><td>: decomposed matrix which stores a bunch of householder transformations in its lower diagonal part </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">beta</td><td>: half of the square of the norm of the householder vectors </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">beta</td><td>: square of norm of the householder vectors </td></tr>
   </table>
   </dd>
 </dl>
@@ -503,7 +503,7 @@ template&lt;<a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6b
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetfel.html">tfel</a></li><li class="navelem"><a class="el" href="namespacetfel_1_1math.html">math</a></li><li class="navelem"><a class="el" href="structtfel_1_1math_1_1_q_r_decomp.html">QRDecomp</a></li>
-    <li class="footer">Generated on Mon Oct 26 2026 17:58:18 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Mon Oct 26 2026 18:16:03 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

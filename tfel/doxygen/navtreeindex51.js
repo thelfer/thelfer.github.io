@@ -1,5 +1,9 @@
 var NAVTREEINDEX51 =
 {
+"structmfront_1_1bbrick_1_1_drucker1949_stress_criterion.html#ae22ecbc173fa0b4b388b9b6d7ecc4c86":[7,0,10,0,13,11],
+"structmfront_1_1bbrick_1_1_drucker1949_stress_criterion.html#ae863e4f532ae085f53a1346ba23ec8b8":[7,0,10,0,13,2],
+"structmfront_1_1bbrick_1_1_drucker1949_stress_criterion.html#af0c06279820db66364107fb2a05f7dd7":[7,0,10,0,13,5],
+"structmfront_1_1bbrick_1_1_gurson_tvergaard_needleman1982_stress_criterion.html":[7,0,10,0,14],
 "structmfront_1_1bbrick_1_1_gurson_tvergaard_needleman1982_stress_criterion.html#a4d390f367aa283b9fc5920f892fd220c":[7,0,10,0,14,7],
 "structmfront_1_1bbrick_1_1_gurson_tvergaard_needleman1982_stress_criterion.html#a6b53796935d0b129d8d63717e004a68d":[7,0,10,0,14,1],
 "structmfront_1_1bbrick_1_1_gurson_tvergaard_needleman1982_stress_criterion.html#a85ca6899d5df2479a8d918f2cdf906c1":[7,0,10,0,14,2],
@@ -245,9 +249,5 @@ var NAVTREEINDEX51 =
 "structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a17cf699798dfb77a6301c3645e5a7b6f":[7,0,10,0,33,12],
 "structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a1904c2a476fe01e3c67d1b833c219a38":[7,0,10,0,33,2],
 "structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a22f3b7d6b9da3c8b9c46505a9df60936":[7,0,10,0,33,8],
-"structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a2df515a759a7373d1adafba4c908c9cc":[7,0,10,0,33,10],
-"structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a3554aa288e52e64f366767a51d376afa":[7,0,10,0,33,11],
-"structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a35f8b03dda6037214fa82fcd1bf905e6":[7,0,10,0,33,14],
-"structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a4affd2652f4dc378b65d93c95978e0a5":[7,0,10,0,33,1],
-"structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a69b9bd9605854b5c75fbf461dcdda5e1":[7,0,10,0,33,9]
+"structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a2df515a759a7373d1adafba4c908c9cc":[7,0,10,0,33,10]
 };

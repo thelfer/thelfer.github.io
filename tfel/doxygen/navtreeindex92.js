@@ -1,10 +1,5 @@
 var NAVTREEINDEX92 =
 {
-"tensor_8ixx.html#a7cc94a60179bf1c77a18deb1ca120c7b":[8,0,0,3,5,21,1,1],
-"tensor_8ixx.html#a945fad6d857e8151f4d000c668ed5f93":[8,0,0,3,5,21,1,5],
-"tensor_8ixx.html#adf456be339650796f57f13df9f4e559a":[8,0,0,3,5,21,1,2],
-"tensor_8ixx.html#afe180717d80c6d7e9af64539b3cf591f":[8,0,0,3,5,21,1,4],
-"tensor_result_type_8hxx.html":[8,0,0,3,5,21,8],
 "tfel-check_2include_2_t_f_e_l_2_check_2_configuration_manager_8hxx.html":[8,0,7,0,0,0,5],
 "tfel-check_2include_2_t_f_e_l_2_check_2_configuration_manager_8hxx.html#a0385369df4b8b1b29c4cdc14f3628503":[8,0,7,0,0,0,5,1],
 "tfel-check_2include_2_t_f_e_l_2_check_2_linear_interpolation_8hxx.html":[8,0,7,0,0,0,9],

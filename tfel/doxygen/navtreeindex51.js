@@ -1,5 +1,7 @@
 var NAVTREEINDEX51 =
 {
+"structmfront_1_1bbrick_1_1_drucker1949_stress_criterion.html#a32d396486c5c6d6e7957763d86707838":[7,0,10,0,13,6],
+"structmfront_1_1bbrick_1_1_drucker1949_stress_criterion.html#a44488d414d039c296b5ee36df32aec20":[7,0,10,0,13,1],
 "structmfront_1_1bbrick_1_1_drucker1949_stress_criterion.html#a45222a2c75a7f0425eda3f143a912a83":[7,0,10,0,13,10],
 "structmfront_1_1bbrick_1_1_drucker1949_stress_criterion.html#a53e6a4c98788edef3b65034981e91017":[7,0,10,0,13,12],
 "structmfront_1_1bbrick_1_1_drucker1949_stress_criterion.html#a5ed29799b354d8467b272ba8de80000e":[7,0,10,0,13,4],
@@ -247,7 +249,5 @@ var NAVTREEINDEX51 =
 "structmfront_1_1bbrick_1_1_mises_stress_criterion.html#a3e8dd4c45ccb164450b755d5d0145e20":[7,0,10,0,32,0],
 "structmfront_1_1bbrick_1_1_mises_stress_criterion.html#a46a1847021fdc0415b5ca18ed877adc9":[7,0,10,0,32,3],
 "structmfront_1_1bbrick_1_1_mises_stress_criterion.html#a51e025f3da8959230d5114a6c455a340":[7,0,10,0,32,9],
-"structmfront_1_1bbrick_1_1_mises_stress_criterion.html#ab52cce46e977591c40d6294df2a566a5":[7,0,10,0,32,4],
-"structmfront_1_1bbrick_1_1_mises_stress_criterion.html#ae15b6a90e2a52f5cc8acb43959cff340":[7,0,10,0,32,8],
-"structmfront_1_1bbrick_1_1_mises_stress_criterion.html#af802577d9d16875925e30dcffaee7b7f":[7,0,10,0,32,6]
+"structmfront_1_1bbrick_1_1_mises_stress_criterion.html#ab52cce46e977591c40d6294df2a566a5":[7,0,10,0,32,4]
 };

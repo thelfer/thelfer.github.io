@@ -1,5 +1,10 @@
 var NAVTREEINDEX51 =
 {
+"structmfront_1_1bbrick_1_1_drucker1949_stress_criterion.html#a45222a2c75a7f0425eda3f143a912a83":[7,0,10,0,13,10],
+"structmfront_1_1bbrick_1_1_drucker1949_stress_criterion.html#a53e6a4c98788edef3b65034981e91017":[7,0,10,0,13,12],
+"structmfront_1_1bbrick_1_1_drucker1949_stress_criterion.html#a5ed29799b354d8467b272ba8de80000e":[7,0,10,0,13,4],
+"structmfront_1_1bbrick_1_1_drucker1949_stress_criterion.html#a5fe6ae9d979646c2c39781c4199229fe":[7,0,10,0,13,3],
+"structmfront_1_1bbrick_1_1_drucker1949_stress_criterion.html#a7485b5b6ee27659c0982af6c6d0f39c7":[7,0,10,0,13,8],
 "structmfront_1_1bbrick_1_1_drucker1949_stress_criterion.html#ae22ecbc173fa0b4b388b9b6d7ecc4c86":[7,0,10,0,13,11],
 "structmfront_1_1bbrick_1_1_drucker1949_stress_criterion.html#ae863e4f532ae085f53a1346ba23ec8b8":[7,0,10,0,13,2],
 "structmfront_1_1bbrick_1_1_drucker1949_stress_criterion.html#af0c06279820db66364107fb2a05f7dd7":[7,0,10,0,13,5],
@@ -244,10 +249,5 @@ var NAVTREEINDEX51 =
 "structmfront_1_1bbrick_1_1_mises_stress_criterion.html#a51e025f3da8959230d5114a6c455a340":[7,0,10,0,32,9],
 "structmfront_1_1bbrick_1_1_mises_stress_criterion.html#ab52cce46e977591c40d6294df2a566a5":[7,0,10,0,32,4],
 "structmfront_1_1bbrick_1_1_mises_stress_criterion.html#ae15b6a90e2a52f5cc8acb43959cff340":[7,0,10,0,32,8],
-"structmfront_1_1bbrick_1_1_mises_stress_criterion.html#af802577d9d16875925e30dcffaee7b7f":[7,0,10,0,32,6],
-"structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html":[7,0,10,0,33],
-"structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a17cf699798dfb77a6301c3645e5a7b6f":[7,0,10,0,33,12],
-"structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a1904c2a476fe01e3c67d1b833c219a38":[7,0,10,0,33,2],
-"structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a22f3b7d6b9da3c8b9c46505a9df60936":[7,0,10,0,33,8],
-"structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a2df515a759a7373d1adafba4c908c9cc":[7,0,10,0,33,10]
+"structmfront_1_1bbrick_1_1_mises_stress_criterion.html#af802577d9d16875925e30dcffaee7b7f":[7,0,10,0,32,6]
 };

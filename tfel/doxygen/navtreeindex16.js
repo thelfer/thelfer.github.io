@@ -1,5 +1,7 @@
 var NAVTREEINDEX16 =
 {
+"namespacetfel_1_1material.html#a480760c7575b9d510b3b4cabcf524432":[5,0,9,0,138],
+"namespacetfel_1_1material.html#a485a3da7ee906b0abe5f7c92de81a0cd":[5,0,9,0,218],
 "namespacetfel_1_1material.html#a4c5b080d5f42fcd9be66526f529e26fd":[5,0,9,0,323],
 "namespacetfel_1_1material.html#a4cf62c35a765b2124ffb89c88853a40d":[5,0,9,0,265],
 "namespacetfel_1_1material.html#a4d7ef2bc02bfb160b22d9136525d2983":[5,0,9,0,166],
@@ -247,7 +249,5 @@ var NAVTREEINDEX16 =
 "namespacetfel_1_1material_1_1internals.html#acad2de9a6fc604b31a9cf3350fed51d1":[5,0,9,0,0,70],
 "namespacetfel_1_1material_1_1internals.html#accfb1778e641ef54c909965659dc8574":[5,0,9,0,0,69],
 "namespacetfel_1_1material_1_1internals.html#ae7c5fc84656d8bad264e509940e6f224":[5,0,9,0,0,64],
-"namespacetfel_1_1material_1_1lame.html":[5,0,9,0,1],
-"namespacetfel_1_1math.html":[5,0,9,1],
-"namespacetfel_1_1math.html#a00955709ac2319875bb1ad5bde27753c":[5,0,9,1,766]
+"namespacetfel_1_1material_1_1lame.html":[5,0,9,0,1]
 };

@@ -712,7 +712,6 @@ var hierarchy =
     [ "tfel::material::ComputeAlteredElasticStiffnessBase< ModellingHypothesis::AXISYMMETRICALGENERALISEDPLANESTRESS, T >", "structtfel_1_1material_1_1_compute_altered_elastic_stiffness_base_3_01_modelling_hypothesis_1_1_0ec8e13bb73aea11752b1ff74af2a7e3.html", null ],
     [ "tfel::material::ComputeAlteredElasticStiffnessBase< ModellingHypothesis::PLANESTRESS, T >", "structtfel_1_1material_1_1_compute_altered_elastic_stiffness_base_3_01_modelling_hypothesis_1_1_4e3119c6f4f1ef5da0c029651fb7a8d7.html", null ],
     [ "tfel::material::ComputeAlteredStiffnessTensor< H >", "structtfel_1_1material_1_1_compute_altered_stiffness_tensor.html", null ],
-    [ "tfel::material::ComputeAlteredStiffnessTensor< ModellingHypothesis::AXISYMMETRICALGENERALISEDPLANESTRESS >", "structtfel_1_1material_1_1_compute_altered_stiffness_tensor_3_01_modelling_hypothesis_1_1_a_x_i_b61bb502d84e211932f107720ee42d22.html", null ],
     [ "tfel::material::ComputeAlteredStiffnessTensor< ModellingHypothesis::PLANESTRESS >", "structtfel_1_1material_1_1_compute_altered_stiffness_tensor_3_01_modelling_hypothesis_1_1_p_l_a_n_e_s_t_r_e_s_s_01_4.html", null ],
     [ "tfel::math::ComputeBinaryOperationHandler< TagA, TagB, A, B, Op >", "structtfel_1_1math_1_1_compute_binary_operation_handler.html", null ],
     [ "tfel::math::ComputeBinaryOperationHandler< MathObjectTag, MathObjectTag, A, B, OpMinus >", "classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_math_object_tag_00_01_math_object_taf9bbfcbb57592fbcbb2344ac06801146.html", null ],
@@ -868,8 +867,7 @@ var hierarchy =
     [ "tfel::material::internals::ComputeOrthotropicStiffnessTensorI< ModellingHypothesisToSpaceDimension< H >::value, StiffnessTensorAlterationCharacteristic::UNALTERED >", "structtfel_1_1material_1_1internals_1_1_compute_orthotropic_stiffness_tensor_i.html", [
       [ "tfel::material::internals::ComputeOrthotropicStiffnessTensorII< H, smt >", "structtfel_1_1material_1_1internals_1_1_compute_orthotropic_stiffness_tensor_i_i.html", [
         [ "tfel::material::internals::ComputeOrthotropicStiffnessTensor< H, smt, OrthotropicAxesConvention::DEFAULT >", "structtfel_1_1material_1_1internals_1_1_compute_orthotropic_stiffness_tensor_3_01_h_00_01smt_00_bd32ec311709d12f30c29e11fe9a0099.html", null ],
-        [ "tfel::material::internals::ComputeOrthotropicStiffnessTensor< H, smt, OrthotropicAxesConvention::PIPE >", "structtfel_1_1material_1_1internals_1_1_compute_orthotropic_stiffness_tensor_3_01_h_00_01smt_00_eede53da6ffd0c9ee73c60fe2f7444fa.html", null ],
-        [ "tfel::material::internals::ComputeOrthotropicStiffnessTensor< H, smt, OrthotropicAxesConvention::PLATE >", "structtfel_1_1material_1_1internals_1_1_compute_orthotropic_stiffness_tensor_3_01_h_00_01smt_00_c5b0a9c9d096f716882563004198adcb.html", null ]
+        [ "tfel::material::internals::ComputeOrthotropicStiffnessTensor< H, smt, OrthotropicAxesConvention::PIPE >", "structtfel_1_1material_1_1internals_1_1_compute_orthotropic_stiffness_tensor_3_01_h_00_01smt_00_eede53da6ffd0c9ee73c60fe2f7444fa.html", null ]
       ] ]
     ] ],
     [ "tfel::math::ComputeUnaryOperationResult< TagA, TagOp, A, Op >", "structtfel_1_1math_1_1_compute_unary_operation_result.html", null ],

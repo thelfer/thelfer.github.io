@@ -16,7 +16,6 @@ var namespacetfel_1_1material =
     [ "ComputeAlteredElasticStiffnessBase< ModellingHypothesis::AXISYMMETRICALGENERALISEDPLANESTRESS, T >", "structtfel_1_1material_1_1_compute_altered_elastic_stiffness_base_3_01_modelling_hypothesis_1_1_0ec8e13bb73aea11752b1ff74af2a7e3.html", null ],
     [ "ComputeAlteredElasticStiffnessBase< ModellingHypothesis::PLANESTRESS, T >", "structtfel_1_1material_1_1_compute_altered_elastic_stiffness_base_3_01_modelling_hypothesis_1_1_4e3119c6f4f1ef5da0c029651fb7a8d7.html", null ],
     [ "ComputeAlteredStiffnessTensor", "structtfel_1_1material_1_1_compute_altered_stiffness_tensor.html", null ],
-    [ "ComputeAlteredStiffnessTensor< ModellingHypothesis::AXISYMMETRICALGENERALISEDPLANESTRESS >", "structtfel_1_1material_1_1_compute_altered_stiffness_tensor_3_01_modelling_hypothesis_1_1_a_x_i_b61bb502d84e211932f107720ee42d22.html", null ],
     [ "ComputeAlteredStiffnessTensor< ModellingHypothesis::PLANESTRESS >", "structtfel_1_1material_1_1_compute_altered_stiffness_tensor_3_01_modelling_hypothesis_1_1_p_l_a_n_e_s_t_r_e_s_s_01_4.html", null ],
     [ "computeElasticStiffness", "structtfel_1_1material_1_1compute_elastic_stiffness.html", null ],
     [ "ComputeElasticStiffnessBase", "structtfel_1_1material_1_1_compute_elastic_stiffness_base.html", null ],

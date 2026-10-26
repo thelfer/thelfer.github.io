@@ -5,7 +5,6 @@ var _stiffness_tensor_8hxx =
     [ "tfel::material::GetDefaultStiffnessTensorAlterationCharacteristic< ModellingHypothesis::AXISYMMETRICALGENERALISEDPLANESTRESS >", "structtfel_1_1material_1_1_get_default_stiffness_tensor_alteration_characteristic_3_01_modellingd276170b62645a82c325df209c188abb.html", null ],
     [ "tfel::material::ComputeAlteredStiffnessTensor< H >", "structtfel_1_1material_1_1_compute_altered_stiffness_tensor.html", null ],
     [ "tfel::material::ComputeAlteredStiffnessTensor< ModellingHypothesis::PLANESTRESS >", "structtfel_1_1material_1_1_compute_altered_stiffness_tensor_3_01_modelling_hypothesis_1_1_p_l_a_n_e_s_t_r_e_s_s_01_4.html", null ],
-    [ "tfel::material::ComputeAlteredStiffnessTensor< ModellingHypothesis::AXISYMMETRICALGENERALISEDPLANESTRESS >", "structtfel_1_1material_1_1_compute_altered_stiffness_tensor_3_01_modelling_hypothesis_1_1_a_x_i_b61bb502d84e211932f107720ee42d22.html", null ],
     [ "StiffnessTensorAlterationCharacteristic", "_stiffness_tensor_8hxx.html#a7be786d3143c5d6665e2e6eb12e6a464", [
       [ "UNALTERED", "_stiffness_tensor_8hxx.html#a7be786d3143c5d6665e2e6eb12e6a464a05eb8c6dd46a0ea56e87611252d56bcb", null ],
       [ "ALTERED", "_stiffness_tensor_8hxx.html#a7be786d3143c5d6665e2e6eb12e6a464a0d6def17de959e80440532e7e8e396c9", null ]

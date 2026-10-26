@@ -21,6 +21,7 @@ var _stiffness_tensor_8ixx =
     [ "tfel::material::internals::ComputeOrthotropicStiffnessTensor< ModellingHypothesis::PLANESTRESS, smt, OrthotropicAxesConvention::PIPE >", "structtfel_1_1material_1_1internals_1_1_compute_orthotropic_stiffness_tensor_3_01_modelling_hypodb1a81348721b914b37fa506eff61160.html", null ],
     [ "tfel::material::internals::ComputeOrthotropicStiffnessTensor< ModellingHypothesis::PLANESTRAIN, smt, OrthotropicAxesConvention::PIPE >", "structtfel_1_1material_1_1internals_1_1_compute_orthotropic_stiffness_tensor_3_01_modelling_hypo406b65082f9574633a415faad8c1a35b.html", null ],
     [ "tfel::material::internals::ComputeOrthotropicStiffnessTensor< ModellingHypothesis::GENERALISEDPLANESTRAIN, smt, OrthotropicAxesConvention::PIPE >", "structtfel_1_1material_1_1internals_1_1_compute_orthotropic_stiffness_tensor_3_01_modelling_hypodd9fb27ea150c902beb95c77512b15fc.html", null ],
+    [ "tfel::material::internals::ComputeOrthotropicStiffnessTensor< H, smt, OrthotropicAxesConvention::PLATE >", "structtfel_1_1material_1_1internals_1_1_compute_orthotropic_stiffness_tensor_3_01_h_00_01smt_00_c5b0a9c9d096f716882563004198adcb.html", null ],
     [ "computeIsotropicStiffnessTensor", "_stiffness_tensor_8ixx.html#a02630f6b3acefb705c5c1c27362c3c52", null ],
     [ "computeIsotropicStiffnessTensorII", "_stiffness_tensor_8ixx.html#a13f57fda2164b76b6f08ae5599b998c1", null ],
     [ "computeOrthotropicStiffnessTensor", "_stiffness_tensor_8ixx.html#ad58d6e4f266a2ae9da4353ce9e4d9624", null ],

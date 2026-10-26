@@ -27,7 +27,6 @@ var structtfel_1_1math_1_1_evaluator =
     [ "getCxxFormula", "structtfel_1_1math_1_1_evaluator.html#a7d4a803c4a96d969c487acfd1fef2eae", null ],
     [ "getValue", "structtfel_1_1math_1_1_evaluator.html#a919c692903b717127355697497d64967", null ],
     [ "getValue", "structtfel_1_1math_1_1_evaluator.html#aab1f94296691b1bdaf84aa43a8ffaf60", null ],
-    [ "getVariablesNames", "structtfel_1_1math_1_1_evaluator.html#a71b25b878a7841b129b4f064f5b23700", null ],
     [ "operator()", "structtfel_1_1math_1_1_evaluator.html#a3dfec67902be6ee3ff7febbad3e0661c", null ],
     [ "operator()", "structtfel_1_1math_1_1_evaluator.html#ad6d2f5dde7e374faad18ff4a818f0e6c", null ],
     [ "operator=", "structtfel_1_1math_1_1_evaluator.html#a7a321ca83b4b85365b2e2ee66733022c", null ],

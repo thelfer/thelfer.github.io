@@ -1,7 +1,8 @@
 var structtfel_1_1system_1_1_threaded_task_result =
 [
     [ "ThreadedTaskResult", "structtfel_1_1system_1_1_threaded_task_result.html#a44f825f7da94cff02e88c0961348345d", null ],
-    [ "ThreadedTaskResult", "structtfel_1_1system_1_1_threaded_task_result.html#aeba24fa082c647982a527aa48c389324", null ],
+    [ "ThreadedTaskResult", "structtfel_1_1system_1_1_threaded_task_result.html#a87581955b79750cfadf6fef2968011f5", null ],
+    [ "ThreadedTaskResult", "structtfel_1_1system_1_1_threaded_task_result.html#aa38c30d6372dd9ec4041a011c1bc667c", null ],
     [ "ThreadedTaskResult", "structtfel_1_1system_1_1_threaded_task_result.html#a4f659ba31c9109b57716483214168f1e", null ],
     [ "ThreadedTaskResult", "structtfel_1_1system_1_1_threaded_task_result.html#a2e67b0e789d6633a37c73a1bde5b5bf1", null ],
     [ "~ThreadedTaskResult", "structtfel_1_1system_1_1_threaded_task_result.html#a7a3e7ba23d95117aafc00758eadc149a", null ],

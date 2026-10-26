@@ -169,9 +169,9 @@ var NAVTREEINDEX =
 "structtfel_1_1math_1_1stensor.html#ae1ecc020305ed0ab753ce17756e7a8f1",
 "structtfel_1_1meta_1_1_t_l_remove_nth_first_elt_3_01_t_l_e_00_010u_01_4.html#ae91c8459f20f9cf4816a50b6f05a5286",
 "structtfel_1_1system_1_1_external_library_manager.html#af4e49faacfaf8281a40dd358bc9e875f",
-"structtfel_1_1typetraits_1_1_abs_type.html",
-"structtfel_1_1utilities_1_1_cxx_tokenizer_options.html#a86f41c26cd7a1256d48bc29f0576a447",
-"tensor_8ixx.html#afe180717d80c6d7e9af64539b3cf591f"
+"structtfel_1_1typetraits_1_1_abs_type_3_01_quantity_type_01_4.html",
+"structtfel_1_1utilities_1_1_cxx_tokenizer_options.html#a90766089a86f33c0256010578fd2f681",
+"tensor_result_type_8hxx.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

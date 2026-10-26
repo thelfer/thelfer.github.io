@@ -11,6 +11,5 @@ var _supported_types_8hxx =
     [ "getTypeAliases", "_supported_types_8hxx.html#adbac501d5444476d05c6da58a593c816", null ],
     [ "operator*", "_supported_types_8hxx.html#a1c74ff8763acbb0c7b479d46fe3bf72d", null ],
     [ "operator*", "_supported_types_8hxx.html#a87b392fe4f0591e1677ea6def56c04bc", null ],
-    [ "operator<<", "_supported_types_8hxx.html#ac9d6b109625e4636ca3a34fca09bb19a", null ],
     [ "to_string", "_supported_types_8hxx.html#a02780b9599daa678096f6fceff95fd10", null ]
 ];

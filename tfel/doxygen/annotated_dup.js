@@ -1966,7 +1966,7 @@ var annotated_dup =
         [ "QRNullPivot", "structtfel_1_1math_1_1_q_r_null_pivot.html", "structtfel_1_1math_1_1_q_r_null_pivot" ],
         [ "QRUnmatchedSize", "structtfel_1_1math_1_1_q_r_unmatched_size.html", "structtfel_1_1math_1_1_q_r_unmatched_size" ],
         [ "qt", "structtfel_1_1math_1_1qt.html", null ],
-        [ "qt_ref", "structtfel_1_1math_1_1qt__ref.html", null ],
+        [ "qt_ref", "structtfel_1_1math_1_1qt__ref.html", "structtfel_1_1math_1_1qt__ref" ],
         [ "Quantity", "structtfel_1_1math_1_1_quantity.html", "structtfel_1_1math_1_1_quantity" ],
         [ "QuantityTraits", "structtfel_1_1math_1_1_quantity_traits.html", "structtfel_1_1math_1_1_quantity_traits" ],
         [ "QuantityTraits< Quantity< QuantityUnitType, QuantityValueType, QuantityOwnershipPolicy > >", "structtfel_1_1math_1_1_quantity_traits_3_01_quantity_3_01_quantity_unit_type_00_01_quantity_valu3f151d28c90bf326177b314b31786f75.html", "structtfel_1_1math_1_1_quantity_traits_3_01_quantity_3_01_quantity_unit_type_00_01_quantity_valu3f151d28c90bf326177b314b31786f75" ],

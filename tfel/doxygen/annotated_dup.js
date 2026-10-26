@@ -1014,8 +1014,8 @@ var annotated_dup =
       ] ],
       [ "fsalgo", null, [
         [ "internals", null, [
-          [ "do_loop", "structtfel_1_1fsalgo_1_1internals_1_1do__loop.html", null ],
-          [ "do_loop< N, N >", "structtfel_1_1fsalgo_1_1internals_1_1do__loop_3_01_n_00_01_n_01_4.html", null ]
+          [ "do_loop", "structtfel_1_1fsalgo_1_1internals_1_1do__loop.html", "structtfel_1_1fsalgo_1_1internals_1_1do__loop" ],
+          [ "do_loop< N, N >", "structtfel_1_1fsalgo_1_1internals_1_1do__loop_3_01_n_00_01_n_01_4.html", "structtfel_1_1fsalgo_1_1internals_1_1do__loop_3_01_n_00_01_n_01_4" ]
         ] ],
         [ "accumulate", "structtfel_1_1fsalgo_1_1accumulate.html", null ],
         [ "copy", "structtfel_1_1fsalgo_1_1copy.html", null ],
@@ -1037,7 +1037,7 @@ var annotated_dup =
         [ "inner_product", "structtfel_1_1fsalgo_1_1inner__product.html", null ],
         [ "iota", "structtfel_1_1fsalgo_1_1iota.html", null ],
         [ "iota< 0u >", "structtfel_1_1fsalgo_1_1iota_3_010u_01_4.html", null ],
-        [ "loop", "structtfel_1_1fsalgo_1_1loop.html", null ],
+        [ "loop", "structtfel_1_1fsalgo_1_1loop.html", "structtfel_1_1fsalgo_1_1loop" ],
         [ "max_element", "structtfel_1_1fsalgo_1_1max__element.html", null ],
         [ "max_element< 0u >", "structtfel_1_1fsalgo_1_1max__element_3_010u_01_4.html", null ],
         [ "max_element< 1u >", "structtfel_1_1fsalgo_1_1max__element_3_011u_01_4.html", null ],

@@ -1465,6 +1465,7 @@ var hierarchy =
     [ "cyrano::CyranoInterfaceExceptions", "structcyrano_1_1_cyrano_interface_exceptions.html", [
       [ "cyrano::CyranoBehaviourHandler< H, Behaviour >", "structcyrano_1_1_cyrano_behaviour_handler.html", null ],
       [ "cyrano::CyranoBehaviourHandler< H, Behaviour >::GradientInitialiserWithStressFreeExpansion", "structcyrano_1_1_cyrano_behaviour_handler_1_1_gradient_initialiser_with_stress_free_expansion.html", null ],
+      [ "cyrano::CyranoGenericPlaneStressHandler< Behaviour >", "structcyrano_1_1_cyrano_generic_plane_stress_handler.html", null ],
       [ "cyrano::CyranoInterface< Behaviour >", "structcyrano_1_1_cyrano_interface.html", null ],
       [ "cyrano::CyranoInterfaceDispatch< H, Behaviour >", "structcyrano_1_1_cyrano_interface_dispatch.html", null ]
     ] ],
@@ -1590,8 +1591,8 @@ var hierarchy =
     [ "dianafea::DianaFEABehaviourHandler< H, Behaviour >::DoNothingInitializer", "structdianafea_1_1_diana_f_e_a_behaviour_handler_1_1_do_nothing_initializer.html", null ],
     [ "lsdyna::LSDYNABehaviourHandler< H, Behaviour >::DoNothingInitializer", "structlsdyna_1_1_l_s_d_y_n_a_behaviour_handler_1_1_do_nothing_initializer.html", null ],
     [ "lsdyna::LSDYNAExplicitInterface< H, T, Behaviour >::DoNothingInitializer", "structlsdyna_1_1_l_s_d_y_n_a_explicit_interface_1_1_do_nothing_initializer.html", null ],
-    [ "tfel::math::DotProduct< N, M >", "structtfel_1_1math_1_1_dot_product.html", null ],
     [ "tfel::math::dotProduct< N >", "structtfel_1_1math_1_1dot_product.html", null ],
+    [ "tfel::math::DotProduct< N, M >", "structtfel_1_1math_1_1_dot_product.html", null ],
     [ "tfel::math::dotProduct< 0u >", "structtfel_1_1math_1_1dot_product_3_010u_01_4.html", null ],
     [ "tfel::math::DotProduct< 0u, M >", "structtfel_1_1math_1_1_dot_product_3_010u_00_01_m_01_4.html", null ],
     [ "tfel::math::internals::DPK1_DF_to_DTAU_DF_Converter< N >", "structtfel_1_1math_1_1internals_1_1_d_p_k1___d_f__to___d_t_a_u___d_f___converter.html", null ],

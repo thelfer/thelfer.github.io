@@ -339,6 +339,7 @@ var annotated_dup =
       [ "CyranoComputeThermalExpansionCoefficientTensor< tfel::material::ModellingHypothesis::AXISYMMETRICALGENERALISEDPLANESTRESS, ISOTROPIC >", "structcyrano_1_1_cyrano_compute_thermal_expansion_coefficient_tensor_3_01tfel_1_1material_1_1_mo5c7d39c8f292c08aae38bd9c10a5a26e.html", null ],
       [ "CyranoComputeThermalExpansionCoefficientTensor< tfel::material::ModellingHypothesis::AXISYMMETRICALGENERALISEDPLANESTRESS, ORTHOTROPIC >", "structcyrano_1_1_cyrano_compute_thermal_expansion_coefficient_tensor_3_01tfel_1_1material_1_1_mo26d55a7d1cf54f2cab3a77704eddda5a.html", null ],
       [ "CyranoException", "structcyrano_1_1_cyrano_exception.html", null ],
+      [ "CyranoGenericPlaneStressHandler", "structcyrano_1_1_cyrano_generic_plane_stress_handler.html", null ],
       [ "CyranoIntegrationFailed", "structcyrano_1_1_cyrano_integration_failed.html", null ],
       [ "CyranoInterface", "structcyrano_1_1_cyrano_interface.html", null ],
       [ "CyranoInterfaceDispatch", "structcyrano_1_1_cyrano_interface_dispatch.html", null ],

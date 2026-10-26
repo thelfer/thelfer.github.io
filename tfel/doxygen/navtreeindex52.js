@@ -1,5 +1,9 @@
 var NAVTREEINDEX52 =
 {
+"structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a3554aa288e52e64f366767a51d376afa":[7,0,10,0,33,11],
+"structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a35f8b03dda6037214fa82fcd1bf905e6":[7,0,10,0,33,14],
+"structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a4affd2652f4dc378b65d93c95978e0a5":[7,0,10,0,33,1],
+"structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a69b9bd9605854b5c75fbf461dcdda5e1":[7,0,10,0,33,9],
 "structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a7a88da8c8adf3b6255748f251a8907f3":[7,0,10,0,33,0],
 "structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a8ad8589bad836ab32e3689c0dc0fd059":[7,0,10,0,33,13],
 "structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html#a94e93ec4268a291fb029a8868c6f61a3":[7,0,10,0,33,15],
@@ -245,9 +249,5 @@ var NAVTREEINDEX52 =
 "structmfront_1_1bbrick_1_1_stress_potential.html#a75fc3289411ea5b73726ade864f41a52":[7,0,10,0,57,10],
 "structmfront_1_1bbrick_1_1_stress_potential.html#a788c3eeff0f7b3efc88e8b5586fc88e6":[7,0,10,0,57,1],
 "structmfront_1_1bbrick_1_1_stress_potential.html#a830a9991354243fe7e87583df6a5e835":[7,0,10,0,57,12],
-"structmfront_1_1bbrick_1_1_stress_potential.html#a8ffbf600e74506f126e9c038f6b0a4ce":[7,0,10,0,57,3],
-"structmfront_1_1bbrick_1_1_stress_potential.html#a974a48d661e1b3397a3cce6b64050562":[7,0,10,0,57,0],
-"structmfront_1_1bbrick_1_1_stress_potential.html#aa9933a8f126d10dd947a27956333af58":[7,0,10,0,57,6],
-"structmfront_1_1bbrick_1_1_stress_potential.html#aacce7973bbffba4788c67b13ac116f8d":[7,0,10,0,57,13],
-"structmfront_1_1bbrick_1_1_stress_potential.html#abe35dfd1637c49e2781faf94b55fb98f":[7,0,10,0,57,11]
+"structmfront_1_1bbrick_1_1_stress_potential.html#a8ffbf600e74506f126e9c038f6b0a4ce":[7,0,10,0,57,3]
 };

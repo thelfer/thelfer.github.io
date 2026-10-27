@@ -33,7 +33,7 @@ MathJax.Hub.Config({
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">MGIS
+   <div id="projectname">MGIS<span id="projectnumber">&#160;3.1.0</span>
    </div>
   </td>
  </tr>
@@ -104,7 +104,8 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <dl class="section date"><dt>Date</dt><dd>28/01/2020</dd></dl>
 <p>The official website of the <code>MGIS</code> project is the following: <a href="https://thelfer.github.io/mgis/web/index.html">https://thelfer.github.io/mgis/web/index.html</a>.</p>
 <p>This project aims at providing tools (functions, classes, bindings, etc...) to handle behaviours written using <code>MFront</code> generic interface. For information about <code>MFront</code>, see <a href="http://tfel.sourceforge.net">http://tfel.sourceforge.net</a>.</p>
-<p>Those tools are meant to be used by (<code>FEM</code>, <code>FFT</code>, etc.) solver developers. These tools are <em>not</em> linked to the <code>TFEL</code> libraries. Permissive licences have been chosen to allow integration in open-source and proprietary codes.</p>
+<p>Those tools are meant to be used by (<code>FEM</code>, <code>FFT</code>, etc.) solver developers. Permissive licences have been chosen to allow integration in open-source and proprietary codes: <code>MGIS</code> is distributed under either the <code>LGPL</code> v3 licence or the <code>CeCILL-C</code> licence.</p>
+<p>By default, <code>MGIS</code> looks for the <code>TFEL</code> libraries and, if they are found, is linked to the <code>TFELMath</code> and <code>TFELMFrontDatabase</code> libraries, which provide the <code>TFEL/Math</code> objects of <code>MGIS/Function</code> and the <code>MFront</code> database (<code><a class="el" href="namespacemgis.html#a2dcfab4018be381a91704727143a3436">mgis::getDatabase</a></code> and <code><a class="el" href="_behaviour_8hxx.html#a189e434ef765711d8c6ef6d668ec2bb2" title="load a behaviour from the database">mgis::behaviour::loadFromDatabase</a></code>). Those libraries are distributed under either the <code>GPL</code> licence with a linking exception or the <code>CeCILL-A</code> licence. Passing <code>-Ddisable-tfel=ON</code> to <code>cmake</code> builds a library independent of <code>TFEL</code>.</p>
 <h1><a class="anchor" id="autotoc_md0"></a>
 The MFrontGenericInterface C++ library</h1>
 <p>The project is build around the <code>MFrontGenericInterface</code> library. This library provides two main functions:</p>
@@ -113,7 +114,7 @@ The MFrontGenericInterface C++ library</h1>
 <li>the <code><a class="el" href="_integrate_8hxx.html#ad8d585a3470d15c1df99344629bb5fb6" title="integrate the behaviour. The returned value has the following meaning:">mgis::behaviour::integrate</a></code> integrates the behaviour over one time step. The data associated with an integration point are handled by the <code><a class="el" href="structmgis_1_1behaviour_1_1_behaviour_data.html" title="structure in charge of containing the data required for a behaviour integration.">mgis::behaviour::BehaviourData</a></code> class which contains the state of the integration point at the beginning and at the end of the time step.</li>
 </ul>
 <p>The library also supports handling a group of integration points though the <code><a class="el" href="structmgis_1_1behaviour_1_1_material_state_manager.html" title="structure in charge of handling the state of a material in an optimized way. Here,...">mgis::behaviour::MaterialStateManager</a></code> class.</p>
-<p>An introduction to the <code>C++</code> library may be found <a href="bindings-cxx.html">here</a></p>
+<p>An introduction to the <code>C++</code> library may be found <a href="https://thelfer.github.io/mgis/web/bindings-cxx.html">here</a></p>
 <h1><a class="anchor" id="autotoc_md1"></a>
 Bindings</h1>
 <h2><a class="anchor" id="autotoc_md2"></a>
@@ -124,7 +125,7 @@ Existing bindings</h2>
 <li><code>python</code> binding</li>
 <li><code>fortran</code> binding</li>
 <li><code>julia</code> binding</li>
-<li><code>fenics</code> bindings (experimental). Those bindings are strongly inspired by the <code>fenics-solid-mechanics</code> project. Those bindings are currently quite limited as mostly serve as a proof of concept. Note that <code>MGIS</code> can also be used in <code>FEniCS</code> through the <code>python</code> interface. This is discussed <a href="FEniCSBindings.html">here</a>.</li>
+<li><code>fenics</code> bindings (experimental). Those bindings are strongly inspired by the <code>fenics-solid-mechanics</code> project. Those bindings are currently quite limited as mostly serve as a proof of concept. Note that <code>MGIS</code> can also be used in <code>FEniCS</code> through the <code>python</code> interface. This is discussed <a href="https://thelfer.github.io/mgis/web/FEniCSBindings.html">here</a>.</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md3"></a>
 Future bindings (contributors are welcomed)</h2>
@@ -135,7 +136,10 @@ Future bindings (contributors are welcomed)</h2>
 <h1><a class="anchor" id="autotoc_md4"></a>
 Versions, branches</h1>
 <ul>
+<li>Version <code>3.2</code> is meant to be build against <code>TFEL</code> 5.2</li>
+<li>Version <code>3.1.1</code> is meant to be build against <code>TFEL</code> 5.1.1</li>
 <li>Version <code>3.1.0</code> is meant to be build against <code>TFEL</code> 5.1</li>
+<li>Version <code>3.0.2</code> is meant to be build against <code>TFEL</code> 5.0.2</li>
 <li>Version <code>3.0.1</code> is meant to be build against <code>TFEL</code> 5.0.1</li>
 <li>Version <code>3.0</code> is meant to be build against <code>TFEL</code> 5.0</li>
 <li>Version <code>2.2.1</code> is meant to be build against <code>TFEL</code> 4.2.3</li>
@@ -159,19 +163,38 @@ Versions, branches</h1>
 <li>The <code>rliv-2.0</code> follows the evolution of the 4.0.x series of the <code>TFEL</code> project.</li>
 <li>The <code>rliv-1.2</code> follows the evolution of the 3.4.x series of the <code>TFEL</code> project.</li>
 <li>The <code>rliv-1.1</code> follows the evolution of the 3.3.x series of the <code>TFEL</code> project.</li>
-<li>The <code>rliv-1.0</code> follows the evolution of the 3.2.x series of the <code>TFEL</code> project. Note that this branch is <b>not</b> compatible with <code>TFEL-3.2.0</code>.<ul>
-<li></li>
-</ul>
-</li>
+<li>The <code>rliv-1.0</code> follows the evolution of the 3.2.x series of the <code>TFEL</code> project. Note that this branch is <b>not</b> compatible with <code>TFEL-3.2.0</code>.</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md5"></a>
 Release notes</h2>
 <ul>
-<li><a href="release-notes-1.1.html">Version 1.1</a></li>
+<li><a href="https://thelfer.github.io/mgis/web/release-notes-3.2.html">Version 3.2</a></li>
+<li><a href="https://thelfer.github.io/mgis/web/release-notes-3.1.1.html">Version 3.1.1</a></li>
+<li><a href="https://thelfer.github.io/mgis/web/release-notes-3.1.html">Version 3.1</a></li>
+<li><a href="https://thelfer.github.io/mgis/web/release-notes-3.0.3.html">Version 3.0.3</a></li>
+<li><a href="https://thelfer.github.io/mgis/web/release-notes-3.0.2.html">Version 3.0.2</a></li>
+<li><a href="https://thelfer.github.io/mgis/web/release-notes-3.0.1.html">Version 3.0.1</a></li>
+<li><a href="https://thelfer.github.io/mgis/web/release-notes-3.0.html">Version 3.0</a></li>
+<li><a href="https://thelfer.github.io/mgis/web/release-notes-2.2.2.html">Version 2.2.2</a></li>
+<li><a href="https://thelfer.github.io/mgis/web/release-notes-2.2.1.html">Version 2.2.1</a></li>
+<li><a href="https://thelfer.github.io/mgis/web/release-notes-2.2.html">Version 2.2</a></li>
+<li><a href="https://thelfer.github.io/mgis/web/release-notes-2.1.2.html">Version 2.1.2</a></li>
+<li><a href="https://thelfer.github.io/mgis/web/release-notes-2.1.1.html">Version 2.1.1</a></li>
+<li><a href="https://thelfer.github.io/mgis/web/release-notes-2.1.html">Version 2.1</a></li>
+<li><a href="https://thelfer.github.io/mgis/web/release-notes-2.0.1.html">Version 2.0.1</a></li>
+<li><a href="https://thelfer.github.io/mgis/web/release-notes-2.0.html">Version 2.0</a></li>
+<li><a href="https://thelfer.github.io/mgis/web/release-notes-1.2.3.html">Version 1.2.3</a></li>
+<li><a href="https://thelfer.github.io/mgis/web/release-notes-1.2.2.html">Version 1.2.2</a></li>
+<li><a href="https://thelfer.github.io/mgis/web/release-notes-1.2.1.html">Version 1.2.1</a></li>
+<li><a href="https://thelfer.github.io/mgis/web/release-notes-1.2.html">Version 1.2</a></li>
+<li><a href="https://thelfer.github.io/mgis/web/release-notes-1.1.2.html">Version 1.1.2</a></li>
+<li><a href="https://thelfer.github.io/mgis/web/release-notes-1.1.1.html">Version 1.1.1</a></li>
+<li><a href="https://thelfer.github.io/mgis/web/release-notes-1.1.html">Version 1.1</a></li>
+<li><a href="https://thelfer.github.io/mgis/web/release-notes-1.0.2.html">Version 1.0.2</a></li>
 </ul>
 <h1><a class="anchor" id="autotoc_md6"></a>
 License</h1>
-<p><code>MGIS</code> is published under the <code>LGPL</code>v3 licence.</p>
+<p><code>MGIS</code> is published under either the <code>LGPL</code> v3 licence or the <code>CeCILL-C</code> licence.</p>
 <h1><a class="anchor" id="autotoc_md7"></a>
 Acknowledgement</h1>
 <p>This project uses code extracted from the following projects:</p>
@@ -188,7 +211,7 @@ Acknowledgement</h1>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Oct 27 2026 12:55:26 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Oct 27 2026 13:01:51 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

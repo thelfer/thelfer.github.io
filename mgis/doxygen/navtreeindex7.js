@@ -1,6 +1,5 @@
 var NAVTREEINDEX7 =
 {
-"structmgis_1_1function_1_1_unary_operation2.html#ab9b833fe075cf161cdb62d0141b45707":[3,0,1,3,52,0],
 "structmgis_1_1function_1_1_uniform_evaluator.html":[3,0,1,3,53],
 "structmgis_1_1function_1_1_uniform_evaluator.html#a04081f01a156bbc126dcfe534b9dea7a":[3,0,1,3,53,5],
 "structmgis_1_1function_1_1_uniform_evaluator.html#a4492696270da87b038ea2131934ab69b":[3,0,1,3,53,11],

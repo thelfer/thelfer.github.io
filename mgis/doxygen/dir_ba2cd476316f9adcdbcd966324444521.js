@@ -7,7 +7,6 @@ var dir_ba2cd476316f9adcdbcd966324444521 =
     [ "BehaviourDescription.hxx", "_behaviour_description_8hxx.html", "_behaviour_description_8hxx" ],
     [ "BehaviourFctPtr.hxx", "_behaviour_fct_ptr_8hxx.html", "_behaviour_fct_ptr_8hxx" ],
     [ "BehaviourIntegrationFailureAnalyser.hxx", "_behaviour_integration_failure_analyser_8hxx.html", "_behaviour_integration_failure_analyser_8hxx" ],
-    [ "ChangeBasis.ixx", "_change_basis_8ixx.html", null ],
     [ "FiniteStrainBehaviourOptions.hxx", "_finite_strain_behaviour_options_8hxx.html", "_finite_strain_behaviour_options_8hxx" ],
     [ "FiniteStrainSupport.hxx", "_finite_strain_support_8hxx.html", "_finite_strain_support_8hxx" ],
     [ "Hypothesis.hxx", "_hypothesis_8hxx.html", "_hypothesis_8hxx" ],

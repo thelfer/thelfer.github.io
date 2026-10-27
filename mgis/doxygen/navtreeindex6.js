@@ -1,5 +1,6 @@
 var NAVTREEINDEX6 =
 {
+"structmgis_1_1function_1_1_binary_operation_evaluator_base.html#ac947662bea17c2b1e8edd93af8097d49":[3,0,1,3,4,6],
 "structmgis_1_1function_1_1_binary_operation_evaluator_base.html#ae237f22011814135d3ae37fa7b4fbae4":[3,0,1,3,4,3],
 "structmgis_1_1function_1_1_binary_operation_evaluator_base.html#aee9e92c08999bd207a33ad4912256789":[3,0,1,3,4,4],
 "structmgis_1_1function_1_1_binary_operation_evaluator_base.html#af34ff0536f8cb964657bae93b4bb88a1":[3,0,1,3,4,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX6 =
 "structmgis_1_1function_1_1_unary_operation.html":[3,0,1,3,51],
 "structmgis_1_1function_1_1_unary_operation.html#a173b5f4fc0c651be30a0f1142f359391":[3,0,1,3,51,0],
 "structmgis_1_1function_1_1_unary_operation.html#aa3d43ced5b3b63b2f31b3d96810108d2":[3,0,1,3,51,1],
-"structmgis_1_1function_1_1_unary_operation2.html":[3,0,1,3,52],
-"structmgis_1_1function_1_1_unary_operation2.html#ab9b833fe075cf161cdb62d0141b45707":[3,0,1,3,52,0]
+"structmgis_1_1function_1_1_unary_operation2.html":[3,0,1,3,52]
 };

@@ -110,6 +110,7 @@ $(document).ready(function(){initNavTree('_evaluator_concept_8hxx.html',''); ini
 <div class="textblock"><code>#include &lt;concepts&gt;</code><br />
 <code>#include &lt;type_traits&gt;</code><br />
 <code>#include &quot;<a class="el" href="_config_8hxx.html">MGIS/Config.hxx</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_abstract_error_handler_8hxx.html">MGIS/AbstractErrorHandler.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_compile_time_size_8hxx.html">MGIS/Function/CompileTimeSize.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_space_concept_8hxx.html">MGIS/Function/SpaceConcept.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_evaluator_concept_8ixx.html">MGIS/Function/EvaluatorConcept.ixx</a>&quot;</code><br />
@@ -176,6 +177,9 @@ template&lt;EvaluatorConcept EvaluatorType&gt; </td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a049bb16ff9ff8ea428ad4d0a8f452516" id="r_a049bb16ff9ff8ea428ad4d0a8f452516"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_evaluator_concept_8hxx.html#a049bb16ff9ff8ea428ad4d0a8f452516">mgis::function::checkMatchingSpaces</a> (<a class="el" href="structmgis_1_1_abstract_error_handler.html">AbstractErrorHandler</a> &amp;, const EvaluatorConcept <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a> &amp;, const EvaluatorConcept <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a> &amp;)</td></tr>
+<tr class="memdesc:a049bb16ff9ff8ea428ad4d0a8f452516"><td class="mdescLeft">&#160;</td><td class="mdescRight">check if the given evaluators shares the same space  <br /></td></tr>
+<tr class="separator:a049bb16ff9ff8ea428ad4d0a8f452516"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6bd5eb00468484c1a6980231ebd7135b" id="r_a6bd5eb00468484c1a6980231ebd7135b"><td class="memTemplParams" colspan="2">template&lt;EvaluatorConcept EvaluatorType&gt; </td></tr>
 <tr class="memitem:a6bd5eb00468484c1a6980231ebd7135b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">decltype</a>(<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>)&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_evaluator_concept_8hxx.html#a6bd5eb00468484c1a6980231ebd7135b">mgis::function::internals::disambiguateGetSpace</a> (const EvaluatorType &amp;)</td></tr>
 <tr class="separator:a6bd5eb00468484c1a6980231ebd7135b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -205,6 +209,58 @@ Variables</h2></td></tr>
 </ul>
 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a049bb16ff9ff8ea428ad4d0a8f452516" name="a049bb16ff9ff8ea428ad4d0a8f452516"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a049bb16ff9ff8ea428ad4d0a8f452516">&#9670;&#160;</a></span>checkMatchingSpaces()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool mgis::function::checkMatchingSpaces </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmgis_1_1_abstract_error_handler.html">AbstractErrorHandler</a> &amp;&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const EvaluatorConcept <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a> &amp;&#160;</td>
+          <td class="paramname"><em>e1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const EvaluatorConcept <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a> &amp;&#160;</td>
+          <td class="paramname"><em>e2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>check if the given evaluators shares the same space </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ctx</td><td>context </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">e1</td><td>first evaluator </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">e2</td><td>second evaluator </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a939c7c2047f43d7e159788e35ed9479f" name="a939c7c2047f43d7e159788e35ed9479f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a939c7c2047f43d7e159788e35ed9479f">&#9670;&#160;</a></span>disambiguateCheck()</h2>
 
@@ -328,7 +384,7 @@ template&lt;EvaluatorConcept EvaluatorType&gt; </div>
 <div class="line">      <span class="keyword">requires</span>(evaluator_result&lt;EvaluatorType&gt; rf) {</div>
 <div class="line">    { rf.data() } -&gt; <a class="code hl_concept" href="conceptmgis_1_1function_1_1internals_1_1is__pointer__to__real.html">internals::is_pointer_to_real</a>;</div>
 <div class="line">  }</div>
-<div class="ttc" id="aconceptmgis_1_1function_1_1internals_1_1is__pointer__to__real_html"><div class="ttname"><a href="conceptmgis_1_1function_1_1internals_1_1is__pointer__to__real.html">mgis::function::internals::is_pointer_to_real</a></div><div class="ttdef"><b>Definition</b> EvaluatorConcept.hxx:226</div></div>
+<div class="ttc" id="aconceptmgis_1_1function_1_1internals_1_1is__pointer__to__real_html"><div class="ttname"><a href="conceptmgis_1_1function_1_1internals_1_1is__pointer__to__real.html">mgis::function::internals::is_pointer_to_real</a></div><div class="ttdef"><b>Definition</b> EvaluatorConcept.hxx:232</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -338,7 +394,7 @@ template&lt;EvaluatorConcept EvaluatorType&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_926a8b4fb7ad5e8e017827ff5fbbb316.html">MGIS</a></li><li class="navelem"><a class="el" href="dir_2e52b00940cd27d9780366949db1e89b.html">Function</a></li><li class="navelem"><a class="el" href="_evaluator_concept_8hxx.html">EvaluatorConcept.hxx</a></li>
-    <li class="footer">Generated on Tue Oct 27 2026 04:11:04 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Oct 27 2026 04:13:55 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

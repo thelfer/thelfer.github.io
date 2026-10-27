@@ -17,7 +17,6 @@ var _evaluator_concept_8hxx =
     [ "mgis::function::QuadratureEvaluatorConcept", "conceptmgis_1_1function_1_1_quadrature_evaluator_concept.html", null ],
     [ "mgis::function::internals::is_pointer_to_real", "conceptmgis_1_1function_1_1internals_1_1is__pointer__to__real.html", null ],
     [ "evaluator_result", "_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d", null ],
-    [ "checkMatchingSpaces", "_evaluator_concept_8hxx.html#a049bb16ff9ff8ea428ad4d0a8f452516", null ],
     [ "disambiguateCheck", "_evaluator_concept_8hxx.html#a939c7c2047f43d7e159788e35ed9479f", null ],
     [ "disambiguateGetNumberOfComponents", "_evaluator_concept_8hxx.html#a638f9cb82853384c3618913720de7403", null ],
     [ "disambiguateGetSpace", "_evaluator_concept_8hxx.html#a6bd5eb00468484c1a6980231ebd7135b", null ]

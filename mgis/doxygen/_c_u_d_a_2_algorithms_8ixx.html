@@ -118,15 +118,15 @@ Functions</h2></td></tr>
 template&lt;typename CallableType , typename SpaceSizeType &gt; </td></tr>
 <tr class="memitem:ad6c858f0d83233cb2d27ea1731e98f94"><td class="memTemplItemLeft" align="right" valign="top">__global__ void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>mgis::function::cuda::apply_kernel</b> (CallableType f, const SpaceSizeType s)</td></tr>
 <tr class="separator:ad6c858f0d83233cb2d27ea1731e98f94"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9e47a28d29123ce926f02afac175e48" id="r_af9e47a28d29123ce926f02afac175e48"><td class="memTemplParams" colspan="2"><a id="af9e47a28d29123ce926f02afac175e48" name="af9e47a28d29123ce926f02afac175e48"></a>
+<tr class="memitem:adde20e950457bb76a1ff37dab8124c97" id="r_adde20e950457bb76a1ff37dab8124c97"><td class="memTemplParams" colspan="2"><a id="adde20e950457bb76a1ff37dab8124c97" name="adde20e950457bb76a1ff37dab8124c97"></a>
 template&lt;typename CallableType , typename SpaceSizeType &gt; </td></tr>
-<tr class="memitem:af9e47a28d29123ce926f02afac175e48"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>mgis::function::cuda::call_kernel</b> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;ctx, const <a class="el" href="structmgis_1_1function_1_1_c_u_d_a_execution_configuration.html">CUDAExecutionConfiguration</a> &amp;c, CallableType f, const SpaceSizeType s)</td></tr>
-<tr class="separator:af9e47a28d29123ce926f02afac175e48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9ec21934f0c9d85c2c9b535df7043b0" id="r_af9ec21934f0c9d85c2c9b535df7043b0"><td class="memTemplParams" colspan="2"><a id="af9ec21934f0c9d85c2c9b535df7043b0" name="af9ec21934f0c9d85c2c9b535df7043b0"></a>
-template&lt;typename FunctionType , EvaluatorConcept EvaluatorType&gt; <br />
+<tr class="memitem:adde20e950457bb76a1ff37dab8124c97"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>mgis::function::cuda::call_kernel</b> (<a class="el" href="structmgis_1_1_abstract_error_handler.html">AbstractErrorHandler</a> &amp;ctx, const <a class="el" href="structmgis_1_1function_1_1_c_u_d_a_execution_configuration.html">CUDAExecutionConfiguration</a> &amp;c, CallableType f, const SpaceSizeType s)</td></tr>
+<tr class="separator:adde20e950457bb76a1ff37dab8124c97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af952690ed30bc1d3b77f51c3c170a922" id="r_af952690ed30bc1d3b77f51c3c170a922"><td class="memTemplParams" colspan="2">template&lt;typename FunctionType , EvaluatorConcept EvaluatorType&gt; <br />
 requires ( ((LinearElementSpaceConcept&lt;evaluator_space&lt;EvaluatorType&gt;&gt;) || (LinearQuadratureSpaceConcept&lt;evaluator_space&lt;EvaluatorType&gt;&gt;)) &amp;&amp; std::same_as&lt;function_space&lt;FunctionType&gt;, evaluator_space&lt;EvaluatorType&gt;&gt;)</td></tr>
-<tr class="memitem:af9ec21934f0c9d85c2c9b535df7043b0"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>mgis::function::assign</b> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;ctx, const <a class="el" href="structmgis_1_1function_1_1_c_u_d_a_execution_configuration.html">CUDAExecutionConfiguration</a> &amp;c, FunctionType &amp;f, const EvaluatorType e)</td></tr>
-<tr class="separator:af9ec21934f0c9d85c2c9b535df7043b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af952690ed30bc1d3b77f51c3c170a922"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_c_u_d_a_2_algorithms_8hxx.html#af952690ed30bc1d3b77f51c3c170a922">mgis::function::assign</a> (<a class="el" href="structmgis_1_1_abstract_error_handler.html">AbstractErrorHandler</a> &amp;, const <a class="el" href="structmgis_1_1function_1_1_c_u_d_a_execution_configuration.html">CUDAExecutionConfiguration</a> &amp;, FunctionType &amp;, const EvaluatorType)</td></tr>
+<tr class="memdesc:af952690ed30bc1d3b77f51c3c170a922"><td class="mdescLeft">&#160;</td><td class="mdescRight">assign the evaluator to a function  <br /></td></tr>
+<tr class="separator:af952690ed30bc1d3b77f51c3c170a922"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Thomas Helfer </dd></dl>
@@ -136,13 +136,68 @@ requires ( ((LinearElementSpaceConcept&lt;evaluator_space&lt;EvaluatorType&gt;&g
 <li>CECILL-C, Version 1.0 (See accompanying files CeCILL-C_V1-en.txt and CeCILL-C_V1-fr.txt). </li>
 </ul>
 </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="af952690ed30bc1d3b77f51c3c170a922" name="af952690ed30bc1d3b77f51c3c170a922"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af952690ed30bc1d3b77f51c3c170a922">&#9670;&#160;</a></span>assign()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename FunctionType , EvaluatorConcept EvaluatorType&gt; <br />
+requires ( ((LinearElementSpaceConcept&lt;evaluator_space&lt;EvaluatorType&gt;&gt;) || (LinearQuadratureSpaceConcept&lt;evaluator_space&lt;EvaluatorType&gt;&gt;)) &amp;&amp; std::same_as&lt;function_space&lt;FunctionType&gt;, evaluator_space&lt;EvaluatorType&gt;&gt;)</div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool mgis::function::assign </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmgis_1_1_abstract_error_handler.html">AbstractErrorHandler</a> &amp;&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structmgis_1_1function_1_1_c_u_d_a_execution_configuration.html">CUDAExecutionConfiguration</a> &amp;&#160;</td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FunctionType &amp;&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const EvaluatorType&#160;</td>
+          <td class="paramname"><em>e</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>assign the evaluator to a function </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ctx</td><td>execution context </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">c</td><td>CUDA execution configuration </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lhs</td><td>left hand side </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">e</td><td>right hand side </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_926a8b4fb7ad5e8e017827ff5fbbb316.html">MGIS</a></li><li class="navelem"><a class="el" href="dir_2e52b00940cd27d9780366949db1e89b.html">Function</a></li><li class="navelem"><a class="el" href="dir_418e45bd109328e4982cec3cc32131fc.html">CUDA</a></li><li class="navelem"><a class="el" href="_c_u_d_a_2_algorithms_8ixx.html">Algorithms.ixx</a></li>
-    <li class="footer">Generated on Tue Oct 27 2026 13:28:25 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Oct 27 2026 13:31:03 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

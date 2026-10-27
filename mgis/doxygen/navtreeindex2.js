@@ -62,9 +62,7 @@ var NAVTREEINDEX2 =
 "_strided_coalesced_memory_access_tensor_view_8ixx.html":[4,0,1,0,1,1,16],
 "_tensor_concept_8hxx.html":[4,0,1,0,1,1,17],
 "_tensor_modifier_8hxx.html":[4,0,1,0,1,1,20],
-"_tensor_modifier_8hxx.html#ae1a4d18e598b4687d0b118d319b1fd43":[4,0,1,0,1,1,20,1],
 "_tensor_modifier_8ixx.html":[4,0,1,0,1,1,21],
-"_tensor_modifier_8ixx.html#ae1a4d18e598b4687d0b118d319b1fd43":[4,0,1,0,1,1,21,0],
 "_tensor_operations_8hxx.html":[4,0,1,0,1,1,22],
 "_tensor_operations_8hxx.html#ad488896baee85607559ae86da6aba5c7":[4,0,1,0,1,1,22,0],
 "_tensor_operations_8hxx.html#ad488896baee85607559ae86da6aba5c7a6377b4908ae38f9a57fe9120cf179eb1":[4,0,1,0,1,1,22,0,1],
@@ -80,11 +78,9 @@ var NAVTREEINDEX2 =
 "_tensor_view_8ixx.html#a4c27eb8e6c531232b1280ba4e666f487":[4,0,1,0,1,1,26,1],
 "_tensor_view_8ixx.html#a5e9909f1f481c266fd442802160271be":[4,0,1,0,1,1,26,0],
 "_tensorial_function_8hxx.html":[4,0,1,0,1,1,18],
-"_tensorial_function_8hxx.html#a2bc3ff21653cbf2788f2b7cde2ae9aca":[4,0,1,0,1,1,18,3],
 "_tensorial_function_8hxx.html#ab177e5254119c148151244b7d69facb4":[4,0,1,0,1,1,18,2],
 "_tensorial_function_8hxx.html#af876f5b6d06992bec488ea4ba2fd5983":[4,0,1,0,1,1,18,1],
 "_tensorial_function_8ixx.html":[4,0,1,0,1,1,19],
-"_tensorial_function_8ixx.html#a2bc3ff21653cbf2788f2b7cde2ae9aca":[4,0,1,0,1,1,19,2],
 "_tensorial_function_8ixx.html#ab177e5254119c148151244b7d69facb4":[4,0,1,0,1,1,19,1],
 "_tensorial_function_8ixx.html#af876f5b6d06992bec488ea4ba2fd5983":[4,0,1,0,1,1,19,0],
 "_tensors_8hxx.html":[4,0,1,0,1,1,23],
@@ -249,5 +245,9 @@ var NAVTREEINDEX2 =
 "functions_s.html":[3,3,0,18],
 "functions_t.html":[3,3,0,19],
 "functions_type.html":[3,3,3],
-"functions_u.html":[3,3,0,20]
+"functions_u.html":[3,3,0,20],
+"functions_v.html":[3,3,0,21],
+"functions_vars.html":[3,3,2],
+"functions_w.html":[3,3,0,22],
+"functions_z.html":[3,3,0,23]
 };

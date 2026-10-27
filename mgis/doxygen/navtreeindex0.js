@@ -101,7 +101,6 @@ var NAVTREEINDEX0 =
 "_c_u_d_a_2_algorithms_8hxx.html":[4,0,1,0,1,0,0],
 "_c_u_d_a_2_algorithms_8hxx.html#af952690ed30bc1d3b77f51c3c170a922":[4,0,1,0,1,0,0,1],
 "_c_u_d_a_2_algorithms_8ixx.html":[4,0,1,0,1,0,1],
-"_c_u_d_a_2_algorithms_8ixx.html#af952690ed30bc1d3b77f51c3c170a922":[4,0,1,0,1,0,1,0],
 "_change_basis_8ixx.html":[4,0,1,0,0,7],
 "_coalesced_memory_access_composite_tensors_view_8hxx.html":[4,0,1,0,1,1,0],
 "_coalesced_memory_access_composite_tensors_view_8ixx.html":[4,0,1,0,1,1,1],
@@ -164,13 +163,12 @@ var NAVTREEINDEX0 =
 "_evaluator_8ixx.html":[4,0,1,0,1,16],
 "_evaluator_8ixx.html#a049bb16ff9ff8ea428ad4d0a8f452516":[4,0,1,0,1,16,0],
 "_evaluator_concept_8hxx.html":[4,0,1,0,1,17],
-"_evaluator_concept_8hxx.html#a4b3ba9009acce55c6c23c79be2757d4a":[4,0,1,0,1,17,18],
+"_evaluator_concept_8hxx.html#a638f9cb82853384c3618913720de7403":[4,0,1,0,1,17,18],
 "_evaluator_concept_8hxx.html#a6bd5eb00468484c1a6980231ebd7135b":[4,0,1,0,1,17,19],
 "_evaluator_concept_8hxx.html#a939c7c2047f43d7e159788e35ed9479f":[4,0,1,0,1,17,17],
 "_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d":[4,0,1,0,1,17,16],
 "_evaluator_concept_8ixx.html":[4,0,1,0,1,18],
-"_evaluator_concept_8ixx.html#a4b3ba9009acce55c6c23c79be2757d4a":[4,0,1,0,1,18,1],
-"_evaluator_concept_8ixx.html#a6bd5eb00468484c1a6980231ebd7135b":[4,0,1,0,1,18,2],
+"_evaluator_concept_8ixx.html#a6bd5eb00468484c1a6980231ebd7135b":[4,0,1,0,1,18,1],
 "_evaluator_concept_8ixx.html#a939c7c2047f43d7e159788e35ed9479f":[4,0,1,0,1,18,0],
 "_evaluator_modifier_base_8hxx.html":[4,0,1,0,1,19],
 "_evaluator_modifier_base_8hxx.html#a0cf3b2e374d7b9021f53ff3b268dd052":[4,0,1,0,1,19,1],
@@ -249,5 +247,7 @@ var NAVTREEINDEX0 =
 "_h_d_f5_support_8hxx.html#a351595c32a1b6ce2300f6ce56266612e":[4,0,1,0,4,2,1],
 "_h_d_f5_support_8hxx.html#a52a5e80c41773fb7d1e14c60ac0dcb53":[4,0,1,0,4,2,13],
 "_h_d_f5_support_8hxx.html#a57a91a79663347eb2d5f1671e6ca649e":[4,0,1,0,4,2,15],
-"_h_d_f5_support_8hxx.html#a6cafa853d369badd63c62644701a6d0f":[4,0,1,0,4,2,5]
+"_h_d_f5_support_8hxx.html#a6cafa853d369badd63c62644701a6d0f":[4,0,1,0,4,2,5],
+"_h_d_f5_support_8hxx.html#aa6473a4ebb47be2dfb8d1456bdb27992":[4,0,1,0,4,2,2],
+"_h_d_f5_support_8hxx.html#aacf3f37e3d9479ffe3cc56db58dfd151":[4,0,1,0,4,2,0]
 };

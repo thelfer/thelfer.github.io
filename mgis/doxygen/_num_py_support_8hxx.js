@@ -1,6 +1,5 @@
 var _num_py_support_8hxx =
 [
-    [ "mgis_convert_to_mutable_span", "_num_py_support_8hxx.html#a3577b3c721546da96ee43790e2c8187a", null ],
     [ "wrapInNumPyArray", "_num_py_support_8hxx.html#a75d9ccb477e2edcf722ac49545229597", null ],
     [ "wrapInNumPyArray", "_num_py_support_8hxx.html#a17a8ada1560706d484e53ab31e19fbb0", null ],
     [ "wrapInNumPyArray", "_num_py_support_8hxx.html#a719850a35227788d312e6453158b50f6", null ],

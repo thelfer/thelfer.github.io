@@ -108,7 +108,6 @@ $(document).ready(function(){initNavTree('_julia_utilities_8hxx.html',''); initR
 <code>#include &lt;jlcxx/jlcxx.hpp&gt;</code><br />
 <code>#include &lt;jlcxx/array.hpp&gt;</code><br />
 <code>#include &lt;jlcxx/const_array.hpp&gt;</code><br />
-<code>#include &lt;jlcxx/stl.hpp&gt;</code><br />
 <code>#include &quot;<a class="el" href="_raise_8hxx.html">MGIS/Raise.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_variable_8hxx.html">MGIS/Behaviour/Variable.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_hypothesis_8hxx.html">MGIS/Behaviour/Hypothesis.hxx</a>&quot;</code><br />
@@ -134,8 +133,6 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjlcxx_1_1_is_mirrored_type_3_01mgis_1_1behaviour_1_1_integration_type_01_4.html">jlcxx::IsMirroredType&lt; mgis::behaviour::IntegrationType &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjlcxx_1_1_is_mirrored_type_3_01mgis_1_1behaviour_1_1_behaviour_data_view_01_4.html">jlcxx::IsMirroredType&lt; mgis::behaviour::BehaviourDataView &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -145,6 +142,10 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a500f578b1d7d184a03a6fbda4e573cbe" id="r_a500f578b1d7d184a03a6fbda4e573cbe"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a500f578b1d7d184a03a6fbda4e573cbe"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_julia_utilities_8hxx.html#a500f578b1d7d184a03a6fbda4e573cbe">mgis::julia::expose_std_vector</a> (jlcxx::Module &amp;, const char *const)</td></tr>
+<tr class="memdesc:a500f578b1d7d184a03a6fbda4e573cbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">expose std::vector&lt;T&gt;  <br /></td></tr>
+<tr class="separator:a500f578b1d7d184a03a6fbda4e573cbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0bca558cae81ea83fd4fb9109950201" id="r_ae0bca558cae81ea83fd4fb9109950201"><td class="memTemplParams" colspan="2"><a id="ae0bca558cae81ea83fd4fb9109950201" name="ae0bca558cae81ea83fd4fb9109950201"></a>
 template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ae0bca558cae81ea83fd4fb9109950201"><td class="memTemplItemLeft" align="right" valign="top">jlcxx::ConstArray&lt; T, 1u &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>mgis::julia::make_view</b> (const std::vector&lt; T &gt; &amp;)</td></tr>
@@ -162,13 +163,60 @@ template&lt;typename T &gt; </td></tr>
 <li>CECILL-C, Version 1.0 (See accompanying files CeCILL-C_V1-en.txt and CeCILL-C_V1-fr.txt). </li>
 </ul>
 </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a500f578b1d7d184a03a6fbda4e573cbe" name="a500f578b1d7d184a03a6fbda4e573cbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a500f578b1d7d184a03a6fbda4e573cbe">&#9670;&#160;</a></span>expose_std_vector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void mgis::julia::expose_std_vector </td>
+          <td>(</td>
+          <td class="paramtype">jlcxx::Module &amp;&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char * const&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>expose std::vector&lt;T&gt; </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>underlying type </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">m</td><td>julia module </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>name of the exposed vector in Julia </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>: the type T must be exposed in Julia </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_00240dc4a1a4845ae58be68fbad02d02.html">bindings</a></li><li class="navelem"><a class="el" href="dir_23f1d0d7ca23081bd1732cfd0061c80b.html">julia</a></li><li class="navelem"><a class="el" href="dir_1d4e19cccea487c8f1326207c4399911.html">include</a></li><li class="navelem"><a class="el" href="dir_7266a4fb89353efad87dbddb35d1331f.html">MGIS</a></li><li class="navelem"><a class="el" href="dir_eb46a6e0021e10dc3953f6f1a05dc224.html">Julia</a></li><li class="navelem"><a class="el" href="_julia_utilities_8hxx.html">JuliaUtilities.hxx</a></li>
-    <li class="footer">Generated on Tue Oct 27 2026 13:12:30 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Oct 27 2026 13:14:48 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

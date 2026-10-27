@@ -15,6 +15,6 @@ var structmgis_1_1_threaded_task_result =
     [ "operator=", "structmgis_1_1_threaded_task_result.html#a764b86418aa34abeb8afe83b548eda53", null ],
     [ "operator=", "structmgis_1_1_threaded_task_result.html#a96aa00bc6ca7d1a5cf0b2b5a53449c08", null ],
     [ "operator=", "structmgis_1_1_threaded_task_result.html#a2552244902475146de9b2cec697f2240", null ],
-    [ "rethrow", "structmgis_1_1_threaded_task_result.html#a2b085c57ce31d8fd255b16e3f938ef26", null ],
+    [ "rethrow", "structmgis_1_1_threaded_task_result.html#a67bd6fd10f6dd5778b8feda6019a6022", null ],
     [ "setException", "structmgis_1_1_threaded_task_result.html#ac91d854bea94272d334262e16c87069e", null ]
 ];

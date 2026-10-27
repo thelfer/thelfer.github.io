@@ -108,6 +108,7 @@ $(document).ready(function(){initNavTree('_material_property_8hxx.html',''); ini
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &quot;<a class="el" href="_config_8hxx.html">MGIS/Config.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_material_property_fct_ptr_8hxx.html">MGIS/MaterialProperty/MaterialPropertyFctPtr.hxx</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_batch_material_property_fct_ptr_8hxx.html">MGIS/MaterialProperty/BatchMaterialPropertyFctPtr.hxx</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -123,7 +124,9 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac35b0f9cf33e6a30be52c71f29bb6d1c" id="r_ac35b0f9cf33e6a30be52c71f29bb6d1c"><td class="memItemLeft" align="right" valign="top">MGIS_EXPORT <a class="el" href="structmgis_1_1material__property_1_1_material_property.html">MaterialProperty</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_material_property_8hxx.html#ac35b0f9cf33e6a30be52c71f29bb6d1c">mgis::material_property::load</a> (const std::string &amp;, const std::string &amp;)</td></tr>
+<tr class="memitem:ad34ad78d9fa17e629a06def2880cdf2c" id="r_ad34ad78d9fa17e629a06def2880cdf2c"><td class="memItemLeft" align="right" valign="top">MGIS_EXPORT bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_material_property_8hxx.html#ad34ad78d9fa17e629a06def2880cdf2c">mgis::material_property::isGenericParallelMaterialProperty</a> (<a class="el" href="structmgis__mp___batch_data.html">const</a> <a class="el" href="structmgis_1_1material__property_1_1_material_property.html">MaterialProperty</a> &amp;) noexcept</td></tr>
+<tr class="separator:ad34ad78d9fa17e629a06def2880cdf2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac35b0f9cf33e6a30be52c71f29bb6d1c" id="r_ac35b0f9cf33e6a30be52c71f29bb6d1c"><td class="memItemLeft" align="right" valign="top">MGIS_EXPORT <a class="el" href="structmgis_1_1material__property_1_1_material_property.html">MaterialProperty</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_material_property_8hxx.html#ac35b0f9cf33e6a30be52c71f29bb6d1c">mgis::material_property::load</a> (<a class="el" href="structmgis__mp___batch_data.html">const</a> std::string &amp;, <a class="el" href="structmgis__mp___batch_data.html">const</a> std::string &amp;)</td></tr>
 <tr class="memdesc:ac35b0f9cf33e6a30be52c71f29bb6d1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">load the description of a material property from a library  <br /></td></tr>
 <tr class="separator:ac35b0f9cf33e6a30be52c71f29bb6d1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -136,6 +139,39 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="ad34ad78d9fa17e629a06def2880cdf2c" name="ad34ad78d9fa17e629a06def2880cdf2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad34ad78d9fa17e629a06def2880cdf2c">&#9670;&#160;</a></span>isGenericParallelMaterialProperty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MGIS_EXPORT bool mgis::material_property::isGenericParallelMaterialProperty </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmgis__mp___batch_data.html">const</a> <a class="el" href="structmgis_1_1material__property_1_1_material_property.html">MaterialProperty</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>true if the library provides the functions evaluating the material property on batches of points (<code>generic-parallel</code> interface of <code>MFront</code>) </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">mp</td><td>material property </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ac35b0f9cf33e6a30be52c71f29bb6d1c" name="ac35b0f9cf33e6a30be52c71f29bb6d1c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac35b0f9cf33e6a30be52c71f29bb6d1c">&#9670;&#160;</a></span>load()</h2>
 
@@ -145,13 +181,13 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">MGIS_EXPORT MaterialProperty mgis::material_property::load </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="structmgis__mp___batch_data.html">const</a> std::string &amp;&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="structmgis__mp___batch_data.html">const</a> std::string &amp;&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -180,7 +216,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_926a8b4fb7ad5e8e017827ff5fbbb316.html">MGIS</a></li><li class="navelem"><a class="el" href="dir_38d2d74d933ac81e48d5d31aa75fce45.html">MaterialProperty</a></li><li class="navelem"><a class="el" href="_material_property_8hxx.html">MaterialProperty.hxx</a></li>
-    <li class="footer">Generated on Tue Oct 27 2026 03:21:03 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Oct 27 2026 03:33:04 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

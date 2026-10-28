@@ -74,7 +74,7 @@ var dir_a2e59eb61bdee22280b7d9c8cef44a72 =
     [ "TinyPowellDogLegNewtonRaphsonSolver.hxx", "_tiny_powell_dog_leg_newton_raphson_solver_8hxx.html", "_tiny_powell_dog_leg_newton_raphson_solver_8hxx" ],
     [ "tmatrix.hxx", "tmatrix_8hxx.html", "tmatrix_8hxx" ],
     [ "tvector.hxx", "tvector_8hxx.html", "tvector_8hxx" ],
-    [ "types.hxx", "include_2_t_f_e_l_2_math_2types_8hxx.html", "include_2_t_f_e_l_2_math_2types_8hxx" ],
+    [ "types.hxx", "include_2_t_f_e_l_2_math_2_types_8hxx.html", "include_2_t_f_e_l_2_math_2_types_8hxx" ],
     [ "types.ixx", "types_8ixx.html", "types_8ixx" ],
     [ "vector.hxx", "vector_8hxx.html", "vector_8hxx" ]
 ];

@@ -1,5 +1,9 @@
 var NAVTREEINDEX6 =
 {
+"structmgis_1_1function_1_1_binary_operation_evaluator_base.html#a178e61c13a282c40f78c87d38ddb6d56":[3,0,1,3,4,9],
+"structmgis_1_1function_1_1_binary_operation_evaluator_base.html#a5baf02aadf116aa15083ae8c1523211b":[3,0,1,3,4,11],
+"structmgis_1_1function_1_1_binary_operation_evaluator_base.html#a7291e60ec6cd2684f8c343b0df968e1f":[3,0,1,3,4,2],
+"structmgis_1_1function_1_1_binary_operation_evaluator_base.html#a75f4608ef8189fdfdf5977698b001342":[3,0,1,3,4,5],
 "structmgis_1_1function_1_1_binary_operation_evaluator_base.html#ab972b4eb1634aaf8505d83409ce729eb":[3,0,1,3,4,10],
 "structmgis_1_1function_1_1_binary_operation_evaluator_base.html#ac947662bea17c2b1e8edd93af8097d49":[3,0,1,3,4,6],
 "structmgis_1_1function_1_1_binary_operation_evaluator_base.html#ae237f22011814135d3ae37fa7b4fbae4":[3,0,1,3,4,3],
@@ -221,8 +225,8 @@ var NAVTREEINDEX6 =
 "structmgis_1_1function_1_1_strided_coalesced_memory_access_tensor_view.html#a6655b24eb22dfcb4fa980fa61873c3a5":[3,0,1,3,47,3],
 "structmgis_1_1function_1_1_tensor_modifier.html":[3,0,1,3,49],
 "structmgis_1_1function_1_1_tensor_modifier.html#a1525bc233c43e8895bd8f9d73648a36b":[3,0,1,3,49,0],
-"structmgis_1_1function_1_1_tensor_modifier.html#acd241eec7b44cb36eab94758c2ce3b3f":[3,0,1,3,49,2],
 "structmgis_1_1function_1_1_tensor_modifier.html#ae39ec33cfe7162236cace8c46e086567":[3,0,1,3,49,1],
+"structmgis_1_1function_1_1_tensor_modifier.html#ae75d5294e94d2733589578baf25567ca":[3,0,1,3,49,2],
 "structmgis_1_1function_1_1_tensor_view.html":[3,0,1,3,50],
 "structmgis_1_1function_1_1_tensor_view.html#a0f3c2b747bc8bbe3402c9bc01220deeb":[3,0,1,3,50,11],
 "structmgis_1_1function_1_1_tensor_view.html#a16e8353f458241f40b69904ccc8033fe":[3,0,1,3,50,7],
@@ -245,9 +249,5 @@ var NAVTREEINDEX6 =
 "structmgis_1_1function_1_1_tensorial_function.html#a472fef8ffaa0303142a39317727c4697":[3,0,1,3,48,4],
 "structmgis_1_1function_1_1_tensorial_function.html#a53178f859ecf7dcfbe9ded95bd73833c":[3,0,1,3,48,0],
 "structmgis_1_1function_1_1_tensorial_function.html#aad919fbcc8d3a2fbe46dd7f74f136915":[3,0,1,3,48,7],
-"structmgis_1_1function_1_1_tensorial_function.html#adf0afe53d829d5e9d808f70364a9723a":[3,0,1,3,48,6],
-"structmgis_1_1function_1_1_tensorial_function.html#ae8ddd2470771fdf2d3fe658b72988459":[3,0,1,3,48,2],
-"structmgis_1_1function_1_1_unary_operation.html":[3,0,1,3,51],
-"structmgis_1_1function_1_1_unary_operation.html#a173b5f4fc0c651be30a0f1142f359391":[3,0,1,3,51,0],
-"structmgis_1_1function_1_1_unary_operation.html#aa3d43ced5b3b63b2f31b3d96810108d2":[3,0,1,3,51,1]
+"structmgis_1_1function_1_1_tensorial_function.html#adf0afe53d829d5e9d808f70364a9723a":[3,0,1,3,48,6]
 };

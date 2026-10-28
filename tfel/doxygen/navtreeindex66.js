@@ -1,8 +1,8 @@
 var NAVTREEINDEX66 =
 {
-"structtfel_1_1_physical_constants_3_01_numeric_type_00_01false_01_4.html":[7,0,14,14],
-"structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4.html":[5,0,9,4],
+"structtfel_1_1_physical_constants_3_01_numeric_type_00_01false_01_4.html":[5,0,9,3],
 "structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4.html":[7,0,14,15],
+"structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4.html":[5,0,9,4],
 "structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4.html#a5100087ce3f32705aa7c3dabe8bf86d7":[5,0,9,4,0],
 "structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4.html#a5100087ce3f32705aa7c3dabe8bf86d7":[7,0,14,15,0],
 "structtfel_1_1check_1_1_absolute_comparison.html":[7,0,14,0,0],

@@ -1,7 +1,7 @@
 var structmgis_1_1_threaded_task_result =
 [
     [ "ThreadedTaskResult", "structmgis_1_1_threaded_task_result.html#a3d03ccb10393b06eacb0fbcf48f587c2", null ],
-    [ "ThreadedTaskResult", "structmgis_1_1_threaded_task_result.html#a97d6f5f0973c37a034118962ac2721c4", null ],
+    [ "ThreadedTaskResult", "structmgis_1_1_threaded_task_result.html#abf61df72307fde3e8610200fdbdf7f43", null ],
     [ "ThreadedTaskResult", "structmgis_1_1_threaded_task_result.html#a797e19f315cc0143e9828bcba6b4a8eb", null ],
     [ "ThreadedTaskResult", "structmgis_1_1_threaded_task_result.html#a660052f3487e70b7479c5e3c7fbc8174", null ],
     [ "ThreadedTaskResult", "structmgis_1_1_threaded_task_result.html#a5d273e66e4a0151acc551c1bc2a95c07", null ],

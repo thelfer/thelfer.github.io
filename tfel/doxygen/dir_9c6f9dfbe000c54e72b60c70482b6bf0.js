@@ -42,8 +42,6 @@ var dir_9c6f9dfbe000c54e72b60c70482b6bf0 =
     [ "InverseLangevinFunction.ixx", "_inverse_langevin_function_8ixx.html", "_inverse_langevin_function_8ixx" ],
     [ "IsotropicEshelbyTensor.hxx", "_isotropic_eshelby_tensor_8hxx.html", "_isotropic_eshelby_tensor_8hxx" ],
     [ "IsotropicEshelbyTensor.ixx", "_isotropic_eshelby_tensor_8ixx.html", "_isotropic_eshelby_tensor_8ixx" ],
-    [ "IsotropicLinearFourierHookLaw.hxx", "_isotropic_linear_fourier_hook_law_8hxx.html", "_isotropic_linear_fourier_hook_law_8hxx" ],
-    [ "IsotropicLinearFourierLaw.hxx", "_isotropic_linear_fourier_law_8hxx.html", "_isotropic_linear_fourier_law_8hxx" ],
     [ "IsotropicModuli.hxx", "_isotropic_moduli_8hxx.html", "_isotropic_moduli_8hxx" ],
     [ "IsotropicModuli.ixx", "_isotropic_moduli_8ixx.html", "_isotropic_moduli_8ixx" ],
     [ "IsotropicPlasticity.hxx", "_isotropic_plasticity_8hxx.html", "_isotropic_plasticity_8hxx" ],
@@ -96,8 +94,5 @@ var dir_9c6f9dfbe000c54e72b60c70482b6bf0 =
     [ "RousselierTanguyBesson2002StressCriterion.ixx", "_rousselier_tanguy_besson2002_stress_criterion_8ixx.html", "_rousselier_tanguy_besson2002_stress_criterion_8ixx" ],
     [ "SlipSystemsDescription.hxx", "_slip_systems_description_8hxx.html", "_slip_systems_description_8hxx" ],
     [ "StiffnessTensor.hxx", "_stiffness_tensor_8hxx.html", "_stiffness_tensor_8hxx" ],
-    [ "StiffnessTensor.ixx", "_stiffness_tensor_8ixx.html", "_stiffness_tensor_8ixx" ],
-    [ "ThermalBehaviour.hxx", "_thermal_behaviour_8hxx.html", "_thermal_behaviour_8hxx" ],
-    [ "ThermalBehaviourData.hxx", "_thermal_behaviour_data_8hxx.html", "_thermal_behaviour_data_8hxx" ],
-    [ "ThermoMechanicalBehaviour.hxx", "_thermo_mechanical_behaviour_8hxx.html", "_thermo_mechanical_behaviour_8hxx" ]
+    [ "StiffnessTensor.ixx", "_stiffness_tensor_8ixx.html", "_stiffness_tensor_8ixx" ]
 ];

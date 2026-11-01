@@ -1,7 +1,5 @@
 var NAVTREEINDEX4 =
 {
-"_finite_strain_behaviour_tangent_operator_8ixx.html#a635d7289e5ed4325809ba1718612fcfc":[8,0,0,3,4,25,32],
-"_finite_strain_behaviour_tangent_operator_8ixx.html#a6a16c7d97ca1880d257a9ed61ff2ccae":[8,0,0,3,4,25,28],
 "_finite_strain_behaviour_tangent_operator_8ixx.html#a741528ab5b8085cd500d8e67319b7ce3":[8,0,0,3,4,25,17],
 "_finite_strain_behaviour_tangent_operator_8ixx.html#a74d8206e597fcc0455031755e4018b44":[8,0,0,3,4,25,21],
 "_finite_strain_behaviour_tangent_operator_8ixx.html#a78f18b9093a9ddedb5817fb040a95e12":[8,0,0,3,4,25,42],
@@ -73,9 +71,9 @@ var NAVTREEINDEX4 =
 "_forward_8hxx.html#ac6d6e3f16250509fb0b144f727c58536":[8,0,1,0,0,6,1],
 "_forward_8hxx.html#ad0e14b4e969d10561dc9df79ebccf84b":[8,0,1,0,0,6,0],
 "_frank_read_8hxx.html":[8,0,0,2,7],
-"_function_8hxx.html":[8,0,0,3,5,12,22],
-"_function_8hxx.html#a36eddee8c66e93ab16e9b94ddab1deda":[8,0,0,3,5,12,22,3],
-"_function_8ixx.html":[8,0,0,3,5,12,23],
+"_function_8hxx.html":[8,0,0,3,5,12,20],
+"_function_8hxx.html#a36eddee8c66e93ab16e9b94ddab1deda":[8,0,0,3,5,12,20,3],
+"_function_8ixx.html":[8,0,0,3,5,12,21],
 "_function_evolution_8hxx.html":[8,0,5,0,0,51],
 "_g_system_8hxx.html":[8,0,0,2,8],
 "_gas_equation_of_state_8hxx.html":[8,0,5,0,0,52],
@@ -249,5 +247,7 @@ var NAVTREEINDEX4 =
 "_indexing_policies_8hxx.html#a86f4c774c2ed2c960998d725f66e5bc3":[8,0,0,3,5,1,19,4],
 "_indexing_policies_8hxx.html#af40f1fa3fc3abde6fd905241a0083aad":[8,0,0,3,5,1,19,7],
 "_inelastic_flow_8hxx.html":[8,0,2,0,0,3,23],
-"_inelastic_flow_base_8hxx.html":[8,0,2,0,0,3,24]
+"_inelastic_flow_base_8hxx.html":[8,0,2,0,0,3,24],
+"_inelastic_flow_factory_8hxx.html":[8,0,2,0,0,3,25],
+"_init_d_s_ls_8hxx.html":[8,0,2,0,0,126]
 };

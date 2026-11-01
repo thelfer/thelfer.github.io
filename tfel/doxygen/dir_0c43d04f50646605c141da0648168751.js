@@ -18,7 +18,7 @@ var dir_0c43d04f50646605c141da0648168751 =
     [ "ST2toST2TransposeExpr.hxx", "_s_t2to_s_t2_transpose_expr_8hxx.html", "_s_t2to_s_t2_transpose_expr_8hxx" ],
     [ "StensorSquareDerivative.hxx", "_stensor_square_derivative_8hxx.html", "_stensor_square_derivative_8hxx" ],
     [ "StensorST2toST2ProductExpr.hxx", "_stensor_s_t2to_s_t2_product_expr_8hxx.html", "_stensor_s_t2to_s_t2_product_expr_8hxx" ],
-    [ "StensorSymmetricProductDerivative.hxx", "_stensor_symmetric_product_derivative_8hxx.html", "_stensor_symmetric_product_derivative_8hxx" ],
+    [ "StensorSymmetricProductDerivative.hxx", "_stensor_symmetric_product_derivative_8hxx.html", null ],
     [ "SymmetricStensorProductDerivative.hxx", "_symmetric_stensor_product_derivative_8hxx.html", null ],
     [ "SymmetricStensorProductDerivative.ixx", "_symmetric_stensor_product_derivative_8ixx.html", null ],
     [ "UmatNormaliseTangentOperator.ixx", "_umat_normalise_tangent_operator_8ixx.html", null ],

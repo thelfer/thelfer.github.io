@@ -1,6 +1,5 @@
 var namespaceansys =
 [
-    [ "AnsysBehaviourHandler", "structansys_1_1_ansys_behaviour_handler.html", "structansys_1_1_ansys_behaviour_handler" ],
     [ "AnsysComputeStiffnessTensor", "structansys_1_1_ansys_compute_stiffness_tensor.html", null ],
     [ "AnsysComputeStiffnessTensor< ansys::STANDARDFINITESTRAINBEHAVIOUR, H, stype, b >", "structansys_1_1_ansys_compute_stiffness_tensor_3_01ansys_1_1_s_t_a_n_d_a_r_d_f_i_n_i_t_e_s_t_r_ae8df2b8ea2f499c05e9beff86fe9f2bf.html", null ],
     [ "AnsysComputeStiffnessTensor< ansys::STANDARDSTRAINBASEDBEHAVIOUR, tfel::material::ModellingHypothesis::AXISYMMETRICAL, ISOTROPIC, b >", "structansys_1_1_ansys_compute_stiffness_tensor_3_01ansys_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_eaf3f8b4739fb89781c3df96786f96d3b.html", null ],
@@ -45,9 +44,6 @@ var namespaceansys =
     [ "AnsysRotation2D", "structansys_1_1_ansys_rotation2_d.html", null ],
     [ "AnsysRotation3D", "structansys_1_1_ansys_rotation3_d.html", null ],
     [ "AnsysTangentOperator", "structansys_1_1_ansys_tangent_operator.html", null ],
-    [ "AnsysTangentOperatorFlag", "structansys_1_1_ansys_tangent_operator_flag.html", null ],
-    [ "AnsysTangentOperatorFlag< ansys::STANDARDFINITESTRAINBEHAVIOUR >", "structansys_1_1_ansys_tangent_operator_flag_3_01ansys_1_1_s_t_a_n_d_a_r_d_f_i_n_i_t_e_s_t_r_a_i_n_b_e_h_a_v_i_o_u_r_01_4.html", null ],
-    [ "AnsysTangentOperatorFlag< ansys::STANDARDSTRAINBASEDBEHAVIOUR >", "structansys_1_1_ansys_tangent_operator_flag_3_01ansys_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_e_d_b_e_h_a_v_i_o_u_r_01_4.html", null ],
     [ "AnsysTangentOperatorType", "structansys_1_1_ansys_tangent_operator_type.html", null ],
     [ "AnsysTraits", "structansys_1_1_ansys_traits.html", null ],
     [ "AnsysUnSupportedCaseHandler", "structansys_1_1_ansys_un_supported_case_handler.html", null ],

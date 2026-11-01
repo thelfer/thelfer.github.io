@@ -22,15 +22,6 @@ var hierarchy =
       [ "tfel::utilities::GenTypeBase< system3d, system4d >", "structtfel_1_1utilities_1_1_gen_type_base.html", null ],
       [ "tfel::utilities::GenTypeBase< List >", "structtfel_1_1utilities_1_1_gen_type_base.html", null ]
     ] ],
-    [ "AsterOrthotropicFiniteStrainBehaviourDispatcher:: type", null, [
-      [ "aster::AsterOrthotropicBehaviourHandler< STANDARDFINITESTRAINBEHAVIOUR, H, Behaviour >", "structaster_1_1_aster_orthotropic_behaviour_handler_3_01_s_t_a_n_d_a_r_d_f_i_n_i_t_e_s_t_r_a_i_n20a9d5d5cc5b792635c988903e6a90fe.html", null ]
-    ] ],
-    [ "CastemOrthotropicFiniteStrainBehaviourDispatcher:: type", null, [
-      [ "castem::CastemOrthotropicBehaviourHandler< STANDARDFINITESTRAINBEHAVIOUR, H, Behaviour >", "structcastem_1_1_castem_orthotropic_behaviour_handler_3_01_s_t_a_n_d_a_r_d_f_i_n_i_t_e_s_t_r_a_i8cdfe0f52098fcfed37b67f5ff55f571.html", null ]
-    ] ],
-    [ "CastemOrthotropicSmallStrainBehaviourDispatcher:: type", null, [
-      [ "castem::CastemOrthotropicBehaviourHandler< STANDARDSTRAINBASEDBEHAVIOUR, H, Behaviour >", "structcastem_1_1_castem_orthotropic_behaviour_handler_3_01_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_e_d15b15a01eb089e31d909fc8cad831294.html", null ]
-    ] ],
     [ "abaqus::AbaqusComputeStiffnessTensor< AbaqusBehaviourType, Hypothesis, AbaqusSymmetryType, bool >", "structabaqus_1_1_abaqus_compute_stiffness_tensor.html", null ],
     [ "abaqus::AbaqusComputeStiffnessTensor< abaqus::STANDARDFINITESTRAINBEHAVIOUR, H, stype, b >", "structabaqus_1_1_abaqus_compute_stiffness_tensor_3_01abaqus_1_1_s_t_a_n_d_a_r_d_f_i_n_i_t_e_s_t_b73e14abf3c5536516bbf4c1133fe1e5.html", null ],
     [ "abaqus::AbaqusComputeStiffnessTensor< abaqus::STANDARDSTRAINBASEDBEHAVIOUR, tfel::material::ModellingHypothesis::AXISYMMETRICAL, ISOTROPIC, b >", "structabaqus_1_1_abaqus_compute_stiffness_tensor_3_01abaqus_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_3c7ab94635b26266f0a7bf98ba354808.html", null ],
@@ -62,8 +53,6 @@ var hierarchy =
     [ "abaqus::AbaqusExplicitData< T >", "structabaqus_1_1_abaqus_explicit_data.html", null ],
     [ "abaqus::AbaqusFiniteStrain", "structabaqus_1_1_abaqus_finite_strain.html", null ],
     [ "abaqus::AbaqusInterfaceExceptions", "structabaqus_1_1_abaqus_interface_exceptions.html", [
-      [ "abaqus::AbaqusBehaviourHandler< H, Behaviour >", "structabaqus_1_1_abaqus_behaviour_handler.html", null ],
-      [ "abaqus::AbaqusBehaviourHandler< H, Behaviour >::GradientInitialiserWithStressFreeExpansion", "structabaqus_1_1_abaqus_behaviour_handler_1_1_gradient_initialiser_with_stress_free_expansion.html", null ],
       [ "abaqus::AbaqusExplicitInterface< H, T, Behaviour >", "structabaqus_1_1_abaqus_explicit_interface.html", null ],
       [ "abaqus::AbaqusInterface< H, Behaviour >", "structabaqus_1_1_abaqus_interface.html", null ]
     ] ],
@@ -72,11 +61,7 @@ var hierarchy =
     [ "abaqus::AbaqusOrthotropicElasticPropertiesOffset< 3u >", "structabaqus_1_1_abaqus_orthotropic_elastic_properties_offset_3_013u_01_4.html", null ],
     [ "abaqus::AbaqusRotation2D< real >", "structabaqus_1_1_abaqus_rotation2_d.html", null ],
     [ "abaqus::AbaqusRotation3D< real >", "structabaqus_1_1_abaqus_rotation3_d.html", null ],
-    [ "abaqus::AbaqusStensorSize< tfel::material::ModellingHypothesis::PLANESTRESS >", "structabaqus_1_1_abaqus_stensor_size_3_01tfel_1_1material_1_1_modelling_hypothesis_1_1_p_l_a_n_e_s_t_r_e_s_s_01_4.html", null ],
     [ "abaqus::AbaqusTangentOperator< real >", "structabaqus_1_1_abaqus_tangent_operator.html", null ],
-    [ "abaqus::AbaqusTangentOperatorFlag< btype >", "structabaqus_1_1_abaqus_tangent_operator_flag.html", null ],
-    [ "abaqus::AbaqusTangentOperatorFlag< abaqus::STANDARDFINITESTRAINBEHAVIOUR >", "structabaqus_1_1_abaqus_tangent_operator_flag_3_01abaqus_1_1_s_t_a_n_d_a_r_d_f_i_n_i_t_e_s_t_r_a_i_n_b_e_h_a_v_i_o_u_r_01_4.html", null ],
-    [ "abaqus::AbaqusTangentOperatorFlag< abaqus::STANDARDSTRAINBASEDBEHAVIOUR >", "structabaqus_1_1_abaqus_tangent_operator_flag_3_01abaqus_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_e_d_b_e_h_a_v_i_o_u_r_01_4.html", null ],
     [ "abaqus::AbaqusTangentOperatorType< btype, real, N >", "structabaqus_1_1_abaqus_tangent_operator_type.html", null ],
     [ "abaqus::AbaqusTraits< Behaviour >", "structabaqus_1_1_abaqus_traits.html", null ],
     [ "abaqus::AbaqusUnSupportedCaseHandler", "structabaqus_1_1_abaqus_un_supported_case_handler.html", null ],
@@ -328,8 +313,6 @@ var hierarchy =
     [ "ansys::AnsysData", "structansys_1_1_ansys_data.html", null ],
     [ "ansys::AnsysFiniteStrain", "structansys_1_1_ansys_finite_strain.html", null ],
     [ "ansys::AnsysInterfaceExceptions", "structansys_1_1_ansys_interface_exceptions.html", [
-      [ "ansys::AnsysBehaviourHandler< H, Behaviour >", "structansys_1_1_ansys_behaviour_handler.html", null ],
-      [ "ansys::AnsysBehaviourHandler< H, Behaviour >::GradientInitialiserWithStressFreeExpansion", "structansys_1_1_ansys_behaviour_handler_1_1_gradient_initialiser_with_stress_free_expansion.html", null ],
       [ "ansys::AnsysInterface< H, Behaviour >", "structansys_1_1_ansys_interface.html", null ]
     ] ],
     [ "mtest::AnsysNormaliseTangentOperator", "structmtest_1_1_ansys_normalise_tangent_operator.html", null ],
@@ -342,9 +325,6 @@ var hierarchy =
     [ "ansys::AnsysRotation2D< real >", "structansys_1_1_ansys_rotation2_d.html", null ],
     [ "ansys::AnsysRotation3D< real >", "structansys_1_1_ansys_rotation3_d.html", null ],
     [ "ansys::AnsysTangentOperator< real >", "structansys_1_1_ansys_tangent_operator.html", null ],
-    [ "ansys::AnsysTangentOperatorFlag< btype >", "structansys_1_1_ansys_tangent_operator_flag.html", null ],
-    [ "ansys::AnsysTangentOperatorFlag< ansys::STANDARDFINITESTRAINBEHAVIOUR >", "structansys_1_1_ansys_tangent_operator_flag_3_01ansys_1_1_s_t_a_n_d_a_r_d_f_i_n_i_t_e_s_t_r_a_i_n_b_e_h_a_v_i_o_u_r_01_4.html", null ],
-    [ "ansys::AnsysTangentOperatorFlag< ansys::STANDARDSTRAINBASEDBEHAVIOUR >", "structansys_1_1_ansys_tangent_operator_flag_3_01ansys_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_e_d_b_e_h_a_v_i_o_u_r_01_4.html", null ],
     [ "ansys::AnsysTangentOperatorType< btype, real, N >", "structansys_1_1_ansys_tangent_operator_type.html", null ],
     [ "ansys::AnsysTraits< Behaviour >", "structansys_1_1_ansys_traits.html", null ],
     [ "ansys::AnsysUnSupportedCaseHandler", "structansys_1_1_ansys_un_supported_case_handler.html", null ],
@@ -417,48 +397,22 @@ var hierarchy =
     [ "aster::AsterFiniteStrainRotationMatrix2D", "structaster_1_1_aster_finite_strain_rotation_matrix2_d.html", null ],
     [ "aster::AsterFiniteStrainRotationMatrix3D", "structaster_1_1_aster_finite_strain_rotation_matrix3_d.html", null ],
     [ "aster::AsterInterfaceExceptions", "structaster_1_1_aster_interface_exceptions.html", [
-      [ "aster::AsterBehaviourHandler< tfel::material::ModellingHypothesis::PLANESTRESS, Behaviour >", "structaster_1_1_aster_behaviour_handler.html", [
-        [ "aster::AsterOrthotropicFiniteStrainBehaviourHandler2D< tfel::material::ModellingHypothesis::PLANESTRESS, Behaviour >", "structaster_1_1_aster_orthotropic_finite_strain_behaviour_handler2_d_3_01tfel_1_1material_1_1_mo06834370b46187fcbbf4165fc275e400.html", null ],
-        [ "aster::AsterOrthotropicSmallStrainBehaviourHandler2D< tfel::material::ModellingHypothesis::PLANESTRESS, Behaviour >", "structaster_1_1_aster_orthotropic_small_strain_behaviour_handler2_d_3_01tfel_1_1material_1_1_modd30435d70f35a568b92b2835ddd79f9c.html", null ]
-      ] ],
-      [ "aster::AsterBehaviourHandler< H, Behaviour >", "structaster_1_1_aster_behaviour_handler.html", [
-        [ "aster::AsterIsotropicBehaviourHandler< btype, H, Behaviour >", "structaster_1_1_aster_isotropic_behaviour_handler.html", null ],
-        [ "aster::AsterOrthotropicFiniteStrainBehaviourHandler1D< H, Behaviour >", "structaster_1_1_aster_orthotropic_finite_strain_behaviour_handler1_d.html", null ],
-        [ "aster::AsterOrthotropicFiniteStrainBehaviourHandler2D< H, Behaviour >", "structaster_1_1_aster_orthotropic_finite_strain_behaviour_handler2_d.html", null ],
-        [ "aster::AsterOrthotropicFiniteStrainBehaviourHandler3D< H, Behaviour >", "structaster_1_1_aster_orthotropic_finite_strain_behaviour_handler3_d.html", null ],
-        [ "aster::AsterOrthotropicSmallStrainBehaviourHandler1D< H, Behaviour >", "structaster_1_1_aster_orthotropic_small_strain_behaviour_handler1_d.html", null ],
-        [ "aster::AsterOrthotropicSmallStrainBehaviourHandler2D< H, Behaviour >", "structaster_1_1_aster_orthotropic_small_strain_behaviour_handler2_d.html", null ],
-        [ "aster::AsterOrthotropicSmallStrainBehaviourHandler3D< H, Behaviour >", "structaster_1_1_aster_orthotropic_small_strain_behaviour_handler3_d.html", null ]
-      ] ],
-      [ "aster::AsterBehaviourHandler< H, Behaviour >::GradientInitialiserWithStressFreeExpansion", "structaster_1_1_aster_behaviour_handler_1_1_gradient_initialiser_with_stress_free_expansion.html", null ],
       [ "aster::AsterInterface< Behaviour >", "structaster_1_1_aster_interface.html", null ]
     ] ],
+    [ "aster::AsterIsotropicBehaviourHandler< AsterBehaviourType, Hypothesis, class >", "structaster_1_1_aster_isotropic_behaviour_handler.html", null ],
+    [ "aster::AsterOrthotropicBehaviourHandler< AsterBehaviourType, Hypothesis, class >", "structaster_1_1_aster_orthotropic_behaviour_handler.html", null ],
     [ "aster::AsterOrthotropicElasticPropertiesOffset< short >", "structaster_1_1_aster_orthotropic_elastic_properties_offset.html", null ],
     [ "aster::AsterOrthotropicElasticPropertiesOffset< 1u >", "structaster_1_1_aster_orthotropic_elastic_properties_offset_3_011u_01_4.html", null ],
     [ "aster::AsterOrthotropicElasticPropertiesOffset< 2u >", "structaster_1_1_aster_orthotropic_elastic_properties_offset_3_012u_01_4.html", null ],
     [ "aster::AsterOrthotropicElasticPropertiesOffset< 3u >", "structaster_1_1_aster_orthotropic_elastic_properties_offset_3_013u_01_4.html", null ],
-    [ "aster::AsterOrthotropicFiniteStrainBehaviourDispatcher< H, Behaviour >", "structaster_1_1_aster_orthotropic_finite_strain_behaviour_dispatcher.html", null ],
-    [ "aster::AsterOrthotropicSmallStrainBehaviourDispatcher< H, Behaviour >", "structaster_1_1_aster_orthotropic_small_strain_behaviour_dispatcher.html", null ],
     [ "aster::AsterReduceTangentOperator< N >", "structaster_1_1_aster_reduce_tangent_operator.html", null ],
     [ "aster::AsterReduceTangentOperator< 1u >", "structaster_1_1_aster_reduce_tangent_operator_3_011u_01_4.html", null ],
     [ "aster::AsterReduceTangentOperator< 2u >", "structaster_1_1_aster_reduce_tangent_operator_3_012u_01_4.html", null ],
     [ "aster::AsterRotationMatrix2D", "structaster_1_1_aster_rotation_matrix2_d.html", null ],
     [ "aster::AsterRotationMatrix3D", "structaster_1_1_aster_rotation_matrix3_d.html", null ],
     [ "aster::AsterTangentOperator", "structaster_1_1_aster_tangent_operator.html", null ],
-    [ "aster::AsterTangentOperatorFlag< btype, afsf >", "structaster_1_1_aster_tangent_operator_flag.html", null ],
-    [ "aster::AsterTangentOperatorFlag< aster::COHESIVEZONEMODEL, aster::UNDEFINEDFINITESTRAINFORMULATION >", "structaster_1_1_aster_tangent_operator_flag_3_01aster_1_1_c_o_h_e_s_i_v_e_z_o_n_e_m_o_d_e_l_00_0f25977e0bc30c576ce67ccbd8c5878ed.html", null ],
-    [ "aster::AsterTangentOperatorFlag< aster::STANDARDFINITESTRAINBEHAVIOUR, aster::GROT_GDEP >", "structaster_1_1_aster_tangent_operator_flag_3_01aster_1_1_s_t_a_n_d_a_r_d_f_i_n_i_t_e_s_t_r_a_i_036c8adf0a32cdbfee47b842f1eb905f.html", null ],
-    [ "aster::AsterTangentOperatorFlag< aster::STANDARDFINITESTRAINBEHAVIOUR, aster::SIMO_MIEHE >", "structaster_1_1_aster_tangent_operator_flag_3_01aster_1_1_s_t_a_n_d_a_r_d_f_i_n_i_t_e_s_t_r_a_i_2f632d0ec953eec1f1fde863d351c8f9.html", null ],
-    [ "aster::AsterTangentOperatorFlag< aster::STANDARDSTRAINBASEDBEHAVIOUR, aster::UNDEFINEDFINITESTRAINFORMULATION >", "structaster_1_1_aster_tangent_operator_flag_3_01aster_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_e_d_e0e70815bc40b8729900e00178ceaaa8.html", null ],
-    [ "aster::AsterTangentOperatorType< btype, afsf, N >", "structaster_1_1_aster_tangent_operator_type.html", null ],
-    [ "aster::AsterTangentOperatorType< aster::COHESIVEZONEMODEL, aster::UNDEFINEDFINITESTRAINFORMULATION, N >", "structaster_1_1_aster_tangent_operator_type_3_01aster_1_1_c_o_h_e_s_i_v_e_z_o_n_e_m_o_d_e_l_00_0f27aa129f4d70a0dbcbaa41158e7888b.html", null ],
-    [ "aster::AsterTangentOperatorType< aster::STANDARDFINITESTRAINBEHAVIOUR, aster::GROT_GDEP, N >", "structaster_1_1_aster_tangent_operator_type_3_01aster_1_1_s_t_a_n_d_a_r_d_f_i_n_i_t_e_s_t_r_a_i_b76d482549b5fdb6557b3c7de180c6dc.html", null ],
-    [ "aster::AsterTangentOperatorType< aster::STANDARDFINITESTRAINBEHAVIOUR, aster::SIMO_MIEHE, N >", "structaster_1_1_aster_tangent_operator_type_3_01aster_1_1_s_t_a_n_d_a_r_d_f_i_n_i_t_e_s_t_r_a_i_4b36fbe8012977fcc36398a0d4cbee4a.html", null ],
-    [ "aster::AsterTangentOperatorType< aster::STANDARDSTRAINBASEDBEHAVIOUR, aster::UNDEFINEDFINITESTRAINFORMULATION, N >", "structaster_1_1_aster_tangent_operator_type_3_01aster_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_e_d_570bc53173f01fc6dd295575fc371bc1.html", null ],
     [ "aster::AsterTraits< Behaviour >", "structaster_1_1_aster_traits.html", null ],
-    [ "aster::AsterUnSupportedCaseHandler", "structaster_1_1_aster_un_supported_case_handler.html", [
-      [ "aster::AsterOrthotropicBehaviourHandler< type, H, Behaviour >", "structaster_1_1_aster_orthotropic_behaviour_handler.html", null ]
-    ] ],
+    [ "aster::AsterUnSupportedCaseHandler", "structaster_1_1_aster_un_supported_case_handler.html", null ],
     [ "mfront::BehaviourData::AxialGrowth", "structmfront_1_1_behaviour_data_1_1_axial_growth.html", null ],
     [ "mfront::generic_parallel::material_property::BackendFactory", "structmfront_1_1generic__parallel_1_1material__property_1_1_backend_factory.html", null ],
     [ "tfel::material::BarlatStressAndDerivativesWithRespectToEigenvalues< StressStensor >", "structtfel_1_1material_1_1_barlat_stress_and_derivatives_with_respect_to_eigenvalues.html", null ],
@@ -545,13 +499,8 @@ var hierarchy =
     [ "calculix::CalculiXComputeThermalExpansionCoefficientTensor< ORTHOTROPIC >", "structcalculix_1_1_calculi_x_compute_thermal_expansion_coefficient_tensor_3_01_o_r_t_h_o_t_r_o_p_i_c_01_4.html", null ],
     [ "calculix::CalculiXData", "structcalculix_1_1_calculi_x_data.html", null ],
     [ "calculix::CalculiXInterfaceExceptions", "structcalculix_1_1_calculi_x_interface_exceptions.html", [
-      [ "calculix::CalculiXBehaviourHandler< H, Behaviour >", "structcalculix_1_1_calculi_x_behaviour_handler.html", null ],
-      [ "calculix::CalculiXBehaviourHandler< H, Behaviour >::GradientInitialiserWithStressFreeExpansion", "structcalculix_1_1_calculi_x_behaviour_handler_1_1_gradient_initialiser_with_stress_free_expansion.html", null ],
       [ "calculix::CalculiXInterface< Behaviour >", "structcalculix_1_1_calculi_x_interface.html", null ]
     ] ],
-    [ "calculix::CalculiXTangentOperatorFlag< btype >", "structcalculix_1_1_calculi_x_tangent_operator_flag.html", null ],
-    [ "calculix::CalculiXTangentOperatorFlag< calculix::STANDARDFINITESTRAINBEHAVIOUR >", "structcalculix_1_1_calculi_x_tangent_operator_flag_3_01calculix_1_1_s_t_a_n_d_a_r_d_f_i_n_i_t_e_12a6cd475cba2b7e9c2d4a7aa610695e.html", null ],
-    [ "calculix::CalculiXTangentOperatorFlag< calculix::STANDARDSTRAINBASEDBEHAVIOUR >", "structcalculix_1_1_calculi_x_tangent_operator_flag_3_01calculix_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_c3f39fd9dd4ebcbf1d9d8f132724a581.html", null ],
     [ "calculix::CalculiXTraits< Behaviour >", "structcalculix_1_1_calculi_x_traits.html", null ],
     [ "calculix::CalculiXUnSupportedCaseHandler", "structcalculix_1_1_calculi_x_un_supported_case_handler.html", null ],
     [ "tfel::utilities::ArgumentParser::CallBack", "structtfel_1_1utilities_1_1_argument_parser_1_1_call_back.html", null ],
@@ -586,53 +535,11 @@ var hierarchy =
     [ "castem::CastemComputeThermalExpansionCoefficientTensor< castem::STANDARDSTRAINBASEDBEHAVIOUR, tfel::material::ModellingHypothesis::TRIDIMENSIONAL, ORTHOTROPIC >", "structcastem_1_1_castem_compute_thermal_expansion_coefficient_tensor_3_01castem_1_1_s_t_a_n_d_a_e7000ccd792f9bbc459dfaabd0ea40dc.html", null ],
     [ "castem::CastemFiniteStrain", "structcastem_1_1_castem_finite_strain.html", null ],
     [ "castem::CastemInterfaceExceptions", "structcastem_1_1_castem_interface_exceptions.html", [
-      [ "castem::CastemBehaviourHandler< STANDARDFINITESTRAINBEHAVIOUR, H, Behaviour >", "structcastem_1_1_castem_behaviour_handler.html", [
-        [ "castem::CastemOrthotropicFiniteStrainBehaviourHandler1D< H, Behaviour >", "structcastem_1_1_castem_orthotropic_finite_strain_behaviour_handler1_d.html", null ],
-        [ "castem::CastemOrthotropicFiniteStrainBehaviourHandler2D< H, Behaviour >", "structcastem_1_1_castem_orthotropic_finite_strain_behaviour_handler2_d.html", null ],
-        [ "castem::CastemOrthotropicFiniteStrainBehaviourHandler3D< H, Behaviour >", "structcastem_1_1_castem_orthotropic_finite_strain_behaviour_handler3_d.html", null ]
-      ] ],
-      [ "castem::CastemBehaviourHandler< STANDARDFINITESTRAINBEHAVIOUR, tfel::material::ModellingHypothesis::PLANESTRESS, Behaviour >", "structcastem_1_1_castem_behaviour_handler.html", [
-        [ "castem::CastemOrthotropicFiniteStrainBehaviourHandler2D< tfel::material::ModellingHypothesis::PLANESTRESS, Behaviour >", "structcastem_1_1_castem_orthotropic_finite_strain_behaviour_handler2_d_3_01tfel_1_1material_1_1_41dab0866aefa75092bab109c89e3b7c.html", null ]
-      ] ],
-      [ "castem::CastemBehaviourHandler< STANDARDSTRAINBASEDBEHAVIOUR, H, Behaviour >", "structcastem_1_1_castem_behaviour_handler.html", [
-        [ "castem::CastemOrthotropicSmallStrainBehaviourHandler1D< H, Behaviour >", "structcastem_1_1_castem_orthotropic_small_strain_behaviour_handler1_d.html", null ],
-        [ "castem::CastemOrthotropicSmallStrainBehaviourHandler2D< H, Behaviour >", "structcastem_1_1_castem_orthotropic_small_strain_behaviour_handler2_d.html", null ],
-        [ "castem::CastemOrthotropicSmallStrainBehaviourHandler3D< H, Behaviour >", "structcastem_1_1_castem_orthotropic_small_strain_behaviour_handler3_d.html", null ]
-      ] ],
-      [ "castem::CastemBehaviourHandler< STANDARDSTRAINBASEDBEHAVIOUR, tfel::material::ModellingHypothesis::PLANESTRESS, Behaviour >", "structcastem_1_1_castem_behaviour_handler.html", [
-        [ "castem::CastemOrthotropicSmallStrainBehaviourHandler2D< tfel::material::ModellingHypothesis::PLANESTRESS, Behaviour >", "structcastem_1_1_castem_orthotropic_small_strain_behaviour_handler2_d_3_01tfel_1_1material_1_1_m4cc821e9c84d07314142e2e9ad67f0b9.html", null ]
-      ] ],
-      [ "castem::CastemCohesiveZoneModelInterfaceDispatch2D< tfel::material::ModellingHypothesis::AXISYMMETRICAL, Behaviour >", "structcastem_1_1_castem_cohesive_zone_model_interface_dispatch2_d.html", [
-        [ "castem::CastemInterfaceDispatch< COHESIVEZONEMODEL, tfel::material::ModellingHypothesis::AXISYMMETRICAL, Behaviour >", "structcastem_1_1_castem_interface_dispatch_3_01_c_o_h_e_s_i_v_e_z_o_n_e_m_o_d_e_l_00_01tfel_1_1m20beadea3e5dde04d3146b73c2cbaf6c.html", null ]
-      ] ],
-      [ "castem::CastemCohesiveZoneModelInterfaceDispatch2D< tfel::material::ModellingHypothesis::PLANESTRAIN, Behaviour >", "structcastem_1_1_castem_cohesive_zone_model_interface_dispatch2_d.html", [
-        [ "castem::CastemInterfaceDispatch< COHESIVEZONEMODEL, tfel::material::ModellingHypothesis::PLANESTRAIN, Behaviour >", "structcastem_1_1_castem_interface_dispatch_3_01_c_o_h_e_s_i_v_e_z_o_n_e_m_o_d_e_l_00_01tfel_1_1mb9047aeec389dc723ff0870bd1c9a6f7.html", null ]
-      ] ],
-      [ "castem::CastemBehaviourHandler< type, H, Behaviour >", "structcastem_1_1_castem_behaviour_handler.html", [
-        [ "castem::CastemIsotropicBehaviourHandlerBase< COHESIVEZONEMODEL, H, Behaviour >", "structcastem_1_1_castem_isotropic_behaviour_handler_base.html", [
-          [ "castem::CastemIsotropicBehaviourHandler< COHESIVEZONEMODEL, H, Behaviour >", "structcastem_1_1_castem_isotropic_behaviour_handler_3_01_c_o_h_e_s_i_v_e_z_o_n_e_m_o_d_e_l_00_01_h_00_01_behaviour_01_4.html", null ]
-        ] ],
-        [ "castem::CastemIsotropicBehaviourHandlerBase< type, H, Behaviour >", "structcastem_1_1_castem_isotropic_behaviour_handler_base.html", [
-          [ "castem::CastemIsotropicBehaviourHandler< type, H, Behaviour >", "structcastem_1_1_castem_isotropic_behaviour_handler.html", null ]
-        ] ]
-      ] ],
-      [ "castem::CastemBehaviourHandler< type, H, Behaviour >::CheckThermalExpansionCoefficientIsNull", "structcastem_1_1_castem_behaviour_handler_1_1_check_thermal_expansion_coefficient_is_null.html", null ],
-      [ "castem::CastemBehaviourHandler< type, H, Behaviour >::DontCheckThermalExpansionCoefficientIsNull", "structcastem_1_1_castem_behaviour_handler_1_1_dont_check_thermal_expansion_coefficient_is_null.html", null ],
-      [ "castem::CastemBehaviourHandler< type, H, Behaviour >::GradientInitialiserWithStressFreeExpansion", "structcastem_1_1_castem_behaviour_handler_1_1_gradient_initialiser_with_stress_free_expansion.html", null ],
-      [ "castem::CastemCohesiveZoneModelInterfaceDispatch2D< hypothesis, Behaviour >", "structcastem_1_1_castem_cohesive_zone_model_interface_dispatch2_d.html", null ],
-      [ "castem::CastemGenericPlaneStressHandler< Behaviour >", "structcastem_1_1_castem_generic_plane_stress_handler.html", null ],
-      [ "castem::CastemInterface< H, Behaviour >", "structcastem_1_1_castem_interface.html", null ],
-      [ "castem::CastemInterfaceDispatch< type, H, Behaviour >", "structcastem_1_1_castem_interface_dispatch.html", null ],
-      [ "castem::CastemInterfaceDispatch< COHESIVEZONEMODEL, tfel::material::ModellingHypothesis::TRIDIMENSIONAL, Behaviour >", "structcastem_1_1_castem_interface_dispatch_3_01_c_o_h_e_s_i_v_e_z_o_n_e_m_o_d_e_l_00_01tfel_1_1m9e1b81ed87a3518bad3d97668001a149.html", null ],
-      [ "castem::CastemInterfaceDispatch< MODEL, H, Model >", "structcastem_1_1_castem_interface_dispatch_3_01_m_o_d_e_l_00_01_h_00_01_model_01_4.html", null ],
-      [ "castem::CastemInterfaceDispatch< STANDARDFINITESTRAINBEHAVIOUR, H, Behaviour >", "structcastem_1_1_castem_interface_dispatch_3_01_s_t_a_n_d_a_r_d_f_i_n_i_t_e_s_t_r_a_i_n_b_e_h_a_6b98d1140b5c45b14850f88e7f9c1dd1.html", null ],
-      [ "castem::CastemInterfaceDispatch< STANDARDSTRAINBASEDBEHAVIOUR, H, Behaviour >", "structcastem_1_1_castem_interface_dispatch_3_01_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_e_d_b_e_h_a_v_04c8a69e554f48a1ff05c6b60dd88e32.html", null ],
-      [ "castem::CastemInterfaceDispatch< STANDARDSTRAINBASEDBEHAVIOUR, tfel::material::ModellingHypothesis::PLANESTRESS, Behaviour >", "structcastem_1_1_castem_interface_dispatch_3_01_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_e_d_b_e_h_a_v_63097b19623a932477af2a0340b84866.html", null ]
+      [ "castem::CastemInterface< H, Behaviour >", "structcastem_1_1_castem_interface.html", null ]
     ] ],
     [ "castem::CastemIsotropicOffset< Type, H >", "structcastem_1_1_castem_isotropic_offset.html", null ],
     [ "castem::CastemIsotropicOffset< STANDARDFINITESTRAINBEHAVIOUR, tfel::material::ModellingHypothesis::PLANESTRESS >", "structcastem_1_1_castem_isotropic_offset_3_01_s_t_a_n_d_a_r_d_f_i_n_i_t_e_s_t_r_a_i_n_b_e_h_a_v_ab7c7e33e85413d1cbd250e419bd6ea1.html", null ],
     [ "castem::CastemIsotropicOffset< STANDARDSTRAINBASEDBEHAVIOUR, tfel::material::ModellingHypothesis::PLANESTRESS >", "structcastem_1_1_castem_isotropic_offset_3_01_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_e_d_b_e_h_a_v_i_f8e21e7098f7427b16171f7a5a0155be.html", null ],
-    [ "castem::CastemOrthotropicFiniteStrainBehaviourDispatcher< H, Behaviour >", "structcastem_1_1_castem_orthotropic_finite_strain_behaviour_dispatcher.html", null ],
     [ "castem::CastemOrthotropicOffset< Type, H >", "structcastem_1_1_castem_orthotropic_offset.html", null ],
     [ "castem::CastemOrthotropicOffset< STANDARDFINITESTRAINBEHAVIOUR, tfel::material::ModellingHypothesis::PLANESTRESS >", "structcastem_1_1_castem_orthotropic_offset_3_01_s_t_a_n_d_a_r_d_f_i_n_i_t_e_s_t_r_a_i_n_b_e_h_a_7bc6722a5deb7597cd16982472f43e77.html", null ],
     [ "castem::CastemOrthotropicOffset< STANDARDSTRAINBASEDBEHAVIOUR, tfel::material::ModellingHypothesis::PLANESTRESS >", "structcastem_1_1_castem_orthotropic_offset_3_01_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_e_d_b_e_h_a_v_963fac44a4210b6b155c3fd67ee0df38.html", null ],
@@ -644,30 +551,17 @@ var hierarchy =
       [ "castem::CastemOrthotropicOffset< STANDARDFINITESTRAINBEHAVIOUR, H >", "structcastem_1_1_castem_orthotropic_offset_3_01_s_t_a_n_d_a_r_d_f_i_n_i_t_e_s_t_r_a_i_n_b_e_h_a_v_i_o_u_r_00_01_h_01_4.html", null ],
       [ "castem::CastemOrthotropicOffset< STANDARDSTRAINBASEDBEHAVIOUR, H >", "structcastem_1_1_castem_orthotropic_offset_3_01_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_e_d_b_e_h_a_v_i_o_u_r_00_01_h_01_4.html", null ]
     ] ],
-    [ "castem::CastemOrthotropicSmallStrainBehaviourDispatcher< H, Behaviour >", "structcastem_1_1_castem_orthotropic_small_strain_behaviour_dispatcher.html", null ],
     [ "castem::CastemOutOfBoundsPolicy", "structcastem_1_1_castem_out_of_bounds_policy.html", null ],
     [ "castem::CastemRotationMatrix2D", "structcastem_1_1_castem_rotation_matrix2_d.html", null ],
     [ "castem::CastemRotationMatrix3D", "structcastem_1_1_castem_rotation_matrix3_d.html", null ],
     [ "castem::CastemTangentOperator", "structcastem_1_1_castem_tangent_operator.html", null ],
-    [ "castem::CastemTangentOperatorFlag< btype >", "structcastem_1_1_castem_tangent_operator_flag.html", null ],
-    [ "castem::CastemTangentOperatorFlag< castem::COHESIVEZONEMODEL >", "structcastem_1_1_castem_tangent_operator_flag_3_01castem_1_1_c_o_h_e_s_i_v_e_z_o_n_e_m_o_d_e_l_01_4.html", null ],
-    [ "castem::CastemTangentOperatorFlag< castem::MODEL >", "structcastem_1_1_castem_tangent_operator_flag_3_01castem_1_1_m_o_d_e_l_01_4.html", null ],
-    [ "castem::CastemTangentOperatorFlag< castem::STANDARDFINITESTRAINBEHAVIOUR >", "structcastem_1_1_castem_tangent_operator_flag_3_01castem_1_1_s_t_a_n_d_a_r_d_f_i_n_i_t_e_s_t_r_a_i_n_b_e_h_a_v_i_o_u_r_01_4.html", null ],
-    [ "castem::CastemTangentOperatorFlag< castem::STANDARDSTRAINBASEDBEHAVIOUR >", "structcastem_1_1_castem_tangent_operator_flag_3_01castem_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_e_d_b_e_h_a_v_i_o_u_r_01_4.html", null ],
-    [ "castem::CastemTangentOperatorType< btype, N >", "structcastem_1_1_castem_tangent_operator_type.html", null ],
-    [ "castem::CastemTangentOperatorType< castem::COHESIVEZONEMODEL, N >", "structcastem_1_1_castem_tangent_operator_type_3_01castem_1_1_c_o_h_e_s_i_v_e_z_o_n_e_m_o_d_e_l_00_01_n_01_4.html", null ],
-    [ "castem::CastemTangentOperatorType< castem::STANDARDFINITESTRAINBEHAVIOUR, N >", "structcastem_1_1_castem_tangent_operator_type_3_01castem_1_1_s_t_a_n_d_a_r_d_f_i_n_i_t_e_s_t_r_a7ec5f2e1d4ff5eb6fabb3c7397d9d7a4.html", null ],
-    [ "castem::CastemTangentOperatorType< castem::STANDARDSTRAINBASEDBEHAVIOUR, N >", "structcastem_1_1_castem_tangent_operator_type_3_01castem_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_e3a9ebe8763c140588599dc98f2153ef7.html", null ],
     [ "castem::CastemTraits< Behaviour >", "structcastem_1_1_castem_traits.html", null ],
     [ "mtest::CastemUmatStandardBehaviour", "structmtest_1_1_castem_umat_standard_behaviour.html", [
       [ "mtest::CastemUmatFiniteStrainBehaviour", "structmtest_1_1_castem_umat_finite_strain_behaviour.html", null ],
       [ "mtest::CastemUmatSmallStrainBehaviour", "structmtest_1_1_castem_umat_small_strain_behaviour.html", null ]
     ] ],
-    [ "castem::CastemUnSupportedCaseHandler", "structcastem_1_1_castem_un_supported_case_handler.html", [
-      [ "castem::CastemOrthotropicBehaviourHandler< type, H, Behaviour >", "structcastem_1_1_castem_orthotropic_behaviour_handler.html", null ]
-    ] ],
+    [ "castem::CastemUnSupportedCaseHandler", "structcastem_1_1_castem_un_supported_case_handler.html", null ],
     [ "mfront::CheckInitializeMethodsOptions", "structmfront_1_1_check_initialize_methods_options.html", null ],
-    [ "tfel::material::CheckThermalDataValidity< Behaviour >", "structtfel_1_1material_1_1_check_thermal_data_validity.html", null ],
     [ "tfel::math::internals::CheckUnitCompatibilityImplementation< Unit, Type >", "structtfel_1_1math_1_1internals_1_1_check_unit_compatibility_implementation.html", null ],
     [ "tfel::math::internals::CheckUnitCompatibilityImplementation< Unit, numeric_type< MathObjectType > >", "structtfel_1_1math_1_1internals_1_1_check_unit_compatibility_implementation.html", [
       [ "tfel::math::internals::CheckUnitCompatibilityImplementation< Unit, MathObjectType >", "structtfel_1_1math_1_1internals_1_1_check_unit_compatibility_implementation_3_01_unit_00_01_math_object_type_01_4.html", null ]
@@ -1110,9 +1004,6 @@ var hierarchy =
     ] ],
     [ "tfel::check::Configuration", "structtfel_1_1check_1_1_configuration.html", null ],
     [ "tfel::check::ConfigurationManager", "structtfel_1_1check_1_1_configuration_manager.html", null ],
-    [ "castem::CastemBehaviourHandler< type, H, Behaviour >::ConsistentTangentOperatorComputer", "structcastem_1_1_castem_behaviour_handler_1_1_consistent_tangent_operator_computer.html", null ],
-    [ "castem::CastemBehaviourHandler< type, H, Behaviour >::ConsistentTangentOperatorIsNotAvalaible", "structcastem_1_1_castem_behaviour_handler_1_1_consistent_tangent_operator_is_not_avalaible.html", null ],
-    [ "cyrano::CyranoBehaviourHandler< H, Behaviour >::ConsistentTangentOperatorIsNotAvalaible", "structcyrano_1_1_cyrano_behaviour_handler_1_1_consistent_tangent_operator_is_not_avalaible.html", null ],
     [ "mfront::BehaviourDescription::ConstantMaterialProperty", "structmfront_1_1_behaviour_description_1_1_constant_material_property.html", null ],
     [ "tfel::math::ConstArrayCommonMethods< Child, ArrayPolicyType >", "structtfel_1_1math_1_1_const_array_common_methods.html", [
       [ "tfel::math::ConstFixedSizeArrayBase< GenericFixedSizeConstArrayView< ArrayPolicy >, ArrayPolicy >", "structtfel_1_1math_1_1_const_fixed_size_array_base.html", null ],
@@ -1463,14 +1354,8 @@ var hierarchy =
     [ "cyrano::CyranoComputeThermalExpansionCoefficientTensor< tfel::material::ModellingHypothesis::AXISYMMETRICALGENERALISEDPLANESTRESS, ISOTROPIC >", "structcyrano_1_1_cyrano_compute_thermal_expansion_coefficient_tensor_3_01tfel_1_1material_1_1_mo5c7d39c8f292c08aae38bd9c10a5a26e.html", null ],
     [ "cyrano::CyranoComputeThermalExpansionCoefficientTensor< tfel::material::ModellingHypothesis::AXISYMMETRICALGENERALISEDPLANESTRESS, ORTHOTROPIC >", "structcyrano_1_1_cyrano_compute_thermal_expansion_coefficient_tensor_3_01tfel_1_1material_1_1_mo26d55a7d1cf54f2cab3a77704eddda5a.html", null ],
     [ "cyrano::CyranoInterfaceExceptions", "structcyrano_1_1_cyrano_interface_exceptions.html", [
-      [ "cyrano::CyranoBehaviourHandler< H, Behaviour >", "structcyrano_1_1_cyrano_behaviour_handler.html", null ],
-      [ "cyrano::CyranoBehaviourHandler< H, Behaviour >::GradientInitialiserWithStressFreeExpansion", "structcyrano_1_1_cyrano_behaviour_handler_1_1_gradient_initialiser_with_stress_free_expansion.html", null ],
-      [ "cyrano::CyranoGenericPlaneStressHandler< Behaviour >", "structcyrano_1_1_cyrano_generic_plane_stress_handler.html", null ],
-      [ "cyrano::CyranoInterface< Behaviour >", "structcyrano_1_1_cyrano_interface.html", null ],
-      [ "cyrano::CyranoInterfaceDispatch< H, Behaviour >", "structcyrano_1_1_cyrano_interface_dispatch.html", null ]
+      [ "cyrano::CyranoInterface< Behaviour >", "structcyrano_1_1_cyrano_interface.html", null ]
     ] ],
-    [ "cyrano::CyranoIsotropicBehaviourHandler< H, Behaviour >", "structcyrano_1_1_cyrano_isotropic_behaviour_handler.html", null ],
-    [ "cyrano::CyranoOrthotropicBehaviourHandler< H, Behaviour >", "structcyrano_1_1_cyrano_orthotropic_behaviour_handler.html", null ],
     [ "cyrano::CyranoOutOfBoundsPolicy", "structcyrano_1_1_cyrano_out_of_bounds_policy.html", null ],
     [ "CyranoOutputStatus", "struct_cyrano_output_status.html", null ],
     [ "cyrano::CyranoTraits< Behaviour >", "structcyrano_1_1_cyrano_traits.html", null ],
@@ -1556,40 +1441,26 @@ var hierarchy =
     [ "dianafea::DianaFEAComputeThermalExpansionCoefficientTensor< dianafea::STANDARDSTRAINBASEDBEHAVIOUR, tfel::material::ModellingHypothesis::TRIDIMENSIONAL, ORTHOTROPIC >", "structdianafea_1_1_diana_f_e_a_compute_thermal_expansion_coefficient_tensor_3_01dianafea_1_1_s_t8acef66ccf7d0fee04b8102dd626da86.html", null ],
     [ "dianafea::DianaFEAData", "structdianafea_1_1_diana_f_e_a_data.html", null ],
     [ "dianafea::DianaFEAInterfaceExceptions", "structdianafea_1_1_diana_f_e_a_interface_exceptions.html", [
-      [ "dianafea::DianaFEABehaviourHandler< H, Behaviour >", "structdianafea_1_1_diana_f_e_a_behaviour_handler.html", null ],
-      [ "dianafea::DianaFEABehaviourHandler< H, Behaviour >::GradientInitialiserWithStressFreeExpansion", "structdianafea_1_1_diana_f_e_a_behaviour_handler_1_1_gradient_initialiser_with_stress_free_expansion.html", null ],
       [ "dianafea::DianaFEAInterface< H, Behaviour >", "structdianafea_1_1_diana_f_e_a_interface.html", null ]
     ] ],
     [ "dianafea::DianaFEAOutOfBoundsPolicy", "structdianafea_1_1_diana_f_e_a_out_of_bounds_policy.html", null ],
     [ "dianafea::DianaFEATangentOperator< real >", "structdianafea_1_1_diana_f_e_a_tangent_operator.html", null ],
-    [ "dianafea::DianaFEATangentOperatorFlag< btype >", "structdianafea_1_1_diana_f_e_a_tangent_operator_flag.html", null ],
-    [ "dianafea::DianaFEATangentOperatorFlag< dianafea::STANDARDSTRAINBASEDBEHAVIOUR >", "structdianafea_1_1_diana_f_e_a_tangent_operator_flag_3_01dianafea_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_8315460e0cece0c4f608fc47d3ce986a.html", null ],
     [ "dianafea::DianaFEATangentOperatorType< btype, real, N >", "structdianafea_1_1_diana_f_e_a_tangent_operator_type.html", null ],
     [ "dianafea::DianaFEATraits< Behaviour >", "structdianafea_1_1_diana_f_e_a_traits.html", null ],
     [ "dianafea::DianaFEAUnSupportedCaseHandler", "structdianafea_1_1_diana_f_e_a_un_supported_case_handler.html", null ],
     [ "tfel::math::DifferenceRandomAccessIteratorBase", "structtfel_1_1math_1_1_difference_random_access_iterator_base.html", [
       [ "tfel::math::DifferenceRandomAccessIterator< iterator_base >", "structtfel_1_1math_1_1_difference_random_access_iterator.html", null ]
     ] ],
-    [ "abaqus::AbaqusBehaviourHandler< H, Behaviour >::Integrator::DissipatedEnergyComputer", "structabaqus_1_1_abaqus_behaviour_handler_1_1_integrator_1_1_dissipated_energy_computer.html", null ],
     [ "abaqus::AbaqusExplicitInterface< H, T, Behaviour >::DissipatedEnergyComputer", "structabaqus_1_1_abaqus_explicit_interface_1_1_dissipated_energy_computer.html", null ],
     [ "lsdyna::LSDYNAExplicitInterface< H, T, Behaviour >::DissipatedEnergyComputer", "structlsdyna_1_1_l_s_d_y_n_a_explicit_interface_1_1_dissipated_energy_computer.html", null ],
     [ "mfront::gb::DissipatedEnergyComputer", "structmfront_1_1gb_1_1_dissipated_energy_computer.html", null ],
     [ "tfel::material::homogenization::elasticity::Distribution< StressType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_distribution.html", null ],
     [ "tfel::fsalgo::internals::do_loop< I, N >", "structtfel_1_1fsalgo_1_1internals_1_1do__loop.html", null ],
     [ "tfel::fsalgo::internals::do_loop< N, N >", "structtfel_1_1fsalgo_1_1internals_1_1do__loop_3_01_n_00_01_n_01_4.html", null ],
-    [ "abaqus::AbaqusBehaviourHandler< H, Behaviour >::Integrator::DoNothingEnergyComputer", "structabaqus_1_1_abaqus_behaviour_handler_1_1_integrator_1_1_do_nothing_energy_computer.html", null ],
     [ "abaqus::AbaqusExplicitInterface< H, T, Behaviour >::DoNothingEnergyComputer", "structabaqus_1_1_abaqus_explicit_interface_1_1_do_nothing_energy_computer.html", null ],
     [ "lsdyna::LSDYNAExplicitInterface< H, T, Behaviour >::DoNothingEnergyComputer", "structlsdyna_1_1_l_s_d_y_n_a_explicit_interface_1_1_do_nothing_energy_computer.html", null ],
     [ "mfront::gb::DoNothingEnergyComputer", "structmfront_1_1gb_1_1_do_nothing_energy_computer.html", null ],
-    [ "abaqus::AbaqusBehaviourHandler< H, Behaviour >::DoNothingInitializer", "structabaqus_1_1_abaqus_behaviour_handler_1_1_do_nothing_initializer.html", null ],
     [ "abaqus::AbaqusExplicitInterface< H, T, Behaviour >::DoNothingInitializer", "structabaqus_1_1_abaqus_explicit_interface_1_1_do_nothing_initializer.html", null ],
-    [ "ansys::AnsysBehaviourHandler< H, Behaviour >::DoNothingInitializer", "structansys_1_1_ansys_behaviour_handler_1_1_do_nothing_initializer.html", null ],
-    [ "aster::AsterBehaviourHandler< H, Behaviour >::DoNothingInitializer", "structaster_1_1_aster_behaviour_handler_1_1_do_nothing_initializer.html", null ],
-    [ "calculix::CalculiXBehaviourHandler< H, Behaviour >::DoNothingInitializer", "structcalculix_1_1_calculi_x_behaviour_handler_1_1_do_nothing_initializer.html", null ],
-    [ "castem::CastemBehaviourHandler< type, H, Behaviour >::DoNothingInitializer", "structcastem_1_1_castem_behaviour_handler_1_1_do_nothing_initializer.html", null ],
-    [ "cyrano::CyranoBehaviourHandler< H, Behaviour >::DoNothingInitializer", "structcyrano_1_1_cyrano_behaviour_handler_1_1_do_nothing_initializer.html", null ],
-    [ "dianafea::DianaFEABehaviourHandler< H, Behaviour >::DoNothingInitializer", "structdianafea_1_1_diana_f_e_a_behaviour_handler_1_1_do_nothing_initializer.html", null ],
-    [ "lsdyna::LSDYNABehaviourHandler< H, Behaviour >::DoNothingInitializer", "structlsdyna_1_1_l_s_d_y_n_a_behaviour_handler_1_1_do_nothing_initializer.html", null ],
     [ "lsdyna::LSDYNAExplicitInterface< H, T, Behaviour >::DoNothingInitializer", "structlsdyna_1_1_l_s_d_y_n_a_explicit_interface_1_1_do_nothing_initializer.html", null ],
     [ "tfel::math::dotProduct< N >", "structtfel_1_1math_1_1dot_product.html", null ],
     [ "tfel::math::DotProduct< N, M >", "structtfel_1_1math_1_1_dot_product.html", null ],
@@ -1676,9 +1547,6 @@ var hierarchy =
     [ "tfel::system::EnumBinaryReader< T >", "structtfel_1_1system_1_1_enum_binary_reader.html", null ],
     [ "tfel::system::EnumBinaryWriter< T >", "structtfel_1_1system_1_1_enum_binary_writer.html", null ],
     [ "tfel::fsalgo::equal< N >", "structtfel_1_1fsalgo_1_1equal.html", null ],
-    [ "aster::AsterBehaviourHandler< H, Behaviour >::Error", "structaster_1_1_aster_behaviour_handler_1_1_error.html", null ],
-    [ "castem::CastemBehaviourHandler< type, H, Behaviour >::Error", "structcastem_1_1_castem_behaviour_handler_1_1_error.html", null ],
-    [ "cyrano::CyranoBehaviourHandler< H, Behaviour >::Error", "structcyrano_1_1_cyrano_behaviour_handler_1_1_error.html", null ],
     [ "tfel::material::EshelbyTolerances", "structtfel_1_1material_1_1_eshelby_tolerances.html", null ],
     [ "tfel::math::parser::EvaluatorBase", "structtfel_1_1math_1_1parser_1_1_evaluator_base.html", [
       [ "tfel::math::Evaluator", "structtfel_1_1math_1_1_evaluator.html", null ],
@@ -1696,17 +1564,6 @@ var hierarchy =
     [ "tfel::math::parser::EvaluatorFunctionWrapper< 7u >", "structtfel_1_1math_1_1parser_1_1_evaluator_function_wrapper_3_017u_01_4.html", null ],
     [ "tfel::math::parser::EvaluatorFunctionWrapper< 8u >", "structtfel_1_1math_1_1parser_1_1_evaluator_function_wrapper_3_018u_01_4.html", null ],
     [ "tfel::math::parser::EvaluatorFunctionWrapper< 9u >", "structtfel_1_1math_1_1parser_1_1_evaluator_function_wrapper_3_019u_01_4.html", null ],
-    [ "tfel::math::parser::EvaluatorProxy< EvaluatorProxyFunctionPtr1V >", "structtfel_1_1math_1_1parser_1_1_evaluator_proxy.html", null ],
-    [ "tfel::math::parser::EvaluatorProxy1P1V< EvaluatorProxyFunctionPtr1P1V >", "structtfel_1_1math_1_1parser_1_1_evaluator_proxy1_p1_v.html", null ],
-    [ "tfel::math::parser::EvaluatorProxy1P2V< EvaluatorProxyFunctionPtr1P2V >", "structtfel_1_1math_1_1parser_1_1_evaluator_proxy1_p2_v.html", null ],
-    [ "tfel::math::parser::EvaluatorProxy1PNV< N, f >", "structtfel_1_1math_1_1parser_1_1_evaluator_proxy1_p_n_v.html", null ],
-    [ "tfel::math::parser::EvaluatorProxy1UPNV< N, f >", "structtfel_1_1math_1_1parser_1_1_evaluator_proxy1_u_p_n_v.html", null ],
-    [ "tfel::math::parser::EvaluatorProxy2P1V< EvaluatorProxyFunctionPtr2P1V >", "structtfel_1_1math_1_1parser_1_1_evaluator_proxy2_p1_v.html", null ],
-    [ "tfel::math::parser::EvaluatorProxy2P2V< EvaluatorProxyFunctionPtr2P2V >", "structtfel_1_1math_1_1parser_1_1_evaluator_proxy2_p2_v.html", null ],
-    [ "tfel::math::parser::EvaluatorProxy2PNV< N, f >", "structtfel_1_1math_1_1parser_1_1_evaluator_proxy2_p_n_v.html", null ],
-    [ "tfel::math::parser::EvaluatorProxy2UPNV< N, f >", "structtfel_1_1math_1_1parser_1_1_evaluator_proxy2_u_p_n_v.html", null ],
-    [ "tfel::math::parser::EvaluatorProxy2V< EvaluatorProxyFunctionPtr2V >", "structtfel_1_1math_1_1parser_1_1_evaluator_proxy2_v.html", null ],
-    [ "tfel::math::parser::EvaluatorProxyNV< N, f >", "structtfel_1_1math_1_1parser_1_1_evaluator_proxy_n_v.html", null ],
     [ "mtest::Evolution", "structmtest_1_1_evolution.html", [
       [ "mtest::CastemEvolution", "structmtest_1_1_castem_evolution.html", null ],
       [ "mtest::ConstantEvolution", "structmtest_1_1_constant_evolution.html", null ],
@@ -2052,8 +1909,6 @@ var hierarchy =
     [ "tfel::math::parser::FunctionBase", "structtfel_1_1math_1_1parser_1_1_function_base.html", null ],
     [ "mtest::GasEquationOfState", "structmtest_1_1_gas_equation_of_state.html", null ],
     [ "tfel::math::GaussKronrodQuadrature", "structtfel_1_1math_1_1_gauss_kronrod_quadrature.html", null ],
-    [ "castem::CastemBehaviourHandler< type, H, Behaviour >::GeneralConsistentTangentOperatorComputer", "structcastem_1_1_castem_behaviour_handler_1_1_general_consistent_tangent_operator_computer.html", null ],
-    [ "cyrano::CyranoBehaviourHandler< H, Behaviour >::GeneralConsistentTangentOperatorComputer", "structcyrano_1_1_cyrano_behaviour_handler_1_1_general_consistent_tangent_operator_computer.html", null ],
     [ "tfel::fsalgo::generate< N >", "structtfel_1_1fsalgo_1_1generate.html", null ],
     [ "GenerateTypeList", "class_generate_type_list.html", null ],
     [ "tfel::meta::GenerateTypeList< CurrentType, Types... >", "structtfel_1_1meta_1_1_generate_type_list_3_01_current_type_00_01_types_8_8_8_01_4.html", null ],
@@ -2088,14 +1943,6 @@ var hierarchy =
     ] ],
     [ "tfel::glossary::Glossary", "structtfel_1_1glossary_1_1_glossary.html", null ],
     [ "tfel::glossary::GlossaryEntry", "structtfel_1_1glossary_1_1_glossary_entry.html", null ],
-    [ "abaqus::AbaqusBehaviourHandler< H, Behaviour >::GradientInitialiserWithoutStressFreeExpansion", "structabaqus_1_1_abaqus_behaviour_handler_1_1_gradient_initialiser_without_stress_free_expansion.html", null ],
-    [ "ansys::AnsysBehaviourHandler< H, Behaviour >::GradientInitialiserWithoutStressFreeExpansion", "structansys_1_1_ansys_behaviour_handler_1_1_gradient_initialiser_without_stress_free_expansion.html", null ],
-    [ "aster::AsterBehaviourHandler< H, Behaviour >::GradientInitialiserWithoutStressFreeExpansion", "structaster_1_1_aster_behaviour_handler_1_1_gradient_initialiser_without_stress_free_expansion.html", null ],
-    [ "calculix::CalculiXBehaviourHandler< H, Behaviour >::GradientInitialiserWithoutStressFreeExpansion", "structcalculix_1_1_calculi_x_behaviour_handler_1_1_gradient_initialiser_without_stress_free_expansion.html", null ],
-    [ "castem::CastemBehaviourHandler< type, H, Behaviour >::GradientInitialiserWithoutStressFreeExpansion", "structcastem_1_1_castem_behaviour_handler_1_1_gradient_initialiser_without_stress_free_expansion.html", null ],
-    [ "cyrano::CyranoBehaviourHandler< H, Behaviour >::GradientInitialiserWithoutStressFreeExpansion", "structcyrano_1_1_cyrano_behaviour_handler_1_1_gradient_initialiser_without_stress_free_expansion.html", null ],
-    [ "dianafea::DianaFEABehaviourHandler< H, Behaviour >::GradientInitialiserWithoutStressFreeExpansion", "structdianafea_1_1_diana_f_e_a_behaviour_handler_1_1_gradient_initialiser_without_stress_free_expansion.html", null ],
-    [ "lsdyna::LSDYNABehaviourHandler< H, Behaviour >::GradientInitialiserWithoutStressFreeExpansion", "structlsdyna_1_1_l_s_d_y_n_a_behaviour_handler_1_1_gradient_initialiser_without_stress_free_expansion.html", null ],
     [ "numodis::GSystem", "structnumodis_1_1_g_system.html", null ],
     [ "tfel::math::internals::GteSymmetricEigensolver3x3< real >", "structtfel_1_1math_1_1internals_1_1_gte_symmetric_eigensolver3x3.html", null ],
     [ "tfel::material::GursonTvergaardNeedleman1982StressCriterionParameters< StressStensor >", "structtfel_1_1material_1_1_gurson_tvergaard_needleman1982_stress_criterion_parameters.html", null ],
@@ -2240,22 +2087,11 @@ var hierarchy =
       [ "std::tuple_size< tfel::math::tvector< N, ValueType > >", "structstd_1_1tuple__size_3_01tfel_1_1math_1_1tvector_3_01_n_00_01_value_type_01_4_01_4.html", null ]
     ] ],
     [ "tfel::material::MechanicalBehaviourBase::IntegrationResult", "structtfel_1_1material_1_1_mechanical_behaviour_base_1_1_integration_result.html", null ],
-    [ "abaqus::AbaqusBehaviourHandler< H, Behaviour >::Integrator", "structabaqus_1_1_abaqus_behaviour_handler_1_1_integrator.html", null ],
-    [ "ansys::AnsysBehaviourHandler< H, Behaviour >::Integrator< bs, ba >", "structansys_1_1_ansys_behaviour_handler_1_1_integrator.html", null ],
-    [ "aster::AsterBehaviourHandler< H, Behaviour >::Integrator< bs, ba >", "structaster_1_1_aster_behaviour_handler_1_1_integrator.html", null ],
-    [ "calculix::CalculiXBehaviourHandler< H, Behaviour >::Integrator< bs, ba >", "structcalculix_1_1_calculi_x_behaviour_handler_1_1_integrator.html", null ],
-    [ "castem::CastemBehaviourHandler< type, H, Behaviour >::Integrator< bs, ba >", "structcastem_1_1_castem_behaviour_handler_1_1_integrator.html", null ],
-    [ "cyrano::CyranoBehaviourHandler< H, Behaviour >::Integrator< bs, ba >", "structcyrano_1_1_cyrano_behaviour_handler_1_1_integrator.html", null ],
-    [ "dianafea::DianaFEABehaviourHandler< H, Behaviour >::Integrator< bs, ba >", "structdianafea_1_1_diana_f_e_a_behaviour_handler_1_1_integrator.html", null ],
-    [ "lsdyna::LSDYNABehaviourHandler< H, Behaviour >::Integrator< bs, ba >", "structlsdyna_1_1_l_s_d_y_n_a_behaviour_handler_1_1_integrator.html", null ],
-    [ "castem::CastemBehaviourHandler< type, H, Behaviour >::IntegratorWithTimeStepping< bs, ba >", "structcastem_1_1_castem_behaviour_handler_1_1_integrator_with_time_stepping.html", null ],
-    [ "cyrano::CyranoBehaviourHandler< H, Behaviour >::IntegratorWithTimeStepping< bs, ba >", "structcyrano_1_1_cyrano_behaviour_handler_1_1_integrator_with_time_stepping.html", null ],
     [ "tfel::material::SlipSystemsDescription::InteractionMatrixStructure", "structtfel_1_1material_1_1_slip_systems_description_1_1_interaction_matrix_structure.html", null ],
     [ "mfront::InterfaceBase", "structmfront_1_1_interface_base.html", [
       [ "mfront::CastemInterface", "structmfront_1_1_castem_interface.html", null ],
       [ "mfront::CyranoInterface", "structmfront_1_1_cyrano_interface.html", null ]
     ] ],
-    [ "abaqus::AbaqusBehaviourHandler< H, Behaviour >::Integrator::InternalEnergyComputer", "structabaqus_1_1_abaqus_behaviour_handler_1_1_integrator_1_1_internal_energy_computer.html", null ],
     [ "abaqus::AbaqusExplicitInterface< H, T, Behaviour >::InternalEnergyComputer", "structabaqus_1_1_abaqus_explicit_interface_1_1_internal_energy_computer.html", null ],
     [ "lsdyna::LSDYNAExplicitInterface< H, T, Behaviour >::InternalEnergyComputer", "structlsdyna_1_1_l_s_d_y_n_a_explicit_interface_1_1_internal_energy_computer.html", null ],
     [ "mfront::gb::InternalEnergyComputer", "structmfront_1_1gb_1_1_internal_energy_computer.html", null ],
@@ -2343,9 +2179,6 @@ var hierarchy =
       [ "mfront::bbrick::VoceIsotropicHardeningRule", "structmfront_1_1bbrick_1_1_voce_isotropic_hardening_rule.html", null ]
     ] ],
     [ "mfront::bbrick::IsotropicHardeningRuleFactory", "structmfront_1_1bbrick_1_1_isotropic_hardening_rule_factory.html", null ],
-    [ "IsotropicLinearHookLaw", null, [
-      [ "tfel::material::IsotropicLinearFourierHookLaw< N, T, use_qt >", "classtfel_1_1material_1_1_isotropic_linear_fourier_hook_law.html", null ]
-    ] ],
     [ "numodis::IsotropicLineTensionModel", "structnumodis_1_1_isotropic_line_tension_model.html", null ],
     [ "tfel::material::homogenization::elasticity::IsotropicLocalisationTensor< N, StressType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_isotropic_localisation_tensor.html", null ],
     [ "tfel::material::homogenization::elasticity::IsotropicLocalisationTensor< 2u, StressType >", "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_isotropic_localisation_tensor_3_012u_00_01_stress_type_01_4.html", null ],
@@ -2492,8 +2325,6 @@ var hierarchy =
     [ "lsdyna::LSDYNAExplicitData< T >", "structlsdyna_1_1_l_s_d_y_n_a_explicit_data.html", null ],
     [ "lsdyna::LSDYNAFiniteStrain", "structlsdyna_1_1_l_s_d_y_n_a_finite_strain.html", null ],
     [ "lsdyna::LSDYNAInterfaceExceptions", "structlsdyna_1_1_l_s_d_y_n_a_interface_exceptions.html", [
-      [ "lsdyna::LSDYNABehaviourHandler< H, Behaviour >", "structlsdyna_1_1_l_s_d_y_n_a_behaviour_handler.html", null ],
-      [ "lsdyna::LSDYNABehaviourHandler< H, Behaviour >::GradientInitialiserWithStressFreeExpansion", "structlsdyna_1_1_l_s_d_y_n_a_behaviour_handler_1_1_gradient_initialiser_with_stress_free_expansion.html", null ],
       [ "lsdyna::LSDYNAExplicitInterface< H, T, Behaviour >", "structlsdyna_1_1_l_s_d_y_n_a_explicit_interface.html", null ],
       [ "lsdyna::LSDYNAInterface< H, Behaviour >", "structlsdyna_1_1_l_s_d_y_n_a_interface.html", null ]
     ] ],
@@ -2502,11 +2333,7 @@ var hierarchy =
     [ "lsdyna::LSDYNAOrthotropicElasticPropertiesOffset< 3u >", "structlsdyna_1_1_l_s_d_y_n_a_orthotropic_elastic_properties_offset_3_013u_01_4.html", null ],
     [ "lsdyna::LSDYNARotation2D< real >", "structlsdyna_1_1_l_s_d_y_n_a_rotation2_d.html", null ],
     [ "lsdyna::LSDYNARotation3D< real >", "structlsdyna_1_1_l_s_d_y_n_a_rotation3_d.html", null ],
-    [ "lsdyna::LSDYNAStensorSize< tfel::material::ModellingHypothesis::PLANESTRESS >", "structlsdyna_1_1_l_s_d_y_n_a_stensor_size_3_01tfel_1_1material_1_1_modelling_hypothesis_1_1_p_l_a_n_e_s_t_r_e_s_s_01_4.html", null ],
     [ "lsdyna::LSDYNATangentOperator< real >", "structlsdyna_1_1_l_s_d_y_n_a_tangent_operator.html", null ],
-    [ "lsdyna::LSDYNATangentOperatorFlag< btype >", "structlsdyna_1_1_l_s_d_y_n_a_tangent_operator_flag.html", null ],
-    [ "lsdyna::LSDYNATangentOperatorFlag< lsdyna::STANDARDFINITESTRAINBEHAVIOUR >", "structlsdyna_1_1_l_s_d_y_n_a_tangent_operator_flag_3_01lsdyna_1_1_s_t_a_n_d_a_r_d_f_i_n_i_t_e_s_c51e7a2ef966c6c7d63598ff61e87294.html", null ],
-    [ "lsdyna::LSDYNATangentOperatorFlag< lsdyna::STANDARDSTRAINBASEDBEHAVIOUR >", "structlsdyna_1_1_l_s_d_y_n_a_tangent_operator_flag_3_01lsdyna_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_e_d_b_e_h_a_v_i_o_u_r_01_4.html", null ],
     [ "lsdyna::LSDYNATangentOperatorType< btype, real, N >", "structlsdyna_1_1_l_s_d_y_n_a_tangent_operator_type.html", null ],
     [ "lsdyna::LSDYNATraits< Behaviour >", "structlsdyna_1_1_l_s_d_y_n_a_traits.html", null ],
     [ "lsdyna::LSDYNAUnSupportedCaseHandler", "structlsdyna_1_1_l_s_d_y_n_a_un_supported_case_handler.html", null ],
@@ -2604,9 +2431,6 @@ var hierarchy =
     [ "tfel::fsalgo::max_element< 0u >", "structtfel_1_1fsalgo_1_1max__element_3_010u_01_4.html", null ],
     [ "tfel::fsalgo::max_element< 1u >", "structtfel_1_1fsalgo_1_1max__element_3_011u_01_4.html", null ],
     [ "tfel::material::MechanicalBehaviourBase", "structtfel_1_1material_1_1_mechanical_behaviour_base.html", [
-      [ "tfel::material::MechanicalBehaviour< N, NumType, use_qt >", "structtfel_1_1material_1_1_mechanical_behaviour.html", [
-        [ "tfel::material::ThermoMechanicalBehaviour< N, NumType, use_qt >", "classtfel_1_1material_1_1_thermo_mechanical_behaviour.html", null ]
-      ] ],
       [ "mfront::BehaviourDescription", "structmfront_1_1_behaviour_description.html", null ],
       [ "tfel::material::MechanicalBehaviour< btype, H, NumType, use_qt >", "structtfel_1_1material_1_1_mechanical_behaviour.html", null ]
     ] ],
@@ -2653,10 +2477,6 @@ var hierarchy =
     [ "tfel::material::ModellingHypothesisToSpaceDimension< ModellingHypothesis::PLANESTRESS >", "structtfel_1_1material_1_1_modelling_hypothesis_to_space_dimension_3_01_modelling_hypothesis_1_1_p_l_a_n_e_s_t_r_e_s_s_01_4.html", null ],
     [ "tfel::material::ModellingHypothesisToSpaceDimension< ModellingHypothesis::TRIDIMENSIONAL >", "structtfel_1_1material_1_1_modelling_hypothesis_to_space_dimension_3_01_modelling_hypothesis_1_1f0b6d96c0643de74a73d3bdd3ac935f1.html", null ],
     [ "tfel::material::ModellingHypothesisToStensorSize< Hypothesis >", "structtfel_1_1material_1_1_modelling_hypothesis_to_stensor_size.html", null ],
-    [ "tfel::material::ModellingHypothesisToStensorSize< H >", "structtfel_1_1material_1_1_modelling_hypothesis_to_stensor_size.html", [
-      [ "abaqus::AbaqusStensorSize< H >", "structabaqus_1_1_abaqus_stensor_size.html", null ],
-      [ "lsdyna::LSDYNAStensorSize< H >", "structlsdyna_1_1_l_s_d_y_n_a_stensor_size.html", null ]
-    ] ],
     [ "tfel::material::ModellingHypothesisToStensorSize< ModellingHypothesis::AXISYMMETRICAL >", "structtfel_1_1material_1_1_modelling_hypothesis_to_stensor_size_3_01_modelling_hypothesis_1_1_a_x_i_s_y_m_m_e_t_r_i_c_a_l_01_4.html", null ],
     [ "tfel::material::ModellingHypothesisToStensorSize< ModellingHypothesis::AXISYMMETRICALGENERALISEDPLANESTRAIN >", "structtfel_1_1material_1_1_modelling_hypothesis_to_stensor_size_3_01_modelling_hypothesis_1_1_a_0480ac891f310535c3b2fa0b37f9820c.html", null ],
     [ "tfel::material::ModellingHypothesisToStensorSize< ModellingHypothesis::AXISYMMETRICALGENERALISEDPLANESTRESS >", "structtfel_1_1material_1_1_modelling_hypothesis_to_stensor_size_3_01_modelling_hypothesis_1_1_a_93fac92e7580cb1dc3e60a247c8633ba.html", null ],
@@ -2862,8 +2682,6 @@ var hierarchy =
     [ "tfel::math::internals::PowerSqrtNeg< N >", "structtfel_1_1math_1_1internals_1_1_power_sqrt_neg.html", null ],
     [ "tfel::math::internals::PowerSqrtPos< N >", "classtfel_1_1math_1_1internals_1_1_power_sqrt_pos.html", null ],
     [ "tfel::math::unit::internals::PowerUnit< N, D, UnitType1 >", "structtfel_1_1math_1_1unit_1_1internals_1_1_power_unit.html", null ],
-    [ "castem::CastemBehaviourHandler< type, H, Behaviour >::PredictionOperatorIsNotAvalaible", "structcastem_1_1_castem_behaviour_handler_1_1_prediction_operator_is_not_avalaible.html", null ],
-    [ "cyrano::CyranoBehaviourHandler< H, Behaviour >::PredictionOperatorIsNotAvalaible", "structcyrano_1_1_cyrano_behaviour_handler_1_1_prediction_operator_is_not_avalaible.html", null ],
     [ "tfel::system::ProcessManager", "structtfel_1_1system_1_1_process_manager.html", null ],
     [ "tfel::typetraits::Promote< A, B >", "structtfel_1_1typetraits_1_1_promote.html", null ],
     [ "tfel::typetraits::Promote< A, A >", "structtfel_1_1typetraits_1_1_promote_3_01_a_00_01_a_01_4.html", null ],
@@ -3084,14 +2902,6 @@ var hierarchy =
     ] ],
     [ "mtest::SolverOptions", "structmtest_1_1_solver_options.html", null ],
     [ "mtest::SolverWorkSpace", "structmtest_1_1_solver_work_space.html", null ],
-    [ "tfel::math::internals::SortEigenValues< N >", "structtfel_1_1math_1_1internals_1_1_sort_eigen_values.html", null ],
-    [ "tfel::math::internals::SortEigenValues< 1u >", "structtfel_1_1math_1_1internals_1_1_sort_eigen_values_3_011u_01_4.html", null ],
-    [ "tfel::math::internals::SortEigenValues< 2u >", "structtfel_1_1math_1_1internals_1_1_sort_eigen_values_3_012u_01_4.html", null ],
-    [ "tfel::math::internals::SortEigenValues< 3u >", "structtfel_1_1math_1_1internals_1_1_sort_eigen_values_3_013u_01_4.html", null ],
-    [ "tfel::math::internals::SortEigenVectors< N >", "structtfel_1_1math_1_1internals_1_1_sort_eigen_vectors.html", null ],
-    [ "tfel::math::internals::SortEigenVectors< 1u >", "structtfel_1_1math_1_1internals_1_1_sort_eigen_vectors_3_011u_01_4.html", null ],
-    [ "tfel::math::internals::SortEigenVectors< 2u >", "structtfel_1_1math_1_1internals_1_1_sort_eigen_vectors_3_012u_01_4.html", null ],
-    [ "tfel::math::internals::SortEigenVectors< 3u >", "structtfel_1_1math_1_1internals_1_1_sort_eigen_vectors_3_013u_01_4.html", null ],
     [ "tfel::config::internals::SpatialGradType< N, T, use_qt >", "structtfel_1_1config_1_1internals_1_1_spatial_grad_type.html", null ],
     [ "tfel::config::internals::SpatialGradType< 1u, T, false >", "structtfel_1_1config_1_1internals_1_1_spatial_grad_type_3_011u_00_01_t_00_01false_01_4.html", null ],
     [ "tfel::config::internals::SpatialGradType< 1u, T, use_qt >", "structtfel_1_1config_1_1internals_1_1_spatial_grad_type_3_011u_00_01_t_00_01use__qt_01_4.html", null ],
@@ -3253,8 +3063,6 @@ var hierarchy =
     ] ],
     [ "tfel::system::StandardBinaryReader< T >", "structtfel_1_1system_1_1_standard_binary_reader.html", null ],
     [ "tfel::system::StandardBinaryWriter< T >", "structtfel_1_1system_1_1_standard_binary_writer.html", null ],
-    [ "castem::CastemBehaviourHandler< type, H, Behaviour >::StandardPredictionOperatorComputer", "structcastem_1_1_castem_behaviour_handler_1_1_standard_prediction_operator_computer.html", null ],
-    [ "cyrano::CyranoBehaviourHandler< H, Behaviour >::StandardPredictionOperatorComputer", "structcyrano_1_1_cyrano_behaviour_handler_1_1_standard_prediction_operator_computer.html", null ],
     [ "tfel::utilities::internals::StdVariantFromTypeList< List, Types >", "structtfel_1_1utilities_1_1internals_1_1_std_variant_from_type_list.html", null ],
     [ "tfel::utilities::internals::StdVariantFromTypeList< tfel::meta::TLE, Types... >", "structtfel_1_1utilities_1_1internals_1_1_std_variant_from_type_list_3_01tfel_1_1meta_1_1_t_l_e_00_01_types_8_8_8_01_4.html", null ],
     [ "tfel::math::stensor_common", "structtfel_1_1math_1_1stensor__common.html", [
@@ -3334,44 +3142,15 @@ var hierarchy =
       [ "tfel::math::stensor< N, ValueType >", "structtfel_1_1math_1_1stensor.html", null ]
     ] ],
     [ "tfel::math::StensorDimeToSize< N >", "structtfel_1_1math_1_1_stensor_dime_to_size.html", null ],
-    [ "tfel::math::internals::StensorEigenSolver< EigenSolver, N, NumType >", "structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver.html", null ],
-    [ "tfel::math::internals::StensorEigenSolver< stensor_common::FSESANALYTICALEIGENSOLVER, 2u, NumType >", "structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver_3_01stensor__common_1_1_f_s_e_s_a_n_a_l77382d9afd34dbdef14c3c2d0c6c5994.html", [
-      [ "tfel::math::internals::StensorEigenSolver< stensor_common::FSESCUPPENEIGENSOLVER, 2u, NumType >", "structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver_3_01stensor__common_1_1_f_s_e_s_c_u_p_pcf9b8ef75a4b61c029c79c20057d14e5.html", null ],
-      [ "tfel::math::internals::StensorEigenSolver< stensor_common::FSESHYBRIDEIGENSOLVER, 2u, NumType >", "structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver_3_01stensor__common_1_1_f_s_e_s_h_y_b_rc7deaacbfb2bb8af796433073880721a.html", null ],
-      [ "tfel::math::internals::StensorEigenSolver< stensor_common::FSESJACOBIEIGENSOLVER, 2u, NumType >", "structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver_3_01stensor__common_1_1_f_s_e_s_j_a_c_od0c94c85f0828a57c8d94f72e0f3aeb8.html", null ],
-      [ "tfel::math::internals::StensorEigenSolver< stensor_common::FSESQLEIGENSOLVER, 2u, NumType >", "structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver_3_01stensor__common_1_1_f_s_e_s_q_l_e_ia9fde46a5e3b4569fbf83cbe9ed7b211.html", null ]
-    ] ],
-    [ "tfel::math::internals::StensorEigenSolver< stensor_common::GTESYMMETRICQREIGENSOLVER, 3u, NumType >", "structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver_3_01stensor__common_1_1_g_t_e_s_y_m_m_e8ea567e4a1102be89932ca94ab045784.html", null ],
-    [ "tfel::math::internals::StensorEigenSolverBase< N, NumType >", "structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver_base.html", null ],
-    [ "tfel::math::internals::StensorEigenSolverBase< 3u, NumType >", "structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver_base_3_013u_00_01_num_type_01_4.html", [
-      [ "tfel::math::internals::StensorEigenSolver< stensor_common::FSESANALYTICALEIGENSOLVER, 3u, NumType >", "structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver_3_01stensor__common_1_1_f_s_e_s_a_n_a_lac6bf28d7baa9aabec70e78762e58e64.html", null ],
-      [ "tfel::math::internals::StensorEigenSolver< stensor_common::FSESCUPPENEIGENSOLVER, 3u, NumType >", "structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver_3_01stensor__common_1_1_f_s_e_s_c_u_p_pfb3e271f9f0c1efc9bd1cd27e14d327e.html", null ],
-      [ "tfel::math::internals::StensorEigenSolver< stensor_common::FSESHYBRIDEIGENSOLVER, 3u, NumType >", "structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver_3_01stensor__common_1_1_f_s_e_s_h_y_b_r8d41861b0ea58dfe2634a796594ba478.html", null ],
-      [ "tfel::math::internals::StensorEigenSolver< stensor_common::FSESJACOBIEIGENSOLVER, 3u, NumType >", "structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver_3_01stensor__common_1_1_f_s_e_s_j_a_c_o024316993b7fff242adcf4fa440eb5bd.html", null ],
-      [ "tfel::math::internals::StensorEigenSolver< stensor_common::FSESQLEIGENSOLVER, 3u, NumType >", "structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver_3_01stensor__common_1_1_f_s_e_s_q_l_e_i5bd5d5878bc28162e4c316f6b64f411d.html", null ],
-      [ "tfel::math::internals::StensorEigenSolver< stensor_common::HARARIEIGENSOLVER, 3u, NumType >", "structtfel_1_1math_1_1internals_1_1_stensor_eigen_solver_3_01stensor__common_1_1_h_a_r_a_r_i_e_i55ea43d80cd89787cce0f2b070d23fe2.html", null ]
-    ] ],
     [ "tfel::math::StensorProductLeftDerivativeExpr< N >", "structtfel_1_1math_1_1_stensor_product_left_derivative_expr.html", null ],
     [ "tfel::math::StensorProductRightDerivativeExpr< N >", "structtfel_1_1math_1_1_stensor_product_right_derivative_expr.html", null ],
     [ "tfel::math::StensorSizeToDime< N >", "structtfel_1_1math_1_1_stensor_size_to_dime.html", null ],
     [ "tfel::math::StensorSquareDerivativeExpr< N >", "structtfel_1_1math_1_1_stensor_square_derivative_expr.html", null ],
     [ "tfel::math::StensorST2toST2ProductExpr< N >", "structtfel_1_1math_1_1_stensor_s_t2to_s_t2_product_expr.html", null ],
-    [ "tfel::math::StensorSymmetricProductDerivative< N, T >", "structtfel_1_1math_1_1_stensor_symmetric_product_derivative.html", null ],
-    [ "tfel::math::StensorSymmetricProductDerivative< 1u, T >", "structtfel_1_1math_1_1_stensor_symmetric_product_derivative_3_011u_00_01_t_01_4.html", null ],
-    [ "tfel::math::StensorSymmetricProductDerivative< 2u, T >", "structtfel_1_1math_1_1_stensor_symmetric_product_derivative_3_012u_00_01_t_01_4.html", null ],
-    [ "tfel::math::StensorSymmetricProductDerivative< 3u, T >", "structtfel_1_1math_1_1_stensor_symmetric_product_derivative_3_013u_00_01_t_01_4.html", null ],
     [ "tfel::math::StensorT2toST2ProductExpr< N >", "structtfel_1_1math_1_1_stensor_t2to_s_t2_product_expr.html", null ],
     [ "tfel::math::StensorTag", "structtfel_1_1math_1_1_stensor_tag.html", null ],
-    [ "abaqus::AbaqusBehaviourHandler< H, Behaviour >::StiffnessOperatorInitializer", "structabaqus_1_1_abaqus_behaviour_handler_1_1_stiffness_operator_initializer.html", null ],
     [ "abaqus::AbaqusExplicitInterface< H, T, Behaviour >::StiffnessOperatorInitializer", "structabaqus_1_1_abaqus_explicit_interface_1_1_stiffness_operator_initializer.html", null ],
-    [ "ansys::AnsysBehaviourHandler< H, Behaviour >::StiffnessOperatorInitializer", "structansys_1_1_ansys_behaviour_handler_1_1_stiffness_operator_initializer.html", null ],
-    [ "aster::AsterBehaviourHandler< H, Behaviour >::StiffnessOperatorInitializer", "structaster_1_1_aster_behaviour_handler_1_1_stiffness_operator_initializer.html", null ],
-    [ "calculix::CalculiXBehaviourHandler< H, Behaviour >::StiffnessOperatorInitializer", "structcalculix_1_1_calculi_x_behaviour_handler_1_1_stiffness_operator_initializer.html", null ],
-    [ "cyrano::CyranoBehaviourHandler< H, Behaviour >::StiffnessOperatorInitializer", "structcyrano_1_1_cyrano_behaviour_handler_1_1_stiffness_operator_initializer.html", null ],
-    [ "dianafea::DianaFEABehaviourHandler< H, Behaviour >::StiffnessOperatorInitializer", "structdianafea_1_1_diana_f_e_a_behaviour_handler_1_1_stiffness_operator_initializer.html", null ],
-    [ "lsdyna::LSDYNABehaviourHandler< H, Behaviour >::StiffnessOperatorInitializer", "structlsdyna_1_1_l_s_d_y_n_a_behaviour_handler_1_1_stiffness_operator_initializer.html", null ],
     [ "lsdyna::LSDYNAExplicitInterface< H, T, Behaviour >::StiffnessOperatorInitializer", "structlsdyna_1_1_l_s_d_y_n_a_explicit_interface_1_1_stiffness_operator_initializer.html", null ],
-    [ "castem::CastemBehaviourHandler< type, H, Behaviour >::StiffnessTensorInitializer", "structcastem_1_1_castem_behaviour_handler_1_1_stiffness_tensor_initializer.html", null ],
     [ "mfront::bbrick::StrainRateSensitivityFactor", "structmfront_1_1bbrick_1_1_strain_rate_sensitivity_factor.html", [
       [ "mfront::bbrick::CowperSymondsStrainRateSensitivityFactor", "structmfront_1_1bbrick_1_1_cowper_symonds_strain_rate_sensitivity_factor.html", null ],
       [ "mfront::bbrick::JohnsonCookStrainRateSensitivityFactor", "structmfront_1_1bbrick_1_1_johnson_cook_strain_rate_sensitivity_factor.html", null ]
@@ -3461,8 +3240,6 @@ var hierarchy =
       [ "mfront::GenericBehaviourSymbolsGenerator", "structmfront_1_1_generic_behaviour_symbols_generator.html", null ],
       [ "mfront::LSDYNASymbolsGenerator", "structmfront_1_1_l_s_d_y_n_a_symbols_generator.html", null ]
     ] ],
-    [ "castem::CastemBehaviourHandler< type, H, Behaviour >::SymmetricConsistentTangentOperatorComputer", "structcastem_1_1_castem_behaviour_handler_1_1_symmetric_consistent_tangent_operator_computer.html", null ],
-    [ "cyrano::CyranoBehaviourHandler< H, Behaviour >::SymmetricConsistentTangentOperatorComputer", "structcyrano_1_1_cyrano_behaviour_handler_1_1_symmetric_consistent_tangent_operator_computer.html", null ],
     [ "tfel::material::SlipSystemsDescription::system3d", "structtfel_1_1material_1_1_slip_systems_description_1_1system3d.html", null ],
     [ "tfel::material::SlipSystemsDescription::system4d", "structtfel_1_1material_1_1_slip_systems_description_1_1system4d.html", null ],
     [ "tfel::system::systemCall", "structtfel_1_1system_1_1system_call.html", null ],
@@ -3556,7 +3333,6 @@ var hierarchy =
     [ "tfel::math::T2toT2TensorProductExpr< N >", "structtfel_1_1math_1_1_t2to_t2_tensor_product_expr.html", null ],
     [ "tfel::math::internals::tag< T >", "structtfel_1_1math_1_1internals_1_1tag.html", null ],
     [ "tfel::material::TangentOperatorTraits< btype >", "structtfel_1_1material_1_1_tangent_operator_traits.html", [
-      [ "tfel::material::MechanicalBehaviour< N, NumType, use_qt >", "structtfel_1_1material_1_1_mechanical_behaviour.html", null ],
       [ "tfel::material::MechanicalBehaviour< btype, H, NumType, use_qt >", "structtfel_1_1material_1_1_mechanical_behaviour.html", null ]
     ] ],
     [ "mfront::TargetsDescription", "structmfront_1_1_targets_description.html", null ],
@@ -3666,15 +3442,6 @@ var hierarchy =
       [ "tfel::math::IntegerEvaluator::TVariable", "structtfel_1_1math_1_1_integer_evaluator_1_1_t_variable.html", null ]
     ] ],
     [ "tfel::utilities::TextData", "structtfel_1_1utilities_1_1_text_data.html", null ],
-    [ "tfel::material::ThermalBehaviour< N, NumType, use_qt >", "classtfel_1_1material_1_1_thermal_behaviour.html", [
-      [ "tfel::material::ThermoMechanicalBehaviour< N, NumType, use_qt >", "classtfel_1_1material_1_1_thermo_mechanical_behaviour.html", null ]
-    ] ],
-    [ "tfel::material::ThermalBehaviour< N, T, use_qt >", "classtfel_1_1material_1_1_thermal_behaviour.html", [
-      [ "tfel::material::IsotropicLinearFourierLaw< N, T, use_qt >", "classtfel_1_1material_1_1_isotropic_linear_fourier_law.html", [
-        [ "tfel::material::IsotropicLinearFourierHookLaw< N, T, use_qt >", "classtfel_1_1material_1_1_isotropic_linear_fourier_hook_law.html", null ]
-      ] ]
-    ] ],
-    [ "tfel::material::ThermalBehaviourData< N, NumType, use_qt >", "classtfel_1_1material_1_1_thermal_behaviour_data.html", null ],
     [ "tfel::config::internals::ThermalConductivityMatrixType< N, T, use_qt >", "structtfel_1_1config_1_1internals_1_1_thermal_conductivity_matrix_type.html", null ],
     [ "tfel::config::internals::ThermalConductivityMatrixType< 1u, T, false >", "structtfel_1_1config_1_1internals_1_1_thermal_conductivity_matrix_type_3_011u_00_01_t_00_01false_01_4.html", null ],
     [ "tfel::config::internals::ThermalConductivityMatrixType< 1u, T, use_qt >", "structtfel_1_1config_1_1internals_1_1_thermal_conductivity_matrix_type_3_011u_00_01_t_00_01use__qt_01_4.html", null ],
@@ -3682,15 +3449,7 @@ var hierarchy =
     [ "mfront::gb::ThermalExpansionCoefficientPropertiesNumber< bool >", "structmfront_1_1gb_1_1_thermal_expansion_coefficient_properties_number.html", null ],
     [ "mfront::gb::ThermalExpansionCoefficientPropertiesNumber< false >", "structmfront_1_1gb_1_1_thermal_expansion_coefficient_properties_number_3_01false_01_4.html", null ],
     [ "mfront::gb::ThermalExpansionCoefficientPropertiesNumber< true >", "structmfront_1_1gb_1_1_thermal_expansion_coefficient_properties_number_3_01true_01_4.html", null ],
-    [ "abaqus::AbaqusBehaviourHandler< H, Behaviour >::ThermalExpansionCoefficientTensorInitializer", "structabaqus_1_1_abaqus_behaviour_handler_1_1_thermal_expansion_coefficient_tensor_initializer.html", null ],
     [ "abaqus::AbaqusExplicitInterface< H, T, Behaviour >::ThermalExpansionCoefficientTensorInitializer", "structabaqus_1_1_abaqus_explicit_interface_1_1_thermal_expansion_coefficient_tensor_initializer.html", null ],
-    [ "ansys::AnsysBehaviourHandler< H, Behaviour >::ThermalExpansionCoefficientTensorInitializer", "structansys_1_1_ansys_behaviour_handler_1_1_thermal_expansion_coefficient_tensor_initializer.html", null ],
-    [ "aster::AsterBehaviourHandler< H, Behaviour >::ThermalExpansionCoefficientTensorInitializer", "structaster_1_1_aster_behaviour_handler_1_1_thermal_expansion_coefficient_tensor_initializer.html", null ],
-    [ "calculix::CalculiXBehaviourHandler< H, Behaviour >::ThermalExpansionCoefficientTensorInitializer", "structcalculix_1_1_calculi_x_behaviour_handler_1_1_thermal_expansion_coefficient_tensor_initializer.html", null ],
-    [ "castem::CastemBehaviourHandler< type, H, Behaviour >::ThermalExpansionCoefficientTensorInitializer", "structcastem_1_1_castem_behaviour_handler_1_1_thermal_expansion_coefficient_tensor_initializer.html", null ],
-    [ "cyrano::CyranoBehaviourHandler< H, Behaviour >::ThermalExpansionCoefficientTensorInitializer", "structcyrano_1_1_cyrano_behaviour_handler_1_1_thermal_expansion_coefficient_tensor_initializer.html", null ],
-    [ "dianafea::DianaFEABehaviourHandler< H, Behaviour >::ThermalExpansionCoefficientTensorInitializer", "structdianafea_1_1_diana_f_e_a_behaviour_handler_1_1_thermal_expansion_coefficient_tensor_initializer.html", null ],
-    [ "lsdyna::LSDYNABehaviourHandler< H, Behaviour >::ThermalExpansionCoefficientTensorInitializer", "structlsdyna_1_1_l_s_d_y_n_a_behaviour_handler_1_1_thermal_expansion_coefficient_tensor_initializer.html", null ],
     [ "lsdyna::LSDYNAExplicitInterface< H, T, Behaviour >::ThermalExpansionCoefficientTensorInitializer", "structlsdyna_1_1_l_s_d_y_n_a_explicit_interface_1_1_thermal_expansion_coefficient_tensor_initializer.html", null ],
     [ "mfront::gb::ThermoElasticMaterialPropertiesNumber< H, bool, bool, bool, bool >", "structmfront_1_1gb_1_1_thermo_elastic_material_properties_number.html", null ],
     [ "mfront::gb::ThermoElasticMaterialPropertiesNumber< H, false, es, false, bs >", "structmfront_1_1gb_1_1_thermo_elastic_material_properties_number_3_01_h_00_01false_00_01es_00_01false_00_01bs_01_4.html", null ],
@@ -3788,9 +3547,6 @@ var hierarchy =
     ] ],
     [ "std::tuple_element< I, tfel::math::fsarray< N, ValueType > >", "structstd_1_1tuple__element_3_01_i_00_01tfel_1_1math_1_1fsarray_3_01_n_00_01_value_type_01_4_01_4.html", null ],
     [ "std::tuple_element< I, tfel::math::tvector< N, ValueType > >", "structstd_1_1tuple__element_3_01_i_00_01tfel_1_1math_1_1tvector_3_01_n_00_01_value_type_01_4_01_4.html", null ],
-    [ "AsterOrthotropicSmallStrainBehaviourDispatcher::type", null, [
-      [ "aster::AsterOrthotropicBehaviourHandler< STANDARDSTRAINBASEDBEHAVIOUR, H, Behaviour >", "structaster_1_1_aster_orthotropic_behaviour_handler_3_01_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_e_d_beccae56fc2bb7d2820f22f30f870c49d.html", null ]
-    ] ],
     [ "ConceptRebind::type", null, [
       [ "tfel::math::View< MappedType, IndexingPolicyType >", "structtfel_1_1math_1_1_view.html", null ]
     ] ],

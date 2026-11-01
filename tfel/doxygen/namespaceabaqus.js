@@ -1,6 +1,5 @@
 var namespaceabaqus =
 [
-    [ "AbaqusBehaviourHandler", "structabaqus_1_1_abaqus_behaviour_handler.html", "structabaqus_1_1_abaqus_behaviour_handler" ],
     [ "AbaqusComputeStiffnessTensor", "structabaqus_1_1_abaqus_compute_stiffness_tensor.html", null ],
     [ "AbaqusComputeStiffnessTensor< abaqus::STANDARDFINITESTRAINBEHAVIOUR, H, stype, b >", "structabaqus_1_1_abaqus_compute_stiffness_tensor_3_01abaqus_1_1_s_t_a_n_d_a_r_d_f_i_n_i_t_e_s_t_b73e14abf3c5536516bbf4c1133fe1e5.html", null ],
     [ "AbaqusComputeStiffnessTensor< abaqus::STANDARDSTRAINBASEDBEHAVIOUR, tfel::material::ModellingHypothesis::AXISYMMETRICAL, ISOTROPIC, b >", "structabaqus_1_1_abaqus_compute_stiffness_tensor_3_01abaqus_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_3c7ab94635b26266f0a7bf98ba354808.html", null ],
@@ -43,12 +42,7 @@ var namespaceabaqus =
     [ "AbaqusOrthotropicElasticPropertiesOffset< 3u >", "structabaqus_1_1_abaqus_orthotropic_elastic_properties_offset_3_013u_01_4.html", null ],
     [ "AbaqusRotation2D", "structabaqus_1_1_abaqus_rotation2_d.html", null ],
     [ "AbaqusRotation3D", "structabaqus_1_1_abaqus_rotation3_d.html", null ],
-    [ "AbaqusStensorSize", "structabaqus_1_1_abaqus_stensor_size.html", null ],
-    [ "AbaqusStensorSize< tfel::material::ModellingHypothesis::PLANESTRESS >", "structabaqus_1_1_abaqus_stensor_size_3_01tfel_1_1material_1_1_modelling_hypothesis_1_1_p_l_a_n_e_s_t_r_e_s_s_01_4.html", null ],
     [ "AbaqusTangentOperator", "structabaqus_1_1_abaqus_tangent_operator.html", null ],
-    [ "AbaqusTangentOperatorFlag", "structabaqus_1_1_abaqus_tangent_operator_flag.html", null ],
-    [ "AbaqusTangentOperatorFlag< abaqus::STANDARDFINITESTRAINBEHAVIOUR >", "structabaqus_1_1_abaqus_tangent_operator_flag_3_01abaqus_1_1_s_t_a_n_d_a_r_d_f_i_n_i_t_e_s_t_r_a_i_n_b_e_h_a_v_i_o_u_r_01_4.html", null ],
-    [ "AbaqusTangentOperatorFlag< abaqus::STANDARDSTRAINBASEDBEHAVIOUR >", "structabaqus_1_1_abaqus_tangent_operator_flag_3_01abaqus_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_b_a_s_e_d_b_e_h_a_v_i_o_u_r_01_4.html", null ],
     [ "AbaqusTangentOperatorType", "structabaqus_1_1_abaqus_tangent_operator_type.html", null ],
     [ "AbaqusTraits", "structabaqus_1_1_abaqus_traits.html", null ],
     [ "AbaqusUnSupportedCaseHandler", "structabaqus_1_1_abaqus_un_supported_case_handler.html", null ],

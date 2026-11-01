@@ -1,6 +1,5 @@
 var namespacecyrano =
 [
-    [ "CyranoBehaviourHandler", "structcyrano_1_1_cyrano_behaviour_handler.html", "structcyrano_1_1_cyrano_behaviour_handler" ],
     [ "CyranoComputeStiffnessTensor", "structcyrano_1_1_cyrano_compute_stiffness_tensor.html", null ],
     [ "CyranoComputeStiffnessTensor< ISOTROPIC >", "structcyrano_1_1_cyrano_compute_stiffness_tensor_3_01_i_s_o_t_r_o_p_i_c_01_4.html", null ],
     [ "CyranoComputeStiffnessTensor< ORTHOTROPIC >", "structcyrano_1_1_cyrano_compute_stiffness_tensor_3_01_o_r_t_h_o_t_r_o_p_i_c_01_4.html", null ],
@@ -10,15 +9,11 @@ var namespacecyrano =
     [ "CyranoComputeThermalExpansionCoefficientTensor< tfel::material::ModellingHypothesis::AXISYMMETRICALGENERALISEDPLANESTRESS, ISOTROPIC >", "structcyrano_1_1_cyrano_compute_thermal_expansion_coefficient_tensor_3_01tfel_1_1material_1_1_mo5c7d39c8f292c08aae38bd9c10a5a26e.html", null ],
     [ "CyranoComputeThermalExpansionCoefficientTensor< tfel::material::ModellingHypothesis::AXISYMMETRICALGENERALISEDPLANESTRESS, ORTHOTROPIC >", "structcyrano_1_1_cyrano_compute_thermal_expansion_coefficient_tensor_3_01tfel_1_1material_1_1_mo26d55a7d1cf54f2cab3a77704eddda5a.html", null ],
     [ "CyranoException", "structcyrano_1_1_cyrano_exception.html", null ],
-    [ "CyranoGenericPlaneStressHandler", "structcyrano_1_1_cyrano_generic_plane_stress_handler.html", null ],
     [ "CyranoIntegrationFailed", "structcyrano_1_1_cyrano_integration_failed.html", null ],
     [ "CyranoInterface", "structcyrano_1_1_cyrano_interface.html", null ],
-    [ "CyranoInterfaceDispatch", "structcyrano_1_1_cyrano_interface_dispatch.html", null ],
     [ "CyranoInterfaceExceptions", "structcyrano_1_1_cyrano_interface_exceptions.html", null ],
     [ "CyranoInvalidDimension", "structcyrano_1_1_cyrano_invalid_dimension.html", null ],
     [ "CyranoInvalidNTENSValue", "structcyrano_1_1_cyrano_invalid_n_t_e_n_s_value.html", null ],
-    [ "CyranoIsotropicBehaviourHandler", "structcyrano_1_1_cyrano_isotropic_behaviour_handler.html", null ],
-    [ "CyranoOrthotropicBehaviourHandler", "structcyrano_1_1_cyrano_orthotropic_behaviour_handler.html", null ],
     [ "CyranoOutOfBoundsPolicy", "structcyrano_1_1_cyrano_out_of_bounds_policy.html", null ],
     [ "CyranoTraits", "structcyrano_1_1_cyrano_traits.html", null ],
     [ "CyranoUnSupportedCaseHandler", "structcyrano_1_1_cyrano_un_supported_case_handler.html", null ],

@@ -1,6 +1,5 @@
 var namespacedianafea =
 [
-    [ "DianaFEABehaviourHandler", "structdianafea_1_1_diana_f_e_a_behaviour_handler.html", "structdianafea_1_1_diana_f_e_a_behaviour_handler" ],
     [ "DianaFEAComputeStiffnessTensor", "structdianafea_1_1_diana_f_e_a_compute_stiffness_tensor.html", null ],
     [ "DianaFEAComputeStiffnessTensor< dianafea::STANDARDFINITESTRAINBEHAVIOUR, H, stype, b >", "structdianafea_1_1_diana_f_e_a_compute_stiffness_tensor_3_01dianafea_1_1_s_t_a_n_d_a_r_d_f_i_n_ibd2a7d40612a01230d7b5a73a1db2327.html", null ],
     [ "DianaFEAComputeStiffnessTensor< dianafea::STANDARDSTRAINBASEDBEHAVIOUR, tfel::material::ModellingHypothesis::AXISYMMETRICAL, ISOTROPIC, b >", "structdianafea_1_1_diana_f_e_a_compute_stiffness_tensor_3_01dianafea_1_1_s_t_a_n_d_a_r_d_s_t_r_a0f86057419d637841b9aa203943a0d47.html", null ],
@@ -37,8 +36,6 @@ var namespacedianafea =
     [ "DianaFEAInvalidNTENSValue", "structdianafea_1_1_diana_f_e_a_invalid_n_t_e_n_s_value.html", "structdianafea_1_1_diana_f_e_a_invalid_n_t_e_n_s_value" ],
     [ "DianaFEAOutOfBoundsPolicy", "structdianafea_1_1_diana_f_e_a_out_of_bounds_policy.html", null ],
     [ "DianaFEATangentOperator", "structdianafea_1_1_diana_f_e_a_tangent_operator.html", null ],
-    [ "DianaFEATangentOperatorFlag", "structdianafea_1_1_diana_f_e_a_tangent_operator_flag.html", null ],
-    [ "DianaFEATangentOperatorFlag< dianafea::STANDARDSTRAINBASEDBEHAVIOUR >", "structdianafea_1_1_diana_f_e_a_tangent_operator_flag_3_01dianafea_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_8315460e0cece0c4f608fc47d3ce986a.html", null ],
     [ "DianaFEATangentOperatorType", "structdianafea_1_1_diana_f_e_a_tangent_operator_type.html", null ],
     [ "DianaFEATraits", "structdianafea_1_1_diana_f_e_a_traits.html", null ],
     [ "DianaFEAUnSupportedCaseHandler", "structdianafea_1_1_diana_f_e_a_un_supported_case_handler.html", null ],

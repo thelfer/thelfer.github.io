@@ -1,6 +1,5 @@
 var namespacecalculix =
 [
-    [ "CalculiXBehaviourHandler", "structcalculix_1_1_calculi_x_behaviour_handler.html", "structcalculix_1_1_calculi_x_behaviour_handler" ],
     [ "CalculiXComputeStiffnessTensor", "structcalculix_1_1_calculi_x_compute_stiffness_tensor.html", null ],
     [ "CalculiXComputeStiffnessTensor< ISOTROPIC >", "structcalculix_1_1_calculi_x_compute_stiffness_tensor_3_01_i_s_o_t_r_o_p_i_c_01_4.html", null ],
     [ "CalculiXComputeStiffnessTensor< ORTHOTROPIC >", "structcalculix_1_1_calculi_x_compute_stiffness_tensor_3_01_o_r_t_h_o_t_r_o_p_i_c_01_4.html", null ],
@@ -14,9 +13,6 @@ var namespacecalculix =
     [ "CalculiXInvalidDimension", "structcalculix_1_1_calculi_x_invalid_dimension.html", "structcalculix_1_1_calculi_x_invalid_dimension" ],
     [ "CalculiXInvalidModellingHypothesis", "structcalculix_1_1_calculi_x_invalid_modelling_hypothesis.html", "structcalculix_1_1_calculi_x_invalid_modelling_hypothesis" ],
     [ "CalculiXInvalidNTENSValue", "structcalculix_1_1_calculi_x_invalid_n_t_e_n_s_value.html", "structcalculix_1_1_calculi_x_invalid_n_t_e_n_s_value" ],
-    [ "CalculiXTangentOperatorFlag", "structcalculix_1_1_calculi_x_tangent_operator_flag.html", null ],
-    [ "CalculiXTangentOperatorFlag< calculix::STANDARDFINITESTRAINBEHAVIOUR >", "structcalculix_1_1_calculi_x_tangent_operator_flag_3_01calculix_1_1_s_t_a_n_d_a_r_d_f_i_n_i_t_e_12a6cd475cba2b7e9c2d4a7aa610695e.html", "structcalculix_1_1_calculi_x_tangent_operator_flag_3_01calculix_1_1_s_t_a_n_d_a_r_d_f_i_n_i_t_e_12a6cd475cba2b7e9c2d4a7aa610695e" ],
-    [ "CalculiXTangentOperatorFlag< calculix::STANDARDSTRAINBASEDBEHAVIOUR >", "structcalculix_1_1_calculi_x_tangent_operator_flag_3_01calculix_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_c3f39fd9dd4ebcbf1d9d8f132724a581.html", "structcalculix_1_1_calculi_x_tangent_operator_flag_3_01calculix_1_1_s_t_a_n_d_a_r_d_s_t_r_a_i_n_c3f39fd9dd4ebcbf1d9d8f132724a581" ],
     [ "CalculiXTraits", "structcalculix_1_1_calculi_x_traits.html", null ],
     [ "CalculiXUnSupportedCaseHandler", "structcalculix_1_1_calculi_x_un_supported_case_handler.html", null ],
     [ "ConvertSymmetricTangentOperator", "structcalculix_1_1_convert_symmetric_tangent_operator.html", null ],

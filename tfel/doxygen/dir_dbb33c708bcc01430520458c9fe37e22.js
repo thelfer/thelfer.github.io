@@ -10,8 +10,6 @@ var dir_dbb33c708bcc01430520458c9fe37e22 =
     [ "EvaluatorBase.hxx", "_evaluator_base_8hxx.html", "_evaluator_base_8hxx" ],
     [ "EvaluatorFunction.hxx", "_evaluator_function_8hxx.html", "_evaluator_function_8hxx" ],
     [ "EvaluatorFunction.ixx", "_evaluator_function_8ixx.html", "_evaluator_function_8ixx" ],
-    [ "EvaluatorProxy.hxx", "_evaluator_proxy_8hxx.html", "_evaluator_proxy_8hxx" ],
-    [ "EvaluatorProxy.ixx", "_evaluator_proxy_8ixx.html", null ],
     [ "EvaluatorTExpr.hxx", "_evaluator_t_expr_8hxx.html", "_evaluator_t_expr_8hxx" ],
     [ "EvaluatorTExpr.ixx", "_evaluator_t_expr_8ixx.html", null ],
     [ "Expr.hxx", "_parser_2_expr_8hxx.html", "_parser_2_expr_8hxx" ],

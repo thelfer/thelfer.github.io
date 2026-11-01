@@ -1,5 +1,7 @@
 var NAVTREEINDEX64 =
 {
+"structnumodis_1_1_cubic.html#ad070e3283533f2dab40179a07ebf12c7":[7,0,12,3,6],
+"structnumodis_1_1_cubic.html#ad2235fe05ff90ff80ed66b3581ab62a0":[7,0,12,3,3],
 "structnumodis_1_1_cubic.html#af243a7fe74ce592bb9db926d080896a7":[7,0,12,3,7],
 "structnumodis_1_1_f_c_c.html":[7,0,12,4],
 "structnumodis_1_1_frank_read.html":[7,0,12,5],
@@ -247,7 +249,5 @@ var NAVTREEINDEX64 =
 "structtfel_1_1check_1_1_spline_interpolation.html#ab95a4125279dfd215f4bcd4575d693ce":[7,0,14,0,19,0],
 "structtfel_1_1check_1_1_spline_local_interpolation.html":[7,0,14,0,20],
 "structtfel_1_1check_1_1_spline_local_interpolation.html#a097ce83add74a69adadba32bd1fe3156":[7,0,14,0,20,8],
-"structtfel_1_1check_1_1_spline_local_interpolation.html#a1061e6d057ab7f1fcc4db80270f343da":[7,0,14,0,20,0],
-"structtfel_1_1check_1_1_spline_local_interpolation.html#a3f99373d35180f59d1bcb4f5aed956eb":[7,0,14,0,20,2],
-"structtfel_1_1check_1_1_spline_local_interpolation.html#a4bc7e8e44c7b15a113d5a20214686f47":[7,0,14,0,20,4]
+"structtfel_1_1check_1_1_spline_local_interpolation.html#a1061e6d057ab7f1fcc4db80270f343da":[7,0,14,0,20,0]
 };

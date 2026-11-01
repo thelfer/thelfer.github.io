@@ -5,5 +5,6 @@ var structmfront_1_1_calculi_x_symbols_generator =
     [ "handleStrainMeasure", "structmfront_1_1_calculi_x_symbols_generator.html#acf53dd1811181b993b0bf3784d6ccee3", null ],
     [ "writeAdditionalSymbols", "structmfront_1_1_calculi_x_symbols_generator.html#af4e216d398cae96b552710e28e00c487", null ],
     [ "writeBehaviourKinematicSymbols", "structmfront_1_1_calculi_x_symbols_generator.html#adda61ad8dcf4d02de9dc178a6c7cb7d0", null ],
-    [ "writeBehaviourTypeSymbols", "structmfront_1_1_calculi_x_symbols_generator.html#a0349084076b8e8a49827ca6922585079", null ]
+    [ "writeBehaviourTypeSymbols", "structmfront_1_1_calculi_x_symbols_generator.html#a0349084076b8e8a49827ca6922585079", null ],
+    [ "writeStateVariablesSymbols", "structmfront_1_1_calculi_x_symbols_generator.html#ad8401bb2a7106cf59967e523b2fe7840", null ]
 ];

@@ -24,7 +24,7 @@ var searchData=
   ['getbuildidentifier_21',['getBuildIdentifier',['../structmgis_1_1_libraries_manager.html#a2cee126402a97f34502668412d86065e',1,'mgis::LibrariesManager']]],
   ['getcellworkspace_22',['getCellWorkspace',['../structmgis_1_1function_1_1_basic_linear_quadrature_space.html#ad393ffc79e8d57a087163dead8737564',1,'mgis::function::BasicLinearQuadratureSpace']]],
   ['getdatabase_23',['getDatabase',['../namespacemgis.html#a2dcfab4018be381a91704727143a3436',1,'mgis']]],
-  ['getdataoffset_24',['getDataOffset',['../structmgis_1_1function_1_1_function_data_layout.html#acde8e8400c6d3d0512ac25ff1d4d412c',1,'mgis::function::FunctionDataLayout']]],
+  ['getdataoffset_24',['getDataOffset',['../structmgis_1_1function_1_1_function_data_layout.html#a1cf0162ca080e993aa429d31feeb9bd2',1,'mgis::function::FunctionDataLayout']]],
   ['getdatasetnames_25',['getDataSetNames',['../_h_d_f5_support_8hxx.html#ad1c1db451faaade6e6185e734fa68676',1,'mgis::utilities::hdf5']]],
   ['getdatastride_26',['getdatastride',['../structmgis_1_1function_1_1_function_data_stride.html#a1b6c393bb62810f131603d4e6e6a5c17',1,'mgis::function::FunctionDataStride::getDataStride()'],['../structmgis_1_1function_1_1_function_data_stride_3_01dynamic__extent_01_4.html#a1ee0a8f1a1f920ba936a759f090a1546',1,'mgis::function::FunctionDataStride&lt; dynamic_extent &gt;::getDataStride()']]],
   ['getdate_27',['getDate',['../structmgis_1_1_libraries_manager.html#a11c1f6667bb7c049b8ee083e159bd7d0',1,'mgis::LibrariesManager']]],

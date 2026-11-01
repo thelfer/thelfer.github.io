@@ -7,6 +7,7 @@ var tensor_8hxx =
     [ "ConstTensorView", "tensor_8hxx.html#aa1ce1aa255cf403472e8322e818498ac", null ],
     [ "TensorView", "tensor_8hxx.html#ad6cfcd2301de3a90e440082f059b68f5", null ],
     [ "change_basis", "tensor_8hxx.html#a427438e754be327ae86c6f99bd52ffad", null ],
+    [ "computeAdjugateDeterminantDerivative", "tensor_8hxx.html#a24c8e14c8bd3fec9c950302670119b2a", null ],
     [ "computeDeterminantDerivative", "tensor_8hxx.html#a7cc94a60179bf1c77a18deb1ca120c7b", null ],
     [ "convertCauchyStressToFirstPiolaKirchhoffStress", "tensor_8hxx.html#adf456be339650796f57f13df9f4e559a", null ],
     [ "convertFirstPiolaKirchhoffStressToCauchyStress", "tensor_8hxx.html#a0e9ca3b85b6facfcbfd9235ebd8caa47", null ],

@@ -4,6 +4,7 @@ var _tensor_concept_8ixx =
     [ "tfel::math::internals::TensorConceptMatrixAccessOperator< 2u >", "structtfel_1_1math_1_1internals_1_1_tensor_concept_matrix_access_operator_3_012u_01_4.html", null ],
     [ "tfel::math::internals::TensorConceptMatrixAccessOperator< 3u >", "structtfel_1_1math_1_1internals_1_1_tensor_concept_matrix_access_operator_3_013u_01_4.html", null ],
     [ "abs", "_tensor_concept_8ixx.html#a0bbb5f73b2f9d61fb33755429b9d7fbd", null ],
+    [ "computeAdjugateDeterminantDerivative", "_tensor_concept_8ixx.html#ab192ddc66570ab2d19da039728d6e313", null ],
     [ "computeDeterminantDerivative", "_tensor_concept_8ixx.html#a44d01971bad4d5a5bea13bd83a24e485", null ],
     [ "computeGreenLagrangeTensor", "_tensor_concept_8ixx.html#a683b2ca34a741b8f044ee8f579df02aa", null ],
     [ "computeLeftCauchyGreenTensor", "_tensor_concept_8ixx.html#a0300b215283eb61f0dec483e162ad005", null ],

@@ -10,6 +10,7 @@ var _tensor_concept_8hxx =
     [ "tfel::math::NoUnitTensorConcept", "concepttfel_1_1math_1_1_no_unit_tensor_concept.html", null ],
     [ "tfel::math::StressTensorConcept", "concepttfel_1_1math_1_1_stress_tensor_concept.html", null ],
     [ "abs", "_tensor_concept_8hxx.html#a0bbb5f73b2f9d61fb33755429b9d7fbd", null ],
+    [ "computeAdjugateDeterminantDerivative", "_tensor_concept_8hxx.html#ab192ddc66570ab2d19da039728d6e313", null ],
     [ "computeDeterminantDerivative", "_tensor_concept_8hxx.html#a44d01971bad4d5a5bea13bd83a24e485", null ],
     [ "computeGreenLagrangeTensor", "_tensor_concept_8hxx.html#a683b2ca34a741b8f044ee8f579df02aa", null ],
     [ "computeLeftCauchyGreenTensor", "_tensor_concept_8hxx.html#a0300b215283eb61f0dec483e162ad005", null ],

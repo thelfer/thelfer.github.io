@@ -1,5 +1,7 @@
 var NAVTREEINDEX12 =
 {
+"classtfel_1_1math_1_1_unary_result_type_3_01st2tot2_3_01_n_00_01_t_01_4_00_01_op_neg_01_4.html":[5,0,9,1,635],
+"classtfel_1_1math_1_1_unary_result_type_3_01stensor_3_01_n_00_01_t_01_4_00_01_op_neg_01_4.html":[7,0,14,6,639],
 "classtfel_1_1math_1_1_unary_result_type_3_01stensor_3_01_n_00_01_t_01_4_00_01_op_neg_01_4.html":[5,0,9,1,636],
 "classtfel_1_1math_1_1_unary_result_type_3_01t2tost2_3_01_n_00_01_t_01_4_00_01_op_neg_01_4.html":[7,0,14,6,640],
 "classtfel_1_1math_1_1_unary_result_type_3_01t2tost2_3_01_n_00_01_t_01_4_00_01_op_neg_01_4.html":[5,0,9,1,637],
@@ -247,7 +249,5 @@ var NAVTREEINDEX12 =
 "functions_func_n.html":[7,3,1,13],
 "functions_func_o.html":[7,3,1,14],
 "functions_func_p.html":[7,3,1,15],
-"functions_func_q.html":[7,3,1,16],
-"functions_func_r.html":[7,3,1,17],
-"functions_func_s.html":[7,3,1,18]
+"functions_func_q.html":[7,3,1,16]
 };

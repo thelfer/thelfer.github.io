@@ -1,6 +1,11 @@
 var NAVTREEINDEX66 =
 {
+"structtfel_01_1_1math_1_1_op_minus.html":[7,0,15,0,3],
+"structtfel_01_1_1math_1_1_op_mult.html":[7,0,15,0,4],
+"structtfel_01_1_1math_1_1_op_neg.html":[7,0,15,0,5],
+"structtfel_01_1_1math_1_1_op_plus.html":[7,0,15,0,6],
 "structtfel_1_1_physical_constants.html":[7,0,14,13],
+"structtfel_1_1_physical_constants.html":[5,0,9,2],
 "structtfel_1_1_physical_constants_3_01_numeric_type_00_01false_01_4.html":[7,0,14,14],
 "structtfel_1_1_physical_constants_3_01_numeric_type_00_01false_01_4.html":[5,0,9,3],
 "structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4.html":[7,0,14,15],
@@ -244,10 +249,5 @@ var NAVTREEINDEX66 =
 "structtfel_1_1fsalgo_1_1copy_3_012u_01_4.html":[7,0,14,3,6],
 "structtfel_1_1fsalgo_1_1copy_3_013u_01_4.html":[7,0,14,3,7],
 "structtfel_1_1fsalgo_1_1copy_3_014u_01_4.html":[7,0,14,3,8],
-"structtfel_1_1fsalgo_1_1copy_3_015u_01_4.html":[7,0,14,3,9],
-"structtfel_1_1fsalgo_1_1copy_3_016u_01_4.html":[7,0,14,3,10],
-"structtfel_1_1fsalgo_1_1copy_3_017u_01_4.html":[7,0,14,3,11],
-"structtfel_1_1fsalgo_1_1copy_3_018u_01_4.html":[7,0,14,3,12],
-"structtfel_1_1fsalgo_1_1copy_3_019u_01_4.html":[7,0,14,3,13],
-"structtfel_1_1fsalgo_1_1equal.html":[7,0,14,3,14]
+"structtfel_1_1fsalgo_1_1copy_3_015u_01_4.html":[7,0,14,3,9]
 };

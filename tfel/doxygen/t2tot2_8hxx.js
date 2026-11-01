@@ -8,6 +8,7 @@ var t2tot2_8hxx =
     [ "ConstT2toT2View", "t2tot2_8hxx.html#aee9066340849fcd2c843a24466303e29", null ],
     [ "T2toT2View", "t2tot2_8hxx.html#a9206e7674fc5908164cf22cd9fb4e5fc", null ],
     [ "change_basis", "t2tot2_8hxx.html#af7e51eb5a6dbbfa8d984fbdae79438da", null ],
+    [ "computeAdjugateDeterminantSecondDerivative", "t2tot2_8hxx.html#a0a51c68dc9f52bc91f6f5d7559234369", null ],
     [ "computeDeterminantSecondDerivative", "t2tot2_8hxx.html#ab9bfc036537fa108b06aeb4447809dc3", null ],
     [ "computeSpinRateDerivative", "t2tot2_8hxx.html#a97f3ccd5308dbfb5a57473d00e6e4d46", null ],
     [ "computeVelocityGradientDerivative", "t2tot2_8hxx.html#a55b71bd674246d46732f2da8f6e09b67", null ],

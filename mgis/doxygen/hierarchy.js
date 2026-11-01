@@ -106,6 +106,7 @@ var hierarchy =
     [ "mgis::function::internals::EvaluatorResultQueryImplementation< true, EvaluatorType >", "structmgis_1_1function_1_1internals_1_1_evaluator_result_query_implementation_3_01true_00_01_evaluator_type_01_4.html", null ],
     [ "mgis::Context::FailureHandler< policy >", "structmgis_1_1_context_1_1_failure_handler.html", null ],
     [ "std::false_type", null, [
+      [ "jlcxx::IsMirroredType< mgis::behaviour::BehaviourDataView >", "structjlcxx_1_1_is_mirrored_type_3_01mgis_1_1behaviour_1_1_behaviour_data_view_01_4.html", null ],
       [ "mgis::function::LightweightViewTraits< FunctionType >", "structmgis_1_1function_1_1_lightweight_view_traits.html", null ],
       [ "mgis::function::internals::IsDataView< T >", "structmgis_1_1function_1_1internals_1_1_is_data_view.html", null ],
       [ "mgis::function::internals::IsTensor< T >", "structmgis_1_1function_1_1internals_1_1_is_tensor.html", null ]

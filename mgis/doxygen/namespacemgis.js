@@ -86,7 +86,7 @@ var namespacemgis =
     [ "setDefaultVerbosityLevel", "namespacemgis.html#ac5ea64e24e66fa4eaf44902f5cce3264", null ],
     [ "setExceptionHandler", "namespacemgis.html#ad6dbfd095532fee6200701d5b9596d1b", null ],
     [ "setStreamColor", "namespacemgis.html#adef4b3c198b45a0b4bec1e1b0b525bf4", null ],
-    [ "setTerminateHandler", "namespacemgis.html#ae974a3b9ab65ed00e0a2c0cab921f5f0", null ],
+    [ "setTerminateHandler", "namespacemgis.html#a138a6bdc47e00ef35c48e4cd678d7e36", null ],
     [ "terminate", "namespacemgis.html#a24298acaa60d366d6daef9765a0e462b", null ],
     [ "warning", "namespacemgis.html#ae1ceec782317554dec7a342b432a1fbb", null ],
     [ "dynamic_extent", "namespacemgis.html#ae69dc42a95f45bf4ffb676c0e9b64722", null ]

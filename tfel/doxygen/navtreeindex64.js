@@ -1,5 +1,7 @@
 var NAVTREEINDEX64 =
 {
+"structnumodis_1_1_crystallo.html#acf2d204de89709f823925f6d2fd12bb0":[7,0,12,2,11],
+"structnumodis_1_1_crystallo.html#aea048effd0492a9257fdee0ef9b6b4c5":[7,0,12,2,8],
 "structnumodis_1_1_crystallo.html#af0eaece68ab96c4e4243acff7441d334":[7,0,12,2,1],
 "structnumodis_1_1_cubic.html":[7,0,12,3],
 "structnumodis_1_1_cubic.html#a55aea4b5f5fe48b9c5de9ab69f5c5990":[7,0,12,3,2],
@@ -100,8 +102,8 @@ var NAVTREEINDEX64 =
 "structtfel_1_1_physical_constants_3_01_numeric_type_00_01false_01_4.html":[7,0,14,14],
 "structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4.html":[5,0,9,4],
 "structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4.html":[7,0,14,15],
-"structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4.html#a5100087ce3f32705aa7c3dabe8bf86d7":[5,0,9,4,0],
 "structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4.html#a5100087ce3f32705aa7c3dabe8bf86d7":[7,0,14,15,0],
+"structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4.html#a5100087ce3f32705aa7c3dabe8bf86d7":[5,0,9,4,0],
 "structtfel_1_1check_1_1_absolute_comparison.html":[7,0,14,0,0],
 "structtfel_1_1check_1_1_absolute_comparison.html#a690c87cbd7e2a915872fb9b92c4cb6a9":[7,0,14,0,0,0],
 "structtfel_1_1check_1_1_area_comparison.html":[7,0,14,0,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX64 =
 "structtfel_1_1check_1_1_relative_and_absolute_comparison.html":[7,0,14,0,17],
 "structtfel_1_1check_1_1_relative_and_absolute_comparison.html#a958b3a3008e48d137fb20c8a3218a7c0":[7,0,14,0,17,0],
 "structtfel_1_1check_1_1_relative_comparison.html":[7,0,14,0,18],
-"structtfel_1_1check_1_1_relative_comparison.html#a270d3495e05734271296617c6ed18ce3":[7,0,14,0,18,0],
-"structtfel_1_1check_1_1_spline_interpolation.html":[7,0,14,0,19],
-"structtfel_1_1check_1_1_spline_interpolation.html#a3dc788dc2358f846f1e05dcb2d82afc1":[7,0,14,0,19,4]
+"structtfel_1_1check_1_1_relative_comparison.html#a270d3495e05734271296617c6ed18ce3":[7,0,14,0,18,0]
 };

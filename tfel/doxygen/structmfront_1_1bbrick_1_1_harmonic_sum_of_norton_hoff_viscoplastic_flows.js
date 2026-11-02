@@ -9,6 +9,5 @@ var structmfront_1_1bbrick_1_1_harmonic_sum_of_norton_hoff_viscoplastic_flows =
     [ "initialize", "structmfront_1_1bbrick_1_1_harmonic_sum_of_norton_hoff_viscoplastic_flows.html#ad04cb2c31a03fab7b2361c3a31919392", null ],
     [ "A", "structmfront_1_1bbrick_1_1_harmonic_sum_of_norton_hoff_viscoplastic_flows.html#acbb4e06818aec51e91da04f8c017fc99", null ],
     [ "K", "structmfront_1_1bbrick_1_1_harmonic_sum_of_norton_hoff_viscoplastic_flows.html#a0780a3cbb0a1cb969bb513d8eff44beb", null ],
-    [ "Ksf", "structmfront_1_1bbrick_1_1_harmonic_sum_of_norton_hoff_viscoplastic_flows.html#a9455dead30b4dab086d9ec131d37aa45", null ],
     [ "n", "structmfront_1_1bbrick_1_1_harmonic_sum_of_norton_hoff_viscoplastic_flows.html#aa56e4bc40e90d99868596c721a996bb5", null ]
 ];

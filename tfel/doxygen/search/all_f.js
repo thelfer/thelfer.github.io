@@ -67,7 +67,7 @@ var searchData=
   ['krigingvariable_3c_20n_2c_20double_20_3e_64',['KrigingVariable&lt; N, double &gt;',['../structtfel_1_1math_1_1_kriging_variable.html',1,'tfel::math']]],
   ['kronecker_65',['Kronecker',['../_n_u_m_o_d_i_s_2_math_2_utilities_8hxx.html#ab009064db9c15a762dfa84f0a19a5e12',1,'numodis::math']]],
   ['ks_66',['ks',['../structmtest_1_1_solver_options.html#a58a1b392437f55c4827fffc74e350900',1,'mtest::SolverOptions']]],
-  ['ksf_67',['ksf',['../structmfront_1_1bbrick_1_1_hyperbolic_sine_viscoplastic_flow.html#ad0c8147857c391333b0446d0f9dec8be',1,'mfront::bbrick::HyperbolicSineViscoplasticFlow::Ksf'],['../structmfront_1_1bbrick_1_1_norton_hoff_viscoplastic_flow.html#a6de995db50323c9d08adc12212bdea11',1,'mfront::bbrick::NortonHoffViscoplasticFlow::Ksf'],['../structmfront_1_1bbrick_1_1_harmonic_sum_of_norton_hoff_viscoplastic_flows.html#a9455dead30b4dab086d9ec131d37aa45',1,'mfront::bbrick::HarmonicSumOfNortonHoffViscoplasticFlows::Ksf']]],
+  ['ksf_67',['ksf',['../structmfront_1_1bbrick_1_1_norton_hoff_viscoplastic_flow.html#a6de995db50323c9d08adc12212bdea11',1,'mfront::bbrick::NortonHoffViscoplasticFlow::Ksf'],['../structmfront_1_1bbrick_1_1_hyperbolic_sine_viscoplastic_flow.html#ad0c8147857c391333b0446d0f9dec8be',1,'mfront::bbrick::HyperbolicSineViscoplasticFlow::Ksf']]],
   ['kt_68',['kt',['../structmtest_1_1_behaviour_work_space.html#a8e7458d7632628ab02e7485ea9fd443b',1,'mtest::BehaviourWorkSpace']]],
   ['ktype_69',['ktype',['../structmtest_1_1_solver_options.html#adf723adc76265d76a5792327db587502',1,'mtest::SolverOptions']]],
   ['kuhn_5fgrun_5f1942_70',['KUHN_GRUN_1942',['../namespacetfel_1_1material.html#ac92a48e87100f343ebb78ba53a5ad48fa928aa103c1d15cde5421be7d346c6113',1,'tfel::material']]]

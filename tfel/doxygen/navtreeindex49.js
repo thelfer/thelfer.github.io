@@ -124,8 +124,7 @@ var NAVTREEINDEX49 =
 "structmfront_1_1bbrick_1_1_harmonic_sum_of_norton_hoff_viscoplastic_flows.html#a5387e396ca29e9207d04583ac74ff5f3":[7,0,10,0,15,4],
 "structmfront_1_1bbrick_1_1_harmonic_sum_of_norton_hoff_viscoplastic_flows.html#a7dcbd1699dd9c820a9f7d9ee910dd062":[7,0,10,0,15,3],
 "structmfront_1_1bbrick_1_1_harmonic_sum_of_norton_hoff_viscoplastic_flows.html#a8485774cf0682630bab6ad71d0e3b799":[7,0,10,0,15,1],
-"structmfront_1_1bbrick_1_1_harmonic_sum_of_norton_hoff_viscoplastic_flows.html#a9455dead30b4dab086d9ec131d37aa45":[7,0,10,0,15,9],
-"structmfront_1_1bbrick_1_1_harmonic_sum_of_norton_hoff_viscoplastic_flows.html#aa56e4bc40e90d99868596c721a996bb5":[7,0,10,0,15,10],
+"structmfront_1_1bbrick_1_1_harmonic_sum_of_norton_hoff_viscoplastic_flows.html#aa56e4bc40e90d99868596c721a996bb5":[7,0,10,0,15,9],
 "structmfront_1_1bbrick_1_1_harmonic_sum_of_norton_hoff_viscoplastic_flows.html#acbb4e06818aec51e91da04f8c017fc99":[7,0,10,0,15,7],
 "structmfront_1_1bbrick_1_1_harmonic_sum_of_norton_hoff_viscoplastic_flows.html#ad04cb2c31a03fab7b2361c3a31919392":[7,0,10,0,15,6],
 "structmfront_1_1bbrick_1_1_hill1948_stress_criterion.html":[7,0,10,0,16],
@@ -249,5 +248,6 @@ var NAVTREEINDEX49 =
 "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#adbb879d0fc60c7cd66d25356372a5901":[7,0,10,0,22,25],
 "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#adcbc1c336d53e0bda9e1e7d0c1f79db3":[7,0,10,0,22,31],
 "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#adf1152f285c2f87b72bf871d9decd0c9":[7,0,10,0,22,0],
-"structmfront_1_1bbrick_1_1_inelastic_flow_base.html#adf1152f285c2f87b72bf871d9decd0c9a7632711ed90989192a6a74221b2a33bb":[7,0,10,0,22,0,2]
+"structmfront_1_1bbrick_1_1_inelastic_flow_base.html#adf1152f285c2f87b72bf871d9decd0c9a7632711ed90989192a6a74221b2a33bb":[7,0,10,0,22,0,2],
+"structmfront_1_1bbrick_1_1_inelastic_flow_base.html#adf1152f285c2f87b72bf871d9decd0c9a8c96346ec696d05e47d608fceb192b14":[7,0,10,0,22,0,0]
 };

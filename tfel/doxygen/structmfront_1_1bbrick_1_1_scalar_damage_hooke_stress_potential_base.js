@@ -2,6 +2,7 @@ var structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base =
 [
     [ "ScalarDamageHookeStressPotentialBase", "structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base.html#a16628bb1c74254e3fe6e244cf158f4bc", null ],
     [ "~ScalarDamageHookeStressPotentialBase", "structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base.html#a1de295c5206534467e4728487d2e482d", null ],
+    [ "addAxisymmetricalGeneralisedPlaneStressSupport", "structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base.html#a3963439069be450fd8b1ce843c61e129", null ],
     [ "addGenericPredictionOperatorSupport", "structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base.html#a3ba644ff3503391bef11d7bc696b2535", null ],
     [ "addGenericTangentOperatorSupport", "structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base.html#a7ec215af2c7adf17e4424fac33eb0581", null ],
     [ "declareComputeElasticPredictionMethod", "structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base.html#a9ac09dbcb96b2bb9c6076fec30421c57", null ],

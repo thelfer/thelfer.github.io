@@ -5,6 +5,7 @@ var namespacetfel =
     [ "PhysicalConstants", "structtfel_1_1_physical_constants.html", null ],
     [ "PhysicalConstants< NumericType, false >", "structtfel_1_1_physical_constants_3_01_numeric_type_00_01false_01_4.html", null ],
     [ "PhysicalConstants< NumericType, true >", "structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4.html", "structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4" ],
+    [ "ContractViolationHandler", "namespacetfel.html#afef4238598a162cc75be153491a3ed70", null ],
     [ "getTFELExecutableName", "namespacetfel.html#a056578f1a8b8c284dfa5b7bffd854f39", null ],
     [ "raise", "namespacetfel.html#ab078b2be289d5db6af0c3cb08154af56", null ],
     [ "raise", "namespacetfel.html#ad708d09e4e58c21146271d517e772176", null ],
@@ -12,5 +13,6 @@ var namespacetfel =
     [ "raise_if", "namespacetfel.html#a954520237bdbbaaf32fd663f92f71b7d", null ],
     [ "raise_if", "namespacetfel.html#aa47a443a98fc2675ae9dd8dc5d1d3d02", null ],
     [ "raise_if", "namespacetfel.html#acc0552cb82c1c7b2d08fc09543ebe495", null ],
-    [ "reportContractViolation", "namespacetfel.html#a561cb99a9431f00a742279c3f5427652", null ]
+    [ "reportContractViolation", "namespacetfel.html#a561cb99a9431f00a742279c3f5427652", null ],
+    [ "setContractViolationHandler", "namespacetfel.html#abc51930257acec225b72dab30c8c7d73", null ]
 ];

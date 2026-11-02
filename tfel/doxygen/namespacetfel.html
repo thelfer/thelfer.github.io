@@ -100,6 +100,7 @@ $(document).ready(function(){initNavTree('namespacetfel.html',''); initResizable
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">tfel Namespace Reference</div></div>
 </div><!--header-->
@@ -128,6 +129,13 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">partial specialisation when quantities are used  <a href="structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:afef4238598a162cc75be153491a3ed70" id="r_afef4238598a162cc75be153491a3ed70"><td class="memItemLeft" align="right" valign="top"><a id="afef4238598a162cc75be153491a3ed70" name="afef4238598a162cc75be153491a3ed70"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ContractViolationHandler</b> = <a class="el" href="include_2_cyrano_2_behaviour_8hxx.html#a1f775cf4fa3cbc5f015abdd0796e276c">void</a>(*)(const char *const)</td></tr>
+<tr class="memdesc:afef4238598a162cc75be153491a3ed70"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of the functions called on a contract violation <br /></td></tr>
+<tr class="separator:afef4238598a162cc75be153491a3ed70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a6964bed65a898682d577a53a28150d4e" id="r_a6964bed65a898682d577a53a28150d4e"><td class="memItemLeft" align="right" valign="top"><a id="a6964bed65a898682d577a53a28150d4e" name="a6964bed65a898682d577a53a28150d4e"></a>
@@ -144,6 +152,9 @@ TFELCONFIG_VISIBILITY_EXPORT std::string&#160;</td><td class="memItemRight" vali
 <tr class="memitem:a561cb99a9431f00a742279c3f5427652" id="r_a561cb99a9431f00a742279c3f5427652"><td class="memItemLeft" align="right" valign="top">TFELEXCEPTION_VISIBILITY_EXPORT TFEL_HOST <a class="el" href="include_2_cyrano_2_behaviour_8hxx.html#a1f775cf4fa3cbc5f015abdd0796e276c">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetfel.html#a561cb99a9431f00a742279c3f5427652">reportContractViolation</a> (const char *const)</td></tr>
 <tr class="memdesc:a561cb99a9431f00a742279c3f5427652"><td class="mdescLeft">&#160;</td><td class="mdescRight">report a contract violation  <br /></td></tr>
 <tr class="separator:a561cb99a9431f00a742279c3f5427652"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc51930257acec225b72dab30c8c7d73" id="r_abc51930257acec225b72dab30c8c7d73"><td class="memItemLeft" align="right" valign="top">TFELEXCEPTION_VISIBILITY_EXPORT TFEL_HOST <a class="el" href="namespacetfel.html#afef4238598a162cc75be153491a3ed70">ContractViolationHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetfel.html#abc51930257acec225b72dab30c8c7d73">setContractViolationHandler</a> (const <a class="el" href="namespacetfel.html#afef4238598a162cc75be153491a3ed70">ContractViolationHandler</a>)</td></tr>
+<tr class="memdesc:abc51930257acec225b72dab30c8c7d73"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the function called by <code>reportContractViolation</code> before aborting the program. This function is meant to throw an exception, for instance in the python bindings. If it returns, the program is aborted.  <br /></td></tr>
+<tr class="separator:abc51930257acec225b72dab30c8c7d73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab078b2be289d5db6af0c3cb08154af56" id="r_ab078b2be289d5db6af0c3cb08154af56"><td class="memTemplParams" colspan="2">template&lt;typename Exception  = std::runtime_error&gt; </td></tr>
 <tr class="memitem:ab078b2be289d5db6af0c3cb08154af56"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_t_f_e_l_config_8hxx.html#a919b70bfa2d254117d0a00cedc7ccced">TFEL_VISIBILITY_LOCAL</a> <a class="el" href="_t_f_e_l_config_8hxx.html#a056eec702265d23879da122c91d06d75">TFEL_INLINE</a> <a class="el" href="include_2_cyrano_2_behaviour_8hxx.html#a1f775cf4fa3cbc5f015abdd0796e276c">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetfel.html#ab078b2be289d5db6af0c3cb08154af56">raise</a> ()</td></tr>
 <tr class="memdesc:ab078b2be289d5db6af0c3cb08154af56"><td class="mdescLeft">&#160;</td><td class="mdescRight">a small wrapper used to build the exception outside the <code>throw</code> statement. As most exception's classes constructors may throw, this avoids undefined behaviour as reported by the <code>cert-err60-cpp</code> warning of <code>clang-tidy</code> (thrown exception type is not nothrow copy constructible).  <br /></td></tr>
@@ -434,13 +445,40 @@ template&lt;typename Exception  = std::runtime_error, typename... Args&gt; </div
 
 </div>
 </div>
+<a id="abc51930257acec225b72dab30c8c7d73" name="abc51930257acec225b72dab30c8c7d73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc51930257acec225b72dab30c8c7d73">&#9670;&#160;</a></span>setContractViolationHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TFELEXCEPTION_VISIBILITY_EXPORT TFEL_HOST <a class="el" href="namespacetfel.html#afef4238598a162cc75be153491a3ed70">ContractViolationHandler</a> tfel::setContractViolationHandler </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacetfel.html#afef4238598a162cc75be153491a3ed70">ContractViolationHandler</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>set the function called by <code>reportContractViolation</code> before aborting the program. This function is meant to throw an exception, for instance in the python bindings. If it returns, the program is aborted. </p>
+<dl class="section return"><dt>Returns</dt><dd>the previous handler </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">h</td><td>new handler (<code>nullptr</code> restores the default behaviour) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetfel.html">tfel</a></li>
-    <li class="footer">Generated on Mon Nov 2 2026 15:43:45 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Mon Nov 2 2026 17:00:05 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

@@ -1,5 +1,7 @@
 var NAVTREEINDEX6 =
 {
+"_linear_homogenization_schemes_8hxx.html#ad51fc8f702a8092e871c2743a297ad75":[8,0,0,3,4,49,4],
+"_linear_homogenization_schemes_8hxx.html#adc7c98902fd0ba3ad9603e3b9e4ca09a":[8,0,0,3,4,49,24],
 "_linear_homogenization_schemes_8hxx.html#adedbfae238b5466bdf77a407c97855e2":[8,0,0,3,4,49,9],
 "_linear_homogenization_schemes_8hxx.html#af6987bc297e9185149cd0ec51982a7b7":[8,0,0,3,4,49,20],
 "_linear_homogenization_schemes_8hxx.html#af9847ee3c228933912ba34ad3bab7ac5":[8,0,0,3,4,49,23],
@@ -247,7 +249,5 @@ var NAVTREEINDEX6 =
 "_modelling_hypothesis_8hxx.html#ab1a924f66048818e0f2e07b1d2c71d15":[8,0,0,3,4,69,22],
 "_mohr_coulomb_stress_criterion_8hxx.html":[8,0,2,0,0,3,35],
 "_mohr_coulomb_yield_criterion_8hxx.html":[8,0,0,3,4,70],
-"_mohr_coulomb_yield_criterion_8hxx.html#a0626027e65a1e13f1d7320365ce27a40":[8,0,0,3,4,70,6],
-"_mohr_coulomb_yield_criterion_8hxx.html#a14d796764966f075cbda4fc2448b0c4f":[8,0,0,3,4,70,4],
-"_mohr_coulomb_yield_criterion_8hxx.html#a2a40c09e26d3b69d94c93de9ddb53fdc":[8,0,0,3,4,70,8]
+"_mohr_coulomb_yield_criterion_8hxx.html#a0626027e65a1e13f1d7320365ce27a40":[8,0,0,3,4,70,6]
 };

@@ -99,6 +99,7 @@ $(document).ready(function(){initNavTree('structtfel_1_1math_1_1_gauss_kronrod_q
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="structtfel_1_1math_1_1_gauss_kronrod_quadrature-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">tfel::math::GaussKronrodQuadrature Struct Reference</div></div>
@@ -116,11 +117,24 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">numerical parameters for the adaptative version  <a href="structtfel_1_1math_1_1_gauss_kronrod_quadrature_1_1_numerical_parameters.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:abee42c100013fa82a983cc2f4aa77712" id="r_abee42c100013fa82a983cc2f4aa77712"><td class="memTemplParams" colspan="2"><a id="abee42c100013fa82a983cc2f4aa77712" name="abee42c100013fa82a983cc2f4aa77712"></a>
+template&lt;ScalarConcept real, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">typename</a> FunctionType &gt; </td></tr>
+<tr class="memitem:abee42c100013fa82a983cc2f4aa77712"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>IntegralErrorType</b> = <a class="el" href="namespacetfel_1_1math.html#a148d63c9fac3faf5a99af96ffdb36664">tfel::math::result_type</a>&lt; real, <a class="el" href="namespacetfel_1_1math.html#a269ae6d80236c1e3a8f97af7c50997e9">numeric_type</a>&lt; std::invoke_result_t&lt; FunctionType, real &gt; &gt;, OpMult &gt;</td></tr>
+<tr class="memdesc:abee42c100013fa82a983cc2f4aa77712"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of the estimate of the error on the integral, which has the unit of the integrand times the unit of the integration variable. <br /></td></tr>
+<tr class="separator:abee42c100013fa82a983cc2f4aa77712"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6373be51388e4eba63a82b11b8bd131d" id="r_a6373be51388e4eba63a82b11b8bd131d"><td class="memTemplParams" colspan="2"><a id="a6373be51388e4eba63a82b11b8bd131d" name="a6373be51388e4eba63a82b11b8bd131d"></a>
+template&lt;ScalarConcept real, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">typename</a> FunctionType &gt; </td></tr>
+<tr class="memitem:a6373be51388e4eba63a82b11b8bd131d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">using</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>AbsoluteToleranceType</b> = std::conditional_t&lt; ImmutableQuantityConcept&lt; <a class="el" href="structtfel_1_1math_1_1_gauss_kronrod_quadrature.html#abee42c100013fa82a983cc2f4aa77712">IntegralErrorType</a>&lt; real, FunctionType &gt; &gt;, <a class="el" href="structtfel_1_1math_1_1_gauss_kronrod_quadrature.html#abee42c100013fa82a983cc2f4aa77712">IntegralErrorType</a>&lt; real, FunctionType &gt;, real &gt;</td></tr>
+<tr class="memdesc:a6373be51388e4eba63a82b11b8bd131d"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of the absolute tolerance of the adaptative version, which bounds the error on the integral: the type of the error estimate when it is a quantity, the type of the integration variable otherwise. <br /></td></tr>
+<tr class="separator:a6373be51388e4eba63a82b11b8bd131d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aba00b1adc3efb05dc4a058ca2f97be3f" id="r_aba00b1adc3efb05dc4a058ca2f97be3f"><td class="memTemplParams" colspan="2">template&lt;ScalarConcept real, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">typename</a> FunctionType &gt; </td></tr>
-<tr class="memitem:aba00b1adc3efb05dc4a058ca2f97be3f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">constexpr</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1_gauss_kronrod_quadrature.html#aba00b1adc3efb05dc4a058ca2f97be3f">operator()</a> (const FunctionType &amp;f, const real a, const real b, const <a class="el" href="structtfel_1_1math_1_1_gauss_kronrod_quadrature_1_1_numerical_parameters.html">NumericalParameters</a>&lt; real &gt; <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">params</a>) const <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">noexcept</a>(std::is_nothrow_invocable_v&lt; FunctionType, real &gt;) -&gt; std::optional&lt; <a class="el" href="namespacetfel_1_1math.html#a148d63c9fac3faf5a99af96ffdb36664">tfel::math::result_type</a>&lt; real, std::invoke_result_t&lt; FunctionType, real &gt;, OpMult &gt; &gt; <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">requires</a>(std::is_invocable_v&lt; FunctionType, real &gt;)</td></tr>
-<tr class="separator:aba00b1adc3efb05dc4a058ca2f97be3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a545ab058430447f17a4bdf7132c1f2bb" id="r_a545ab058430447f17a4bdf7132c1f2bb"><td class="memTemplParams" colspan="2">template&lt;ScalarConcept real, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">typename</a> FunctionType &gt; </td></tr>
+<tr class="memitem:a545ab058430447f17a4bdf7132c1f2bb"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">constexpr</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1_gauss_kronrod_quadrature.html#a545ab058430447f17a4bdf7132c1f2bb">operator()</a> (const FunctionType &amp;f, const real a, const real b, const <a class="el" href="structtfel_1_1math_1_1_gauss_kronrod_quadrature_1_1_numerical_parameters.html">NumericalParameters</a>&lt; <a class="el" href="structtfel_1_1math_1_1_gauss_kronrod_quadrature.html#a6373be51388e4eba63a82b11b8bd131d">AbsoluteToleranceType</a>&lt; real, FunctionType &gt; &gt; <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">params</a>) const <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">noexcept</a>(std::is_nothrow_invocable_v&lt; FunctionType, real &gt;) -&gt; std::optional&lt; <a class="el" href="namespacetfel_1_1math.html#a148d63c9fac3faf5a99af96ffdb36664">tfel::math::result_type</a>&lt; real, std::invoke_result_t&lt; FunctionType, real &gt;, OpMult &gt; &gt; <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">requires</a>(std::is_invocable_v&lt; FunctionType, real &gt;)</td></tr>
+<tr class="separator:a545ab058430447f17a4bdf7132c1f2bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf082da855db4a93df0769460ad60860" id="r_adf082da855db4a93df0769460ad60860"><td class="memTemplParams" colspan="2">template&lt;ScalarConcept real, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">typename</a> FunctionType &gt; </td></tr>
 <tr class="memitem:adf082da855db4a93df0769460ad60860"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">constexpr</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1_gauss_kronrod_quadrature.html#adf082da855db4a93df0769460ad60860">operator()</a> (const FunctionType &amp;f, const real a, const real b) const <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">noexcept</a>(std::is_nothrow_invocable_v&lt; FunctionType, real &gt;) -&gt; std::optional&lt; std::tuple&lt; <a class="el" href="namespacetfel_1_1math.html#a148d63c9fac3faf5a99af96ffdb36664">tfel::math::result_type</a>&lt; real, std::invoke_result_t&lt; FunctionType, real &gt;, OpMult &gt;, <a class="el" href="namespacetfel_1_1math.html#a148d63c9fac3faf5a99af96ffdb36664">tfel::math::result_type</a>&lt; real, <a class="el" href="namespacetfel_1_1math.html#a269ae6d80236c1e3a8f97af7c50997e9">numeric_type</a>&lt; std::invoke_result_t&lt; FunctionType, real &gt; &gt;, OpMult &gt; &gt; &gt; <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">requires</a>(std::is_invocable_v&lt; FunctionType, real &gt;)</td></tr>
 <tr class="memdesc:adf082da855db4a93df0769460ad60860"><td class="mdescLeft">&#160;</td><td class="mdescRight">integration of a function without refinement using 15pts Kronrod's quadrature rule. Error is estimated by comparison with 7pts Gauss' quadature rule.  <br /></td></tr>
@@ -194,8 +208,8 @@ template&lt;ScalarConcept real, <a class="el" href="namespacetfel_1_1math.html#a
 
 </div>
 </div>
-<a id="aba00b1adc3efb05dc4a058ca2f97be3f" name="aba00b1adc3efb05dc4a058ca2f97be3f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aba00b1adc3efb05dc4a058ca2f97be3f">&#9670;&#160;</a></span>operator()() <span class="overload">[2/2]</span></h2>
+<a id="a545ab058430447f17a4bdf7132c1f2bb" name="a545ab058430447f17a4bdf7132c1f2bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a545ab058430447f17a4bdf7132c1f2bb">&#9670;&#160;</a></span>operator()() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -226,7 +240,7 @@ template&lt;ScalarConcept real, <a class="el" href="namespacetfel_1_1math.html#a
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structtfel_1_1math_1_1_gauss_kronrod_quadrature_1_1_numerical_parameters.html">NumericalParameters</a>&lt; real &gt;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structtfel_1_1math_1_1_gauss_kronrod_quadrature_1_1_numerical_parameters.html">NumericalParameters</a>&lt; <a class="el" href="structtfel_1_1math_1_1_gauss_kronrod_quadrature.html#a6373be51388e4eba63a82b11b8bd131d">AbsoluteToleranceType</a>&lt; real, FunctionType &gt; &gt;&#160;</td>
           <td class="paramname"><em>params</em>&#160;</td>
         </tr>
         <tr>
@@ -267,7 +281,7 @@ template&lt;ScalarConcept real, <a class="el" href="namespacetfel_1_1math.html#a
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetfel.html">tfel</a></li><li class="navelem"><a class="el" href="namespacetfel_1_1math.html">math</a></li><li class="navelem"><a class="el" href="structtfel_1_1math_1_1_gauss_kronrod_quadrature.html">GaussKronrodQuadrature</a></li>
-    <li class="footer">Generated on Mon Nov 2 2026 15:43:46 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Mon Nov 2 2026 17:00:07 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

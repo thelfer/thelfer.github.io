@@ -1,5 +1,7 @@
 var NAVTREEINDEX64 =
 {
+"structnumodis_1_1_cubic.html#a7ab709a4f7abb692a67619a4eba69aed":[7,0,12,3,0],
+"structnumodis_1_1_cubic.html#ab64ff5f321adc4820cc9384ad80a25b4":[7,0,12,3,4],
 "structnumodis_1_1_cubic.html#acaee968ae0cb8ed469881f38913e5e58":[7,0,12,3,1],
 "structnumodis_1_1_cubic.html#ad070e3283533f2dab40179a07ebf12c7":[7,0,12,3,6],
 "structnumodis_1_1_cubic.html#ad2235fe05ff90ff80ed66b3581ab62a0":[7,0,12,3,3],
@@ -88,14 +90,14 @@ var NAVTREEINDEX64 =
 "structtfel_01_1_1math_1_1_op_mult.html":[7,0,15,0,4],
 "structtfel_01_1_1math_1_1_op_neg.html":[7,0,15,0,5],
 "structtfel_01_1_1math_1_1_op_plus.html":[7,0,15,0,6],
-"structtfel_1_1_physical_constants.html":[7,0,14,13],
 "structtfel_1_1_physical_constants.html":[5,0,9,2],
+"structtfel_1_1_physical_constants.html":[7,0,14,13],
 "structtfel_1_1_physical_constants_3_01_numeric_type_00_01false_01_4.html":[5,0,9,3],
 "structtfel_1_1_physical_constants_3_01_numeric_type_00_01false_01_4.html":[7,0,14,14],
 "structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4.html":[5,0,9,4],
 "structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4.html":[7,0,14,15],
-"structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4.html#a5100087ce3f32705aa7c3dabe8bf86d7":[5,0,9,4,0],
 "structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4.html#a5100087ce3f32705aa7c3dabe8bf86d7":[7,0,14,15,0],
+"structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4.html#a5100087ce3f32705aa7c3dabe8bf86d7":[5,0,9,4,0],
 "structtfel_1_1check_1_1_absolute_comparison.html":[7,0,14,0,0],
 "structtfel_1_1check_1_1_absolute_comparison.html#a690c87cbd7e2a915872fb9b92c4cb6a9":[7,0,14,0,0,0],
 "structtfel_1_1check_1_1_area_comparison.html":[7,0,14,0,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX64 =
 "structtfel_1_1check_1_1_spline_interpolation.html#a4242c401b4bb1f7a15ba52f706d65431":[7,0,14,0,19,3],
 "structtfel_1_1check_1_1_spline_interpolation.html#a465f34aa36ddb2d64074e8164f791ddc":[7,0,14,0,19,1],
 "structtfel_1_1check_1_1_spline_interpolation.html#a6345aed8b2d6e63c56b4b52b409cd702":[7,0,14,0,19,2],
-"structtfel_1_1check_1_1_spline_interpolation.html#ab95a4125279dfd215f4bcd4575d693ce":[7,0,14,0,19,0],
-"structtfel_1_1check_1_1_spline_local_interpolation.html":[7,0,14,0,20],
-"structtfel_1_1check_1_1_spline_local_interpolation.html#a097ce83add74a69adadba32bd1fe3156":[7,0,14,0,20,8]
+"structtfel_1_1check_1_1_spline_interpolation.html#ab95a4125279dfd215f4bcd4575d693ce":[7,0,14,0,19,0]
 };

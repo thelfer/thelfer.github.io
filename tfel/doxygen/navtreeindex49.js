@@ -1,5 +1,7 @@
 var NAVTREEINDEX49 =
 {
+"structmfront_1_1bbrick_1_1_cazacu2004_isotropic_stress_criterion.html#a6c1e45ebae4e5446a460b03d0e5f1b29":[7,0,10,0,4,1],
+"structmfront_1_1bbrick_1_1_cazacu2004_isotropic_stress_criterion.html#a6f62ea6ab703d5b85f5e76594bd52dde":[7,0,10,0,4,5],
 "structmfront_1_1bbrick_1_1_cazacu2004_isotropic_stress_criterion.html#a83ea0e948f2ff8a0b88df532bafee31c":[7,0,10,0,4,3],
 "structmfront_1_1bbrick_1_1_cazacu2004_isotropic_stress_criterion.html#a8a636e0d7018c8be9a87103122eb0974":[7,0,10,0,4,10],
 "structmfront_1_1bbrick_1_1_cazacu2004_isotropic_stress_criterion.html#abb9709745644c40a916c2fb75b649d96":[7,0,10,0,4,12],
@@ -247,7 +249,5 @@ var NAVTREEINDEX49 =
 "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#ae930ea6e3a406a8954a56c197931d0e6":[7,0,10,0,22,32],
 "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#af1a10cea3ee1189e4dee2eb8194732e4":[7,0,10,0,22,11],
 "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#af4de0c589ed0e7853fd8b7e0a37274f5":[7,0,10,0,22,5],
-"structmfront_1_1bbrick_1_1_inelastic_flow_base.html#afbe0512ef25468bc8b10f46d9f8cfcfa":[7,0,10,0,22,28],
-"structmfront_1_1bbrick_1_1_inelastic_flow_factory.html":[7,0,10,0,23],
-"structmfront_1_1bbrick_1_1_inelastic_flow_factory.html#a1b41cb664a01cae4ef27f2a135383f46":[7,0,10,0,23,1]
+"structmfront_1_1bbrick_1_1_inelastic_flow_base.html#afbe0512ef25468bc8b10f46d9f8cfcfa":[7,0,10,0,22,28]
 };

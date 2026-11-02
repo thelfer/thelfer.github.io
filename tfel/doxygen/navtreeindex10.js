@@ -1,5 +1,6 @@
 var NAVTREEINDEX10 =
 {
+"_times_8hxx.html#a35d90188c756428023e9c11d73324e99":[8,0,1,0,0,13,2],
 "_tiny_broyden2_solver_8hxx.html":[8,0,0,3,5,64],
 "_tiny_broyden2_solver_8ixx.html":[8,0,0,3,5,10,5],
 "_tiny_broyden_solver_8hxx.html":[8,0,0,3,5,65],
@@ -157,8 +158,8 @@ var NAVTREEINDEX10 =
 "class_spline_local_interpolation.html":[7,0,36],
 "class_van_der_pol.html":[7,0,37],
 "classes.html":[7,1],
-"classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_math_object_tag_00_01_math_object_ta678525739d11dd285f3440a6fca43370.html":[5,0,9,1,18],
 "classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_math_object_tag_00_01_math_object_ta678525739d11dd285f3440a6fca43370.html":[7,0,14,6,21],
+"classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_math_object_tag_00_01_math_object_ta678525739d11dd285f3440a6fca43370.html":[5,0,9,1,18],
 "classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_math_object_tag_00_01_math_object_taf9bbfcbb57592fbcbb2344ac06801146.html":[5,0,9,1,17],
 "classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_math_object_tag_00_01_math_object_taf9bbfcbb57592fbcbb2344ac06801146.html":[7,0,14,6,20],
 "classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_math_object_tag_00_01_scalar_tag_00_01_a_00_01_b_00_01_op_div_01_4.html":[5,0,9,1,19],
@@ -248,6 +249,5 @@ var NAVTREEINDEX10 =
 "classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01tbf1ae1e3b95820a5dd3c27859c733c90.html":[5,0,9,1,65],
 "classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01tbf1ae1e3b95820a5dd3c27859c733c90.html":[7,0,14,6,68],
 "classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01tbf1ae1e3b95820a5dd3c27859c733c90.html#a4c56fd9ae25348031a74f0ffa694dc1a":[7,0,14,6,68,0],
-"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01tbf1ae1e3b95820a5dd3c27859c733c90.html#a4c56fd9ae25348031a74f0ffa694dc1a":[5,0,9,1,65,0],
-"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_matrix_tag_00_01_scalar_tag_00_01tmatcb5739c87051c9db3928bba8ca3f3bcd.html":[5,0,9,1,68]
+"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01tbf1ae1e3b95820a5dd3c27859c733c90.html#a4c56fd9ae25348031a74f0ffa694dc1a":[5,0,9,1,65,0]
 };

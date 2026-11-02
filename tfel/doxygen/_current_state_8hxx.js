@@ -5,6 +5,7 @@ var _current_state_8hxx =
     [ "computeExternalStateVariables", "_current_state_8hxx.html#aaf6bbcb16664f4c802e37b88eecec12a", null ],
     [ "computeMaterialProperties", "_current_state_8hxx.html#a1b8ef6b6f70e8e88217eae926de48aed", null ],
     [ "computeThermalExpansion", "_current_state_8hxx.html#a0f0b63c98d6857e6216633c706c3079b", null ],
+    [ "computeThermalExpansion", "_current_state_8hxx.html#aa18d5d3e78c672c202c02cda0747884b", null ],
     [ "computeThermalExpansion", "_current_state_8hxx.html#a0962be7dfa388d0ac1b866f26ab460f4", null ],
     [ "revert", "_current_state_8hxx.html#a33cbd1cd1620bba09c17334e1c4b72f3", null ],
     [ "setInternalStateVariableValue", "_current_state_8hxx.html#a47f62d35885fb0574529d1ad0d159f37", null ],

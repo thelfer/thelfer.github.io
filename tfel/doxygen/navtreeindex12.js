@@ -1,6 +1,5 @@
 var NAVTREEINDEX12 =
 {
-"classtfel_1_1math_1_1internals_1_1_power_sqrt_pos.html":[7,0,14,6,1,56],
 "classtfel_1_1math_1_1internals_1_1_power_sqrt_pos.html":[5,0,9,1,1,56],
 "classtfel_1_1meta_1_1_has_random_access_const_iterator.html":[7,0,14,7,8],
 "classtfel_1_1meta_1_1_has_random_access_iterator.html":[7,0,14,7,9],
@@ -249,5 +248,6 @@ var NAVTREEINDEX12 =
 "functions_n.html":[7,3,0,14],
 "functions_o.html":[7,3,0,15],
 "functions_p.html":[7,3,0,16],
-"functions_q.html":[7,3,0,17]
+"functions_q.html":[7,3,0,17],
+"functions_r.html":[7,3,0,18]
 };

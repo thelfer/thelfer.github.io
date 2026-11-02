@@ -192,12 +192,12 @@ Static Public Member Functions</h2></td></tr>
 <p>The path has one of the form:</p>
 <ul>
 <li><code>&lt;file_path&gt;</code></li>
-<li><code>&lt;file_path&gt;:&lt;material_id&gt;</code></li>
-<li><code>&lt;file_path&gt;:&lt;material_id&gt;:&lt;mkt&gt;</code></li>
+<li><code>&lt;file_path&gt;:&lt;mkt&gt;</code></li>
+<li><code>&lt;file_path&gt;:&lt;mkt&gt;:&lt;material_id&gt;</code></li>
 </ul>
-<p>If the material identifier is not specified, all materials are selected, including the empty one.</p>
+<p><code>&lt;mkt&gt;</code> can have one of the values <code>material_property</code> (or <code>MaterialProperty</code>), <code>behaviour</code> (or <code>Behaviour</code>) or <code>model</code> (or <code>Model</code>). If <code>&lt;mkt&gt;</code> is empty or not specified, all types of material knowledge are selected.</p>
 <p><code>&lt;material_id&gt;</code> can be a regular expression. <code>&lt;material_id&gt;</code> can also have the special value <code>&lt;none&gt;</code>.</p>
-<p>&lt;mkt&gt; can have one of the values <code>MaterialProperties</code>, <code>Behaviours</code> or <code>Models</code>.</p>
+<p>If the material identifier is empty or not specified, only the material knowledge associated with no material is selected, as with <code>&lt;none&gt;</code>. The regular expression <code>.*</code> selects all materials, including the empty one.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td>path </td></tr>
@@ -232,7 +232,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Add new search paths. </p>
-<p>Multiple paths are separated by commas under unices systems and by semicolons under Windows systems. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Multiple paths are separated by colons under unices systems and by semicolons under Windows systems. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td>: new search paths </td></tr>
   </table>
@@ -408,7 +408,7 @@ Static Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemfront.html">mfront</a></li><li class="navelem"><a class="el" href="structmfront_1_1_search_paths_handler.html">SearchPathsHandler</a></li>
-    <li class="footer">Generated on Mon Nov 2 2026 13:05:16 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Mon Nov 2 2026 15:38:51 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

@@ -7,5 +7,5 @@ var structtfel_1_1math_1_1_tiny_broyden_solver =
     [ "computeNewCorrection", "structtfel_1_1math_1_1_tiny_broyden_solver.html#a8754279fc2b699dd9cac87fbbce43d6a", null ],
     [ "operator=", "structtfel_1_1math_1_1_tiny_broyden_solver.html#a7dee396f4d10ffe294bf386a3b414abb", null ],
     [ "operator=", "structtfel_1_1math_1_1_tiny_broyden_solver.html#aa4f060b773546411deacb0637cf0eed9", null ],
-    [ "updateOrCheckJacobian", "structtfel_1_1math_1_1_tiny_broyden_solver.html#a03b88aa3dd5d2f9bcb642ae7ba3aa835", null ]
+    [ "updateJacobian", "structtfel_1_1math_1_1_tiny_broyden_solver.html#a8f31da833e3ee2008db2557a1f837ec3", null ]
 ];

@@ -145,10 +145,9 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>~TinyPowellDogLegBroydenSolver</b> () <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">noexcept</a>=<a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">default</a></td></tr>
 <tr class="memdesc:a18b539a21bcf4b73159f8fd5227b483e"><td class="mdescLeft">&#160;</td><td class="mdescRight">destructor <br /></td></tr>
 <tr class="separator:a18b539a21bcf4b73159f8fd5227b483e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2164f11276111ec23195fd2bcfd1469" id="r_ad2164f11276111ec23195fd2bcfd1469"><td class="memItemLeft" align="right" valign="top"><a id="ad2164f11276111ec23195fd2bcfd1469" name="ad2164f11276111ec23195fd2bcfd1469"></a>
-TFEL_HOST_DEVICE <a class="el" href="include_2_cyrano_2_behaviour_8hxx.html#a1f775cf4fa3cbc5f015abdd0796e276c">void</a>&#160;</td><td class="memItemRight" valign="bottom"><b>updateOrCheckJacobian</b> ()</td></tr>
-<tr class="memdesc:ad2164f11276111ec23195fd2bcfd1469"><td class="mdescLeft">&#160;</td><td class="mdescRight">update the jacobian matrix <br /></td></tr>
-<tr class="separator:ad2164f11276111ec23195fd2bcfd1469"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d4102b17330d654954e97ef6baac2e2" id="r_a5d4102b17330d654954e97ef6baac2e2"><td class="memItemLeft" align="right" valign="top">TFEL_HOST_DEVICE <a class="el" href="include_2_cyrano_2_behaviour_8hxx.html#a1f775cf4fa3cbc5f015abdd0796e276c">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1_tiny_powell_dog_leg_broyden_solver.html#a5d4102b17330d654954e97ef6baac2e2">updateJacobian</a> ()</td></tr>
+<tr class="memdesc:a5d4102b17330d654954e97ef6baac2e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">update the jacobian matrix  <br /></td></tr>
+<tr class="separator:a5d4102b17330d654954e97ef6baac2e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55a72a96bfc85b894425c8e8e6eca590" id="r_a55a72a96bfc85b894425c8e8e6eca590"><td class="memItemLeft" align="right" valign="top"><a id="a55a72a96bfc85b894425c8e8e6eca590" name="a55a72a96bfc85b894425c8e8e6eca590"></a>
 TFEL_HOST_DEVICE <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><b>computeNewCorrection</b> ()</td></tr>
 <tr class="memdesc:a55a72a96bfc85b894425c8e8e6eca590"><td class="mdescLeft">&#160;</td><td class="mdescRight">compute a new correction to the unknowns <br /></td></tr>
@@ -293,7 +292,30 @@ struct tfel::math::TinyPowellDogLegBroydenSolver&lt; N, NumericType, Child, Exte
 <li>Set the values of <code>epsilon</code> and <code>iterMax</code> data members and the initial guess of the unknowns, i.e. by setting the value of the <code>zeros</code> data member.</li>
 <li>Provide a method called <code>computeResidual</code> which must computes the residual, i.e. the data member <code>fzeros</code> and the jacobian matrix, i.e. the data member <code>jacobian</code> using the current estimate of the solution, i.e. the data member <code>zeros</code>. </li>
 </ol>
-</div><hr/>The documentation for this struct was generated from the following files:<ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a5d4102b17330d654954e97ef6baac2e2" name="a5d4102b17330d654954e97ef6baac2e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d4102b17330d654954e97ef6baac2e2">&#9670;&#160;</a></span>updateJacobian()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">unsigned</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">short</a> N, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">typename</a> NumericType , <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">typename</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">Child</a> , <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">template</a>&lt; <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">unsigned</a> <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">short</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">typename</a> &gt; <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">typename</a> ExternalWorkSpace&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2_cyrano_2_behaviour_8hxx.html#a1f775cf4fa3cbc5f015abdd0796e276c">void</a> <a class="el" href="structtfel_1_1math_1_1_tiny_powell_dog_leg_broyden_solver.html">tfel::math::TinyPowellDogLegBroydenSolver</a>&lt; N, NumericType, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">Child</a>, <a class="el" href="namespacetfel_1_1math.html#a037360e732078b2d8b6bee5f80a0c819">ExternalWorkSpace</a> &gt;::updateJacobian </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>update the jacobian matrix </p>
+<p>This method is called by <code>computeNewCorrection</code> before the <code>updateOrCheckJacobian</code> method of the derived class. </p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following files:<ul>
 <li><a class="el" href="_tiny_powell_dog_leg_broyden_solver_8hxx.html">TinyPowellDogLegBroydenSolver.hxx</a></li>
 <li><a class="el" href="_tiny_powell_dog_leg_broyden_solver_8ixx.html">TinyPowellDogLegBroydenSolver.ixx</a></li>
 </ul>
@@ -303,7 +325,7 @@ struct tfel::math::TinyPowellDogLegBroydenSolver&lt; N, NumericType, Child, Exte
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetfel.html">tfel</a></li><li class="navelem"><a class="el" href="namespacetfel_1_1math.html">math</a></li><li class="navelem"><a class="el" href="structtfel_1_1math_1_1_tiny_powell_dog_leg_broyden_solver.html">TinyPowellDogLegBroydenSolver</a></li>
-    <li class="footer">Generated on Mon Nov 2 2026 19:48:54 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Mon Nov 2 2026 21:43:21 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

@@ -7,6 +7,6 @@ var structtfel_1_1math_1_1_tiny_powell_dog_leg_broyden_solver =
     [ "computeNewCorrection", "structtfel_1_1math_1_1_tiny_powell_dog_leg_broyden_solver.html#a55a72a96bfc85b894425c8e8e6eca590", null ],
     [ "operator=", "structtfel_1_1math_1_1_tiny_powell_dog_leg_broyden_solver.html#ae25cec28b25b5ad443e4155e46bd85ae", null ],
     [ "operator=", "structtfel_1_1math_1_1_tiny_powell_dog_leg_broyden_solver.html#a4977ec1e246496bffe773b13b5440588", null ],
-    [ "updateOrCheckJacobian", "structtfel_1_1math_1_1_tiny_powell_dog_leg_broyden_solver.html#ad2164f11276111ec23195fd2bcfd1469", null ],
+    [ "updateJacobian", "structtfel_1_1math_1_1_tiny_powell_dog_leg_broyden_solver.html#a5d4102b17330d654954e97ef6baac2e2", null ],
     [ "powell_dogleg_trust_region_size", "structtfel_1_1math_1_1_tiny_powell_dog_leg_broyden_solver.html#aa844779335e554aeccdbb2e57cdb855b", null ]
 ];

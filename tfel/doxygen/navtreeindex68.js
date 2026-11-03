@@ -227,12 +227,12 @@ var NAVTREEINDEX68 =
 "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_spheroid.html":[7,0,14,5,0,0,23],
 "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_transverse_isotropic_distribution.html":[7,0,14,5,0,0,24],
 "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_user_defined_distribution_of_spheroids.html":[7,0,14,5,0,0,25],
-"structtfel_1_1material_1_1internals_1_1_compute_hill_tensor.html":[7,0,14,5,1,0],
 "structtfel_1_1material_1_1internals_1_1_compute_hill_tensor.html":[5,0,9,0,0,0],
+"structtfel_1_1material_1_1internals_1_1_compute_hill_tensor.html":[7,0,14,5,1,0],
 "structtfel_1_1material_1_1internals_1_1_compute_hill_tensor_3_01_h_00_01tfel_1_1material_1_1_ort86d5362ae77229748dc6ad300ef07328.html":[7,0,14,5,1,2],
 "structtfel_1_1material_1_1internals_1_1_compute_hill_tensor_3_01_h_00_01tfel_1_1material_1_1_ort86d5362ae77229748dc6ad300ef07328.html":[5,0,9,0,0,2],
-"structtfel_1_1material_1_1internals_1_1_compute_hill_tensor_3_01_h_00_01tfel_1_1material_1_1_ort86d5362ae77229748dc6ad300ef07328.html#ab2ceffa49a1c5eab6dcf50f7dcea1df6":[7,0,14,5,1,2,0],
 "structtfel_1_1material_1_1internals_1_1_compute_hill_tensor_3_01_h_00_01tfel_1_1material_1_1_ort86d5362ae77229748dc6ad300ef07328.html#ab2ceffa49a1c5eab6dcf50f7dcea1df6":[5,0,9,0,0,2,0],
+"structtfel_1_1material_1_1internals_1_1_compute_hill_tensor_3_01_h_00_01tfel_1_1material_1_1_ort86d5362ae77229748dc6ad300ef07328.html#ab2ceffa49a1c5eab6dcf50f7dcea1df6":[7,0,14,5,1,2,0],
 "structtfel_1_1material_1_1internals_1_1_compute_hill_tensor_3_01_h_00_01tfel_1_1material_1_1_ortc06cd032f674232bb6f8c6133e0bde21.html":[7,0,14,5,1,1],
 "structtfel_1_1material_1_1internals_1_1_compute_hill_tensor_3_01_h_00_01tfel_1_1material_1_1_ortc06cd032f674232bb6f8c6133e0bde21.html":[5,0,9,0,0,1],
 "structtfel_1_1material_1_1internals_1_1_compute_hill_tensor_3_01_h_00_01tfel_1_1material_1_1_ortc06cd032f674232bb6f8c6133e0bde21.html#a4c2788e253703707d8fe24b4d587c4b1":[7,0,14,5,1,1,0],
@@ -245,9 +245,9 @@ var NAVTREEINDEX68 =
 "structtfel_1_1material_1_1internals_1_1_compute_hill_tensor_3_01tfel_1_1material_1_1_modelling_h259c828439eb0fcba12424b17d9240ce.html":[5,0,9,0,0,9],
 "structtfel_1_1material_1_1internals_1_1_compute_hill_tensor_3_01tfel_1_1material_1_1_modelling_h259c828439eb0fcba12424b17d9240ce.html#a74ed299a9f2655121626a1d80da70525":[5,0,9,0,0,9,0],
 "structtfel_1_1material_1_1internals_1_1_compute_hill_tensor_3_01tfel_1_1material_1_1_modelling_h259c828439eb0fcba12424b17d9240ce.html#a74ed299a9f2655121626a1d80da70525":[7,0,14,5,1,9,0],
-"structtfel_1_1material_1_1internals_1_1_compute_hill_tensor_3_01tfel_1_1material_1_1_modelling_h3b757a70a81522d7bed5bc48d1e88b69.html":[5,0,9,0,0,5],
 "structtfel_1_1material_1_1internals_1_1_compute_hill_tensor_3_01tfel_1_1material_1_1_modelling_h3b757a70a81522d7bed5bc48d1e88b69.html":[7,0,14,5,1,5],
-"structtfel_1_1material_1_1internals_1_1_compute_hill_tensor_3_01tfel_1_1material_1_1_modelling_h3b757a70a81522d7bed5bc48d1e88b69.html#accc4337b721f4606975c9af41310e562":[5,0,9,0,0,5,0],
+"structtfel_1_1material_1_1internals_1_1_compute_hill_tensor_3_01tfel_1_1material_1_1_modelling_h3b757a70a81522d7bed5bc48d1e88b69.html":[5,0,9,0,0,5],
 "structtfel_1_1material_1_1internals_1_1_compute_hill_tensor_3_01tfel_1_1material_1_1_modelling_h3b757a70a81522d7bed5bc48d1e88b69.html#accc4337b721f4606975c9af41310e562":[7,0,14,5,1,5,0],
-"structtfel_1_1material_1_1internals_1_1_compute_hill_tensor_3_01tfel_1_1material_1_1_modelling_h4f890b685505ce6556e39c1213b51dc9.html":[5,0,9,0,0,4]
+"structtfel_1_1material_1_1internals_1_1_compute_hill_tensor_3_01tfel_1_1material_1_1_modelling_h3b757a70a81522d7bed5bc48d1e88b69.html#accc4337b721f4606975c9af41310e562":[5,0,9,0,0,5,0],
+"structtfel_1_1material_1_1internals_1_1_compute_hill_tensor_3_01tfel_1_1material_1_1_modelling_h4f890b685505ce6556e39c1213b51dc9.html":[7,0,14,5,1,4]
 };

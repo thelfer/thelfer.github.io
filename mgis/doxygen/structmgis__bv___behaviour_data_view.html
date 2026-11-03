@@ -186,7 +186,7 @@ Public Attributes</h2></td></tr>
 <li>if Ke is in [-0.5:0.5]: the behaviour integration is performed, but no stiffness matrix.</li>
 <li>if Ke is in [0.5:1.5]: the elastic operator must be computed.</li>
 <li>if Ke is in [1.5:2.5]: the secant operator must be computed.</li>
-<li>if Ke is in [2.5:3.5]: the secant operator must be computed.</li>
+<li>if Ke is in [2.5:3.5]: the tangent operator must be computed.</li>
 <li>if Ke is greater than 3.5, the consistent tangent operator must be computed.</li>
 </ul>
 <p>Other values of K are meant to store behaviour's option. This is currently only meaningful for finite strain behaviours.</p>
@@ -198,7 +198,8 @@ Public Attributes</h2></td></tr>
 <p>For finite strain behaviours, K[2] holds the choice of the consistent tangent operator returned by the behaviour:</p><ul>
 <li>if K[2]&lt;0.5, the derivative of the Cauchy stress with respect to the deformation gradient is returned</li>
 <li>if 0.5&lt;K[2]&lt;1.5, the derivative of the second Piola-Kirchoff stress with respect to the Green-Lagrange strain is returned</li>
-<li>if 1.5&lt;K[2]&lt;2.5, the derivative of the first Piola-Kirchoff stress with respect to the deformation gradient is returned </li>
+<li>if 1.5&lt;K[2]&lt;2.5, the derivative of the first Piola-Kirchoff stress with respect to the deformation gradient is returned</li>
+<li>if 2.5&lt;K[2]&lt;3.5, the derivative of the Kirchhoff stress with respect to the spatial increment of the deformation gradient is returned </li>
 </ul>
 
 </div>
@@ -230,7 +231,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="structmgis__bv___behaviour_data_view.html">mgis_bv_BehaviourDataView</a></li>
-    <li class="footer">Generated on Tue Nov 3 2026 23:32:09 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Nov 3 2026 23:35:35 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

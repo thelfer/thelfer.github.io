@@ -27,10 +27,9 @@ var searchData=
   ['are_20welcomed_24',['Future bindings (contributors are welcomed)',['../index.html#autotoc_md3',1,'']]],
   ['areinvalid_25',['areInvalid',['../namespacemgis.html#af4bf11d96d885951a9521d94a8dbfebc',1,'mgis']]],
   ['arevalid_26',['areValid',['../namespacemgis.html#a06c83fbb0905ade623a12868ca239b70',1,'mgis']]],
-  ['arguments_27',['arguments',['../structmgis__mp___batch_data.html#aa4206f1d45f4d53d4d70ed090ef473c8',1,'mgis_mp_BatchData']]],
-  ['arrayview_28',['ArrayView',['../classmgis_1_1julia_1_1_array_view.html',1,'mgis::julia']]],
-  ['arrayview_2ehxx_29',['ArrayView.hxx',['../_array_view_8hxx.html',1,'']]],
-  ['assertorterminate_30',['assertorterminate',['../structmgis_1_1_error_backtrace.html#a10902e7c6c3b783acb04476bfe70c319',1,'mgis::ErrorBacktrace::assertOrTerminate(const bool, const ErrorReport)'],['../structmgis_1_1_error_backtrace.html#ad3e26536c88de2e990c72d52b1fb5093',1,'mgis::ErrorBacktrace::assertOrTerminate(const bool, const char *const)']]],
-  ['assign_31',['assign',['../_algorithms_8hxx.html#afe33d04ce956c767178fa7787bfad4e1',1,'mgis::function::assign(AbstractErrorHandler &amp;, FunctionType &amp;&amp;, const EvaluatorType)'],['../_c_u_d_a_2_algorithms_8hxx.html#af952690ed30bc1d3b77f51c3c170a922',1,'mgis::function::assign(AbstractErrorHandler &amp;, const CUDAExecutionConfiguration &amp;, FunctionType &amp;, const EvaluatorType)']]],
-  ['author_32',['author',['../structmgis_1_1behaviour_1_1_behaviour_description.html#ac755975ea41e2127475aa46120746e12',1,'mgis::behaviour::BehaviourDescription']]]
+  ['arrayview_27',['ArrayView',['../classmgis_1_1julia_1_1_array_view.html',1,'mgis::julia']]],
+  ['arrayview_2ehxx_28',['ArrayView.hxx',['../_array_view_8hxx.html',1,'']]],
+  ['assertorterminate_29',['assertorterminate',['../structmgis_1_1_error_backtrace.html#a10902e7c6c3b783acb04476bfe70c319',1,'mgis::ErrorBacktrace::assertOrTerminate(const bool, const ErrorReport)'],['../structmgis_1_1_error_backtrace.html#ad3e26536c88de2e990c72d52b1fb5093',1,'mgis::ErrorBacktrace::assertOrTerminate(const bool, const char *const)']]],
+  ['assign_30',['assign',['../_algorithms_8hxx.html#afe33d04ce956c767178fa7787bfad4e1',1,'mgis::function::assign(AbstractErrorHandler &amp;, FunctionType &amp;&amp;, const EvaluatorType)'],['../_c_u_d_a_2_algorithms_8hxx.html#af952690ed30bc1d3b77f51c3c170a922',1,'mgis::function::assign(AbstractErrorHandler &amp;, const CUDAExecutionConfiguration &amp;, FunctionType &amp;, const EvaluatorType)']]],
+  ['author_31',['author',['../structmgis_1_1behaviour_1_1_behaviour_description.html#ac755975ea41e2127475aa46120746e12',1,'mgis::behaviour::BehaviourDescription']]]
 ];

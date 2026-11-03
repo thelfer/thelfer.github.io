@@ -289,10 +289,5 @@ var annotated_dup =
     [ "mgis_bv_BehaviourDataView", "structmgis__bv___behaviour_data_view.html", "structmgis__bv___behaviour_data_view" ],
     [ "mgis_bv_InitialStateView", "structmgis__bv___initial_state_view.html", "structmgis__bv___initial_state_view" ],
     [ "mgis_bv_StateView", "structmgis__bv___state_view.html", "structmgis__bv___state_view" ],
-    [ "mgis_mp_BatchConstField", "structmgis__mp___batch_const_field.html", "structmgis__mp___batch_const_field" ],
-    [ "mgis_mp_BatchData", "structmgis__mp___batch_data.html", "structmgis__mp___batch_data" ],
-    [ "mgis_mp_BatchField", "structmgis__mp___batch_field.html", "structmgis__mp___batch_field" ],
-    [ "mgis_mp_BatchOutputStatus", "structmgis__mp___batch_output_status.html", "structmgis__mp___batch_output_status" ],
-    [ "mgis_mp_BatchStatistics", "structmgis__mp___batch_statistics.html", "structmgis__mp___batch_statistics" ],
     [ "mgis_mp_OutputStatus", "structmgis__mp___output_status.html", "structmgis__mp___output_status" ]
 ];

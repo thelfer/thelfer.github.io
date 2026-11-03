@@ -19,5 +19,7 @@ var _evaluator_concept_8hxx =
     [ "evaluator_result", "_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d", null ],
     [ "disambiguateCheck", "_evaluator_concept_8hxx.html#a939c7c2047f43d7e159788e35ed9479f", null ],
     [ "disambiguateGetNumberOfComponents", "_evaluator_concept_8hxx.html#a4b3ba9009acce55c6c23c79be2757d4a", null ],
-    [ "disambiguateGetSpace", "_evaluator_concept_8hxx.html#a6bd5eb00468484c1a6980231ebd7135b", null ]
+    [ "disambiguateGetSpace", "_evaluator_concept_8hxx.html#a6bd5eb00468484c1a6980231ebd7135b", null ],
+    [ "getDataPointer", "_evaluator_concept_8hxx.html#a2fe5b2c262842171919213d3e39b655d", null ],
+    [ "getDataPointer", "_evaluator_concept_8hxx.html#a4224d58976fafb0dfbeb719431ed4f27", null ]
 ];

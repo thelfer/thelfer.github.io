@@ -17,6 +17,7 @@ var structmfront_1_1_abaqus_interface =
     [ "writeIntegrationDataGradientSetter", "structmfront_1_1_abaqus_interface.html#a63269e90875e0bcd6ca2fb570f552420", null ],
     [ "writeInterfaceSpecificIncludes", "structmfront_1_1_abaqus_interface.html#ae86fc4dc2f3d07ff29abc40fede5efff", null ],
     [ "writeMieheApelLambrechtLogarithmicStrainFunction", "structmfront_1_1_abaqus_interface.html#a7612013f647d0b0bae229c29d372daae", null ],
+    [ "writeMTestFileGeneratorSetStrainAndStressTensors", "structmfront_1_1_abaqus_interface.html#a469ed83705ae63436038dddad38a3bb3", null ],
     [ "writeSmallStrainFunction", "structmfront_1_1_abaqus_interface.html#a2c3f32de5e59b6d0bab138ae08801c71", null ],
     [ "compareToNumericalTangentOperator", "structmfront_1_1_abaqus_interface.html#a11d7731c8ac14af17058ee3cf75fee3a", null ],
     [ "strainPerturbationValue", "structmfront_1_1_abaqus_interface.html#afd88092bf5ac5630ab36505a2a8c3f20", null ],

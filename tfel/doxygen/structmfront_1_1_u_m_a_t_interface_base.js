@@ -27,6 +27,7 @@ var structmfront_1_1_u_m_a_t_interface_base =
     [ "writeMaterialPropertiesInitializersInBehaviourDataConstructorI", "structmfront_1_1_u_m_a_t_interface_base.html#affdb66e1c576a980a9fac0a3b36dfabb", null ],
     [ "writeMaterialPropertiesInitializersInBehaviourDataConstructorII", "structmfront_1_1_u_m_a_t_interface_base.html#aa23e5b969f476e5ecd03327e830b4dbd", null ],
     [ "writeMTestFileGeneratorSetModellingHypothesis", "structmfront_1_1_u_m_a_t_interface_base.html#ab4fb7dde07fcb952de372314a868b974", null ],
+    [ "writeMTestFileGeneratorSetStrainAndStressTensors", "structmfront_1_1_u_m_a_t_interface_base.html#aeddf6ea50144333346b2275f57480f9e", null ],
     [ "writeVariableInitializersInBehaviourDataConstructorI", "structmfront_1_1_u_m_a_t_interface_base.html#ae935ebc7be61f2743f18efc4dc111184", null ],
     [ "writeVariableInitializersInBehaviourDataConstructorI", "structmfront_1_1_u_m_a_t_interface_base.html#a4ff75d09aea1c9fc45d6937d0025602d", null ],
     [ "writeVariableInitializersInBehaviourDataConstructorII", "structmfront_1_1_u_m_a_t_interface_base.html#ae04ec9688e9a092a8c452aefcc2e23a2", null ],

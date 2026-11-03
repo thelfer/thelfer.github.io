@@ -26,6 +26,7 @@ var structmfront_1_1_ansys_interface =
     [ "writeInterfaceSpecificIncludes", "structmfront_1_1_ansys_interface.html#a47dab5cb3fb6485a22708e92fadd1412", null ],
     [ "writeMieheApelLambrechtLogarithmicStrainFunction", "structmfront_1_1_ansys_interface.html#a1dd087892b98246e6f6e0a88f3af474a", null ],
     [ "writeMTestFileGeneratorSetModellingHypothesis", "structmfront_1_1_ansys_interface.html#a638e9c859150d75d587d4cafd0594589", null ],
+    [ "writeMTestFileGeneratorSetStrainAndStressTensors", "structmfront_1_1_ansys_interface.html#a6b748608e9b4c52b8247cc5dbb117dcc", null ],
     [ "writeSmallStrainFunction", "structmfront_1_1_ansys_interface.html#a785241df68e95d8c469cb44a0332e552", null ],
     [ "compareToNumericalTangentOperator", "structmfront_1_1_ansys_interface.html#ad9ec086487b656cda8ba17f5cd86d5e0", null ],
     [ "strainPerturbationValue", "structmfront_1_1_ansys_interface.html#ad02150b7c184eccac7dca858f857b289", null ],

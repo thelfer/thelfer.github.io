@@ -341,6 +341,9 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:a995c8f88586d2cf80b225af2d679a597"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a638e9c859150d75d587d4cafd0594589" id="r_a638e9c859150d75d587d4cafd0594589"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2_cyrano_2_behaviour_8hxx.html#a1f775cf4fa3cbc5f015abdd0796e276c">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfront_1_1_ansys_interface.html#a638e9c859150d75d587d4cafd0594589">writeMTestFileGeneratorSetModellingHypothesis</a> (std::ostream &amp;) const override</td></tr>
 <tr class="separator:a638e9c859150d75d587d4cafd0594589"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b748608e9b4c52b8247cc5dbb117dcc" id="r_a6b748608e9b4c52b8247cc5dbb117dcc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2_cyrano_2_behaviour_8hxx.html#a1f775cf4fa3cbc5f015abdd0796e276c">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfront_1_1_ansys_interface.html#a6b748608e9b4c52b8247cc5dbb117dcc">writeMTestFileGeneratorSetStrainAndStressTensors</a> (std::ostream &amp;, const <a class="el" href="structtfel_1_1material_1_1_modelling_hypothesis.html#a9a637e1af46e51842514a724c47da119">Hypothesis</a>) const override</td></tr>
+<tr class="memdesc:a6b748608e9b4c52b8247cc5dbb117dcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">write the code giving the strain at the beginning of the time step, the strain increment and the stress at the beginning of the time step of a strain based behaviour to the generator of <code>MTest</code> files. The generator expects the components in the order of the symmetric tensors of TFEL. The default implementation gives the arrays <code>STRAN</code>, <code>DSTRAN</code> and <code>mg_STRESS</code> unchanged.  <br /></td></tr>
+<tr class="separator:a6b748608e9b4c52b8247cc5dbb117dcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a091119ec80e9def7c12a69bd2c54914d" id="r_a091119ec80e9def7c12a69bd2c54914d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2_cyrano_2_behaviour_8hxx.html#a1f775cf4fa3cbc5f015abdd0796e276c">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfront_1_1_ansys_interface.html#a091119ec80e9def7c12a69bd2c54914d">writeBehaviourDataMainVariablesSetters</a> (std::ostream &amp;, const <a class="el" href="structmfront_1_1_behaviour_description.html">BehaviourDescription</a> &amp;) const override</td></tr>
 <tr class="separator:a091119ec80e9def7c12a69bd2c54914d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4a0d94d4d2d2d63bfc9e000c8916243" id="r_ac4a0d94d4d2d2d63bfc9e000c8916243"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2_cyrano_2_behaviour_8hxx.html#a1f775cf4fa3cbc5f015abdd0796e276c">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmfront_1_1_ansys_interface.html#ac4a0d94d4d2d2d63bfc9e000c8916243">writeBehaviourDataGradientSetter</a> (std::ostream &amp;, const <a class="el" href="structmfront_1_1_gradient.html">Gradient</a> &amp;, const <a class="el" href="structmfront_1_1_supported_types_1_1_type_size.html">SupportedTypes::TypeSize</a>) const override</td></tr>
@@ -1753,6 +1756,53 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>const_iterator</b> =
 
 </div>
 </div>
+<a id="a6b748608e9b4c52b8247cc5dbb117dcc" name="a6b748608e9b4c52b8247cc5dbb117dcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b748608e9b4c52b8247cc5dbb117dcc">&#9670;&#160;</a></span>writeMTestFileGeneratorSetStrainAndStressTensors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2_cyrano_2_behaviour_8hxx.html#a1f775cf4fa3cbc5f015abdd0796e276c">void</a> mfront::AnsysInterface::writeMTestFileGeneratorSetStrainAndStressTensors </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structtfel_1_1material_1_1_modelling_hypothesis.html#a9a637e1af46e51842514a724c47da119">Hypothesis</a>&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>write the code giving the strain at the beginning of the time step, the strain increment and the stress at the beginning of the time step of a strain based behaviour to the generator of <code>MTest</code> files. The generator expects the components in the order of the symmetric tensors of TFEL. The default implementation gives the arrays <code>STRAN</code>, <code>DSTRAN</code> and <code>mg_STRESS</code> unchanged. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">out</td><td>: output file </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">h</td><td>: modelling hypothesis </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented from <a class="el" href="structmfront_1_1_u_m_a_t_interface_base.html#aeddf6ea50144333346b2275f57480f9e">mfront::UMATInterfaceBase</a>.</p>
+
+</div>
+</div>
 <a id="a785241df68e95d8c469cb44a0332e552" name="a785241df68e95d8c469cb44a0332e552"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a785241df68e95d8c469cb44a0332e552">&#9670;&#160;</a></span>writeSmallStrainFunction()</h2>
 
@@ -1821,7 +1871,7 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>const_iterator</b> =
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemfront.html">mfront</a></li><li class="navelem"><a class="el" href="structmfront_1_1_ansys_interface.html">AnsysInterface</a></li>
-    <li class="footer">Generated on Tue Nov 3 2026 20:27:32 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Nov 3 2026 20:52:51 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

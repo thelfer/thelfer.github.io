@@ -76,6 +76,8 @@ var hierarchy =
     [ "mgis::function::internals::ConvertFiniteStrainStiffnessModifierGenerator< N, ResultFlag, SourceFlag, DeformationGradientEvaluatorType0, DeformationGradientEvaluatorType1, CauchyStressEvaluatorType >", "structmgis_1_1function_1_1internals_1_1_convert_finite_strain_stiffness_modifier_generator.html", null ],
     [ "mgis::Cste", "structmgis_1_1_cste.html", null ],
     [ "mgis::function::CUDAExecutionConfiguration", "structmgis_1_1function_1_1_c_u_d_a_execution_configuration.html", null ],
+    [ "jlcxx::DownCast< mgis::behaviour::Behaviour, mgis::julia::SharedBehaviour >", "structjlcxx_1_1_down_cast_3_01mgis_1_1behaviour_1_1_behaviour_00_01mgis_1_1julia_1_1_shared_behaviour_01_4.html", null ],
+    [ "jlcxx::DownCast< T, mgis::julia::Wrapper< T > >", "structjlcxx_1_1_down_cast_3_01_t_00_01mgis_1_1julia_1_1_wrapper_3_01_t_01_4_01_4.html", null ],
     [ "mgis::function::BasicLinearQuadratureSpace< N >::DummyCellWorkspace", "structmgis_1_1function_1_1_basic_linear_quadrature_space_1_1_dummy_cell_workspace.html", null ],
     [ "mgis::function::internals::ElementIndexTypeSelector< true, Space >", "structmgis_1_1function_1_1internals_1_1_element_index_type_selector_3_01true_00_01_space_01_4.html", null ],
     [ "mgis::function::internals::ElementWorkspaceSelector< true, Space >", "structmgis_1_1function_1_1internals_1_1_element_workspace_selector_3_01true_00_01_space_01_4.html", null ],
@@ -106,6 +108,7 @@ var hierarchy =
     [ "mgis::function::internals::EvaluatorResultQueryImplementation< true, EvaluatorType >", "structmgis_1_1function_1_1internals_1_1_evaluator_result_query_implementation_3_01true_00_01_evaluator_type_01_4.html", null ],
     [ "mgis::Context::FailureHandler< policy >", "structmgis_1_1_context_1_1_failure_handler.html", null ],
     [ "std::false_type", null, [
+      [ "jlcxx::IsMirroredType< mgis::behaviour::BehaviourDataView >", "structjlcxx_1_1_is_mirrored_type_3_01mgis_1_1behaviour_1_1_behaviour_data_view_01_4.html", null ],
       [ "mgis::function::LightweightViewTraits< FunctionType >", "structmgis_1_1function_1_1_lightweight_view_traits.html", null ],
       [ "mgis::function::internals::IsDataView< T >", "structmgis_1_1function_1_1internals_1_1_is_data_view.html", null ],
       [ "mgis::function::internals::IsTensor< T >", "structmgis_1_1function_1_1internals_1_1_is_tensor.html", null ]
@@ -282,6 +285,7 @@ var hierarchy =
     [ "mgis::behaviour::RotationMatrix3D", "structmgis_1_1behaviour_1_1_rotation_matrix3_d.html", null ],
     [ "mgis::function::internals::ScalarModifier< T >", "structmgis_1_1function_1_1internals_1_1_scalar_modifier.html", null ],
     [ "mgis::function::internals::ScalarModifier< real >", "structmgis_1_1function_1_1internals_1_1_scalar_modifier_3_01real_01_4.html", null ],
+    [ "mgis::julia::SharedBehaviour", "structmgis_1_1julia_1_1_shared_behaviour.html", null ],
     [ "mgis::function::internals::SharedElementSpaceAddElementWorkspace< bool, ElementSpaceConcept >", "structmgis_1_1function_1_1internals_1_1_shared_element_space_add_element_workspace.html", null ],
     [ "mgis::function::internals::SharedElementSpaceAddElementWorkspace< hasElementWorkspace< SpaceType >, SpaceType >", "structmgis_1_1function_1_1internals_1_1_shared_element_space_add_element_workspace.html", [
       [ "mgis::function::internals::SharedElementSpaceTraits< SpaceType >", "structmgis_1_1function_1_1internals_1_1_shared_element_space_traits_3_01_space_type_01_4.html", [
@@ -314,6 +318,8 @@ var hierarchy =
     [ "mgis::function::StridedCoalescedMemoryAccessCompositeTensorsViewConstValue< real >", "structmgis_1_1function_1_1_strided_coalesced_memory_access_composite_tensors_view_const_value_3_01real_01_4.html", null ],
     [ "mgis::function::StridedCoalescedMemoryAccessCompositeTensorsViewMutableValue< ValueType >", "structmgis_1_1function_1_1_strided_coalesced_memory_access_composite_tensors_view_mutable_value.html", null ],
     [ "mgis::function::StridedCoalescedMemoryAccessCompositeTensorsViewMutableValue< real >", "structmgis_1_1function_1_1_strided_coalesced_memory_access_composite_tensors_view_mutable_value_3_01real_01_4.html", null ],
+    [ "jlcxx::SuperType< mgis::julia::SharedBehaviour >", "structjlcxx_1_1_super_type_3_01mgis_1_1julia_1_1_shared_behaviour_01_4.html", null ],
+    [ "jlcxx::SuperType< mgis::julia::Wrapper< T > >", "structjlcxx_1_1_super_type_3_01mgis_1_1julia_1_1_wrapper_3_01_t_01_4_01_4.html", null ],
     [ "mgis::function::internals::tensor_modifier< TensorType >", "structmgis_1_1function_1_1internals_1_1tensor__modifier.html", null ],
     [ "mgis::ThreadedTaskResultBase", "structmgis_1_1_threaded_task_result_base.html", [
       [ "mgis::ThreadedTaskResult< T >", "structmgis_1_1_threaded_task_result.html", null ],
@@ -365,6 +371,8 @@ var hierarchy =
     ] ],
     [ "mgis::function::UniformEvaluator< Space, N >", "structmgis_1_1function_1_1_uniform_evaluator.html", null ],
     [ "mgis::attributes::UnsafeAttribute", "structmgis_1_1attributes_1_1_unsafe_attribute.html", null ],
+    [ "jlcxx::UpCast< mgis::julia::SharedBehaviour >", "structjlcxx_1_1_up_cast_3_01mgis_1_1julia_1_1_shared_behaviour_01_4.html", null ],
+    [ "jlcxx::UpCast< mgis::julia::Wrapper< T > >", "structjlcxx_1_1_up_cast_3_01mgis_1_1julia_1_1_wrapper_3_01_t_01_4_01_4.html", null ],
     [ "mgis::behaviour::UpdateArguments", "structmgis_1_1behaviour_1_1_update_arguments.html", null ],
     [ "mgis::behaviour::Variable", "structmgis_1_1behaviour_1_1_variable.html", null ],
     [ "std::variant", null, [
@@ -372,5 +380,6 @@ var hierarchy =
     ] ],
     [ "mgis::function::internals::ViewResultType< bool, FunctionType >", "structmgis_1_1function_1_1internals_1_1_view_result_type.html", null ],
     [ "mgis::function::internals::ViewResultType< false, FunctionType >", "structmgis_1_1function_1_1internals_1_1_view_result_type_3_01false_00_01_function_type_01_4.html", null ],
-    [ "mgis::function::internals::VonMisesStressOperator", "structmgis_1_1function_1_1internals_1_1_von_mises_stress_operator.html", null ]
+    [ "mgis::function::internals::VonMisesStressOperator", "structmgis_1_1function_1_1internals_1_1_von_mises_stress_operator.html", null ],
+    [ "mgis::julia::Wrapper< T >", "structmgis_1_1julia_1_1_wrapper.html", null ]
 ];

@@ -145,9 +145,10 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>msg</b> [512]</td></t
 <p>This status has the following meaning:</p>
 <ul>
 <li>zero means that no argument was outside its bounds or its physical bounds.</li>
-<li>a negative values means that one argument went beyond its physical bounds. The absolute value gives the rank of this argument (here the rank starts at 1).</li>
-<li>a positive value means that one argument went beyond its bounds. The value gives the rank of this argument (here the rank starts at 1). </li>
+<li>a negative value means that the evaluation failed because one argument went beyond its physical bounds, or beyond its bounds with the strict out of bounds policy. The absolute value gives the rank of this argument (here the rank starts at 1).</li>
+<li>a positive value means that one argument went beyond its bounds with the warning out of bounds policy: the result must be used with caution. The value gives the rank of this argument (here the rank starts at 1).</li>
 </ul>
+<p>The result is checked as the arguments: its rank is the number of arguments plus one. </p>
 
 </div>
 </div>
@@ -166,14 +167,15 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>msg</b> [512]</td></t
 <p>exit status </p>
 <p>The exit status is zero if the result has been correctly evaluated.</p>
 <p>If the exit status is 1, a result has been computed, but it must be used with caution. This is typically used to report that one argument was out of its bounds.</p>
-<p>All negative values indicates that the result is not usable. For a material property, the returned value is <code>nan</code>.</p>
+<p>All negative values indicates that the result is not usable. For a material property, the returned value is <code>nan</code>, except for the exit statuses -3 and -4, for which the computed value is returned.</p>
 <p>For a material property, a negative value has the following meaning:</p>
 <ul>
-<li>If the exit status is -1, an argument was out of its physical bounds, or out of its bounds and a strict out of bounds policy is declared.</li>
-<li>If the exit status is -2, a C++ exception was thrown. If the exception was a child of <code>std::exception</code>, the content of the string returned by the <code>what</code> method is copied in the <code>message</code> field. Otherwise, the message field contains the "unknown exception" string.</li>
+<li>If the exit status is -1, an argument (or the result) was out of its physical bounds, or out of its bounds and a strict out of bounds policy is declared.</li>
+<li>If the exit status is -2, a C++ exception was thrown. If the exception was a child of <code>std::exception</code>, the content of the string returned by the <code>what</code> method is copied in the <code>msg</code> field. Otherwise, the <code>msg</code> field contains the "unknown exception" string.</li>
 <li>If the exit status is -3, an error occured in the <code>C</code> library, i.e. the <code>errno</code> value was set to a non zero value during the computation. The value of <code>errno</code> corresponding to the error is stored to in the <code>c_error_number</code> field of this structure. The string returned by <code>strerrno</code> is returned. Note that the <code>errno</code> value is always reset to the value it had before the call.</li>
-<li>If the exit status is -4, the computed value is invalid (either \nan<code>, </code>inf<code>, or</code>-inf`).</li>
-<li>If the exit status is -5, the number of arguments is invalid. </li>
+<li>If the exit status is -4, the computed value is invalid (either <code>nan</code>, <code>inf</code>, or <code>-inf</code>).</li>
+<li>If the exit status is -5, the number of arguments is invalid.</li>
+<li>If the exit status is -6, the parameters of the material property are invalid, for instance because the parameters file could not be read. The <code>msg</code> field contains the error message. </li>
 </ul>
 
 </div>
@@ -187,7 +189,7 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>msg</b> [512]</td></t
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="structmgis__mp___output_status.html">mgis_mp_OutputStatus</a></li>
-    <li class="footer">Generated on Tue Nov 3 2026 16:24:43 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Nov 3 2026 16:50:02 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

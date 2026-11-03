@@ -1,5 +1,9 @@
 var NAVTREEINDEX51 =
 {
+"structmfront_1_1bbrick_1_1_standard_porous_stress_criterion_base.html#a29df9007df576ea2ae8afac9530e4140":[7,0,10,0,47,2],
+"structmfront_1_1bbrick_1_1_standard_porous_stress_criterion_base.html#a3efc13dfa37365dfdddc98c39a6b7fa4":[7,0,10,0,47,7],
+"structmfront_1_1bbrick_1_1_standard_porous_stress_criterion_base.html#a4e590bdc0ca47b7d8418033025f3c241":[7,0,10,0,47,8],
+"structmfront_1_1bbrick_1_1_standard_porous_stress_criterion_base.html#a7c00fb97673f59b82144a8492ef5d3cd":[7,0,10,0,47,6],
 "structmfront_1_1bbrick_1_1_standard_porous_stress_criterion_base.html#a9659178d95b5a7320958386cd81f843b":[7,0,10,0,47,10],
 "structmfront_1_1bbrick_1_1_standard_porous_stress_criterion_base.html#ab23d50b7ce797930636bcca7f94eb2dc":[7,0,10,0,47,5],
 "structmfront_1_1bbrick_1_1_standard_porous_stress_criterion_base.html#ab9ea350ee0836828a7c89c0bfe025fc6":[7,0,10,0,47,3],
@@ -245,9 +249,5 @@ var NAVTREEINDEX51 =
 "structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend_base.html#aa89c1bf718d211135f4084677f173695":[7,0,10,2,0,4,5],
 "structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend_base.html#ab8fa9ecd5cabf80f75bb86420ae888f7":[7,0,10,2,0,4,10],
 "structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend_base.html#adf46f7906da11943a29d99a8925707b5":[7,0,10,2,0,4,2],
-"structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend_base.html#ae274a0ab72f867ef08b2cba9ca3f7cc0":[7,0,10,2,0,4,4],
-"structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend_base.html#afe273f71a4cf83b688b03ed36da20a1f":[7,0,10,2,0,4,9],
-"structmfront_1_1generic__parallel_1_1material__property_1_1_cxx_programming_model_backend_base.html":[7,0,10,2,0,5],
-"structmfront_1_1generic__parallel_1_1material__property_1_1_cxx_programming_model_backend_base.html#a1fce62d76c8d138fc45e20dbf72e9b7b":[7,0,10,2,0,5,5],
-"structmfront_1_1generic__parallel_1_1material__property_1_1_cxx_programming_model_backend_base.html#a31ca3f1fa0dfa66efcfc12ea09360180":[7,0,10,2,0,5,2]
+"structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend_base.html#ae274a0ab72f867ef08b2cba9ca3f7cc0":[7,0,10,2,0,4,4]
 };

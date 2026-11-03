@@ -5,6 +5,7 @@ var structmfront_1_1_second_broyden_solver =
     [ "allowsJacobianInvertInitialisation", "structmfront_1_1_second_broyden_solver.html#a2cc63b5636156637bb08c9423a934e65", null ],
     [ "completeVariableDeclaration", "structmfront_1_1_second_broyden_solver.html#a23e59ba85926fcaba59d797471d68c82", null ],
     [ "getExternalAlgorithmClassName", "structmfront_1_1_second_broyden_solver.html#ad70d739aaf8ba353dddfa70b883c24a8", null ],
+    [ "getMemberNames", "structmfront_1_1_second_broyden_solver.html#a951bce36d3385612cc36b4e655332041", null ],
     [ "getSpecificHeaders", "structmfront_1_1_second_broyden_solver.html#a10f400d75b6cbb153fe8cf6cd485a0e2", null ],
     [ "requiresJacobianToBeReinitialisedToIdentityAtEachIterations", "structmfront_1_1_second_broyden_solver.html#a96a6b8aae5da78362c4d06e163b9c932", null ],
     [ "requiresNumericalJacobian", "structmfront_1_1_second_broyden_solver.html#a9876f480c65bd6d51e7b8078fb85ddd1", null ],

@@ -36,7 +36,7 @@ var _brick_utilities_8hxx =
     [ "extractHillTensorCoefficients", "_brick_utilities_8hxx.html#a98b5ca6890495b51dbcc75ee4b91f931", null ],
     [ "extractLinearTransformation", "_brick_utilities_8hxx.html#a81ca8c1d49ac48b375348c0aa54368d6", null ],
     [ "generateMaterialPropertiesInitializationCode", "_brick_utilities_8hxx.html#a0166aaa7f38318685dde79b54ae9d9c8", null ],
-    [ "generateMaterialPropertiesInitializationCode", "_brick_utilities_8hxx.html#ada876ebfdcaa4ff9713a5210e9509bea", null ],
+    [ "generateMaterialPropertiesInitializationCode", "_brick_utilities_8hxx.html#aad59084ac8b173b7fad6cb534abaab89", null ],
     [ "generateMaterialPropertyInitializationCode", "_brick_utilities_8hxx.html#aa188c63c533a84f4283967c791b8b9da", null ],
     [ "getArrayOfBehaviourDescriptionMaterialProperties", "_brick_utilities_8hxx.html#ac843728a904a234afdb5dd79fe848bbb", null ],
     [ "getArrayOfBehaviourDescriptionMaterialProperties", "_brick_utilities_8hxx.html#a1d7e016f808fc54ce64e4de046d38de7", null ],

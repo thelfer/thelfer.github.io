@@ -159,6 +159,10 @@ Public Attributes</h2></td></tr>
 <a class="el" href="structmgis_1_1behaviour_1_1_state.html">State</a>&#160;</td><td class="memItemRight" valign="bottom"><b>s1</b></td></tr>
 <tr class="memdesc:a7a9bbce1add46b449e4a442d5403b2f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">state at the end of the time step <br /></td></tr>
 <tr class="separator:a7a9bbce1add46b449e4a442d5403b2f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5be7f9f109240443435d11f6040ec09" id="r_aa5be7f9f109240443435d11f6040ec09"><td class="memItemLeft" align="right" valign="top"><a id="aa5be7f9f109240443435d11f6040ec09" name="aa5be7f9f109240443435d11f6040ec09"></a>
+std::array&lt; char, 512 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>error_message_buffer</b> = {}</td></tr>
+<tr class="memdesc:aa5be7f9f109240443435d11f6040ec09"><td class="mdescLeft">&#160;</td><td class="mdescRight">default buffer of the error messages (see <code>error_message</code>) <br /></td></tr>
+<tr class="separator:aa5be7f9f109240443435d11f6040ec09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>structure in charge of containing the data required for a behaviour integration. </p>
@@ -203,7 +207,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>a pointer to a buffer used to store error message </p>
-<p>By default, this is initialised to an internal buffer. This is <b>not</b> thread-safe.</p>
+<p>By default, this is initialised to the buffer <code>error_message_buffer</code> of this object. The copies of an object using its own buffer use their own buffer.</p>
 <p>The user may use its own buffer by setting this pointer appropriately or set it to the null pointer. If not null, the pointer must point to a buffer which is at least 512 characters wide (longer error message are truncated). The user must ensure thread-safety (i.e. each thread shall have its own buffer). </p>
 
 </div>
@@ -236,7 +240,7 @@ Public Attributes</h2></td></tr>
 <li>if Ke is in [-0.5:0.5]: the behaviour integration is performed, but no stiffness matrix.</li>
 <li>if Ke is in [0.5:1.5]: the elastic operator must be computed.</li>
 <li>if Ke is in [1.5:2.5]: the secant operator must be computed.</li>
-<li>if Ke is in [2.5:3.5]: the tangent operator must be computed.</li>
+<li>if Ke is in [2.5:3.5]: the secant operator must be computed.</li>
 <li>if Ke is greater than 3.5, the consistent tangent operator must be computed. </li>
 </ul>
 
@@ -269,7 +273,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemgis.html">mgis</a></li><li class="navelem"><b>behaviour</b></li><li class="navelem"><a class="el" href="structmgis_1_1behaviour_1_1_behaviour_data.html">BehaviourData</a></li>
-    <li class="footer">Generated on Tue Nov 3 2026 23:30:39 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Nov 3 2026 23:32:09 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

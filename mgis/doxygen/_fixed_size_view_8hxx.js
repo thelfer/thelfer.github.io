@@ -5,6 +5,5 @@ var _fixed_size_view_8hxx =
     [ "check", "_fixed_size_view_8hxx.html#ae654ef1423019f4d087efc73a0437a55", null ],
     [ "getNumberOfComponents", "_fixed_size_view_8hxx.html#a264456e37387f396945a1cb63bf50407", null ],
     [ "getSpace", "_fixed_size_view_8hxx.html#aec1a7bc0f42da74db02a47bfa26382e2", null ],
-    [ "view", "_fixed_size_view_8hxx.html#afcd14868149c315f43712eb63b6e12b7", null ],
-    [ "view", "_fixed_size_view_8hxx.html#a8fd17a3800cb666f5d47631358fde998", null ]
+    [ "view", "_fixed_size_view_8hxx.html#a35d7ecb3a19d8b956f25992a27bc7bf2", null ]
 ];

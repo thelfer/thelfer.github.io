@@ -8,7 +8,5 @@ var searchData=
   ['undefinedtypeselector_5',['UndefinedTypeSelector',['../structmgis_1_1function_1_1internals_1_1_undefined_type_selector.html',1,'mgis::function::internals']]],
   ['uniformevaluator_6',['UniformEvaluator',['../structmgis_1_1function_1_1_uniform_evaluator.html',1,'mgis::function']]],
   ['unsafeattribute_7',['UnsafeAttribute',['../structmgis_1_1attributes_1_1_unsafe_attribute.html',1,'mgis::attributes']]],
-  ['upcast_3c_20mgis_3a_3ajulia_3a_3asharedbehaviour_20_3e_8',['UpCast&lt; mgis::julia::SharedBehaviour &gt;',['../structjlcxx_1_1_up_cast_3_01mgis_1_1julia_1_1_shared_behaviour_01_4.html',1,'jlcxx']]],
-  ['upcast_3c_20mgis_3a_3ajulia_3a_3awrapper_3c_20t_20_3e_20_3e_9',['UpCast&lt; mgis::julia::Wrapper&lt; T &gt; &gt;',['../structjlcxx_1_1_up_cast_3_01mgis_1_1julia_1_1_wrapper_3_01_t_01_4_01_4.html',1,'jlcxx']]],
-  ['updatearguments_10',['UpdateArguments',['../structmgis_1_1behaviour_1_1_update_arguments.html',1,'mgis::behaviour']]]
+  ['updatearguments_8',['UpdateArguments',['../structmgis_1_1behaviour_1_1_update_arguments.html',1,'mgis::behaviour']]]
 ];

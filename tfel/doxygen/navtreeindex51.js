@@ -1,5 +1,12 @@
 var NAVTREEINDEX51 =
 {
+"structmfront_1_1bbrick_1_1_standard_porous_stress_criterion_base.html#a9659178d95b5a7320958386cd81f843b":[7,0,10,0,47,10],
+"structmfront_1_1bbrick_1_1_standard_porous_stress_criterion_base.html#ab23d50b7ce797930636bcca7f94eb2dc":[7,0,10,0,47,5],
+"structmfront_1_1bbrick_1_1_standard_porous_stress_criterion_base.html#ab9ea350ee0836828a7c89c0bfe025fc6":[7,0,10,0,47,3],
+"structmfront_1_1bbrick_1_1_standard_porous_stress_criterion_base.html#abc52f7956494e0b614e8bf49e973ad83":[7,0,10,0,47,1],
+"structmfront_1_1bbrick_1_1_standard_porous_stress_criterion_base.html#ac209599964d5f661ba487ceab294c0d9":[7,0,10,0,47,4],
+"structmfront_1_1bbrick_1_1_standard_porous_stress_criterion_base.html#af6a744b5097728abbb0b69fcff06a362":[7,0,10,0,47,9],
+"structmfront_1_1bbrick_1_1_standard_stress_criterion_base.html":[7,0,10,0,48],
 "structmfront_1_1bbrick_1_1_standard_stress_criterion_base.html#a1a83331958d6525f9bd9bfa35a36b29b":[7,0,10,0,48,9],
 "structmfront_1_1bbrick_1_1_standard_stress_criterion_base.html#a32b49d419a0ad155ce222607b2960d04":[7,0,10,0,48,0],
 "structmfront_1_1bbrick_1_1_standard_stress_criterion_base.html#a706326e61a712d8dbd0a8e905246f760":[7,0,10,0,48,5],
@@ -242,12 +249,5 @@ var NAVTREEINDEX51 =
 "structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend_base.html#afe273f71a4cf83b688b03ed36da20a1f":[7,0,10,2,0,4,9],
 "structmfront_1_1generic__parallel_1_1material__property_1_1_cxx_programming_model_backend_base.html":[7,0,10,2,0,5],
 "structmfront_1_1generic__parallel_1_1material__property_1_1_cxx_programming_model_backend_base.html#a1fce62d76c8d138fc45e20dbf72e9b7b":[7,0,10,2,0,5,5],
-"structmfront_1_1generic__parallel_1_1material__property_1_1_cxx_programming_model_backend_base.html#a31ca3f1fa0dfa66efcfc12ea09360180":[7,0,10,2,0,5,2],
-"structmfront_1_1generic__parallel_1_1material__property_1_1_cxx_programming_model_backend_base.html#a54e9e84a80decde0eb63a3bc158b2393":[7,0,10,2,0,5,7],
-"structmfront_1_1generic__parallel_1_1material__property_1_1_cxx_programming_model_backend_base.html#a576821906f46f2496c97fcc154deede3":[7,0,10,2,0,5,10],
-"structmfront_1_1generic__parallel_1_1material__property_1_1_cxx_programming_model_backend_base.html#a57d943164183b179cd106608a36fbb64":[7,0,10,2,0,5,6],
-"structmfront_1_1generic__parallel_1_1material__property_1_1_cxx_programming_model_backend_base.html#a6408a95b507fe6d47e1c9f6278464535":[7,0,10,2,0,5,0],
-"structmfront_1_1generic__parallel_1_1material__property_1_1_cxx_programming_model_backend_base.html#a7061e9905e7b75542f70460f19213c24":[7,0,10,2,0,5,9],
-"structmfront_1_1generic__parallel_1_1material__property_1_1_cxx_programming_model_backend_base.html#a7d8646d62ff336cf93ca9164f8bd7cff":[7,0,10,2,0,5,14],
-"structmfront_1_1generic__parallel_1_1material__property_1_1_cxx_programming_model_backend_base.html#a9bb25cd57ee5d51e7eb59bdf7d95509a":[7,0,10,2,0,5,3]
+"structmfront_1_1generic__parallel_1_1material__property_1_1_cxx_programming_model_backend_base.html#a31ca3f1fa0dfa66efcfc12ea09360180":[7,0,10,2,0,5,2]
 };

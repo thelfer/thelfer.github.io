@@ -3,6 +3,7 @@ var structtfel_1_1math_1_1_mutable_array_common_methods =
     [ "addAndAssign", "structtfel_1_1math_1_1_mutable_array_common_methods.html#a0f3980198eec89e3f7ac476b77d8b371", null ],
     [ "assign", "structtfel_1_1math_1_1_mutable_array_common_methods.html#aa9c95bbb85a2b686cf81162841b616ce", null ],
     [ "clamp", "structtfel_1_1math_1_1_mutable_array_common_methods.html#aa851711f8cbb487ad8cf355d32eaab79", null ],
+    [ "divideByScalar", "structtfel_1_1math_1_1_mutable_array_common_methods.html#acdf17cd885582ba60aaf2e70284a9b76", null ],
     [ "fill", "structtfel_1_1math_1_1_mutable_array_common_methods.html#ab01b002e39c9c1302771a040d9004419", null ],
     [ "import", "structtfel_1_1math_1_1_mutable_array_common_methods.html#af27884565c0f02d9ac354af7ac9292e3", null ],
     [ "multiplyByScalar", "structtfel_1_1math_1_1_mutable_array_common_methods.html#af32d0fe35dc4286cda4984af51a5a022", null ],

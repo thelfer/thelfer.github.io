@@ -9,6 +9,7 @@ var tvector_8hxx =
     [ "std::tuple_element< I, tfel::math::tvector< N, ValueType > >", "structstd_1_1tuple__element_3_01_i_00_01tfel_1_1math_1_1tvector_3_01_n_00_01_value_type_01_4_01_4.html", "structstd_1_1tuple__element_3_01_i_00_01tfel_1_1math_1_1tvector_3_01_n_00_01_value_type_01_4_01_4" ],
     [ "ConstTVectorView", "tvector_8hxx.html#a0d41659e1167f77d7b5f9d9774158ee9", null ],
     [ "TVectorView", "tvector_8hxx.html#a19439c10da11eeacfe7af93ddcf6df36", null ],
+    [ "abs", "tvector_8hxx.html#a454810374cc12b2d664ca1f8f00d95f1", null ],
     [ "exportToBaseTypeArray", "tvector_8hxx.html#a6c644c2d0f8c8d3def658b9ea90875cc", null ],
     [ "find_perpendicular_vector", "tvector_8hxx.html#ac217149688d39a823f1a3ae87752cbf6", null ],
     [ "get", "tvector_8hxx.html#a21024e293221099c0a97e94150f616f7", null ],

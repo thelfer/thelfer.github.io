@@ -1,5 +1,6 @@
 var NAVTREEINDEX10 =
 {
+"_threaded_task_result_8ixx.html":[8,0,0,3,7,28],
 "_times_8hxx.html":[8,0,1,0,0,13],
 "_times_8hxx.html#a35d90188c756428023e9c11d73324e99":[8,0,1,0,0,13,2],
 "_tiny_broyden2_solver_8hxx.html":[8,0,0,3,5,64],
@@ -12,7 +13,7 @@ var NAVTREEINDEX10 =
 "_tiny_matrix_invert_8ixx.html":[8,0,0,3,5,8,3],
 "_tiny_matrix_solve_8hxx.html":[8,0,0,3,5,68],
 "_tiny_matrix_solve_8ixx.html":[8,0,0,3,5,7,5],
-"_tiny_newton_raphson_8hxx.html":[8,0,0,3,5,4,12],
+"_tiny_newton_raphson_8hxx.html":[8,0,0,3,5,4,13],
 "_tiny_newton_raphson_solver_8hxx.html":[8,0,0,3,5,69],
 "_tiny_newton_raphson_solver_8ixx.html":[8,0,0,3,5,10,8],
 "_tiny_non_linear_solver_base_8hxx.html":[8,0,0,3,5,10,9],
@@ -248,6 +249,5 @@ var NAVTREEINDEX10 =
 "classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01tbf06afb66908e808b431d53dcc59e8c9.html#ac16f3f552baf655c127a06566cdbc0e3":[5,0,9,1,67,0],
 "classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01tbf06afb66908e808b431d53dcc59e8c9.html#ac16f3f552baf655c127a06566cdbc0e3":[7,0,14,6,70,0],
 "classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01tbf1ae1e3b95820a5dd3c27859c733c90.html":[5,0,9,1,65],
-"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01tbf1ae1e3b95820a5dd3c27859c733c90.html":[7,0,14,6,68],
-"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01tbf1ae1e3b95820a5dd3c27859c733c90.html#a4c56fd9ae25348031a74f0ffa694dc1a":[7,0,14,6,68,0]
+"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01tbf1ae1e3b95820a5dd3c27859c733c90.html":[7,0,14,6,68]
 };

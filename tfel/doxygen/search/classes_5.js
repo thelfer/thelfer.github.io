@@ -63,8 +63,7 @@ var searchData=
   ['fslevenbergmarquardt_60',['FSLevenbergMarquardt',['../structtfel_1_1math_1_1_f_s_levenberg_marquardt.html',1,'tfel::math']]],
   ['fslevenbergmarquardtvariable_61',['FSLevenbergMarquardtVariable',['../structtfel_1_1math_1_1_f_s_levenberg_marquardt_variable.html',1,'tfel::math']]],
   ['fslevenbergmarquardtvariable_3c_201u_2c_20t_20_3e_62',['FSLevenbergMarquardtVariable&lt; 1u, T &gt;',['../structtfel_1_1math_1_1_f_s_levenberg_marquardt_variable_3_011u_00_01_t_01_4.html',1,'tfel::math']]],
-  ['fslevenbergmarquardtvariable_3c_20m_2c_20double_20_3e_63',['FSLevenbergMarquardtVariable&lt; M, double &gt;',['../structtfel_1_1math_1_1_f_s_levenberg_marquardt_variable.html',1,'tfel::math']]],
-  ['function_64',['function',['../structmfront_1_1_model_description_1_1_function.html',1,'mfront::ModelDescription::Function'],['../structtfel_1_1math_1_1parser_1_1_function.html',1,'tfel::math::parser::Function']]],
-  ['functionbase_65',['FunctionBase',['../structtfel_1_1math_1_1parser_1_1_function_base.html',1,'tfel::math::parser']]],
-  ['functionevolution_66',['FunctionEvolution',['../structmtest_1_1_function_evolution.html',1,'mtest']]]
+  ['function_63',['function',['../structmfront_1_1_model_description_1_1_function.html',1,'mfront::ModelDescription::Function'],['../structtfel_1_1math_1_1parser_1_1_function.html',1,'tfel::math::parser::Function']]],
+  ['functionbase_64',['FunctionBase',['../structtfel_1_1math_1_1parser_1_1_function_base.html',1,'tfel::math::parser']]],
+  ['functionevolution_65',['FunctionEvolution',['../structmtest_1_1_function_evolution.html',1,'mtest']]]
 ];

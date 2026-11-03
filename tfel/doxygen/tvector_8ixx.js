@@ -1,5 +1,6 @@
 var tvector_8ixx =
 [
+    [ "abs", "tvector_8ixx.html#a454810374cc12b2d664ca1f8f00d95f1", null ],
     [ "exportToBaseTypeArray", "tvector_8ixx.html#a6c644c2d0f8c8d3def658b9ea90875cc", null ],
     [ "find_perpendicular_vector", "tvector_8ixx.html#ac217149688d39a823f1a3ae87752cbf6", null ],
     [ "map", "tvector_8ixx.html#a6f2b48d374c3a40427e12cbf0cf142fb", null ],

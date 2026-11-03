@@ -742,6 +742,7 @@ var namespacetfel_1_1math =
     [ "ViewsArrayDataPointerType", "namespacetfel_1_1math.html#a22ee62421d92643599d399646e39b1c2", null ],
     [ "ViewsArrayNumericType", "namespacetfel_1_1math.html#afe1e469d35bbeb45d57faa77680c8a4e", null ],
     [ "abs", "namespacetfel_1_1math.html#aaf52cfaefdb8956c9720d679ad50059c", null ],
+    [ "abs", "namespacetfel_1_1math.html#a454810374cc12b2d664ca1f8f00d95f1", null ],
     [ "abs", "namespacetfel_1_1math.html#a170c5fd004417c3d516cab247ba16a96", null ],
     [ "abs", "namespacetfel_1_1math.html#af23f9c160ceddd7337e86d13cbe60e75", null ],
     [ "abs", "namespacetfel_1_1math.html#a7b754c02faffe346ef0a54d03bf298de", null ],

@@ -11,6 +11,7 @@ var _linear_homogenization_schemes_8ixx =
     [ "computeOrientedDiluteScheme", "_linear_homogenization_schemes_8ixx.html#adedbfae238b5466bdf77a407c97855e2", null ],
     [ "computeOrientedDiluteScheme", "_linear_homogenization_schemes_8ixx.html#a29cc902c14ca9ef9dd5d574b9f508d01", null ],
     [ "computeOrientedMoriTanakaScheme", "_linear_homogenization_schemes_8ixx.html#a81ec11d7c34717bfa2fa3fb3db6f5a29", null ],
+    [ "computeOrientedMoriTanakaScheme", "_linear_homogenization_schemes_8ixx.html#a0c15fab3b93e33fdfcd37d14dd32b0aa", null ],
     [ "computeOrientedPCWScheme", "_linear_homogenization_schemes_8ixx.html#a4860c8384c43875e7e22bffa230f98ba", null ],
     [ "computeOrientedPCWScheme", "_linear_homogenization_schemes_8ixx.html#a80c9771c8da90178b0e3d5acd6b39dda", null ],
     [ "computePCWScheme", "_linear_homogenization_schemes_8ixx.html#a4ec9c338ecf6ce3333afe44326d6adb8", null ],

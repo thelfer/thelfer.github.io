@@ -139,7 +139,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">parameters of the strain version of the nucleation model proposed by Chu and Needleman.  <a href="structtfel_1_1material_1_1_chu_needleman1980_strain_based_nucleation_model_parameters.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1material_1_1_chu_needleman1980_stress_based_nucleation_model_parameters.html">ChuNeedleman1980StressBasedNucleationModelParameters</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">parameters of the strain version of the nucleation model proposed by Chu and Needleman.  <a href="structtfel_1_1material_1_1_chu_needleman1980_stress_based_nucleation_model_parameters.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">parameters of the stress version of the nucleation model proposed by Chu and Needleman.  <a href="structtfel_1_1material_1_1_chu_needleman1980_stress_based_nucleation_model_parameters.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1material_1_1compute_altered_elastic_stiffness.html">computeAlteredElasticStiffness</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -366,10 +366,10 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1material_1_1_poly_crystals_sliding_systems.html">PolyCrystalsSlidingSystems</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1material_1_1_power_law_strain_based_nucleation_model_parameters.html">PowerLawStrainBasedNucleationModelParameters</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">parameters of the strain version of the nucleation model proposed by Chu and Needleman.  <a href="structtfel_1_1material_1_1_power_law_strain_based_nucleation_model_parameters.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">parameters of the strain version of the power law nucleation model.  <a href="structtfel_1_1material_1_1_power_law_strain_based_nucleation_model_parameters.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1material_1_1_power_law_stress_based_nucleation_model_parameters.html">PowerLawStressBasedNucleationModelParameters</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">parameters of the strain version of the nucleation model proposed by Chu and Needleman.  <a href="structtfel_1_1material_1_1_power_law_stress_based_nucleation_model_parameters.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">parameters of the stress version of the power law nucleation model.  <a href="structtfel_1_1material_1_1_power_law_stress_based_nucleation_model_parameters.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1material_1_1_rousselier_tanguy_besson2002_stress_criterion_parameters.html">RousselierTanguyBesson2002StressCriterionParameters</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">parameters of the RousselierTanguyBesson2002 criterion  <a href="structtfel_1_1material_1_1_rousselier_tanguy_besson2002_stress_criterion_parameters.html#details">More...</a><br /></td></tr>
@@ -3085,9 +3085,10 @@ template&lt;typename StressStensor &gt; </div>
 \[
 \sigma_{\mathrm{eq}}^{C}=
 \sqrt{3}\,\sqrt[6]{\left(J_{2}^{O}\right)^{3} -
-c\,\left(J_{3}^{O}\right)^{2}} \]
+c\,\left(J_{3}^{O}\right)^{2}}
+\]
 </p>
-<p> where (J_{2}) and (J_{3}) are the first and second invariants of the deviatoric part of the stress tensor </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+<p> where (J_{2}^{O}) and (J_{3}^{O}) are the orthotropic generalizations of the second and third invariants of the deviatoric part of the stress tensor </p><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">StressStensor</td><td>type of the stress tensor </td></tr>
   </table>
@@ -3150,9 +3151,10 @@ template&lt;typename StressStensor &gt; </div>
 \[
 \sigma_{\mathrm{eq}}^{C}=
 \sqrt{3}\,\sqrt[6]{\left(J_{2}^{O}\right)^{3} -
-c\,\left(J_{3}^{O}\right)^{2}} \]
+c\,\left(J_{3}^{O}\right)^{2}}
+\]
 </p>
-<p> where (J_{2}) and (J_{3}) are the first and second invariants of the deviatoric part of the stress tensor </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+<p> where (J_{2}^{O}) and (J_{3}^{O}) are the orthotropic generalizations of the second and third invariants of the deviatoric part of the stress tensor </p><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">StressStensor</td><td>type of the stress tensor </td></tr>
   </table>
@@ -3469,7 +3471,7 @@ template&lt;typename StressStensor &gt; </div>
 \sqrt[3]{J_{2}^{3/2} - c\,J_{3}}
 \]
 </p>
-<p> where (J_{2}) and (J_{3}) are the first and second invariants of the deviatoric part of the stress tensor</p>
+<p> where (J_{2}) and (J_{3}) are the second and third invariants of the deviatoric part of the stress tensor</p>
 <p>Cazacu, Oano and Barlat, Frédéric. 2004. “A Criterion for Description of Anisotropy and Yield Differential Effects in Pressure-Insensitive Metals.” International Journal of Plasticity, Daniel c. Drucker memorial issue, 20 (11):2027–45. <a href="https://doi.org/10.1016/j.ijplas.2003.11.021">https://doi.org/10.1016/j.ijplas.2003.11.021</a>.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
@@ -3522,7 +3524,7 @@ template&lt;typename StressStensor &gt; </div>
 \sqrt[3]{J_{2}^{3/2} - c\,J_{3}}
 \]
 </p>
-<p> where (J_{2}) and (J_{3}) are the first and second invariants of the deviatoric part of the stress tensor</p>
+<p> where (J_{2}) and (J_{3}) are the second and third invariants of the deviatoric part of the stress tensor</p>
 <p>Cazacu, Oano and Barlat, Frédéric. 2004. “A Criterion for Description of Anisotropy and Yield Differential Effects in Pressure-Insensitive Metals.” International Journal of Plasticity, Daniel c. Drucker memorial issue, 20 (11):2027–45. <a href="https://doi.org/10.1016/j.ijplas.2003.11.021">https://doi.org/10.1016/j.ijplas.2003.11.021</a>.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
@@ -3795,7 +3797,7 @@ template&lt;typename StressStensor &gt; </div>
 \sqrt[3]{\left(J_{2}^{O}\right)^{3/2} - c\,J_{3}^{O}}
 \]
 </p>
-<p> where (J_{2}) and (J_{3}) are the first and second invariants of the deviatoric part of the stress tensor</p>
+<p> where (J_{2}^{O}) and (J_{3}^{O}) are the orthotropic generalizations of the second and third invariants of the deviatoric part of the stress tensor</p>
 <p>Cazacu, Oano and Barlat, Frédéric. 2004. “A Criterion for Description of Anisotropy and Yield Differential Effects in Pressure-Insensitive Metals.” International Journal of Plasticity, Daniel c. Drucker memorial issue, 20 (11):2027–45. <a href="https://doi.org/10.1016/j.ijplas.2003.11.021">https://doi.org/10.1016/j.ijplas.2003.11.021</a>.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
@@ -3862,7 +3864,7 @@ template&lt;typename StressStensor &gt; </div>
 \sqrt[3]{\left(J_{2}^{O}\right)^{3/2} - c\,J_{3}^{O}}
 \]
 </p>
-<p> where (J_{2}) and (J_{3}) are the first and second invariants of the deviatoric part of the stress tensor</p>
+<p> where (J_{2}^{O}) and (J_{3}^{O}) are the orthotropic generalizations of the second and third invariants of the deviatoric part of the stress tensor</p>
 <p>Cazacu, Oano and Barlat, Frédéric. 2004. “A Criterion for Description of Anisotropy and Yield Differential Effects in Pressure-Insensitive Metals.” International Journal of Plasticity, Daniel c. Drucker memorial issue, 20 (11):2027–45. <a href="https://doi.org/10.1016/j.ijplas.2003.11.021">https://doi.org/10.1016/j.ijplas.2003.11.021</a>.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
@@ -4610,7 +4612,7 @@ template&lt;typename StressStensorType &gt; </div>
 A_{n} = \frac{f_N}{s_N \sqrt{2\pi}}
         \exp\left(-\frac{1}{2}
                    \left(\frac{\sigma_{I} -
-\epsilon_N}{s_N}\right)^2\right) \]
+\sigma_N}{s_N}\right)^2\right) \]
 </p>
 <p>Chu, C. C., and A. Needleman. 1980. “Void Nucleation Effects in Biaxially Stretched Sheets.” Journal of Engineering Materials and Technology 102 (3): 249–56</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -4664,7 +4666,7 @@ template&lt;typename StressStensorType &gt; </div>
 A_{n} = \frac{f_N}{s_N \sqrt{2\pi}}
         \exp\left(-\frac{1}{2}
                    \left(\frac{\sigma_{I} -
-\epsilon_N}{s_N}\right)^2\right) \]
+\sigma_N}{s_N}\right)^2\right) \]
 </p>
 <p>Chu, C. C., and A. Needleman. 1980. “Void Nucleation Effects in Biaxially Stretched Sheets.” Journal of Engineering Materials and Technology 102 (3): 249–56</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -4718,7 +4720,7 @@ template&lt;typename StressStensorType &gt; </div>
 A_{n} = \frac{f_N}{s_N \sqrt{2\pi}}
         \exp\left(-\frac{1}{2}
                    \left(\frac{\sigma_{I} -
-\epsilon_N}{s_N}\right)^2\right) \]
+\sigma_N}{s_N}\right)^2\right) \]
 </p>
 <p>Chu, C. C., and A. Needleman. 1980. “Void Nucleation Effects in Biaxially Stretched Sheets.” Journal of Engineering Materials and Technology 102 (3): 249–56</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -4772,7 +4774,7 @@ template&lt;typename StressStensorType &gt; </div>
 A_{n} = \frac{f_N}{s_N \sqrt{2\pi}}
         \exp\left(-\frac{1}{2}
                    \left(\frac{\sigma_{I} -
-\epsilon_N}{s_N}\right)^2\right) \]
+\sigma_N}{s_N}\right)^2\right) \]
 </p>
 <p>Chu, C. C., and A. Needleman. 1980. “Void Nucleation Effects in Biaxially Stretched Sheets.” Journal of Engineering Materials and Technology 102 (3): 249–56</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -4821,7 +4823,7 @@ template&lt;typename StressStensor &gt; </div>
 \sqrt{3}\,\sqrt[6]{J_{2}^{3} - c\,J_{3}^{2}}
 \]
 </p>
-<p> where (J_{2}) and (J_{3}) are the first and second invariants of the deviatoric part of the stress tensor </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+<p> where (J_{2}) and (J_{3}) are the second and third invariants of the deviatoric part of the stress tensor </p><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">StressStensor</td><td>type of the stress tensor </td></tr>
   </table>
@@ -4872,7 +4874,7 @@ template&lt;typename StressStensor &gt; </div>
 \sqrt{3}\,\sqrt[6]{J_{2}^{3} - c\,J_{3}^{2}}
 \]
 </p>
-<p> where (J_{2}) and (J_{3}) are the first and second invariants of the deviatoric part of the stress tensor </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+<p> where (J_{2}) and (J_{3}) are the second and third invariants of the deviatoric part of the stress tensor </p><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">StressStensor</td><td>type of the stress tensor </td></tr>
   </table>
@@ -7536,7 +7538,7 @@ a_6\,s_{yz}^2+a_5\,s_{xz}^2+a_4\,s_{xy}^2+\frac{a_2}{6}\,(s_{yy}-s_{zz})^2+
 \[
 J_{3} = \mathrm{det}\left(\underline{s}&#39;\right)
       =
-\mathrm{det}\left(\underline{s}-\mathrm{tr}\left(\underline{s}&#39;\right)\,\underline{I}\right)
+\mathrm{det}\left(\underline{s}-\frac{1}{3}\,\mathrm{tr}\left(\underline{s}\right)\,\underline{I}\right)
 \]
 </p>
 <p>This function computes \(\displaystyle\frac{\partial J_{3}}{\partial
@@ -9285,7 +9287,7 @@ J_{3}^{O}=
 \[
 J_{3} = \mathrm{det}\left(\underline{s}&#39;\right)
       =
-\mathrm{det}\left(\underline{s}-\mathrm{tr}\left(\underline{s}&#39;\right)\,\underline{I}\right)
+\mathrm{det}\left(\underline{s}-\frac{1}{3}\,\mathrm{tr}\left(\underline{s}\right)\,\underline{I}\right)
 \]
 </p>
 <p>This function computes \(\displaystyle\frac{\partial^{2} J_{3}}{\partial
@@ -16280,7 +16282,7 @@ template&lt;unsigned short int N, <a class="el" href="concepttfel_1_1math_1_1_sc
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetfel.html">tfel</a></li><li class="navelem"><a class="el" href="namespacetfel_1_1material.html">material</a></li>
-    <li class="footer">Generated on Tue Nov 3 2026 20:03:57 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Nov 3 2026 20:27:34 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

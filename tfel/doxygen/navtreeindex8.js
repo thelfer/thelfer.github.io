@@ -1,5 +1,6 @@
 var NAVTREEINDEX8 =
 {
+"_q_r_decomp_8hxx.html":[8,0,0,3,5,13,0],
 "_q_r_decomp_8ixx.html":[8,0,0,3,5,13,1],
 "_q_r_exception_8hxx.html":[8,0,0,3,5,13,2],
 "_quantity_2_unit_8hxx.html":[8,0,0,3,5,14,5],
@@ -248,6 +249,5 @@ var NAVTREEINDEX8 =
 "_strided_coalesced_views_array_i_o_8hxx.html":[8,0,0,3,5,1,33],
 "_strided_random_access_iterator_8hxx.html":[8,0,0,3,5,5,26],
 "_string_algorithms_8hxx.html":[8,0,0,3,11,16],
-"_string_algorithms_8hxx.html#a1bda2826760e6b2302e8a8b4a858bdd0":[8,0,0,3,11,16,7],
-"_string_algorithms_8hxx.html#a22b23e4dcda3d941270d1737ab2167ec":[8,0,0,3,11,16,1]
+"_string_algorithms_8hxx.html#a1bda2826760e6b2302e8a8b4a858bdd0":[8,0,0,3,11,16,7]
 };

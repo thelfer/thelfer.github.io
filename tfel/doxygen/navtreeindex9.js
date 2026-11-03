@@ -1,5 +1,6 @@
 var NAVTREEINDEX9 =
 {
+"_string_algorithms_8hxx.html#a22b23e4dcda3d941270d1737ab2167ec":[8,0,0,3,11,16,1],
 "_string_algorithms_8hxx.html#a460118e76f6bc5a909fa9cfb1e3ae354":[8,0,0,3,11,16,5],
 "_string_algorithms_8hxx.html#a6f4ceade16bdd3345a4da898dbc4766f":[8,0,0,3,11,16,8],
 "_string_algorithms_8hxx.html#a6fb330d1aeec62748350f84993066f69":[8,0,0,3,11,16,10],
@@ -248,6 +249,5 @@ var NAVTREEINDEX9 =
 "_thread_pool_8hxx.html":[8,0,0,3,7,29],
 "_thread_pool_8ixx.html":[8,0,0,3,7,30],
 "_threaded_task_result_8hxx.html":[8,0,0,3,7,27],
-"_threaded_task_result_8ixx.html":[8,0,0,3,7,28],
-"_times_8hxx.html":[8,0,1,0,0,13]
+"_threaded_task_result_8ixx.html":[8,0,0,3,7,28]
 };

@@ -12,7 +12,7 @@ var _linear_homogenization_schemes_8hxx =
     [ "computeOrientedDiluteScheme", "_linear_homogenization_schemes_8hxx.html#adedbfae238b5466bdf77a407c97855e2", null ],
     [ "computeOrientedDiluteScheme", "_linear_homogenization_schemes_8hxx.html#a29cc902c14ca9ef9dd5d574b9f508d01", null ],
     [ "computeOrientedMoriTanakaScheme", "_linear_homogenization_schemes_8hxx.html#a81ec11d7c34717bfa2fa3fb3db6f5a29", null ],
-    [ "computeOrientedMoriTanakaScheme", "_linear_homogenization_schemes_8hxx.html#a124df1cd0950a52dd16704bf79d76bde", null ],
+    [ "computeOrientedMoriTanakaScheme", "_linear_homogenization_schemes_8hxx.html#a0c15fab3b93e33fdfcd37d14dd32b0aa", null ],
     [ "computeOrientedPCWScheme", "_linear_homogenization_schemes_8hxx.html#a7e1f1a895a3862337c061217a88beb56", null ],
     [ "computeOrientedPCWScheme", "_linear_homogenization_schemes_8hxx.html#a3cc623d8405cffa4ccb387fb0eae455e", null ],
     [ "computePCWScheme", "_linear_homogenization_schemes_8hxx.html#a8293f170bcefe5cd0c5ea0bc030065d3", null ],

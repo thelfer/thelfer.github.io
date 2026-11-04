@@ -1,6 +1,6 @@
 var structmgis_1_1behaviour_1_1_material_state_manager =
 [
-    [ "FieldHolder", "structmgis_1_1behaviour_1_1_material_state_manager_1_1_field_holder.html", "structmgis_1_1behaviour_1_1_material_state_manager_1_1_field_holder" ],
+    [ "FieldHolder", "structmgis_1_1behaviour_1_1_material_state_manager_1_1_field_holder.html", null ],
     [ "MutableFieldHolder", "structmgis_1_1behaviour_1_1_material_state_manager_1_1_mutable_field_holder.html", "structmgis_1_1behaviour_1_1_material_state_manager_1_1_mutable_field_holder" ],
     [ "StorageMode", "structmgis_1_1behaviour_1_1_material_state_manager.html#a9635178f50914f0e16e4b31fb57a2c3d", null ],
     [ "UpdatePolicy", "structmgis_1_1behaviour_1_1_material_state_manager.html#ab737b9e4ca20f29a0e43de464d70c139", [

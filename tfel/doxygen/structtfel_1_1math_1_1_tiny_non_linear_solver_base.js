@@ -6,6 +6,7 @@ var structtfel_1_1math_1_1_tiny_non_linear_solver_base =
     [ "TinyNonLinearSolverBase", "structtfel_1_1math_1_1_tiny_non_linear_solver_base.html#aea441389609a3ca20ba6cef89124d0aa", null ],
     [ "TinyNonLinearSolverBase", "structtfel_1_1math_1_1_tiny_non_linear_solver_base.html#a0d39d2e2fea82d54899836c9e9162785", null ],
     [ "~TinyNonLinearSolverBase", "structtfel_1_1math_1_1_tiny_non_linear_solver_base.html#a78709e2a78df8db74c3aba230ecd3b2e", null ],
+    [ "callUpdateOrCheckJacobian", "structtfel_1_1math_1_1_tiny_non_linear_solver_base.html#a44b2cb44db8bee8143a59aefd25ca3cc", null ],
     [ "checkConvergence", "structtfel_1_1math_1_1_tiny_non_linear_solver_base.html#a9766c5a2238cef21cd2e9068f507046f", null ],
     [ "computeResidualNorm", "structtfel_1_1math_1_1_tiny_non_linear_solver_base.html#ad8461bfe5222cae75a92f11f739ecf9f", null ],
     [ "executeInitialisationTaskBeforeBeginningOfCoreAlgorithm", "structtfel_1_1math_1_1_tiny_non_linear_solver_base.html#ac4a1d40edb0dacf78a0990ff52cc8a2a", null ],

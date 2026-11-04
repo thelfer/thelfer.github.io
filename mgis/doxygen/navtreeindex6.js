@@ -1,5 +1,8 @@
 var NAVTREEINDEX6 =
 {
+"structmgis_1_1function_1_1_basic_linear_space.html":[3,0,1,3,3],
+"structmgis_1_1function_1_1_basic_linear_space.html#a2a6b3faeccdfc23107ad70ea5e7e8c30":[3,0,1,3,3,0],
+"structmgis_1_1function_1_1_basic_linear_space.html#a3a3ebd8d93db0a97b3eee73c06944ac5":[3,0,1,3,3,1],
 "structmgis_1_1function_1_1_binary_operation_evaluator_base.html":[3,0,1,3,4],
 "structmgis_1_1function_1_1_binary_operation_evaluator_base.html#a153fa5f3d72cbb3f0777c726d7dc58ea":[3,0,1,3,4,8],
 "structmgis_1_1function_1_1_binary_operation_evaluator_base.html#a178e61c13a282c40f78c87d38ddb6d56":[3,0,1,3,4,9],
@@ -246,8 +249,5 @@ var NAVTREEINDEX6 =
 "structmgis_1_1function_1_1_tensor_view.html#ad5b8ab774bd42eb116eac05db0a817e7":[3,0,1,3,50,13],
 "structmgis_1_1function_1_1_tensorial_function.html":[3,0,1,3,48],
 "structmgis_1_1function_1_1_tensorial_function.html#a0424c09cf2018d157d4ae822c41a2c8e":[3,0,1,3,48,1],
-"structmgis_1_1function_1_1_tensorial_function.html#a0c2551ca83b9f539da3b6384c5ae214a":[3,0,1,3,48,3],
-"structmgis_1_1function_1_1_tensorial_function.html#a34f16eceeac46b627a3dc59979cad920":[3,0,1,3,48,5],
-"structmgis_1_1function_1_1_tensorial_function.html#a46b5a23a204793a987fc40f53059ed4c":[3,0,1,3,48,7],
-"structmgis_1_1function_1_1_tensorial_function.html#a472fef8ffaa0303142a39317727c4697":[3,0,1,3,48,4]
+"structmgis_1_1function_1_1_tensorial_function.html#a0c2551ca83b9f539da3b6384c5ae214a":[3,0,1,3,48,3]
 };

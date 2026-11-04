@@ -125,11 +125,31 @@ std::variant&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a
 <tr class="memitem:a0acfb23be44f841a18f7647393b9c9ae" id="r_a0acfb23be44f841a18f7647393b9c9ae"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1behaviour_1_1_material_state_manager_1_1_mutable_field_holder.html#a0acfb23be44f841a18f7647393b9c9ae">shall_be_updated</a> = true</td></tr>
 <tr class="memdesc:a0acfb23be44f841a18f7647393b9c9ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">boolean stating if the values shall be updated by the <code>updateValues</code> which is call by the revert or update functions.  <br /></td></tr>
 <tr class="separator:a0acfb23be44f841a18f7647393b9c9ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5607552c6608e592fecc998c41e3baa6" id="r_a5607552c6608e592fecc998c41e3baa6"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1behaviour_1_1_material_state_manager_1_1_mutable_field_holder.html#a5607552c6608e592fecc998c41e3baa6">external_storage_hook</a> = {}</td></tr>
+<tr class="memdesc:a5607552c6608e592fecc998c41e3baa6"><td class="mdescLeft">&#160;</td><td class="mdescRight">object calling the clean-up hook of the externally allocated memory referenced by <code>value</code>, if any (see the <code>set</code> functions taking a hook).  <br /></td></tr>
+<tr class="separator:a5607552c6608e592fecc998c41e3baa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>a structure defining a mutable field holder </p>
 <p>A mutable field holder may be a scalar value, a reference to externally allocated date (<code>std:span</code> case), or values handled internally (<code>std::vector</code> case). </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
+<a id="a5607552c6608e592fecc998c41e3baa6" name="a5607552c6608e592fecc998c41e3baa6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5607552c6608e592fecc998c41e3baa6">&#9670;&#160;</a></span>external_storage_hook</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;void&gt; mgis::behaviour::MaterialStateManager::MutableFieldHolder::external_storage_hook = {}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>object calling the clean-up hook of the externally allocated memory referenced by <code>value</code>, if any (see the <code>set</code> functions taking a hook). </p>
+<p>This object is shared by the copies of the field holder: the hook is called once, when the last copy is destroyed or no longer refers to this memory. Code replacing <code>value</code> by other values shall reset it. </p>
+
+</div>
+</div>
 <a id="a0acfb23be44f841a18f7647393b9c9ae" name="a0acfb23be44f841a18f7647393b9c9ae"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0acfb23be44f841a18f7647393b9c9ae">&#9670;&#160;</a></span>shall_be_updated</h2>
 
@@ -157,7 +177,7 @@ std::variant&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemgis.html">mgis</a></li><li class="navelem"><b>behaviour</b></li><li class="navelem"><a class="el" href="structmgis_1_1behaviour_1_1_material_state_manager.html">MaterialStateManager</a></li><li class="navelem"><a class="el" href="structmgis_1_1behaviour_1_1_material_state_manager_1_1_mutable_field_holder.html">MutableFieldHolder</a></li>
-    <li class="footer">Generated on Wed Nov 4 2026 21:30:15 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Nov 4 2026 21:38:11 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

@@ -171,9 +171,12 @@ var NAVTREEINDEX5 =
 "structmgis_1_1behaviour_1_1_material_state_manager.html#af406a79c88d76a104dfa7bbed2d09a6f":[3,0,1,1,15,13],
 "structmgis_1_1behaviour_1_1_material_state_manager.html#afca32a6a4d5f71fec28364823c80f1c1":[3,0,1,1,15,18],
 "structmgis_1_1behaviour_1_1_material_state_manager_1_1_field_holder.html":[3,0,1,1,15,0],
+"structmgis_1_1behaviour_1_1_material_state_manager_1_1_field_holder.html#a3ce754da3db4f5800c390ca6968829e3":[3,0,1,1,15,0,1],
+"structmgis_1_1behaviour_1_1_material_state_manager_1_1_field_holder.html#a907858f363268b86163817d9362b98b4":[3,0,1,1,15,0,0],
 "structmgis_1_1behaviour_1_1_material_state_manager_1_1_mutable_field_holder.html":[3,0,1,1,15,1],
-"structmgis_1_1behaviour_1_1_material_state_manager_1_1_mutable_field_holder.html#a0acfb23be44f841a18f7647393b9c9ae":[3,0,1,1,15,1,0],
-"structmgis_1_1behaviour_1_1_material_state_manager_1_1_mutable_field_holder.html#ad0366b34a562eec7ba37f5d026167c23":[3,0,1,1,15,1,1],
+"structmgis_1_1behaviour_1_1_material_state_manager_1_1_mutable_field_holder.html#a0acfb23be44f841a18f7647393b9c9ae":[3,0,1,1,15,1,1],
+"structmgis_1_1behaviour_1_1_material_state_manager_1_1_mutable_field_holder.html#a5607552c6608e592fecc998c41e3baa6":[3,0,1,1,15,1,0],
+"structmgis_1_1behaviour_1_1_material_state_manager_1_1_mutable_field_holder.html#ad0366b34a562eec7ba37f5d026167c23":[3,0,1,1,15,1,2],
 "structmgis_1_1behaviour_1_1_material_state_manager_initializer.html":[3,0,1,1,16],
 "structmgis_1_1behaviour_1_1_material_state_manager_initializer.html#a47a626ba8f980b04dfc697520855b8ba":[3,0,1,1,16,2],
 "structmgis_1_1behaviour_1_1_material_state_manager_initializer.html#a6f32622bc584137988b82c709002266f":[3,0,1,1,16,3],
@@ -246,8 +249,5 @@ var NAVTREEINDEX5 =
 "structmgis_1_1fenics_1_1_non_linear_material.html#ae9a793e07d45b43e449a1cc8f317cb1a":[3,0,1,2,0,3],
 "structmgis_1_1fenics_1_1_non_linear_material.html#aeef23cf2a1cb0d9d2dec428bcd5b9b59":[3,0,1,2,0,1],
 "structmgis_1_1fenics_1_1_non_linear_material_function_base.html":[3,0,1,2,1],
-"structmgis_1_1fenics_1_1_non_linear_material_function_base.html#aa2969be2d0aa6d83a2f164808a084cf3":[3,0,1,2,1,1],
-"structmgis_1_1fenics_1_1_non_linear_material_function_base.html#ae2f5ac7a8fd69065c3b3648683f708b6":[3,0,1,2,1,0],
-"structmgis_1_1fenics_1_1_non_linear_material_tangent_operator_function.html":[3,0,1,2,2],
-"structmgis_1_1fenics_1_1_non_linear_material_tangent_operator_function.html#a9b248d893ad991c8838132ef5209b6a9":[3,0,1,2,2,0]
+"structmgis_1_1fenics_1_1_non_linear_material_function_base.html#aa2969be2d0aa6d83a2f164808a084cf3":[3,0,1,2,1,1]
 };

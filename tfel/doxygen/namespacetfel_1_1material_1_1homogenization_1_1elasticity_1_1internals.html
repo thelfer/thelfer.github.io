@@ -145,6 +145,10 @@ template&lt;<a class="el" href="concepttfel_1_1math_1_1_scalar_concept.html">tfe
 requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6cf432ef1d0">tfel::math::checkUnitCompatibility</a>&lt;<a class="el" href="structtfel_1_1math_1_1unit_1_1_stress.html">tfel::math::unit::Stress</a>, StressType&gt;())</td></tr>
 <tr class="memitem:a3815591dc717f3573613cae1d2374703"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE std::array&lt; types::compliance&lt; StressType &gt;, 6 &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>computeDerivativesOfLocalisationTensorComponents</b> (const <a class="el" href="structtfel_1_1material_1_1_k_g_moduli.html">KGModuli</a>&lt; StressType &gt; &amp;kg0, const <a class="el" href="structtfel_1_1material_1_1_k_g_moduli.html">KGModuli</a>&lt; StressType &gt; &amp;kgi, const types::real&lt; StressType &gt; &amp;e, const std::array&lt; types::real&lt; StressType &gt;, 4 &gt; &amp;dkg)</td></tr>
 <tr class="separator:a3815591dc717f3573613cae1d2374703"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0116fdd69d83c499399a22bbbe5c344" id="r_ae0116fdd69d83c499399a22bbbe5c344"><td class="memTemplParams" colspan="2">template&lt;typename real &gt; </td></tr>
+<tr class="memitem:ae0116fdd69d83c499399a22bbbe5c344"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2tost2</a>&lt; 3u, real &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetfel_1_1material_1_1homogenization_1_1elasticity_1_1internals.html#ae0116fdd69d83c499399a22bbbe5c344">convertEshelbyTensorFromDoublePrecision</a> (const <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2tost2</a>&lt; 3u, double &gt; &amp;S)</td></tr>
+<tr class="memdesc:ae0116fdd69d83c499399a22bbbe5c344"><td class="mdescLeft">&#160;</td><td class="mdescRight">convert an Eshelby tensor computed in double precision  <br /></td></tr>
+<tr class="separator:ae0116fdd69d83c499399a22bbbe5c344"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a723b1b78f0e43677db858183c9434680" id="r_a723b1b78f0e43677db858183c9434680"><td class="memTemplParams" colspan="2">template&lt;typename LengthType &gt; </td></tr>
 <tr class="memitem:a723b1b78f0e43677db858183c9434680"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE std::array&lt; std::size_t, 3 &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetfel_1_1material_1_1homogenization_1_1elasticity_1_1internals.html#a723b1b78f0e43677db858183c9434680">sortEllipsoidLengths</a> (const LengthType &amp;a, const LengthType &amp;b, const LengthType &amp;c)</td></tr>
 <tr class="separator:a723b1b78f0e43677db858183c9434680"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -162,6 +166,40 @@ requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>An internal function for initialization of the polarisation vector </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="ae0116fdd69d83c499399a22bbbe5c344" name="ae0116fdd69d83c499399a22bbbe5c344"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0116fdd69d83c499399a22bbbe5c344">&#9670;&#160;</a></span>convertEshelbyTensorFromDoublePrecision()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename real &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">TFEL_HOST_DEVICE <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2tost2</a>&lt; 3u, real &gt; tfel::material::homogenization::elasticity::internals::convertEshelbyTensorFromDoublePrecision </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2tost2</a>&lt; 3u, double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>S</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>convert an Eshelby tensor computed in double precision </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">real</td><td>single precision type </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">S</td><td>Eshelby tensor </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a723b1b78f0e43677db858183c9434680" name="a723b1b78f0e43677db858183c9434680"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a723b1b78f0e43677db858183c9434680">&#9670;&#160;</a></span>sortEllipsoidLengths()</h2>
 
@@ -217,7 +255,7 @@ template&lt;typename LengthType &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetfel.html">tfel</a></li><li class="navelem"><a class="el" href="namespacetfel_1_1material.html">material</a></li><li class="navelem"><b>homogenization</b></li><li class="navelem"><b>elasticity</b></li><li class="navelem"><a class="el" href="namespacetfel_1_1material_1_1homogenization_1_1elasticity_1_1internals.html">internals</a></li>
-    <li class="footer">Generated on Wed Nov 4 2026 11:11:59 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Nov 4 2026 11:32:12 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

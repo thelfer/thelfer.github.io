@@ -1,18 +1,22 @@
 var NAVTREEINDEX51 =
 {
+"structmfront_1_1bbrick_1_1_rousselier_tanguy_besson2002_stress_criterion.html#acc6fab7ab23313e560b018b21261ca23":[7,0,10,0,44,5],
+"structmfront_1_1bbrick_1_1_rousselier_tanguy_besson2002_stress_criterion.html#adf41b80871661b748f504517d62c4e1b":[7,0,10,0,44,0],
+"structmfront_1_1bbrick_1_1_rousselier_tanguy_besson2002_stress_criterion.html#ae8f50c394cc8221a6499a2816aff1706":[7,0,10,0,44,3],
 "structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential.html":[7,0,10,0,45],
 "structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential.html#ac5334323923a2480bd3cb8ffd37b096a":[7,0,10,0,45,0],
 "structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential.html#acaa987125238b1521cd43675b6525f73":[7,0,10,0,45,1],
 "structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base.html":[7,0,10,0,46],
 "structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base.html#a16628bb1c74254e3fe6e244cf158f4bc":[7,0,10,0,46,0],
 "structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base.html#a1de295c5206534467e4728487d2e482d":[7,0,10,0,46,1],
-"structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base.html#a21f07ece778e65ea0fd802abff243a74":[7,0,10,0,46,9],
-"structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base.html#a27b7a9474c6aecf090bb72ac61790d3a":[7,0,10,0,46,10],
+"structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base.html#a21f07ece778e65ea0fd802abff243a74":[7,0,10,0,46,10],
+"structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base.html#a27b7a9474c6aecf090bb72ac61790d3a":[7,0,10,0,46,11],
 "structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base.html#a3963439069be450fd8b1ce843c61e129":[7,0,10,0,46,2],
 "structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base.html#a3ba644ff3503391bef11d7bc696b2535":[7,0,10,0,46,3],
+"structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base.html#a48bd8b1f46b4f51f6923dd1f7cd26cf2":[7,0,10,0,46,8],
 "structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base.html#a7ec215af2c7adf17e4424fac33eb0581":[7,0,10,0,46,4],
-"structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base.html#a7f0c12fee2884a72de4dcf5790053aad":[7,0,10,0,46,11],
-"structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base.html#a99a642cba9b20484e8323163939431cf":[7,0,10,0,46,8],
+"structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base.html#a7f0c12fee2884a72de4dcf5790053aad":[7,0,10,0,46,12],
+"structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base.html#a99a642cba9b20484e8323163939431cf":[7,0,10,0,46,9],
 "structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base.html#a9ac09dbcb96b2bb9c6076fec30421c57":[7,0,10,0,46,5],
 "structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base.html#aaa79c048d079f5ca360568cf74683e41":[7,0,10,0,46,6],
 "structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base.html#aaae9b09089938b2d619f2a48c5b95048":[7,0,10,0,46,7],
@@ -245,9 +249,5 @@ var NAVTREEINDEX51 =
 "structmfront_1_1generic__parallel_1_1material__property_1_1_backend_factory.html":[7,0,10,2,0,2],
 "structmfront_1_1generic__parallel_1_1material__property_1_1_backend_factory.html#a36f845a75ebe8c3ef5fda8f94c5ca6cb":[7,0,10,2,0,2,0],
 "structmfront_1_1generic__parallel_1_1material__property_1_1_backend_factory.html#a53e8f2045817a875ff2be7fcf969d43c":[7,0,10,2,0,2,2],
-"structmfront_1_1generic__parallel_1_1material__property_1_1_backend_factory.html#a83ebf792364b3d477473085a70ab6e7a":[7,0,10,2,0,2,3],
-"structmfront_1_1generic__parallel_1_1material__property_1_1_backend_factory.html#ac2cae5834e0473805ed1c1da5dbd1597":[7,0,10,2,0,2,1],
-"structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend.html":[7,0,10,2,0,3],
-"structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend.html#a018e73d60cd79b18d1f153e459f679b8":[7,0,10,2,0,3,6],
-"structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend.html#a10fcdb29b64e63d247050f9777d42e17":[7,0,10,2,0,3,1]
+"structmfront_1_1generic__parallel_1_1material__property_1_1_backend_factory.html#a83ebf792364b3d477473085a70ab6e7a":[7,0,10,2,0,2,3]
 };

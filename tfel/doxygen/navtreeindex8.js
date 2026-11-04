@@ -1,5 +1,8 @@
 var NAVTREEINDEX8 =
 {
+"_power_law_stress_based_porosity_nucleation_model_8hxx.html":[8,0,2,0,0,3,45],
+"_prager_kinematic_hardening_rule_8hxx.html":[8,0,2,0,0,3,46],
+"_process_manager_8hxx.html":[8,0,0,3,7,13],
 "_promote_8hxx.html":[8,0,0,3,9,11],
 "_promote_8ixx.html":[8,0,0,3,9,0,0],
 "_promote_8ixx.html#a485ec67bc4862880717f9ed36a342729":[8,0,0,3,9,0,0,24],
@@ -246,8 +249,5 @@ var NAVTREEINDEX8 =
 "_stress_potential_8hxx.html":[8,0,2,0,0,3,60],
 "_stress_potential_factory_8hxx.html":[8,0,2,0,0,3,61],
 "_strided_coalesced_view_8hxx.html":[8,0,0,3,5,1,31],
-"_strided_coalesced_view_8hxx.html#ac12b8b26ab3829d6113bdbda05a40c2f":[8,0,0,3,5,1,31,1],
-"_strided_coalesced_views_array_8hxx.html":[8,0,0,3,5,1,32],
-"_strided_coalesced_views_array_8hxx.html#a28050a134851d8b835fdc304c9e83088":[8,0,0,3,5,1,32,6],
-"_strided_coalesced_views_array_8hxx.html#a766d61c8ea4290a43e53cbea867a79e8":[8,0,0,3,5,1,32,7]
+"_strided_coalesced_view_8hxx.html#ac12b8b26ab3829d6113bdbda05a40c2f":[8,0,0,3,5,1,31,1]
 };

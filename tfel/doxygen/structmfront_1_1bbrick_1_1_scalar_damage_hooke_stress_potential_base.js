@@ -8,6 +8,7 @@ var structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base =
     [ "declareComputeElasticPredictionMethod", "structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base.html#a9ac09dbcb96b2bb9c6076fec30421c57", null ],
     [ "declareComputeStressForIsotropicBehaviour", "structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base.html#aaa79c048d079f5ca360568cf74683e41", null ],
     [ "declareComputeStressWhenStiffnessTensorIsDefined", "structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base.html#aaae9b09089938b2d619f2a48c5b95048", null ],
+    [ "endTreatment", "structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base.html#a48bd8b1f46b4f51f6923dd1f7cd26cf2", null ],
     [ "generateImplicitEquationDerivatives", "structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base.html#a99a642cba9b20484e8323163939431cf", null ],
     [ "getOptions", "structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base.html#a21f07ece778e65ea0fd802abff243a74", null ],
     [ "getStressDerivatives", "structmfront_1_1bbrick_1_1_scalar_damage_hooke_stress_potential_base.html#a27b7a9474c6aecf090bb72ac61790d3a", null ],

@@ -1,5 +1,6 @@
 var NAVTREEINDEX8 =
 {
+"structmgis__bv___initial_state_view.html#af9ef3b1bb5b9bb6838ebed63ba3932a8":[3,0,3,6],
 "structmgis__bv___state_view.html":[3,0,4],
 "structmgis__bv___state_view.html#a2b2adbc3dc7a8c18f240c5c3dc9fb6ad":[3,0,4,3],
 "structmgis__bv___state_view.html#a42faa9f5702631ae91f1eb01d25346a3":[3,0,4,5],

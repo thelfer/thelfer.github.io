@@ -147,6 +147,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a953bfa64fe62b2a10030edf3cd48859e" id="r_a953bfa64fe62b2a10030edf3cd48859e"><td class="memItemLeft" align="right" valign="top"><a id="a953bfa64fe62b2a10030edf3cd48859e" name="a953bfa64fe62b2a10030edf3cd48859e"></a>
 virtual std::unique_ptr&lt; <a class="el" href="structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_inclusion_distribution.html">InclusionDistribution</a>&lt; N, StressType &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>clone</b> () const =0</td></tr>
 <tr class="separator:a953bfa64fe62b2a10030edf3cd48859e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6623dc5e46ae57951042beb555228e45" id="r_a6623dc5e46ae57951042beb555228e45"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2tost2</a>&lt; N, StressType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_inclusion_distribution.html#a6623dc5e46ae57951042beb555228e45">getElasticityOfPhaseInGlobalBasis</a> () const</td></tr>
+<tr class="separator:a6623dc5e46ae57951042beb555228e45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a347d97eaf568014280aca22fc06d27d1" id="r_a347d97eaf568014280aca22fc06d27d1"><td class="memItemLeft" align="right" valign="top"><a id="a347d97eaf568014280aca22fc06d27d1" name="a347d97eaf568014280aca22fc06d27d1"></a>
 virtual <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2tost2</a>&lt; N, real &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>computeMeanLocalisator</b> (const <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2tost2</a>&lt; N, StressType &gt; &amp;C0, int max_iter_anisotropic_integration=12)=0</td></tr>
 <tr class="separator:a347d97eaf568014280aca22fc06d27d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -193,7 +195,38 @@ real&#160;</td><td class="memItemRight" valign="bottom"><b>fraction</b></td></tr
 <div class="textblock"><div class="compoundTemplParams">template&lt;unsigned short int N, <a class="el" href="concepttfel_1_1math_1_1_scalar_concept.html">tfel::math::ScalarConcept</a> StressType&gt;<br />
 requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6cf432ef1d0">tfel::math::checkUnitCompatibility</a>&lt; <a class="el" href="structtfel_1_1math_1_1unit_1_1_stress.html">tfel::math::unit::Stress</a>, StressType&gt;())<br />
 struct tfel::material::homogenization::elasticity::InclusionDistribution&lt; N, StressType &gt;</div><p>This struct represents a distribution of inclusions as an abstract class, child of class <a class="el" href="structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_phase.html">Phase</a>. It contains an inclusion and a pure virtual method computeMeanLocalisator which returns the mean localisator of the distribution of inclusions, for a given matrix elasticity in parameter. </p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a6623dc5e46ae57951042beb555228e45" name="a6623dc5e46ae57951042beb555228e45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6623dc5e46ae57951042beb555228e45">&#9670;&#160;</a></span>getElasticityOfPhaseInGlobalBasis()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned short int N, <a class="el" href="concepttfel_1_1math_1_1_scalar_concept.html">tfel::math::ScalarConcept</a> StressType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="structtfel_1_1math_1_1st2tost2.html">tfel::math::st2tost2</a>&lt; N, StressType &gt; <a class="el" href="structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_inclusion_distribution.html">tfel::material::homogenization::elasticity::InclusionDistribution</a>&lt; N, StressType &gt;::getElasticityOfPhaseInGlobalBasis </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the elasticity of the phase in the global basis. The elasticity of an <code><a class="el" href="structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_oriented_distribution.html">OrientedDistribution</a></code> is given in the local basis of its inclusions. </dd></dl>
+
+<p>Reimplemented in <a class="el" href="structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_oriented_distribution.html#a499dfa89b255587406a5a13e1e456869">tfel::material::homogenization::elasticity::OrientedDistribution&lt; StressType &gt;</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="_phase_description_8hxx.html">PhaseDescription.hxx</a></li>
 </ul>
 </div><!-- contents -->
@@ -202,7 +235,7 @@ struct tfel::material::homogenization::elasticity::InclusionDistribution&lt; N, 
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetfel.html">tfel</a></li><li class="navelem"><a class="el" href="namespacetfel_1_1material.html">material</a></li><li class="navelem"><b>homogenization</b></li><li class="navelem"><b>elasticity</b></li><li class="navelem"><a class="el" href="structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_inclusion_distribution.html">InclusionDistribution</a></li>
-    <li class="footer">Generated on Wed Nov 4 2026 09:10:26 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Nov 4 2026 10:51:27 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

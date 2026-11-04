@@ -5,11 +5,11 @@ var _invalid_result_8ixx =
     [ "mgis::internal::InvalidValueTraits< std::optional< bool > >", "structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1optional_3_01bool_01_4_01_4.html", null ],
     [ "mgis::internal::InvalidValueTraits< std::unique_ptr< T > >", "structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1unique__ptr_3_01_t_01_4_01_4.html", null ],
     [ "mgis::internal::InvalidValueTraits< std::shared_ptr< T > >", "structmgis_1_1internal_1_1_invalid_value_traits_3_01std_1_1shared__ptr_3_01_t_01_4_01_4.html", null ],
-    [ "isInvalid", "_invalid_result_8ixx.html#a1a8dddcd5f308fe41d179fec4e9e1820", null ],
-    [ "isInvalid", "_invalid_result_8ixx.html#a106f9fdae81cf0b4dd48017229586b49", null ],
-    [ "isInvalid", "_invalid_result_8ixx.html#a643d6088fced32614d8aa29284f5be3b", null ],
-    [ "isInvalid", "_invalid_result_8ixx.html#aa84d9dd121c1dc60c3e29bad8a0a5542", null ],
-    [ "isInvalid", "_invalid_result_8ixx.html#a04565382fb828a557d2574f182463675", null ],
-    [ "isInvalid", "_invalid_result_8ixx.html#aed52744f537c499de28e58b580b4382d", null ],
-    [ "isValid", "_invalid_result_8ixx.html#a3e137b46ca9b639b0ff85aebf7b9121d", null ]
+    [ "isInvalid", "_invalid_result_8ixx.html#a9876681bbe8bcdf088aad92e50d29a9a", null ],
+    [ "isInvalid", "_invalid_result_8ixx.html#a50e907e3d9c5ecda5314aa19613e4085", null ],
+    [ "isInvalid", "_invalid_result_8ixx.html#a359340c609b4203ea8a5389f2a126ef7", null ],
+    [ "isInvalid", "_invalid_result_8ixx.html#a906848fb3c79e5fe9d1da918ec73da18", null ],
+    [ "isInvalid", "_invalid_result_8ixx.html#a5c50270fa42c980fe00f2248b6159b91", null ],
+    [ "isInvalid", "_invalid_result_8ixx.html#a9e87a6ac42e0f97dfc20c6c446911cb5", null ],
+    [ "isValid", "_invalid_result_8ixx.html#ab601172a7aa8351f42703f696981bf05", null ]
 ];

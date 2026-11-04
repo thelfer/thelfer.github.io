@@ -1,5 +1,5 @@
 var structmgis_1_1function_1_1_function_data_size =
 [
-    [ "getNumberOfComponents", "structmgis_1_1function_1_1_function_data_size.html#a40a67cbed1b43c7c2a6e5f6f60c5ce57", null ],
-    [ "isScalar", "structmgis_1_1function_1_1_function_data_size.html#aa0cb7da0621ad7488bb1dc37c1351472", null ]
+    [ "getNumberOfComponents", "structmgis_1_1function_1_1_function_data_size.html#a412adae18d4cd3e95f4134658dfa6b45", null ],
+    [ "isScalar", "structmgis_1_1function_1_1_function_data_size.html#a5c81941ba85b08bba2a73612c1076d83", null ]
 ];

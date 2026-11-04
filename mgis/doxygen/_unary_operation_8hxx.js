@@ -17,6 +17,6 @@ var _unary_operation_8hxx =
     [ "mgis::function::internals::AbsoluteValueOperator", "structmgis_1_1function_1_1internals_1_1_absolute_value_operator.html", null ],
     [ "mgis::function::internals::MaximumComponentOperator", "structmgis_1_1function_1_1internals_1_1_maximum_component_operator.html", null ],
     [ "mgis::function::internals::MinimumComponentOperator", "structmgis_1_1function_1_1internals_1_1_minimum_component_operator.html", null ],
-    [ "getNumberOfComponents", "_unary_operation_8hxx.html#af90d2f9f713e03e6a3c1bf1109a12b3d", null ],
-    [ "getNumberOfComponents", "_unary_operation_8hxx.html#a999e2f961fd72ca05ed5bde0c51e0f02", null ]
+    [ "getNumberOfComponents", "_unary_operation_8hxx.html#a0bdbcbb798fae4b14ad22ad7d6878578", null ],
+    [ "getNumberOfComponents", "_unary_operation_8hxx.html#abf5c3145744366361792e15ddc03506c", null ]
 ];

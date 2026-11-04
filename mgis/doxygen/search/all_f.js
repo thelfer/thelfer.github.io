@@ -3,7 +3,7 @@ var searchData=
   ['params_0',['params',['../structmgis_1_1behaviour_1_1_behaviour_description.html#a4b6abaead3e7d7518a458519f9d974ff',1,'mgis::behaviour::BehaviourDescription']]],
   ['pk1_1',['pk1',['../_finite_strain_support_8hxx.html#a15f07810e1a1ad3be3e74dbe20508106ac34dd77ffb9238275b93ea1897664a7e',1,'PK1mgis::behaviour'],['../structmgis_1_1behaviour_1_1_finite_strain_behaviour_options.html#adeb58d01a6ec86581d95d2d5448bd31bacac9248e3b30e7a3c1cdeabfcbdd2316',1,'mgis::behaviour::FiniteStrainBehaviourOptions::PK1']]],
   ['pk2_2',['PK2',['../structmgis_1_1behaviour_1_1_finite_strain_behaviour_options.html#adeb58d01a6ec86581d95d2d5448bd31baac93a140750ea750d080090351bad2ea',1,'mgis::behaviour::FiniteStrainBehaviourOptions']]],
-  ['popprofilingnode_3',['popProfilingNode',['../structmgis_1_1_context.html#a6fa973d1662a2042d1c29f77d8329862',1,'mgis::Context']]],
+  ['popprofilingnode_3',['popProfilingNode',['../structmgis_1_1_context.html#a9596d8194426f81596d4bf448477c57e',1,'mgis::Context']]],
   ['postprocessings_4',['postprocessings',['../structmgis_1_1behaviour_1_1_behaviour.html#a77ad5ad4f21a9403a5024ac5f990fef8',1,'mgis::behaviour::Behaviour']]],
   ['preconditionscheck_5',['PreconditionsCheck',['../structmgis_1_1_preconditions_check.html',1,'mgis']]],
   ['preconditionschecker_6',['PreconditionsChecker',['../structmgis_1_1_preconditions_checker.html',1,'mgis']]],
@@ -24,8 +24,8 @@ var searchData=
   ['profiling_2ehxx_21',['Profiling.hxx',['../_profiling_8hxx.html',1,'']]],
   ['profilingdata_22',['ProfilingData',['../structmgis_1_1_profiling_data.html',1,'mgis']]],
   ['profilingdata_2ehxx_23',['ProfilingData.hxx',['../_profiling_data_8hxx.html',1,'']]],
-  ['profilingsection_24',['profilingsection',['../structmgis_1_1_profiling_section.html',1,'mgis::ProfilingSection'],['../structmgis_1_1_profiling_section.html#a975d1f898fcdd78e8f8dd725de490b2a',1,'mgis::ProfilingSection::ProfilingSection() noexcept'],['../structmgis_1_1_profiling_section.html#a6863a815ab199c43a9136dcab949037c',1,'mgis::ProfilingSection::ProfilingSection(Context &amp;ctx, std::string, bool) noexcept']]],
+  ['profilingsection_24',['profilingsection',['../structmgis_1_1_profiling_section.html',1,'mgis::ProfilingSection'],['../structmgis_1_1_profiling_section.html#a66bf78c7de2860f9c152d8b08e012e63',1,'mgis::ProfilingSection::ProfilingSection() MGIS_NOEXCEPT'],['../structmgis_1_1_profiling_section.html#a500b6360078b43e5af79169a2c966c55',1,'mgis::ProfilingSection::ProfilingSection(Context &amp;ctx, std::string, bool) MGIS_NOEXCEPT']]],
   ['project_25',['The MGIS project',['../index.html',1,'']]],
   ['ptr_26',['Ptr',['../structmgis_1_1julia_1_1_ptr.html',1,'mgis::julia']]],
-  ['pushprofilingnode_27',['pushProfilingNode',['../structmgis_1_1_context.html#a0a021acfe6344b2db0d22486c1517cd3',1,'mgis::Context']]]
+  ['pushprofilingnode_27',['pushProfilingNode',['../structmgis_1_1_context.html#aafd83a2548d068472e9c4e31a70d338e',1,'mgis::Context']]]
 ];

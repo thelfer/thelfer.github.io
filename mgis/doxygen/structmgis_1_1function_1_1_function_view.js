@@ -27,7 +27,7 @@ var structmgis_1_1function_1_1_function_view =
     [ "data", "structmgis_1_1function_1_1_function_view.html#a7ea11563cdb5789c1f0accdf918aaf62", null ],
     [ "data", "structmgis_1_1function_1_1_function_view.html#ab36b185dc7ca71b010ff84bada07b463", null ],
     [ "data", "structmgis_1_1function_1_1_function_view.html#a7107c3fdb133afedfb7f9440f2f93399", null ],
-    [ "getSpace", "structmgis_1_1function_1_1_function_view.html#a2df9585205b1e9edcbc4696d48c46e9a", null ],
+    [ "getSpace", "structmgis_1_1function_1_1_function_view.html#a8e34ce33785643e0f9a330d822a7ea77", null ],
     [ "operator()", "structmgis_1_1function_1_1_function_view.html#a24a1874bf5a6d6f2e4e3e9f65dde960f", null ],
     [ "operator()", "structmgis_1_1function_1_1_function_view.html#a534b93bc9545db5e3b2745f05d08c5a0", null ],
     [ "operator()", "structmgis_1_1function_1_1_function_view.html#a48d1bf875c23e8c6debe385e3fa05e30", null ],

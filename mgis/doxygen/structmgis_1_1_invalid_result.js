@@ -1,5 +1,5 @@
 var structmgis_1_1_invalid_result =
 [
-    [ "operator std::optional< bool >", "structmgis_1_1_invalid_result.html#a4c2e7a5d7cf25c841c944f3977375518", null ],
-    [ "operator Type", "structmgis_1_1_invalid_result.html#aa451cd75a0bacab281e6ff4de0e3da9d", null ]
+    [ "operator std::optional< bool >", "structmgis_1_1_invalid_result.html#acb3cd00269d452d65a20bd4e60942280", null ],
+    [ "operator Type", "structmgis_1_1_invalid_result.html#a46e55133e9d85552c0bae7895616ee85", null ]
 ];

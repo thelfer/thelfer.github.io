@@ -11,14 +11,14 @@ var _log_stream_8hxx =
       [ "WHITE", "_log_stream_8hxx.html#a8ca19ff3c596083e841958b8ef720622ab5bf627e448384cf3a4c35121ca6008d", null ],
       [ "RESET", "_log_stream_8hxx.html#a8ca19ff3c596083e841958b8ef720622ab5859d8721cfdc0312b2838b9c985bc1", null ]
     ] ],
-    [ "debug", "_log_stream_8hxx.html#a3d97a09c6c64460afbf937bbeae023c5", null ],
-    [ "disableDefaultLogStream", "_log_stream_8hxx.html#a5090d179a5a2a2ebff48bb16b18db959", null ],
-    [ "getDefaultLogStream", "_log_stream_8hxx.html#afe3d9647d3e4d96809e04e13bf33a4e5", null ],
-    [ "resetDefaultLogStream", "_log_stream_8hxx.html#ae9c2b4f2fc495c1e278dd9dd9d915e58", null ],
-    [ "resetStreamColor", "_log_stream_8hxx.html#a036c7f019b577e08c7d44850393bbe1a", null ],
-    [ "setDefaultLogStream", "_log_stream_8hxx.html#a408b9199459fbde44b73b6dbedd0d204", null ],
-    [ "setDefaultLogStream", "_log_stream_8hxx.html#a9de5ebfdace7985b5e404fb8ae846510", null ],
-    [ "setDefaultLogStream", "_log_stream_8hxx.html#a03020fe73cd3da8538ad77d45838556b", null ],
-    [ "setStreamColor", "_log_stream_8hxx.html#adef4b3c198b45a0b4bec1e1b0b525bf4", null ],
-    [ "warning", "_log_stream_8hxx.html#ae1ceec782317554dec7a342b432a1fbb", null ]
+    [ "debug", "_log_stream_8hxx.html#ade4915e9cbed616086d1201e70711551", null ],
+    [ "disableDefaultLogStream", "_log_stream_8hxx.html#a78d746a8b47c76e132fcb66b0c19498b", null ],
+    [ "getDefaultLogStream", "_log_stream_8hxx.html#aa027915fd3285240290c7ee66a74e6e6", null ],
+    [ "resetDefaultLogStream", "_log_stream_8hxx.html#a85fa8599a558a1b06dcc6033ac6198ad", null ],
+    [ "resetStreamColor", "_log_stream_8hxx.html#a9a36819885b94aa3d47807d04e0c2547", null ],
+    [ "setDefaultLogStream", "_log_stream_8hxx.html#ac649f380de1a84378e2bac2451597808", null ],
+    [ "setDefaultLogStream", "_log_stream_8hxx.html#a5992d5732021fd482679ab3b67fbfd57", null ],
+    [ "setDefaultLogStream", "_log_stream_8hxx.html#a9bb339d06ecc73bd3ebbd098654c2c74", null ],
+    [ "setStreamColor", "_log_stream_8hxx.html#a51c4fef3bb4df4f508969a101a3fc799", null ],
+    [ "warning", "_log_stream_8hxx.html#aa1cb7a74982fd176d291c8d32fb0cbfe", null ]
 ];

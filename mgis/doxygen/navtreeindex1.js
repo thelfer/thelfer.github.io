@@ -106,9 +106,7 @@ var NAVTREEINDEX1 =
 "_invoke_8hxx.html#ad4fc669b1beb02fec1723f6632d10ca3":[4,0,1,0,4,3,0],
 "_invoke_8ixx.html":[4,0,1,0,4,4],
 "_julia_utilities_8hxx.html":[4,0,0,1,0,0,0,1],
-"_julia_utilities_8hxx.html#a500f578b1d7d184a03a6fbda4e573cbe":[4,0,0,1,0,0,0,1,8],
 "_julia_utilities_8ixx.html":[4,0,0,1,0,0,0,2],
-"_julia_utilities_8ixx.html#a500f578b1d7d184a03a6fbda4e573cbe":[4,0,0,1,0,0,0,2,0],
 "_libraries_manager_8hxx.html":[4,0,1,0,16],
 "_log_stream_8hxx.html":[4,0,1,0,17],
 "_log_stream_8hxx.html#a03020fe73cd3da8538ad77d45838556b":[4,0,1,0,17,8],
@@ -249,5 +247,7 @@ var NAVTREEINDEX1 =
 "_raise_8ixx.html#ae65ca6ba0277ab7c268223fe1cb7cbc1":[4,0,1,0,22,0],
 "_rotation_matrix_8hxx.html":[4,0,1,0,0,16],
 "_rotation_matrix_8hxx.html#a257653a24e52b85e1b7447403df0a2e6":[4,0,1,0,0,16,3],
-"_rotation_matrix_8hxx.html#aacafb6d236778c7b806e28788703dbbb":[4,0,1,0,0,16,4]
+"_rotation_matrix_8hxx.html#aacafb6d236778c7b806e28788703dbbb":[4,0,1,0,0,16,4],
+"_rotation_matrix_8ixx.html":[4,0,1,0,0,17],
+"_rotation_matrix_8ixx.html#a257653a24e52b85e1b7447403df0a2e6":[4,0,1,0,0,17,0]
 };

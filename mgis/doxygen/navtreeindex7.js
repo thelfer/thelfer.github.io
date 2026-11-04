@@ -1,5 +1,10 @@
 var NAVTREEINDEX7 =
 {
+"structmgis_1_1function_1_1_tensor_modifier.html#a1525bc233c43e8895bd8f9d73648a36b":[3,0,1,3,51,0],
+"structmgis_1_1function_1_1_tensor_modifier.html#ae39ec33cfe7162236cace8c46e086567":[3,0,1,3,51,1],
+"structmgis_1_1function_1_1_tensor_modifier.html#ae75d5294e94d2733589578baf25567ca":[3,0,1,3,51,2],
+"structmgis_1_1function_1_1_tensor_view.html":[3,0,1,3,52],
+"structmgis_1_1function_1_1_tensor_view.html#a0f3c2b747bc8bbe3402c9bc01220deeb":[3,0,1,3,52,11],
 "structmgis_1_1function_1_1_tensor_view.html#a16e8353f458241f40b69904ccc8033fe":[3,0,1,3,52,7],
 "structmgis_1_1function_1_1_tensor_view.html#a1c28e4df0d7b53e1341829669010d25e":[3,0,1,3,52,6],
 "structmgis_1_1function_1_1_tensor_view.html#a4e8a764863a398139c7db19d59c43af3":[3,0,1,3,52,1],
@@ -217,6 +222,13 @@ var NAVTREEINDEX7 =
 "structmgis_1_1internal_1_1_optional_traits_3_01bool_01_4.html":[3,0,1,4,8],
 "structmgis_1_1internal_1_1_optional_traits_3_01std_1_1optional_3_01_t_01_4_01_4.html":[3,0,1,4,10],
 "structmgis_1_1julia_1_1_ptr.html":[3,0,1,5,2],
+"structmgis_1_1julia_1_1_shared_behaviour.html":[3,0,1,5,3],
+"structmgis_1_1julia_1_1_shared_behaviour.html#a003d0bea5f663ff07a43ed0ece17cbb6":[3,0,1,5,3,0],
+"structmgis_1_1julia_1_1_shared_behaviour.html#af178969fa0a1ff7ee60d547c49eacdc6":[3,0,1,5,3,1],
+"structmgis_1_1julia_1_1_wrapper.html":[3,0,1,5,4],
+"structmgis_1_1julia_1_1_wrapper.html#a68b3ce481f63e1f133cae7ec80fcb35a":[3,0,1,5,4,2],
+"structmgis_1_1julia_1_1_wrapper.html#a7f860840f954a352ffb5577d29ed488e":[3,0,1,5,4,1],
+"structmgis_1_1julia_1_1_wrapper.html#ad12e02f00169be58e9ed5a6aeff9a928":[3,0,1,5,4,0],
 "structmgis_1_1julia_1_1detail_1_1_long_n_tuple.html":[3,0,1,5,0,0],
 "structmgis_1_1julia_1_1detail_1_1_long_n_tuple_3_010_00_01_types_t_8_8_8_01_4.html":[3,0,1,5,0,1],
 "structmgis_1_1material__property_1_1_material_property.html":[3,0,1,6,0],
@@ -237,17 +249,5 @@ var NAVTREEINDEX7 =
 "structmgis__bv___behaviour_data_view.html":[3,0,2],
 "structmgis__bv___behaviour_data_view.html#a1c1140ff7202398b3b731af2ccc59e36":[3,0,2,0],
 "structmgis__bv___behaviour_data_view.html#a47c447948abe8ec22254d2f82fe91135":[3,0,2,6],
-"structmgis__bv___behaviour_data_view.html#a61233257a12e24e444e4c04826c43cc4":[3,0,2,4],
-"structmgis__bv___behaviour_data_view.html#a643b21e5542ba9e95a94d4856b58d42e":[3,0,2,2],
-"structmgis__bv___behaviour_data_view.html#a6f272a3569708c8d07d8c3f07d99fdac":[3,0,2,5],
-"structmgis__bv___behaviour_data_view.html#a81716d68975765ed3160668f5b98dc5b":[3,0,2,3],
-"structmgis__bv___behaviour_data_view.html#ae315babd9ec8453daa7c8f7db405ea3f":[3,0,2,1],
-"structmgis__bv___initial_state_view.html":[3,0,3],
-"structmgis__bv___initial_state_view.html#a0301a1a3f79f719b95d78ef94ec6b767":[3,0,3,4],
-"structmgis__bv___initial_state_view.html#a8bb66be668e8cf2cadf5ee2f6a3ce56a":[3,0,3,5],
-"structmgis__bv___initial_state_view.html#ab1ab8e99dfc45c3def669e7c416f2431":[3,0,3,2],
-"structmgis__bv___initial_state_view.html#ad6f2df129891283fa3cacf48411c3c9d":[3,0,3,3],
-"structmgis__bv___initial_state_view.html#ad837ab7b71d05e5d727b22db750b0467":[3,0,3,7],
-"structmgis__bv___initial_state_view.html#aee17a5233b0a2ccbd67212124d01748f":[3,0,3,0],
-"structmgis__bv___initial_state_view.html#af41c82c4677fcfa05220f1e7e3ef6ecb":[3,0,3,1]
+"structmgis__bv___behaviour_data_view.html#a61233257a12e24e444e4c04826c43cc4":[3,0,2,4]
 };

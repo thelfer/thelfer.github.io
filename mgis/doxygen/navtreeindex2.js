@@ -1,7 +1,5 @@
 var NAVTREEINDEX2 =
 {
-"_rotation_matrix_8ixx.html":[4,0,1,0,0,17],
-"_rotation_matrix_8ixx.html#a257653a24e52b85e1b7447403df0a2e6":[4,0,1,0,0,17,0],
 "_rotation_matrix_8ixx.html#aacafb6d236778c7b806e28788703dbbb":[4,0,1,0,0,17,1],
 "_shared_space_8hxx.html":[4,0,1,0,1,31],
 "_space_concept_8hxx.html":[4,0,1,0,1,32],
@@ -249,5 +247,7 @@ var NAVTREEINDEX2 =
 "functions_func_s.html":[3,3,1,17],
 "functions_func_t.html":[3,3,1,18],
 "functions_func_u.html":[3,3,1,19],
-"functions_func_v.html":[3,3,1,20]
+"functions_func_v.html":[3,3,1,20],
+"functions_func_w.html":[3,3,1,21],
+"functions_func_~.html":[3,3,1,22]
 };

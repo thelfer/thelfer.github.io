@@ -1,5 +1,8 @@
 var NAVTREEINDEX7 =
 {
+"structmgis_1_1function_1_1_strided_coalesced_memory_access_tensor_view.html#a2da2d9dbc4ac0665f785cff56509dfb6":[3,0,1,3,49,2],
+"structmgis_1_1function_1_1_strided_coalesced_memory_access_tensor_view.html#a6655b24eb22dfcb4fa980fa61873c3a5":[3,0,1,3,49,3],
+"structmgis_1_1function_1_1_tensor_modifier.html":[3,0,1,3,51],
 "structmgis_1_1function_1_1_tensor_modifier.html#a1525bc233c43e8895bd8f9d73648a36b":[3,0,1,3,51,0],
 "structmgis_1_1function_1_1_tensor_modifier.html#ae39ec33cfe7162236cace8c46e086567":[3,0,1,3,51,1],
 "structmgis_1_1function_1_1_tensor_modifier.html#ae75d5294e94d2733589578baf25567ca":[3,0,1,3,51,2],
@@ -246,8 +249,5 @@ var NAVTREEINDEX7 =
 "structmgis_1_1material__property_1_1_material_property.html#adf439f7d77620b2310a94899b63da066":[3,0,1,6,0,2],
 "structmgis_1_1material__property_1_1_material_property.html#ae148eec2cb91e7453522cbd5a4dace61":[3,0,1,6,0,0],
 "structmgis_1_1material__property_1_1_material_property.html#af0221208b467b431bad412e5583bb1f0":[3,0,1,6,0,6],
-"structmgis__bv___behaviour_data_view.html":[3,0,2],
-"structmgis__bv___behaviour_data_view.html#a1c1140ff7202398b3b731af2ccc59e36":[3,0,2,0],
-"structmgis__bv___behaviour_data_view.html#a47c447948abe8ec22254d2f82fe91135":[3,0,2,6],
-"structmgis__bv___behaviour_data_view.html#a61233257a12e24e444e4c04826c43cc4":[3,0,2,4]
+"structmgis__bv___behaviour_data_view.html":[3,0,2]
 };

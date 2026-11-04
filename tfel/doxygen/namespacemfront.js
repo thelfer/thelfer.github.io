@@ -206,6 +206,7 @@ var namespacemfront =
     [ "GenericData", "namespacemfront.html#a0b089943bf593c40430546d099a595f7", null ],
     [ "MaterialKnowledgeAttribute", "namespacemfront.html#aeba7ed4132fad4a3dc04b4d79c689d11", null ],
     [ "MaterialKnowledgeAttributeTypes", "namespacemfront.html#a6a2f4077110c06007d007172f65e1c15", null ],
+    [ "NonLinearSystemSolver", "namespacemfront.html#ae95f920d130de45ddfc14b9f04e75e24", null ],
     [ "StaticVarContainer", "namespacemfront.html#a581e2fb72f5824a4e95f5e776cf4e94e", null ],
     [ "StaticVarHandler", "namespacemfront.html#a7bad4d0575ebdf6169ea12e9b817e1e9", null ],
     [ "VarContainer", "namespacemfront.html#af57293a292505942e5dcd42149817fff", null ],

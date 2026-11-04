@@ -1,6 +1,5 @@
 var NAVTREEINDEX2 =
 {
-"_rotation_matrix_8hxx.html#aacafb6d236778c7b806e28788703dbbb":[4,0,1,0,0,16,4],
 "_rotation_matrix_8ixx.html":[4,0,1,0,0,17],
 "_rotation_matrix_8ixx.html#a257653a24e52b85e1b7447403df0a2e6":[4,0,1,0,0,17,0],
 "_rotation_matrix_8ixx.html#aacafb6d236778c7b806e28788703dbbb":[4,0,1,0,0,17,1],
@@ -71,7 +70,13 @@ var NAVTREEINDEX2 =
 "_strided_coalesced_memory_access_function_view_base_8hxx.html":[4,0,1,0,1,33],
 "_strided_coalesced_memory_access_function_view_base_8ixx.html":[4,0,1,0,1,34],
 "_strided_coalesced_memory_access_tensor_view_8hxx.html":[4,0,1,0,1,1,15],
+"_strided_coalesced_memory_access_tensor_view_8hxx.html#a47dac20a3b93e359a3f6f67872bb0474":[4,0,1,0,1,1,15,4],
+"_strided_coalesced_memory_access_tensor_view_8hxx.html#a82530968ade0184f6396338f3f6efcc9":[4,0,1,0,1,1,15,3],
+"_strided_coalesced_memory_access_tensor_view_8hxx.html#aa53a25bc30e656e00b250f6f36e22393":[4,0,1,0,1,1,15,5],
 "_strided_coalesced_memory_access_tensor_view_8ixx.html":[4,0,1,0,1,1,16],
+"_strided_coalesced_memory_access_tensor_view_8ixx.html#a47dac20a3b93e359a3f6f67872bb0474":[4,0,1,0,1,1,16,1],
+"_strided_coalesced_memory_access_tensor_view_8ixx.html#a82530968ade0184f6396338f3f6efcc9":[4,0,1,0,1,1,16,0],
+"_strided_coalesced_memory_access_tensor_view_8ixx.html#aa53a25bc30e656e00b250f6f36e22393":[4,0,1,0,1,1,16,2],
 "_tensor_concept_8hxx.html":[4,0,1,0,1,1,17],
 "_tensor_modifier_8hxx.html":[4,0,1,0,1,1,20],
 "_tensor_modifier_8hxx.html#ae1a4d18e598b4687d0b118d319b1fd43":[4,0,1,0,1,1,20,1],
@@ -186,9 +191,10 @@ var NAVTREEINDEX2 =
 "conceptmgis_1_1function_1_1_tensor_value_concept.html":[2,0,0,23],
 "conceptmgis_1_1function_1_1_viewable_function_argument_concept.html":[2,0,0,10],
 "conceptmgis_1_1function_1_1internals_1_1is__pointer__to__real.html":[2,0,0,0,1],
+"conceptmgis_1_1function_1_1internals_1_1is__real.html":[2,0,0,0,2],
 "conceptmgis_1_1function_1_1internals_1_1is_evaluator_assignable_to_function.html":[2,0,0,0,0],
-"conceptmgis_1_1function_1_1internals_1_1mutable__return__value.html":[2,0,0,0,2],
-"conceptmgis_1_1function_1_1internals_1_1same__decay__type.html":[2,0,0,0,3],
+"conceptmgis_1_1function_1_1internals_1_1mutable__return__value.html":[2,0,0,0,3],
+"conceptmgis_1_1function_1_1internals_1_1same__decay__type.html":[2,0,0,0,4],
 "concepts.html":[2],
 "dir_00240dc4a1a4845ae58be68fbad02d02.html":[4,0,0],
 "dir_1d4e19cccea487c8f1326207c4399911.html":[4,0,0,1,0],
@@ -243,11 +249,5 @@ var NAVTREEINDEX2 =
 "functions_func_s.html":[3,3,1,17],
 "functions_func_t.html":[3,3,1,18],
 "functions_func_u.html":[3,3,1,19],
-"functions_func_v.html":[3,3,1,20],
-"functions_func_w.html":[3,3,1,21],
-"functions_func_~.html":[3,3,1,22],
-"functions_g.html":[3,3,0,6],
-"functions_h.html":[3,3,0,7],
-"functions_i.html":[3,3,0,8],
-"functions_j.html":[3,3,0,9]
+"functions_func_v.html":[3,3,1,20]
 };

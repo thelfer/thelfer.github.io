@@ -7,7 +7,6 @@ var structmgis_1_1function_1_1_coalesced_memory_access_function_view_base =
     [ "CoalescedMemoryAccessFunctionViewBase", "structmgis_1_1function_1_1_coalesced_memory_access_function_view_base.html#a35b7da36ef320c0006f5f64592854c8d", null ],
     [ "CoalescedMemoryAccessFunctionViewBase", "structmgis_1_1function_1_1_coalesced_memory_access_function_view_base.html#ae8cf85ffc4a2dd0f27021dbe9c19c9e6", null ],
     [ "CoalescedMemoryAccessFunctionViewBase", "structmgis_1_1function_1_1_coalesced_memory_access_function_view_base.html#a8dfb1d4fc8288346501337a0a1a643c6", null ],
-    [ "getSpace", "structmgis_1_1function_1_1_coalesced_memory_access_function_view_base.html#ac492883ecc63d1588ccbdefb80a7cd32", null ],
     [ "getValuePointer", "structmgis_1_1function_1_1_coalesced_memory_access_function_view_base.html#ad5eba809d5acb73bda0dac13a90b6281", null ],
     [ "getValuePointer", "structmgis_1_1function_1_1_coalesced_memory_access_function_view_base.html#ae300120f8f9a5fdbe386f205d6b6ee42", null ],
     [ "getValuePointer", "structmgis_1_1function_1_1_coalesced_memory_access_function_view_base.html#a8dbe1533060d3bdb3df4205722994773", null ],

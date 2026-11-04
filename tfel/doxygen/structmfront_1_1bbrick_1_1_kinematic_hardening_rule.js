@@ -8,6 +8,7 @@ var structmfront_1_1bbrick_1_1_kinematic_hardening_rule =
     [ "ModellingHypothesis", "structmfront_1_1bbrick_1_1_kinematic_hardening_rule.html#a66905c3542148e387c77d48b4c112426", null ],
     [ "~KinematicHardeningRule", "structmfront_1_1bbrick_1_1_kinematic_hardening_rule.html#a74037f13de8df75c01e0b1e706debd2d", null ],
     [ "buildBackStrainImplicitEquations", "structmfront_1_1bbrick_1_1_kinematic_hardening_rule.html#a83a499a2b010620e09d4ead1324ee41c", null ],
+    [ "buildBackStrainImplicitEquationsForAnInactiveFlow", "structmfront_1_1bbrick_1_1_kinematic_hardening_rule.html#a1bc5791bfaa529741d8461a174f9d01c", null ],
     [ "computeKinematicHardenings", "structmfront_1_1bbrick_1_1_kinematic_hardening_rule.html#abdb8c17e8c9651d07160dc6bd4264252", null ],
     [ "computeKinematicHardeningsInitialValues", "structmfront_1_1bbrick_1_1_kinematic_hardening_rule.html#ac0effb8829f3023d1a4c1d8d5251c82b", null ],
     [ "endTreatment", "structmfront_1_1bbrick_1_1_kinematic_hardening_rule.html#aeefc00347a81d49a7e46001edf4e0694", null ],

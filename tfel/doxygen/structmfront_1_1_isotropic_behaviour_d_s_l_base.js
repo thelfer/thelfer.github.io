@@ -10,6 +10,7 @@ var structmfront_1_1_isotropic_behaviour_d_s_l_base =
     [ "getBehaviourDSLDescription", "structmfront_1_1_isotropic_behaviour_d_s_l_base.html#a23aaa875b71820165f7c5a4c307b5e20", null ],
     [ "getDefaultThetaValue", "structmfront_1_1_isotropic_behaviour_d_s_l_base.html#a4fe85c4154a4d968f98c721d1e94f4c9", null ],
     [ "getFlowRuleAnalyser", "structmfront_1_1_isotropic_behaviour_d_s_l_base.html#a3e01dd4a238cf4b461778a5647680ee1", null ],
+    [ "getIsotropicHardeningRulesTheta", "structmfront_1_1_isotropic_behaviour_d_s_l_base.html#a7d0bf1ff6ce67707f42e89fab5279229", null ],
     [ "getNumberOfFlowRules", "structmfront_1_1_isotropic_behaviour_d_s_l_base.html#a5438eab36b1dbdb968e64e91a06b8e64", null ],
     [ "getSymbols", "structmfront_1_1_isotropic_behaviour_d_s_l_base.html#a65ac47ea55af5da87a01d321094ededf", null ],
     [ "handleStrainHardening", "structmfront_1_1_isotropic_behaviour_d_s_l_base.html#aa8ec2252bccad5663751e780f04b82ac", null ],

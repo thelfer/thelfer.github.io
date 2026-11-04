@@ -2,6 +2,7 @@ var structmfront_1_1bbrick_1_1_delobelle_robinet_schaffler_kinematic_hardening_r
 [
     [ "~DelobelleRobinetSchafflerKinematicHardeningRule", "structmfront_1_1bbrick_1_1_delobelle_robinet_schaffler_kinematic_hardening_rule.html#a9c7b741ad76fbccd895adfb3e9faa811", null ],
     [ "buildBackStrainImplicitEquations", "structmfront_1_1bbrick_1_1_delobelle_robinet_schaffler_kinematic_hardening_rule.html#a4b37c2e25d4c62173b83a06ef78da17f", null ],
+    [ "buildBackStrainImplicitEquationsForAnInactiveFlow", "structmfront_1_1bbrick_1_1_delobelle_robinet_schaffler_kinematic_hardening_rule.html#ae8d5cececfe43f9006919047f7cbbd07", null ],
     [ "endTreatment", "structmfront_1_1bbrick_1_1_delobelle_robinet_schaffler_kinematic_hardening_rule.html#acc90ca058bdd0872848dac28030d5b76", null ],
     [ "getOptions", "structmfront_1_1bbrick_1_1_delobelle_robinet_schaffler_kinematic_hardening_rule.html#a2952e4d18dc849a261cec5857aa69d65", null ],
     [ "initialize", "structmfront_1_1bbrick_1_1_delobelle_robinet_schaffler_kinematic_hardening_rule.html#a398ff227bd677b89b6097d083af450f9", null ],

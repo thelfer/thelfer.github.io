@@ -7,6 +7,7 @@ var structmfront_1_1_model_description_1_1_function =
     [ "operator=", "structmfront_1_1_model_description_1_1_function.html#a00b0c961d63cd807267e4b94cb4dc5bd", null ],
     [ "operator=", "structmfront_1_1_model_description_1_1_function.html#a40a5fc5c955501009bb6deeff6c1a5a9", null ],
     [ "body", "structmfront_1_1_model_description_1_1_function.html#a6708b5ae3cefcdbfef87ff2b9a33b732", null ],
+    [ "compoundAssignedVariables", "structmfront_1_1_model_description_1_1_function.html#ad1beb58c09fcf2d7ed8b6ad90fcf7d89", null ],
     [ "constantMaterialProperties", "structmfront_1_1_model_description_1_1_function.html#a9987eb58afb83d556a9c17a18bd6df15", null ],
     [ "depths", "structmfront_1_1_model_description_1_1_function.html#a5d4ec51a39eed3b1961d0fb6a6841575", null ],
     [ "line", "structmfront_1_1_model_description_1_1_function.html#a4abfd086abfc8b1ec8f6daf7fc4f1d7f", null ],

@@ -1,5 +1,6 @@
 var NAVTREEINDEX50 =
 {
+"structmfront_1_1bbrick_1_1_inelastic_flow.html#ad7414457b0b1f9ec378bba4ec9bd4821":[7,0,10,0,21,5],
 "structmfront_1_1bbrick_1_1_inelastic_flow.html#afe764e77f95ccc495394706df95f7b8b":[7,0,10,0,21,15],
 "structmfront_1_1bbrick_1_1_inelastic_flow_base.html":[7,0,10,0,22],
 "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a0e1e55991752aaea3456a72c5f430231":[7,0,10,0,22,16],
@@ -248,6 +249,5 @@ var NAVTREEINDEX50 =
 "structmfront_1_1bbrick_1_1_prager_kinematic_hardening_rule.html":[7,0,10,0,43],
 "structmfront_1_1bbrick_1_1_prager_kinematic_hardening_rule.html#a22fed542da3aaa35f420a19021996be2":[7,0,10,0,43,1],
 "structmfront_1_1bbrick_1_1_prager_kinematic_hardening_rule.html#aed62f52365e4522497c03b158d090965":[7,0,10,0,43,0],
-"structmfront_1_1bbrick_1_1_rousselier_tanguy_besson2002_stress_criterion.html":[7,0,10,0,44],
-"structmfront_1_1bbrick_1_1_rousselier_tanguy_besson2002_stress_criterion.html#a7bcd581ad8fcf2fec8f5c79cd368b992":[7,0,10,0,44,2]
+"structmfront_1_1bbrick_1_1_rousselier_tanguy_besson2002_stress_criterion.html":[7,0,10,0,44]
 };

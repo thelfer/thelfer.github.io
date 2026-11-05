@@ -1,5 +1,6 @@
 var NAVTREEINDEX51 =
 {
+"structmfront_1_1bbrick_1_1_rousselier_tanguy_besson2002_stress_criterion.html#a7bcd581ad8fcf2fec8f5c79cd368b992":[7,0,10,0,44,2],
 "structmfront_1_1bbrick_1_1_rousselier_tanguy_besson2002_stress_criterion.html#a7d161e3dc1ad237a290bb93be9c35521":[7,0,10,0,44,4],
 "structmfront_1_1bbrick_1_1_rousselier_tanguy_besson2002_stress_criterion.html#a955c15124f2fb0c160916d0ad88bfa9f":[7,0,10,0,44,1],
 "structmfront_1_1bbrick_1_1_rousselier_tanguy_besson2002_stress_criterion.html#acc6fab7ab23313e560b018b21261ca23":[7,0,10,0,44,5],
@@ -248,6 +249,5 @@ var NAVTREEINDEX51 =
 "structmfront_1_1generic__parallel_1_1material__property_1_1_backend_base_1_1_extra_argument_of_c_functions.html#a9f48ff977a494e6dbb862f4c3c30d654":[7,0,10,2,0,1,0,3],
 "structmfront_1_1generic__parallel_1_1material__property_1_1_backend_base_1_1_extra_argument_of_c_functions.html#ae9f5b232a502123887d009b980038dbf":[7,0,10,2,0,1,0,1],
 "structmfront_1_1generic__parallel_1_1material__property_1_1_backend_base_1_1_extra_argument_of_c_functions.html#aff8e7f62f0c110b2b40f25fd1e50935e":[7,0,10,2,0,1,0,4],
-"structmfront_1_1generic__parallel_1_1material__property_1_1_backend_factory.html":[7,0,10,2,0,2],
-"structmfront_1_1generic__parallel_1_1material__property_1_1_backend_factory.html#a36f845a75ebe8c3ef5fda8f94c5ca6cb":[7,0,10,2,0,2,0]
+"structmfront_1_1generic__parallel_1_1material__property_1_1_backend_factory.html":[7,0,10,2,0,2]
 };

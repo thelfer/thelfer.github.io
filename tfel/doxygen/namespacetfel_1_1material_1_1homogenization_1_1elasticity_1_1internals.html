@@ -152,6 +152,9 @@ requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6
 <tr class="memitem:a723b1b78f0e43677db858183c9434680" id="r_a723b1b78f0e43677db858183c9434680"><td class="memTemplParams" colspan="2">template&lt;typename LengthType &gt; </td></tr>
 <tr class="memitem:a723b1b78f0e43677db858183c9434680"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE std::array&lt; std::size_t, 3 &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetfel_1_1material_1_1homogenization_1_1elasticity_1_1internals.html#a723b1b78f0e43677db858183c9434680">sortEllipsoidLengths</a> (const LengthType &amp;a, const LengthType &amp;b, const LengthType &amp;c)</td></tr>
 <tr class="separator:a723b1b78f0e43677db858183c9434680"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba56deb9d926bffba816a7c34d8ab488" id="r_aba56deb9d926bffba816a7c34d8ab488"><td class="memTemplParams" colspan="2">template&lt;typename real &gt; </td></tr>
+<tr class="memitem:aba56deb9d926bffba816a7c34d8ab488"><td class="memTemplItemLeft" align="right" valign="top">TFEL_HOST_DEVICE <a class="el" href="structtfel_1_1math_1_1tvector.html">tfel::math::tvector</a>&lt; 3u, real &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetfel_1_1material_1_1homogenization_1_1elasticity_1_1internals.html#aba56deb9d926bffba816a7c34d8ab488">orthogonaliseEllipsoidAxes</a> (const <a class="el" href="structtfel_1_1math_1_1tvector.html">tfel::math::tvector</a>&lt; 3u, real &gt; &amp;n_a, const <a class="el" href="structtfel_1_1math_1_1tvector.html">tfel::math::tvector</a>&lt; 3u, real &gt; &amp;n_b, const char *const msg=&quot;n_a and n_b not normals&quot;)</td></tr>
+<tr class="separator:aba56deb9d926bffba816a7c34d8ab488"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5b3ce0fb5c56142e6a8566f5e03771e" id="r_ac5b3ce0fb5c56142e6a8566f5e03771e"><td class="memTemplParams" colspan="2"><a id="ac5b3ce0fb5c56142e6a8566f5e03771e" name="ac5b3ce0fb5c56142e6a8566f5e03771e"></a>
 template&lt;unsigned short int N, <a class="el" href="concepttfel_1_1math_1_1_scalar_concept.html">tfel::math::ScalarConcept</a> StressType&gt; <br />
 requires (<a class="el" href="namespacetfel_1_1math.html#a8d7e56abbf07c901ded6a6cf432ef1d0">tfel::math::checkUnitCompatibility</a>&lt; <a class="el" href="structtfel_1_1math_1_1unit_1_1_stress.html">tfel::math::unit::Stress</a>, StressType&gt;())</td></tr>
@@ -194,6 +197,57 @@ template&lt;typename real &gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">S</td><td>Eshelby tensor </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aba56deb9d926bffba816a7c34d8ab488" name="aba56deb9d926bffba816a7c34d8ab488"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba56deb9d926bffba816a7c34d8ab488">&#9670;&#160;</a></span>orthogonaliseEllipsoidAxes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename real &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">TFEL_HOST_DEVICE <a class="el" href="structtfel_1_1math_1_1tvector.html">tfel::math::tvector</a>&lt; 3u, real &gt; tfel::material::homogenization::elasticity::internals::orthogonaliseEllipsoidAxes </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structtfel_1_1math_1_1tvector.html">tfel::math::tvector</a>&lt; 3u, real &gt; &amp;&#160;</td>
+          <td class="paramname"><em>n_a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structtfel_1_1math_1_1tvector.html">tfel::math::tvector</a>&lt; 3u, real &gt; &amp;&#160;</td>
+          <td class="paramname"><em>n_b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *const&#160;</td>
+          <td class="paramname"><em>msg</em> = <code>&quot;n_a&#160;and&#160;n_b&#160;not&#160;normals&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function checks that the directions n_a and n_b of two principal axes of an ellipsoid are orthogonal, up to a tolerance relative to their norms, and removes from n_b its component along n_a, so that n_a, n_b and their cross product define an orthogonal basis up to rounding errors. n_a and n_b need not be unit vectors. </p><dl class="section return"><dt>Returns</dt><dd>n_b made orthogonal to n_a </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">real</td><td>numeric type </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">n_a</td><td>direction of the first principal axis </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n_b</td><td>direction of the second principal axis </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">msg</td><td>message reported if n_a and n_b are not orthogonal </td></tr>
   </table>
   </dd>
 </dl>
@@ -255,7 +309,7 @@ template&lt;typename LengthType &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetfel.html">tfel</a></li><li class="navelem"><a class="el" href="namespacetfel_1_1material.html">material</a></li><li class="navelem"><b>homogenization</b></li><li class="navelem"><b>elasticity</b></li><li class="navelem"><a class="el" href="namespacetfel_1_1material_1_1homogenization_1_1elasticity_1_1internals.html">internals</a></li>
-    <li class="footer">Generated on Thu Nov 5 2026 08:32:43 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu Nov 5 2026 09:24:32 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

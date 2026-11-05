@@ -1,5 +1,6 @@
 var NAVTREEINDEX88 =
 {
+"structtfel_1_1tests_1_1_test_manager.html#a619c6ad7fd8e92855bdf76c0033c737c":[7,0,14,9,6,6],
 "structtfel_1_1tests_1_1_test_manager.html#a8a190ce2ee207b140eee806a0683809b":[7,0,14,9,6,12],
 "structtfel_1_1tests_1_1_test_manager.html#ab053281cc19d318f590b14107b1f470e":[7,0,14,9,6,10],
 "structtfel_1_1tests_1_1_test_manager.html#ab763dd20c54c360429f4d170fc5c5dfc":[7,0,14,9,6,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX88 =
 "structtfel_1_1utilities_1_1_cxx_tokenizer.html#a1c9bd327b34ffeb2d84c43e3023a6e7a":[7,0,14,12,7,25],
 "structtfel_1_1utilities_1_1_cxx_tokenizer.html#a1cd0d78d6ca4c26a69b9bf9a0f07c6ba":[7,0,14,12,7,43],
 "structtfel_1_1utilities_1_1_cxx_tokenizer.html#a2055ec58c4cdb5e9dc515740665948b2":[7,0,14,12,7,21],
-"structtfel_1_1utilities_1_1_cxx_tokenizer.html#a20c7b102202aea377b9d9fe8cebdc371":[7,0,14,12,7,28],
-"structtfel_1_1utilities_1_1_cxx_tokenizer.html#a29667f47ea969d11af237ef38e4ceed9":[7,0,14,12,7,44]
+"structtfel_1_1utilities_1_1_cxx_tokenizer.html#a20c7b102202aea377b9d9fe8cebdc371":[7,0,14,12,7,28]
 };

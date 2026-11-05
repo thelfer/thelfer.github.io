@@ -1,5 +1,6 @@
 var NAVTREEINDEX7 =
 {
+"_model_query_8hxx.html":[8,0,4,0,0,2],
 "_modelling_hypothesis_8hxx.html":[8,0,0,3,4,69],
 "_modelling_hypothesis_8hxx.html#a940e9557389048e847c0f2d98fd5009d":[8,0,0,3,4,69,24],
 "_modelling_hypothesis_8hxx.html#a956e703349144cc46a1a2035361f3684":[8,0,0,3,4,69,23],
@@ -248,6 +249,5 @@ var NAVTREEINDEX7 =
 "_power_law_stress_based_nucleation_model_8hxx.html#ae52957194836eab04fe14c3f357a221e":[8,0,0,3,4,87,6],
 "_power_law_stress_based_nucleation_model_8ixx.html":[8,0,0,3,4,88],
 "_power_law_stress_based_nucleation_model_8ixx.html#a02907d7e640565b65af79fb44c64e9cd":[8,0,0,3,4,88,0],
-"_power_law_stress_based_nucleation_model_8ixx.html#a70341e51e71cf30eca592b5a53801cbe":[8,0,0,3,4,88,1],
-"_power_law_stress_based_nucleation_model_8ixx.html#a78ffb65409df187eb94220174f75529e":[8,0,0,3,4,88,2]
+"_power_law_stress_based_nucleation_model_8ixx.html#a70341e51e71cf30eca592b5a53801cbe":[8,0,0,3,4,88,1]
 };

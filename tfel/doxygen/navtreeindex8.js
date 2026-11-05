@@ -1,5 +1,6 @@
 var NAVTREEINDEX8 =
 {
+"_power_law_stress_based_nucleation_model_8ixx.html#a78ffb65409df187eb94220174f75529e":[8,0,0,3,4,88,2],
 "_power_law_stress_based_porosity_nucleation_model_8hxx.html":[8,0,2,0,0,3,45],
 "_prager_kinematic_hardening_rule_8hxx.html":[8,0,2,0,0,3,46],
 "_process_manager_8hxx.html":[8,0,0,3,7,13],
@@ -248,6 +249,5 @@ var NAVTREEINDEX8 =
 "_stress_criterion_factory_8hxx.html":[8,0,2,0,0,3,59],
 "_stress_potential_8hxx.html":[8,0,2,0,0,3,60],
 "_stress_potential_factory_8hxx.html":[8,0,2,0,0,3,61],
-"_strided_coalesced_view_8hxx.html":[8,0,0,3,5,1,31],
-"_strided_coalesced_view_8hxx.html#ac12b8b26ab3829d6113bdbda05a40c2f":[8,0,0,3,5,1,31,1]
+"_strided_coalesced_view_8hxx.html":[8,0,0,3,5,1,31]
 };

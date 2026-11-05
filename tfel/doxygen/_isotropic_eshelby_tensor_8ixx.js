@@ -14,5 +14,6 @@ var _isotropic_eshelby_tensor_8ixx =
     [ "computeSphereHillPolarisationTensor", "_isotropic_eshelby_tensor_8ixx.html#ad8df5514c1c7847586b50254143078e8", null ],
     [ "computeSphereHillPolarisationTensor", "_isotropic_eshelby_tensor_8ixx.html#ab8fbb3c9059273852963eb68b0a11c5a", null ],
     [ "convertEshelbyTensorFromDoublePrecision", "_isotropic_eshelby_tensor_8ixx.html#ae0116fdd69d83c499399a22bbbe5c344", null ],
+    [ "orthogonaliseEllipsoidAxes", "_isotropic_eshelby_tensor_8ixx.html#aba56deb9d926bffba816a7c34d8ab488", null ],
     [ "sortEllipsoidLengths", "_isotropic_eshelby_tensor_8ixx.html#a723b1b78f0e43677db858183c9434680", null ]
 ];

@@ -1,5 +1,6 @@
 var NAVTREEINDEX11 =
 {
+"classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01t10044100cd14acb9bc802281bcf3ae2a.html#a8f68af6824cd0458420ccfd6687c2697":[7,0,14,6,69,0],
 "classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01t10044100cd14acb9bc802281bcf3ae2a.html#a8f68af6824cd0458420ccfd6687c2697":[5,0,9,1,66,0],
 "classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01tbf06afb66908e808b431d53dcc59e8c9.html":[5,0,9,1,67],
 "classtfel_1_1math_1_1_compute_binary_operation_result_3_01_fixed_size_array_derivative_tag_3_01tbf06afb66908e808b431d53dcc59e8c9.html":[7,0,14,6,70],
@@ -248,6 +249,5 @@ var NAVTREEINDEX11 =
 "classtfel_1_1math_1_1_unary_result_type_3_01tensor_3_01_n_00_01_t_01_4_00_01_op_neg_01_4.html":[7,0,14,6,638],
 "classtfel_1_1math_1_1_unary_result_type_3_01tensor_3_01_n_00_01_t_01_4_00_01_op_neg_01_4.html":[5,0,9,1,635],
 "classtfel_1_1math_1_1_unary_result_type_3_01tmatrix_3_01_n_00_01_m_00_01_t_01_4_00_01_op_neg_01_4.html":[7,0,14,6,639],
-"classtfel_1_1math_1_1_unary_result_type_3_01tmatrix_3_01_n_00_01_m_00_01_t_01_4_00_01_op_neg_01_4.html":[5,0,9,1,636],
-"classtfel_1_1math_1_1_vector_matrix_handle.html":[5,0,9,1,643]
+"classtfel_1_1math_1_1_unary_result_type_3_01tmatrix_3_01_n_00_01_m_00_01_t_01_4_00_01_op_neg_01_4.html":[5,0,9,1,636]
 };

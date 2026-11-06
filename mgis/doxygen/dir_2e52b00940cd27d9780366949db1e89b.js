@@ -3,16 +3,18 @@ var dir_2e52b00940cd27d9780366949db1e89b =
     [ "CUDA", "dir_418e45bd109328e4982cec3cc32131fc.html", "dir_418e45bd109328e4982cec3cc32131fc" ],
     [ "TFEL", "dir_e23cfa4dbebc272344c1d50ffb8bb175.html", "dir_e23cfa4dbebc272344c1d50ffb8bb175" ],
     [ "Algorithms.hxx", "_algorithms_8hxx.html", "_algorithms_8hxx" ],
+    [ "Algorithms.ixx", "_algorithms_8ixx.html", "_algorithms_8ixx" ],
     [ "BasicLinearQuadratureSpace.hxx", "_basic_linear_quadrature_space_8hxx.html", "_basic_linear_quadrature_space_8hxx" ],
-    [ "BasicLinearQuadratureSpace.ixx", "_basic_linear_quadrature_space_8ixx.html", null ],
+    [ "BasicLinearQuadratureSpace.ixx", "_basic_linear_quadrature_space_8ixx.html", "_basic_linear_quadrature_space_8ixx" ],
     [ "BasicLinearSpace.hxx", "_basic_linear_space_8hxx.html", "_basic_linear_space_8hxx" ],
-    [ "BasicLinearSpace.ixx", "_basic_linear_space_8ixx.html", null ],
+    [ "BasicLinearSpace.ixx", "_basic_linear_space_8ixx.html", "_basic_linear_space_8ixx" ],
     [ "BinaryOperation.hxx", "_binary_operation_8hxx.html", "_binary_operation_8hxx" ],
     [ "BinaryOperation.ixx", "_binary_operation_8ixx.html", "_binary_operation_8ixx" ],
     [ "BinaryOperationEvaluatorBase.hxx", "_binary_operation_evaluator_base_8hxx.html", "_binary_operation_evaluator_base_8hxx" ],
     [ "BinaryOperationEvaluatorBase.ixx", "_binary_operation_evaluator_base_8ixx.html", "_binary_operation_evaluator_base_8ixx" ],
+    [ "Buffer.hxx", "_buffer_8hxx.html", "_buffer_8hxx" ],
     [ "CoalescedMemoryAccessFunctionViewBase.hxx", "_coalesced_memory_access_function_view_base_8hxx.html", "_coalesced_memory_access_function_view_base_8hxx" ],
-    [ "CoalescedMemoryAccessFunctionViewBase.ixx", "_coalesced_memory_access_function_view_base_8ixx.html", null ],
+    [ "CoalescedMemoryAccessFunctionViewBase.ixx", "_coalesced_memory_access_function_view_base_8ixx.html", "_coalesced_memory_access_function_view_base_8ixx" ],
     [ "CompileTimeSize.hxx", "_compile_time_size_8hxx.html", "_compile_time_size_8hxx" ],
     [ "DataViewConcept.hxx", "_data_view_concept_8hxx.html", "_data_view_concept_8hxx" ],
     [ "Evaluator.hxx", "_evaluator_8hxx.html", null ],
@@ -38,5 +40,5 @@ var dir_2e52b00940cd27d9780366949db1e89b =
     [ "UnaryOperation.hxx", "_unary_operation_8hxx.html", "_unary_operation_8hxx" ],
     [ "UnaryOperation.ixx", "_unary_operation_8ixx.html", "_unary_operation_8ixx" ],
     [ "UniformEvaluator.hxx", "_uniform_evaluator_8hxx.html", "_uniform_evaluator_8hxx" ],
-    [ "UniformEvaluator.ixx", "_uniform_evaluator_8ixx.html", null ]
+    [ "UniformEvaluator.ixx", "_uniform_evaluator_8ixx.html", "_uniform_evaluator_8ixx" ]
 ];

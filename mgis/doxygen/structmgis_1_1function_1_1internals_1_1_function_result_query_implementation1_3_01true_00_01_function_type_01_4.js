@@ -1,0 +1,6 @@
+var structmgis_1_1function_1_1internals_1_1_function_result_query_implementation1_3_01true_00_01_function_type_01_4 =
+[
+    [ "const_result_type", "structmgis_1_1function_1_1internals_1_1_function_result_query_implementation1_3_01true_00_01_function_type_01_4.html#a9dce669ce9366106e567f200797eef80", null ],
+    [ "result_type", "structmgis_1_1function_1_1internals_1_1_function_result_query_implementation1_3_01true_00_01_function_type_01_4.html#afc0ba79b84fc4313eb5bef5dd272c3de", null ],
+    [ "Space", "structmgis_1_1function_1_1internals_1_1_function_result_query_implementation1_3_01true_00_01_function_type_01_4.html#a9d43bdbbdefe300d4366a84f0b079e0d", null ]
+];

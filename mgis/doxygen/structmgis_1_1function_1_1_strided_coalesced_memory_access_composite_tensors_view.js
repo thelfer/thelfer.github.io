@@ -1,5 +1,7 @@
 var structmgis_1_1function_1_1_strided_coalesced_memory_access_composite_tensors_view =
 [
+    [ "ConstValues", "structmgis_1_1function_1_1_strided_coalesced_memory_access_composite_tensors_view.html#af68819138992ba36aa5a55cb7f11c13a", null ],
+    [ "MutableValues", "structmgis_1_1function_1_1_strided_coalesced_memory_access_composite_tensors_view.html#aa833cac0a877203893dea2500c735672", null ],
     [ "get", "structmgis_1_1function_1_1_strided_coalesced_memory_access_composite_tensors_view.html#ac453572ec67d7cdd78ab35c995d7bab4", null ],
     [ "get", "structmgis_1_1function_1_1_strided_coalesced_memory_access_composite_tensors_view.html#a0036eff3ac2614c4663a5564d9b2a02a", null ],
     [ "get", "structmgis_1_1function_1_1_strided_coalesced_memory_access_composite_tensors_view.html#a5d36c40b1d6439a7a1bbb98e324f3f6f", null ],

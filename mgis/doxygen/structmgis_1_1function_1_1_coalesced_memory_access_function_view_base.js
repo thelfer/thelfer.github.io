@@ -1,5 +1,7 @@
 var structmgis_1_1function_1_1_coalesced_memory_access_function_view_base =
 [
+    [ "ConstValues", "structmgis_1_1function_1_1_coalesced_memory_access_function_view_base.html#a99b6236258f4fa41bb3ca9c9dabe6834", null ],
+    [ "MutableValues", "structmgis_1_1function_1_1_coalesced_memory_access_function_view_base.html#ad8feed8988c8ebe323a7048365b19774", null ],
     [ "ScalarComponentFunctionView", "structmgis_1_1function_1_1_coalesced_memory_access_function_view_base.html#a2476f45ea388c3c88ed34d15523e5fc9", null ],
     [ "CoalescedMemoryAccessFunctionViewBase", "structmgis_1_1function_1_1_coalesced_memory_access_function_view_base.html#a446438c35c4d10b79c8b393c4659425b", null ],
     [ "CoalescedMemoryAccessFunctionViewBase", "structmgis_1_1function_1_1_coalesced_memory_access_function_view_base.html#ad82c4bb09f9ddc299f24ecae6c9bd253", null ],

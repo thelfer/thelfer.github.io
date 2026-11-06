@@ -1,0 +1,4 @@
+var structmgis_1_1function_1_1internals_1_1_shared_quadrature_space_add_cell_workspace_3_01true_00_01_space_type_01_4 =
+[
+    [ "CellWorkspace", "structmgis_1_1function_1_1internals_1_1_shared_quadrature_space_add_cell_workspace_3_01true_00_01_space_type_01_4.html#abff1961f780cfa0be754f228231bcc82", null ]
+];

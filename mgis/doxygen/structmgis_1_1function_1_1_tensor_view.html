@@ -106,7 +106,7 @@ $(document).ready(function(){initNavTree('structmgis_1_1function_1_1_tensor_view
 </div><!--header-->
 <div class="contents">
 
-<p>an evaluator returning the values of an immutable function view as a fixed size span or a scalar  
+<p>an evaluator returning the values of a function as TFEL's tensorial objects  
  <a href="structmgis_1_1function_1_1_tensor_view.html#details">More...</a></p>
 
 <p><code>#include &lt;/home/runner/work/MFrontGenericInterfaceSupport/MFrontGenericInterfaceSupport/include/MGIS/Function/TFEL/TensorView.hxx&gt;</code></p>
@@ -123,70 +123,75 @@ Inheritance diagram for mgis::function::TensorView&lt; FunctionType, TensorType 
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a32818ea65956bd1858829bc6cb67a483" id="r_a32818ea65956bd1858829bc6cb67a483"><td class="memItemLeft" align="right" valign="top"><a id="a32818ea65956bd1858829bc6cb67a483" name="a32818ea65956bd1858829bc6cb67a483"></a>
-<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">using</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Space</b> = function_space&lt; <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a> &gt;</td></tr>
+<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">using</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Space</b> = <a class="el" href="_function_concept_8hxx.html#a93ec0225eae92cf7744daa6b829fe784">function_space</a>&lt; <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a> &gt;</td></tr>
+<tr class="memdesc:a32818ea65956bd1858829bc6cb67a483"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of the space on which the underlying function is defined <br /></td></tr>
 <tr class="separator:a32818ea65956bd1858829bc6cb67a483"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e7410be9f1754d66374f90ab7023415" id="r_a9e7410be9f1754d66374f90ab7023415"><td class="memItemLeft" align="right" valign="top"><a id="a9e7410be9f1754d66374f90ab7023415" name="a9e7410be9f1754d66374f90ab7023415"></a>
 <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">using</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ConstructorArgumentType</b> = std::conditional_t&lt; LightweightViewConcept&lt; <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a> &gt;, <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a>, <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a> &amp; &gt;</td></tr>
-<tr class="memdesc:a9e7410be9f1754d66374f90ab7023415"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple alias used to workaround what seems to be a bug in gcc 16.x <br /></td></tr>
+<tr class="memdesc:a9e7410be9f1754d66374f90ab7023415"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple alias used to workaround what seems to be a bug in gcc 16.x: the underlying function is passed to the constructors by value if it is a lightweight view and by reference otherwise <br /></td></tr>
 <tr class="separator:a9e7410be9f1754d66374f90ab7023415"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a4e8a764863a398139c7db19d59c43af3" id="r_a4e8a764863a398139c7db19d59c43af3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a4e8a764863a398139c7db19d59c43af3">TensorView</a> (<a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a9e7410be9f1754d66374f90ab7023415">ConstructorArgumentType</a>)</td></tr>
-<tr class="memdesc:a4e8a764863a398139c7db19d59c43af3"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor  <br /></td></tr>
+<tr class="memdesc:a4e8a764863a398139c7db19d59c43af3"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor, checking the preconditions  <br /></td></tr>
 <tr class="separator:a4e8a764863a398139c7db19d59c43af3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad44eb59bafa9c42cc362ad450dc5c413" id="r_ad44eb59bafa9c42cc362ad450dc5c413"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">bool</a> doPreconditionsCheck&gt; </td></tr>
 <tr class="memitem:ad44eb59bafa9c42cc362ad450dc5c413"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1_tensor_view.html#ad44eb59bafa9c42cc362ad450dc5c413">TensorView</a> (const <a class="el" href="structmgis_1_1_preconditions_check.html">PreconditionsCheck</a>&lt; <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">doPreconditionsCheck</a> &gt; &amp;, <a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a9e7410be9f1754d66374f90ab7023415">ConstructorArgumentType</a>)</td></tr>
 <tr class="memdesc:ad44eb59bafa9c42cc362ad450dc5c413"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor  <br /></td></tr>
 <tr class="separator:ad44eb59bafa9c42cc362ad450dc5c413"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9192bbccc0d778cda3e41158efbb882b" id="r_a9192bbccc0d778cda3e41158efbb882b"><td class="memItemLeft" align="right" valign="top"><a id="a9192bbccc0d778cda3e41158efbb882b" name="a9192bbccc0d778cda3e41158efbb882b"></a>
-<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><b>check</b> (<a class="el" href="structmgis_1_1_abstract_error_handler.html">AbstractErrorHandler</a> &amp;) const</td></tr>
-<tr class="memdesc:a9192bbccc0d778cda3e41158efbb882b"><td class="mdescLeft">&#160;</td><td class="mdescRight">perform consistency checks <br /></td></tr>
+<tr class="memitem:a9192bbccc0d778cda3e41158efbb882b" id="r_a9192bbccc0d778cda3e41158efbb882b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a9192bbccc0d778cda3e41158efbb882b">check</a> (<a class="el" href="structmgis_1_1_abstract_error_handler.html">AbstractErrorHandler</a> &amp;) const</td></tr>
+<tr class="memdesc:a9192bbccc0d778cda3e41158efbb882b"><td class="mdescLeft">&#160;</td><td class="mdescRight">perform consistency checks  <br /></td></tr>
 <tr class="separator:a9192bbccc0d778cda3e41158efbb882b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab346cec077085f355cfbac9bc11787f0" id="r_ab346cec077085f355cfbac9bc11787f0"><td class="memItemLeft" align="right" valign="top"><a id="ab346cec077085f355cfbac9bc11787f0" name="ab346cec077085f355cfbac9bc11787f0"></a>
-<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> const Space &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getSpace</b> () const</td></tr>
-<tr class="memdesc:ab346cec077085f355cfbac9bc11787f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the underlying space <br /></td></tr>
+<tr class="memitem:ab346cec077085f355cfbac9bc11787f0" id="r_ab346cec077085f355cfbac9bc11787f0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> const <a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a32818ea65956bd1858829bc6cb67a483">Space</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1_tensor_view.html#ab346cec077085f355cfbac9bc11787f0">getSpace</a> () const</td></tr>
+<tr class="memdesc:ab346cec077085f355cfbac9bc11787f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the underlying space  <br /></td></tr>
 <tr class="separator:ab346cec077085f355cfbac9bc11787f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7ac543aa3c75635dcfef4d38d763a4e" id="r_ab7ac543aa3c75635dcfef4d38d763a4e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="namespacemgis.html#a184723b5d743b58169be89d3b04265fc">size_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1_tensor_view.html#ab7ac543aa3c75635dcfef4d38d763a4e">getNumberOfComponents</a> () const <a class="el" href="_config_8hxx.html#a461a7a05397aa66d9490b6cacfe516e4">MGIS_NOEXCEPT</a></td></tr>
 <tr class="separator:ab7ac543aa3c75635dcfef4d38d763a4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f3c2b747bc8bbe3402c9bc01220deeb" id="r_a0f3c2b747bc8bbe3402c9bc01220deeb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a0f3c2b747bc8bbe3402c9bc01220deeb">operator()</a> (const <a class="el" href="_space_concept_8hxx.html#a39fa83c1af7fb0f17f49d0bf9c4dc860">element_index</a>&lt; Space &gt; &amp;) const</td></tr>
+<tr class="memitem:a0f3c2b747bc8bbe3402c9bc01220deeb" id="r_a0f3c2b747bc8bbe3402c9bc01220deeb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a0f3c2b747bc8bbe3402c9bc01220deeb">operator()</a> (const <a class="el" href="_space_concept_8hxx.html#a39fa83c1af7fb0f17f49d0bf9c4dc860">element_index</a>&lt; <a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a32818ea65956bd1858829bc6cb67a483">Space</a> &gt; &amp;) const</td></tr>
 <tr class="memdesc:a0f3c2b747bc8bbe3402c9bc01220deeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">call operator  <br /></td></tr>
 <tr class="separator:a0f3c2b747bc8bbe3402c9bc01220deeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5b8ab774bd42eb116eac05db0a817e7" id="r_ad5b8ab774bd42eb116eac05db0a817e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1_tensor_view.html#ad5b8ab774bd42eb116eac05db0a817e7">operator()</a> (const <a class="el" href="_space_concept_8hxx.html#a91a878b093d61e654f69bafb2632d8d2">element_workspace</a>&lt; Space &gt; &amp;, const <a class="el" href="_space_concept_8hxx.html#a39fa83c1af7fb0f17f49d0bf9c4dc860">element_index</a>&lt; Space &gt; &amp;) const</td></tr>
+<tr class="memitem:ad5b8ab774bd42eb116eac05db0a817e7" id="r_ad5b8ab774bd42eb116eac05db0a817e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1_tensor_view.html#ad5b8ab774bd42eb116eac05db0a817e7">operator()</a> (const <a class="el" href="_space_concept_8hxx.html#a91a878b093d61e654f69bafb2632d8d2">element_workspace</a>&lt; <a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a32818ea65956bd1858829bc6cb67a483">Space</a> &gt; &amp;, const <a class="el" href="_space_concept_8hxx.html#a39fa83c1af7fb0f17f49d0bf9c4dc860">element_index</a>&lt; <a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a32818ea65956bd1858829bc6cb67a483">Space</a> &gt; &amp;) const</td></tr>
 <tr class="memdesc:ad5b8ab774bd42eb116eac05db0a817e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">call operator  <br /></td></tr>
 <tr class="separator:ad5b8ab774bd42eb116eac05db0a817e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16e8353f458241f40b69904ccc8033fe" id="r_a16e8353f458241f40b69904ccc8033fe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a16e8353f458241f40b69904ccc8033fe">operator()</a> (const <a class="el" href="_space_concept_8hxx.html#af2fd1fd0b66b3cf3f65fbd327f21582f">cell_index</a>&lt; Space &gt; &amp;, const <a class="el" href="_space_concept_8hxx.html#a5ea888d38624e64ae215039764277e92">quadrature_point_index</a>&lt; Space &gt; &amp;) const</td></tr>
+<tr class="memitem:a16e8353f458241f40b69904ccc8033fe" id="r_a16e8353f458241f40b69904ccc8033fe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a16e8353f458241f40b69904ccc8033fe">operator()</a> (const <a class="el" href="_space_concept_8hxx.html#af2fd1fd0b66b3cf3f65fbd327f21582f">cell_index</a>&lt; <a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a32818ea65956bd1858829bc6cb67a483">Space</a> &gt; &amp;, const <a class="el" href="_space_concept_8hxx.html#a5ea888d38624e64ae215039764277e92">quadrature_point_index</a>&lt; <a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a32818ea65956bd1858829bc6cb67a483">Space</a> &gt; &amp;) const</td></tr>
 <tr class="memdesc:a16e8353f458241f40b69904ccc8033fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">call operator  <br /></td></tr>
 <tr class="separator:a16e8353f458241f40b69904ccc8033fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93e2575ffb274cc385bf690ed8b1c476" id="r_a93e2575ffb274cc385bf690ed8b1c476"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a93e2575ffb274cc385bf690ed8b1c476">operator()</a> (const <a class="el" href="_space_concept_8hxx.html#acb61c722c28d5227bb3794829442926b">cell_workspace</a>&lt; Space &gt; &amp;, const <a class="el" href="_space_concept_8hxx.html#af2fd1fd0b66b3cf3f65fbd327f21582f">cell_index</a>&lt; Space &gt; &amp;, const <a class="el" href="_space_concept_8hxx.html#a5ea888d38624e64ae215039764277e92">quadrature_point_index</a>&lt; Space &gt; &amp;) const</td></tr>
+<tr class="memitem:a93e2575ffb274cc385bf690ed8b1c476" id="r_a93e2575ffb274cc385bf690ed8b1c476"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a93e2575ffb274cc385bf690ed8b1c476">operator()</a> (const <a class="el" href="_space_concept_8hxx.html#acb61c722c28d5227bb3794829442926b">cell_workspace</a>&lt; <a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a32818ea65956bd1858829bc6cb67a483">Space</a> &gt; &amp;, const <a class="el" href="_space_concept_8hxx.html#af2fd1fd0b66b3cf3f65fbd327f21582f">cell_index</a>&lt; <a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a32818ea65956bd1858829bc6cb67a483">Space</a> &gt; &amp;, const <a class="el" href="_space_concept_8hxx.html#a5ea888d38624e64ae215039764277e92">quadrature_point_index</a>&lt; <a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a32818ea65956bd1858829bc6cb67a483">Space</a> &gt; &amp;) const</td></tr>
 <tr class="memdesc:a93e2575ffb274cc385bf690ed8b1c476"><td class="mdescLeft">&#160;</td><td class="mdescRight">call operator  <br /></td></tr>
 <tr class="separator:a93e2575ffb274cc385bf690ed8b1c476"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb916d3156837c5ace07af1ebc7d7fdc" id="r_abb916d3156837c5ace07af1ebc7d7fdc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1_tensor_view.html#abb916d3156837c5ace07af1ebc7d7fdc">operator()</a> (const <a class="el" href="_space_concept_8hxx.html#a39fa83c1af7fb0f17f49d0bf9c4dc860">element_index</a>&lt; Space &gt; &amp;)</td></tr>
-<tr class="memdesc:abb916d3156837c5ace07af1ebc7d7fdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">call operator  <br /></td></tr>
+<tr class="memitem:abb916d3156837c5ace07af1ebc7d7fdc" id="r_abb916d3156837c5ace07af1ebc7d7fdc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1_tensor_view.html#abb916d3156837c5ace07af1ebc7d7fdc">operator()</a> (const <a class="el" href="_space_concept_8hxx.html#a39fa83c1af7fb0f17f49d0bf9c4dc860">element_index</a>&lt; <a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a32818ea65956bd1858829bc6cb67a483">Space</a> &gt; &amp;)</td></tr>
+<tr class="memdesc:abb916d3156837c5ace07af1ebc7d7fdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">call operator returning mutable values  <br /></td></tr>
 <tr class="separator:abb916d3156837c5ace07af1ebc7d7fdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac86f60ff90e50d40ddaf34679306677f" id="r_ac86f60ff90e50d40ddaf34679306677f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1_tensor_view.html#ac86f60ff90e50d40ddaf34679306677f">operator()</a> (const <a class="el" href="_space_concept_8hxx.html#a91a878b093d61e654f69bafb2632d8d2">element_workspace</a>&lt; Space &gt; &amp;, const <a class="el" href="_space_concept_8hxx.html#a39fa83c1af7fb0f17f49d0bf9c4dc860">element_index</a>&lt; Space &gt; &amp;)</td></tr>
-<tr class="memdesc:ac86f60ff90e50d40ddaf34679306677f"><td class="mdescLeft">&#160;</td><td class="mdescRight">call operator  <br /></td></tr>
+<tr class="memitem:ac86f60ff90e50d40ddaf34679306677f" id="r_ac86f60ff90e50d40ddaf34679306677f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1_tensor_view.html#ac86f60ff90e50d40ddaf34679306677f">operator()</a> (const <a class="el" href="_space_concept_8hxx.html#a91a878b093d61e654f69bafb2632d8d2">element_workspace</a>&lt; <a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a32818ea65956bd1858829bc6cb67a483">Space</a> &gt; &amp;, const <a class="el" href="_space_concept_8hxx.html#a39fa83c1af7fb0f17f49d0bf9c4dc860">element_index</a>&lt; <a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a32818ea65956bd1858829bc6cb67a483">Space</a> &gt; &amp;)</td></tr>
+<tr class="memdesc:ac86f60ff90e50d40ddaf34679306677f"><td class="mdescLeft">&#160;</td><td class="mdescRight">call operator returning mutable values  <br /></td></tr>
 <tr class="separator:ac86f60ff90e50d40ddaf34679306677f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c28e4df0d7b53e1341829669010d25e" id="r_a1c28e4df0d7b53e1341829669010d25e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a1c28e4df0d7b53e1341829669010d25e">operator()</a> (const <a class="el" href="_space_concept_8hxx.html#af2fd1fd0b66b3cf3f65fbd327f21582f">cell_index</a>&lt; Space &gt; &amp;, const <a class="el" href="_space_concept_8hxx.html#a5ea888d38624e64ae215039764277e92">quadrature_point_index</a>&lt; Space &gt; &amp;)</td></tr>
-<tr class="memdesc:a1c28e4df0d7b53e1341829669010d25e"><td class="mdescLeft">&#160;</td><td class="mdescRight">call operator  <br /></td></tr>
+<tr class="memitem:a1c28e4df0d7b53e1341829669010d25e" id="r_a1c28e4df0d7b53e1341829669010d25e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a1c28e4df0d7b53e1341829669010d25e">operator()</a> (const <a class="el" href="_space_concept_8hxx.html#af2fd1fd0b66b3cf3f65fbd327f21582f">cell_index</a>&lt; <a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a32818ea65956bd1858829bc6cb67a483">Space</a> &gt; &amp;, const <a class="el" href="_space_concept_8hxx.html#a5ea888d38624e64ae215039764277e92">quadrature_point_index</a>&lt; <a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a32818ea65956bd1858829bc6cb67a483">Space</a> &gt; &amp;)</td></tr>
+<tr class="memdesc:a1c28e4df0d7b53e1341829669010d25e"><td class="mdescLeft">&#160;</td><td class="mdescRight">call operator returning mutable values  <br /></td></tr>
 <tr class="separator:a1c28e4df0d7b53e1341829669010d25e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63e92dd831cb9efddd95e24163ea530b" id="r_a63e92dd831cb9efddd95e24163ea530b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a63e92dd831cb9efddd95e24163ea530b">operator()</a> (const <a class="el" href="_space_concept_8hxx.html#acb61c722c28d5227bb3794829442926b">cell_workspace</a>&lt; Space &gt; &amp;, const <a class="el" href="_space_concept_8hxx.html#af2fd1fd0b66b3cf3f65fbd327f21582f">cell_index</a>&lt; Space &gt; &amp;, const <a class="el" href="_space_concept_8hxx.html#a5ea888d38624e64ae215039764277e92">quadrature_point_index</a>&lt; Space &gt; &amp;)</td></tr>
-<tr class="memdesc:a63e92dd831cb9efddd95e24163ea530b"><td class="mdescLeft">&#160;</td><td class="mdescRight">call operator  <br /></td></tr>
+<tr class="memitem:a63e92dd831cb9efddd95e24163ea530b" id="r_a63e92dd831cb9efddd95e24163ea530b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a63e92dd831cb9efddd95e24163ea530b">operator()</a> (const <a class="el" href="_space_concept_8hxx.html#acb61c722c28d5227bb3794829442926b">cell_workspace</a>&lt; <a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a32818ea65956bd1858829bc6cb67a483">Space</a> &gt; &amp;, const <a class="el" href="_space_concept_8hxx.html#af2fd1fd0b66b3cf3f65fbd327f21582f">cell_index</a>&lt; <a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a32818ea65956bd1858829bc6cb67a483">Space</a> &gt; &amp;, const <a class="el" href="_space_concept_8hxx.html#a5ea888d38624e64ae215039764277e92">quadrature_point_index</a>&lt; <a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a32818ea65956bd1858829bc6cb67a483">Space</a> &gt; &amp;)</td></tr>
+<tr class="memdesc:a63e92dd831cb9efddd95e24163ea530b"><td class="mdescLeft">&#160;</td><td class="mdescRight">call operator returning mutable values  <br /></td></tr>
 <tr class="separator:a63e92dd831cb9efddd95e24163ea530b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ae1a995aae9b5cf50a929c5210cffa229" id="r_ae1a995aae9b5cf50a929c5210cffa229"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">static</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1_tensor_view.html#ae1a995aae9b5cf50a929c5210cffa229">checkPreconditions</a> (<a class="el" href="structmgis_1_1_abstract_error_handler.html">AbstractErrorHandler</a> &amp;, const <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a> &amp;)</td></tr>
-<tr class="memdesc:ae1a995aae9b5cf50a929c5210cffa229"><td class="mdescLeft">&#160;</td><td class="mdescRight">method checking that the precondition of the constructor are met.  <br /></td></tr>
+<tr class="memdesc:ae1a995aae9b5cf50a929c5210cffa229"><td class="mdescLeft">&#160;</td><td class="mdescRight">method checking that the preconditions of the constructor are met  <br /></td></tr>
 <tr class="separator:ae1a995aae9b5cf50a929c5210cffa229"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;FunctionConcept FunctionType, TensorConcept TensorType&gt;<br />
-struct mgis::function::TensorView&lt; FunctionType, TensorType &gt;</div><p>an evaluator returning the values of an immutable function view as a fixed size span or a scalar </p>
+struct mgis::function::TensorView&lt; FunctionType, TensorType &gt;</div><p>an evaluator returning the values of a function as TFEL's tensorial objects </p>
+<p>The view is built from a function whose number of components must be equal to the number of components of <code>TensorType</code>. Its call operators return the values of the function at a given integration point, mapped on the memory of the function using <code>tfel::math::map</code>:</p>
+<ul>
+<li>a read-only tensor, for the constant call operators,</li>
+<li>a mutable tensor, which may be modified, for the non constant call operators.</li>
+</ul>
+<p>Only the call operators which match the way the underlying function can be called are available.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">FunctionType</td><td>underlying function type </td></tr>
-    <tr><td class="paramname">TensorType</td><td>type of the tensor </td></tr>
+    <tr><td class="paramname">FunctionType</td><td>type of the underlying function </td></tr>
+    <tr><td class="paramname">TensorType</td><td>type of the tensorial objects returned by the view, which must match the <code>TensorConcept</code> concept </td></tr>
   </table>
   </dd>
 </dl>
@@ -217,10 +222,10 @@ template&lt;FunctionConcept FunctionType, TensorConcept TensorType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>constructor </p>
+<p>constructor, checking the preconditions </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">values</td><td>function </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">values</td><td>function used to build the view </td></tr>
   </table>
   </dd>
 </dl>
@@ -266,10 +271,16 @@ template&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd
 </div><div class="memdoc">
 
 <p>constructor </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">doPreconditionsCheck</td><td>boolean stating if the preconditions must be checked </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">pcheck</td><td>object stating if preconditions must be checked </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">values</td><td>function </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">values</td><td>function used to build the view </td></tr>
   </table>
   </dd>
 </dl>
@@ -277,6 +288,43 @@ template&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a9192bbccc0d778cda3e41158efbb882b" name="a9192bbccc0d778cda3e41158efbb882b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9192bbccc0d778cda3e41158efbb882b">&#9670;&#160;</a></span>check()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;FunctionConcept FunctionType, TensorConcept TensorType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">bool</a> <a class="el" href="structmgis_1_1function_1_1_tensor_view.html">mgis::function::TensorView</a>&lt; <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a>, <a class="el" href="_tensor_operations_8hxx.html#ad91e53ef3a6d0b6afc04988924e3cffa">TensorType</a> &gt;::check </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmgis_1_1_abstract_error_handler.html">AbstractErrorHandler</a> &amp;&#160;</td>
+          <td class="paramname"><em>eh</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>perform consistency checks </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">eh</td><td>error handler used to report the errors </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the number of components of the underlying function is equal to the number of components of the tensorial type </dd></dl>
+
+</div>
+</div>
 <a id="ae1a995aae9b5cf50a929c5210cffa229" name="ae1a995aae9b5cf50a929c5210cffa229"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae1a995aae9b5cf50a929c5210cffa229">&#9670;&#160;</a></span>checkPreconditions()</h2>
 
@@ -313,13 +361,15 @@ template&lt;FunctionConcept FunctionType, TensorConcept TensorType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>method checking that the precondition of the constructor are met. </p>
+<p>method checking that the preconditions of the constructor are met </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">values</td><td>function </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">eh</td><td>error handler used to report the errors </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">values</td><td>function used to build the view </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the number of components of the function is equal to the number of components of the tensorial type </dd></dl>
 
 </div>
 </div>
@@ -347,7 +397,37 @@ template&lt;FunctionConcept FunctionType, TensorConcept TensorType&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the number of components </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the number of components of the values returned by the view, which is the number of components of the tensorial type </dd></dl>
+
+</div>
+</div>
+<a id="ab346cec077085f355cfbac9bc11787f0" name="ab346cec077085f355cfbac9bc11787f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab346cec077085f355cfbac9bc11787f0">&#9670;&#160;</a></span>getSpace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;FunctionConcept FunctionType, TensorConcept TensorType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> const <a class="el" href="structmgis_1_1function_1_1_tensor_view.html">TensorView</a>&lt; <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a>, <a class="el" href="_tensor_operations_8hxx.html#ad91e53ef3a6d0b6afc04988924e3cffa">TensorType</a> &gt;<a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a32818ea65956bd1858829bc6cb67a483">::Space</a> &amp; <a class="el" href="structmgis_1_1function_1_1_tensor_view.html">mgis::function::TensorView</a>&lt; <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a>, <a class="el" href="_tensor_operations_8hxx.html#ad91e53ef3a6d0b6afc04988924e3cffa">TensorType</a> &gt;::getSpace </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>return the underlying space </p>
+<dl class="section return"><dt>Returns</dt><dd>the space on which the underlying function is defined </dd></dl>
 
 </div>
 </div>
@@ -365,13 +445,13 @@ template&lt;FunctionConcept FunctionType, TensorConcept TensorType&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a> <a class="el" href="structmgis_1_1function_1_1_tensor_view.html">mgis::function::TensorView</a>&lt; <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a>, <a class="el" href="_tensor_operations_8hxx.html#ad91e53ef3a6d0b6afc04988924e3cffa">TensorType</a> &gt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">::operator</a>() </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="_space_concept_8hxx.html#af2fd1fd0b66b3cf3f65fbd327f21582f">cell_index</a>&lt; Space &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="_space_concept_8hxx.html#af2fd1fd0b66b3cf3f65fbd327f21582f">cell_index</a>&lt; <a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a32818ea65956bd1858829bc6cb67a483">Space</a> &gt; &amp;&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="_space_concept_8hxx.html#a5ea888d38624e64ae215039764277e92">quadrature_point_index</a>&lt; Space &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="_space_concept_8hxx.html#a5ea888d38624e64ae215039764277e92">quadrature_point_index</a>&lt; <a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a32818ea65956bd1858829bc6cb67a483">Space</a> &gt; &amp;&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -387,14 +467,16 @@ template&lt;FunctionConcept FunctionType, TensorConcept TensorType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>call operator </p>
+<p>call operator returning mutable values </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">e</td><td>cell index </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>integration point index </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>quadrature point index </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>the values of the function at the given integration point as a mutable tensor, which may be modified </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>only available if the underlying function can be called with a cell index and a quadrature point index and if the values it returns can be mapped to mutable memory </dd></dl>
 
 </div>
 </div>
@@ -412,13 +494,13 @@ template&lt;FunctionConcept FunctionType, TensorConcept TensorType&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a> <a class="el" href="structmgis_1_1function_1_1_tensor_view.html">mgis::function::TensorView</a>&lt; <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a>, <a class="el" href="_tensor_operations_8hxx.html#ad91e53ef3a6d0b6afc04988924e3cffa">TensorType</a> &gt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">::operator</a>() </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="_space_concept_8hxx.html#af2fd1fd0b66b3cf3f65fbd327f21582f">cell_index</a>&lt; Space &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="_space_concept_8hxx.html#af2fd1fd0b66b3cf3f65fbd327f21582f">cell_index</a>&lt; <a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a32818ea65956bd1858829bc6cb67a483">Space</a> &gt; &amp;&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="_space_concept_8hxx.html#a5ea888d38624e64ae215039764277e92">quadrature_point_index</a>&lt; Space &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="_space_concept_8hxx.html#a5ea888d38624e64ae215039764277e92">quadrature_point_index</a>&lt; <a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a32818ea65956bd1858829bc6cb67a483">Space</a> &gt; &amp;&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -438,10 +520,12 @@ template&lt;FunctionConcept FunctionType, TensorConcept TensorType&gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">e</td><td>cell index </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>integration point index </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>quadrature point index </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>the values of the function at the given integration point as a read-only tensor </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>only available if the underlying function can be called with a cell index and a quadrature point index and if the values it returns can be mapped to memory </dd></dl>
 
 </div>
 </div>
@@ -452,7 +536,7 @@ template&lt;FunctionConcept FunctionType, TensorConcept TensorType&gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;FunctionConcept FunctionType, TensorConcept TensorType&gt; <br />
-requires ((<a class="el" href="structmgis_1_1function_1_1internals_1_1_function_result_query.html">internals::FunctionResultQuery</a>&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a>&gt;::b4) &amp;&amp; (isFunctionResultTypeMappable&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a>&gt;))</div>
+requires ((<a class="el" href="structmgis_1_1function_1_1internals_1_1_function_result_query.html">internals::FunctionResultQuery</a>&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a>&gt;::b4) &amp;&amp; (<a class="el" href="_function_concept_8hxx.html#a8ca158a26bf9c6d216a1da4c17d92443">isFunctionResultTypeMappable</a>&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a>&gt;))</div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -460,19 +544,19 @@ requires ((<a class="el" href="structmgis_1_1function_1_1internals_1_1_function_
         <tr>
           <td class="memname"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a> <a class="el" href="structmgis_1_1function_1_1_tensor_view.html">mgis::function::TensorView</a>&lt; <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a>, <a class="el" href="_tensor_operations_8hxx.html#ad91e53ef3a6d0b6afc04988924e3cffa">TensorType</a> &gt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">::operator</a>() </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="_space_concept_8hxx.html#acb61c722c28d5227bb3794829442926b">cell_workspace</a>&lt; Space &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="_space_concept_8hxx.html#acb61c722c28d5227bb3794829442926b">cell_workspace</a>&lt; <a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a32818ea65956bd1858829bc6cb67a483">Space</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>wk</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="_space_concept_8hxx.html#af2fd1fd0b66b3cf3f65fbd327f21582f">cell_index</a>&lt; Space &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="_space_concept_8hxx.html#af2fd1fd0b66b3cf3f65fbd327f21582f">cell_index</a>&lt; <a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a32818ea65956bd1858829bc6cb67a483">Space</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>e</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="_space_concept_8hxx.html#a5ea888d38624e64ae215039764277e92">quadrature_point_index</a>&lt; Space &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="_space_concept_8hxx.html#a5ea888d38624e64ae215039764277e92">quadrature_point_index</a>&lt; <a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a32818ea65956bd1858829bc6cb67a483">Space</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>i</em>&#160;</td>
         </tr>
         <tr>
@@ -488,14 +572,17 @@ requires ((<a class="el" href="structmgis_1_1function_1_1internals_1_1_function_
 </table>
 </div><div class="memdoc">
 
-<p>call operator </p>
+<p>call operator returning mutable values </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">wk</td><td>cell workspace </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">e</td><td>cell index </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>integration point index </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>quadrature point index </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>the values of the function at the given integration point as a mutable tensor, which may be modified </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>only available if the underlying function can be called with a cell workspace, a cell index and a quadrature point index and if the values it returns can be mapped to mutable memory </dd></dl>
 
 </div>
 </div>
@@ -506,7 +593,7 @@ requires ((<a class="el" href="structmgis_1_1function_1_1internals_1_1_function_
 <div class="memproto">
 <div class="memtemplate">
 template&lt;FunctionConcept FunctionType, TensorConcept TensorType&gt; <br />
-requires ((<a class="el" href="structmgis_1_1function_1_1internals_1_1_function_result_query.html">internals::FunctionResultQuery</a>&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a>&gt;::b4) &amp;&amp; (isFunctionConstResultTypeMappable&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a>&gt;))</div>
+requires ((<a class="el" href="structmgis_1_1function_1_1internals_1_1_function_result_query.html">internals::FunctionResultQuery</a>&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a>&gt;::b4) &amp;&amp; (<a class="el" href="_function_concept_8hxx.html#a3d931856c29ba54f3a2b8c3080b8ee63">isFunctionConstResultTypeMappable</a>&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a>&gt;))</div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -514,19 +601,19 @@ requires ((<a class="el" href="structmgis_1_1function_1_1internals_1_1_function_
         <tr>
           <td class="memname"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a> <a class="el" href="structmgis_1_1function_1_1_tensor_view.html">mgis::function::TensorView</a>&lt; <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a>, <a class="el" href="_tensor_operations_8hxx.html#ad91e53ef3a6d0b6afc04988924e3cffa">TensorType</a> &gt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">::operator</a>() </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="_space_concept_8hxx.html#acb61c722c28d5227bb3794829442926b">cell_workspace</a>&lt; Space &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="_space_concept_8hxx.html#acb61c722c28d5227bb3794829442926b">cell_workspace</a>&lt; <a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a32818ea65956bd1858829bc6cb67a483">Space</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>wk</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="_space_concept_8hxx.html#af2fd1fd0b66b3cf3f65fbd327f21582f">cell_index</a>&lt; Space &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="_space_concept_8hxx.html#af2fd1fd0b66b3cf3f65fbd327f21582f">cell_index</a>&lt; <a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a32818ea65956bd1858829bc6cb67a483">Space</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>e</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="_space_concept_8hxx.html#a5ea888d38624e64ae215039764277e92">quadrature_point_index</a>&lt; Space &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="_space_concept_8hxx.html#a5ea888d38624e64ae215039764277e92">quadrature_point_index</a>&lt; <a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a32818ea65956bd1858829bc6cb67a483">Space</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>i</em>&#160;</td>
         </tr>
         <tr>
@@ -545,11 +632,14 @@ requires ((<a class="el" href="structmgis_1_1function_1_1internals_1_1_function_
 <p>call operator </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">wk</td><td>cell workspace </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">e</td><td>cell index </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>integration point index </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>quadrature point index </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>the values of the function at the given integration point as a read-only tensor </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>only available if the underlying function can be called with a cell workspace, a cell index and a quadrature point index and if the values it returns can be mapped to memory </dd></dl>
 
 </div>
 </div>
@@ -560,7 +650,7 @@ requires ((<a class="el" href="structmgis_1_1function_1_1internals_1_1_function_
 <div class="memproto">
 <div class="memtemplate">
 template&lt;FunctionConcept FunctionType, TensorConcept TensorType&gt; <br />
-requires ((<a class="el" href="structmgis_1_1function_1_1internals_1_1_function_result_query.html">internals::FunctionResultQuery</a>&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a>&gt;::b1) &amp;&amp; (isFunctionResultTypeMappable&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a>&gt;))</div>
+requires ((<a class="el" href="structmgis_1_1function_1_1internals_1_1_function_result_query.html">internals::FunctionResultQuery</a>&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a>&gt;::b1) &amp;&amp; (<a class="el" href="_function_concept_8hxx.html#a8ca158a26bf9c6d216a1da4c17d92443">isFunctionResultTypeMappable</a>&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a>&gt;))</div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -568,7 +658,7 @@ requires ((<a class="el" href="structmgis_1_1function_1_1internals_1_1_function_
         <tr>
           <td class="memname"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a> <a class="el" href="structmgis_1_1function_1_1_tensor_view.html">mgis::function::TensorView</a>&lt; <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a>, <a class="el" href="_tensor_operations_8hxx.html#ad91e53ef3a6d0b6afc04988924e3cffa">TensorType</a> &gt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">::operator</a>() </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="_space_concept_8hxx.html#a39fa83c1af7fb0f17f49d0bf9c4dc860">element_index</a>&lt; Space &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="_space_concept_8hxx.html#a39fa83c1af7fb0f17f49d0bf9c4dc860">element_index</a>&lt; <a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a32818ea65956bd1858829bc6cb67a483">Space</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>i</em></td><td>)</td>
           <td></td>
         </tr>
@@ -580,13 +670,15 @@ requires ((<a class="el" href="structmgis_1_1function_1_1internals_1_1_function_
 </table>
 </div><div class="memdoc">
 
-<p>call operator </p>
+<p>call operator returning mutable values </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>integration point index </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>the values of the function at the given integration point as a mutable tensor, which may be modified </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>only available if the underlying function can be called with an element index and if the values it returns can be mapped to mutable memory </dd></dl>
 
 </div>
 </div>
@@ -597,7 +689,7 @@ requires ((<a class="el" href="structmgis_1_1function_1_1internals_1_1_function_
 <div class="memproto">
 <div class="memtemplate">
 template&lt;FunctionConcept FunctionType, TensorConcept TensorType&gt; <br />
-requires ((<a class="el" href="structmgis_1_1function_1_1internals_1_1_function_result_query.html">internals::FunctionResultQuery</a>&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a>&gt;::b1) &amp;&amp; (isFunctionConstResultTypeMappable&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a>&gt;))</div>
+requires ((<a class="el" href="structmgis_1_1function_1_1internals_1_1_function_result_query.html">internals::FunctionResultQuery</a>&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a>&gt;::b1) &amp;&amp; (<a class="el" href="_function_concept_8hxx.html#a3d931856c29ba54f3a2b8c3080b8ee63">isFunctionConstResultTypeMappable</a>&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a>&gt;))</div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -605,7 +697,7 @@ requires ((<a class="el" href="structmgis_1_1function_1_1internals_1_1_function_
         <tr>
           <td class="memname"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a> <a class="el" href="structmgis_1_1function_1_1_tensor_view.html">mgis::function::TensorView</a>&lt; <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a>, <a class="el" href="_tensor_operations_8hxx.html#ad91e53ef3a6d0b6afc04988924e3cffa">TensorType</a> &gt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">::operator</a>() </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="_space_concept_8hxx.html#a39fa83c1af7fb0f17f49d0bf9c4dc860">element_index</a>&lt; Space &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="_space_concept_8hxx.html#a39fa83c1af7fb0f17f49d0bf9c4dc860">element_index</a>&lt; <a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a32818ea65956bd1858829bc6cb67a483">Space</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>i</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -624,6 +716,8 @@ requires ((<a class="el" href="structmgis_1_1function_1_1internals_1_1_function_
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>the values of the function at the given integration point as a read-only tensor </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>only available if the underlying function can be called with an element index and if the values it returns can be mapped to memory </dd></dl>
 
 </div>
 </div>
@@ -634,7 +728,7 @@ requires ((<a class="el" href="structmgis_1_1function_1_1internals_1_1_function_
 <div class="memproto">
 <div class="memtemplate">
 template&lt;FunctionConcept FunctionType, TensorConcept TensorType&gt; <br />
-requires ((<a class="el" href="structmgis_1_1function_1_1internals_1_1_function_result_query.html">internals::FunctionResultQuery</a>&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a>&gt;::b2) &amp;&amp; (isFunctionResultTypeMappable&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a>&gt;))</div>
+requires ((<a class="el" href="structmgis_1_1function_1_1internals_1_1_function_result_query.html">internals::FunctionResultQuery</a>&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a>&gt;::b2) &amp;&amp; (<a class="el" href="_function_concept_8hxx.html#a8ca158a26bf9c6d216a1da4c17d92443">isFunctionResultTypeMappable</a>&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a>&gt;))</div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -642,13 +736,13 @@ requires ((<a class="el" href="structmgis_1_1function_1_1internals_1_1_function_
         <tr>
           <td class="memname"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a> <a class="el" href="structmgis_1_1function_1_1_tensor_view.html">mgis::function::TensorView</a>&lt; <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a>, <a class="el" href="_tensor_operations_8hxx.html#ad91e53ef3a6d0b6afc04988924e3cffa">TensorType</a> &gt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">::operator</a>() </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="_space_concept_8hxx.html#a91a878b093d61e654f69bafb2632d8d2">element_workspace</a>&lt; Space &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="_space_concept_8hxx.html#a91a878b093d61e654f69bafb2632d8d2">element_workspace</a>&lt; <a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a32818ea65956bd1858829bc6cb67a483">Space</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>wk</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="_space_concept_8hxx.html#a39fa83c1af7fb0f17f49d0bf9c4dc860">element_index</a>&lt; Space &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="_space_concept_8hxx.html#a39fa83c1af7fb0f17f49d0bf9c4dc860">element_index</a>&lt; <a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a32818ea65956bd1858829bc6cb67a483">Space</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>i</em>&#160;</td>
         </tr>
         <tr>
@@ -664,13 +758,16 @@ requires ((<a class="el" href="structmgis_1_1function_1_1internals_1_1_function_
 </table>
 </div><div class="memdoc">
 
-<p>call operator </p>
+<p>call operator returning mutable values </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">wk</td><td>element workspace </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>integration point index </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>the values of the function at the given integration point as a mutable tensor, which may be modified </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>only available if the underlying function can be called with an element workspace and an element index and if the values it returns can be mapped to mutable memory </dd></dl>
 
 </div>
 </div>
@@ -681,7 +778,7 @@ requires ((<a class="el" href="structmgis_1_1function_1_1internals_1_1_function_
 <div class="memproto">
 <div class="memtemplate">
 template&lt;FunctionConcept FunctionType, TensorConcept TensorType&gt; <br />
-requires ((<a class="el" href="structmgis_1_1function_1_1internals_1_1_function_result_query.html">internals::FunctionResultQuery</a>&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a>&gt;::b2) &amp;&amp; (isFunctionConstResultTypeMappable&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a>&gt;))</div>
+requires ((<a class="el" href="structmgis_1_1function_1_1internals_1_1_function_result_query.html">internals::FunctionResultQuery</a>&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a>&gt;::b2) &amp;&amp; (<a class="el" href="_function_concept_8hxx.html#a3d931856c29ba54f3a2b8c3080b8ee63">isFunctionConstResultTypeMappable</a>&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a>&gt;))</div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -689,13 +786,13 @@ requires ((<a class="el" href="structmgis_1_1function_1_1internals_1_1_function_
         <tr>
           <td class="memname"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a> <a class="el" href="structmgis_1_1function_1_1_tensor_view.html">mgis::function::TensorView</a>&lt; <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">FunctionType</a>, <a class="el" href="_tensor_operations_8hxx.html#ad91e53ef3a6d0b6afc04988924e3cffa">TensorType</a> &gt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">::operator</a>() </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="_space_concept_8hxx.html#a91a878b093d61e654f69bafb2632d8d2">element_workspace</a>&lt; Space &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="_space_concept_8hxx.html#a91a878b093d61e654f69bafb2632d8d2">element_workspace</a>&lt; <a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a32818ea65956bd1858829bc6cb67a483">Space</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>wk</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="_space_concept_8hxx.html#a39fa83c1af7fb0f17f49d0bf9c4dc860">element_index</a>&lt; Space &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="_space_concept_8hxx.html#a39fa83c1af7fb0f17f49d0bf9c4dc860">element_index</a>&lt; <a class="el" href="structmgis_1_1function_1_1_tensor_view.html#a32818ea65956bd1858829bc6cb67a483">Space</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>i</em>&#160;</td>
         </tr>
         <tr>
@@ -714,10 +811,13 @@ requires ((<a class="el" href="structmgis_1_1function_1_1internals_1_1_function_
 <p>call operator </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">wk</td><td>element workspace </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>integration point index </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>the values of the function at the given integration point as a read-only tensor </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>only available if the underlying function can be called with an element workspace and an element index and if the values it returns can be mapped to memory </dd></dl>
 
 </div>
 </div>
@@ -731,7 +831,7 @@ requires ((<a class="el" href="structmgis_1_1function_1_1internals_1_1_function_
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemgis.html">mgis</a></li><li class="navelem"><b>function</b></li><li class="navelem"><a class="el" href="structmgis_1_1function_1_1_tensor_view.html">TensorView</a></li>
-    <li class="footer">Generated on Fri Nov 6 2026 14:30:40 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Nov 6 2026 19:42:30 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

@@ -106,6 +106,9 @@ $(document).ready(function(){initNavTree('_tensors_8hxx.html',''); initResizable
   <div class="headertitle"><div class="title">Tensors.hxx File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>File which defines the modifiers turning scalar valued functions and evaluators into tensor valued ones (<code>as_stensor</code>, <code>as_tensor</code>, ...) together with the tensorial operations which can be applied to evaluators (<code>trace</code>, <code>det</code>, <code>eigen_values</code>, <code>rotate</code>, <code>logarithmic_strain</code>, ...) and the concepts characterising evaluators returning the various kinds of tensorial objects.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;TFEL/Math/Forward/General.hxx&quot;</code><br />
 <code>#include &quot;<a class="el" href="_function_concept_8hxx.html">MGIS/Function/FunctionConcept.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_evaluator_concept_8hxx.html">MGIS/Function/EvaluatorConcept.hxx</a>&quot;</code><br />
@@ -122,14 +125,19 @@ $(document).ready(function(){initNavTree('_tensors_8hxx.html',''); initResizable
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01_tensor_type_01_6_01_4.html">mgis::function::internals::FunctionResultTypeTraits&lt; TensorType &amp; &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">partial specialization stating that a mutable reference to a tensorial object is a valid result type for a function  <a href="structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01_tensor_type_01_6_01_4.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01tfel_1_1math_1_1_view_3_01_tensor_type_01_4_01_4.html">mgis::function::internals::FunctionResultTypeTraits&lt; tfel::math::View&lt; TensorType &gt; &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">partial specialization stating that a view on a tensorial object is a valid result type for a function  <a href="structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01tfel_1_1math_1_1_view_3_01_tensor_type_01_4_01_4.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1internals_1_1tensor__modifier.html">mgis::function::internals::tensor_modifier&lt; TensorType &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">modifier exposing the values computed by an evaluator, or the values of a function, as a tensorial object of type <code>TensorType</code>  <a href="structmgis_1_1function_1_1internals_1_1tensor__modifier.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1internals_1_1_rotate_modifier.html">mgis::function::internals::RotateModifier</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">modifier changing the basis of the tensorial values computed by an evaluator, in the direction for which the given rotation matrix is defined  <a href="structmgis_1_1function_1_1internals_1_1_rotate_modifier.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1internals_1_1_rotate_backwards_modifier.html">mgis::function::internals::RotateBackwardsModifier</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">modifier changing the basis of the tensorial values computed by an evaluator in the backwards direction, i.e. using the transpose of the given rotation matrix  <a href="structmgis_1_1function_1_1internals_1_1_rotate_backwards_modifier.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -141,119 +149,235 @@ Namespaces</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="concepts" name="concepts"></a>
 Concepts</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptmgis_1_1function_1_1_stensor1_d_evaluator_concept.html">mgis::function::Stensor1DEvaluatorConcept</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">concept satisfied by evaluators returning a symmetric tensor of dimension <code>1</code> whose base numeric type is <code>real</code> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptmgis_1_1function_1_1_stensor2_d_evaluator_concept.html">mgis::function::Stensor2DEvaluatorConcept</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">concept satisfied by evaluators returning a symmetric tensor of dimension <code>2</code> whose base numeric type is <code>real</code> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptmgis_1_1function_1_1_stensor3_d_evaluator_concept.html">mgis::function::Stensor3DEvaluatorConcept</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">concept satisfied by evaluators returning a symmetric tensor of dimension <code>3</code> whose base numeric type is <code>real</code> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptmgis_1_1function_1_1_stensor_evaluator_concept.html">mgis::function::StensorEvaluatorConcept</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">concept satisfied by evaluators returning a symmetric tensor of any dimension whose base numeric type is <code>real</code> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptmgis_1_1function_1_1_tensor1_d_evaluator_concept.html">mgis::function::Tensor1DEvaluatorConcept</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">concept satisfied by evaluators returning an unsymmetric tensor of dimension <code>1</code> whose base numeric type is <code>real</code> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptmgis_1_1function_1_1_tensor2_d_evaluator_concept.html">mgis::function::Tensor2DEvaluatorConcept</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">concept satisfied by evaluators returning an unsymmetric tensor of dimension <code>2</code> whose base numeric type is <code>real</code> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptmgis_1_1function_1_1_tensor3_d_evaluator_concept.html">mgis::function::Tensor3DEvaluatorConcept</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">concept satisfied by evaluators returning an unsymmetric tensor of dimension <code>3</code> whose base numeric type is <code>real</code> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptmgis_1_1function_1_1_tensor_evaluator_concept.html">mgis::function::TensorEvaluatorConcept</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">concept satisfied by evaluators returning an unsymmetric tensor of any dimension whose base numeric type is <code>real</code> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptmgis_1_1function_1_1_s_t2to_s_t21_d_evaluator_concept.html">mgis::function::ST2toST21DEvaluatorConcept</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">concept satisfied by evaluators returning a fourth order tensor mapping symmetric tensors to symmetric tensors, of dimension <code>1</code>, whose base numeric type is <code>real</code> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptmgis_1_1function_1_1_s_t2to_s_t22_d_evaluator_concept.html">mgis::function::ST2toST22DEvaluatorConcept</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">concept satisfied by evaluators returning a fourth order tensor mapping symmetric tensors to symmetric tensors, of dimension <code>2</code>, whose base numeric type is <code>real</code> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptmgis_1_1function_1_1_s_t2to_s_t23_d_evaluator_concept.html">mgis::function::ST2toST23DEvaluatorConcept</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">concept satisfied by evaluators returning a fourth order tensor mapping symmetric tensors to symmetric tensors, of dimension <code>3</code>, whose base numeric type is <code>real</code> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptmgis_1_1function_1_1_s_t2to_s_t2_evaluator_concept.html">mgis::function::ST2toST2EvaluatorConcept</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">concept satisfied by evaluators returning a fourth order tensor mapping symmetric tensors to symmetric tensors, of any dimension, whose base numeric type is <code>real</code> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptmgis_1_1function_1_1_s_t2to_t21_d_evaluator_concept.html">mgis::function::ST2toT21DEvaluatorConcept</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">concept satisfied by evaluators returning a fourth order tensor mapping symmetric tensors to unsymmetric tensors, of dimension <code>1</code>, whose base numeric type is <code>real</code> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptmgis_1_1function_1_1_s_t2to_t22_d_evaluator_concept.html">mgis::function::ST2toT22DEvaluatorConcept</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">concept satisfied by evaluators returning a fourth order tensor mapping symmetric tensors to unsymmetric tensors, of dimension <code>2</code>, whose base numeric type is <code>real</code> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptmgis_1_1function_1_1_s_t2to_t23_d_evaluator_concept.html">mgis::function::ST2toT23DEvaluatorConcept</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">concept satisfied by evaluators returning a fourth order tensor mapping symmetric tensors to unsymmetric tensors, of dimension <code>3</code>, whose base numeric type is <code>real</code> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptmgis_1_1function_1_1_s_t2to_t2_evaluator_concept.html">mgis::function::ST2toT2EvaluatorConcept</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">concept satisfied by evaluators returning a fourth order tensor mapping symmetric tensors to unsymmetric tensors, of any dimension, whose base numeric type is <code>real</code> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptmgis_1_1function_1_1_t2to_s_t21_d_evaluator_concept.html">mgis::function::T2toST21DEvaluatorConcept</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">concept satisfied by evaluators returning a fourth order tensor mapping unsymmetric tensors to symmetric tensors, of dimension <code>1</code>, whose base numeric type is <code>real</code> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptmgis_1_1function_1_1_t2to_s_t22_d_evaluator_concept.html">mgis::function::T2toST22DEvaluatorConcept</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">concept satisfied by evaluators returning a fourth order tensor mapping unsymmetric tensors to symmetric tensors, of dimension <code>2</code>, whose base numeric type is <code>real</code> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptmgis_1_1function_1_1_t2to_s_t23_d_evaluator_concept.html">mgis::function::T2toST23DEvaluatorConcept</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">concept satisfied by evaluators returning a fourth order tensor mapping unsymmetric tensors to symmetric tensors, of dimension <code>3</code>, whose base numeric type is <code>real</code> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptmgis_1_1function_1_1_t2to_s_t2_evaluator_concept.html">mgis::function::T2toST2EvaluatorConcept</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">concept satisfied by evaluators returning a fourth order tensor mapping unsymmetric tensors to symmetric tensors, of any dimension, whose base numeric type is <code>real</code> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptmgis_1_1function_1_1_t2to_t21_d_evaluator_concept.html">mgis::function::T2toT21DEvaluatorConcept</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">concept satisfied by evaluators returning a fourth order tensor mapping unsymmetric tensors to unsymmetric tensors, of dimension <code>1</code>, whose base numeric type is <code>real</code> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptmgis_1_1function_1_1_t2to_t22_d_evaluator_concept.html">mgis::function::T2toT22DEvaluatorConcept</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">concept satisfied by evaluators returning a fourth order tensor mapping unsymmetric tensors to unsymmetric tensors, of dimension <code>2</code>, whose base numeric type is <code>real</code> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptmgis_1_1function_1_1_t2to_t23_d_evaluator_concept.html">mgis::function::T2toT23DEvaluatorConcept</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">concept satisfied by evaluators returning a fourth order tensor mapping unsymmetric tensors to unsymmetric tensors, of dimension <code>3</code>, whose base numeric type is <code>real</code> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptmgis_1_1function_1_1_t2to_t2_evaluator_concept.html">mgis::function::T2toT2EvaluatorConcept</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">concept satisfied by evaluators returning a fourth order tensor mapping unsymmetric tensors to unsymmetric tensors, of any dimension, whose base numeric type is <code>real</code> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptmgis_1_1function_1_1_fourth_order_tensor_evaluator_concept.html">mgis::function::FourthOrderTensorEvaluatorConcept</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">concept satisfied by evaluators returning a fourth order tensor of any kind, i.e. matching one of the <code>ST2toST2EvaluatorConcept</code>, <code>T2toST2EvaluatorConcept</code>, <code>ST2toT2EvaluatorConcept</code> or <code>T2toT2EvaluatorConcept</code> concepts <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a2c21401d1b4ae46ff1b06a74dda78e75" id="r_a2c21401d1b4ae46ff1b06a74dda78e75"><td class="memTemplParams" colspan="2"><a id="a2c21401d1b4ae46ff1b06a74dda78e75" name="a2c21401d1b4ae46ff1b06a74dda78e75"></a>
-template&lt;ViewableFunctionArgumentConcept QualifiedFunctionArgumentType, TensorConcept TensorType&gt; <br />
-requires (internals::checkNumberOfComponentsCompatibility&lt; <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">QualifiedFunctionArgumentType</a>, <a class="el" href="_compile_time_size_8hxx.html#a131151882add6240af1378ec8df101ec">compile_time_size</a>&lt;<a class="el" href="_tensor_operations_8hxx.html#ad91e53ef3a6d0b6afc04988924e3cffa">TensorType</a>&gt;&gt;())</td></tr>
-<tr class="memitem:a2c21401d1b4ae46ff1b06a74dda78e75"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>mgis::function::operator|</b> (<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">QualifiedFunctionArgumentType</a> &amp;&amp;, const <a class="el" href="structmgis_1_1function_1_1internals_1_1tensor__modifier.html">internals::tensor_modifier</a>&lt; <a class="el" href="_tensor_operations_8hxx.html#ad91e53ef3a6d0b6afc04988924e3cffa">TensorType</a> &gt; &amp;)</td></tr>
+<tr class="memitem:a2c21401d1b4ae46ff1b06a74dda78e75" id="r_a2c21401d1b4ae46ff1b06a74dda78e75"><td class="memTemplParams" colspan="2">template&lt;ViewableFunctionArgumentConcept QualifiedFunctionArgumentType, TensorConcept TensorType&gt; <br />
+requires (<a class="el" href="_function_concept_8hxx.html#a523cdb8da6c07d325cefac872f93a9b4">internals::checkNumberOfComponentsCompatibility</a>&lt; <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">QualifiedFunctionArgumentType</a>, <a class="el" href="_compile_time_size_8hxx.html#a131151882add6240af1378ec8df101ec">compile_time_size</a>&lt;<a class="el" href="_tensor_operations_8hxx.html#ad91e53ef3a6d0b6afc04988924e3cffa">TensorType</a>&gt;&gt;())</td></tr>
+<tr class="memitem:a2c21401d1b4ae46ff1b06a74dda78e75"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_tensors_8hxx.html#a2c21401d1b4ae46ff1b06a74dda78e75">mgis::function::operator|</a> (<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">QualifiedFunctionArgumentType</a> &amp;&amp;, const <a class="el" href="structmgis_1_1function_1_1internals_1_1tensor__modifier.html">internals::tensor_modifier</a>&lt; <a class="el" href="_tensor_operations_8hxx.html#ad91e53ef3a6d0b6afc04988924e3cffa">TensorType</a> &gt; &amp;)</td></tr>
+<tr class="memdesc:a2c21401d1b4ae46ff1b06a74dda78e75"><td class="mdescLeft">&#160;</td><td class="mdescRight">expose the values of a function argument as a tensorial object  <br /></td></tr>
 <tr class="separator:a2c21401d1b4ae46ff1b06a74dda78e75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a097d83704dd1b4a8e2c3730fe00e6373" id="r_a097d83704dd1b4a8e2c3730fe00e6373"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">unsigned</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">short</a> N, TensorValueConcept ValueType = real&gt; </td></tr>
 <tr class="memitem:a097d83704dd1b4a8e2c3730fe00e6373"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_tensors_8hxx.html#a097d83704dd1b4a8e2c3730fe00e6373">mgis::function::as_stensor</a></td></tr>
+<tr class="memdesc:a097d83704dd1b4a8e2c3730fe00e6373"><td class="mdescLeft">&#160;</td><td class="mdescRight">modifier exposing the values of a function or of an evaluator as symmetric tensors of dimension <code>N</code>  <br /></td></tr>
 <tr class="separator:a097d83704dd1b4a8e2c3730fe00e6373"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84288dd74330698c85ba0d2ec40cba8f" id="r_a84288dd74330698c85ba0d2ec40cba8f"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">unsigned</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">short</a> N, TensorValueConcept ValueType = real&gt; </td></tr>
 <tr class="memitem:a84288dd74330698c85ba0d2ec40cba8f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_tensors_8hxx.html#a84288dd74330698c85ba0d2ec40cba8f">mgis::function::as_tensor</a></td></tr>
+<tr class="memdesc:a84288dd74330698c85ba0d2ec40cba8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">modifier exposing the values of a function or of an evaluator as unsymmetric tensors of dimension <code>N</code>  <br /></td></tr>
 <tr class="separator:a84288dd74330698c85ba0d2ec40cba8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c8f8e9ec3de93c7cac6521baee7909a" id="r_a6c8f8e9ec3de93c7cac6521baee7909a"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">unsigned</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">short</a> N, TensorValueConcept ValueType = real&gt; </td></tr>
 <tr class="memitem:a6c8f8e9ec3de93c7cac6521baee7909a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_tensors_8hxx.html#a6c8f8e9ec3de93c7cac6521baee7909a">mgis::function::as_fsarray</a></td></tr>
+<tr class="memdesc:a6c8f8e9ec3de93c7cac6521baee7909a"><td class="mdescLeft">&#160;</td><td class="mdescRight">modifier exposing the values of a function or of an evaluator as finite size arrays of <code>N</code> values  <br /></td></tr>
 <tr class="separator:a6c8f8e9ec3de93c7cac6521baee7909a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74f7691917494c7e978891bcc41e68fb" id="r_a74f7691917494c7e978891bcc41e68fb"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">unsigned</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">short</a> N, TensorValueConcept ValueType = real&gt; </td></tr>
 <tr class="memitem:a74f7691917494c7e978891bcc41e68fb"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_tensors_8hxx.html#a74f7691917494c7e978891bcc41e68fb">mgis::function::as_tvector</a></td></tr>
+<tr class="memdesc:a74f7691917494c7e978891bcc41e68fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">modifier exposing the values of a function or of an evaluator as tiny vectors of <code>N</code> components  <br /></td></tr>
 <tr class="separator:a74f7691917494c7e978891bcc41e68fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d4c7e83ee951ad4e36cdfa5ff6a6869" id="r_a9d4c7e83ee951ad4e36cdfa5ff6a6869"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">unsigned</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">short</a> N, <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">unsigned</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">short</a> M, TensorValueConcept ValueType = real&gt; </td></tr>
 <tr class="memitem:a9d4c7e83ee951ad4e36cdfa5ff6a6869"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_tensors_8hxx.html#a9d4c7e83ee951ad4e36cdfa5ff6a6869">mgis::function::as_tmatrix</a></td></tr>
+<tr class="memdesc:a9d4c7e83ee951ad4e36cdfa5ff6a6869"><td class="mdescLeft">&#160;</td><td class="mdescRight">modifier exposing the values of a function or of an evaluator as tiny matrices with <code>N</code> rows and <code>M</code> columns  <br /></td></tr>
 <tr class="separator:a9d4c7e83ee951ad4e36cdfa5ff6a6869"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0428188412052161773d9a6e8c7a2ef" id="r_ac0428188412052161773d9a6e8c7a2ef"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">unsigned</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">short</a> N, TensorValueConcept ValueType = real&gt; </td></tr>
 <tr class="memitem:ac0428188412052161773d9a6e8c7a2ef"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_tensors_8hxx.html#ac0428188412052161773d9a6e8c7a2ef">mgis::function::as_st2tost2</a></td></tr>
+<tr class="memdesc:ac0428188412052161773d9a6e8c7a2ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">modifier exposing the values of a function or of an evaluator as fourth order tensors mapping symmetric tensors to symmetric tensors, of dimension <code>N</code>  <br /></td></tr>
 <tr class="separator:ac0428188412052161773d9a6e8c7a2ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3b15f409402ec7f47c4f26260834334" id="r_ae3b15f409402ec7f47c4f26260834334"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">unsigned</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">short</a> N, TensorValueConcept ValueType = real&gt; </td></tr>
 <tr class="memitem:ae3b15f409402ec7f47c4f26260834334"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_tensors_8hxx.html#ae3b15f409402ec7f47c4f26260834334">mgis::function::as_t2tost2</a></td></tr>
+<tr class="memdesc:ae3b15f409402ec7f47c4f26260834334"><td class="mdescLeft">&#160;</td><td class="mdescRight">modifier exposing the values of a function or of an evaluator as fourth order tensors mapping unsymmetric tensors to symmetric tensors, of dimension <code>N</code>  <br /></td></tr>
 <tr class="separator:ae3b15f409402ec7f47c4f26260834334"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf37470ef9f3477cf9f85aa75af32ab6" id="r_abf37470ef9f3477cf9f85aa75af32ab6"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">unsigned</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">short</a> N, TensorValueConcept ValueType = real&gt; </td></tr>
 <tr class="memitem:abf37470ef9f3477cf9f85aa75af32ab6"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_tensors_8hxx.html#abf37470ef9f3477cf9f85aa75af32ab6">mgis::function::as_st2tot2</a></td></tr>
+<tr class="memdesc:abf37470ef9f3477cf9f85aa75af32ab6"><td class="mdescLeft">&#160;</td><td class="mdescRight">modifier exposing the values of a function or of an evaluator as fourth order tensors mapping symmetric tensors to unsymmetric tensors, of dimension <code>N</code>  <br /></td></tr>
 <tr class="separator:abf37470ef9f3477cf9f85aa75af32ab6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41863c20ff06e56e384ea50fbaea76e5" id="r_a41863c20ff06e56e384ea50fbaea76e5"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">unsigned</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">short</a> N, TensorValueConcept ValueType = real&gt; </td></tr>
 <tr class="memitem:a41863c20ff06e56e384ea50fbaea76e5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_tensors_8hxx.html#a41863c20ff06e56e384ea50fbaea76e5">mgis::function::as_t2tot2</a></td></tr>
+<tr class="memdesc:a41863c20ff06e56e384ea50fbaea76e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">modifier exposing the values of a function or of an evaluator as fourth order tensors mapping unsymmetric tensors to unsymmetric tensors, of dimension <code>N</code>  <br /></td></tr>
 <tr class="separator:a41863c20ff06e56e384ea50fbaea76e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81e58028b2fcd161ac37b0a7c7bdeec3" id="r_a81e58028b2fcd161ac37b0a7c7bdeec3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_tensors_8hxx.html#a81e58028b2fcd161ac37b0a7c7bdeec3">mgis::function::trace</a></td></tr>
+<tr class="memdesc:a81e58028b2fcd161ac37b0a7c7bdeec3"><td class="mdescLeft">&#160;</td><td class="mdescRight">modifier computing the trace of the tensorial values computed by an evaluator  <br /></td></tr>
 <tr class="separator:a81e58028b2fcd161ac37b0a7c7bdeec3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7eeaa89f9e0f17720bbdeca01603d1f5" id="r_a7eeaa89f9e0f17720bbdeca01603d1f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_tensors_8hxx.html#a7eeaa89f9e0f17720bbdeca01603d1f5">mgis::function::det</a></td></tr>
+<tr class="memdesc:a7eeaa89f9e0f17720bbdeca01603d1f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">modifier computing the determinant of the tensorial values computed by an evaluator  <br /></td></tr>
 <tr class="separator:a7eeaa89f9e0f17720bbdeca01603d1f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91ce9b1b775faee37497ea8c20ecb38f" id="r_a91ce9b1b775faee37497ea8c20ecb38f"><td class="memTemplParams" colspan="2">template&lt;tfel::math::stensor_common::EigenSolver esolver = tfel::math::stensor_common::TFELEIGENSOLVER&gt; </td></tr>
 <tr class="memitem:a91ce9b1b775faee37497ea8c20ecb38f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_tensors_8hxx.html#a91ce9b1b775faee37497ea8c20ecb38f">mgis::function::eigen_values</a></td></tr>
+<tr class="memdesc:a91ce9b1b775faee37497ea8c20ecb38f"><td class="mdescLeft">&#160;</td><td class="mdescRight">modifier computing the eigen values of the symmetric tensorial values computed by an evaluator  <br /></td></tr>
 <tr class="separator:a91ce9b1b775faee37497ea8c20ecb38f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa20d70f77125bb858e49200d55a43d8" id="r_aaa20d70f77125bb858e49200d55a43d8"><td class="memItemLeft" align="right" valign="top"><a id="aaa20d70f77125bb858e49200d55a43d8" name="aaa20d70f77125bb858e49200d55a43d8"></a>
 <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memItemRight" valign="bottom"><b>mgis::function::rotate</b> = <a class="el" href="structmgis_1_1function_1_1internals_1_1_rotate_modifier.html">internals::RotateModifier</a>{}</td></tr>
+<tr class="memdesc:aaa20d70f77125bb858e49200d55a43d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">modifier changing the basis of the tensorial values of an evaluator <br /></td></tr>
 <tr class="separator:aaa20d70f77125bb858e49200d55a43d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a003c8b346d8d88867e4c048b6656b975" id="r_a003c8b346d8d88867e4c048b6656b975"><td class="memItemLeft" align="right" valign="top"><a id="a003c8b346d8d88867e4c048b6656b975" name="a003c8b346d8d88867e4c048b6656b975"></a>
 <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memItemRight" valign="bottom"><b>mgis::function::rotate_backwards</b> = <a class="el" href="structmgis_1_1function_1_1internals_1_1_rotate_backwards_modifier.html">internals::RotateBackwardsModifier</a>{}</td></tr>
+<tr class="memdesc:a003c8b346d8d88867e4c048b6656b975"><td class="mdescLeft">&#160;</td><td class="mdescRight">counterpart of <code>rotate</code>, using the transpose of the rotation matrix <br /></td></tr>
 <tr class="separator:a003c8b346d8d88867e4c048b6656b975"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32e761c17360ac05b73056c29b6892e8" id="r_a32e761c17360ac05b73056c29b6892e8"><td class="memTemplParams" colspan="2">template&lt;tfel::math::stensor_common::EigenSolver esolver = tfel::math::stensor_common::TFELEIGENSOLVER&gt; </td></tr>
 <tr class="memitem:a32e761c17360ac05b73056c29b6892e8"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_tensors_8hxx.html#a32e761c17360ac05b73056c29b6892e8">mgis::function::logarithmic_strain</a></td></tr>
+<tr class="memdesc:a32e761c17360ac05b73056c29b6892e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">modifier computing the logarithmic strain from the deformation gradients computed by an evaluator  <br /></td></tr>
 <tr class="separator:a32e761c17360ac05b73056c29b6892e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section author"><dt>Author</dt><dd>Thomas Helfer </dd></dl>
+<div class="textblock"><p>File which defines the modifiers turning scalar valued functions and evaluators into tensor valued ones (<code>as_stensor</code>, <code>as_tensor</code>, ...) together with the tensorial operations which can be applied to evaluators (<code>trace</code>, <code>det</code>, <code>eigen_values</code>, <code>rotate</code>, <code>logarithmic_strain</code>, ...) and the concepts characterising evaluators returning the various kinds of tensorial objects. </p>
+<dl class="section author"><dt>Author</dt><dd>Thomas Helfer </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>11/05/2025 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>(C) Copyright Thomas Helfer 2018. Use, modification and distribution are subject to one of the following licences:<ul>
 <li>GNU Lesser General Public License (LGPL), Version 3.0. (See accompanying file LGPL-3.0.txt)</li>
 <li>CECILL-C, Version 1.0 (See accompanying files CeCILL-C_V1-en.txt and CeCILL-C_V1-fr.txt). </li>
 </ul>
 </dd></dl>
-</div><h2 class="groupheader">Variable Documentation</h2>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a2c21401d1b4ae46ff1b06a74dda78e75" name="a2c21401d1b4ae46ff1b06a74dda78e75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c21401d1b4ae46ff1b06a74dda78e75">&#9670;&#160;</a></span>operator|()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;ViewableFunctionArgumentConcept QualifiedFunctionArgumentType, TensorConcept TensorType&gt; <br />
+requires (internals::checkNumberOfComponentsCompatibility&lt; QualifiedFunctionArgumentType, compile_time_size&lt;TensorType&gt;&gt;())</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">mgis::function::operator</a>| </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">QualifiedFunctionArgumentType</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structmgis_1_1function_1_1internals_1_1tensor__modifier.html">internals::tensor_modifier</a>&lt; <a class="el" href="_tensor_operations_8hxx.html#ad91e53ef3a6d0b6afc04988924e3cffa">TensorType</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>m</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>expose the values of a function argument as a tensorial object </p>
+<p>expose the values of a function argument as a tensorial object, the definition of the <code>operator|</code> used by expressions such as <code>f | as_stensor&lt;3&gt;</code></p>
+<p>This is the entry point used by expressions such as <code>f | as_stensor&lt;3&gt;</code>.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">QualifiedFunctionArgumentType</td><td>type of the function argument, which may be a qualified type </td></tr>
+    <tr><td class="paramname">TensorType</td><td>type of the tensorial object to be exposed </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">f</td><td>function argument whose values are exposed </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">m</td><td>modifier stating the type of the tensorial object to be exposed </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a <code>TensorView</code> viewing the values of the function argument as objects of type <code>TensorType</code> </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>only available if the number of components of the function argument is compatible with that of <code>TensorType</code></dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">QualifiedFunctionArgumentType</td><td>type of the function argument, which may be a qualified type </td></tr>
+    <tr><td class="paramname">TensorType</td><td>type of the tensorial object to be exposed </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">f</td><td>function argument whose values are exposed </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">m</td><td>modifier stating the type of the tensorial object to be exposed </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a <code>TensorView</code> viewing the values of the function argument </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
 <a id="a6c8f8e9ec3de93c7cac6521baee7909a" name="a6c8f8e9ec3de93c7cac6521baee7909a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6c8f8e9ec3de93c7cac6521baee7909a">&#9670;&#160;</a></span>as_fsarray</h2>
 
@@ -278,6 +402,15 @@ template&lt;unsigned short N, TensorValueConcept ValueType = real&gt; </div>
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
 <div class="line">      internals::tensor_modifier&lt;tfel::math::fsarray&lt;N, ValueType&gt;&gt;{}</div>
 </div><!-- fragment -->
+<p>modifier exposing the values of a function or of an evaluator as finite size arrays of <code>N</code> values </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">N</td><td>number of values stored in the array </td></tr>
+    <tr><td class="paramname">ValueType</td><td>type of the values, which must match the <code>TensorValueConcept</code> concept and defaults to <code>real</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ac0428188412052161773d9a6e8c7a2ef" name="ac0428188412052161773d9a6e8c7a2ef"></a>
@@ -304,6 +437,15 @@ template&lt;unsigned short N, TensorValueConcept ValueType = real&gt; </div>
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
 <div class="line">          internals::tensor_modifier&lt;tfel::math::st2tost2&lt;N, ValueType&gt;&gt;{}</div>
 </div><!-- fragment -->
+<p>modifier exposing the values of a function or of an evaluator as fourth order tensors mapping symmetric tensors to symmetric tensors, of dimension <code>N</code> </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">N</td><td>dimension of the symmetric tensors mapped, which must be 1, 2 or 3 </td></tr>
+    <tr><td class="paramname">ValueType</td><td>type of the values, which must match the <code>TensorValueConcept</code> concept and defaults to <code>real</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="abf37470ef9f3477cf9f85aa75af32ab6" name="abf37470ef9f3477cf9f85aa75af32ab6"></a>
@@ -330,6 +472,15 @@ template&lt;unsigned short N, TensorValueConcept ValueType = real&gt; </div>
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
 <div class="line">          internals::tensor_modifier&lt;tfel::math::st2tot2&lt;N, ValueType&gt;&gt;{}</div>
 </div><!-- fragment -->
+<p>modifier exposing the values of a function or of an evaluator as fourth order tensors mapping symmetric tensors to unsymmetric tensors, of dimension <code>N</code> </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">N</td><td>dimension of the tensors mapped, which must be 1, 2 or 3 </td></tr>
+    <tr><td class="paramname">ValueType</td><td>type of the values, which must match the <code>TensorValueConcept</code> concept and defaults to <code>real</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a097d83704dd1b4a8e2c3730fe00e6373" name="a097d83704dd1b4a8e2c3730fe00e6373"></a>
@@ -356,6 +507,15 @@ template&lt;unsigned short N, TensorValueConcept ValueType = real&gt; </div>
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
 <div class="line">          internals::tensor_modifier&lt;tfel::math::stensor&lt;N, ValueType&gt;&gt;{}</div>
 </div><!-- fragment -->
+<p>modifier exposing the values of a function or of an evaluator as symmetric tensors of dimension <code>N</code> </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">N</td><td>dimension of the symmetric tensors, which must be 1, 2 or 3 </td></tr>
+    <tr><td class="paramname">ValueType</td><td>type of the values, which must match the <code>TensorValueConcept</code> concept and defaults to <code>real</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ae3b15f409402ec7f47c4f26260834334" name="ae3b15f409402ec7f47c4f26260834334"></a>
@@ -382,6 +542,15 @@ template&lt;unsigned short N, TensorValueConcept ValueType = real&gt; </div>
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
 <div class="line">          internals::tensor_modifier&lt;tfel::math::t2tost2&lt;N, ValueType&gt;&gt;{}</div>
 </div><!-- fragment -->
+<p>modifier exposing the values of a function or of an evaluator as fourth order tensors mapping unsymmetric tensors to symmetric tensors, of dimension <code>N</code> </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">N</td><td>dimension of the tensors mapped, which must be 1, 2 or 3 </td></tr>
+    <tr><td class="paramname">ValueType</td><td>type of the values, which must match the <code>TensorValueConcept</code> concept and defaults to <code>real</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a41863c20ff06e56e384ea50fbaea76e5" name="a41863c20ff06e56e384ea50fbaea76e5"></a>
@@ -408,6 +577,15 @@ template&lt;unsigned short N, TensorValueConcept ValueType = real&gt; </div>
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
 <div class="line">          internals::tensor_modifier&lt;tfel::math::t2tot2&lt;N, ValueType&gt;&gt;{}</div>
 </div><!-- fragment -->
+<p>modifier exposing the values of a function or of an evaluator as fourth order tensors mapping unsymmetric tensors to unsymmetric tensors, of dimension <code>N</code> </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">N</td><td>dimension of the tensors mapped, which must be 1, 2 or 3 </td></tr>
+    <tr><td class="paramname">ValueType</td><td>type of the values, which must match the <code>TensorValueConcept</code> concept and defaults to <code>real</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a84288dd74330698c85ba0d2ec40cba8f" name="a84288dd74330698c85ba0d2ec40cba8f"></a>
@@ -434,6 +612,15 @@ template&lt;unsigned short N, TensorValueConcept ValueType = real&gt; </div>
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
 <div class="line">          internals::tensor_modifier&lt;tfel::math::tensor&lt;N, ValueType&gt;&gt;{}</div>
 </div><!-- fragment -->
+<p>modifier exposing the values of a function or of an evaluator as unsymmetric tensors of dimension <code>N</code> </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">N</td><td>dimension of the tensors, which must be 1, 2 or 3 </td></tr>
+    <tr><td class="paramname">ValueType</td><td>type of the values, which must match the <code>TensorValueConcept</code> concept and defaults to <code>real</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a9d4c7e83ee951ad4e36cdfa5ff6a6869" name="a9d4c7e83ee951ad4e36cdfa5ff6a6869"></a>
@@ -460,6 +647,16 @@ template&lt;unsigned short N, unsigned short M, TensorValueConcept ValueType = r
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
 <div class="line">      internals::tensor_modifier&lt;tfel::math::tmatrix&lt;N, M, ValueType&gt;&gt;{}</div>
 </div><!-- fragment -->
+<p>modifier exposing the values of a function or of an evaluator as tiny matrices with <code>N</code> rows and <code>M</code> columns </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">N</td><td>number of rows of the matrix </td></tr>
+    <tr><td class="paramname">M</td><td>number of columns of the matrix </td></tr>
+    <tr><td class="paramname">ValueType</td><td>type of the values, which must match the <code>TensorValueConcept</code> concept and defaults to <code>real</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a74f7691917494c7e978891bcc41e68fb" name="a74f7691917494c7e978891bcc41e68fb"></a>
@@ -486,6 +683,15 @@ template&lt;unsigned short N, TensorValueConcept ValueType = real&gt; </div>
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
 <div class="line">      internals::tensor_modifier&lt;tfel::math::tvector&lt;N, ValueType&gt;&gt;{}</div>
 </div><!-- fragment -->
+<p>modifier exposing the values of a function or of an evaluator as tiny vectors of <code>N</code> components </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">N</td><td>number of components of the vector </td></tr>
+    <tr><td class="paramname">ValueType</td><td>type of the values, which must match the <code>TensorValueConcept</code> concept and defaults to <code>real</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a7eeaa89f9e0f17720bbdeca01603d1f5" name="a7eeaa89f9e0f17720bbdeca01603d1f5"></a>
@@ -514,6 +720,9 @@ template&lt;unsigned short N, TensorValueConcept ValueType = real&gt; </div>
 <div class="line">        <span class="keywordflow">return</span> tfel::math::det(t);</div>
 <div class="line">      })</div>
 </div><!-- fragment -->
+<p>modifier computing the determinant of the tensorial values computed by an evaluator </p>
+<p>The values must be symmetric or unsymmetric tensors; the modifier returns a scalar valued result. </p>
+
 </div>
 </div>
 <a id="a91ce9b1b775faee37497ea8c20ecb38f" name="a91ce9b1b775faee37497ea8c20ecb38f"></a>
@@ -543,6 +752,15 @@ template&lt;tfel::math::stensor_common::EigenSolver esolver = tfel::math::stenso
 <div class="line">        <span class="keywordflow">return</span> s2.template computeEigenValues&lt;esolver&gt;();</div>
 <div class="line">      })</div>
 </div><!-- fragment -->
+<p>modifier computing the eigen values of the symmetric tensorial values computed by an evaluator </p>
+<p>The values must be symmetric tensors; the modifier returns a vector holding as many eigen values as the dimension of the tensors.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">esolver</td><td>eigen solver used to compute the eigen values, which defaults to <code>tfel::math::stensor_common::TFELEIGENSOLVER</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a32e761c17360ac05b73056c29b6892e8" name="a32e761c17360ac05b73056c29b6892e8"></a>
@@ -577,8 +795,17 @@ template&lt;tfel::math::stensor_common::EigenSolver esolver = tfel::math::stenso
 <div class="line">                map([](<span class="keyword">const</span> real x) { <span class="keywordflow">return</span> std::log1p(2 * x) / 2; }, <a class="code hl_typedef" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">vp</a>);</div>
 <div class="line">            <span class="keywordflow">return</span> <a class="code hl_typedef" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">stensor&lt;N, real&gt;::computeIsotropicFunction</a>(<a class="code hl_typedef" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">log_vp</a>, m);</div>
 <div class="line">          })</div>
-<div class="ttc" id="a_evaluator_concept_8hxx_html_aaa43e880e9b2fb06fd444c9e86eb871d"><div class="ttname"><a href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">mgis::function::evaluator_result</a></div><div class="ttdeci">typename internals::EvaluatorResultQuery&lt; EvaluatorType &gt;::type evaluator_result</div><div class="ttdoc">type of the result of an evaluator</div><div class="ttdef"><b>Definition</b> EvaluatorConcept.hxx:215</div></div>
+<div class="ttc" id="a_evaluator_concept_8hxx_html_aaa43e880e9b2fb06fd444c9e86eb871d"><div class="ttname"><a href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">mgis::function::evaluator_result</a></div><div class="ttdeci">typename internals::EvaluatorResultQuery&lt; EvaluatorType &gt;::type evaluator_result</div><div class="ttdoc">type of the result of an evaluator, i.e. the type of the constant values returned by the evaluator,...</div><div class="ttdef"><b>Definition</b> EvaluatorConcept.hxx:369</div></div>
 </div><!-- fragment -->
+<p>modifier computing the logarithmic strain from the deformation gradients computed by an evaluator </p>
+<p>The values must be unsymmetric tensors, interpreted as deformation gradients <code>F</code>. The logarithmic strain is obtained from the Green-Lagrange strain tensor <code>e = (F^T F - I) / 2</code>: its eigen values <code>vp</code> are transformed into <code>log(1 + 2 vp) / 2</code> and the result is rebuilt from the transformed eigen values and the eigen vectors of <code>e</code>.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">esolver</td><td>eigen solver used to compute the eigen vectors, which defaults to <code>tfel::math::stensor_common::TFELEIGENSOLVER</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a81e58028b2fcd161ac37b0a7c7bdeec3" name="a81e58028b2fcd161ac37b0a7c7bdeec3"></a>
@@ -607,6 +834,9 @@ template&lt;tfel::math::stensor_common::EigenSolver esolver = tfel::math::stenso
 <div class="line">        <span class="keywordflow">return</span> tfel::math::trace(t);</div>
 <div class="line">      })</div>
 </div><!-- fragment -->
+<p>modifier computing the trace of the tensorial values computed by an evaluator </p>
+<p>The values must be symmetric or unsymmetric tensors; the modifier returns a scalar valued result. </p>
+
 </div>
 </div>
 </div><!-- contents -->
@@ -615,7 +845,7 @@ template&lt;tfel::math::stensor_common::EigenSolver esolver = tfel::math::stenso
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_926a8b4fb7ad5e8e017827ff5fbbb316.html">MGIS</a></li><li class="navelem"><a class="el" href="dir_2e52b00940cd27d9780366949db1e89b.html">Function</a></li><li class="navelem"><a class="el" href="dir_e23cfa4dbebc272344c1d50ffb8bb175.html">TFEL</a></li><li class="navelem"><a class="el" href="_tensors_8hxx.html">Tensors.hxx</a></li>
-    <li class="footer">Generated on Fri Nov 6 2026 14:30:40 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Nov 6 2026 19:42:30 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

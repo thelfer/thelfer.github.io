@@ -103,23 +103,70 @@ $(document).ready(function(){initNavTree('structmgis_1_1function_1_1internals_1_
   <div class="headertitle"><div class="title">mgis::function::internals::UnaryOperationBase&lt; CallableType, EvaluatorType &gt; Struct Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>helper base class giving the number of components of the values returned by a unary operation applied to an evaluator  
+ <a href="structmgis_1_1function_1_1internals_1_1_unary_operation_base.html#details">More...</a></p>
+
+<p><code>#include &lt;/home/runner/work/MFrontGenericInterfaceSupport/MFrontGenericInterfaceSupport/include/MGIS/Function/UnaryOperation.hxx&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for mgis::function::internals::UnaryOperationBase&lt; CallableType, EvaluatorType &gt;:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="structmgis_1_1function_1_1internals_1_1_unary_operation_base.png" usemap="#mgis::function::internals::UnaryOperationBase_3C_20CallableType_2C_20EvaluatorType_20_3E_map" alt=""/>
   <map id="mgis::function::internals::UnaryOperationBase_3C_20CallableType_2C_20EvaluatorType_20_3E_map" name="mgis::function::internals::UnaryOperationBase_3C_20CallableType_2C_20EvaluatorType_20_3E_map">
-<area href="structmgis_1_1function_1_1_unary_operation.html" title="a base class for evaluators modifying a stress tensor" alt="mgis::function::UnaryOperation&lt; CallableType, EvaluatorType &gt;" shape="rect" coords="0,56,455,80"/>
-<area href="structmgis_1_1function_1_1_unary_operation2.html" title="a base class for evaluators modifying a stress tensor" alt="mgis::function::UnaryOperation2&lt; CallableType, EvaluatorType &gt;" shape="rect" coords="465,56,920,80"/>
+<area href="structmgis_1_1function_1_1_unary_operation.html" title="an evaluator applying a unary operation to the values returned by another evaluator" alt="mgis::function::UnaryOperation&lt; CallableType, EvaluatorType &gt;" shape="rect" coords="0,56,455,80"/>
+<area href="structmgis_1_1function_1_1_unary_operation2.html" title="an evaluator applying a unary operation to the values returned by another evaluator,..." alt="mgis::function::UnaryOperation2&lt; CallableType, EvaluatorType &gt;" shape="rect" coords="465,56,920,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a0cc315f8ed44022021f6459de2483e2e" id="r_a0cc315f8ed44022021f6459de2483e2e"><td class="memItemLeft" align="right" valign="top"><a id="a0cc315f8ed44022021f6459de2483e2e" name="a0cc315f8ed44022021f6459de2483e2e"></a>
-<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">static</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="namespacemgis.html#a184723b5d743b58169be89d3b04265fc">size_type</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getNumberOfComponents</b> () <a class="el" href="_config_8hxx.html#a461a7a05397aa66d9490b6cacfe516e4">MGIS_NOEXCEPT</a></td></tr>
+<tr class="memitem:a0cc315f8ed44022021f6459de2483e2e" id="r_a0cc315f8ed44022021f6459de2483e2e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">static</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="namespacemgis.html#a184723b5d743b58169be89d3b04265fc">size_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1internals_1_1_unary_operation_base.html#a0cc315f8ed44022021f6459de2483e2e">getNumberOfComponents</a> () <a class="el" href="_config_8hxx.html#a461a7a05397aa66d9490b6cacfe516e4">MGIS_NOEXCEPT</a></td></tr>
+<tr class="memdesc:a0cc315f8ed44022021f6459de2483e2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the number of components  <br /></td></tr>
 <tr class="separator:a0cc315f8ed44022021f6459de2483e2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">typename</a> CallableType, EvaluatorConcept EvaluatorType&gt;<br />
+struct mgis::function::internals::UnaryOperationBase&lt; CallableType, EvaluatorType &gt;</div><p>helper base class giving the number of components of the values returned by a unary operation applied to an evaluator </p>
+<p>The number of components is the compile-time size of the type returned by the callable when it is called with the values returned by the evaluator. A static assertion is raised when this number is only known at run time, as evaluators are required to know it at compile time.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">CallableType</td><td>type of the unary operation </td></tr>
+    <tr><td class="paramname">EvaluatorType</td><td>type of the evaluator whose values are modified </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a0cc315f8ed44022021f6459de2483e2e" name="a0cc315f8ed44022021f6459de2483e2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cc315f8ed44022021f6459de2483e2e">&#9670;&#160;</a></span>getNumberOfComponents()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">typename</a> CallableType , EvaluatorConcept EvaluatorType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">static</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="namespacemgis.html#a184723b5d743b58169be89d3b04265fc">size_type</a> <a class="el" href="structmgis_1_1function_1_1internals_1_1_unary_operation_base.html">mgis::function::internals::UnaryOperationBase</a>&lt; CallableType, EvaluatorType &gt;::getNumberOfComponents </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>return the number of components </p>
+<dl class="section return"><dt>Returns</dt><dd>number of components of the values returned by the unary operation, which is known at compile time </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="_unary_operation_8hxx.html">UnaryOperation.hxx</a></li>
 </ul>
@@ -129,7 +176,7 @@ Static Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemgis.html">mgis</a></li><li class="navelem"><b>function</b></li><li class="navelem"><b>internals</b></li><li class="navelem"><a class="el" href="structmgis_1_1function_1_1internals_1_1_unary_operation_base.html">UnaryOperationBase</a></li>
-    <li class="footer">Generated on Fri Nov 6 2026 14:30:40 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Nov 6 2026 19:42:30 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

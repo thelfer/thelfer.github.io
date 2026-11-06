@@ -14,9 +14,17 @@ var _unary_operation_8hxx =
     [ "mgis::function::customization_points::MinimumComponent< real >", "structmgis_1_1function_1_1customization__points_1_1_minimum_component_3_01real_01_4.html", null ],
     [ "mgis::function::customization_points::MinimumComponent< std::span< const real, N > >", "structmgis_1_1function_1_1customization__points_1_1_minimum_component_3_01std_1_1span_3_01const_01real_00_01_n_01_4_01_4.html", null ],
     [ "mgis::function::customization_points::MinimumComponent< std::array< real, N > >", "structmgis_1_1function_1_1customization__points_1_1_minimum_component_3_01std_1_1array_3_01real_00_01_n_01_4_01_4.html", null ],
-    [ "mgis::function::internals::AbsoluteValueOperator", "structmgis_1_1function_1_1internals_1_1_absolute_value_operator.html", null ],
-    [ "mgis::function::internals::MaximumComponentOperator", "structmgis_1_1function_1_1internals_1_1_maximum_component_operator.html", null ],
-    [ "mgis::function::internals::MinimumComponentOperator", "structmgis_1_1function_1_1internals_1_1_minimum_component_operator.html", null ],
+    [ "mgis::function::internals::AbsoluteValueOperator", "structmgis_1_1function_1_1internals_1_1_absolute_value_operator.html", "structmgis_1_1function_1_1internals_1_1_absolute_value_operator" ],
+    [ "mgis::function::internals::MaximumComponentOperator", "structmgis_1_1function_1_1internals_1_1_maximum_component_operator.html", "structmgis_1_1function_1_1internals_1_1_maximum_component_operator" ],
+    [ "mgis::function::internals::MinimumComponentOperator", "structmgis_1_1function_1_1internals_1_1_minimum_component_operator.html", "structmgis_1_1function_1_1internals_1_1_minimum_component_operator" ],
     [ "getNumberOfComponents", "_unary_operation_8hxx.html#a0bdbcbb798fae4b14ad22ad7d6878578", null ],
-    [ "getNumberOfComponents", "_unary_operation_8hxx.html#abf5c3145744366361792e15ddc03506c", null ]
+    [ "getNumberOfComponents", "_unary_operation_8hxx.html#abf5c3145744366361792e15ddc03506c", null ],
+    [ "transform", "_unary_operation_8hxx.html#a912cfb1744bbebcb1a9a45844e1f22a8", null ],
+    [ "transform", "_unary_operation_8hxx.html#a02977ec7eaddab28e3637a645ba59a79", null ],
+    [ "unary_operation", "_unary_operation_8hxx.html#a6859a29bbab09bf142a50e78a12eb0c2", null ],
+    [ "unary_operation", "_unary_operation_8hxx.html#a3992da81f04a7cd8fe9c96693b98edfe", null ],
+    [ "unary_operation_modifier2", "_unary_operation_8hxx.html#a2102417b0b5142a71e1f6fd2e9d3ee28", null ],
+    [ "absolute_value", "_unary_operation_8hxx.html#aebab32e132fae1ca928d857083b6f424", null ],
+    [ "maximum_component", "_unary_operation_8hxx.html#a067852722528d8931bbbd8caaeba4432", null ],
+    [ "minimum_component", "_unary_operation_8hxx.html#ab134ca124706a04bf193096ed2ea5f3f", null ]
 ];

@@ -1,5 +1,6 @@
 var structmgis_1_1function_1_1_fixed_size_modifier =
 [
+    [ "Space", "structmgis_1_1function_1_1_fixed_size_modifier.html#a0929f904e68d0d9c51fdb575be1aedbd", null ],
     [ "FixedSizeModifier", "structmgis_1_1function_1_1_fixed_size_modifier.html#a17fa4d56e718985f1fa5c12e4ac4bcde", null ],
     [ "FixedSizeModifier", "structmgis_1_1function_1_1_fixed_size_modifier.html#a32394ec8f4312ad75cf2d1d1b7f3db3c", null ],
     [ "check", "structmgis_1_1function_1_1_fixed_size_modifier.html#ac4772db5814b54295d37eb493f2d88c1", null ],

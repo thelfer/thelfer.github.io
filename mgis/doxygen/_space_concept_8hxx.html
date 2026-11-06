@@ -106,6 +106,9 @@ $(document).ready(function(){initNavTree('_space_concept_8hxx.html',''); initRes
   <div class="headertitle"><div class="title">SpaceConcept.hxx File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>File which defines the concept a space must satisfy and the helpers used to query the index types and the workspaces of a space.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;concepts&gt;</code><br />
 <code>#include &lt;type_traits&gt;</code><br />
 <code>#include &quot;<a class="el" href="_config_8hxx.html">MGIS/Config.hxx</a>&quot;</code><br />
@@ -116,32 +119,37 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">a quadrature traits class defining the main properties of a space  <a href="structmgis_1_1function_1_1_space_traits.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1internals_1_1_undefined_type_selector.html">mgis::function::internals::UndefinedTypeSelector</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">a metafunction returning an undefined type  <a href="structmgis_1_1function_1_1internals_1_1_undefined_type_selector.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">helper metafunction returning an undefined type, used as fallback when a space does not expose the queried type  <a href="structmgis_1_1function_1_1internals_1_1_undefined_type_selector.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1internals_1_1_element_index_type_selector.html">mgis::function::internals::ElementIndexTypeSelector&lt; hasElementIndexType, Space &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">a meta function used to return SpaceType::element_index_type if it is defined, UndefinedTypeSelector::Undefined otherwise  <a href="structmgis_1_1function_1_1internals_1_1_element_index_type_selector.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">metafunction used to return the <code>element_index_type</code> type alias of <code><a class="el" href="structmgis_1_1function_1_1_space_traits.html" title="a quadrature traits class defining the main properties of a space">SpaceTraits</a>&lt;Space&gt;</code> if it is defined, <code>UndefinedTypeSelector::Undefined</code> otherwise  <a href="structmgis_1_1function_1_1internals_1_1_element_index_type_selector.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1internals_1_1_element_index_type_selector_3_01true_00_01_space_01_4.html">mgis::function::internals::ElementIndexTypeSelector&lt; true, Space &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">specialization used when the space exposes an <code>element_index_type</code> type alias  <a href="structmgis_1_1function_1_1internals_1_1_element_index_type_selector_3_01true_00_01_space_01_4.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1internals_1_1_element_workspace_selector.html">mgis::function::internals::ElementWorkspaceSelector&lt; hasElementWorkspace, Space &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">a meta function used to return SpaceType::ElementWorkspace if it is defined, UndefinedTypeSelector::Undefined otherwise  <a href="structmgis_1_1function_1_1internals_1_1_element_workspace_selector.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">metafunction used to return the <code>ElementWorkspace</code> type of <code><a class="el" href="structmgis_1_1function_1_1_space_traits.html" title="a quadrature traits class defining the main properties of a space">SpaceTraits</a>&lt;Space&gt;</code> if it is defined, <code>UndefinedTypeSelector::Undefined</code> otherwise  <a href="structmgis_1_1function_1_1internals_1_1_element_workspace_selector.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1internals_1_1_element_workspace_selector_3_01true_00_01_space_01_4.html">mgis::function::internals::ElementWorkspaceSelector&lt; true, Space &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">specialization used when the space exposes an <code>ElementWorkspace</code> type  <a href="structmgis_1_1function_1_1internals_1_1_element_workspace_selector_3_01true_00_01_space_01_4.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1internals_1_1_cell_index_type_selector.html">mgis::function::internals::CellIndexTypeSelector&lt; hasCellIndexType, Space &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">a meta function used to return SpaceType::cell_index_type if it is defined, UndefinedTypeSelector::Undefined otherwise  <a href="structmgis_1_1function_1_1internals_1_1_cell_index_type_selector.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">metafunction used to return the <code>cell_index_type</code> type alias of <code><a class="el" href="structmgis_1_1function_1_1_space_traits.html" title="a quadrature traits class defining the main properties of a space">SpaceTraits</a>&lt;Space&gt;</code> if it is defined, <code>UndefinedTypeSelector::Undefined</code> otherwise  <a href="structmgis_1_1function_1_1internals_1_1_cell_index_type_selector.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1internals_1_1_cell_index_type_selector_3_01true_00_01_space_01_4.html">mgis::function::internals::CellIndexTypeSelector&lt; true, Space &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">specialization used when the space exposes a <code>cell_index_type</code> type alias  <a href="structmgis_1_1function_1_1internals_1_1_cell_index_type_selector_3_01true_00_01_space_01_4.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1internals_1_1_quadrature_point_index_type_selector.html">mgis::function::internals::QuadraturePointIndexTypeSelector&lt; hasQuadraturePointIndexType, Space &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">a meta function used to return SpaceType::quadrature_point_index_type if it is defined, UndefinedTypeSelector::Undefined otherwise  <a href="structmgis_1_1function_1_1internals_1_1_quadrature_point_index_type_selector.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">metafunction used to return the <code>quadrature_point_index_type</code> type alias of <code><a class="el" href="structmgis_1_1function_1_1_space_traits.html" title="a quadrature traits class defining the main properties of a space">SpaceTraits</a>&lt;Space&gt;</code> if it is defined, <code>UndefinedTypeSelector::Undefined</code> otherwise  <a href="structmgis_1_1function_1_1internals_1_1_quadrature_point_index_type_selector.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1internals_1_1_quadrature_point_index_type_selector_3_01true_00_01_space_01_4.html">mgis::function::internals::QuadraturePointIndexTypeSelector&lt; true, Space &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">specialization used when the space exposes a <code>quadrature_point_index_type</code> type alias  <a href="structmgis_1_1function_1_1internals_1_1_quadrature_point_index_type_selector_3_01true_00_01_space_01_4.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1internals_1_1_cell_workspace_selector.html">mgis::function::internals::CellWorkspaceSelector&lt; hasCellWorkspace, Space &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">a meta function used to return SpaceType::CellWorkspace if it is defined, UndefinedTypeSelector::Undefined otherwise  <a href="structmgis_1_1function_1_1internals_1_1_cell_workspace_selector.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">metafunction used to return the <code>CellWorkspace</code> type of <code><a class="el" href="structmgis_1_1function_1_1_space_traits.html" title="a quadrature traits class defining the main properties of a space">SpaceTraits</a>&lt;Space&gt;</code> if it is defined, <code>UndefinedTypeSelector::Undefined</code> otherwise  <a href="structmgis_1_1function_1_1internals_1_1_cell_workspace_selector.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1internals_1_1_cell_workspace_selector_3_01true_00_01_space_01_4.html">mgis::function::internals::CellWorkspaceSelector&lt; true, Space &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">specialization used when the space exposes a <code>CellWorkspace</code> type  <a href="structmgis_1_1function_1_1internals_1_1_cell_workspace_selector_3_01true_00_01_space_01_4.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -159,59 +167,61 @@ Concepts</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">a concept describing a space <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptmgis_1_1function_1_1_element_space_concept.html">mgis::function::ElementSpaceConcept</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">a concept describing a space where values can be addressed by an element index <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptmgis_1_1function_1_1_linear_element_space_concept.html">mgis::function::LinearElementSpaceConcept</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">a concept describing a space where all the elements are stored for 0 to getSpaceSize(s) - 1 <br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">a concept describing a space where all the elements are stored from 0 to <code>getSpaceSize(s) - 1</code> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptmgis_1_1function_1_1_quadrature_space_concept.html">mgis::function::QuadratureSpaceConcept</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">a concept describing a quadrature space where values can be addressed by given the element index and the value of the integration points <br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">a concept describing a quadrature space where values can be addressed given the cell index and the index of the integration points <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptmgis_1_1function_1_1_linear_quadrature_space_concept.html">mgis::function::LinearQuadratureSpaceConcept</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">a concept describing a quadrature space where all the cells are stored from 0 to <code>getNumberOfCells(s) - 1</code> and the offset of a quadrature point can be computed from the index of its cell and its own index <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptmgis_1_1function_1_1_functional_space_concept.html">mgis::function::FunctionalSpaceConcept</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">a concept describing a space where values can be addressed either by an element index or by a cell index and a quadrature point index <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptmgis_1_1function_1_1_linear_functional_space_concept.html">mgis::function::LinearFunctionalSpaceConcept</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">a concept describing a space which matches both the <code>FunctionalSpaceConcept</code> concept and either the <code>LinearElementSpaceConcept</code> concept or the <code>LinearQuadratureSpaceConcept</code> concept <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a39fa83c1af7fb0f17f49d0bf9c4dc860" id="r_a39fa83c1af7fb0f17f49d0bf9c4dc860"><td class="memTemplParams" colspan="2"><a id="a39fa83c1af7fb0f17f49d0bf9c4dc860" name="a39fa83c1af7fb0f17f49d0bf9c4dc860"></a>
-template&lt;SpaceConcept SpaceType&gt; </td></tr>
-<tr class="memitem:a39fa83c1af7fb0f17f49d0bf9c4dc860"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">using</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>mgis::function::element_index</b> = <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">typename</a> <a class="el" href="structmgis_1_1function_1_1internals_1_1_element_index_type_selector.html">internals::ElementIndexTypeSelector</a>&lt; ElementSpaceConcept&lt; <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">SpaceType</a> &gt;, <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">SpaceType</a> &gt;::type</td></tr>
-<tr class="memdesc:a39fa83c1af7fb0f17f49d0bf9c4dc860"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple alias <br /></td></tr>
+<tr class="memitem:a39fa83c1af7fb0f17f49d0bf9c4dc860" id="r_a39fa83c1af7fb0f17f49d0bf9c4dc860"><td class="memTemplParams" colspan="2">template&lt;SpaceConcept SpaceType&gt; </td></tr>
+<tr class="memitem:a39fa83c1af7fb0f17f49d0bf9c4dc860"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">using</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_space_concept_8hxx.html#a39fa83c1af7fb0f17f49d0bf9c4dc860">mgis::function::element_index</a> = <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">typename</a> <a class="el" href="structmgis_1_1function_1_1internals_1_1_element_index_type_selector.html">internals::ElementIndexTypeSelector</a>&lt; ElementSpaceConcept&lt; <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">SpaceType</a> &gt;, <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">SpaceType</a> &gt;::type</td></tr>
+<tr class="memdesc:a39fa83c1af7fb0f17f49d0bf9c4dc860"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple alias giving the type of the index of an element of a space  <br /></td></tr>
 <tr class="separator:a39fa83c1af7fb0f17f49d0bf9c4dc860"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91a878b093d61e654f69bafb2632d8d2" id="r_a91a878b093d61e654f69bafb2632d8d2"><td class="memTemplParams" colspan="2">template&lt;SpaceConcept SpaceType&gt; </td></tr>
 <tr class="memitem:a91a878b093d61e654f69bafb2632d8d2"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">using</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_space_concept_8hxx.html#a91a878b093d61e654f69bafb2632d8d2">mgis::function::element_workspace</a> = <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">typename</a> <a class="el" href="structmgis_1_1function_1_1internals_1_1_element_workspace_selector.html">internals::ElementWorkspaceSelector</a>&lt; <a class="el" href="_space_concept_8hxx.html#ac92daa906f272f79368a0754f49e1071">hasElementWorkspace</a>&lt; <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">SpaceType</a> &gt;, <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">SpaceType</a> &gt;::type</td></tr>
-<tr class="memdesc:a91a878b093d61e654f69bafb2632d8d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple alias  <br /></td></tr>
+<tr class="memdesc:a91a878b093d61e654f69bafb2632d8d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple alias giving the type of the workspace associated with an element of a space  <br /></td></tr>
 <tr class="separator:a91a878b093d61e654f69bafb2632d8d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2fd1fd0b66b3cf3f65fbd327f21582f" id="r_af2fd1fd0b66b3cf3f65fbd327f21582f"><td class="memTemplParams" colspan="2"><a id="af2fd1fd0b66b3cf3f65fbd327f21582f" name="af2fd1fd0b66b3cf3f65fbd327f21582f"></a>
-template&lt;SpaceConcept SpaceType&gt; </td></tr>
-<tr class="memitem:af2fd1fd0b66b3cf3f65fbd327f21582f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">using</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>mgis::function::cell_index</b> = <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">typename</a> <a class="el" href="structmgis_1_1function_1_1internals_1_1_cell_index_type_selector.html">internals::CellIndexTypeSelector</a>&lt; QuadratureSpaceConcept&lt; <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">SpaceType</a> &gt;, <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">SpaceType</a> &gt;::type</td></tr>
-<tr class="memdesc:af2fd1fd0b66b3cf3f65fbd327f21582f"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple alias <br /></td></tr>
+<tr class="memitem:af2fd1fd0b66b3cf3f65fbd327f21582f" id="r_af2fd1fd0b66b3cf3f65fbd327f21582f"><td class="memTemplParams" colspan="2">template&lt;SpaceConcept SpaceType&gt; </td></tr>
+<tr class="memitem:af2fd1fd0b66b3cf3f65fbd327f21582f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">using</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_space_concept_8hxx.html#af2fd1fd0b66b3cf3f65fbd327f21582f">mgis::function::cell_index</a> = <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">typename</a> <a class="el" href="structmgis_1_1function_1_1internals_1_1_cell_index_type_selector.html">internals::CellIndexTypeSelector</a>&lt; QuadratureSpaceConcept&lt; <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">SpaceType</a> &gt;, <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">SpaceType</a> &gt;::type</td></tr>
+<tr class="memdesc:af2fd1fd0b66b3cf3f65fbd327f21582f"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple alias giving the type of the index of a cell of a space  <br /></td></tr>
 <tr class="separator:af2fd1fd0b66b3cf3f65fbd327f21582f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ea888d38624e64ae215039764277e92" id="r_a5ea888d38624e64ae215039764277e92"><td class="memTemplParams" colspan="2"><a id="a5ea888d38624e64ae215039764277e92" name="a5ea888d38624e64ae215039764277e92"></a>
-template&lt;SpaceConcept SpaceType&gt; </td></tr>
-<tr class="memitem:a5ea888d38624e64ae215039764277e92"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">using</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>mgis::function::quadrature_point_index</b> = <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">typename</a> <a class="el" href="structmgis_1_1function_1_1internals_1_1_quadrature_point_index_type_selector.html">internals::QuadraturePointIndexTypeSelector</a>&lt; QuadratureSpaceConcept&lt; <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">SpaceType</a> &gt;, <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">SpaceType</a> &gt;::type</td></tr>
-<tr class="memdesc:a5ea888d38624e64ae215039764277e92"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple alias <br /></td></tr>
+<tr class="memitem:a5ea888d38624e64ae215039764277e92" id="r_a5ea888d38624e64ae215039764277e92"><td class="memTemplParams" colspan="2">template&lt;SpaceConcept SpaceType&gt; </td></tr>
+<tr class="memitem:a5ea888d38624e64ae215039764277e92"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">using</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_space_concept_8hxx.html#a5ea888d38624e64ae215039764277e92">mgis::function::quadrature_point_index</a> = <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">typename</a> <a class="el" href="structmgis_1_1function_1_1internals_1_1_quadrature_point_index_type_selector.html">internals::QuadraturePointIndexTypeSelector</a>&lt; QuadratureSpaceConcept&lt; <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">SpaceType</a> &gt;, <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">SpaceType</a> &gt;::type</td></tr>
+<tr class="memdesc:a5ea888d38624e64ae215039764277e92"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple alias giving the type of the index of a quadrature point of a space  <br /></td></tr>
 <tr class="separator:a5ea888d38624e64ae215039764277e92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb61c722c28d5227bb3794829442926b" id="r_acb61c722c28d5227bb3794829442926b"><td class="memTemplParams" colspan="2">template&lt;SpaceConcept SpaceType&gt; </td></tr>
 <tr class="memitem:acb61c722c28d5227bb3794829442926b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">using</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_space_concept_8hxx.html#acb61c722c28d5227bb3794829442926b">mgis::function::cell_workspace</a> = <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">typename</a> <a class="el" href="structmgis_1_1function_1_1internals_1_1_cell_workspace_selector.html">internals::CellWorkspaceSelector</a>&lt; <a class="el" href="_space_concept_8hxx.html#aeb22257f332e328e161717de17b1f815">hasCellWorkspace</a>&lt; <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">SpaceType</a> &gt;, <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">SpaceType</a> &gt;::type</td></tr>
-<tr class="memdesc:acb61c722c28d5227bb3794829442926b"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple alias  <br /></td></tr>
+<tr class="memdesc:acb61c722c28d5227bb3794829442926b"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple alias giving the type of the workspace associated with a cell of a space  <br /></td></tr>
 <tr class="separator:acb61c722c28d5227bb3794829442926b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:ac92daa906f272f79368a0754f49e1071" id="r_ac92daa906f272f79368a0754f49e1071"><td class="memTemplParams" colspan="2">template&lt;SpaceConcept SpaceType&gt; </td></tr>
 <tr class="memitem:ac92daa906f272f79368a0754f49e1071"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">bool</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_space_concept_8hxx.html#ac92daa906f272f79368a0754f49e1071">mgis::function::hasElementWorkspace</a></td></tr>
-<tr class="memdesc:ac92daa906f272f79368a0754f49e1071"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple meta function stating if SpaceType does not expose an ElementWorkspace structure  <br /></td></tr>
+<tr class="memdesc:ac92daa906f272f79368a0754f49e1071"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple meta function stating if <code>SpaceType</code> exposes an <code>ElementWorkspace</code> type  <br /></td></tr>
 <tr class="separator:ac92daa906f272f79368a0754f49e1071"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb22257f332e328e161717de17b1f815" id="r_aeb22257f332e328e161717de17b1f815"><td class="memTemplParams" colspan="2">template&lt;SpaceConcept SpaceType&gt; </td></tr>
 <tr class="memitem:aeb22257f332e328e161717de17b1f815"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">bool</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_space_concept_8hxx.html#aeb22257f332e328e161717de17b1f815">mgis::function::hasCellWorkspace</a></td></tr>
-<tr class="memdesc:aeb22257f332e328e161717de17b1f815"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple meta function stating if SpaceType does not expose an CellWorkspace structure  <br /></td></tr>
+<tr class="memdesc:aeb22257f332e328e161717de17b1f815"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple meta function stating if <code>SpaceType</code> exposes a <code>CellWorkspace</code> type  <br /></td></tr>
 <tr class="separator:aeb22257f332e328e161717de17b1f815"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section author"><dt>Author</dt><dd>Thomas Helfer </dd></dl>
+<div class="textblock"><p>File which defines the concept a space must satisfy and the helpers used to query the index types and the workspaces of a space. </p>
+<dl class="section author"><dt>Author</dt><dd>Thomas Helfer </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>01/05/2025 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>(C) Copyright Thomas Helfer 2018. Use, modification and distribution are subject to one of the following licences:<ul>
 <li>GNU Lesser General Public License (LGPL), Version 3.0. (See accompanying file LGPL-3.0.txt)</li>
@@ -219,6 +229,31 @@ Variables</h2></td></tr>
 </ul>
 </dd></dl>
 </div><h2 class="groupheader">Typedef Documentation</h2>
+<a id="af2fd1fd0b66b3cf3f65fbd327f21582f" name="af2fd1fd0b66b3cf3f65fbd327f21582f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2fd1fd0b66b3cf3f65fbd327f21582f">&#9670;&#160;</a></span>cell_index</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;SpaceConcept SpaceType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="_space_concept_8hxx.html#af2fd1fd0b66b3cf3f65fbd327f21582f">mgis::function::cell_index</a> = typedef typename internals:: CellIndexTypeSelector&lt;QuadratureSpaceConcept&lt;SpaceType&gt;, SpaceType&gt;::type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>a simple alias giving the type of the index of a cell of a space </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">SpaceType</td><td>type of the space considered </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>this alias leads to an undefined type if <code>SpaceType</code> does not match the <code>QuadratureSpaceConcept</code> concept </dd></dl>
+
+</div>
+</div>
 <a id="acb61c722c28d5227bb3794829442926b" name="acb61c722c28d5227bb3794829442926b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acb61c722c28d5227bb3794829442926b">&#9670;&#160;</a></span>cell_workspace</h2>
 
@@ -233,8 +268,39 @@ template&lt;SpaceConcept SpaceType&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>a simple alias </p>
-<dl class="section note"><dt>Note</dt><dd>this alias leads to an undefined type if SpaceType does not expose an CellWorkspace structure </dd></dl>
+<p>a simple alias giving the type of the workspace associated with a cell of a space </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">SpaceType</td><td>type of the space considered </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>this alias leads to an undefined type if <code>SpaceType</code> does not expose a <code>CellWorkspace</code> type </dd></dl>
+
+</div>
+</div>
+<a id="a39fa83c1af7fb0f17f49d0bf9c4dc860" name="a39fa83c1af7fb0f17f49d0bf9c4dc860"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39fa83c1af7fb0f17f49d0bf9c4dc860">&#9670;&#160;</a></span>element_index</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;SpaceConcept SpaceType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="_space_concept_8hxx.html#a39fa83c1af7fb0f17f49d0bf9c4dc860">mgis::function::element_index</a> = typedef typename internals:: ElementIndexTypeSelector&lt;ElementSpaceConcept&lt;SpaceType&gt;, SpaceType&gt;::type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>a simple alias giving the type of the index of an element of a space </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">SpaceType</td><td>type of the space considered </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>this alias leads to an undefined type if <code>SpaceType</code> does not match the <code>ElementSpaceConcept</code> concept </dd></dl>
 
 </div>
 </div>
@@ -252,8 +318,39 @@ template&lt;SpaceConcept SpaceType&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>a simple alias </p>
-<dl class="section note"><dt>Note</dt><dd>this alias leads to an undefined type if SpaceType does not expose an ElementWorkspace structure </dd></dl>
+<p>a simple alias giving the type of the workspace associated with an element of a space </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">SpaceType</td><td>type of the space considered </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>this alias leads to an undefined type if <code>SpaceType</code> does not expose an <code>ElementWorkspace</code> type </dd></dl>
+
+</div>
+</div>
+<a id="a5ea888d38624e64ae215039764277e92" name="a5ea888d38624e64ae215039764277e92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ea888d38624e64ae215039764277e92">&#9670;&#160;</a></span>quadrature_point_index</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;SpaceConcept SpaceType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="_space_concept_8hxx.html#a5ea888d38624e64ae215039764277e92">mgis::function::quadrature_point_index</a> = typedef typename internals::QuadraturePointIndexTypeSelector&lt; QuadratureSpaceConcept&lt;SpaceType&gt;, SpaceType&gt;::type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>a simple alias giving the type of the index of a quadrature point of a space </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">SpaceType</td><td>type of the space considered </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>this alias leads to an undefined type if <code>SpaceType</code> does not match the <code>QuadratureSpaceConcept</code> concept </dd></dl>
 
 </div>
 </div>
@@ -283,7 +380,13 @@ template&lt;SpaceConcept SpaceType&gt; </div>
 <div class="line">    <span class="keyword">typename</span> SpaceTraits&lt;SpaceType&gt;::CellWorkspace;</div>
 <div class="line">  }</div>
 </div><!-- fragment -->
-<p>a simple meta function stating if SpaceType does not expose an CellWorkspace structure </p>
+<p>a simple meta function stating if <code>SpaceType</code> exposes a <code>CellWorkspace</code> type </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">SpaceType</td><td>type of the space considered </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -312,7 +415,13 @@ template&lt;SpaceConcept SpaceType&gt; </div>
 <div class="line">    <span class="keyword">typename</span> SpaceTraits&lt;SpaceType&gt;::ElementWorkspace;</div>
 <div class="line">  }</div>
 </div><!-- fragment -->
-<p>a simple meta function stating if SpaceType does not expose an ElementWorkspace structure </p>
+<p>a simple meta function stating if <code>SpaceType</code> exposes an <code>ElementWorkspace</code> type </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">SpaceType</td><td>type of the space considered </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -322,7 +431,7 @@ template&lt;SpaceConcept SpaceType&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_926a8b4fb7ad5e8e017827ff5fbbb316.html">MGIS</a></li><li class="navelem"><a class="el" href="dir_2e52b00940cd27d9780366949db1e89b.html">Function</a></li><li class="navelem"><a class="el" href="_space_concept_8hxx.html">SpaceConcept.hxx</a></li>
-    <li class="footer">Generated on Fri Nov 6 2026 14:30:40 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Nov 6 2026 19:42:30 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

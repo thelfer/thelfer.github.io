@@ -104,6 +104,9 @@ $(document).ready(function(){initNavTree('_c_u_d_a_2_algorithms_8ixx.html',''); 
   <div class="headertitle"><div class="title">Algorithms.ixx File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Implementation of the CUDA <code>assign</code> algorithm declared in <code><a class="el" href="_c_u_d_a_2_algorithms_8hxx.html" title="CUDA counterpart of MGIS/Function/Algorithms.hxx. It declares the assign algorithm which evaluates an...">MGIS/Function/CUDA/Algorithms.hxx</a></code>, including the generic CUDA kernel and the helper which launches it.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_algorithms_8hxx.html">MGIS/Function/Algorithms.hxx</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -114,22 +117,23 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ad6c858f0d83233cb2d27ea1731e98f94" id="r_ad6c858f0d83233cb2d27ea1731e98f94"><td class="memTemplParams" colspan="2"><a id="ad6c858f0d83233cb2d27ea1731e98f94" name="ad6c858f0d83233cb2d27ea1731e98f94"></a>
-template&lt;typename CallableType , typename SpaceSizeType &gt; </td></tr>
-<tr class="memitem:ad6c858f0d83233cb2d27ea1731e98f94"><td class="memTemplItemLeft" align="right" valign="top">__global__ void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>mgis::function::cuda::apply_kernel</b> (CallableType f, const SpaceSizeType s)</td></tr>
+<tr class="memitem:ad6c858f0d83233cb2d27ea1731e98f94" id="r_ad6c858f0d83233cb2d27ea1731e98f94"><td class="memTemplParams" colspan="2">template&lt;typename CallableType , typename SpaceSizeType &gt; </td></tr>
+<tr class="memitem:ad6c858f0d83233cb2d27ea1731e98f94"><td class="memTemplItemLeft" align="right" valign="top">__global__ void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_c_u_d_a_2_algorithms_8ixx.html#ad6c858f0d83233cb2d27ea1731e98f94">mgis::function::cuda::apply_kernel</a> (CallableType f, const SpaceSizeType s)</td></tr>
+<tr class="memdesc:ad6c858f0d83233cb2d27ea1731e98f94"><td class="mdescLeft">&#160;</td><td class="mdescRight">CUDA kernel calling a callable object on every element of a space.  <br /></td></tr>
 <tr class="separator:ad6c858f0d83233cb2d27ea1731e98f94"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adde20e950457bb76a1ff37dab8124c97" id="r_adde20e950457bb76a1ff37dab8124c97"><td class="memTemplParams" colspan="2"><a id="adde20e950457bb76a1ff37dab8124c97" name="adde20e950457bb76a1ff37dab8124c97"></a>
-template&lt;typename CallableType , typename SpaceSizeType &gt; </td></tr>
-<tr class="memitem:adde20e950457bb76a1ff37dab8124c97"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>mgis::function::cuda::call_kernel</b> (<a class="el" href="structmgis_1_1_abstract_error_handler.html">AbstractErrorHandler</a> &amp;ctx, const <a class="el" href="structmgis_1_1function_1_1_c_u_d_a_execution_configuration.html">CUDAExecutionConfiguration</a> &amp;c, CallableType f, const SpaceSizeType s)</td></tr>
+<tr class="memitem:adde20e950457bb76a1ff37dab8124c97" id="r_adde20e950457bb76a1ff37dab8124c97"><td class="memTemplParams" colspan="2">template&lt;typename CallableType , typename SpaceSizeType &gt; </td></tr>
+<tr class="memitem:adde20e950457bb76a1ff37dab8124c97"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_c_u_d_a_2_algorithms_8ixx.html#adde20e950457bb76a1ff37dab8124c97">mgis::function::cuda::call_kernel</a> (<a class="el" href="structmgis_1_1_abstract_error_handler.html">AbstractErrorHandler</a> &amp;ctx, const <a class="el" href="structmgis_1_1function_1_1_c_u_d_a_execution_configuration.html">CUDAExecutionConfiguration</a> &amp;c, CallableType f, const SpaceSizeType s)</td></tr>
+<tr class="memdesc:adde20e950457bb76a1ff37dab8124c97"><td class="mdescLeft">&#160;</td><td class="mdescRight">launch <code>apply_kernel</code> on the space and wait for its completion  <br /></td></tr>
 <tr class="separator:adde20e950457bb76a1ff37dab8124c97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca3502e67ea2c7481bd83da3b8b36b20" id="r_aca3502e67ea2c7481bd83da3b8b36b20"><td class="memTemplParams" colspan="2">template&lt;typename FunctionType , EvaluatorConcept EvaluatorType&gt; <br />
-requires ( (LinearElementSpaceConcept&lt;evaluator_space&lt;EvaluatorType&gt;&gt;) &amp;&amp; std::same_as&lt;function_space&lt;FunctionType&gt;, evaluator_space&lt;EvaluatorType&gt;&gt;)</td></tr>
+requires ( (LinearElementSpaceConcept&lt;<a class="el" href="_evaluator_concept_8hxx.html#a03321fe2496bf3172f9c6ab7d472b070">evaluator_space</a>&lt;EvaluatorType&gt;&gt;) &amp;&amp; std::same_as&lt;<a class="el" href="_function_concept_8hxx.html#a93ec0225eae92cf7744daa6b829fe784">function_space</a>&lt;FunctionType&gt;, <a class="el" href="_evaluator_concept_8hxx.html#a03321fe2496bf3172f9c6ab7d472b070">evaluator_space</a>&lt;EvaluatorType&gt;&gt;)</td></tr>
 <tr class="memitem:aca3502e67ea2c7481bd83da3b8b36b20"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_c_u_d_a_2_algorithms_8hxx.html#aca3502e67ea2c7481bd83da3b8b36b20">mgis::function::assign</a> (<a class="el" href="structmgis_1_1_abstract_error_handler.html">AbstractErrorHandler</a> &amp;, const <a class="el" href="structmgis_1_1function_1_1_c_u_d_a_execution_configuration.html">CUDAExecutionConfiguration</a> &amp;, FunctionType &amp;, const EvaluatorType)</td></tr>
 <tr class="memdesc:aca3502e67ea2c7481bd83da3b8b36b20"><td class="mdescLeft">&#160;</td><td class="mdescRight">assign the evaluator to a function  <br /></td></tr>
 <tr class="separator:aca3502e67ea2c7481bd83da3b8b36b20"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section author"><dt>Author</dt><dd>Thomas Helfer </dd></dl>
+<div class="textblock"><p>Implementation of the CUDA <code>assign</code> algorithm declared in <code><a class="el" href="_c_u_d_a_2_algorithms_8hxx.html" title="CUDA counterpart of MGIS/Function/Algorithms.hxx. It declares the assign algorithm which evaluates an...">MGIS/Function/CUDA/Algorithms.hxx</a></code>, including the generic CUDA kernel and the helper which launches it. </p>
+<dl class="section author"><dt>Author</dt><dd>Thomas Helfer </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>28/06/2026 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>(C) Copyright Thomas Helfer 2018. Use, modification and distribution are subject to one of the following licences:<ul>
 <li>GNU Lesser General Public License (LGPL), Version 3.0. (See accompanying file LGPL-3.0.txt)</li>
@@ -137,6 +141,53 @@ requires ( (LinearElementSpaceConcept&lt;evaluator_space&lt;EvaluatorType&gt;&gt
 </ul>
 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="ad6c858f0d83233cb2d27ea1731e98f94" name="ad6c858f0d83233cb2d27ea1731e98f94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6c858f0d83233cb2d27ea1731e98f94">&#9670;&#160;</a></span>apply_kernel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename CallableType , typename SpaceSizeType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">__global__ void mgis::function::cuda::apply_kernel </td>
+          <td>(</td>
+          <td class="paramtype">CallableType&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const SpaceSizeType&#160;</td>
+          <td class="paramname"><em>s</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>CUDA kernel calling a callable object on every element of a space. </p>
+<p>Each thread computes its own linear index from the block and thread indices and calls <code>f</code> with this index. Threads whose index is greater than or equal to the size of the space return immediately, which allows the grid to oversubscribe the space.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">CallableType</td><td>type of the callable object, which must be callable from the device </td></tr>
+    <tr><td class="paramname">SpaceSizeType</td><td>integral type used to index the space </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">f</td><td>callable object applied to every element </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td>size of the space </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="aca3502e67ea2c7481bd83da3b8b36b20" name="aca3502e67ea2c7481bd83da3b8b36b20"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aca3502e67ea2c7481bd83da3b8b36b20">&#9670;&#160;</a></span>assign()</h2>
 
@@ -179,15 +230,95 @@ requires ( (LinearElementSpaceConcept&lt;evaluator_space&lt;EvaluatorType&gt;&gt
 </div><div class="memdoc">
 
 <p>assign the evaluator to a function </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">ctx</td><td>execution context </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">c</td><td>CUDA execution configuration </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">lhs</td><td>left hand side </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">e</td><td>right hand side </td></tr>
+<p>implementation of the CUDA <code>assign</code> algorithm</p>
+<p>This is the CUDA counterpart of the <code>assign</code> algorithm declared in <code><a class="el" href="_algorithms_8hxx.html" title="Declaration of the algorithms which can be applied to the functions and the evaluators of the MGIS/Fu...">MGIS/Function/Algorithms.hxx</a></code>: the values are computed on the graphic card by a CUDA kernel instead of being computed on the host. The evaluator and the function must therefore be callable from the device, which means in particular that they must be built on data accessible from the device, e.g. <code>thrust::universal_vector</code>s, and that the lambda expressions they rely on must be <code>MGIS_HOST_DEVICE</code> lambda expressions.</p>
+<p>The spaces of the function and of the evaluator and their number of components are compared and the evaluator is checked before the kernel is launched; the launch strategy itself is described in <code><a class="el" href="_c_u_d_a_2_algorithms_8ixx.html" title="Implementation of the CUDA assign algorithm declared in MGIS/Function/CUDA/Algorithms....">MGIS/Function/CUDA/Algorithms.ixx</a></code>.</p>
+<p>Only the function arguments which can be captured by a kernel are supported: if the function is not a lightweight view, a view of it is computed on the host and captured by the kernel.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">FunctionType</td><td>type of the function the values are assigned to, which must be defined on the same space as the evaluator </td></tr>
+    <tr><td class="paramname">EvaluatorType</td><td>type of the evaluator, which must satisfy the <code>EvaluatorConcept</code> concept and be defined on a linear element space </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ctx</td><td>execution context, used to report the errors </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">c</td><td>CUDA execution configuration </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">f</td><td>left hand side, i.e. the function the values are assigned to </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">e</td><td>right hand side, i.e. the evaluator computing the values </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the assignment succeeded</dd></dl>
+<p>After checking that the spaces of the function and of the evaluator are equivalent, that their numbers of components match and that the evaluator is valid, a device callable lambda expression is built to assign, for a given index, the value computed by the evaluator to that of the function and is applied to every element of the space by <code>cuda::call_kernel</code>.</p>
+<p>Two orthogonal choices are made at compile time:</p><ul>
+<li>if the function is a lightweight view, it is captured directly by the lambda expression, otherwise a view of it is computed on the host and captured,</li>
+<li>if the value returned by the function can be assigned from that of the evaluator using <code>operator=</code>, a direct assignment is used, otherwise the <code>internals::assign_value</code> helper is used, which handles the cases where the two values have different, but compatible, types.</li>
+</ul>
+<dl class="section note"><dt>Note</dt><dd>the <code>requires</code>-clause restricts the algorithm to evaluators defined on a linear element space and to functions defined on the very same space so that a single linear index can address both the function and the evaluator. </dd></dl>
+
+</div>
+</div>
+<a id="adde20e950457bb76a1ff37dab8124c97" name="adde20e950457bb76a1ff37dab8124c97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adde20e950457bb76a1ff37dab8124c97">&#9670;&#160;</a></span>call_kernel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename CallableType , typename SpaceSizeType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool mgis::function::cuda::call_kernel </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmgis_1_1_abstract_error_handler.html">AbstractErrorHandler</a> &amp;&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structmgis_1_1function_1_1_c_u_d_a_execution_configuration.html">CUDAExecutionConfiguration</a> &amp;&#160;</td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CallableType&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const SpaceSizeType&#160;</td>
+          <td class="paramname"><em>s</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>launch <code>apply_kernel</code> on the space and wait for its completion </p>
+<p>The number of threads per block is taken from the configuration and the number of blocks is computed from the size of the space so that every index is covered by at least one thread. Both the launch and the execution of the kernel are checked: the corresponding CUDA error message is registered through the error handler when an error occurs.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">CallableType</td><td>type of the callable object, which must be callable from the device </td></tr>
+    <tr><td class="paramname">SpaceSizeType</td><td>integral type used to index the space </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ctx</td><td>error handler used to report the errors </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">c</td><td>CUDA execution configuration </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">f</td><td>callable object applied to every element of the space </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td>size of the space </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the kernel was launched and executed without error </dd></dl>
 
 </div>
 </div>
@@ -197,7 +328,7 @@ requires ( (LinearElementSpaceConcept&lt;evaluator_space&lt;EvaluatorType&gt;&gt
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_926a8b4fb7ad5e8e017827ff5fbbb316.html">MGIS</a></li><li class="navelem"><a class="el" href="dir_2e52b00940cd27d9780366949db1e89b.html">Function</a></li><li class="navelem"><a class="el" href="dir_418e45bd109328e4982cec3cc32131fc.html">CUDA</a></li><li class="navelem"><a class="el" href="_c_u_d_a_2_algorithms_8ixx.html">Algorithms.ixx</a></li>
-    <li class="footer">Generated on Fri Nov 6 2026 14:30:40 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Nov 6 2026 19:42:30 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

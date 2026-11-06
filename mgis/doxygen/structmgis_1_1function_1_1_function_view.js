@@ -19,6 +19,8 @@ var structmgis_1_1function_1_1_function_view =
     [ "FunctionView", "structmgis_1_1function_1_1_function_view.html#a53ded62b9c34be5af1cf20524da4583c", null ],
     [ "FunctionView", "structmgis_1_1function_1_1_function_view.html#a128bc71f556b2ed03873daa8bbdb9939", null ],
     [ "FunctionView", "structmgis_1_1function_1_1_function_view.html#a27bdb13d4872c5a50f9d2dcff7700433", null ],
+    [ "FunctionView", "structmgis_1_1function_1_1_function_view.html#ac4db1505f4db19a3b227b6c2ae27c06f", null ],
+    [ "FunctionView", "structmgis_1_1function_1_1_function_view.html#a506b7278370802a13284671bd755c5b9", null ],
     [ "~FunctionView", "structmgis_1_1function_1_1_function_view.html#a1e108c9aad9076436acb9afcf49b88d2", null ],
     [ "checkCompatibility", "structmgis_1_1function_1_1_function_view.html#a189df40a9829d0f032844f70ebf4402b", null ],
     [ "data", "structmgis_1_1function_1_1_function_view.html#a6639cfe60d59d4a6f68580c397d12774", null ],

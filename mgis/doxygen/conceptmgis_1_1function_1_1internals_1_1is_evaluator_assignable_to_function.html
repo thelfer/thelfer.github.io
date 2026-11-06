@@ -100,6 +100,11 @@ $(document).ready(function(){initNavTree('conceptmgis_1_1function_1_1internals_1
   <div class="headertitle"><div class="title">mgis::function::internals::isEvaluatorAssignableToFunction Concept Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>concept stating that an evaluator can be assigned to a function  
+<a href="conceptmgis_1_1function_1_1internals_1_1is_evaluator_assignable_to_function.html#details">More...</a></p>
+
+<p><code>#include &lt;/home/runner/work/MFrontGenericInterfaceSupport/MFrontGenericInterfaceSupport/include/MGIS/Function/Algorithms.hxx&gt;</code></p>
 <h2 class="groupheader">Concept definition</h2>
 <div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> EvaluatorType, <span class="keyword">typename</span> FunctionType&gt;</div>
 <div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="conceptmgis_1_1function_1_1internals_1_1is_evaluator_assignable_to_function.html">mgis::function::internals::isEvaluatorAssignableToFunction</a> = </div>
@@ -111,19 +116,30 @@ $(document).ready(function(){initNavTree('conceptmgis_1_1function_1_1internals_1
 <div class="line">                 <span class="keyword">const</span> evaluator_result&lt;EvaluatorType&gt;&amp; rhs) { lhs = rhs; }) ||</div>
 <div class="line">       (<span class="keyword">requires</span>(<a class="code hl_typedef" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">function_result&lt;FunctionType&gt;</a> &amp; <a class="code hl_typedef" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">lhs</a>,</div>
 <div class="line">                 <span class="keyword">const</span> <a class="code hl_typedef" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">evaluator_result&lt;EvaluatorType&gt;</a>&amp; <a class="code hl_typedef" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">rhs</a>) {</div>
-<div class="line">         assign_value(<a class="code hl_typedef" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">lhs</a>, <a class="code hl_typedef" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">rhs</a>);</div>
+<div class="line">         <a class="code hl_function" href="_algorithms_8hxx.html#ad12afdba81f8dc04fe9d949fd166a17d">assign_value</a>(<a class="code hl_typedef" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">lhs</a>, <a class="code hl_typedef" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">rhs</a>);</div>
 <div class="line">       }))</div>
-<div class="ttc" id="a_evaluator_concept_8hxx_html_aaa43e880e9b2fb06fd444c9e86eb871d"><div class="ttname"><a href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">mgis::function::evaluator_result</a></div><div class="ttdeci">typename internals::EvaluatorResultQuery&lt; EvaluatorType &gt;::type evaluator_result</div><div class="ttdoc">type of the result of an evaluator</div><div class="ttdef"><b>Definition</b> EvaluatorConcept.hxx:215</div></div>
-<div class="ttc" id="aconceptmgis_1_1function_1_1_evaluator_concept_html"><div class="ttname"><a href="conceptmgis_1_1function_1_1_evaluator_concept.html">mgis::function::EvaluatorConcept</a></div><div class="ttdoc">a concept that must satisfy an evaluator</div><div class="ttdef"><b>Definition</b> EvaluatorConcept.hxx:157</div></div>
-<div class="ttc" id="aconceptmgis_1_1function_1_1_function_concept_html"><div class="ttname"><a href="conceptmgis_1_1function_1_1_function_concept.html">mgis::function::FunctionConcept</a></div><div class="ttdoc">a concept that must satisfy a function</div><div class="ttdef"><b>Definition</b> FunctionConcept.hxx:250</div></div>
-<div class="ttc" id="aconceptmgis_1_1function_1_1internals_1_1is_evaluator_assignable_to_function_html"><div class="ttname"><a href="conceptmgis_1_1function_1_1internals_1_1is_evaluator_assignable_to_function.html">mgis::function::internals::isEvaluatorAssignableToFunction</a></div><div class="ttdef"><b>Definition</b> Algorithms.hxx:89</div></div>
-</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="a_algorithms_8hxx_html_ad12afdba81f8dc04fe9d949fd166a17d"><div class="ttname"><a href="_algorithms_8hxx.html#ad12afdba81f8dc04fe9d949fd166a17d">mgis::function::internals::assign_value</a></div><div class="ttdeci">constexpr void assign_value(std::span&lt; real &gt;, const auto &amp;)</div><div class="ttdoc">assigns to a span of dynamic size the values of any container which can be iterated over</div><div class="ttdef"><b>Definition</b> Algorithms.ixx:86</div></div>
+<div class="ttc" id="a_evaluator_concept_8hxx_html_aaa43e880e9b2fb06fd444c9e86eb871d"><div class="ttname"><a href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">mgis::function::evaluator_result</a></div><div class="ttdeci">typename internals::EvaluatorResultQuery&lt; EvaluatorType &gt;::type evaluator_result</div><div class="ttdoc">type of the result of an evaluator, i.e. the type of the constant values returned by the evaluator,...</div><div class="ttdef"><b>Definition</b> EvaluatorConcept.hxx:369</div></div>
+<div class="ttc" id="aconceptmgis_1_1function_1_1_evaluator_concept_html"><div class="ttname"><a href="conceptmgis_1_1function_1_1_evaluator_concept.html">mgis::function::EvaluatorConcept</a></div><div class="ttdoc">a concept that must satisfy an evaluator</div><div class="ttdef"><b>Definition</b> EvaluatorConcept.hxx:295</div></div>
+<div class="ttc" id="aconceptmgis_1_1function_1_1_function_concept_html"><div class="ttname"><a href="conceptmgis_1_1function_1_1_function_concept.html">mgis::function::FunctionConcept</a></div><div class="ttdoc">a concept that must satisfy a function</div><div class="ttdef"><b>Definition</b> FunctionConcept.hxx:453</div></div>
+<div class="ttc" id="aconceptmgis_1_1function_1_1internals_1_1is_evaluator_assignable_to_function_html"><div class="ttname"><a href="conceptmgis_1_1function_1_1internals_1_1is_evaluator_assignable_to_function.html">mgis::function::internals::isEvaluatorAssignableToFunction</a></div><div class="ttdoc">concept stating that an evaluator can be assigned to a function</div><div class="ttdef"><b>Definition</b> Algorithms.hxx:193</div></div>
+</div><!-- fragment --><a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>concept stating that an evaluator can be assigned to a function </p>
+<p>This is the case if both objects are defined on the same space and if the values returned by the evaluator can be assigned to those returned by the function, directly or using one of the <code>assign_value</code> helpers.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">EvaluatorType</td><td>evaluator type </td></tr>
+    <tr><td class="paramname">FunctionType</td><td>function type </td></tr>
+  </table>
+  </dd>
+</dl>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemgis.html">mgis</a></li><li class="navelem"><b>function</b></li><li class="navelem"><b>internals</b></li><li class="navelem"><a class="el" href="conceptmgis_1_1function_1_1internals_1_1is_evaluator_assignable_to_function.html">isEvaluatorAssignableToFunction</a></li>
-    <li class="footer">Generated on Fri Nov 6 2026 14:30:40 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Nov 6 2026 19:42:30 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

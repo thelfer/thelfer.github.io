@@ -105,12 +105,17 @@ $(document).ready(function(){initNavTree('_mechanics_8ixx.html',''); initResizab
   <div class="headertitle"><div class="title">Mechanics.ixx File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Implementation of the finite strain tangent operator conversion declared in <code><a class="el" href="_mechanics_8hxx.html" title="File which defines the mechanical operations which can be applied to evaluators returning tensorial v...">MGIS/Function/TFEL/Mechanics.hxx</a></code>: the <code>ConvertFiniteStrainStiffnessEvaluator</code> evaluator, the associated modifier generator and the <code>convert_finite_strain_stiffness</code> function.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1internals_1_1_convert_finite_strain_stiffness_evaluator.html">mgis::function::internals::ConvertFiniteStrainStiffnessEvaluator&lt; N, ResultFlag, SourceFlag, StiffnessEvaluator, DeformationGradientEvaluatorType0, DeformationGradientEvaluatorType1, CauchyStressEvaluatorType &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">evaluator computing a finite strain tangent operator from a tangent operator of another kind, given two deformation gradients and the Cauchy stress  <a href="structmgis_1_1function_1_1internals_1_1_convert_finite_strain_stiffness_evaluator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1internals_1_1_convert_finite_strain_stiffness_modifier_generator.html">mgis::function::internals::ConvertFiniteStrainStiffnessModifierGenerator&lt; N, ResultFlag, SourceFlag, DeformationGradientEvaluatorType0, DeformationGradientEvaluatorType1, CauchyStressEvaluatorType &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">modifier which, applied to an evaluator returning a tangent operator of kind <code>SourceFlag</code>, builds a <code><a class="el" href="structmgis_1_1function_1_1internals_1_1_convert_finite_strain_stiffness_evaluator.html" title="evaluator computing a finite strain tangent operator from a tangent operator of another kind,...">ConvertFiniteStrainStiffnessEvaluator</a></code> converting it into a tangent operator of kind <code>ResultFlag</code>  <a href="structmgis_1_1function_1_1internals_1_1_convert_finite_strain_stiffness_modifier_generator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -121,38 +126,277 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a6b6d8ee3d965d1718d61162f9a777c62" id="r_a6b6d8ee3d965d1718d61162f9a777c62"><td class="memTemplParams" colspan="2"><a id="a6b6d8ee3d965d1718d61162f9a777c62" name="a6b6d8ee3d965d1718d61162f9a777c62"></a>
-template&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">unsigned</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">short</a> N, FiniteStrainStiffnessKind ResultFlag, FiniteStrainStiffnessKind SourceFlag, FourthOrderTensorEvaluatorConcept StiffnessEvaluator, TensorEvaluatorConcept DeformationGradientEvaluatorType0, TensorEvaluatorConcept DeformationGradientEvaluatorType1, StensorEvaluatorConcept CauchyStressEvaluatorType&gt; </td></tr>
-<tr class="memitem:a6b6d8ee3d965d1718d61162f9a777c62"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">bool</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>mgis::function::internals::check</b> (<a class="el" href="structmgis_1_1_abstract_error_handler.html">AbstractErrorHandler</a> &amp;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">eh</a>, const <a class="el" href="structmgis_1_1function_1_1internals_1_1_convert_finite_strain_stiffness_evaluator.html">ConvertFiniteStrainStiffnessEvaluator</a>&lt; <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">N</a>, <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">ResultFlag</a>, <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">SourceFlag</a>, StiffnessEvaluator, DeformationGradientEvaluatorType0, DeformationGradientEvaluatorType1, CauchyStressEvaluatorType &gt; &amp;e)</td></tr>
+<tr class="memitem:a6b6d8ee3d965d1718d61162f9a777c62" id="r_a6b6d8ee3d965d1718d61162f9a777c62"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">unsigned</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">short</a> N, <a class="el" href="_mechanics_8hxx.html#ab6bd5baec73e42640638dda8e51246bb">FiniteStrainStiffnessKind</a> ResultFlag, <a class="el" href="_mechanics_8hxx.html#ab6bd5baec73e42640638dda8e51246bb">FiniteStrainStiffnessKind</a> SourceFlag, FourthOrderTensorEvaluatorConcept StiffnessEvaluator, TensorEvaluatorConcept DeformationGradientEvaluatorType0, TensorEvaluatorConcept DeformationGradientEvaluatorType1, StensorEvaluatorConcept CauchyStressEvaluatorType&gt; </td></tr>
+<tr class="memitem:a6b6d8ee3d965d1718d61162f9a777c62"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">bool</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_mechanics_8ixx.html#a6b6d8ee3d965d1718d61162f9a777c62">mgis::function::internals::check</a> (<a class="el" href="structmgis_1_1_abstract_error_handler.html">AbstractErrorHandler</a> &amp;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">eh</a>, const <a class="el" href="structmgis_1_1function_1_1internals_1_1_convert_finite_strain_stiffness_evaluator.html">ConvertFiniteStrainStiffnessEvaluator</a>&lt; <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">N</a>, <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">ResultFlag</a>, <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">SourceFlag</a>, StiffnessEvaluator, DeformationGradientEvaluatorType0, DeformationGradientEvaluatorType1, CauchyStressEvaluatorType &gt; &amp;e)</td></tr>
+<tr class="memdesc:a6b6d8ee3d965d1718d61162f9a777c62"><td class="mdescLeft">&#160;</td><td class="mdescRight">perform consistency checks on a finite strain stiffness conversion evaluator  <br /></td></tr>
 <tr class="separator:a6b6d8ee3d965d1718d61162f9a777c62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c5363d2b74ecc8f752a4e6cd24215ac" id="r_a0c5363d2b74ecc8f752a4e6cd24215ac"><td class="memTemplParams" colspan="2"><a id="a0c5363d2b74ecc8f752a4e6cd24215ac" name="a0c5363d2b74ecc8f752a4e6cd24215ac"></a>
-template&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">unsigned</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">short</a> N, FiniteStrainStiffnessKind ResultFlag, FiniteStrainStiffnessKind SourceFlag, FourthOrderTensorEvaluatorConcept StiffnessEvaluator, TensorEvaluatorConcept DeformationGradientEvaluatorType0, TensorEvaluatorConcept DeformationGradientEvaluatorType1, StensorEvaluatorConcept CauchyStressEvaluatorType&gt; </td></tr>
-<tr class="memitem:a0c5363d2b74ecc8f752a4e6cd24215ac"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="namespacemgis.html#a184723b5d743b58169be89d3b04265fc">mgis::size_type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>mgis::function::internals::getNumberOfComponents</b> (const <a class="el" href="structmgis_1_1function_1_1internals_1_1_convert_finite_strain_stiffness_evaluator.html">ConvertFiniteStrainStiffnessEvaluator</a>&lt; <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">N</a>, <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">ResultFlag</a>, <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">SourceFlag</a>, StiffnessEvaluator, DeformationGradientEvaluatorType0, DeformationGradientEvaluatorType1, CauchyStressEvaluatorType &gt; &amp;) <a class="el" href="_config_8hxx.html#a461a7a05397aa66d9490b6cacfe516e4">MGIS_NOEXCEPT</a></td></tr>
+<tr class="memitem:a0c5363d2b74ecc8f752a4e6cd24215ac" id="r_a0c5363d2b74ecc8f752a4e6cd24215ac"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">unsigned</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">short</a> N, <a class="el" href="_mechanics_8hxx.html#ab6bd5baec73e42640638dda8e51246bb">FiniteStrainStiffnessKind</a> ResultFlag, <a class="el" href="_mechanics_8hxx.html#ab6bd5baec73e42640638dda8e51246bb">FiniteStrainStiffnessKind</a> SourceFlag, FourthOrderTensorEvaluatorConcept StiffnessEvaluator, TensorEvaluatorConcept DeformationGradientEvaluatorType0, TensorEvaluatorConcept DeformationGradientEvaluatorType1, StensorEvaluatorConcept CauchyStressEvaluatorType&gt; </td></tr>
+<tr class="memitem:a0c5363d2b74ecc8f752a4e6cd24215ac"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="namespacemgis.html#a184723b5d743b58169be89d3b04265fc">mgis::size_type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_mechanics_8ixx.html#a0c5363d2b74ecc8f752a4e6cd24215ac">mgis::function::internals::getNumberOfComponents</a> (const <a class="el" href="structmgis_1_1function_1_1internals_1_1_convert_finite_strain_stiffness_evaluator.html">ConvertFiniteStrainStiffnessEvaluator</a>&lt; <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">N</a>, <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">ResultFlag</a>, <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">SourceFlag</a>, StiffnessEvaluator, DeformationGradientEvaluatorType0, DeformationGradientEvaluatorType1, CauchyStressEvaluatorType &gt; &amp;) <a class="el" href="_config_8hxx.html#a461a7a05397aa66d9490b6cacfe516e4">MGIS_NOEXCEPT</a></td></tr>
+<tr class="memdesc:a0c5363d2b74ecc8f752a4e6cd24215ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the number of components of a finite strain stiffness conversion evaluator  <br /></td></tr>
 <tr class="separator:a0c5363d2b74ecc8f752a4e6cd24215ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a319cd714616eb52700478813b69a75a0" id="r_a319cd714616eb52700478813b69a75a0"><td class="memTemplParams" colspan="2"><a id="a319cd714616eb52700478813b69a75a0" name="a319cd714616eb52700478813b69a75a0"></a>
-template&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">unsigned</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">short</a> N, FiniteStrainStiffnessKind ResultFlag, FiniteStrainStiffnessKind SourceFlag, FourthOrderTensorEvaluatorConcept StiffnessEvaluator, TensorEvaluatorConcept DeformationGradientEvaluatorType0, TensorEvaluatorConcept DeformationGradientEvaluatorType1, StensorEvaluatorConcept CauchyStressEvaluatorType&gt; </td></tr>
-<tr class="memitem:a319cd714616eb52700478813b69a75a0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">decltype</a>(<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>)&#160;</td><td class="memTemplItemRight" valign="bottom"><b>mgis::function::internals::getSpace</b> (const <a class="el" href="structmgis_1_1function_1_1internals_1_1_convert_finite_strain_stiffness_evaluator.html">ConvertFiniteStrainStiffnessEvaluator</a>&lt; <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">N</a>, <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">ResultFlag</a>, <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">SourceFlag</a>, StiffnessEvaluator, DeformationGradientEvaluatorType0, DeformationGradientEvaluatorType1, CauchyStressEvaluatorType &gt; &amp;e)</td></tr>
+<tr class="memitem:a319cd714616eb52700478813b69a75a0" id="r_a319cd714616eb52700478813b69a75a0"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">unsigned</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">short</a> N, <a class="el" href="_mechanics_8hxx.html#ab6bd5baec73e42640638dda8e51246bb">FiniteStrainStiffnessKind</a> ResultFlag, <a class="el" href="_mechanics_8hxx.html#ab6bd5baec73e42640638dda8e51246bb">FiniteStrainStiffnessKind</a> SourceFlag, FourthOrderTensorEvaluatorConcept StiffnessEvaluator, TensorEvaluatorConcept DeformationGradientEvaluatorType0, TensorEvaluatorConcept DeformationGradientEvaluatorType1, StensorEvaluatorConcept CauchyStressEvaluatorType&gt; </td></tr>
+<tr class="memitem:a319cd714616eb52700478813b69a75a0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">decltype</a>(<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>)&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_mechanics_8ixx.html#a319cd714616eb52700478813b69a75a0">mgis::function::internals::getSpace</a> (const <a class="el" href="structmgis_1_1function_1_1internals_1_1_convert_finite_strain_stiffness_evaluator.html">ConvertFiniteStrainStiffnessEvaluator</a>&lt; <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">N</a>, <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">ResultFlag</a>, <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">SourceFlag</a>, StiffnessEvaluator, DeformationGradientEvaluatorType0, DeformationGradientEvaluatorType1, CauchyStressEvaluatorType &gt; &amp;e)</td></tr>
+<tr class="memdesc:a319cd714616eb52700478813b69a75a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the space of a finite strain stiffness conversion evaluator  <br /></td></tr>
 <tr class="separator:a319cd714616eb52700478813b69a75a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a404238459899af00536f5f03083d1be4" id="r_a404238459899af00536f5f03083d1be4"><td class="memTemplParams" colspan="2"><a id="a404238459899af00536f5f03083d1be4" name="a404238459899af00536f5f03083d1be4"></a>
-template&lt;FiniteStrainStiffnessKind ResultFlag, FiniteStrainStiffnessKind SourceFlag, TensorEvaluatorConcept DeformationGradientEvaluatorType0, TensorEvaluatorConcept DeformationGradientEvaluatorType1, StensorEvaluatorConcept CauchyStressEvaluatorType&gt; </td></tr>
-<tr class="memitem:a404238459899af00536f5f03083d1be4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>mgis::function::convert_finite_strain_stiffness</b> (const DeformationGradientEvaluatorType0 &amp;, const DeformationGradientEvaluatorType1 &amp;, const CauchyStressEvaluatorType &amp;)</td></tr>
+<tr class="memitem:a404238459899af00536f5f03083d1be4" id="r_a404238459899af00536f5f03083d1be4"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="_mechanics_8hxx.html#ab6bd5baec73e42640638dda8e51246bb">FiniteStrainStiffnessKind</a> ResultFlag, <a class="el" href="_mechanics_8hxx.html#ab6bd5baec73e42640638dda8e51246bb">FiniteStrainStiffnessKind</a> SourceFlag, TensorEvaluatorConcept DeformationGradientEvaluatorType0, TensorEvaluatorConcept DeformationGradientEvaluatorType1, StensorEvaluatorConcept CauchyStressEvaluatorType&gt; </td></tr>
+<tr class="memitem:a404238459899af00536f5f03083d1be4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_mechanics_8hxx.html#a404238459899af00536f5f03083d1be4">mgis::function::convert_finite_strain_stiffness</a> (const DeformationGradientEvaluatorType0 &amp;, const DeformationGradientEvaluatorType1 &amp;, const CauchyStressEvaluatorType &amp;)</td></tr>
+<tr class="memdesc:a404238459899af00536f5f03083d1be4"><td class="mdescLeft">&#160;</td><td class="mdescRight">create a modifier converting a finite strain tangent operator computed by an evaluator into another kind of tangent operator  <br /></td></tr>
 <tr class="separator:a404238459899af00536f5f03083d1be4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section author"><dt>Author</dt><dd>Thomas Helfer </dd></dl>
+<div class="textblock"><p>Implementation of the finite strain tangent operator conversion declared in <code><a class="el" href="_mechanics_8hxx.html" title="File which defines the mechanical operations which can be applied to evaluators returning tensorial v...">MGIS/Function/TFEL/Mechanics.hxx</a></code>: the <code>ConvertFiniteStrainStiffnessEvaluator</code> evaluator, the associated modifier generator and the <code>convert_finite_strain_stiffness</code> function. </p>
+<dl class="section author"><dt>Author</dt><dd>Thomas Helfer </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>02/05/2025 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>(C) Copyright Thomas Helfer 2018. Use, modification and distribution are subject to one of the following licences:<ul>
 <li>GNU Lesser General Public License (LGPL), Version 3.0. (See accompanying file LGPL-3.0.txt)</li>
 <li>CECILL-C, Version 1.0 (See accompanying files CeCILL-C_V1-en.txt and CeCILL-C_V1-fr.txt). </li>
 </ul>
 </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a6b6d8ee3d965d1718d61162f9a777c62" name="a6b6d8ee3d965d1718d61162f9a777c62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b6d8ee3d965d1718d61162f9a777c62">&#9670;&#160;</a></span>check()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned short N, FiniteStrainStiffnessKind ResultFlag, FiniteStrainStiffnessKind SourceFlag, FourthOrderTensorEvaluatorConcept StiffnessEvaluator, TensorEvaluatorConcept DeformationGradientEvaluatorType0, TensorEvaluatorConcept DeformationGradientEvaluatorType1, StensorEvaluatorConcept CauchyStressEvaluatorType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool mgis::function::internals::check </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmgis_1_1_abstract_error_handler.html">AbstractErrorHandler</a> &amp;&#160;</td>
+          <td class="paramname"><em>eh</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structmgis_1_1function_1_1internals_1_1_convert_finite_strain_stiffness_evaluator.html">ConvertFiniteStrainStiffnessEvaluator</a>&lt; <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">N</a>, <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">ResultFlag</a>, <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">SourceFlag</a>, StiffnessEvaluator, DeformationGradientEvaluatorType0, DeformationGradientEvaluatorType1, CauchyStressEvaluatorType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>e</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>perform consistency checks on a finite strain stiffness conversion evaluator </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">N</td><td>space dimension (1, 2 or 3) </td></tr>
+    <tr><td class="paramname">ResultFlag</td><td>kind of the tangent operator returned by the evaluator </td></tr>
+    <tr><td class="paramname">SourceFlag</td><td>kind of the tangent operator taken as input </td></tr>
+    <tr><td class="paramname">StiffnessEvaluator</td><td>type of the evaluator providing the tangent operator to convert </td></tr>
+    <tr><td class="paramname">DeformationGradientEvaluatorType0</td><td>type of the evaluator providing the first deformation gradient </td></tr>
+    <tr><td class="paramname">DeformationGradientEvaluatorType1</td><td>type of the evaluator providing the second deformation gradient </td></tr>
+    <tr><td class="paramname">CauchyStressEvaluatorType</td><td>type of the evaluator providing the Cauchy stress </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">eh</td><td>error handler used to report the errors </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">e</td><td>conversion evaluator </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the conversion evaluator is valid </dd></dl>
+
+</div>
+</div>
+<a id="a404238459899af00536f5f03083d1be4" name="a404238459899af00536f5f03083d1be4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a404238459899af00536f5f03083d1be4">&#9670;&#160;</a></span>convert_finite_strain_stiffness()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;FiniteStrainStiffnessKind ResultFlag, FiniteStrainStiffnessKind SourceFlag, TensorEvaluatorConcept DeformationGradientEvaluatorType0, TensorEvaluatorConcept DeformationGradientEvaluatorType1, StensorEvaluatorConcept CauchyStressEvaluatorType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto mgis::function::convert_finite_strain_stiffness </td>
+          <td>(</td>
+          <td class="paramtype">const DeformationGradientEvaluatorType0 &amp;&#160;</td>
+          <td class="paramname"><em>F0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const DeformationGradientEvaluatorType1 &amp;&#160;</td>
+          <td class="paramname"><em>F1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const CauchyStressEvaluatorType &amp;&#160;</td>
+          <td class="paramname"><em>s</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>create a modifier converting a finite strain tangent operator computed by an evaluator into another kind of tangent operator </p>
+<p>definition of the <code>convert_finite_strain_stiffness</code> function declared in <code><a class="el" href="_mechanics_8hxx.html" title="File which defines the mechanical operations which can be applied to evaluators returning tensorial v...">MGIS/Function/TFEL/Mechanics.hxx</a></code></p>
+<p>The conversion is performed by <code>tfel::material::convert&lt;ResultFlag, SourceFlag, N&gt;</code> and generally requires the two deformation gradients and the Cauchy stress at the integration point considered. The returned object is a modifier to be applied, using <code>operator|</code>, to an evaluator returning a tangent operator of kind <code>SourceFlag</code>.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">ResultFlag</td><td>kind of the tangent operator to be returned </td></tr>
+    <tr><td class="paramname">SourceFlag</td><td>kind of the tangent operator taken as input </td></tr>
+    <tr><td class="paramname">DeformationGradientEvaluatorType0</td><td>type of the evaluator providing the first deformation gradient </td></tr>
+    <tr><td class="paramname">DeformationGradientEvaluatorType1</td><td>type of the evaluator providing the second deformation gradient </td></tr>
+    <tr><td class="paramname">CauchyStressEvaluatorType</td><td>type of the evaluator providing the Cauchy stress </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">F0</td><td>evaluator used to compute the first deformation gradient </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">F1</td><td>evaluator used to compute the second deformation gradient </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td>evaluator used to compute the Cauchy stress </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a modifier converting the tangent operators it is applied to</dd></dl>
+<p>The space dimension <code>N</code> is deduced from that of the first deformation gradient evaluator; the second deformation gradient and the Cauchy stress must have the same dimension, which is enforced by <code>static_assert</code>.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">ResultFlag</td><td>kind of the tangent operator to be returned </td></tr>
+    <tr><td class="paramname">SourceFlag</td><td>kind of the tangent operator taken as input </td></tr>
+    <tr><td class="paramname">DeformationGradientEvaluatorType0</td><td>type of the evaluator providing the first deformation gradient </td></tr>
+    <tr><td class="paramname">DeformationGradientEvaluatorType1</td><td>type of the evaluator providing the second deformation gradient </td></tr>
+    <tr><td class="paramname">CauchyStressEvaluatorType</td><td>type of the evaluator providing the Cauchy stress </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">F0</td><td>evaluator used to compute the first deformation gradient </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">F1</td><td>evaluator used to compute the second deformation gradient </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td>evaluator used to compute the Cauchy stress </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a modifier converting the tangent operators it is applied to </dd></dl>
+
+</div>
+</div>
+<a id="a0c5363d2b74ecc8f752a4e6cd24215ac" name="a0c5363d2b74ecc8f752a4e6cd24215ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c5363d2b74ecc8f752a4e6cd24215ac">&#9670;&#160;</a></span>getNumberOfComponents()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned short N, FiniteStrainStiffnessKind ResultFlag, FiniteStrainStiffnessKind SourceFlag, FourthOrderTensorEvaluatorConcept StiffnessEvaluator, TensorEvaluatorConcept DeformationGradientEvaluatorType0, TensorEvaluatorConcept DeformationGradientEvaluatorType1, StensorEvaluatorConcept CauchyStressEvaluatorType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespacemgis.html#a184723b5d743b58169be89d3b04265fc">mgis::size_type</a> mgis::function::internals::getNumberOfComponents </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structmgis_1_1function_1_1internals_1_1_convert_finite_strain_stiffness_evaluator.html">ConvertFiniteStrainStiffnessEvaluator</a>&lt; <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">N</a>, <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">ResultFlag</a>, <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">SourceFlag</a>, StiffnessEvaluator, DeformationGradientEvaluatorType0, DeformationGradientEvaluatorType1, CauchyStressEvaluatorType &gt; &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>return the number of components of a finite strain stiffness conversion evaluator </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">N</td><td>space dimension (1, 2 or 3) </td></tr>
+    <tr><td class="paramname">ResultFlag</td><td>kind of the tangent operator returned by the evaluator </td></tr>
+    <tr><td class="paramname">SourceFlag</td><td>kind of the tangent operator taken as input </td></tr>
+    <tr><td class="paramname">StiffnessEvaluator</td><td>type of the evaluator providing the tangent operator to convert </td></tr>
+    <tr><td class="paramname">DeformationGradientEvaluatorType0</td><td>type of the evaluator providing the first deformation gradient </td></tr>
+    <tr><td class="paramname">DeformationGradientEvaluatorType1</td><td>type of the evaluator providing the second deformation gradient </td></tr>
+    <tr><td class="paramname">CauchyStressEvaluatorType</td><td>type of the evaluator providing the Cauchy stress </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">e</td><td>conversion evaluator </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the number of components of a tangent operator of kind <code>ResultFlag</code> and dimension <code>N</code> </dd></dl>
+
+</div>
+</div>
+<a id="a319cd714616eb52700478813b69a75a0" name="a319cd714616eb52700478813b69a75a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a319cd714616eb52700478813b69a75a0">&#9670;&#160;</a></span>getSpace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned short N, FiniteStrainStiffnessKind ResultFlag, FiniteStrainStiffnessKind SourceFlag, FourthOrderTensorEvaluatorConcept StiffnessEvaluator, TensorEvaluatorConcept DeformationGradientEvaluatorType0, TensorEvaluatorConcept DeformationGradientEvaluatorType1, StensorEvaluatorConcept CauchyStressEvaluatorType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">decltype(auto) mgis::function::internals::getSpace </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structmgis_1_1function_1_1internals_1_1_convert_finite_strain_stiffness_evaluator.html">ConvertFiniteStrainStiffnessEvaluator</a>&lt; <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">N</a>, <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">ResultFlag</a>, <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">SourceFlag</a>, StiffnessEvaluator, DeformationGradientEvaluatorType0, DeformationGradientEvaluatorType1, CauchyStressEvaluatorType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>return the space of a finite strain stiffness conversion evaluator </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">N</td><td>space dimension (1, 2 or 3) </td></tr>
+    <tr><td class="paramname">ResultFlag</td><td>kind of the tangent operator returned by the evaluator </td></tr>
+    <tr><td class="paramname">SourceFlag</td><td>kind of the tangent operator taken as input </td></tr>
+    <tr><td class="paramname">StiffnessEvaluator</td><td>type of the evaluator providing the tangent operator to convert </td></tr>
+    <tr><td class="paramname">DeformationGradientEvaluatorType0</td><td>type of the evaluator providing the first deformation gradient </td></tr>
+    <tr><td class="paramname">DeformationGradientEvaluatorType1</td><td>type of the evaluator providing the second deformation gradient </td></tr>
+    <tr><td class="paramname">CauchyStressEvaluatorType</td><td>type of the evaluator providing the Cauchy stress </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">e</td><td>conversion evaluator </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the space on which the evaluator is defined </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_926a8b4fb7ad5e8e017827ff5fbbb316.html">MGIS</a></li><li class="navelem"><a class="el" href="dir_2e52b00940cd27d9780366949db1e89b.html">Function</a></li><li class="navelem"><a class="el" href="dir_e23cfa4dbebc272344c1d50ffb8bb175.html">TFEL</a></li><li class="navelem"><a class="el" href="_mechanics_8ixx.html">Mechanics.ixx</a></li>
-    <li class="footer">Generated on Fri Nov 6 2026 14:30:40 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Nov 6 2026 19:42:30 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

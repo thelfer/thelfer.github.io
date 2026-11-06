@@ -14,5 +14,6 @@ var searchData=
   ['binaryoperation_2ehxx_11',['BinaryOperation.hxx',['../_binary_operation_8hxx.html',1,'']]],
   ['binaryoperation_2eixx_12',['BinaryOperation.ixx',['../_binary_operation_8ixx.html',1,'']]],
   ['binaryoperationevaluatorbase_2ehxx_13',['BinaryOperationEvaluatorBase.hxx',['../_binary_operation_evaluator_base_8hxx.html',1,'']]],
-  ['binaryoperationevaluatorbase_2eixx_14',['BinaryOperationEvaluatorBase.ixx',['../_binary_operation_evaluator_base_8ixx.html',1,'']]]
+  ['binaryoperationevaluatorbase_2eixx_14',['BinaryOperationEvaluatorBase.ixx',['../_binary_operation_evaluator_base_8ixx.html',1,'']]],
+  ['buffer_2ehxx_15',['Buffer.hxx',['../_buffer_8hxx.html',1,'']]]
 ];

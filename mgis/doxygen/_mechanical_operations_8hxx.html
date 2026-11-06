@@ -104,6 +104,9 @@ $(document).ready(function(){initNavTree('_mechanical_operations_8hxx.html','');
   <div class="headertitle"><div class="title">MechanicalOperations.hxx File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>File which declares functions computing mechanical quantities (trace, von Mises stress, hydrostatic pressure, eigen values, Cauchy stress) from the tensorial values of a function and returning the result as a new function.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;optional&gt;</code><br />
 <code>#include &quot;<a class="el" href="_config_8hxx.html">MGIS/Config.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_basic_linear_space_8hxx.html">MGIS/Function/BasicLinearSpace.hxx</a>&quot;</code><br />
@@ -117,53 +120,412 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:ab3104f6474991fa040ee9969be584697" id="r_ab3104f6474991fa040ee9969be584697"><td class="memItemLeft" align="right" valign="top"><a id="ab3104f6474991fa040ee9969be584697" name="ab3104f6474991fa040ee9969be584697"></a>
-<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">using</a>&#160;</td><td class="memItemRight" valign="bottom"><b>mgis::function::BasicImmutableFunctionView</b> = <a class="el" href="structmgis_1_1function_1_1_function_view.html">FunctionView</a>&lt; <a class="el" href="structmgis_1_1function_1_1_basic_linear_space.html">BasicLinearSpace</a>, <a class="el" href="structmgis_1_1function_1_1_function_data_layout_description.html">FunctionDataLayoutDescription</a>{}, <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">false</a> &gt;</td></tr>
-<tr class="memdesc:ab3104f6474991fa040ee9969be584697"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple alias to shorten the declaration of the functions <br /></td></tr>
+<tr class="memitem:ab3104f6474991fa040ee9969be584697" id="r_ab3104f6474991fa040ee9969be584697"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">mgis::function::BasicImmutableFunctionView</a> = <a class="el" href="structmgis_1_1function_1_1_function_view.html">FunctionView</a>&lt; <a class="el" href="structmgis_1_1function_1_1_basic_linear_space.html">BasicLinearSpace</a>, <a class="el" href="structmgis_1_1function_1_1_function_data_layout_description.html">FunctionDataLayoutDescription</a>{}, <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">false</a> &gt;</td></tr>
+<tr class="memdesc:ab3104f6474991fa040ee9969be584697"><td class="mdescLeft">&#160;</td><td class="mdescRight">immutable view on a function defined on a <code><a class="el" href="structmgis_1_1function_1_1_basic_linear_space.html" title="the simplest implementation of a linear space">BasicLinearSpace</a></code> whose number of components is only known at run time  <br /></td></tr>
 <tr class="separator:ab3104f6474991fa040ee9969be584697"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a35407ec02e467cca34f4d8e5bc5b2ee4" id="r_a35407ec02e467cca34f4d8e5bc5b2ee4"><td class="memItemLeft" align="right" valign="top"><a id="a35407ec02e467cca34f4d8e5bc5b2ee4" name="a35407ec02e467cca34f4d8e5bc5b2ee4"></a>
-<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">MGIS_EXPORT</a> std::optional&lt; <a class="el" href="structmgis_1_1function_1_1_function.html">Function</a>&lt; <a class="el" href="structmgis_1_1function_1_1_basic_linear_space.html">BasicLinearSpace</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mgis::function::computeTrace</b> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, const <a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">BasicImmutableFunctionView</a> &amp;) <a class="el" href="_config_8hxx.html#a461a7a05397aa66d9490b6cacfe516e4">MGIS_NOEXCEPT</a></td></tr>
+<tr class="memitem:a35407ec02e467cca34f4d8e5bc5b2ee4" id="r_a35407ec02e467cca34f4d8e5bc5b2ee4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">MGIS_EXPORT</a> std::optional&lt; <a class="el" href="structmgis_1_1function_1_1_function.html">Function</a>&lt; <a class="el" href="structmgis_1_1function_1_1_basic_linear_space.html">BasicLinearSpace</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_mechanical_operations_8hxx.html#a35407ec02e467cca34f4d8e5bc5b2ee4">mgis::function::computeTrace</a> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, const <a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">BasicImmutableFunctionView</a> &amp;) <a class="el" href="_config_8hxx.html#a461a7a05397aa66d9490b6cacfe516e4">MGIS_NOEXCEPT</a></td></tr>
+<tr class="memdesc:a35407ec02e467cca34f4d8e5bc5b2ee4"><td class="mdescLeft">&#160;</td><td class="mdescRight">compute the trace of the symmetric tensorial values of a function  <br /></td></tr>
 <tr class="separator:a35407ec02e467cca34f4d8e5bc5b2ee4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a3dca5e47ed8a573072ab125f46cd02" id="r_a7a3dca5e47ed8a573072ab125f46cd02"><td class="memItemLeft" align="right" valign="top"><a id="a7a3dca5e47ed8a573072ab125f46cd02" name="a7a3dca5e47ed8a573072ab125f46cd02"></a>
-<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">MGIS_EXPORT</a> std::optional&lt; <a class="el" href="structmgis_1_1function_1_1_function.html">Function</a>&lt; <a class="el" href="structmgis_1_1function_1_1_basic_linear_space.html">BasicLinearSpace</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mgis::function::computeVonMisesStress</b> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, const <a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">BasicImmutableFunctionView</a> &amp;) <a class="el" href="_config_8hxx.html#a461a7a05397aa66d9490b6cacfe516e4">MGIS_NOEXCEPT</a></td></tr>
+<tr class="memitem:a7a3dca5e47ed8a573072ab125f46cd02" id="r_a7a3dca5e47ed8a573072ab125f46cd02"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">MGIS_EXPORT</a> std::optional&lt; <a class="el" href="structmgis_1_1function_1_1_function.html">Function</a>&lt; <a class="el" href="structmgis_1_1function_1_1_basic_linear_space.html">BasicLinearSpace</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_mechanical_operations_8hxx.html#a7a3dca5e47ed8a573072ab125f46cd02">mgis::function::computeVonMisesStress</a> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, const <a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">BasicImmutableFunctionView</a> &amp;) <a class="el" href="_config_8hxx.html#a461a7a05397aa66d9490b6cacfe516e4">MGIS_NOEXCEPT</a></td></tr>
+<tr class="memdesc:a7a3dca5e47ed8a573072ab125f46cd02"><td class="mdescLeft">&#160;</td><td class="mdescRight">compute the von Mises stress of the symmetric tensorial values of a function  <br /></td></tr>
 <tr class="separator:a7a3dca5e47ed8a573072ab125f46cd02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a624da56d67042f614ddf0541c84193dd" id="r_a624da56d67042f614ddf0541c84193dd"><td class="memItemLeft" align="right" valign="top"><a id="a624da56d67042f614ddf0541c84193dd" name="a624da56d67042f614ddf0541c84193dd"></a>
-<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">MGIS_EXPORT</a> std::optional&lt; <a class="el" href="structmgis_1_1function_1_1_function.html">Function</a>&lt; <a class="el" href="structmgis_1_1function_1_1_basic_linear_space.html">BasicLinearSpace</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mgis::function::computeHydrostraticPressure</b> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, const <a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">BasicImmutableFunctionView</a> &amp;) <a class="el" href="_config_8hxx.html#a461a7a05397aa66d9490b6cacfe516e4">MGIS_NOEXCEPT</a></td></tr>
+<tr class="memitem:a624da56d67042f614ddf0541c84193dd" id="r_a624da56d67042f614ddf0541c84193dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">MGIS_EXPORT</a> std::optional&lt; <a class="el" href="structmgis_1_1function_1_1_function.html">Function</a>&lt; <a class="el" href="structmgis_1_1function_1_1_basic_linear_space.html">BasicLinearSpace</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_mechanical_operations_8hxx.html#a624da56d67042f614ddf0541c84193dd">mgis::function::computeHydrostraticPressure</a> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, const <a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">BasicImmutableFunctionView</a> &amp;) <a class="el" href="_config_8hxx.html#a461a7a05397aa66d9490b6cacfe516e4">MGIS_NOEXCEPT</a></td></tr>
+<tr class="memdesc:a624da56d67042f614ddf0541c84193dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">compute the hydrostatic pressure of the symmetric tensorial values of a function  <br /></td></tr>
 <tr class="separator:a624da56d67042f614ddf0541c84193dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0fc1bb3c7f52ace4ebc9614ab286b069" id="r_a0fc1bb3c7f52ace4ebc9614ab286b069"><td class="memItemLeft" align="right" valign="top"><a id="a0fc1bb3c7f52ace4ebc9614ab286b069" name="a0fc1bb3c7f52ace4ebc9614ab286b069"></a>
-<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">MGIS_EXPORT</a> std::optional&lt; <a class="el" href="structmgis_1_1function_1_1_function.html">Function</a>&lt; <a class="el" href="structmgis_1_1function_1_1_basic_linear_space.html">BasicLinearSpace</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mgis::function::computeEigenValues</b> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, const <a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">BasicImmutableFunctionView</a> &amp;) <a class="el" href="_config_8hxx.html#a461a7a05397aa66d9490b6cacfe516e4">MGIS_NOEXCEPT</a></td></tr>
+<tr class="memitem:a0fc1bb3c7f52ace4ebc9614ab286b069" id="r_a0fc1bb3c7f52ace4ebc9614ab286b069"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">MGIS_EXPORT</a> std::optional&lt; <a class="el" href="structmgis_1_1function_1_1_function.html">Function</a>&lt; <a class="el" href="structmgis_1_1function_1_1_basic_linear_space.html">BasicLinearSpace</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_mechanical_operations_8hxx.html#a0fc1bb3c7f52ace4ebc9614ab286b069">mgis::function::computeEigenValues</a> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, const <a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">BasicImmutableFunctionView</a> &amp;) <a class="el" href="_config_8hxx.html#a461a7a05397aa66d9490b6cacfe516e4">MGIS_NOEXCEPT</a></td></tr>
+<tr class="memdesc:a0fc1bb3c7f52ace4ebc9614ab286b069"><td class="mdescLeft">&#160;</td><td class="mdescRight">compute the eigen values of the symmetric tensorial values of a function  <br /></td></tr>
 <tr class="separator:a0fc1bb3c7f52ace4ebc9614ab286b069"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad802232189a42e7b93dbcc26fc2d8918" id="r_ad802232189a42e7b93dbcc26fc2d8918"><td class="memItemLeft" align="right" valign="top"><a id="ad802232189a42e7b93dbcc26fc2d8918" name="ad802232189a42e7b93dbcc26fc2d8918"></a>
-<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">MGIS_EXPORT</a> std::optional&lt; <a class="el" href="structmgis_1_1function_1_1_function.html">Function</a>&lt; <a class="el" href="structmgis_1_1function_1_1_basic_linear_space.html">BasicLinearSpace</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mgis::function::computeCauchyStressFromFirstPiolaKirchhoffStress</b> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, const <a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">BasicImmutableFunctionView</a> &amp;, const <a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">BasicImmutableFunctionView</a> &amp;) <a class="el" href="_config_8hxx.html#a461a7a05397aa66d9490b6cacfe516e4">MGIS_NOEXCEPT</a></td></tr>
+<tr class="memitem:ad802232189a42e7b93dbcc26fc2d8918" id="r_ad802232189a42e7b93dbcc26fc2d8918"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">MGIS_EXPORT</a> std::optional&lt; <a class="el" href="structmgis_1_1function_1_1_function.html">Function</a>&lt; <a class="el" href="structmgis_1_1function_1_1_basic_linear_space.html">BasicLinearSpace</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_mechanical_operations_8hxx.html#ad802232189a42e7b93dbcc26fc2d8918">mgis::function::computeCauchyStressFromFirstPiolaKirchhoffStress</a> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, const <a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">BasicImmutableFunctionView</a> &amp;, const <a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">BasicImmutableFunctionView</a> &amp;) <a class="el" href="_config_8hxx.html#a461a7a05397aa66d9490b6cacfe516e4">MGIS_NOEXCEPT</a></td></tr>
+<tr class="memdesc:ad802232189a42e7b93dbcc26fc2d8918"><td class="mdescLeft">&#160;</td><td class="mdescRight">compute the Cauchy stress from the first Piola-Kirchhoff stress and the deformation gradient of a function  <br /></td></tr>
 <tr class="separator:ad802232189a42e7b93dbcc26fc2d8918"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ab192336fbb04913d4e0a928b1542b2" id="r_a7ab192336fbb04913d4e0a928b1542b2"><td class="memItemLeft" align="right" valign="top"><a id="a7ab192336fbb04913d4e0a928b1542b2" name="a7ab192336fbb04913d4e0a928b1542b2"></a>
-<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">MGIS_EXPORT</a> std::optional&lt; <a class="el" href="structmgis_1_1function_1_1_function.html">Function</a>&lt; <a class="el" href="structmgis_1_1function_1_1_basic_linear_space.html">BasicLinearSpace</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mgis::function::computeCauchyStressHydrostraticPressureFromFirstPiolaKirchhoffStress</b> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, const <a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">BasicImmutableFunctionView</a> &amp;, const <a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">BasicImmutableFunctionView</a> &amp;) <a class="el" href="_config_8hxx.html#a461a7a05397aa66d9490b6cacfe516e4">MGIS_NOEXCEPT</a></td></tr>
+<tr class="memitem:a7ab192336fbb04913d4e0a928b1542b2" id="r_a7ab192336fbb04913d4e0a928b1542b2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">MGIS_EXPORT</a> std::optional&lt; <a class="el" href="structmgis_1_1function_1_1_function.html">Function</a>&lt; <a class="el" href="structmgis_1_1function_1_1_basic_linear_space.html">BasicLinearSpace</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_mechanical_operations_8hxx.html#a7ab192336fbb04913d4e0a928b1542b2">mgis::function::computeCauchyStressHydrostraticPressureFromFirstPiolaKirchhoffStress</a> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, const <a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">BasicImmutableFunctionView</a> &amp;, const <a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">BasicImmutableFunctionView</a> &amp;) <a class="el" href="_config_8hxx.html#a461a7a05397aa66d9490b6cacfe516e4">MGIS_NOEXCEPT</a></td></tr>
+<tr class="memdesc:a7ab192336fbb04913d4e0a928b1542b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">compute the hydrostatic pressure of the Cauchy stress obtained from the first Piola-Kirchhoff stress and the deformation gradient of a function  <br /></td></tr>
 <tr class="separator:a7ab192336fbb04913d4e0a928b1542b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a268d9f6eaeafd4257e039b254ea45475" id="r_a268d9f6eaeafd4257e039b254ea45475"><td class="memItemLeft" align="right" valign="top"><a id="a268d9f6eaeafd4257e039b254ea45475" name="a268d9f6eaeafd4257e039b254ea45475"></a>
-<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">MGIS_EXPORT</a> std::optional&lt; <a class="el" href="structmgis_1_1function_1_1_function.html">Function</a>&lt; <a class="el" href="structmgis_1_1function_1_1_basic_linear_space.html">BasicLinearSpace</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mgis::function::computeCauchyStressVonMisesStressFromFirstPiolaKirchhoffStress</b> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, const <a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">BasicImmutableFunctionView</a> &amp;, const <a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">BasicImmutableFunctionView</a> &amp;) <a class="el" href="_config_8hxx.html#a461a7a05397aa66d9490b6cacfe516e4">MGIS_NOEXCEPT</a></td></tr>
+<tr class="memitem:a268d9f6eaeafd4257e039b254ea45475" id="r_a268d9f6eaeafd4257e039b254ea45475"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">MGIS_EXPORT</a> std::optional&lt; <a class="el" href="structmgis_1_1function_1_1_function.html">Function</a>&lt; <a class="el" href="structmgis_1_1function_1_1_basic_linear_space.html">BasicLinearSpace</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_mechanical_operations_8hxx.html#a268d9f6eaeafd4257e039b254ea45475">mgis::function::computeCauchyStressVonMisesStressFromFirstPiolaKirchhoffStress</a> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, const <a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">BasicImmutableFunctionView</a> &amp;, const <a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">BasicImmutableFunctionView</a> &amp;) <a class="el" href="_config_8hxx.html#a461a7a05397aa66d9490b6cacfe516e4">MGIS_NOEXCEPT</a></td></tr>
+<tr class="memdesc:a268d9f6eaeafd4257e039b254ea45475"><td class="mdescLeft">&#160;</td><td class="mdescRight">compute the von Mises stress of the Cauchy stress obtained from the first Piola-Kirchhoff stress and the deformation gradient of a function  <br /></td></tr>
 <tr class="separator:a268d9f6eaeafd4257e039b254ea45475"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03a6ffaf581f5352d17bcd5b6bb45857" id="r_a03a6ffaf581f5352d17bcd5b6bb45857"><td class="memItemLeft" align="right" valign="top"><a id="a03a6ffaf581f5352d17bcd5b6bb45857" name="a03a6ffaf581f5352d17bcd5b6bb45857"></a>
-<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">MGIS_EXPORT</a> std::optional&lt; <a class="el" href="structmgis_1_1function_1_1_function.html">Function</a>&lt; <a class="el" href="structmgis_1_1function_1_1_basic_linear_space.html">BasicLinearSpace</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mgis::function::computeCauchyStressEigenValuesFromFirstPiolaKirchhoffStress</b> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, const <a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">BasicImmutableFunctionView</a> &amp;, const <a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">BasicImmutableFunctionView</a> &amp;) <a class="el" href="_config_8hxx.html#a461a7a05397aa66d9490b6cacfe516e4">MGIS_NOEXCEPT</a></td></tr>
+<tr class="memitem:a03a6ffaf581f5352d17bcd5b6bb45857" id="r_a03a6ffaf581f5352d17bcd5b6bb45857"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">MGIS_EXPORT</a> std::optional&lt; <a class="el" href="structmgis_1_1function_1_1_function.html">Function</a>&lt; <a class="el" href="structmgis_1_1function_1_1_basic_linear_space.html">BasicLinearSpace</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_mechanical_operations_8hxx.html#a03a6ffaf581f5352d17bcd5b6bb45857">mgis::function::computeCauchyStressEigenValuesFromFirstPiolaKirchhoffStress</a> (<a class="el" href="structmgis_1_1_context.html">Context</a> &amp;, const <a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">BasicImmutableFunctionView</a> &amp;, const <a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">BasicImmutableFunctionView</a> &amp;) <a class="el" href="_config_8hxx.html#a461a7a05397aa66d9490b6cacfe516e4">MGIS_NOEXCEPT</a></td></tr>
+<tr class="memdesc:a03a6ffaf581f5352d17bcd5b6bb45857"><td class="mdescLeft">&#160;</td><td class="mdescRight">compute the eigen values of the Cauchy stress obtained from the first Piola-Kirchhoff stress and the deformation gradient of a function  <br /></td></tr>
 <tr class="separator:a03a6ffaf581f5352d17bcd5b6bb45857"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section author"><dt>Author</dt><dd>Thomas Helfer </dd></dl>
+<div class="textblock"><p>File which declares functions computing mechanical quantities (trace, von Mises stress, hydrostatic pressure, eigen values, Cauchy stress) from the tensorial values of a function and returning the result as a new function. </p>
+<dl class="section author"><dt>Author</dt><dd>Thomas Helfer </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>15/11/2025 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>(C) Copyright Thomas Helfer 2018. Use, modification and distribution are subject to one of the following licences:<ul>
 <li>GNU Lesser General Public License (LGPL), Version 3.0. (See accompanying file LGPL-3.0.txt)</li>
 <li>CECILL-C, Version 1.0 (See accompanying files CeCILL-C_V1-en.txt and CeCILL-C_V1-fr.txt). </li>
 </ul>
 </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Typedef Documentation</h2>
+<a id="ab3104f6474991fa040ee9969be584697" name="ab3104f6474991fa040ee9969be584697"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3104f6474991fa040ee9969be584697">&#9670;&#160;</a></span>BasicImmutableFunctionView</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef FunctionView&lt; BasicLinearSpace, FunctionDataLayoutDescription{}, false &gt; <a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">mgis::function::BasicImmutableFunctionView</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>immutable view on a function defined on a <code>BasicLinearSpace</code> whose number of components is only known at run time </p>
+<p>This alias shortens the declaration of the functions of this file. The <code>false</code> template argument states that the viewed values cannot be modified. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a03a6ffaf581f5352d17bcd5b6bb45857" name="a03a6ffaf581f5352d17bcd5b6bb45857"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03a6ffaf581f5352d17bcd5b6bb45857">&#9670;&#160;</a></span>computeCauchyStressEigenValuesFromFirstPiolaKirchhoffStress()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MGIS_EXPORT std::optional&lt; Function&lt; BasicLinearSpace &gt; &gt; mgis::function::computeCauchyStressEigenValuesFromFirstPiolaKirchhoffStress </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmgis_1_1_context.html">Context</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">BasicImmutableFunctionView</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">BasicImmutableFunctionView</a> &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>compute the eigen values of the Cauchy stress obtained from the first Piola-Kirchhoff stress and the deformation gradient of a function </p>
+<p>The Cauchy stress is first computed from <code>pk1</code> and <code>F</code> and its eigen values are then evaluated. Both <code>pk1</code> and <code>F</code> are interpreted as unsymmetric tensors, which requires 3, 5 or 9 components, corresponding to unsymmetric tensors of dimension 1, 2 or 3; <code>pk1</code> and <code>F</code> must have the same number of components.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ctx</td><td>execution context used to report the errors </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pk1</td><td>view on the function whose values are the first Piola-Kirchhoff stresses </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">F</td><td>view on the function whose values are the deformation gradients </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the function holding the eigen values or an empty optional if the number of components of <code>pk1</code> is not compatible with an unsymmetric tensor, in which case an error is reported through the error handler </dd></dl>
+
+</div>
+</div>
+<a id="ad802232189a42e7b93dbcc26fc2d8918" name="ad802232189a42e7b93dbcc26fc2d8918"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad802232189a42e7b93dbcc26fc2d8918">&#9670;&#160;</a></span>computeCauchyStressFromFirstPiolaKirchhoffStress()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MGIS_EXPORT std::optional&lt; Function&lt; BasicLinearSpace &gt; &gt; mgis::function::computeCauchyStressFromFirstPiolaKirchhoffStress </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmgis_1_1_context.html">Context</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">BasicImmutableFunctionView</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">BasicImmutableFunctionView</a> &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>compute the Cauchy stress from the first Piola-Kirchhoff stress and the deformation gradient of a function </p>
+<p>Both <code>pk1</code> and <code>F</code> are interpreted as unsymmetric tensors, which requires 3, 5 or 9 components, corresponding to unsymmetric tensors of dimension 1, 2 or 3; <code>pk1</code> and <code>F</code> must have the same number of components.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ctx</td><td>execution context used to report the errors </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pk1</td><td>view on the function whose values are the first Piola-Kirchhoff stresses </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">F</td><td>view on the function whose values are the deformation gradients </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the function holding the Cauchy stresses or an empty optional if the number of components of <code>pk1</code> is not compatible with an unsymmetric tensor, in which case an error is reported through the error handler </dd></dl>
+
+</div>
+</div>
+<a id="a7ab192336fbb04913d4e0a928b1542b2" name="a7ab192336fbb04913d4e0a928b1542b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ab192336fbb04913d4e0a928b1542b2">&#9670;&#160;</a></span>computeCauchyStressHydrostraticPressureFromFirstPiolaKirchhoffStress()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MGIS_EXPORT std::optional&lt; Function&lt; BasicLinearSpace &gt; &gt; mgis::function::computeCauchyStressHydrostraticPressureFromFirstPiolaKirchhoffStress </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmgis_1_1_context.html">Context</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">BasicImmutableFunctionView</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">BasicImmutableFunctionView</a> &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>compute the hydrostatic pressure of the Cauchy stress obtained from the first Piola-Kirchhoff stress and the deformation gradient of a function </p>
+<p>The Cauchy stress is first computed from <code>pk1</code> and <code>F</code> and its hydrostatic pressure, defined as <code>trace(s) / 3</code>, is then evaluated. Both <code>pk1</code> and <code>F</code> are interpreted as unsymmetric tensors, which requires 3, 5 or 9 components, corresponding to unsymmetric tensors of dimension 1, 2 or 3; <code>pk1</code> and <code>F</code> must have the same number of components.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ctx</td><td>execution context used to report the errors </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pk1</td><td>view on the function whose values are the first Piola-Kirchhoff stresses </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">F</td><td>view on the function whose values are the deformation gradients </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the function holding the hydrostatic pressures or an empty optional if the number of components of <code>pk1</code> is not compatible with an unsymmetric tensor, in which case an error is reported through the error handler </dd></dl>
+
+</div>
+</div>
+<a id="a268d9f6eaeafd4257e039b254ea45475" name="a268d9f6eaeafd4257e039b254ea45475"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a268d9f6eaeafd4257e039b254ea45475">&#9670;&#160;</a></span>computeCauchyStressVonMisesStressFromFirstPiolaKirchhoffStress()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MGIS_EXPORT std::optional&lt; Function&lt; BasicLinearSpace &gt; &gt; mgis::function::computeCauchyStressVonMisesStressFromFirstPiolaKirchhoffStress </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmgis_1_1_context.html">Context</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">BasicImmutableFunctionView</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">BasicImmutableFunctionView</a> &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>compute the von Mises stress of the Cauchy stress obtained from the first Piola-Kirchhoff stress and the deformation gradient of a function </p>
+<p>The Cauchy stress is first computed from <code>pk1</code> and <code>F</code> and its von Mises stress is then evaluated. Both <code>pk1</code> and <code>F</code> are interpreted as unsymmetric tensors, which requires 3, 5 or 9 components, corresponding to unsymmetric tensors of dimension 1, 2 or 3; <code>pk1</code> and <code>F</code> must have the same number of components.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ctx</td><td>execution context used to report the errors </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pk1</td><td>view on the function whose values are the first Piola-Kirchhoff stresses </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">F</td><td>view on the function whose values are the deformation gradients </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the function holding the von Mises stresses or an empty optional if the number of components of <code>pk1</code> is not compatible with an unsymmetric tensor, in which case an error is reported through the error handler </dd></dl>
+
+</div>
+</div>
+<a id="a0fc1bb3c7f52ace4ebc9614ab286b069" name="a0fc1bb3c7f52ace4ebc9614ab286b069"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fc1bb3c7f52ace4ebc9614ab286b069">&#9670;&#160;</a></span>computeEigenValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MGIS_EXPORT std::optional&lt; Function&lt; BasicLinearSpace &gt; &gt; mgis::function::computeEigenValues </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmgis_1_1_context.html">Context</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">BasicImmutableFunctionView</a> &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>compute the eigen values of the symmetric tensorial values of a function </p>
+<p>The values of <code>f</code> are interpreted as symmetric tensors, which requires 3, 4 or 6 components, corresponding to symmetric tensors of dimension 1, 2 or 3; the result is a function whose values have as many components as the dimension of the symmetric tensors.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ctx</td><td>execution context used to report the errors </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">f</td><td>view on the function whose symmetric tensorial values are considered </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the function holding the eigen values or an empty optional if the number of components of <code>f</code> is not compatible with a symmetric tensor, in which case an error is reported through the error handler </dd></dl>
+
+</div>
+</div>
+<a id="a624da56d67042f614ddf0541c84193dd" name="a624da56d67042f614ddf0541c84193dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a624da56d67042f614ddf0541c84193dd">&#9670;&#160;</a></span>computeHydrostraticPressure()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MGIS_EXPORT std::optional&lt; Function&lt; BasicLinearSpace &gt; &gt; mgis::function::computeHydrostraticPressure </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmgis_1_1_context.html">Context</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">BasicImmutableFunctionView</a> &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>compute the hydrostatic pressure of the symmetric tensorial values of a function </p>
+<p>The hydrostatic pressure is defined as <code>trace(s) / 3</code>. The values of <code>f</code> are interpreted as symmetric tensors, which requires 3, 4 or 6 components, corresponding to symmetric tensors of dimension 1, 2 or 3; the result is a scalar valued function.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ctx</td><td>execution context used to report the errors </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">f</td><td>view on the function whose symmetric tensorial values are interpreted as stresses </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the function holding the hydrostatic pressures or an empty optional if the number of components of <code>f</code> is not compatible with a symmetric tensor, in which case an error is reported through the error handler </dd></dl>
+
+</div>
+</div>
+<a id="a35407ec02e467cca34f4d8e5bc5b2ee4" name="a35407ec02e467cca34f4d8e5bc5b2ee4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35407ec02e467cca34f4d8e5bc5b2ee4">&#9670;&#160;</a></span>computeTrace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MGIS_EXPORT std::optional&lt; Function&lt; BasicLinearSpace &gt; &gt; mgis::function::computeTrace </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmgis_1_1_context.html">Context</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">BasicImmutableFunctionView</a> &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>compute the trace of the symmetric tensorial values of a function </p>
+<p>The values of <code>f</code> are interpreted as symmetric tensors, which requires 3, 4 or 6 components, corresponding to symmetric tensors of dimension 1, 2 or 3; the result is a scalar valued function.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ctx</td><td>execution context used to report the errors </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">f</td><td>view on the function whose symmetric tensorial values are considered </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the function holding the traces or an empty optional if the number of components of <code>f</code> is not compatible with a symmetric tensor, in which case an error is reported through the error handler </dd></dl>
+
+</div>
+</div>
+<a id="a7a3dca5e47ed8a573072ab125f46cd02" name="a7a3dca5e47ed8a573072ab125f46cd02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a3dca5e47ed8a573072ab125f46cd02">&#9670;&#160;</a></span>computeVonMisesStress()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MGIS_EXPORT std::optional&lt; Function&lt; BasicLinearSpace &gt; &gt; mgis::function::computeVonMisesStress </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmgis_1_1_context.html">Context</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697">BasicImmutableFunctionView</a> &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>compute the von Mises stress of the symmetric tensorial values of a function </p>
+<p>The values of <code>f</code> are interpreted as symmetric tensors, which requires 3, 4 or 6 components, corresponding to symmetric tensors of dimension 1, 2 or 3; the result is a scalar valued function.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ctx</td><td>execution context used to report the errors </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">f</td><td>view on the function whose symmetric tensorial values are interpreted as stresses </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the function holding the von Mises stresses or an empty optional if the number of components of <code>f</code> is not compatible with a symmetric tensor, in which case an error is reported through the error handler </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_926a8b4fb7ad5e8e017827ff5fbbb316.html">MGIS</a></li><li class="navelem"><a class="el" href="dir_2e52b00940cd27d9780366949db1e89b.html">Function</a></li><li class="navelem"><a class="el" href="dir_e23cfa4dbebc272344c1d50ffb8bb175.html">TFEL</a></li><li class="navelem"><a class="el" href="_mechanical_operations_8hxx.html">MechanicalOperations.hxx</a></li>
-    <li class="footer">Generated on Fri Nov 6 2026 14:30:40 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Nov 6 2026 19:42:30 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

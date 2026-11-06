@@ -105,7 +105,7 @@ $(document).ready(function(){initNavTree('structmgis_1_1function_1_1_function_st
 </div><!--header-->
 <div class="contents">
 
-<p>an helper class storing the values of a function  
+<p>an helper class storing the values of a function in a <code>std::vector</code>  
  <a href="structmgis_1_1function_1_1_function_storage.html#details">More...</a></p>
 
 <p><code>#include &lt;/home/runner/work/MFrontGenericInterfaceSupport/MFrontGenericInterfaceSupport/include/MGIS/Function/Function.hxx&gt;</code></p>
@@ -116,25 +116,31 @@ Inheritance diagram for mgis::function::FunctionStorage&lt; Space, N &gt;:</div>
   <img src="structmgis_1_1function_1_1_function_storage.png" usemap="#mgis::function::FunctionStorage_3C_20Space_2C_20N_20_3E_map" alt=""/>
   <map id="mgis::function::FunctionStorage_3C_20Space_2C_20N_20_3E_map" name="mgis::function::FunctionStorage_3C_20Space_2C_20N_20_3E_map">
 <area href="structmgis_1_1function_1_1_function.html" alt="mgis::function::Function&lt; Space, tfel::math::getUnderlyingArrayMinimalSize&lt; TensorType::indexing_policy &gt;()&gt;" shape="rect" coords="0,56,633,80"/>
-<area href="structmgis_1_1function_1_1_function.html" title="default implementation of a function" alt="mgis::function::Function&lt; Space, N &gt;" shape="rect" coords="643,56,1276,80"/>
-<area href="structmgis_1_1function_1_1_tensorial_function.html" title="default implementation of a function" alt="mgis::function::TensorialFunction&lt; Space, TensorType &gt;" shape="rect" coords="0,112,633,136"/>
+<area href="structmgis_1_1function_1_1_function.html" title="default implementation of a function, which owns its values" alt="mgis::function::Function&lt; Space, N &gt;" shape="rect" coords="643,56,1276,80"/>
+<area href="structmgis_1_1function_1_1_tensorial_function.html" title="default implementation of a function whose values are TFEL&#39;s tensorial objects" alt="mgis::function::TensorialFunction&lt; Space, TensorType &gt;" shape="rect" coords="0,112,633,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a810a58cdf9c085415e4f0369947619f6" id="r_a810a58cdf9c085415e4f0369947619f6"><td class="memItemLeft" align="right" valign="top"><a id="a810a58cdf9c085415e4f0369947619f6" name="a810a58cdf9c085415e4f0369947619f6"></a>
-<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a>&#160;</td><td class="memItemRight" valign="bottom"><b>FunctionStorage</b> (const Space &amp;s)</td></tr>
+<tr class="memitem:a810a58cdf9c085415e4f0369947619f6" id="r_a810a58cdf9c085415e4f0369947619f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1_function_storage.html#a810a58cdf9c085415e4f0369947619f6">FunctionStorage</a> (const Space &amp;s)</td></tr>
+<tr class="memdesc:a810a58cdf9c085415e4f0369947619f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor for a function whose number of components is known at compile time: allocates <code>N * getSpaceSize(s)</code> values initialized to zero  <br /></td></tr>
 <tr class="separator:a810a58cdf9c085415e4f0369947619f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95493ef0b5505a49163d8dbb69b93c68" id="r_a95493ef0b5505a49163d8dbb69b93c68"><td class="memItemLeft" align="right" valign="top"><a id="a95493ef0b5505a49163d8dbb69b93c68" name="a95493ef0b5505a49163d8dbb69b93c68"></a>
-<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a>&#160;</td><td class="memItemRight" valign="bottom"><b>FunctionStorage</b> (const Space &amp;s, const <a class="el" href="namespacemgis.html#a184723b5d743b58169be89d3b04265fc">size_type</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">dsize</a>)</td></tr>
+<tr class="memitem:a95493ef0b5505a49163d8dbb69b93c68" id="r_a95493ef0b5505a49163d8dbb69b93c68"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1_function_storage.html#a95493ef0b5505a49163d8dbb69b93c68">FunctionStorage</a> (const Space &amp;s, const <a class="el" href="namespacemgis.html#a184723b5d743b58169be89d3b04265fc">size_type</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">dsize</a>)</td></tr>
+<tr class="memdesc:a95493ef0b5505a49163d8dbb69b93c68"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor for a function whose number of components is only known at run time: allocates <code>getSpaceSize(s) * dsize</code> values initialized to zero  <br /></td></tr>
 <tr class="separator:a95493ef0b5505a49163d8dbb69b93c68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45a0a224b0d7d0d96ac4fd92cec4e1a2" id="r_a45a0a224b0d7d0d96ac4fd92cec4e1a2"><td class="memItemLeft" align="right" valign="top"><a id="a45a0a224b0d7d0d96ac4fd92cec4e1a2" name="a45a0a224b0d7d0d96ac4fd92cec4e1a2"></a>
 <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a>&#160;</td><td class="memItemRight" valign="bottom"><b>FunctionStorage</b> (<a class="el" href="structmgis_1_1function_1_1_function_storage.html">FunctionStorage</a> &amp;&amp;)=<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">default</a></td></tr>
+<tr class="memdesc:a45a0a224b0d7d0d96ac4fd92cec4e1a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">move constructor <br /></td></tr>
 <tr class="separator:a45a0a224b0d7d0d96ac4fd92cec4e1a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7760420846b8e370e909291825988cf7" id="r_a7760420846b8e370e909291825988cf7"><td class="memItemLeft" align="right" valign="top"><a id="a7760420846b8e370e909291825988cf7" name="a7760420846b8e370e909291825988cf7"></a>
 <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a>&#160;</td><td class="memItemRight" valign="bottom"><b>FunctionStorage</b> (const <a class="el" href="structmgis_1_1function_1_1_function_storage.html">FunctionStorage</a> &amp;)=<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">default</a></td></tr>
+<tr class="memdesc:a7760420846b8e370e909291825988cf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">copy constructor <br /></td></tr>
 <tr class="separator:a7760420846b8e370e909291825988cf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a766d29a46451da4899a40e63ce420c15" id="r_a766d29a46451da4899a40e63ce420c15"><td class="memItemLeft" align="right" valign="top"><a id="a766d29a46451da4899a40e63ce420c15" name="a766d29a46451da4899a40e63ce420c15"></a>
+<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a>&#160;</td><td class="memItemRight" valign="bottom"><b>~FunctionStorage</b> ()=<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">default</a></td></tr>
+<tr class="memdesc:a766d29a46451da4899a40e63ce420c15"><td class="mdescLeft">&#160;</td><td class="mdescRight">destructor <br /></td></tr>
+<tr class="separator:a766d29a46451da4899a40e63ce420c15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -145,8 +151,100 @@ std::vector&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a0
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;LinearFunctionalSpaceConcept Space, <a class="el" href="namespacemgis.html#a184723b5d743b58169be89d3b04265fc">size_type</a> N&gt;<br />
-struct mgis::function::FunctionStorage&lt; Space, N &gt;</div><p>an helper class storing the values of a function </p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
+struct mgis::function::FunctionStorage&lt; Space, N &gt;</div><p>an helper class storing the values of a function in a <code>std::vector</code> </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Space</td><td>type of the discretization space on which the function is defined </td></tr>
+    <tr><td class="paramname">N</td><td>number of components, which may be <code>dynamic_extent</code></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>moving or copying the storage moves or copies the values but does not update the views which point to them: this is the responsibility of the classes deriving from this class </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a810a58cdf9c085415e4f0369947619f6" name="a810a58cdf9c085415e4f0369947619f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a810a58cdf9c085415e4f0369947619f6">&#9670;&#160;</a></span>FunctionStorage() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;LinearFunctionalSpaceConcept Space, <a class="el" href="namespacemgis.html#a184723b5d743b58169be89d3b04265fc">size_type</a> N&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="structmgis_1_1function_1_1_function_storage.html">mgis::function::FunctionStorage</a>&lt; Space, <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">N</a> &gt;::FunctionStorage </td>
+          <td>(</td>
+          <td class="paramtype">const Space &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>constructor for a function whose number of components is known at compile time: allocates <code>N * getSpaceSize(s)</code> values initialized to zero </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td>space on which the function is defined </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a95493ef0b5505a49163d8dbb69b93c68" name="a95493ef0b5505a49163d8dbb69b93c68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95493ef0b5505a49163d8dbb69b93c68">&#9670;&#160;</a></span>FunctionStorage() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;LinearFunctionalSpaceConcept Space, <a class="el" href="namespacemgis.html#a184723b5d743b58169be89d3b04265fc">size_type</a> N&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="structmgis_1_1function_1_1_function_storage.html">mgis::function::FunctionStorage</a>&lt; Space, <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">N</a> &gt;::FunctionStorage </td>
+          <td>(</td>
+          <td class="paramtype">const Space &amp;&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacemgis.html#a184723b5d743b58169be89d3b04265fc">size_type</a>&#160;</td>
+          <td class="paramname"><em>dsize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>constructor for a function whose number of components is only known at run time: allocates <code>getSpaceSize(s) * dsize</code> values initialized to zero </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td>space on which the function is defined </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dsize</td><td>number of components of the function </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="_function_8hxx.html">Function.hxx</a></li>
 </ul>
 </div><!-- contents -->
@@ -155,7 +253,7 @@ struct mgis::function::FunctionStorage&lt; Space, N &gt;</div><p>an helper class
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemgis.html">mgis</a></li><li class="navelem"><b>function</b></li><li class="navelem"><a class="el" href="structmgis_1_1function_1_1_function_storage.html">FunctionStorage</a></li>
-    <li class="footer">Generated on Fri Nov 6 2026 14:30:40 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Nov 6 2026 19:42:30 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

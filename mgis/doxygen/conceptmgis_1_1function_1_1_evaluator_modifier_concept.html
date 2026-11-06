@@ -101,28 +101,38 @@ $(document).ready(function(){initNavTree('conceptmgis_1_1function_1_1_evaluator_
 </div><!--header-->
 <div class="contents">
 
+<p>concept defining the modifiers which can be applied to evaluators  
+<a href="conceptmgis_1_1function_1_1_evaluator_modifier_concept.html#details">More...</a></p>
+
 <p><code>#include &lt;/home/runner/work/MFrontGenericInterfaceSupport/MFrontGenericInterfaceSupport/include/MGIS/Function/EvaluatorModifierConcept.hxx&gt;</code></p>
 <h2 class="groupheader">Concept definition</h2>
 <div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> EvaluatorModifierType&gt;</div>
 <div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="conceptmgis_1_1function_1_1_evaluator_modifier_concept.html">mgis::function::EvaluatorModifierConcept</a> = </div>
 <div class="line">      std::same_as&lt;typename EvaluatorModifierType::Tag, EvaluatorModifierTag&gt;</div>
-<div class="ttc" id="aconceptmgis_1_1function_1_1_evaluator_modifier_concept_html"><div class="ttname"><a href="conceptmgis_1_1function_1_1_evaluator_modifier_concept.html">mgis::function::EvaluatorModifierConcept</a></div><div class="ttdef"><b>Definition</b> EvaluatorModifierConcept.hxx:62</div></div>
+<div class="ttc" id="aconceptmgis_1_1function_1_1_evaluator_modifier_concept_html"><div class="ttname"><a href="conceptmgis_1_1function_1_1_evaluator_modifier_concept.html">mgis::function::EvaluatorModifierConcept</a></div><div class="ttdoc">concept defining the modifiers which can be applied to evaluators</div><div class="ttdef"><b>Definition</b> EvaluatorModifierConcept.hxx:68</div></div>
 </div><!-- fragment --><a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>As explained in the description of the <code>EvaluatorModifierTag</code>, the following definition of the EvaluatorModifierConcept concept is ill-formed:</p>
+<div class="textblock"><p>concept defining the modifiers which can be applied to evaluators </p>
+<p>As explained in the description of the <code>EvaluatorModifierTag</code>, the following definition of the <code>EvaluatorModifierConcept</code> concept is ill-formed:</p>
 <div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> EvaluatorModifierType&gt;</div>
 <div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="conceptmgis_1_1function_1_1_evaluator_modifier_concept.html">EvaluatorModifierConcept</a> = <span class="keyword">requires</span>(<span class="keyword">const</span> <a class="code hl_concept" href="conceptmgis_1_1function_1_1_evaluator_concept.html">EvaluatorConcept</a> <span class="keyword">auto</span>&amp; e,</div>
 <div class="line">                                            <span class="keyword">const</span> EvaluatorModifierType&amp; m)</div>
 <div class="line">{ { m(e) } -&gt; <a class="code hl_concept" href="conceptmgis_1_1function_1_1_evaluator_concept.html">EvaluatorConcept</a>;</div>
 <div class="line"> });</div>
-<div class="ttc" id="aconceptmgis_1_1function_1_1_evaluator_concept_html"><div class="ttname"><a href="conceptmgis_1_1function_1_1_evaluator_concept.html">mgis::function::EvaluatorConcept</a></div><div class="ttdoc">a concept that must satisfy an evaluator</div><div class="ttdef"><b>Definition</b> EvaluatorConcept.hxx:157</div></div>
-</div><!-- fragment --><p>When exposing an alias named Tag to be equal to the EvaluatorTag, a class explictly states that it has a call operator able to transform any evaluator to a new evaluator. </p>
+<div class="ttc" id="aconceptmgis_1_1function_1_1_evaluator_concept_html"><div class="ttname"><a href="conceptmgis_1_1function_1_1_evaluator_concept.html">mgis::function::EvaluatorConcept</a></div><div class="ttdoc">a concept that must satisfy an evaluator</div><div class="ttdef"><b>Definition</b> EvaluatorConcept.hxx:295</div></div>
+</div><!-- fragment --><p>When exposing an alias named <code>Tag</code> equal to the <code>EvaluatorModifierTag</code>, a class explicitly states that its call operator can transform any evaluator into a new evaluator.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">EvaluatorModifierType</td><td>type of the modifier </td></tr>
+  </table>
+  </dd>
+</dl>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemgis.html">mgis</a></li><li class="navelem"><b>function</b></li><li class="navelem"><a class="el" href="conceptmgis_1_1function_1_1_evaluator_modifier_concept.html">EvaluatorModifierConcept</a></li>
-    <li class="footer">Generated on Fri Nov 6 2026 14:30:40 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Nov 6 2026 19:42:30 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

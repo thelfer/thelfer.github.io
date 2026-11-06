@@ -4,7 +4,7 @@ var _function_8hxx =
     [ "mgis::function::FunctionDataSize< dynamic_extent >", "structmgis_1_1function_1_1_function_data_size_3_01dynamic__extent_01_4.html", "structmgis_1_1function_1_1_function_data_size_3_01dynamic__extent_01_4" ],
     [ "mgis::function::FunctionDataStride< data_stride >", "structmgis_1_1function_1_1_function_data_stride.html", "structmgis_1_1function_1_1_function_data_stride" ],
     [ "mgis::function::FunctionDataStride< dynamic_extent >", "structmgis_1_1function_1_1_function_data_stride_3_01dynamic__extent_01_4.html", "structmgis_1_1function_1_1_function_data_stride_3_01dynamic__extent_01_4" ],
-    [ "mgis::function::FunctionDataLayoutDescription", "structmgis_1_1function_1_1_function_data_layout_description.html", null ],
+    [ "mgis::function::FunctionDataLayoutDescription", "structmgis_1_1function_1_1_function_data_layout_description.html", "structmgis_1_1function_1_1_function_data_layout_description" ],
     [ "mgis::function::FunctionDataLayout< layout >", "structmgis_1_1function_1_1_function_data_layout.html", "structmgis_1_1function_1_1_function_data_layout" ],
     [ "mgis::function::FunctionView< Space, layout, is_mutable >", "structmgis_1_1function_1_1_function_view.html", "structmgis_1_1function_1_1_function_view" ],
     [ "mgis::function::LightweightViewTraits< FunctionView< Space, layout, is_mutable > >", "structmgis_1_1function_1_1_lightweight_view_traits_3_01_function_view_3_01_space_00_01layout_00_01is__mutable_01_4_01_4.html", null ],
@@ -14,10 +14,15 @@ var _function_8hxx =
     [ "FunctionViewAlias", "_function_8hxx.html#ae81b02935d20a189bfb65874fa13008d", null ],
     [ "check", "_function_8hxx.html#a83a21acf31f573c11f337e844fa83fd6", null ],
     [ "check", "_function_8hxx.html#a160d5c49e5a25692fe19cbc10897718f", null ],
+    [ "Function", "_function_8hxx.html#a56f088400a7e5869cf7da1996277d571", null ],
     [ "getNumberOfComponents", "_function_8hxx.html#a2bb58f3aa9e0a38446f2608eb1776c70", null ],
+    [ "getSpace", "_function_8hxx.html#aed45dfc9ca27f90c67686b4dc37ee5c6", null ],
     [ "has_dynamic_properties", "_function_8hxx.html#a46d4c0684dbbea4d65f1b0edd4424416", null ],
     [ "view", "_function_8hxx.html#a4a2380b3a620d747e265d3ed5fbb562f", null ],
     [ "view", "_function_8hxx.html#a5d90a35dc2adf9fa755237d244207072", null ],
+    [ "view", "_function_8hxx.html#a7e6f0a001ab202be77b1a2dcde350bcf", null ],
     [ "view", "_function_8hxx.html#adf234a53305082dca03c2f6c856962bb", null ],
-    [ "view", "_function_8hxx.html#ac08232ea233296da3156e96d6a0c5959", null ]
+    [ "view", "_function_8hxx.html#a7c3aea1149f1c1908deb72ab8d9b7ff0", null ],
+    [ "view", "_function_8hxx.html#ac08232ea233296da3156e96d6a0c5959", null ],
+    [ "simple_data_layout_description", "_function_8hxx.html#a9b8260f166f9f5ba843cd294cdd77e6f", null ]
 ];

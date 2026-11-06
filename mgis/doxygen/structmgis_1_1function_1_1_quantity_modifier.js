@@ -1,5 +1,6 @@
 var structmgis_1_1function_1_1_quantity_modifier =
 [
+    [ "Space", "structmgis_1_1function_1_1_quantity_modifier.html#af8d45b5b58cf866a2ebd14a71c473c6b", null ],
     [ "QuantityModifier", "structmgis_1_1function_1_1_quantity_modifier.html#a1f6e64b5413e745563054a009db44e3e", null ],
     [ "QuantityModifier", "structmgis_1_1function_1_1_quantity_modifier.html#a79eea114683ef83ade07e9c676c4dbed", null ],
     [ "check", "structmgis_1_1function_1_1_quantity_modifier.html#a32cb48858c3b1f19a78edef7c934e072", null ],

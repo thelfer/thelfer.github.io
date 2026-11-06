@@ -104,6 +104,9 @@ $(document).ready(function(){initNavTree('_algorithms_8hxx.html',''); initResiza
   <div class="headertitle"><div class="title">Algorithms.hxx File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Declaration of the algorithms which can be applied to the functions and the evaluators of the <code>MGIS/Function</code> library, that is <code>assign</code> and <code>scalar_reduce</code>, and of the helpers used to check if an evaluator can be assigned to a function.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;version&gt;</code><br />
 <code>#include &lt;concepts&gt;</code><br />
 <code>#include &lt;optional&gt;</code><br />
@@ -112,7 +115,7 @@ $(document).ready(function(){initNavTree('_algorithms_8hxx.html',''); initResiza
 <code>#include &quot;<a class="el" href="_space_concept_8hxx.html">MGIS/Function/SpaceConcept.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_evaluator_concept_8hxx.html">MGIS/Function/EvaluatorConcept.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_function_concept_8hxx.html">MGIS/Function/FunctionConcept.hxx</a>&quot;</code><br />
-<code>#include &quot;MGIS/Function/Algorithms.ixx&quot;</code><br />
+<code>#include &quot;<a class="el" href="_algorithms_8ixx.html">MGIS/Function/Algorithms.ixx</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -123,74 +126,85 @@ Namespaces</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="concepts" name="concepts"></a>
 Concepts</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptmgis_1_1function_1_1internals_1_1is_evaluator_assignable_to_function.html">mgis::function::internals::isEvaluatorAssignableToFunction</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">concept stating that an evaluator can be assigned to a function <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ad12afdba81f8dc04fe9d949fd166a17d" id="r_ad12afdba81f8dc04fe9d949fd166a17d"><td class="memItemLeft" align="right" valign="top"><a id="ad12afdba81f8dc04fe9d949fd166a17d" name="ad12afdba81f8dc04fe9d949fd166a17d"></a>
-constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>mgis::function::internals::assign_value</b> (std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a> &gt;, const auto &amp;)</td></tr>
+<tr class="memitem:ad12afdba81f8dc04fe9d949fd166a17d" id="r_ad12afdba81f8dc04fe9d949fd166a17d"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_algorithms_8hxx.html#ad12afdba81f8dc04fe9d949fd166a17d">mgis::function::internals::assign_value</a> (std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a> &gt;, const auto &amp;)</td></tr>
+<tr class="memdesc:ad12afdba81f8dc04fe9d949fd166a17d"><td class="mdescLeft">&#160;</td><td class="mdescRight">assigns to a span of dynamic size the values of any container which can be iterated over  <br /></td></tr>
 <tr class="separator:ad12afdba81f8dc04fe9d949fd166a17d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04324713eb781904877609d36d5c401e" id="r_a04324713eb781904877609d36d5c401e"><td class="memItemLeft" align="right" valign="top"><a id="a04324713eb781904877609d36d5c401e" name="a04324713eb781904877609d36d5c401e"></a>
-constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>mgis::function::internals::assign_value</b> (std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a> &gt;, const std::span&lt; const <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a> &gt;)</td></tr>
+<tr class="memitem:a04324713eb781904877609d36d5c401e" id="r_a04324713eb781904877609d36d5c401e"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_algorithms_8hxx.html#a04324713eb781904877609d36d5c401e">mgis::function::internals::assign_value</a> (std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a> &gt;, const std::span&lt; const <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a> &gt;)</td></tr>
+<tr class="memdesc:a04324713eb781904877609d36d5c401e"><td class="mdescLeft">&#160;</td><td class="mdescRight">assigns to a span of dynamic size the values of a constant span  <br /></td></tr>
 <tr class="separator:a04324713eb781904877609d36d5c401e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a500026e1f514a329d7813cf59999adc5" id="r_a500026e1f514a329d7813cf59999adc5"><td class="memItemLeft" align="right" valign="top"><a id="a500026e1f514a329d7813cf59999adc5" name="a500026e1f514a329d7813cf59999adc5"></a>
 constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>mgis::function::internals::assign_value</b> (<a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a> &amp;, const std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a> &gt; &amp;)</td></tr>
+<tr class="memdesc:a500026e1f514a329d7813cf59999adc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">assigns to a scalar value the first value of a mutable span <br /></td></tr>
 <tr class="separator:a500026e1f514a329d7813cf59999adc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a956ef6c58a7c4c27c48c3295cdbd2853" id="r_a956ef6c58a7c4c27c48c3295cdbd2853"><td class="memItemLeft" align="right" valign="top"><a id="a956ef6c58a7c4c27c48c3295cdbd2853" name="a956ef6c58a7c4c27c48c3295cdbd2853"></a>
 constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>mgis::function::internals::assign_value</b> (<a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a> &amp;, const std::span&lt; const <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a> &gt; &amp;)</td></tr>
+<tr class="memdesc:a956ef6c58a7c4c27c48c3295cdbd2853"><td class="mdescLeft">&#160;</td><td class="mdescRight">assigns to a scalar value the first value of a constant span <br /></td></tr>
 <tr class="separator:a956ef6c58a7c4c27c48c3295cdbd2853"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e14b1fa90bf691ae23b8c19bfa93933" id="r_a7e14b1fa90bf691ae23b8c19bfa93933"><td class="memItemLeft" align="right" valign="top"><a id="a7e14b1fa90bf691ae23b8c19bfa93933" name="a7e14b1fa90bf691ae23b8c19bfa93933"></a>
 constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>mgis::function::internals::assign_value</b> (<a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a> &amp;, const std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>, 1u &gt; &amp;)</td></tr>
+<tr class="memdesc:a7e14b1fa90bf691ae23b8c19bfa93933"><td class="mdescLeft">&#160;</td><td class="mdescRight">assigns to a scalar value the value of a mutable span of one element <br /></td></tr>
 <tr class="separator:a7e14b1fa90bf691ae23b8c19bfa93933"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6bb60730d78b17b6c59ecbdce6f540a" id="r_ac6bb60730d78b17b6c59ecbdce6f540a"><td class="memItemLeft" align="right" valign="top"><a id="ac6bb60730d78b17b6c59ecbdce6f540a" name="ac6bb60730d78b17b6c59ecbdce6f540a"></a>
 constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>mgis::function::internals::assign_value</b> (<a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a> &amp;, const std::span&lt; const <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>, 1u &gt; &amp;)</td></tr>
+<tr class="memdesc:ac6bb60730d78b17b6c59ecbdce6f540a"><td class="mdescLeft">&#160;</td><td class="mdescRight">assigns to a scalar value the value of a constant span of one element <br /></td></tr>
 <tr class="separator:ac6bb60730d78b17b6c59ecbdce6f540a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca5c6b88f4b79f4183541267f232c3f2" id="r_aca5c6b88f4b79f4183541267f232c3f2"><td class="memItemLeft" align="right" valign="top"><a id="aca5c6b88f4b79f4183541267f232c3f2" name="aca5c6b88f4b79f4183541267f232c3f2"></a>
 constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>mgis::function::internals::assign_value</b> (<a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a> &amp;, const std::array&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>, 1u &gt; &amp;)</td></tr>
+<tr class="memdesc:aca5c6b88f4b79f4183541267f232c3f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">assigns to a scalar value the value of an array of one element <br /></td></tr>
 <tr class="separator:aca5c6b88f4b79f4183541267f232c3f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae54274421c1a0e29360fbf02089474d6" id="r_ae54274421c1a0e29360fbf02089474d6"><td class="memItemLeft" align="right" valign="top"><a id="ae54274421c1a0e29360fbf02089474d6" name="ae54274421c1a0e29360fbf02089474d6"></a>
 constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>mgis::function::internals::assign_value</b> (std::array&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>, 1u &gt; &amp;, const <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>)</td></tr>
+<tr class="memdesc:ae54274421c1a0e29360fbf02089474d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">assigns a scalar value to the unique element of an array <br /></td></tr>
 <tr class="separator:ae54274421c1a0e29360fbf02089474d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53dc5511bf5b96c38b1b700575495c93" id="r_a53dc5511bf5b96c38b1b700575495c93"><td class="memItemLeft" align="right" valign="top"><a id="a53dc5511bf5b96c38b1b700575495c93" name="a53dc5511bf5b96c38b1b700575495c93"></a>
 constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>mgis::function::internals::assign_value</b> (std::array&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>, 1u &gt; &amp;, const std::array&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>, 1u &gt;)</td></tr>
+<tr class="memdesc:a53dc5511bf5b96c38b1b700575495c93"><td class="mdescLeft">&#160;</td><td class="mdescRight">assigns the value of an array of one element to an array of one element <br /></td></tr>
 <tr class="separator:a53dc5511bf5b96c38b1b700575495c93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abed37260c4a71f165715c07737764810" id="r_abed37260c4a71f165715c07737764810"><td class="memItemLeft" align="right" valign="top"><a id="abed37260c4a71f165715c07737764810" name="abed37260c4a71f165715c07737764810"></a>
-constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>mgis::function::internals::assign_value</b> (std::array&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>, 1u &gt; &amp;, const std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a> &gt;)</td></tr>
+<tr class="memitem:abed37260c4a71f165715c07737764810" id="r_abed37260c4a71f165715c07737764810"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_algorithms_8hxx.html#abed37260c4a71f165715c07737764810">mgis::function::internals::assign_value</a> (std::array&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>, 1u &gt; &amp;, const std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a> &gt;)</td></tr>
+<tr class="memdesc:abed37260c4a71f165715c07737764810"><td class="mdescLeft">&#160;</td><td class="mdescRight">assigns the first value of a mutable span to an array of one element  <br /></td></tr>
 <tr class="separator:abed37260c4a71f165715c07737764810"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5faec72d13b1556e9291ea3798713ed6" id="r_a5faec72d13b1556e9291ea3798713ed6"><td class="memItemLeft" align="right" valign="top"><a id="a5faec72d13b1556e9291ea3798713ed6" name="a5faec72d13b1556e9291ea3798713ed6"></a>
-constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>mgis::function::internals::assign_value</b> (std::array&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>, 1u &gt; &amp;, const std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>, 1u &gt;)</td></tr>
+<tr class="memitem:a5faec72d13b1556e9291ea3798713ed6" id="r_a5faec72d13b1556e9291ea3798713ed6"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_algorithms_8hxx.html#a5faec72d13b1556e9291ea3798713ed6">mgis::function::internals::assign_value</a> (std::array&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>, 1u &gt; &amp;, const std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>, 1u &gt;)</td></tr>
+<tr class="memdesc:a5faec72d13b1556e9291ea3798713ed6"><td class="mdescLeft">&#160;</td><td class="mdescRight">assigns the value of a mutable one element span to an array of one element  <br /></td></tr>
 <tr class="separator:a5faec72d13b1556e9291ea3798713ed6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44393146e0bf438aa24373e718cb1e75" id="r_a44393146e0bf438aa24373e718cb1e75"><td class="memItemLeft" align="right" valign="top"><a id="a44393146e0bf438aa24373e718cb1e75" name="a44393146e0bf438aa24373e718cb1e75"></a>
 constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>mgis::function::internals::assign_value</b> (std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>, 1u &gt;, const <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>)</td></tr>
+<tr class="memdesc:a44393146e0bf438aa24373e718cb1e75"><td class="mdescLeft">&#160;</td><td class="mdescRight">assigns a scalar value to the unique element of a span <br /></td></tr>
 <tr class="separator:a44393146e0bf438aa24373e718cb1e75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af905f315de1708b5ceaee6fd793c654e" id="r_af905f315de1708b5ceaee6fd793c654e"><td class="memItemLeft" align="right" valign="top"><a id="af905f315de1708b5ceaee6fd793c654e" name="af905f315de1708b5ceaee6fd793c654e"></a>
-constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>mgis::function::internals::assign_value</b> (std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a> &gt;, const <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>)</td></tr>
+<tr class="memitem:af905f315de1708b5ceaee6fd793c654e" id="r_af905f315de1708b5ceaee6fd793c654e"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_algorithms_8hxx.html#af905f315de1708b5ceaee6fd793c654e">mgis::function::internals::assign_value</a> (std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a> &gt;, const <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>)</td></tr>
+<tr class="memdesc:af905f315de1708b5ceaee6fd793c654e"><td class="mdescLeft">&#160;</td><td class="mdescRight">assigns a scalar value to the first element of a span of dynamic size  <br /></td></tr>
 <tr class="separator:af905f315de1708b5ceaee6fd793c654e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e092414df9ef9c1953c9f0b3e9f2692" id="r_a3e092414df9ef9c1953c9f0b3e9f2692"><td class="memItemLeft" align="right" valign="top"><a id="a3e092414df9ef9c1953c9f0b3e9f2692" name="a3e092414df9ef9c1953c9f0b3e9f2692"></a>
-constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>mgis::function::internals::assign_value</b> (std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a> &gt;, const std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>, 1u &gt;)</td></tr>
+<tr class="memitem:a3e092414df9ef9c1953c9f0b3e9f2692" id="r_a3e092414df9ef9c1953c9f0b3e9f2692"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_algorithms_8hxx.html#a3e092414df9ef9c1953c9f0b3e9f2692">mgis::function::internals::assign_value</a> (std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a> &gt;, const std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>, 1u &gt;)</td></tr>
+<tr class="memdesc:a3e092414df9ef9c1953c9f0b3e9f2692"><td class="mdescLeft">&#160;</td><td class="mdescRight">assigns the value of a mutable span of one element to the first element of a span of dynamic size  <br /></td></tr>
 <tr class="separator:a3e092414df9ef9c1953c9f0b3e9f2692"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5813fe9a1766694817d3b5c2fd2c92e5" id="r_a5813fe9a1766694817d3b5c2fd2c92e5"><td class="memItemLeft" align="right" valign="top"><a id="a5813fe9a1766694817d3b5c2fd2c92e5" name="a5813fe9a1766694817d3b5c2fd2c92e5"></a>
-constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>mgis::function::internals::assign_value</b> (std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>, 1u &gt;, const std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a> &gt;)</td></tr>
+<tr class="memitem:a5813fe9a1766694817d3b5c2fd2c92e5" id="r_a5813fe9a1766694817d3b5c2fd2c92e5"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_algorithms_8hxx.html#a5813fe9a1766694817d3b5c2fd2c92e5">mgis::function::internals::assign_value</a> (std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>, 1u &gt;, const std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a> &gt;)</td></tr>
+<tr class="memdesc:a5813fe9a1766694817d3b5c2fd2c92e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">assigns the first value of a mutable span to a span of one element  <br /></td></tr>
 <tr class="separator:a5813fe9a1766694817d3b5c2fd2c92e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2327fd008700a855ccff5f1ce900015" id="r_af2327fd008700a855ccff5f1ce900015"><td class="memItemLeft" align="right" valign="top"><a id="af2327fd008700a855ccff5f1ce900015" name="af2327fd008700a855ccff5f1ce900015"></a>
-constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>mgis::function::internals::assign_value</b> (std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>, 1u &gt;, const std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>, 1u &gt;)</td></tr>
+<tr class="memitem:af2327fd008700a855ccff5f1ce900015" id="r_af2327fd008700a855ccff5f1ce900015"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_algorithms_8hxx.html#af2327fd008700a855ccff5f1ce900015">mgis::function::internals::assign_value</a> (std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>, 1u &gt;, const std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>, 1u &gt;)</td></tr>
+<tr class="memdesc:af2327fd008700a855ccff5f1ce900015"><td class="mdescLeft">&#160;</td><td class="mdescRight">assigns the value of a mutable span of one element to a span of one element  <br /></td></tr>
 <tr class="separator:af2327fd008700a855ccff5f1ce900015"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91e41be10a642ac2c8bdaf14e1731bcc" id="r_a91e41be10a642ac2c8bdaf14e1731bcc"><td class="memItemLeft" align="right" valign="top"><a id="a91e41be10a642ac2c8bdaf14e1731bcc" name="a91e41be10a642ac2c8bdaf14e1731bcc"></a>
 constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>mgis::function::internals::assign_value</b> (std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>, 1u &gt;, const std::array&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>, 1u &gt; &amp;)</td></tr>
+<tr class="memdesc:a91e41be10a642ac2c8bdaf14e1731bcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">assigns the value of an array of one element to a span of one element <br /></td></tr>
 <tr class="separator:a91e41be10a642ac2c8bdaf14e1731bcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad14bc8eb486ccc5072120bdc124fa605" id="r_ad14bc8eb486ccc5072120bdc124fa605"><td class="memTemplParams" colspan="2">template&lt;ViewableFunctionArgumentConcept FunctionType, EvaluatorConcept EvaluatorType&gt; <br />
-requires ( (internals::isEvaluatorAssignableToFunction&lt; EvaluatorType, std::decay_t&lt;FunctionType&gt;&gt;)&amp;&amp; // (LinearElementSpaceConcept&lt;evaluator_space&lt;EvaluatorType&gt;&gt;))</td></tr>
+requires ( (internals::isEvaluatorAssignableToFunction&lt; EvaluatorType, std::decay_t&lt;FunctionType&gt;&gt;)&amp;&amp; // (LinearElementSpaceConcept&lt;<a class="el" href="_evaluator_concept_8hxx.html#a03321fe2496bf3172f9c6ab7d472b070">evaluator_space</a>&lt;EvaluatorType&gt;&gt;))</td></tr>
 <tr class="memitem:ad14bc8eb486ccc5072120bdc124fa605"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_algorithms_8hxx.html#ad14bc8eb486ccc5072120bdc124fa605">mgis::function::assign</a> (<a class="el" href="structmgis_1_1_abstract_error_handler.html">AbstractErrorHandler</a> &amp;, FunctionType &amp;&amp;, const EvaluatorType)</td></tr>
-<tr class="memdesc:ad14bc8eb486ccc5072120bdc124fa605"><td class="mdescLeft">&#160;</td><td class="mdescRight">assign the evaluator to a function  <br /></td></tr>
+<tr class="memdesc:ad14bc8eb486ccc5072120bdc124fa605"><td class="mdescLeft">&#160;</td><td class="mdescRight">assigns the values computed by an evaluator to a function, the evaluation being sequential  <br /></td></tr>
 <tr class="separator:ad14bc8eb486ccc5072120bdc124fa605"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a932a34e7734bd624edfe1d5496376e3e" id="r_a932a34e7734bd624edfe1d5496376e3e"><td class="memTemplParams" colspan="2">template&lt;EvaluatorConcept EvaluatorType, typename OperatorType &gt; <br />
-requires (LinearElementSpaceConcept&lt;evaluator_space&lt;EvaluatorType&gt;&gt;)</td></tr>
+requires (LinearElementSpaceConcept&lt;<a class="el" href="_evaluator_concept_8hxx.html#a03321fe2496bf3172f9c6ab7d472b070">evaluator_space</a>&lt;EvaluatorType&gt;&gt;)</td></tr>
 <tr class="memitem:a932a34e7734bd624edfe1d5496376e3e"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::optional&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_algorithms_8hxx.html#a932a34e7734bd624edfe1d5496376e3e">mgis::function::scalar_reduce</a> (<a class="el" href="structmgis_1_1_abstract_error_handler.html">AbstractErrorHandler</a> &amp;, const EvaluatorType, const OperatorType, const <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>)</td></tr>
-<tr class="memdesc:a932a34e7734bd624edfe1d5496376e3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">assign the evaluator to a function  <br /></td></tr>
+<tr class="memdesc:a932a34e7734bd624edfe1d5496376e3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">reduces the values computed by a scalar evaluator to a single value using the given reduction operator, the evaluation being sequential  <br /></td></tr>
 <tr class="separator:a932a34e7734bd624edfe1d5496376e3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section author"><dt>Author</dt><dd>Thomas Helfer </dd></dl>
+<div class="textblock"><p>Declaration of the algorithms which can be applied to the functions and the evaluators of the <code>MGIS/Function</code> library, that is <code>assign</code> and <code>scalar_reduce</code>, and of the helpers used to check if an evaluator can be assigned to a function. </p>
+<dl class="section author"><dt>Author</dt><dd>Thomas Helfer </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>23/04/2025 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>(C) Copyright Thomas Helfer 2018. Use, modification and distribution are subject to one of the following licences:<ul>
 <li>GNU Lesser General Public License (LGPL), Version 3.0. (See accompanying file LGPL-3.0.txt)</li>
@@ -241,15 +255,349 @@ requires ( (internals::isEvaluatorAssignableToFunction&lt; EvaluatorType, std::d
 </table>
 </div><div class="memdoc">
 
-<p>assign the evaluator to a function </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">ctx</td><td>execution context </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">lhs</td><td>left hand side </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">e</td><td>right hand side </td></tr>
+<p>assigns the values computed by an evaluator to a function, the evaluation being sequential </p>
+<p>implementation of the sequential <code>assign</code> algorithm</p>
+<p>The spaces of the function and the evaluator are compared and the number of components of the values returned by both objects is checked to be the same before the values computed by the evaluator are assigned.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">FunctionType</td><td>type of the function argument, which may be a reference type </td></tr>
+    <tr><td class="paramname">EvaluatorType</td><td>evaluator type </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ctx</td><td>error handler used to report the errors </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">f</td><td>function assigned </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">e</td><td>evaluator providing the values assigned </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the assignment succeeded, false otherwise </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>the values computed by the evaluator are checked with the <code>check</code> function before being assigned. As no execution policy is used, this function can be called in a <code>constexpr</code> context</dd></dl>
+<p>The error messages "unmatched spaces" and "unmatched number of
+components" are registered in the error handler when the spaces of the function and the evaluator are not equivalent or when the number of components of the values they return differs. The evaluator is then checked before the values are assigned. </p>
+
+</div>
+</div>
+<a id="abed37260c4a71f165715c07737764810" name="abed37260c4a71f165715c07737764810"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abed37260c4a71f165715c07737764810">&#9670;&#160;</a></span>assign_value() <span class="overload">[1/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr void mgis::function::internals::assign_value </td>
+          <td>(</td>
+          <td class="paramtype">std::array&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>, 1u &gt; &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a> &gt;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>assigns the first value of a mutable span to an array of one element </p>
+<p>assigns the first value of a constant span to an array of one element </p>
+
+</div>
+</div>
+<a id="a5faec72d13b1556e9291ea3798713ed6" name="a5faec72d13b1556e9291ea3798713ed6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5faec72d13b1556e9291ea3798713ed6">&#9670;&#160;</a></span>assign_value() <span class="overload">[2/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr void mgis::function::internals::assign_value </td>
+          <td>(</td>
+          <td class="paramtype">std::array&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>, 1u &gt; &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>, 1u &gt;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>assigns the value of a mutable one element span to an array of one element </p>
+<p>assigns the value of a constant span of one element to an array of one element </p>
+
+</div>
+</div>
+<a id="ad12afdba81f8dc04fe9d949fd166a17d" name="ad12afdba81f8dc04fe9d949fd166a17d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad12afdba81f8dc04fe9d949fd166a17d">&#9670;&#160;</a></span>assign_value() <span class="overload">[3/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr void mgis::function::internals::assign_value </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a> &gt;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const auto &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>assigns to a span of dynamic size the values of any container which can be iterated over </p>
+<p>implementation of the most generic <code>assign_value</code> function, which iterates over the values of the right hand side</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">lhs</td><td>span receiving the values </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">rhs</td><td>container providing the values </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>the number of values of <code>lhs</code> must be greater than or equal to the number of values of <code>rhs</code></dd></dl>
+<p>The other overloads, declared in <code><a class="el" href="_algorithms_8hxx.html" title="Declaration of the algorithms which can be applied to the functions and the evaluators of the MGIS/Fu...">MGIS/Function/Algorithms.hxx</a></code>, copy the values one by one, those connecting a scalar value and a container of a single value using only the first value of this container. </p>
+
+</div>
+</div>
+<a id="af905f315de1708b5ceaee6fd793c654e" name="af905f315de1708b5ceaee6fd793c654e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af905f315de1708b5ceaee6fd793c654e">&#9670;&#160;</a></span>assign_value() <span class="overload">[4/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr void mgis::function::internals::assign_value </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a> &gt;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>assigns a scalar value to the first element of a span of dynamic size </p>
+<dl class="section note"><dt>Note</dt><dd>only the first element of the span is modified </dd></dl>
+
+</div>
+</div>
+<a id="a04324713eb781904877609d36d5c401e" name="a04324713eb781904877609d36d5c401e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04324713eb781904877609d36d5c401e">&#9670;&#160;</a></span>assign_value() <span class="overload">[5/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr void mgis::function::internals::assign_value </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a> &gt;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::span&lt; const <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a> &gt;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>assigns to a span of dynamic size the values of a constant span </p>
+<p>assigns to a span of dynamic size the values of a mutable span </p>
+
+</div>
+</div>
+<a id="a3e092414df9ef9c1953c9f0b3e9f2692" name="a3e092414df9ef9c1953c9f0b3e9f2692"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e092414df9ef9c1953c9f0b3e9f2692">&#9670;&#160;</a></span>assign_value() <span class="overload">[6/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr void mgis::function::internals::assign_value </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a> &gt;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>, 1u &gt;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>assigns the value of a mutable span of one element to the first element of a span of dynamic size </p>
+<p>assigns the value of a constant span of one element to the first element of a span of dynamic size </p>
+
+</div>
+</div>
+<a id="a5813fe9a1766694817d3b5c2fd2c92e5" name="a5813fe9a1766694817d3b5c2fd2c92e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5813fe9a1766694817d3b5c2fd2c92e5">&#9670;&#160;</a></span>assign_value() <span class="overload">[7/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr void mgis::function::internals::assign_value </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>, 1u &gt;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a> &gt;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>assigns the first value of a mutable span to a span of one element </p>
+<p>assigns the first value of a constant span to a span of one element </p>
+
+</div>
+</div>
+<a id="af2327fd008700a855ccff5f1ce900015" name="af2327fd008700a855ccff5f1ce900015"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2327fd008700a855ccff5f1ce900015">&#9670;&#160;</a></span>assign_value() <span class="overload">[8/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr void mgis::function::internals::assign_value </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>, 1u &gt;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::span&lt; <a class="el" href="namespacemgis.html#a0e88ae1504a452a9c3e573a06beff1e4">real</a>, 1u &gt;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>assigns the value of a mutable span of one element to a span of one element </p>
+<p>assigns the value of a constant span of one element to a span of one element </p>
 
 </div>
 </div>
@@ -302,16 +650,28 @@ requires (LinearElementSpaceConcept&lt;evaluator_space&lt;EvaluatorType&gt;&gt;)
 </table>
 </div><div class="memdoc">
 
-<p>assign the evaluator to a function </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">ctx</td><td>execution context </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">e</td><td>evaluator reduced. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">op</td><td>reduction operator. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">initial_value</td><td>initial value. </td></tr>
+<p>reduces the values computed by a scalar evaluator to a single value using the given reduction operator, the evaluation being sequential </p>
+<p>implementation of the sequential <code>scalar_reduce</code> algorithm</p>
+<p>The values computed by the evaluator are checked before being reduced.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">EvaluatorType</td><td>evaluator type </td></tr>
+    <tr><td class="paramname">OperatorType</td><td>type of the reduction operator, a binary operation taking two scalar values and returning a scalar value </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ctx</td><td>error handler used to report the errors </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">e</td><td>evaluator reduced </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">op</td><td>reduction operator </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">initial_value</td><td>value the reduction starts from </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the reduced value or an empty <code>std::optional</code> if an error is reported </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>this function requires the values returned by the evaluator to have a single component</dd></dl>
+<p>The error message "non scalar evaluator" is registered in the error handler when the values returned by the evaluator have more than one component. The evaluator is then checked before being reduced. </p>
 
 </div>
 </div>
@@ -321,7 +681,7 @@ requires (LinearElementSpaceConcept&lt;evaluator_space&lt;EvaluatorType&gt;&gt;)
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_926a8b4fb7ad5e8e017827ff5fbbb316.html">MGIS</a></li><li class="navelem"><a class="el" href="dir_2e52b00940cd27d9780366949db1e89b.html">Function</a></li><li class="navelem"><a class="el" href="_algorithms_8hxx.html">Algorithms.hxx</a></li>
-    <li class="footer">Generated on Fri Nov 6 2026 14:30:40 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Nov 6 2026 19:42:30 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

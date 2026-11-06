@@ -2,6 +2,7 @@ var structmgis_1_1function_1_1_fixed_size_view =
 [
     [ "ConstructorArgumentType", "structmgis_1_1function_1_1_fixed_size_view.html#ab30c42ddc8bafbae943aeacdea404c07", null ],
     [ "mutable_value_type", "structmgis_1_1function_1_1_fixed_size_view.html#a6aefe8fcd4015f657d9132684348b522", null ],
+    [ "Space", "structmgis_1_1function_1_1_fixed_size_view.html#af33011d58d1802605a76c1cfbb803645", null ],
     [ "FixedSizeView", "structmgis_1_1function_1_1_fixed_size_view.html#ac7c99dca24980b4679adb488e48119f7", null ],
     [ "FixedSizeView", "structmgis_1_1function_1_1_fixed_size_view.html#ae66c375a08e7595642f179d07585f224", null ],
     [ "check", "structmgis_1_1function_1_1_fixed_size_view.html#adf32c5e0683309730bef8f246af2c056", null ],

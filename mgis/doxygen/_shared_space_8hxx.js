@@ -1,17 +1,26 @@
 var _shared_space_8hxx =
 [
     [ "mgis::function::internals::SharedElementSpaceAddElementWorkspace< bool, ElementSpaceConcept >", "structmgis_1_1function_1_1internals_1_1_shared_element_space_add_element_workspace.html", null ],
-    [ "mgis::function::internals::SharedElementSpaceAddElementWorkspace< true, SpaceType >", "structmgis_1_1function_1_1internals_1_1_shared_element_space_add_element_workspace_3_01true_00_01_space_type_01_4.html", null ],
+    [ "mgis::function::internals::SharedElementSpaceAddElementWorkspace< true, SpaceType >", "structmgis_1_1function_1_1internals_1_1_shared_element_space_add_element_workspace_3_01true_00_01_space_type_01_4.html", "structmgis_1_1function_1_1internals_1_1_shared_element_space_add_element_workspace_3_01true_00_01_space_type_01_4" ],
     [ "mgis::function::internals::SharedElementSpaceTraits< typename >", "structmgis_1_1function_1_1internals_1_1_shared_element_space_traits.html", null ],
-    [ "mgis::function::internals::SharedElementSpaceTraits< SpaceType >", "structmgis_1_1function_1_1internals_1_1_shared_element_space_traits_3_01_space_type_01_4.html", null ],
+    [ "mgis::function::internals::SharedElementSpaceTraits< SpaceType >", "structmgis_1_1function_1_1internals_1_1_shared_element_space_traits_3_01_space_type_01_4.html", "structmgis_1_1function_1_1internals_1_1_shared_element_space_traits_3_01_space_type_01_4" ],
     [ "mgis::function::internals::SharedLinearElementSpaceTraits< typename >", "structmgis_1_1function_1_1internals_1_1_shared_linear_element_space_traits.html", null ],
     [ "mgis::function::internals::SharedLinearElementSpaceTraits< SpaceType >", "structmgis_1_1function_1_1internals_1_1_shared_linear_element_space_traits_3_01_space_type_01_4.html", null ],
     [ "mgis::function::internals::SharedQuadratureSpaceAddCellWorkspace< bool, QuadratureSpaceConcept >", "structmgis_1_1function_1_1internals_1_1_shared_quadrature_space_add_cell_workspace.html", null ],
-    [ "mgis::function::internals::SharedQuadratureSpaceAddCellWorkspace< true, SpaceType >", "structmgis_1_1function_1_1internals_1_1_shared_quadrature_space_add_cell_workspace_3_01true_00_01_space_type_01_4.html", null ],
+    [ "mgis::function::internals::SharedQuadratureSpaceAddCellWorkspace< true, SpaceType >", "structmgis_1_1function_1_1internals_1_1_shared_quadrature_space_add_cell_workspace_3_01true_00_01_space_type_01_4.html", "structmgis_1_1function_1_1internals_1_1_shared_quadrature_space_add_cell_workspace_3_01true_00_01_space_type_01_4" ],
     [ "mgis::function::internals::SharedQuadratureSpaceTraits< typename >", "structmgis_1_1function_1_1internals_1_1_shared_quadrature_space_traits.html", null ],
-    [ "mgis::function::internals::SharedQuadratureSpaceTraits< SpaceType >", "structmgis_1_1function_1_1internals_1_1_shared_quadrature_space_traits_3_01_space_type_01_4.html", null ],
+    [ "mgis::function::internals::SharedQuadratureSpaceTraits< SpaceType >", "structmgis_1_1function_1_1internals_1_1_shared_quadrature_space_traits_3_01_space_type_01_4.html", "structmgis_1_1function_1_1internals_1_1_shared_quadrature_space_traits_3_01_space_type_01_4" ],
     [ "mgis::function::internals::SharedLinearQuadratureSpaceTraits< typename >", "structmgis_1_1function_1_1internals_1_1_shared_linear_quadrature_space_traits.html", null ],
     [ "mgis::function::internals::SharedLinearQuadratureSpaceTraits< SpaceType >", "structmgis_1_1function_1_1internals_1_1_shared_linear_quadrature_space_traits_3_01_space_type_01_4.html", null ],
-    [ "mgis::function::SharedSpace< SpaceType >", "structmgis_1_1function_1_1_shared_space.html", null ],
-    [ "mgis::function::SpaceTraits< SharedSpace< SpaceType > >", "structmgis_1_1function_1_1_space_traits_3_01_shared_space_3_01_space_type_01_4_01_4.html", null ]
+    [ "mgis::function::SharedSpace< SpaceType >", "structmgis_1_1function_1_1_shared_space.html", "structmgis_1_1function_1_1_shared_space" ],
+    [ "mgis::function::SpaceTraits< SharedSpace< SpaceType > >", "structmgis_1_1function_1_1_space_traits_3_01_shared_space_3_01_space_type_01_4_01_4.html", "structmgis_1_1function_1_1_space_traits_3_01_shared_space_3_01_space_type_01_4_01_4" ],
+    [ "areEquivalent", "_shared_space_8hxx.html#a6c2e1dafa588dcbbb9542881d4e9da21", null ],
+    [ "getCellWorkspace", "_shared_space_8hxx.html#aa4afa24867547003c92bce2ba6523c86", null ],
+    [ "getElementWorkspace", "_shared_space_8hxx.html#afb3ad5569520880e02726bc6d58fb041", null ],
+    [ "getNumberOfCells", "_shared_space_8hxx.html#afc3ef309818fde48f7d0063bbaef1fd5", null ],
+    [ "getNumberOfQuadraturePoints", "_shared_space_8hxx.html#ae66a58b564a33ef9ea558c4c3e46868f", null ],
+    [ "getQuadraturePointOffset", "_shared_space_8hxx.html#aa7fe0fced5620ac72d600efb43c9aef5", null ],
+    [ "getSpaceSize", "_shared_space_8hxx.html#a964498b56faadd9226c2164e61a940b5", null ],
+    [ "SharedSpace", "_shared_space_8hxx.html#adb036438fa41bd5738a51922b730cf59", null ],
+    [ "SharedSpace", "_shared_space_8hxx.html#ab97d991e5d37f6c64d008f407a4f780f", null ]
 ];

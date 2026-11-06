@@ -1,0 +1,4 @@
+var structmgis_1_1function_1_1internals_1_1_shared_element_space_add_element_workspace_3_01true_00_01_space_type_01_4 =
+[
+    [ "ElementWorkspace", "structmgis_1_1function_1_1internals_1_1_shared_element_space_add_element_workspace_3_01true_00_01_space_type_01_4.html#ab4e6f6687191cfd7f4712e9f6046529d", null ]
+];

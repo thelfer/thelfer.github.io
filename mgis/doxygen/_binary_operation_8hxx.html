@@ -105,6 +105,9 @@ $(document).ready(function(){initNavTree('_binary_operation_8hxx.html',''); init
   <div class="headertitle"><div class="title">BinaryOperation.hxx File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>This file declares the <code>BinaryOperationModifier</code> and <code>BinaryOperationModifier2</code> classes, which build a new evaluator by applying a binary operation to the values returned by two existing evaluators, the <code>binary_operation</code> function used to build such evaluators and the predefined modifiers <code>add</code>, <code>substract</code>, <code>multiply</code>, <code>divide</code>, <code>mean_value</code> and <code>inner_product</code>.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_evaluator_8hxx.html">MGIS/Function/Evaluator.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_compile_time_size_8hxx.html">MGIS/Function/CompileTimeSize.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_unary_operation_8hxx.html">MGIS/Function/UnaryOperation.hxx</a>&quot;</code><br />
@@ -114,18 +117,25 @@ $(document).ready(function(){initNavTree('_binary_operation_8hxx.html',''); init
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1internals_1_1_binary_operation_modifier_base.html">mgis::function::internals::BinaryOperationModifierBase&lt; CallableType, FirstEvaluatorType, SecondEvaluatorType &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">helper base class giving the number of components of the values returned by a binary operation applied to two evaluators  <a href="structmgis_1_1function_1_1internals_1_1_binary_operation_modifier_base.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1_binary_operation_modifier.html">mgis::function::BinaryOperationModifier&lt; CallableType, FirstEvaluatorType, SecondEvaluatorType &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">an evaluator applying a binary operation to the values returned by two evaluators  <a href="structmgis_1_1function_1_1_binary_operation_modifier.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1_binary_operation_modifier2.html">mgis::function::BinaryOperationModifier2&lt; CallableType, FirstEvaluatorType, SecondEvaluatorType &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">an evaluator applying a binary operation to the values returned by two evaluators, without storing this operation  <a href="structmgis_1_1function_1_1_binary_operation_modifier2.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1internals_1_1_binary_operator_currying.html">mgis::function::internals::BinaryOperatorCurrying&lt; CallableType, SecondEvaluatorType &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">partial application of a binary operation to the evaluator of its second argument  <a href="structmgis_1_1function_1_1internals_1_1_binary_operator_currying.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1internals_1_1_binary_operator_currying2.html">mgis::function::internals::BinaryOperatorCurrying2&lt; CallableType, SecondEvaluatorType &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">partial application of a binary operation to the evaluator of its second argument, without storing the operation  <a href="structmgis_1_1function_1_1internals_1_1_binary_operator_currying2.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1internals_1_1binary__operation__modifier.html">mgis::function::internals::binary_operation_modifier&lt; CallableType &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">helper applying a stored binary operation to one or two evaluators  <a href="structmgis_1_1function_1_1internals_1_1binary__operation__modifier.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1internals_1_1binary__operation__modifier2__impl.html">mgis::function::internals::binary_operation_modifier2_impl&lt; CallableType &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">helper applying a binary operation which is not stored in the helper to one or two evaluators  <a href="structmgis_1_1function_1_1internals_1_1binary__operation__modifier2__impl.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -138,36 +148,41 @@ Namespaces</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:a47d59f6989269bfde15b0c9a880f0e26" id="r_a47d59f6989269bfde15b0c9a880f0e26"><td class="memTemplParams" colspan="2">template&lt;typename CallableType , EvaluatorConcept FirstEvaluatorType, EvaluatorConcept SecondEvaluatorType&gt; </td></tr>
 <tr class="memitem:a47d59f6989269bfde15b0c9a880f0e26"><td class="memTemplItemLeft" align="right" valign="top">MGIS_HOST_DEVICE constexpr <a class="el" href="namespacemgis.html#a184723b5d743b58169be89d3b04265fc">mgis::size_type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_binary_operation_8hxx.html#a47d59f6989269bfde15b0c9a880f0e26">mgis::function::getNumberOfComponents</a> (const <a class="el" href="structmgis_1_1function_1_1_binary_operation_modifier.html">BinaryOperationModifier</a>&lt; CallableType, FirstEvaluatorType, SecondEvaluatorType &gt; &amp;)</td></tr>
+<tr class="memdesc:a47d59f6989269bfde15b0c9a880f0e26"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the number of components of the values returned by a binary operation  <br /></td></tr>
 <tr class="separator:a47d59f6989269bfde15b0c9a880f0e26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a406557fb67e163c2aaf59babfa593062" id="r_a406557fb67e163c2aaf59babfa593062"><td class="memTemplParams" colspan="2">template&lt;typename CallableType , EvaluatorConcept FirstEvaluatorType, EvaluatorConcept SecondEvaluatorType&gt; </td></tr>
 <tr class="memitem:a406557fb67e163c2aaf59babfa593062"><td class="memTemplItemLeft" align="right" valign="top">MGIS_HOST_DEVICE constexpr <a class="el" href="namespacemgis.html#a184723b5d743b58169be89d3b04265fc">mgis::size_type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_binary_operation_8hxx.html#a406557fb67e163c2aaf59babfa593062">mgis::function::getNumberOfComponents</a> (const <a class="el" href="structmgis_1_1function_1_1_binary_operation_modifier2.html">BinaryOperationModifier2</a>&lt; CallableType, FirstEvaluatorType, SecondEvaluatorType &gt; &amp;)</td></tr>
+<tr class="memdesc:a406557fb67e163c2aaf59babfa593062"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the number of components of the values returned by a binary operation which does not store its callable object  <br /></td></tr>
 <tr class="separator:a406557fb67e163c2aaf59babfa593062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a65cfd3558ba07c1e09a8b26e784ccb" id="r_a7a65cfd3558ba07c1e09a8b26e784ccb"><td class="memTemplParams" colspan="2"><a id="a7a65cfd3558ba07c1e09a8b26e784ccb" name="a7a65cfd3558ba07c1e09a8b26e784ccb"></a>
-template&lt;typename CallableType &gt; </td></tr>
-<tr class="memitem:a7a65cfd3558ba07c1e09a8b26e784ccb"><td class="memTemplItemLeft" align="right" valign="top">MGIS_HOST_DEVICE constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><b>mgis::function::internals::binary_operation_modifier2</b> (CallableType)</td></tr>
+<tr class="memitem:a7a65cfd3558ba07c1e09a8b26e784ccb" id="r_a7a65cfd3558ba07c1e09a8b26e784ccb"><td class="memTemplParams" colspan="2">template&lt;typename CallableType &gt; </td></tr>
+<tr class="memitem:a7a65cfd3558ba07c1e09a8b26e784ccb"><td class="memTemplItemLeft" align="right" valign="top">MGIS_HOST_DEVICE constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_binary_operation_8hxx.html#a7a65cfd3558ba07c1e09a8b26e784ccb">mgis::function::internals::binary_operation_modifier2</a> (CallableType)</td></tr>
+<tr class="memdesc:a7a65cfd3558ba07c1e09a8b26e784ccb"><td class="mdescLeft">&#160;</td><td class="mdescRight">create a helper from a callable object which is only used to deduce the type of the binary operation  <br /></td></tr>
 <tr class="separator:a7a65cfd3558ba07c1e09a8b26e784ccb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a089d58061c8ad1d2fcda72c9850a5513" id="r_a089d58061c8ad1d2fcda72c9850a5513"><td class="memTemplParams" colspan="2"><a id="a089d58061c8ad1d2fcda72c9850a5513" name="a089d58061c8ad1d2fcda72c9850a5513"></a>
-template&lt;typename CallableType , typename SecondEvaluatorType &gt; <br />
+<tr class="memitem:a089d58061c8ad1d2fcda72c9850a5513" id="r_a089d58061c8ad1d2fcda72c9850a5513"><td class="memTemplParams" colspan="2">template&lt;typename CallableType , typename SecondEvaluatorType &gt; <br />
 requires (EvaluatorConcept&lt;std::decay_t&lt;SecondEvaluatorType&gt;&gt;)</td></tr>
-<tr class="memitem:a089d58061c8ad1d2fcda72c9850a5513"><td class="memTemplItemLeft" align="right" valign="top">MGIS_HOST_DEVICE constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><b>mgis::function::binary_operation</b> (CallableType &amp;&amp;, SecondEvaluatorType &amp;&amp;)</td></tr>
+<tr class="memitem:a089d58061c8ad1d2fcda72c9850a5513"><td class="memTemplItemLeft" align="right" valign="top">MGIS_HOST_DEVICE constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_binary_operation_8hxx.html#a089d58061c8ad1d2fcda72c9850a5513">mgis::function::binary_operation</a> (CallableType &amp;&amp;, SecondEvaluatorType &amp;&amp;)</td></tr>
+<tr class="memdesc:a089d58061c8ad1d2fcda72c9850a5513"><td class="mdescLeft">&#160;</td><td class="mdescRight">partially apply a binary operation to the evaluator of its second argument  <br /></td></tr>
 <tr class="separator:a089d58061c8ad1d2fcda72c9850a5513"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa39ab3692b6396dab333d11eebcd56e9" id="r_aa39ab3692b6396dab333d11eebcd56e9"><td class="memTemplParams" colspan="2"><a id="aa39ab3692b6396dab333d11eebcd56e9" name="aa39ab3692b6396dab333d11eebcd56e9"></a>
-template&lt;typename CallableType , typename FirstEvaluatorType , typename SecondEvaluatorType &gt; <br />
+<tr class="memitem:aa39ab3692b6396dab333d11eebcd56e9" id="r_aa39ab3692b6396dab333d11eebcd56e9"><td class="memTemplParams" colspan="2">template&lt;typename CallableType , typename FirstEvaluatorType , typename SecondEvaluatorType &gt; <br />
 requires ((EvaluatorConcept&lt;std::decay_t&lt;FirstEvaluatorType&gt;&gt;)&amp;&amp; // (EvaluatorConcept&lt;std::decay_t&lt;SecondEvaluatorType&gt;&gt;)&amp;&amp; // (std::invocable&lt; std::decay_t&lt;CallableType&gt;, <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">evaluator_result</a>&lt;std::decay_t&lt;FirstEvaluatorType&gt;&gt;, <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">evaluator_result</a>&lt;std::decay_t&lt;SecondEvaluatorType&gt;&gt;&gt;))</td></tr>
-<tr class="memitem:aa39ab3692b6396dab333d11eebcd56e9"><td class="memTemplItemLeft" align="right" valign="top">MGIS_HOST_DEVICE constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><b>mgis::function::binary_operation</b> (CallableType &amp;&amp;, FirstEvaluatorType &amp;&amp;, SecondEvaluatorType &amp;&amp;)</td></tr>
+<tr class="memitem:aa39ab3692b6396dab333d11eebcd56e9"><td class="memTemplItemLeft" align="right" valign="top">MGIS_HOST_DEVICE constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_binary_operation_8hxx.html#aa39ab3692b6396dab333d11eebcd56e9">mgis::function::binary_operation</a> (CallableType &amp;&amp;, FirstEvaluatorType &amp;&amp;, SecondEvaluatorType &amp;&amp;)</td></tr>
+<tr class="memdesc:aa39ab3692b6396dab333d11eebcd56e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">apply a binary operation to the values returned by two evaluators  <br /></td></tr>
 <tr class="separator:aa39ab3692b6396dab333d11eebcd56e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a456dc1dff61661db9685ded6d9081ace" id="r_a456dc1dff61661db9685ded6d9081ace"><td class="memTemplParams" colspan="2">template&lt;typename CallableType , EvaluatorConcept FirstEvaluatorType, EvaluatorConcept SecondEvaluatorType&gt; </td></tr>
 <tr class="memitem:a456dc1dff61661db9685ded6d9081ace"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_binary_operation_8hxx.html#a456dc1dff61661db9685ded6d9081ace">mgis::function::BinaryOperationModifierRequirements</a></td></tr>
+<tr class="memdesc:a456dc1dff61661db9685ded6d9081ace"><td class="mdescLeft">&#160;</td><td class="mdescRight">requirements which must be satisfied by a binary operation which is stored in the evaluator it applies to  <br /></td></tr>
 <tr class="separator:a456dc1dff61661db9685ded6d9081ace"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab41021db3192f277ecdabdf94923e38" id="r_aab41021db3192f277ecdabdf94923e38"><td class="memTemplParams" colspan="2">template&lt;typename CallableType , EvaluatorConcept FirstEvaluatorType, EvaluatorConcept SecondEvaluatorType&gt; </td></tr>
 <tr class="memitem:aab41021db3192f277ecdabdf94923e38"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_binary_operation_8hxx.html#aab41021db3192f277ecdabdf94923e38">mgis::function::BinaryOperationModifier2Requirements</a></td></tr>
+<tr class="memdesc:aab41021db3192f277ecdabdf94923e38"><td class="mdescLeft">&#160;</td><td class="mdescRight">requirements which must be satisfied by a binary operation which is not stored in the evaluator it applies to  <br /></td></tr>
 <tr class="separator:aab41021db3192f277ecdabdf94923e38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section author"><dt>Author</dt><dd>Thomas Helfer </dd></dl>
+<div class="textblock"><p>This file declares the <code>BinaryOperationModifier</code> and <code>BinaryOperationModifier2</code> classes, which build a new evaluator by applying a binary operation to the values returned by two existing evaluators, the <code>binary_operation</code> function used to build such evaluators and the predefined modifiers <code>add</code>, <code>substract</code>, <code>multiply</code>, <code>divide</code>, <code>mean_value</code> and <code>inner_product</code>. </p>
+<dl class="section author"><dt>Author</dt><dd>Thomas Helfer </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>11/05/2025 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>(C) Copyright Thomas Helfer 2018. Use, modification and distribution are subject to one of the following licences:<ul>
 <li>GNU Lesser General Public License (LGPL), Version 3.0. (See accompanying file LGPL-3.0.txt)</li>
@@ -175,6 +190,173 @@ Variables</h2></td></tr>
 </ul>
 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="aa39ab3692b6396dab333d11eebcd56e9" name="aa39ab3692b6396dab333d11eebcd56e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa39ab3692b6396dab333d11eebcd56e9">&#9670;&#160;</a></span>binary_operation() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename CallableType , typename FirstEvaluatorType , typename SecondEvaluatorType &gt; <br />
+requires ((EvaluatorConcept&lt;std::decay_t&lt;FirstEvaluatorType&gt;&gt;)&amp;&amp; // (EvaluatorConcept&lt;std::decay_t&lt;SecondEvaluatorType&gt;&gt;)&amp;&amp; // (std::invocable&lt; std::decay_t&lt;CallableType&gt;, evaluator_result&lt;std::decay_t&lt;FirstEvaluatorType&gt;&gt;, evaluator_result&lt;std::decay_t&lt;SecondEvaluatorType&gt;&gt;&gt;))</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MGIS_HOST_DEVICE constexpr auto mgis::function::binary_operation </td>
+          <td>(</td>
+          <td class="paramtype">CallableType &amp;&amp;&#160;</td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FirstEvaluatorType &amp;&amp;&#160;</td>
+          <td class="paramname"><em>e1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SecondEvaluatorType &amp;&amp;&#160;</td>
+          <td class="paramname"><em>e2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>apply a binary operation to the values returned by two evaluators </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">CallableType</td><td>type of the binary operation, which may be a qualified type </td></tr>
+    <tr><td class="paramname">FirstEvaluatorType</td><td>type of the evaluator of the first argument, which may be a qualified type </td></tr>
+    <tr><td class="paramname">SecondEvaluatorType</td><td>type of the evaluator of the second argument, which may be a qualified type </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">c</td><td>binary operation, which must be callable with the values returned by the two evaluators </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">e1</td><td>evaluator used to compute the first argument </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">e2</td><td>evaluator used to compute the second argument </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a <code>BinaryOperationModifier</code> object, i.e. an evaluator returning the values computed by the binary operation</dd></dl>
+<p>apply a binary operation to the values returned by two evaluators </p>
+
+</div>
+</div>
+<a id="a089d58061c8ad1d2fcda72c9850a5513" name="a089d58061c8ad1d2fcda72c9850a5513"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a089d58061c8ad1d2fcda72c9850a5513">&#9670;&#160;</a></span>binary_operation() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename CallableType , typename SecondEvaluatorType &gt; <br />
+requires (EvaluatorConcept&lt;std::decay_t&lt;SecondEvaluatorType&gt;&gt;)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MGIS_HOST_DEVICE constexpr auto mgis::function::binary_operation </td>
+          <td>(</td>
+          <td class="paramtype">CallableType &amp;&amp;&#160;</td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SecondEvaluatorType &amp;&amp;&#160;</td>
+          <td class="paramname"><em>e2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>partially apply a binary operation to the evaluator of its second argument </p>
+<p>creates a <code>binary_operation_modifier</code> from the callable object and applies it to the given evaluator, which is the evaluator of the second argument of the operation</p>
+<p>The returned modifier can be applied to the evaluator of the first argument using <code>operator|</code>, as in <code>e1 | binary_operation(c, e2)</code>.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">CallableType</td><td>type of the binary operation, which may be a qualified type </td></tr>
+    <tr><td class="paramname">SecondEvaluatorType</td><td>type of the evaluator of the second argument, which may be a qualified type </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">c</td><td>binary operation, a copy of it is stored in the modifier </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">e2</td><td>evaluator used to compute the second argument </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a <code>internals::BinaryOperatorCurrying</code> object </dd></dl>
+
+</div>
+</div>
+<a id="a7a65cfd3558ba07c1e09a8b26e784ccb" name="a7a65cfd3558ba07c1e09a8b26e784ccb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a65cfd3558ba07c1e09a8b26e784ccb">&#9670;&#160;</a></span>binary_operation_modifier2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename CallableType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MGIS_HOST_DEVICE constexpr auto mgis::function::internals::binary_operation_modifier2 </td>
+          <td>(</td>
+          <td class="paramtype">CallableType&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>create a helper from a callable object which is only used to deduce the type of the binary operation </p>
+<p>the argument is only used to deduce the type of the binary operation</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">CallableType</td><td>type of the binary operation, which must be trivially default constructible </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">c</td><td>callable object which is discarded, as the operation is recreated when the values are computed </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a stateless helper of type <code>binary_operation_modifier2_impl&lt;CallableType&gt;</code> </dd></dl>
+
+</div>
+</div>
 <a id="a406557fb67e163c2aaf59babfa593062" name="a406557fb67e163c2aaf59babfa593062"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a406557fb67e163c2aaf59babfa593062">&#9670;&#160;</a></span>getNumberOfComponents() <span class="overload">[1/2]</span></h2>
 
@@ -200,7 +382,24 @@ template&lt;typename CallableType , EvaluatorConcept FirstEvaluatorType, Evaluat
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the number of components </dd></dl>
+
+<p>return the number of components of the values returned by a binary operation which does not store its callable object </p>
+<p>forwards the call to the <code>getNumberOfComponents</code> member</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">CallableType</td><td>type of the binary operation </td></tr>
+    <tr><td class="paramname">FirstEvaluatorType</td><td>type of the evaluator used to compute the first argument of the operation </td></tr>
+    <tr><td class="paramname">SecondEvaluatorType</td><td>type of the evaluator used to compute the second argument of the operation </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">e</td><td>binary operation </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>number of components of the values returned by the operation </dd></dl>
 
 </div>
 </div>
@@ -229,7 +428,24 @@ template&lt;typename CallableType , EvaluatorConcept FirstEvaluatorType, Evaluat
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the number of components </dd></dl>
+
+<p>return the number of components of the values returned by a binary operation </p>
+<p>forwards the call to the <code>getNumberOfComponents</code> member</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">CallableType</td><td>type of the binary operation </td></tr>
+    <tr><td class="paramname">FirstEvaluatorType</td><td>type of the evaluator used to compute the first argument of the operation </td></tr>
+    <tr><td class="paramname">SecondEvaluatorType</td><td>type of the evaluator used to compute the second argument of the operation </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">e</td><td>binary operation </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>number of components of the values returned by the operation </dd></dl>
 
 </div>
 </div>
@@ -261,6 +477,17 @@ template&lt;typename CallableType , EvaluatorConcept FirstEvaluatorType, Evaluat
 <div class="line">                         evaluator_result&lt;FirstEvaluatorType&gt;,</div>
 <div class="line">                         evaluator_result&lt;SecondEvaluatorType&gt;&gt;)</div>
 </div><!-- fragment -->
+<p>requirements which must be satisfied by a binary operation which is not stored in the evaluator it applies to </p>
+<p>The callable object must be trivially default constructible and callable with the values returned by the two evaluators it is applied to.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">CallableType</td><td>type of the binary operation </td></tr>
+    <tr><td class="paramname">FirstEvaluatorType</td><td>type of the evaluator used to compute the first argument of the operation </td></tr>
+    <tr><td class="paramname">SecondEvaluatorType</td><td>type of the evaluator used to compute the second argument of the operation </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a456dc1dff61661db9685ded6d9081ace" name="a456dc1dff61661db9685ded6d9081ace"></a>
@@ -290,6 +517,17 @@ template&lt;typename CallableType , EvaluatorConcept FirstEvaluatorType, Evaluat
 <div class="line">                         evaluator_result&lt;FirstEvaluatorType&gt;,</div>
 <div class="line">                         evaluator_result&lt;SecondEvaluatorType&gt;&gt;)</div>
 </div><!-- fragment -->
+<p>requirements which must be satisfied by a binary operation which is stored in the evaluator it applies to </p>
+<p>The callable object must be copy constructible and callable with the values returned by the two evaluators it is applied to.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">CallableType</td><td>type of the binary operation </td></tr>
+    <tr><td class="paramname">FirstEvaluatorType</td><td>type of the evaluator used to compute the first argument of the operation </td></tr>
+    <tr><td class="paramname">SecondEvaluatorType</td><td>type of the evaluator used to compute the second argument of the operation </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 </div><!-- contents -->
@@ -298,7 +536,7 @@ template&lt;typename CallableType , EvaluatorConcept FirstEvaluatorType, Evaluat
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_926a8b4fb7ad5e8e017827ff5fbbb316.html">MGIS</a></li><li class="navelem"><a class="el" href="dir_2e52b00940cd27d9780366949db1e89b.html">Function</a></li><li class="navelem"><a class="el" href="_binary_operation_8hxx.html">BinaryOperation.hxx</a></li>
-    <li class="footer">Generated on Fri Nov 6 2026 14:30:40 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Nov 6 2026 19:42:30 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

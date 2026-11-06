@@ -5,5 +5,6 @@ var searchData=
   ['thermodynamic_5fforces_5fstride_2',['thermodynamic_forces_stride',['../structmgis_1_1behaviour_1_1_material_state_manager.html#a16c7211302c1e0864b52c5ecb4b2e621',1,'mgis::behaviour::MaterialStateManager']]],
   ['time_5fstep_5fincrease_5ffactor_3',['time_step_increase_factor',['../structmgis_1_1behaviour_1_1_behaviour_integration_result.html#a564471d98ac119ab980126697d3ebcdf',1,'mgis::behaviour::BehaviourIntegrationResult']]],
   ['to_5fblocks_4',['to_blocks',['../structmgis_1_1behaviour_1_1_behaviour_description.html#ad2fc9829363e8bd2ed0dc1dae21900ff',1,'mgis::behaviour::BehaviourDescription']]],
-  ['type_5fidentifier_5',['type_identifier',['../structmgis_1_1behaviour_1_1_variable.html#a51957e3fe38d6f7af6de7c4d1bda0818',1,'mgis::behaviour::Variable']]]
+  ['trace_5',['trace',['../_tensors_8hxx.html#a81e58028b2fcd161ac37b0a7c7bdeec3',1,'mgis::function']]],
+  ['type_5fidentifier_6',['type_identifier',['../structmgis_1_1behaviour_1_1_variable.html#a51957e3fe38d6f7af6de7c4d1bda0818',1,'mgis::behaviour::Variable']]]
 ];

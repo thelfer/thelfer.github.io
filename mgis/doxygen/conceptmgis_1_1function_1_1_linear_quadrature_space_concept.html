@@ -100,6 +100,11 @@ $(document).ready(function(){initNavTree('conceptmgis_1_1function_1_1_linear_qua
   <div class="headertitle"><div class="title">mgis::function::LinearQuadratureSpaceConcept Concept Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>a concept describing a quadrature space where all the cells are stored from 0 to <code>getNumberOfCells(s) - 1</code> and the offset of a quadrature point can be computed from the index of its cell and its own index  
+<a href="conceptmgis_1_1function_1_1_linear_quadrature_space_concept.html#details">More...</a></p>
+
+<p><code>#include &lt;/home/runner/work/MFrontGenericInterfaceSupport/MFrontGenericInterfaceSupport/include/MGIS/Function/SpaceConcept.hxx&gt;</code></p>
 <h2 class="groupheader">Concept definition</h2>
 <div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> SpaceType&gt;</div>
 <div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="conceptmgis_1_1function_1_1_linear_quadrature_space_concept.html">mgis::function::LinearQuadratureSpaceConcept</a> = </div>
@@ -109,7 +114,7 @@ $(document).ready(function(){initNavTree('conceptmgis_1_1function_1_1_linear_qua
 <div class="line">       (std::integral&lt;typename SpaceTraits&lt;SpaceType&gt;::cell_index_type&gt;)&amp;&amp;  </div>
 <div class="line">       (<span class="keyword">requires</span>(<span class="keyword">const</span> <a class="code hl_typedef" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">SpaceType</a>&amp; s) {</div>
 <div class="line">         {</div>
-<div class="line">           getQuadraturePointOffset(</div>
+<div class="line">           <a class="code hl_function" href="_basic_linear_quadrature_space_8hxx.html#a9aa331684e73b8d19dd08c2849d7c59d">getQuadraturePointOffset</a>(</div>
 <div class="line">               s,</div>
 <div class="line">               std::declval&lt;<span class="keyword">typename</span> <a class="code hl_struct" href="structmgis_1_1function_1_1_space_traits.html">SpaceTraits&lt;SpaceType&gt;::cell_index_type</a>&gt;(),</div>
 <div class="line">               std::declval&lt;<span class="keyword">typename</span> <a class="code hl_struct" href="structmgis_1_1function_1_1_space_traits.html">SpaceTraits</a>&lt;</div>
@@ -117,17 +122,26 @@ $(document).ready(function(){initNavTree('conceptmgis_1_1function_1_1_linear_qua
 <div class="line">           } -&gt; internals::same_decay_type&lt;</div>
 <div class="line">               <span class="keyword">typename</span> SpaceTraits&lt;SpaceType&gt;::size_type&gt;;</div>
 <div class="line">       }))</div>
-<div class="ttc" id="a_evaluator_concept_8hxx_html_aaa43e880e9b2fb06fd444c9e86eb871d"><div class="ttname"><a href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">mgis::function::evaluator_result</a></div><div class="ttdeci">typename internals::EvaluatorResultQuery&lt; EvaluatorType &gt;::type evaluator_result</div><div class="ttdoc">type of the result of an evaluator</div><div class="ttdef"><b>Definition</b> EvaluatorConcept.hxx:215</div></div>
-<div class="ttc" id="aconceptmgis_1_1function_1_1_linear_quadrature_space_concept_html"><div class="ttname"><a href="conceptmgis_1_1function_1_1_linear_quadrature_space_concept.html">mgis::function::LinearQuadratureSpaceConcept</a></div><div class="ttdef"><b>Definition</b> SpaceConcept.hxx:261</div></div>
-<div class="ttc" id="aconceptmgis_1_1function_1_1_quadrature_space_concept_html"><div class="ttname"><a href="conceptmgis_1_1function_1_1_quadrature_space_concept.html">mgis::function::QuadratureSpaceConcept</a></div><div class="ttdoc">a concept describing a quadrature space where values can be addressed by given the element index and ...</div><div class="ttdef"><b>Definition</b> SpaceConcept.hxx:231</div></div>
-<div class="ttc" id="astructmgis_1_1function_1_1_space_traits_html"><div class="ttname"><a href="structmgis_1_1function_1_1_space_traits.html">mgis::function::SpaceTraits</a></div><div class="ttdoc">a quadrature traits class defining the main properties of a space</div><div class="ttdef"><b>Definition</b> SpaceConcept.hxx:51</div></div>
-</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="a_basic_linear_quadrature_space_8hxx_html_a9aa331684e73b8d19dd08c2849d7c59d"><div class="ttname"><a href="_basic_linear_quadrature_space_8hxx.html#a9aa331684e73b8d19dd08c2849d7c59d">mgis::function::getQuadraturePointOffset</a></div><div class="ttdeci">constexpr size_type getQuadraturePointOffset(const BasicLinearQuadratureSpace&lt; N &gt; &amp;, const size_type, const size_type) MGIS_NOEXCEPT</div><div class="ttdoc">returns the offset in the space of a given quadrature point</div><div class="ttdef"><b>Definition</b> BasicLinearQuadratureSpace.ixx:107</div></div>
+<div class="ttc" id="a_evaluator_concept_8hxx_html_aaa43e880e9b2fb06fd444c9e86eb871d"><div class="ttname"><a href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">mgis::function::evaluator_result</a></div><div class="ttdeci">typename internals::EvaluatorResultQuery&lt; EvaluatorType &gt;::type evaluator_result</div><div class="ttdoc">type of the result of an evaluator, i.e. the type of the constant values returned by the evaluator,...</div><div class="ttdef"><b>Definition</b> EvaluatorConcept.hxx:369</div></div>
+<div class="ttc" id="aconceptmgis_1_1function_1_1_linear_quadrature_space_concept_html"><div class="ttname"><a href="conceptmgis_1_1function_1_1_linear_quadrature_space_concept.html">mgis::function::LinearQuadratureSpaceConcept</a></div><div class="ttdoc">a concept describing a quadrature space where all the cells are stored from 0 to getNumberOfCells(s) ...</div><div class="ttdef"><b>Definition</b> SpaceConcept.hxx:347</div></div>
+<div class="ttc" id="aconceptmgis_1_1function_1_1_quadrature_space_concept_html"><div class="ttname"><a href="conceptmgis_1_1function_1_1_quadrature_space_concept.html">mgis::function::QuadratureSpaceConcept</a></div><div class="ttdoc">a concept describing a quadrature space where values can be addressed given the cell index and the in...</div><div class="ttdef"><b>Definition</b> SpaceConcept.hxx:297</div></div>
+<div class="ttc" id="astructmgis_1_1function_1_1_space_traits_html"><div class="ttname"><a href="structmgis_1_1function_1_1_space_traits.html">mgis::function::SpaceTraits</a></div><div class="ttdoc">a quadrature traits class defining the main properties of a space</div><div class="ttdef"><b>Definition</b> SpaceConcept.hxx:56</div></div>
+</div><!-- fragment --><a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>a concept describing a quadrature space where all the cells are stored from 0 to <code>getNumberOfCells(s) - 1</code> and the offset of a quadrature point can be computed from the index of its cell and its own index </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">SpaceType</td><td>type of the space considered </td></tr>
+  </table>
+  </dd>
+</dl>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemgis.html">mgis</a></li><li class="navelem"><b>function</b></li><li class="navelem"><a class="el" href="conceptmgis_1_1function_1_1_linear_quadrature_space_concept.html">LinearQuadratureSpaceConcept</a></li>
-    <li class="footer">Generated on Fri Nov 6 2026 14:30:40 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Nov 6 2026 19:42:30 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

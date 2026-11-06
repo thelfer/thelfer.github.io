@@ -106,6 +106,9 @@ $(document).ready(function(){initNavTree('_mechanics_8hxx.html',''); initResizab
   <div class="headertitle"><div class="title">Mechanics.hxx File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>File which defines the mechanical operations which can be applied to evaluators returning tensorial values (<code>hydrostatic_stress</code>, <code>vmis</code>, <code>principal_stress</code>, <code>from_pk1_to_cauchy</code>, ...) and the <code>convert_finite_strain_stiffness</code> function converting finite strain tangent operators from one kind to another.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;type_traits&gt;</code><br />
 <code>#include &quot;TFEL/Material/FiniteStrainBehaviourTangentOperator.hxx&quot;</code><br />
 <code>#include &quot;<a class="el" href="_evaluator_8hxx.html">MGIS/Function/Evaluator.hxx</a>&quot;</code><br />
@@ -116,10 +119,13 @@ $(document).ready(function(){initNavTree('_mechanics_8hxx.html',''); initResizab
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1internals_1_1_hydrostatic_stress_operator.html">mgis::function::internals::HydrostaticStressOperator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">callable object computing the hydrostatic stress, i.e. the mean normal stress, of a symmetric tensor, defined as <code><a class="el" href="_tensors_8hxx.html#a81e58028b2fcd161ac37b0a7c7bdeec3" title="modifier computing the trace of the tensorial values computed by an evaluator">trace(s)</a> / 3</code>  <a href="structmgis_1_1function_1_1internals_1_1_hydrostatic_stress_operator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1internals_1_1_von_mises_stress_operator.html">mgis::function::internals::VonMisesStressOperator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">callable object computing the von Mises stress of a symmetric tensor interpreted as a stress  <a href="structmgis_1_1function_1_1internals_1_1_von_mises_stress_operator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1internals_1_1_first_piola_kirchhoff_stress_to_cauchy_stress_operator.html">mgis::function::internals::FirstPiolaKirchhoffStressToCauchyStressOperator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">callable object converting a first Piola-Kirchhoff stress into a Cauchy stress given the deformation gradient  <a href="structmgis_1_1function_1_1internals_1_1_first_piola_kirchhoff_stress_to_cauchy_stress_operator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -132,40 +138,134 @@ Namespaces</h2></td></tr>
 Typedefs</h2></td></tr>
 <tr class="memitem:ab6bd5baec73e42640638dda8e51246bb" id="r_ab6bd5baec73e42640638dda8e51246bb"><td class="memItemLeft" align="right" valign="top"><a id="ab6bd5baec73e42640638dda8e51246bb" name="ab6bd5baec73e42640638dda8e51246bb"></a>
 <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">using</a>&#160;</td><td class="memItemRight" valign="bottom"><b>mgis::function::FiniteStrainStiffnessKind</b> = tfel::material::FiniteStrainBehaviourTangentOperatorBase::Flag</td></tr>
+<tr class="memdesc:ab6bd5baec73e42640638dda8e51246bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">conversion of finite strain tangent operators <br /></td></tr>
 <tr class="separator:ab6bd5baec73e42640638dda8e51246bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a404238459899af00536f5f03083d1be4" id="r_a404238459899af00536f5f03083d1be4"><td class="memTemplParams" colspan="2"><a id="a404238459899af00536f5f03083d1be4" name="a404238459899af00536f5f03083d1be4"></a>
-template&lt;FiniteStrainStiffnessKind ResultFlag, FiniteStrainStiffnessKind SourceFlag, TensorEvaluatorConcept DeformationGradientEvaluatorType0, TensorEvaluatorConcept DeformationGradientEvaluatorType1, StensorEvaluatorConcept CauchyStressEvaluatorType&gt; </td></tr>
-<tr class="memitem:a404238459899af00536f5f03083d1be4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>mgis::function::convert_finite_strain_stiffness</b> (const DeformationGradientEvaluatorType0 &amp;, const DeformationGradientEvaluatorType1 &amp;, const CauchyStressEvaluatorType &amp;)</td></tr>
+<tr class="memitem:a404238459899af00536f5f03083d1be4" id="r_a404238459899af00536f5f03083d1be4"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="_mechanics_8hxx.html#ab6bd5baec73e42640638dda8e51246bb">FiniteStrainStiffnessKind</a> ResultFlag, <a class="el" href="_mechanics_8hxx.html#ab6bd5baec73e42640638dda8e51246bb">FiniteStrainStiffnessKind</a> SourceFlag, TensorEvaluatorConcept DeformationGradientEvaluatorType0, TensorEvaluatorConcept DeformationGradientEvaluatorType1, StensorEvaluatorConcept CauchyStressEvaluatorType&gt; </td></tr>
+<tr class="memitem:a404238459899af00536f5f03083d1be4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_mechanics_8hxx.html#a404238459899af00536f5f03083d1be4">mgis::function::convert_finite_strain_stiffness</a> (const DeformationGradientEvaluatorType0 &amp;, const DeformationGradientEvaluatorType1 &amp;, const CauchyStressEvaluatorType &amp;)</td></tr>
+<tr class="memdesc:a404238459899af00536f5f03083d1be4"><td class="mdescLeft">&#160;</td><td class="mdescRight">create a modifier converting a finite strain tangent operator computed by an evaluator into another kind of tangent operator  <br /></td></tr>
 <tr class="separator:a404238459899af00536f5f03083d1be4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a690e09cd1955e9ab60517efa3c3fa208" id="r_a690e09cd1955e9ab60517efa3c3fa208"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_mechanics_8hxx.html#a690e09cd1955e9ab60517efa3c3fa208">mgis::function::hydrostatic_stress</a></td></tr>
+<tr class="memdesc:a690e09cd1955e9ab60517efa3c3fa208"><td class="mdescLeft">&#160;</td><td class="mdescRight">modifier computing the hydrostatic stress (<code><a class="el" href="_tensors_8hxx.html#a81e58028b2fcd161ac37b0a7c7bdeec3" title="modifier computing the trace of the tensorial values computed by an evaluator">trace(s)</a> / 3</code>) of the symmetric tensorial values computed by an evaluator  <br /></td></tr>
 <tr class="separator:a690e09cd1955e9ab60517efa3c3fa208"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e4c191e8b3d00f74e19e6fb7fde52d4" id="r_a8e4c191e8b3d00f74e19e6fb7fde52d4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_mechanics_8hxx.html#a8e4c191e8b3d00f74e19e6fb7fde52d4">mgis::function::vmis</a></td></tr>
+<tr class="memdesc:a8e4c191e8b3d00f74e19e6fb7fde52d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">modifier computing the von Mises stress of the symmetric tensorial values computed by an evaluator  <br /></td></tr>
 <tr class="separator:a8e4c191e8b3d00f74e19e6fb7fde52d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8bc5ba2b21adcdf82345d2d3368d40df" id="r_a8bc5ba2b21adcdf82345d2d3368d40df"><td class="memItemLeft" align="right" valign="top"><a id="a8bc5ba2b21adcdf82345d2d3368d40df" name="a8bc5ba2b21adcdf82345d2d3368d40df"></a>
-<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memItemRight" valign="bottom"><b>mgis::function::von_mises_stress</b> = vmis</td></tr>
+<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memItemRight" valign="bottom"><b>mgis::function::von_mises_stress</b> = <a class="el" href="_mechanics_8hxx.html#a8e4c191e8b3d00f74e19e6fb7fde52d4">vmis</a></td></tr>
+<tr class="memdesc:a8bc5ba2b21adcdf82345d2d3368d40df"><td class="mdescLeft">&#160;</td><td class="mdescRight">alias for <code>vmis</code>, modifier computing the von Mises stress <br /></td></tr>
 <tr class="separator:a8bc5ba2b21adcdf82345d2d3368d40df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8fc49a30cdb2050ce12f3bf3a1e21e4a" id="r_a8fc49a30cdb2050ce12f3bf3a1e21e4a"><td class="memTemplParams" colspan="2"><a id="a8fc49a30cdb2050ce12f3bf3a1e21e4a" name="a8fc49a30cdb2050ce12f3bf3a1e21e4a"></a>
-template&lt;tfel::math::stensor_common::EigenSolver esolver = tfel::math::stensor_common::TFELEIGENSOLVER&gt; </td></tr>
-<tr class="memitem:a8fc49a30cdb2050ce12f3bf3a1e21e4a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>mgis::function::principal_stress</b> = eigen_values&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">esolver</a>&gt;</td></tr>
+<tr class="memitem:a8fc49a30cdb2050ce12f3bf3a1e21e4a" id="r_a8fc49a30cdb2050ce12f3bf3a1e21e4a"><td class="memTemplParams" colspan="2">template&lt;tfel::math::stensor_common::EigenSolver esolver = tfel::math::stensor_common::TFELEIGENSOLVER&gt; </td></tr>
+<tr class="memitem:a8fc49a30cdb2050ce12f3bf3a1e21e4a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_mechanics_8hxx.html#a8fc49a30cdb2050ce12f3bf3a1e21e4a">mgis::function::principal_stress</a> = <a class="el" href="_tensors_8hxx.html#a91ce9b1b775faee37497ea8c20ecb38f">eigen_values</a>&lt;<a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">esolver</a>&gt;</td></tr>
+<tr class="memdesc:a8fc49a30cdb2050ce12f3bf3a1e21e4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">modifier computing the principal stresses, i.e. the eigen values, of the symmetric tensorial values computed by an evaluator  <br /></td></tr>
 <tr class="separator:a8fc49a30cdb2050ce12f3bf3a1e21e4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7554c6d64e5a741a48df362a16841756" id="r_a7554c6d64e5a741a48df362a16841756"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">constexpr</a> <a class="el" href="_evaluator_concept_8hxx.html#aaa43e880e9b2fb06fd444c9e86eb871d">auto</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_mechanics_8hxx.html#a7554c6d64e5a741a48df362a16841756">mgis::function::from_pk1_to_cauchy</a></td></tr>
+<tr class="memdesc:a7554c6d64e5a741a48df362a16841756"><td class="mdescLeft">&#160;</td><td class="mdescRight">modifier converting the first Piola-Kirchhoff stresses computed by an evaluator into Cauchy stresses, given an evaluator of the deformation gradient  <br /></td></tr>
 <tr class="separator:a7554c6d64e5a741a48df362a16841756"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section author"><dt>Author</dt><dd>Thomas Helfer </dd></dl>
+<div class="textblock"><p>File which defines the mechanical operations which can be applied to evaluators returning tensorial values (<code>hydrostatic_stress</code>, <code>vmis</code>, <code>principal_stress</code>, <code>from_pk1_to_cauchy</code>, ...) and the <code>convert_finite_strain_stiffness</code> function converting finite strain tangent operators from one kind to another. </p>
+<dl class="section author"><dt>Author</dt><dd>Thomas Helfer </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>02/05/2025 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>(C) Copyright Thomas Helfer 2018. Use, modification and distribution are subject to one of the following licences:<ul>
 <li>GNU Lesser General Public License (LGPL), Version 3.0. (See accompanying file LGPL-3.0.txt)</li>
 <li>CECILL-C, Version 1.0 (See accompanying files CeCILL-C_V1-en.txt and CeCILL-C_V1-fr.txt). </li>
 </ul>
 </dd></dl>
-</div><h2 class="groupheader">Variable Documentation</h2>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a404238459899af00536f5f03083d1be4" name="a404238459899af00536f5f03083d1be4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a404238459899af00536f5f03083d1be4">&#9670;&#160;</a></span>convert_finite_strain_stiffness()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;FiniteStrainStiffnessKind ResultFlag, FiniteStrainStiffnessKind SourceFlag, TensorEvaluatorConcept DeformationGradientEvaluatorType0, TensorEvaluatorConcept DeformationGradientEvaluatorType1, StensorEvaluatorConcept CauchyStressEvaluatorType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto mgis::function::convert_finite_strain_stiffness </td>
+          <td>(</td>
+          <td class="paramtype">const DeformationGradientEvaluatorType0 &amp;&#160;</td>
+          <td class="paramname"><em>F0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const DeformationGradientEvaluatorType1 &amp;&#160;</td>
+          <td class="paramname"><em>F1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const CauchyStressEvaluatorType &amp;&#160;</td>
+          <td class="paramname"><em>s</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>create a modifier converting a finite strain tangent operator computed by an evaluator into another kind of tangent operator </p>
+<p>definition of the <code>convert_finite_strain_stiffness</code> function declared in <code><a class="el" href="_mechanics_8hxx.html" title="File which defines the mechanical operations which can be applied to evaluators returning tensorial v...">MGIS/Function/TFEL/Mechanics.hxx</a></code></p>
+<p>The conversion is performed by <code>tfel::material::convert&lt;ResultFlag, SourceFlag, N&gt;</code> and generally requires the two deformation gradients and the Cauchy stress at the integration point considered. The returned object is a modifier to be applied, using <code>operator|</code>, to an evaluator returning a tangent operator of kind <code>SourceFlag</code>.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">ResultFlag</td><td>kind of the tangent operator to be returned </td></tr>
+    <tr><td class="paramname">SourceFlag</td><td>kind of the tangent operator taken as input </td></tr>
+    <tr><td class="paramname">DeformationGradientEvaluatorType0</td><td>type of the evaluator providing the first deformation gradient </td></tr>
+    <tr><td class="paramname">DeformationGradientEvaluatorType1</td><td>type of the evaluator providing the second deformation gradient </td></tr>
+    <tr><td class="paramname">CauchyStressEvaluatorType</td><td>type of the evaluator providing the Cauchy stress </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">F0</td><td>evaluator used to compute the first deformation gradient </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">F1</td><td>evaluator used to compute the second deformation gradient </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td>evaluator used to compute the Cauchy stress </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a modifier converting the tangent operators it is applied to</dd></dl>
+<p>The space dimension <code>N</code> is deduced from that of the first deformation gradient evaluator; the second deformation gradient and the Cauchy stress must have the same dimension, which is enforced by <code>static_assert</code>.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">ResultFlag</td><td>kind of the tangent operator to be returned </td></tr>
+    <tr><td class="paramname">SourceFlag</td><td>kind of the tangent operator taken as input </td></tr>
+    <tr><td class="paramname">DeformationGradientEvaluatorType0</td><td>type of the evaluator providing the first deformation gradient </td></tr>
+    <tr><td class="paramname">DeformationGradientEvaluatorType1</td><td>type of the evaluator providing the second deformation gradient </td></tr>
+    <tr><td class="paramname">CauchyStressEvaluatorType</td><td>type of the evaluator providing the Cauchy stress </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">F0</td><td>evaluator used to compute the first deformation gradient </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">F1</td><td>evaluator used to compute the second deformation gradient </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td>evaluator used to compute the Cauchy stress </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a modifier converting the tangent operators it is applied to </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
 <a id="a7554c6d64e5a741a48df362a16841756" name="a7554c6d64e5a741a48df362a16841756"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7554c6d64e5a741a48df362a16841756">&#9670;&#160;</a></span>from_pk1_to_cauchy</h2>
 
@@ -189,6 +289,8 @@ template&lt;tfel::math::stensor_common::EigenSolver esolver = tfel::math::stenso
 <div class="line">      internals::binary_operation_modifier2(</div>
 <div class="line">          internals::FirstPiolaKirchhoffStressToCauchyStressOperator{})</div>
 </div><!-- fragment -->
+<p>modifier converting the first Piola-Kirchhoff stresses computed by an evaluator into Cauchy stresses, given an evaluator of the deformation gradient </p>
+
 </div>
 </div>
 <a id="a690e09cd1955e9ab60517efa3c3fa208" name="a690e09cd1955e9ab60517efa3c3fa208"></a>
@@ -214,6 +316,40 @@ template&lt;tfel::math::stensor_common::EigenSolver esolver = tfel::math::stenso
 <div class="line">      internals::unary_operation_modifier2(</div>
 <div class="line">          internals::HydrostaticStressOperator{})</div>
 </div><!-- fragment -->
+<p>modifier computing the hydrostatic stress (<code>trace(s) / 3</code>) of the symmetric tensorial values computed by an evaluator </p>
+
+</div>
+</div>
+<a id="a8fc49a30cdb2050ce12f3bf3a1e21e4a" name="a8fc49a30cdb2050ce12f3bf3a1e21e4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fc49a30cdb2050ce12f3bf3a1e21e4a">&#9670;&#160;</a></span>principal_stress</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;tfel::math::stensor_common::EigenSolver esolver = tfel::math::stensor_common::TFELEIGENSOLVER&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto mgis::function::principal_stress = eigen_values&lt;esolver&gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>modifier computing the principal stresses, i.e. the eigen values, of the symmetric tensorial values computed by an evaluator </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">esolver</td><td>eigen solver used to compute the eigen values, which defaults to <code>tfel::math::stensor_common::TFELEIGENSOLVER</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a8e4c191e8b3d00f74e19e6fb7fde52d4" name="a8e4c191e8b3d00f74e19e6fb7fde52d4"></a>
@@ -238,6 +374,8 @@ template&lt;tfel::math::stensor_common::EigenSolver esolver = tfel::math::stenso
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
 <div class="line">      internals::unary_operation_modifier2(internals::VonMisesStressOperator{})</div>
 </div><!-- fragment -->
+<p>modifier computing the von Mises stress of the symmetric tensorial values computed by an evaluator </p>
+
 </div>
 </div>
 </div><!-- contents -->
@@ -246,7 +384,7 @@ template&lt;tfel::math::stensor_common::EigenSolver esolver = tfel::math::stenso
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_926a8b4fb7ad5e8e017827ff5fbbb316.html">MGIS</a></li><li class="navelem"><a class="el" href="dir_2e52b00940cd27d9780366949db1e89b.html">Function</a></li><li class="navelem"><a class="el" href="dir_e23cfa4dbebc272344c1d50ffb8bb175.html">TFEL</a></li><li class="navelem"><a class="el" href="_mechanics_8hxx.html">Mechanics.hxx</a></li>
-    <li class="footer">Generated on Fri Nov 6 2026 14:30:40 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Nov 6 2026 19:42:30 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

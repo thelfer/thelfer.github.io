@@ -1,0 +1,5 @@
+var structmgis_1_1function_1_1internals_1_1_evaluator_result_query_implementation1_3_01true_00_01_evaluator_type_01_4 =
+[
+    [ "Space", "structmgis_1_1function_1_1internals_1_1_evaluator_result_query_implementation1_3_01true_00_01_evaluator_type_01_4.html#a7f6761ff5116911d28010a7c1951a740", null ],
+    [ "type", "structmgis_1_1function_1_1internals_1_1_evaluator_result_query_implementation1_3_01true_00_01_evaluator_type_01_4.html#a7ea238543d661833df5b5e43dace5189", null ]
+];

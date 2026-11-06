@@ -105,7 +105,7 @@ $(document).ready(function(){initNavTree('_data_view_concept_8hxx.html',''); ini
 </div><!--header-->
 <div class="contents">
 
-<p>This file declares <code>DataViewConcept</code>  
+<p>File which defines the concept used to distinguish the types holding a view to some values, such as <code>std::span</code>, from the types owning those values.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;span&gt;</code><br />
 <code>#include &lt;type_traits&gt;</code><br />
@@ -113,13 +113,13 @@ $(document).ready(function(){initNavTree('_data_view_concept_8hxx.html',''); ini
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1internals_1_1_is_data_view.html">mgis::function::internals::IsDataView&lt; T &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">this class must be specialised for class holding views to data, such as std::span or tfel::math::View  <a href="structmgis_1_1function_1_1internals_1_1_is_data_view.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">traits stating if the given type is a view to some values, which must be specialized for the classes holding views to data, such as <code>std::span</code> or <code>tfel::math::View</code>  <a href="structmgis_1_1function_1_1internals_1_1_is_data_view.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1internals_1_1_is_data_view_3_01_t_01_6_01_4.html">mgis::function::internals::IsDataView&lt; T &amp; &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">partial specialisation for std::span  <a href="structmgis_1_1function_1_1internals_1_1_is_data_view_3_01_t_01_6_01_4.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">specialization for reference types: a reference does not own the value it refers to, so it is always considered as a view  <a href="structmgis_1_1function_1_1internals_1_1_is_data_view_3_01_t_01_6_01_4.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmgis_1_1function_1_1internals_1_1_is_data_view_3_1_1std_1_1span_3_01_t_00_01_extent_01_4_01_4.html">mgis::function::internals::IsDataView&lt;::std::span&lt; T, Extent &gt; &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">partial specialisation for std::span  <a href="structmgis_1_1function_1_1internals_1_1_is_data_view_3_1_1std_1_1span_3_01_t_00_01_extent_01_4_01_4.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">specialization for <code>std::span</code>  <a href="structmgis_1_1function_1_1internals_1_1_is_data_view_3_1_1std_1_1span_3_01_t_00_01_extent_01_4_01_4.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -131,11 +131,11 @@ Namespaces</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="concepts" name="concepts"></a>
 Concepts</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptmgis_1_1function_1_1_data_view_concept.html">mgis::function::DataViewConcept</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">a concept used to distinguish views from data <br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">concept which is satisfied by the types holding a view to some values owned by another object <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This file declares <code>DataViewConcept</code> </p>
+<div class="textblock"><p>File which defines the concept used to distinguish the types holding a view to some values, such as <code>std::span</code>, from the types owning those values. </p>
 <dl class="section author"><dt>Author</dt><dd>Thomas Helfer </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>02/10/2026 </dd></dl>
 </div></div><!-- contents -->
@@ -144,7 +144,7 @@ Concepts</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_926a8b4fb7ad5e8e017827ff5fbbb316.html">MGIS</a></li><li class="navelem"><a class="el" href="dir_2e52b00940cd27d9780366949db1e89b.html">Function</a></li><li class="navelem"><a class="el" href="_data_view_concept_8hxx.html">DataViewConcept.hxx</a></li>
-    <li class="footer">Generated on Fri Nov 6 2026 14:30:40 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Nov 6 2026 19:42:30 for MGIS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

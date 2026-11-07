@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"_tensor_view_8ixx.html#a3a2cf14ba1cdb79d8d06ba76712bb278":[4,0,1,0,1,1,27,2],
 "_tensor_view_8ixx.html#a5e9909f1f481c266fd442802160271be":[4,0,1,0,1,1,27,0],
 "_tensorial_function_8hxx.html":[4,0,1,0,1,1,19],
 "_tensorial_function_8hxx.html#a2bc3ff21653cbf2788f2b7cde2ae9aca":[4,0,1,0,1,1,19,11],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "functions_w.html":[3,3,0,22],
 "functions_z.html":[3,3,0,23],
 "functions_~.html":[3,3,0,24],
-"globals.html":[4,1,0],
-"globals_defs.html":[4,1,5]
+"globals.html":[4,1,0]
 };

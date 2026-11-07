@@ -1,6 +1,5 @@
 var NAVTREEINDEX6 =
 {
-"structmgis_1_1behaviour_1_1_behaviour_description.html#a72f57700c99f09fa6a0a49f0b858e911a65b38154cca1166e7d6b14454214f091":[3,0,1,1,3,1,4],
 "structmgis_1_1behaviour_1_1_behaviour_description.html#a72f57700c99f09fa6a0a49f0b858e911a6ff38197e988e9e437f00f95f3763ec4":[3,0,1,1,3,1,0],
 "structmgis_1_1behaviour_1_1_behaviour_description.html#a72f57700c99f09fa6a0a49f0b858e911a97ff4cd9e95efdfd0ee98a42a443282a":[3,0,1,1,3,1,1],
 "structmgis_1_1behaviour_1_1_behaviour_description.html#a72f57700c99f09fa6a0a49f0b858e911af508d206d19505e0376793d592de730d":[3,0,1,1,3,1,2],
@@ -249,5 +248,6 @@ var NAVTREEINDEX6 =
 "structmgis_1_1function_1_1_basic_linear_quadrature_space.html#ac6290cfa63d9bd086e662e204a0faaac":[3,0,1,3,2,8],
 "structmgis_1_1function_1_1_basic_linear_quadrature_space.html#ac930264c371d104e57362c18bf666ded":[3,0,1,3,2,2],
 "structmgis_1_1function_1_1_basic_linear_quadrature_space.html#aeaa1f575ff36dfba43593d881acd0361":[3,0,1,3,2,7],
-"structmgis_1_1function_1_1_basic_linear_quadrature_space.html#aeb585584f6d6fab5193ea3a406705256":[3,0,1,3,2,4]
+"structmgis_1_1function_1_1_basic_linear_quadrature_space.html#aeb585584f6d6fab5193ea3a406705256":[3,0,1,3,2,4],
+"structmgis_1_1function_1_1_basic_linear_quadrature_space_1_1_dummy_cell_workspace.html":[3,0,1,3,2,0]
 };

@@ -69,13 +69,13 @@ var NAVTREEINDEX =
 "_abstract_error_handler_8hxx.html",
 "_evaluator_concept_8hxx.html#a2fe5b2c262842171919213d3e39b655d",
 "_material_function_manager_8hxx.html#aa049637e0908d98a926afa9077b99c6a",
-"_tensor_view_8ixx.html#a3a2cf14ba1cdb79d8d06ba76712bb278",
-"globals_defs.html",
-"structmgis_1_1_libraries_manager.html#a20fc28ae9300b77be894df762d70b9f3",
-"structmgis_1_1behaviour_1_1_behaviour_description.html#a72f57700c99f09fa6a0a49f0b858e911a65b38154cca1166e7d6b14454214f091",
-"structmgis_1_1function_1_1_basic_linear_quadrature_space_1_1_dummy_cell_workspace.html",
-"structmgis_1_1function_1_1_space_traits_3_01_basic_linear_space_01_4.html#a1112344c3442eefed48a79c8d06f8d2e",
-"structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01_tensor_type_01_6_01_4.html"
+"_tensor_view_8ixx.html#a5e9909f1f481c266fd442802160271be",
+"globals_enum.html",
+"structmgis_1_1_libraries_manager.html#a264a0a3738bed7b81e2b7dc2015eea91",
+"structmgis_1_1behaviour_1_1_behaviour_description.html#a72f57700c99f09fa6a0a49f0b858e911a6ff38197e988e9e437f00f95f3763ec4",
+"structmgis_1_1function_1_1_basic_linear_space.html",
+"structmgis_1_1function_1_1_space_traits_3_01_basic_linear_space_01_4.html#aeede798ad693408195f5fec9302218ea",
+"structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01real_01_6_01_4.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

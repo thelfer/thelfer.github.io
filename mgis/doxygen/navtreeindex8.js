@@ -1,6 +1,5 @@
 var NAVTREEINDEX8 =
 {
-"structmgis_1_1function_1_1_space_traits_3_01_basic_linear_space_01_4.html#a1112344c3442eefed48a79c8d06f8d2e":[3,0,1,3,41,0],
 "structmgis_1_1function_1_1_space_traits_3_01_basic_linear_space_01_4.html#aeede798ad693408195f5fec9302218ea":[3,0,1,3,41,1],
 "structmgis_1_1function_1_1_space_traits_3_01_shared_space_3_01_space_type_01_4_01_4.html":[3,0,1,3,42],
 "structmgis_1_1function_1_1_space_traits_3_01_shared_space_3_01_space_type_01_4_01_4.html#aa5d99f8a3ca872afcfb589360b149dea":[3,0,1,3,42,0],
@@ -249,5 +248,6 @@ var NAVTREEINDEX8 =
 "structmgis_1_1function_1_1internals_1_1_function_result_query_implementation_3_01true_00_01_function_type_01_4.html#af243cc8a871635ac59cee9a0f9d66420":[3,0,1,3,1,60,3],
 "structmgis_1_1function_1_1internals_1_1_function_result_query_implementation_3_01true_00_01_function_type_01_4.html#af44e3736768983a15b2425075133c783":[3,0,1,3,1,60,1],
 "structmgis_1_1function_1_1internals_1_1_function_result_type_traits.html":[3,0,1,3,1,61],
-"structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01_1_1tfel_1_1math_1_1_str93c92d421cf817f2a1333cddf8d34271.html":[3,0,1,3,1,62]
+"structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01_1_1tfel_1_1math_1_1_str93c92d421cf817f2a1333cddf8d34271.html":[3,0,1,3,1,62],
+"structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01_tensor_type_01_6_01_4.html":[3,0,1,3,1,66]
 };

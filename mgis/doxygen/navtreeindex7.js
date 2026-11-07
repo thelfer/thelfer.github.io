@@ -1,6 +1,5 @@
 var NAVTREEINDEX7 =
 {
-"structmgis_1_1function_1_1_basic_linear_quadrature_space_1_1_dummy_cell_workspace.html":[3,0,1,3,2,0],
 "structmgis_1_1function_1_1_basic_linear_space.html":[3,0,1,3,3],
 "structmgis_1_1function_1_1_basic_linear_space.html#a2b2a80094f57cca2000711258293e431":[3,0,1,3,3,0],
 "structmgis_1_1function_1_1_basic_linear_space.html#a3a3ebd8d93db0a97b3eee73c06944ac5":[3,0,1,3,3,3],
@@ -249,5 +248,6 @@ var NAVTREEINDEX7 =
 "structmgis_1_1function_1_1_space_traits_3_01_basic_linear_quadrature_space_3_01_n_01_4_01_4.html#ac650faa3522095fba6df2fd48621a1df":[3,0,1,3,40,3],
 "structmgis_1_1function_1_1_space_traits_3_01_basic_linear_quadrature_space_3_01_n_01_4_01_4.html#af385d6cac46515bb9a056719298d347e":[3,0,1,3,40,1],
 "structmgis_1_1function_1_1_space_traits_3_01_basic_linear_quadrature_space_3_01_n_01_4_01_4.html#af7bda4340625162559ffedb0acccb050":[3,0,1,3,40,0],
-"structmgis_1_1function_1_1_space_traits_3_01_basic_linear_space_01_4.html":[3,0,1,3,41]
+"structmgis_1_1function_1_1_space_traits_3_01_basic_linear_space_01_4.html":[3,0,1,3,41],
+"structmgis_1_1function_1_1_space_traits_3_01_basic_linear_space_01_4.html#a1112344c3442eefed48a79c8d06f8d2e":[3,0,1,3,41,0]
 };

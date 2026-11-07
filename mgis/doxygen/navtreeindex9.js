@@ -1,5 +1,6 @@
 var NAVTREEINDEX9 =
 {
+"structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01_tensor_type_01_6_01_4.html":[3,0,1,3,1,66],
 "structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01real_01_6_01_4.html":[3,0,1,3,1,63],
 "structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01std_1_1array_3_01real_00_01_n_01_4_01_6_01_4.html":[3,0,1,3,1,64],
 "structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01std_1_1span_3_01real_00_01_n_01_4_01_4.html":[3,0,1,3,1,65],

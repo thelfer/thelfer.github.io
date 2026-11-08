@@ -5,8 +5,9 @@ var searchData=
   ['keys_2',['keys',['../structtfel_1_1glossary_1_1_glossary.html#a36b7da4330a155ab32c75f8df293efb1',1,'tfel::glossary::Glossary::keys'],['../structtfel_1_1utilities_1_1_test_documentation.html#af875ec367103a979629c99d73645e4ff',1,'tfel::utilities::TestDocumentation::keys']]],
   ['khrs_3',['khrs',['../structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a96c75e1d099e3f9ea20b97338ff41555',1,'mfront::bbrick::InelasticFlowBase']]],
   ['kinematic_4',['kinematic',['../structtfel_1_1system_1_1_external_behaviour_description.html#accada9bd037e5f720b9caabdd033ef35',1,'tfel::system::ExternalBehaviourDescription']]],
-  ['ks_5',['ks',['../structmtest_1_1_solver_options.html#a58a1b392437f55c4827fffc74e350900',1,'mtest::SolverOptions']]],
-  ['ksf_6',['ksf',['../structmfront_1_1bbrick_1_1_hyperbolic_sine_viscoplastic_flow.html#ad0c8147857c391333b0446d0f9dec8be',1,'mfront::bbrick::HyperbolicSineViscoplasticFlow::Ksf'],['../structmfront_1_1bbrick_1_1_norton_hoff_viscoplastic_flow.html#a6de995db50323c9d08adc12212bdea11',1,'mfront::bbrick::NortonHoffViscoplasticFlow::Ksf']]],
-  ['kt_7',['kt',['../structmtest_1_1_behaviour_work_space.html#a8e7458d7632628ab02e7485ea9fd443b',1,'mtest::BehaviourWorkSpace']]],
-  ['ktype_8',['ktype',['../structmtest_1_1_solver_options.html#adf723adc76265d76a5792327db587502',1,'mtest::SolverOptions']]]
+  ['known_5fcompatibility_5fmodes_5',['known_compatibility_modes',['../structmfront_1_1_compatibility_mode.html#ab84e5f37759def7b11ccd87756b975a0',1,'mfront::CompatibilityMode']]],
+  ['ks_6',['ks',['../structmtest_1_1_solver_options.html#a58a1b392437f55c4827fffc74e350900',1,'mtest::SolverOptions']]],
+  ['ksf_7',['ksf',['../structmfront_1_1bbrick_1_1_hyperbolic_sine_viscoplastic_flow.html#ad0c8147857c391333b0446d0f9dec8be',1,'mfront::bbrick::HyperbolicSineViscoplasticFlow::Ksf'],['../structmfront_1_1bbrick_1_1_norton_hoff_viscoplastic_flow.html#a6de995db50323c9d08adc12212bdea11',1,'mfront::bbrick::NortonHoffViscoplasticFlow::Ksf']]],
+  ['kt_8',['kt',['../structmtest_1_1_behaviour_work_space.html#a8e7458d7632628ab02e7485ea9fd443b',1,'mtest::BehaviourWorkSpace']]],
+  ['ktype_9',['ktype',['../structmtest_1_1_solver_options.html#adf723adc76265d76a5792327db587502',1,'mtest::SolverOptions']]]
 ];

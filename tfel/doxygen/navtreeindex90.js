@@ -1,5 +1,10 @@
 var NAVTREEINDEX90 =
 {
+"syevh3_8ixx.html":[8,0,0,1,11],
+"syevj3_8hxx.html":[8,0,0,1,12],
+"syevj3_8ixx.html":[8,0,0,1,13],
+"syevq3_8hxx.html":[8,0,0,1,14],
+"syevq3_8ixx.html":[8,0,0,1,15],
 "syevv3_8hxx.html":[8,0,0,1,16],
 "syevv3_8ixx.html":[8,0,0,1,17],
 "sytrd3_8hxx.html":[8,0,0,1,18],

@@ -1,5 +1,10 @@
 var NAVTREEINDEX49 =
 {
+"structmfront_1_1bbrick_1_1_armstrong_frederick_kinematic_hardening_rule.html#adbb820d3f94b9eb180c717bcd7a026f3":[7,0,10,0,0,0],
+"structmfront_1_1bbrick_1_1_barlat2004_stress_criterion.html":[7,0,10,0,1],
+"structmfront_1_1bbrick_1_1_barlat2004_stress_criterion.html#a0d748318514ddf9935e2352d0af43231":[7,0,10,0,1,1],
+"structmfront_1_1bbrick_1_1_barlat2004_stress_criterion.html#a418a1638d273a1c94bc1285b95f84aa7":[7,0,10,0,1,8],
+"structmfront_1_1bbrick_1_1_barlat2004_stress_criterion.html#a58ecf2a57cd3d56f387e190ce47cedf3":[7,0,10,0,1,7],
 "structmfront_1_1bbrick_1_1_barlat2004_stress_criterion.html#a5c30e71ca7bec5a082f9b0263cefc783":[7,0,10,0,1,4],
 "structmfront_1_1bbrick_1_1_barlat2004_stress_criterion.html#a670308eae823c191d02afadf49f9917c":[7,0,10,0,1,6],
 "structmfront_1_1bbrick_1_1_barlat2004_stress_criterion.html#a79ddc9141abe9557cc09c6e3a72e4cca":[7,0,10,0,1,0],
@@ -244,10 +249,5 @@ var NAVTREEINDEX49 =
 "structmfront_1_1bbrick_1_1_inelastic_flow.html#a6ceab0406d58d010af609cd401f30781":[7,0,10,0,21,12],
 "structmfront_1_1bbrick_1_1_inelastic_flow.html#a7d4734693996b26fce20ea2ae06f00fa":[7,0,10,0,21,6],
 "structmfront_1_1bbrick_1_1_inelastic_flow.html#a7ef458e4c9531f39f6ca65afc2b579ec":[7,0,10,0,21,14],
-"structmfront_1_1bbrick_1_1_inelastic_flow.html#a8b8cf04621d825eacef97333012a2d10":[7,0,10,0,21,9],
-"structmfront_1_1bbrick_1_1_inelastic_flow.html#aa10b6f3b1b37050e395cc9adb14dc4a7":[7,0,10,0,21,13],
-"structmfront_1_1bbrick_1_1_inelastic_flow.html#aa7ef8100ec1b9f85bb61e0e8118ea536":[7,0,10,0,21,0],
-"structmfront_1_1bbrick_1_1_inelastic_flow.html#abdb804462ec489590a4a6b020d3e93b8":[7,0,10,0,21,3],
-"structmfront_1_1bbrick_1_1_inelastic_flow.html#ad551a41c7edfce515a443b33dbd9bf5d":[7,0,10,0,21,2],
-"structmfront_1_1bbrick_1_1_inelastic_flow.html#ad58e81ab4d945bf1beb1ff74af998adf":[7,0,10,0,21,10]
+"structmfront_1_1bbrick_1_1_inelastic_flow.html#a8b8cf04621d825eacef97333012a2d10":[7,0,10,0,21,9]
 };

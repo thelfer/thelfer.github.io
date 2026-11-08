@@ -602,6 +602,7 @@ var hierarchy =
       [ "tfel::check::RelativeAndAbsoluteComparison", "structtfel_1_1check_1_1_relative_and_absolute_comparison.html", null ],
       [ "tfel::check::RelativeComparison", "structtfel_1_1check_1_1_relative_comparison.html", null ]
     ] ],
+    [ "mfront::CompatibilityMode", "structmfront_1_1_compatibility_mode.html", null ],
     [ "mfront::CompiledTargetDescriptionBase", "structmfront_1_1_compiled_target_description_base.html", [
       [ "mfront::ExecutableDescription", "structmfront_1_1_executable_description.html", null ],
       [ "mfront::LibraryDescription", "structmfront_1_1_library_description.html", null ]
@@ -1467,8 +1468,8 @@ var hierarchy =
     [ "mfront::gb::DoNothingEnergyComputer", "structmfront_1_1gb_1_1_do_nothing_energy_computer.html", null ],
     [ "abaqus::AbaqusExplicitInterface< H, T, Behaviour >::DoNothingInitializer", "structabaqus_1_1_abaqus_explicit_interface_1_1_do_nothing_initializer.html", null ],
     [ "lsdyna::LSDYNAExplicitInterface< H, T, Behaviour >::DoNothingInitializer", "structlsdyna_1_1_l_s_d_y_n_a_explicit_interface_1_1_do_nothing_initializer.html", null ],
-    [ "tfel::math::DotProduct< N, M >", "structtfel_1_1math_1_1_dot_product.html", null ],
     [ "tfel::math::dotProduct< N >", "structtfel_1_1math_1_1dot_product.html", null ],
+    [ "tfel::math::DotProduct< N, M >", "structtfel_1_1math_1_1_dot_product.html", null ],
     [ "tfel::math::dotProduct< 0u >", "structtfel_1_1math_1_1dot_product_3_010u_01_4.html", null ],
     [ "tfel::math::DotProduct< 0u, M >", "structtfel_1_1math_1_1_dot_product_3_010u_00_01_m_01_4.html", null ],
     [ "tfel::math::internals::DPK1_DF_to_DTAU_DF_Converter< N >", "structtfel_1_1math_1_1internals_1_1_d_p_k1___d_f__to___d_t_a_u___d_f___converter.html", null ],
@@ -3842,6 +3843,7 @@ var hierarchy =
     [ "tfel::math::VectorMatrixHandle< AType, BType, A, B >", "classtfel_1_1math_1_1_vector_matrix_handle.html", null ],
     [ "tfel::math::VectorTag", "structtfel_1_1math_1_1_vector_tag.html", null ],
     [ "tfel::math::VectorVectorDotProduct", "structtfel_1_1math_1_1_vector_vector_dot_product.html", null ],
+    [ "mfront::CompatibilityMode::Version", "structmfront_1_1_compatibility_mode_1_1_version.html", null ],
     [ "tfel::math::ViewArrayPolicy< ValueType, IndexingPolicyType >", "structtfel_1_1math_1_1_view_array_policy.html", null ],
     [ "tfel::math::internals::ViewsArrayBase< is_scalar, MappedType, ViewIndexingPolicyType >", "structtfel_1_1math_1_1internals_1_1_views_array_base.html", [
       [ "tfel::math::ViewsArray< MappedType, MemoryIndexingPolicyType, ViewIndexingPolicyType >", "structtfel_1_1math_1_1_views_array.html", null ]

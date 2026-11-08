@@ -1,5 +1,10 @@
 var NAVTREEINDEX50 =
 {
+"structmfront_1_1bbrick_1_1_inelastic_flow.html#aa10b6f3b1b37050e395cc9adb14dc4a7":[7,0,10,0,21,13],
+"structmfront_1_1bbrick_1_1_inelastic_flow.html#aa7ef8100ec1b9f85bb61e0e8118ea536":[7,0,10,0,21,0],
+"structmfront_1_1bbrick_1_1_inelastic_flow.html#abdb804462ec489590a4a6b020d3e93b8":[7,0,10,0,21,3],
+"structmfront_1_1bbrick_1_1_inelastic_flow.html#ad551a41c7edfce515a443b33dbd9bf5d":[7,0,10,0,21,2],
+"structmfront_1_1bbrick_1_1_inelastic_flow.html#ad58e81ab4d945bf1beb1ff74af998adf":[7,0,10,0,21,10],
 "structmfront_1_1bbrick_1_1_inelastic_flow.html#ad7414457b0b1f9ec378bba4ec9bd4821":[7,0,10,0,21,5],
 "structmfront_1_1bbrick_1_1_inelastic_flow.html#afe764e77f95ccc495394706df95f7b8b":[7,0,10,0,21,15],
 "structmfront_1_1bbrick_1_1_inelastic_flow_base.html":[7,0,10,0,22],
@@ -244,10 +249,5 @@ var NAVTREEINDEX50 =
 "structmfront_1_1bbrick_1_1_power_law_strain_based_porosity_nucleation_model.html#a9f25a31bd30ed8b06047d2c7218797c8":[7,0,10,0,41,3],
 "structmfront_1_1bbrick_1_1_power_law_stress_based_porosity_nucleation_model.html":[7,0,10,0,42],
 "structmfront_1_1bbrick_1_1_power_law_stress_based_porosity_nucleation_model.html#a1d03164397bde5da5d2d79841e2fc7e8":[7,0,10,0,42,1],
-"structmfront_1_1bbrick_1_1_power_law_stress_based_porosity_nucleation_model.html#a4bc712e5f313ae89e2dc3f3abb9bee20":[7,0,10,0,42,0],
-"structmfront_1_1bbrick_1_1_power_law_stress_based_porosity_nucleation_model.html#ad46ad8083ef326c27e44733cf51585cc":[7,0,10,0,42,2],
-"structmfront_1_1bbrick_1_1_prager_kinematic_hardening_rule.html":[7,0,10,0,43],
-"structmfront_1_1bbrick_1_1_prager_kinematic_hardening_rule.html#a22fed542da3aaa35f420a19021996be2":[7,0,10,0,43,1],
-"structmfront_1_1bbrick_1_1_prager_kinematic_hardening_rule.html#aed62f52365e4522497c03b158d090965":[7,0,10,0,43,0],
-"structmfront_1_1bbrick_1_1_rousselier_tanguy_besson2002_stress_criterion.html":[7,0,10,0,44]
+"structmfront_1_1bbrick_1_1_power_law_stress_based_porosity_nucleation_model.html#a4bc712e5f313ae89e2dc3f3abb9bee20":[7,0,10,0,42,0]
 };

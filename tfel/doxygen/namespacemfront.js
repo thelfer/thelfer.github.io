@@ -52,6 +52,7 @@ var namespacemfront =
     [ "CMaterialPropertyInterface", "structmfront_1_1_c_material_property_interface.html", "structmfront_1_1_c_material_property_interface" ],
     [ "CMaterialPropertyInterfaceBase", "structmfront_1_1_c_material_property_interface_base.html", "structmfront_1_1_c_material_property_interface_base" ],
     [ "CodeBlock", "structmfront_1_1_code_block.html", "structmfront_1_1_code_block" ],
+    [ "CompatibilityMode", "structmfront_1_1_compatibility_mode.html", "structmfront_1_1_compatibility_mode" ],
     [ "CompiledTargetDescriptionBase", "structmfront_1_1_compiled_target_description_base.html", "structmfront_1_1_compiled_target_description_base" ],
     [ "ComsolInterface", "structmfront_1_1_comsol_interface.html", "structmfront_1_1_comsol_interface" ],
     [ "ConfigurationManager", "structmfront_1_1_configuration_manager.html", "structmfront_1_1_configuration_manager" ],

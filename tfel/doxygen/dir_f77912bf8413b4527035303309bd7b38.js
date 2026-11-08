@@ -68,6 +68,7 @@ var dir_f77912bf8413b4527035303309bd7b38 =
     [ "CodeBlock.ixx", "_code_block_8ixx.html", "_code_block_8ixx" ],
     [ "CodeGeneratorUtilities.hxx", "_code_generator_utilities_8hxx.html", "_code_generator_utilities_8hxx" ],
     [ "CodeGeneratorUtilities.ixx", "_code_generator_utilities_8ixx.html", "_code_generator_utilities_8ixx" ],
+    [ "CompatibilityMode.hxx", "_compatibility_mode_8hxx.html", "_compatibility_mode_8hxx" ],
     [ "CompiledTargetDescriptionBase.hxx", "_compiled_target_description_base_8hxx.html", "_compiled_target_description_base_8hxx" ],
     [ "ConfigurationManager.hxx", "mfront_2include_2_m_front_2_configuration_manager_8hxx.html", "mfront_2include_2_m_front_2_configuration_manager_8hxx" ],
     [ "CppMaterialPropertyInterface.hxx", "_cpp_material_property_interface_8hxx.html", "_cpp_material_property_interface_8hxx" ],

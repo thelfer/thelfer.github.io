@@ -1,5 +1,8 @@
 var NAVTREEINDEX11 =
 {
+"classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_t2to_t2_tag_00_01_s_t2to_t2_tag_00_01_a_00_01_b_00_01_op_mult_01_4.html":[5,0,9,1,45],
+"classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_t2to_t2_tag_00_01_s_t2to_t2_tag_00_01_a_00_01_b_00_01_op_mult_01_4.html":[7,0,14,6,48],
+"classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_t2to_t2_tag_00_01_t2to_t2_tag_00_01_a_00_01_b_00_01_op_mult_01_4.html":[5,0,9,1,46],
 "classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_t2to_t2_tag_00_01_t2to_t2_tag_00_01_a_00_01_b_00_01_op_mult_01_4.html":[7,0,14,6,49],
 "classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_t2to_t2_tag_00_01_tensor_tag_00_01_a_00_01_b_00_01_op_mult_01_4.html":[5,0,9,1,47],
 "classtfel_1_1math_1_1_compute_binary_operation_handler_3_01_t2to_t2_tag_00_01_tensor_tag_00_01_a_00_01_b_00_01_op_mult_01_4.html":[7,0,14,6,50],
@@ -246,8 +249,5 @@ var NAVTREEINDEX11 =
 "classtfel_1_1math_1_1_result_type_3_01vector_3_01_t_01_4_00_01vector_3_01_t2_01_4_00_01_op_diadic_product_01_4.html":[5,0,9,1,488],
 "classtfel_1_1math_1_1_result_type_3_01vector_3_01_t_01_4_00_01vector_3_01_t2_01_4_00_01_op_diadic_product_01_4.html":[7,0,14,6,491],
 "classtfel_1_1math_1_1_result_type_3_01vector_3_01_t_01_4_00_01vector_3_01_t2_01_4_00_01_op_dot_product_01_4.html":[5,0,9,1,489],
-"classtfel_1_1math_1_1_result_type_3_01vector_3_01_t_01_4_00_01vector_3_01_t2_01_4_00_01_op_dot_product_01_4.html":[7,0,14,6,492],
-"classtfel_1_1math_1_1_result_type_3_01vector_3_01_t_01_4_00_01vector_3_01_t2_01_4_00_01_op_minus_01_4.html":[5,0,9,1,490],
-"classtfel_1_1math_1_1_result_type_3_01vector_3_01_t_01_4_00_01vector_3_01_t2_01_4_00_01_op_minus_01_4.html":[7,0,14,6,493],
-"classtfel_1_1math_1_1_result_type_3_01vector_3_01_t_01_4_00_01vector_3_01_t2_01_4_00_01_op_mult_01_4.html":[5,0,9,1,491]
+"classtfel_1_1math_1_1_result_type_3_01vector_3_01_t_01_4_00_01vector_3_01_t2_01_4_00_01_op_dot_product_01_4.html":[7,0,14,6,492]
 };

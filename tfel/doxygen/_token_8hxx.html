@@ -126,6 +126,12 @@ Namespaces</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:a701bcd8e55573694ba9bfaabd36e6309" id="r_a701bcd8e55573694ba9bfaabd36e6309"><td class="memItemLeft" align="right" valign="top">TFELUTILITIES_VISIBILITY_EXPORT bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_token_8hxx.html#a701bcd8e55573694ba9bfaabd36e6309">tfel::utilities::isComment</a> (const <a class="el" href="structtfel_1_1utilities_1_1_token.html">Token</a> &amp;)</td></tr>
 <tr class="separator:a701bcd8e55573694ba9bfaabd36e6309"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68d86cc4ab312d01ab3c5403d4a47175" id="r_a68d86cc4ab312d01ab3c5403d4a47175"><td class="memItemLeft" align="right" valign="top">TFELUTILITIES_VISIBILITY_EXPORT bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_token_8hxx.html#a68d86cc4ab312d01ab3c5403d4a47175">tfel::utilities::isRawString</a> (const <a class="el" href="structtfel_1_1utilities_1_1_token.html">Token</a> &amp;)</td></tr>
+<tr class="separator:a68d86cc4ab312d01ab3c5403d4a47175"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbc4dfa3f8eff7f366ccde231cc48693" id="r_abbc4dfa3f8eff7f366ccde231cc48693"><td class="memItemLeft" align="right" valign="top">TFELUTILITIES_VISIBILITY_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_token_8hxx.html#abbc4dfa3f8eff7f366ccde231cc48693">tfel::utilities::getRawStringDelimiter</a> (const <a class="el" href="structtfel_1_1utilities_1_1_token.html">Token</a> &amp;)</td></tr>
+<tr class="separator:abbc4dfa3f8eff7f366ccde231cc48693"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6466fd064013a95c23b1b226f6e03ae" id="r_ac6466fd064013a95c23b1b226f6e03ae"><td class="memItemLeft" align="right" valign="top">TFELUTILITIES_VISIBILITY_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_token_8hxx.html#ac6466fd064013a95c23b1b226f6e03ae">tfel::utilities::getContents</a> (const <a class="el" href="structtfel_1_1utilities_1_1_token.html">Token</a> &amp;)</td></tr>
+<tr class="separator:ac6466fd064013a95c23b1b226f6e03ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file declares the Token class. </p>
@@ -133,6 +139,57 @@ Functions</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>20/11/2006 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (C) 2006-2025 CEA/DEN, EDF R&amp;D. All rights reserved. This project is publicly released under either the GNU GPL Licence with linking exception or the CECILL-A licence. A copy of thoses licences are delivered with the sources of TFEL. CEA or EDF may also distribute this project under specific licensing conditions. </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="ac6466fd064013a95c23b1b226f6e03ae" name="ac6466fd064013a95c23b1b226f6e03ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6466fd064013a95c23b1b226f6e03ae">&#9670;&#160;</a></span>getContents()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TFELUTILITIES_VISIBILITY_EXPORT std::string tfel::utilities::getContents </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structtfel_1_1utilities_1_1_token.html">Token</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the contents of the literal held by the given token: its value without the double quotes of a quoted string, without the single quotes of a character literal and without the <code>R"delim(&lt;/tt&gt; prefix and the &lt;tt&gt;)delim"</code> suffix of a raw string literal.</dd></dl>
+<p>The consumers which strip the quotes of a string token shall use this method instead of removing the first and last characters of the value, which truncates a raw string literal, see issue #1390. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>token </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abbc4dfa3f8eff7f366ccde231cc48693" name="abbc4dfa3f8eff7f366ccde231cc48693"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbc4dfa3f8eff7f366ccde231cc48693">&#9670;&#160;</a></span>getRawStringDelimiter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TFELUTILITIES_VISIBILITY_EXPORT std::string tfel::utilities::getRawStringDelimiter </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structtfel_1_1utilities_1_1_token.html">Token</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the delimiter of the raw string literal held by the given token, that is the sequence of characters between the <code>R"&lt;/tt&gt; and the &lt;tt&gt;(&lt;/tt&gt; of its
+value, which is empty for a literal of the &lt;tt&gt;R"(contents)"</code> form. An empty string is also returned if the token does not hold a raw string literal. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>token </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a701bcd8e55573694ba9bfaabd36e6309" name="a701bcd8e55573694ba9bfaabd36e6309"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a701bcd8e55573694ba9bfaabd36e6309">&#9670;&#160;</a></span>isComment()</h2>
 
@@ -158,13 +215,38 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a68d86cc4ab312d01ab3c5403d4a47175" name="a68d86cc4ab312d01ab3c5403d4a47175"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68d86cc4ab312d01ab3c5403d4a47175">&#9670;&#160;</a></span>isRawString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TFELUTILITIES_VISIBILITY_EXPORT bool tfel::utilities::isRawString </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structtfel_1_1utilities_1_1_token.html">Token</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>true if the token holds a raw string literal, that is a literal of the <code>R"delim(contents)delim"</code> form, whatever the contents of the token. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>token </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_f1614b9bfb736e18e5ccdeb7e67f6541.html">TFEL</a></li><li class="navelem"><a class="el" href="dir_b9d6dae05f60c91f4962a09fdd6e52d9.html">Utilities</a></li><li class="navelem"><a class="el" href="_token_8hxx.html">Token.hxx</a></li>
-    <li class="footer">Generated on Wed Nov 11 2026 21:05:07 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Nov 11 2026 21:49:23 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

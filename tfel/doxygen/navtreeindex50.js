@@ -1,5 +1,8 @@
 var NAVTREEINDEX50 =
 {
+"structmfront_1_1bbrick_1_1_hooke_stress_potential_base.html#a40c3fde0bc04c06f5cfc18d21d568a7c":[7,0,10,0,18,18],
+"structmfront_1_1bbrick_1_1_hooke_stress_potential_base.html#a41e48928f04a544f1911a77d0d29bf5e":[7,0,10,0,18,4],
+"structmfront_1_1bbrick_1_1_hooke_stress_potential_base.html#a4569d4a6ed881abd5dd56602d009f0d1":[7,0,10,0,18,20],
 "structmfront_1_1bbrick_1_1_hooke_stress_potential_base.html#a478ac2a2485e1d146d65b62a1c80bb3a":[7,0,10,0,18,8],
 "structmfront_1_1bbrick_1_1_hooke_stress_potential_base.html#a4e328d0e9d18f8f1b327a2a5ceb8b2c3":[7,0,10,0,18,9],
 "structmfront_1_1bbrick_1_1_hooke_stress_potential_base.html#a53ea59b1ac950a8be9791a28ca8cdba7":[7,0,10,0,18,15],
@@ -246,8 +249,5 @@ var NAVTREEINDEX50 =
 "structmfront_1_1bbrick_1_1_option_description.html#abe8531a5f665830eebc97ce385dc8b6e":[7,0,10,0,35,11],
 "structmfront_1_1bbrick_1_1_option_description.html#ada627cc437cb0f75a7977870bba72c7f":[7,0,10,0,35,15],
 "structmfront_1_1bbrick_1_1_option_description.html#af36d50ec11f267dfb295400db96ca353":[7,0,10,0,35,6],
-"structmfront_1_1bbrick_1_1_plastic_inelastic_flow.html":[7,0,10,0,36],
-"structmfront_1_1bbrick_1_1_plastic_inelastic_flow.html#a3791566084a48201926100760071b5c2":[7,0,10,0,36,4],
-"structmfront_1_1bbrick_1_1_plastic_inelastic_flow.html#a56e4440377f8da676c54d66958e4c0d9":[7,0,10,0,36,1],
-"structmfront_1_1bbrick_1_1_plastic_inelastic_flow.html#a65bd7ff06e0c13ba96da4d522572093e":[7,0,10,0,36,3]
+"structmfront_1_1bbrick_1_1_plastic_inelastic_flow.html":[7,0,10,0,36]
 };

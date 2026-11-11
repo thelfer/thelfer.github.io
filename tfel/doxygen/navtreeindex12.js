@@ -1,5 +1,8 @@
 var NAVTREEINDEX12 =
 {
+"classtfel_1_1math_1_1_result_type_3_01vector_3_01_t_01_4_00_01vector_3_01_t2_01_4_00_01_op_minus_01_4.html":[5,0,9,1,490],
+"classtfel_1_1math_1_1_result_type_3_01vector_3_01_t_01_4_00_01vector_3_01_t2_01_4_00_01_op_minus_01_4.html":[7,0,14,6,493],
+"classtfel_1_1math_1_1_result_type_3_01vector_3_01_t_01_4_00_01vector_3_01_t2_01_4_00_01_op_mult_01_4.html":[5,0,9,1,491],
 "classtfel_1_1math_1_1_result_type_3_01vector_3_01_t_01_4_00_01vector_3_01_t2_01_4_00_01_op_mult_01_4.html":[7,0,14,6,494],
 "classtfel_1_1math_1_1_result_type_3_01vector_3_01_t_01_4_00_01vector_3_01_t2_01_4_00_01_op_plus_01_4.html":[7,0,14,6,495],
 "classtfel_1_1math_1_1_result_type_3_01vector_3_01_t_01_4_00_01vector_3_01_t2_01_4_00_01_op_plus_01_4.html":[5,0,9,1,492],
@@ -246,8 +249,5 @@ var NAVTREEINDEX12 =
 "fses_8hxx.html":[8,0,0,1,0],
 "function__tests_8hxx.html":[8,0,6,0,0,1],
 "function__tests_8ixx.html":[8,0,6,0,0,2],
-"function__unary__tests_8hxx.html":[8,0,6,0,0,3],
-"function__unary__tests_8ixx.html":[8,0,6,0,0,4],
-"functions.html":[7,3,0,0],
-"functions.html":[7,3,0]
+"function__unary__tests_8hxx.html":[8,0,6,0,0,3]
 };

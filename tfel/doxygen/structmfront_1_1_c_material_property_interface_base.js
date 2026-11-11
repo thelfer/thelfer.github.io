@@ -16,6 +16,7 @@ var structmfront_1_1_c_material_property_interface_base =
     [ "writeBeginSrcNamespace", "structmfront_1_1_c_material_property_interface_base.html#a106841afe24164a55562d2421be351b2", null ],
     [ "writeBuildIdentifierSymbol", "structmfront_1_1_c_material_property_interface_base.html#a07d6fea5317069ca3f5bb13c1c25ed08", null ],
     [ "writeCErrorTreatment", "structmfront_1_1_c_material_property_interface_base.html#acc3f034ea5b788e89f6f2c390734d250", null ],
+    [ "writeCompatibilityModeSymbol", "structmfront_1_1_c_material_property_interface_base.html#ade63c8d6b99b3f6b0d30cfbe9729baf4", null ],
     [ "writeCxxCatchBlock", "structmfront_1_1_c_material_property_interface_base.html#ab8a6580c31a7882f25e22444e6e686bc", null ],
     [ "writeCxxTryBlock", "structmfront_1_1_c_material_property_interface_base.html#af8f7dc20ea085c46a6fc29a4aa6b6d46", null ],
     [ "writeEndHeaderNamespace", "structmfront_1_1_c_material_property_interface_base.html#a1d91b1668008fafadc69da614702023b", null ],

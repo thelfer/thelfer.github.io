@@ -36,6 +36,7 @@ var structtfel_1_1system_1_1_external_library_manager =
     [ "getCFunction7", "structtfel_1_1system_1_1_external_library_manager.html#a6e1c8b64653d6925b061dc1854897b66", null ],
     [ "getCFunction8", "structtfel_1_1system_1_1_external_library_manager.html#a95ed7b5107a71ec786354e69d3dae03c", null ],
     [ "getCFunction9", "structtfel_1_1system_1_1_external_library_manager.html#a158e35f5b8519a18b18a4033d3987ae6", null ],
+    [ "getCompatibilityMode", "structtfel_1_1system_1_1_external_library_manager.html#ad7ddb42155e81e80a205895027942c04", null ],
     [ "getCyranoFunction", "structtfel_1_1system_1_1_external_library_manager.html#a137fd59fd42f12de2812819b8d893ee6", null ],
     [ "getCyranoMaterialProperty", "structtfel_1_1system_1_1_external_library_manager.html#a9b0235e58160ead1aba54651f9827f02", null ],
     [ "getCyranoMaterialPropertyNumberOfVariables", "structtfel_1_1system_1_1_external_library_manager.html#a8fcadb72f3ce29035eee643362b4b1da", null ],

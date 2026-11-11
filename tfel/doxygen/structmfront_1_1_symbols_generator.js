@@ -14,6 +14,7 @@ var structmfront_1_1_symbols_generator =
     [ "writeBehaviourTypeSymbols", "structmfront_1_1_symbols_generator.html#a7d3148db10fe3bcff52c7a81f365aea5", null ],
     [ "writeBoundsSymbols", "structmfront_1_1_symbols_generator.html#a3e485ba4b7b77ef71eac868dc7170013", null ],
     [ "writeBuildIdentifierSymbol", "structmfront_1_1_symbols_generator.html#aa98dcabb536fb9a9ee1177ad30e63573", null ],
+    [ "writeCompatibilityModeSymbol", "structmfront_1_1_symbols_generator.html#a83ce905fcdf986f540af7de4f08cb898", null ],
     [ "writeComputesDissipatedEnergySymbol", "structmfront_1_1_symbols_generator.html#ac489ea132d0de3152b61630bd1afa9a1", null ],
     [ "writeComputesInternalEnergySymbol", "structmfront_1_1_symbols_generator.html#a4e4e50ad45a3f80c48d4abedd80f85ea", null ],
     [ "writeElasticSymmetryTypeSymbols", "structmfront_1_1_symbols_generator.html#abbf78dcbf92c450784fdfd71798dce5d", null ],

@@ -2367,9 +2367,16 @@ var annotated_dup =
         [ "TextData", "structtfel_1_1utilities_1_1_text_data.html", "structtfel_1_1utilities_1_1_text_data" ],
         [ "Token", "structtfel_1_1utilities_1_1_token.html", "structtfel_1_1utilities_1_1_token" ]
       ] ],
-      [ "PhysicalConstants", "structtfel_1_1_physical_constants.html", null ],
-      [ "PhysicalConstants< NumericType, false >", "structtfel_1_1_physical_constants_3_01_numeric_type_00_01false_01_4.html", null ],
-      [ "PhysicalConstants< NumericType, true >", "structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4.html", "structtfel_1_1_physical_constants_3_01_numeric_type_00_01true_01_4" ]
+      [ "v5_2_0", null, [
+        [ "PhysicalConstants", "structtfel_1_1v5__2__0_1_1_physical_constants.html", null ],
+        [ "PhysicalConstants< NumericType, false >", "structtfel_1_1v5__2__0_1_1_physical_constants_3_01_numeric_type_00_01false_01_4.html", null ],
+        [ "PhysicalConstants< NumericType, true >", "structtfel_1_1v5__2__0_1_1_physical_constants_3_01_numeric_type_00_01true_01_4.html", "structtfel_1_1v5__2__0_1_1_physical_constants_3_01_numeric_type_00_01true_01_4" ]
+      ] ],
+      [ "v6_0_0", null, [
+        [ "PhysicalConstants", "structtfel_1_1v6__0__0_1_1_physical_constants.html", null ],
+        [ "PhysicalConstants< NumericType, false >", "structtfel_1_1v6__0__0_1_1_physical_constants_3_01_numeric_type_00_01false_01_4.html", null ],
+        [ "PhysicalConstants< NumericType, true >", "structtfel_1_1v6__0__0_1_1_physical_constants_3_01_numeric_type_00_01true_01_4.html", "structtfel_1_1v6__0__0_1_1_physical_constants_3_01_numeric_type_00_01true_01_4" ]
+      ] ]
     ] ],
     [ "tfel ", null, [
       [ "math", null, [

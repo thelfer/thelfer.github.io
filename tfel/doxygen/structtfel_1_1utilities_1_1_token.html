@@ -164,17 +164,15 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a3245ca86b68c617065dfe5a2121be01c" id="r_a3245ca86b68c617065dfe5a2121be01c"><td class="memItemLeft" align="right" valign="top"><a id="a3245ca86b68c617065dfe5a2121be01c" name="a3245ca86b68c617065dfe5a2121be01c"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>value</b></td></tr>
-<tr class="memdesc:a3245ca86b68c617065dfe5a2121be01c"><td class="mdescLeft">&#160;</td><td class="mdescRight">string holded by the token <br /></td></tr>
+<tr class="memitem:a3245ca86b68c617065dfe5a2121be01c" id="r_a3245ca86b68c617065dfe5a2121be01c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1utilities_1_1_token.html#a3245ca86b68c617065dfe5a2121be01c">value</a></td></tr>
+<tr class="memdesc:a3245ca86b68c617065dfe5a2121be01c"><td class="mdescLeft">&#160;</td><td class="mdescRight">string holded by the token  <br /></td></tr>
 <tr class="separator:a3245ca86b68c617065dfe5a2121be01c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69c9500e52aefc1ae1053385555d57a1" id="r_a69c9500e52aefc1ae1053385555d57a1"><td class="memItemLeft" align="right" valign="top"><a id="a69c9500e52aefc1ae1053385555d57a1" name="a69c9500e52aefc1ae1053385555d57a1"></a>
 <a class="el" href="structtfel_1_1utilities_1_1_token.html#a15ab64a503af9590bbeecb1e772a2691">size_type</a>&#160;</td><td class="memItemRight" valign="bottom"><b>line</b> = 0u</td></tr>
 <tr class="memdesc:a69c9500e52aefc1ae1053385555d57a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">line number <br /></td></tr>
 <tr class="separator:a69c9500e52aefc1ae1053385555d57a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3db049896a2c66cbc25345513978e9f6" id="r_a3db049896a2c66cbc25345513978e9f6"><td class="memItemLeft" align="right" valign="top"><a id="a3db049896a2c66cbc25345513978e9f6" name="a3db049896a2c66cbc25345513978e9f6"></a>
-<a class="el" href="structtfel_1_1utilities_1_1_token.html#a15ab64a503af9590bbeecb1e772a2691">size_type</a>&#160;</td><td class="memItemRight" valign="bottom"><b>offset</b> = 0u</td></tr>
-<tr class="memdesc:a3db049896a2c66cbc25345513978e9f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">offset in the line <br /></td></tr>
+<tr class="memitem:a3db049896a2c66cbc25345513978e9f6" id="r_a3db049896a2c66cbc25345513978e9f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtfel_1_1utilities_1_1_token.html#a15ab64a503af9590bbeecb1e772a2691">size_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1utilities_1_1_token.html#a3db049896a2c66cbc25345513978e9f6">offset</a> = 0u</td></tr>
+<tr class="memdesc:a3db049896a2c66cbc25345513978e9f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">offset in the line  <br /></td></tr>
 <tr class="separator:a3db049896a2c66cbc25345513978e9f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a139125af21ec74643f000b279f48467b" id="r_a139125af21ec74643f000b279f48467b"><td class="memItemLeft" align="right" valign="top"><a id="a139125af21ec74643f000b279f48467b" name="a139125af21ec74643f000b279f48467b"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>comment</b></td></tr>
@@ -239,6 +237,42 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>comment</b></t
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a3db049896a2c66cbc25345513978e9f6" name="a3db049896a2c66cbc25345513978e9f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3db049896a2c66cbc25345513978e9f6">&#9670;&#160;</a></span>offset</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structtfel_1_1utilities_1_1_token.html#a15ab64a503af9590bbeecb1e772a2691">size_type</a> tfel::utilities::Token::offset = 0u</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>offset in the line </p>
+<p>The offset of a token is the position, in the line the token starts on, of the first character the token stands for. The offset of a token whose value is empty, which is only possible for a comment and for a raw string literal, is that of the delimiter which opens it. The offset of a comment is therefore always strictly smaller than the size of the line the comment starts on, see issue #1391. The raw string literals are the exception: the value and the offset of such a token are those of its contents, not those of the literal itself, which is the defect reported in issue #1390.</p>
+<p>A token may span several lines, which is the case of a comment and of a raw string literal: the line and the offset of such a token are those of its first line, whereas its value gathers the lines it spans. The offset of a comment without contents on the line it starts on, as the offset of an empty comment, is that of the delimiter which opens it. </p>
+
+</div>
+</div>
+<a id="a3245ca86b68c617065dfe5a2121be01c" name="a3245ca86b68c617065dfe5a2121be01c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3245ca86b68c617065dfe5a2121be01c">&#9670;&#160;</a></span>value</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string tfel::utilities::Token::value</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>string holded by the token </p>
+<p>The value of a comment, that is of a token whose flag is Comment, DoxygenComment or DoxygenBackwardComment, is the contents of the comment: the delimiters of the comment and the spaces which surround its contents are not a part of the value. An empty comment, as <code>//</code> or a <code>C</code> style comment without any contents, thus gives a token with an empty value. </p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="_token_8hxx.html">Token.hxx</a></li>
 </ul>
@@ -248,7 +282,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>comment</b></t
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetfel.html">tfel</a></li><li class="navelem"><b>utilities</b></li><li class="navelem"><a class="el" href="structtfel_1_1utilities_1_1_token.html">Token</a></li>
-    <li class="footer">Generated on Wed Nov 11 2026 20:28:59 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Nov 11 2026 20:38:27 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

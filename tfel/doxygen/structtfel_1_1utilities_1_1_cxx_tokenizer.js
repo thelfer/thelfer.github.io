@@ -25,6 +25,7 @@ var structtfel_1_1utilities_1_1_cxx_tokenizer =
     [ "mergeStrings", "structtfel_1_1utilities_1_1_cxx_tokenizer.html#a94c00add494f0bb5cbef080928134e5f", null ],
     [ "openFile", "structtfel_1_1utilities_1_1_cxx_tokenizer.html#a88cb7d93a8497f77aac7e84c5a64c323", null ],
     [ "operator[]", "structtfel_1_1utilities_1_1_cxx_tokenizer.html#a3d5d8798ed1e87893582930a67af7b78", null ],
+    [ "parseNumber", "structtfel_1_1utilities_1_1_cxx_tokenizer.html#a4187974ccb7429f98482611727b287da", null ],
     [ "parseRawString", "structtfel_1_1utilities_1_1_cxx_tokenizer.html#a1c9bd327b34ffeb2d84c43e3023a6e7a", null ],
     [ "parseStream", "structtfel_1_1utilities_1_1_cxx_tokenizer.html#aad0deba0174db3650572b3e4076c1a0a", null ],
     [ "parseString", "structtfel_1_1utilities_1_1_cxx_tokenizer.html#a4cfacb14c02ffe836b51c496eac82940", null ],

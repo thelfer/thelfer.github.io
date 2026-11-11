@@ -304,6 +304,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:aad0deba0174db3650572b3e4076c1a0a" id="r_aad0deba0174db3650572b3e4076c1a0a"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="include_2_cyrano_2_behaviour_8hxx.html#a1f775cf4fa3cbc5f015abdd0796e276c">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1utilities_1_1_cxx_tokenizer.html#aad0deba0174db3650572b3e4076c1a0a">parseStream</a> (std::istream &amp;, <a class="el" href="structtfel_1_1utilities_1_1_token.html#a15ab64a503af9590bbeecb1e772a2691">Token::size_type</a> &amp;, const std::string &amp;)</td></tr>
+<tr class="memdesc:aad0deba0174db3650572b3e4076c1a0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">tokenize the lines of a stream  <br /></td></tr>
 <tr class="separator:aad0deba0174db3650572b3e4076c1a0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86ba1b2b57c5dfb646f2fff4bea5c244" id="r_a86ba1b2b57c5dfb646f2fff4bea5c244"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="include_2_cyrano_2_behaviour_8hxx.html#a1f775cf4fa3cbc5f015abdd0796e276c">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1utilities_1_1_cxx_tokenizer.html#a86ba1b2b57c5dfb646f2fff4bea5c244">splitLine</a> (const std::string &amp;, const <a class="el" href="structtfel_1_1utilities_1_1_token.html#a15ab64a503af9590bbeecb1e772a2691">Token::size_type</a>)</td></tr>
 <tr class="separator:a86ba1b2b57c5dfb646f2fff4bea5c244"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1240,6 +1241,9 @@ template&lt;typename InputIterator &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>tokenize the lines of a stream </p>
+<p>The lines are tokenized from the current position of the stream and n is increased by the number of lines which have been tokenized. The last line of a stream may not be terminated by an end of line character: such a line is tokenized as the others. On the contrary, an end of line character at the very end of a stream does not introduce an additional empty line, so that tokenizing a stream gives the same tokens as tokenizing its contents line by line, up to the line numbers, which are those of the stream.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">in</td><td>input stream </td></tr>
@@ -1268,6 +1272,7 @@ template&lt;typename InputIterator &gt; </div>
 </div><div class="memdoc">
 
 <p>analyse the string given all previous tokens are erased </p>
+<p>The line numbers of the tokens of the string start at the first line: tokenizing a file with several calls to this method, a call per line, gives the same tokens as tokenizing its whole contents with a single call, but the lines of those tokens are those of the line the call is given. A caller who wants to keep the line numbering of a file shall use the parseStream method, which takes the current line number as an argument.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td>: string to be parsed </td></tr>
@@ -2197,7 +2202,7 @@ template&lt;typename InputIterator &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetfel.html">tfel</a></li><li class="navelem"><b>utilities</b></li><li class="navelem"><a class="el" href="structtfel_1_1utilities_1_1_cxx_tokenizer.html">CxxTokenizer</a></li>
-    <li class="footer">Generated on Wed Nov 11 2026 19:35:11 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Nov 11 2026 19:46:57 for tfel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

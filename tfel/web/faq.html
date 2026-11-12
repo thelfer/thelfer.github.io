@@ -285,6 +285,7 @@
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
                  <li><a href="behaviour-variable.html">Behaviour variables</a></li>
+                 <li><a href="mfront-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -330,6 +331,7 @@
 	    </li>
 	    <li><a href="mtest.html">MTest</a>
                <ul>
+	      <li><a href="ptest.html">Simulation of pipes</a></li>
 	      <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
               <li><a href="MTest-keywords.html">MTest keywords</a></li>
 	      </ul>
@@ -354,6 +356,7 @@
 		<li><a href="tfel-material-homogenization.html">TFEL/Material homogenization</a></li>
                  <li><a href="glossary.html">Glossary</a></li>
                  <li><a href="physical-constants.html">Physical constants</a></li>
+                 <li><a href="tfel-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="tfel-mfront-database.html">TFELMFrontDatabase</a></li>
 	      </ul>
 	    </li>
@@ -373,6 +376,7 @@
 	  <ul>
 	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
 	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="coding-guidelines.html">Coding guidelines</a></li>
 	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
 	  </ul>
 	</li>
@@ -519,7 +523,7 @@ specific needs.</p>
 <p>The installation process is fully described in the following
 pages:</p>
 <ul>
-<li><a href="install.hml">install.html</a>: this document describes the
+<li><a href="install.html">install.html</a>: this document describes the
 generic installation procedure for <code>TFEL</code> from the sources on
 posix-compliant systems. Please note that the main system on which
 <code>TFEL</code> was developed is <code>Linux</code>. Extensive testing
@@ -690,13 +694,18 @@ prediction of the stresses, in particular at the second iteration, the
 steps or use more robust algorithms (<code>PowellDogLeg</code>,
 <code>LevenbergMarquardt</code>). Otherwise, you must check your
 units.</p>
+<p>Note that the <code>PowellDogLeg</code> algorithms limit the progress
+per iteration to about the size given by the
+<code>@PowellDogLegTrustRegionSize</code> keyword (<span
+class="math inline">\(10^{-4}\)</span> by default), which must thus be
+adapted to the expected increments of the integration variables.</p>
 <h4 id="divergence-spurious-oscillations-in-the-residual">Divergence
 spurious oscillations in the residual</h4>
 <p>In the second case, the trouble may be related to your implementation
 of the Jacobian matrix (assuming you are using an <code>Implicit</code>
 scheme with analytical jacobian). In this case, it is worth comparing
 your jacobian to a numerical one (see
-<code>@CompareToNumericalJaobian</code>). As this comparison is CPU
+<code>@CompareToNumericalJacobian</code>). As this comparison is CPU
 intensive, please consider specifying this keyword in the command line
 rather than in your implementation to avoid forgetting to remove it in
 your real-world tests:</p>

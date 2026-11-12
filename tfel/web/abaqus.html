@@ -287,6 +287,7 @@
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
                  <li><a href="behaviour-variable.html">Behaviour variables</a></li>
+                 <li><a href="mfront-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -332,6 +333,7 @@
 	    </li>
 	    <li><a href="mtest.html">MTest</a>
                <ul>
+	      <li><a href="ptest.html">Simulation of pipes</a></li>
 	      <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
               <li><a href="MTest-keywords.html">MTest keywords</a></li>
 	      </ul>
@@ -356,6 +358,7 @@
 		<li><a href="tfel-material-homogenization.html">TFEL/Material homogenization</a></li>
                  <li><a href="glossary.html">Glossary</a></li>
                  <li><a href="physical-constants.html">Physical constants</a></li>
+                 <li><a href="tfel-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="tfel-mfront-database.html">TFELMFrontDatabase</a></li>
 	      </ul>
 	    </li>
@@ -375,6 +378,7 @@
 	  <ul>
 	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
 	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="coding-guidelines.html">Coding guidelines</a></li>
 	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
 	  </ul>
 	</li>
@@ -453,14 +457,13 @@ available</strong> (See the <code>@AbaqusFiniteStrainStrategy</code>
 keyword and the section dedicated to finite strain strategies below).
 The <code>Native</code> finite strain strategy will use the
 <code>Abaqus/Standard</code> functionalities to integrate the behaviour
-in “rate-form” and also adds a correction to the tangent operator (see
-below for details). <em>The user must then be aware that when using the
-<code>Native</code> finite strain strategy, results will depend on the
-fact that an orientation is defined or not</em>. Furthermore, behaviours
-using the <code>Native</code> finite strain strategy (or no strategy at
-all) can not be ported to other solvers. If portability is an issue,
-consider using one of the other finite strain strategies (see
-below).</li>
+in “rate-form” (see below for details). <em>The user must then be aware
+that when using the <code>Native</code> finite strain strategy, results
+will depend on the fact that an orientation is defined or not</em>.
+Furthermore, behaviours using the <code>Native</code> finite strain
+strategy (or no strategy at all) can not be ported to other solvers. If
+portability is an issue, consider using one of the other finite strain
+strategies (see below).</li>
 <li>For <code>Abaqus/Standard</code>, the usage of the
 <code>Native</code> finite strain strategy is <strong>not</strong>
 compatible with <code>Abaqus/Explicit</code> because the latter always
@@ -738,6 +741,10 @@ finite strain strategy</h3>
 relies on built-in <code>Abaqus/Standard</code> facilities to integrate
 the behaviours written in rate form. The <code>Native</code> finite
 strain strategy will use the Jauman rate.</p>
+<p>The behaviour is called as a small strain behaviour: the stress and
+the tangent operator that it computes are returned to
+<code>Abaqus/Standard</code> unchanged, without any correction of the
+tangent operator.</p>
 <p>Those strategies have some theoretical drawbacks (hypoelasticity,
 etc…) and are not portable from one code to another.</p>
 <h3 id="recommended-finite-strain-strategies">Recommended finite strain

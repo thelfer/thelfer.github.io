@@ -188,6 +188,7 @@
 		<li><a href="orthotropic-behaviours.html">Support for orthotropic behaviours</a></li>
 		<li><a href="behaviour-integration-failure-analysis.html">Analysing failure of behaviour integration</a></li>
 		<li><a href="functions.html">Functions</a></li>
+		<li><a href="profiling.html">Profiling</a></li>
 	      </ul>
 	    </li>
 	    <li><a href="faq.html">FAQ</a></li>
@@ -314,10 +315,13 @@ stored.</li>
 stored.</li>
 <li>a pointer to the rotation matrix from the global frame to the
 material frame. The rotation matrix has 9 components stored in
-column-major format. For the function handling the thermodynamic forces
-and the tangent operators blocks, this rotation matrix is transposed
-internally to get the rotation matrix from the material frame to the
-global frame.</li>
+column-major format. The rows of this matrix are the material axes
+expressed in the global frame, so the 9 components are the first
+components of the three material axes, then their second components,
+then their third components. For the function handling the thermodynamic
+forces and the tangent operators blocks, this rotation matrix is
+transposed internally to get the rotation matrix from the material frame
+to the global frame.</li>
 </ul>
 <p>Note that, for efficiency reasons, those functions do no perform any
 consistency checks. In particular:</p>
@@ -355,8 +359,8 @@ This function assumes that its first argument is the first
 Piola-Kirchhoff stress in the material frame.</li>
 <li><code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateThermodynamicForces_PK2Stress</code>.
 This function assumes that its first argument is the second
-Piola-Kirchhoff stress in the material frame.
-<code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateTangentOperatorBlocks_dsig_dF</code>.
+Piola-Kirchhoff stress in the material frame.</li>
+<li><code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateTangentOperatorBlocks_dsig_dF</code>.
 This function assumes that its first argument is the derivative of the
 Cauchy stress with respect to the deformation gradient in the material
 frame.</li>
@@ -364,10 +368,14 @@ frame.</li>
 This function assumes that its first argument is the derivative of the
 first Piola-Kirchhoff stress with respect to the deformation gradient in
 the material frame.</li>
-<li><code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateTangentOperatorBlocks_PK2Stress</code>.
+<li><code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateTangentOperatorBlocks_dPK2_dEGL</code>.
 This function assumes that its first argument is the derivative of the
 second Piola-Kirchhoff stress with respect to the Green-Lagrange strain
 in the material frame.</li>
+<li><code>&lt;behaviour_function_name&gt;_&lt;hypothesis&gt;_rotateTangentOperatorBlocks_dtau_ddF</code>.
+This function assumes that its first argument is the derivative of the
+Kirchhoff stress with respect to the spatial increment of the
+deformation gradient in the material frame.</li>
 </ul>
 <h1 id="sec:mgis:orthotropic_behaviours:mgis_support">Features of
 <code>MGIS</code> related to orthotropic behaviours</h1>

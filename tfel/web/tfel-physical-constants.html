@@ -221,6 +221,7 @@
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
                  <li><a href="behaviour-variable.html">Behaviour variables</a></li>
+                 <li><a href="mfront-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -266,6 +267,7 @@
 	    </li>
 	    <li><a href="mtest.html">MTest</a>
                <ul>
+	      <li><a href="ptest.html">Simulation of pipes</a></li>
 	      <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
               <li><a href="MTest-keywords.html">MTest keywords</a></li>
 	      </ul>
@@ -290,6 +292,7 @@
 		<li><a href="tfel-material-homogenization.html">TFEL/Material homogenization</a></li>
                  <li><a href="glossary.html">Glossary</a></li>
                  <li><a href="physical-constants.html">Physical constants</a></li>
+                 <li><a href="tfel-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="tfel-mfront-database.html">TFELMFrontDatabase</a></li>
 	      </ul>
 	    </li>
@@ -309,6 +312,7 @@
 	  <ul>
 	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
 	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="coding-guidelines.html">Coding guidelines</a></li>
 	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
 	  </ul>
 	</li>
@@ -324,7 +328,7 @@
       </ul>
     </header>
 <div id="header">
-<h1 class="title">The TFEL/PhysicalConstants library</h1>
+<h1 class="title">The <code>TFEL/PhysicalConstants</code> library</h1>
 <h2 class="author">Thomas Helfer</h2>
 <h3 class="date">17/08/2021</h3>
 </div>
@@ -360,6 +364,13 @@ template parameters than the <code>PhysicalConstants class</code></li>
 <p>The values of the physical constants are extracted from: <a
 href="http://physics.nist.gov/cuu/Constants/index.html"
 class="uri">http://physics.nist.gov/cuu/Constants/index.html</a></p>
+<p>The values of the physical constants depend on the compatibility
+modes: those of the current version of <code>TFEL</code> are those
+exposed by the names without suffix, whereas those of the next major
+version are those of the <code>tfel::future</code> and
+<code>tfel::constants::future</code> namespaces, as described in the
+page devoted to <a href="tfel-compatibility-modes.html">compatibility
+modes in the <code>TFEL</code> libraries</a>.</p>
 <h2 id="bindings">Bindings</h2>
 <h3 id="fortran-bindings"><code>Fortran</code> bindings</h3>
 <p>A include file named <code>TFELPHYSICALCONSTANTS.INC</code> is
@@ -368,10 +379,13 @@ constants as <code>real64</code> parameters.</p>
 <p>A module named <code>TFEL_PHYSICAL_CONSTANTS</code> is provided for
 <code>fortran95</code>. This module exposes the physical constants as
 <code>real64</code> parameters.</p>
+<p>The <code>Fortran</code> bindings are not versioned: they expose the
+values of the next major version of <code>TFEL</code>.</p>
 <h3 id="python-bindings"><code>Python</code> bindings</h3>
 <p>The <code>tfel</code> module exposes the class
 <code>PhysicalConstants</code> which declares the physical constants as
-read-only attributes.</p>
+read-only attributes. The constants of a given compatibility mode are
+exposed by a submodule of the same name.</p>
 <h1 id="physical-constants">Physical constants</h1>
 <ul>
 <li>AtomicMassConstant (mu, <span class="math inline">\(kg\)</span>):

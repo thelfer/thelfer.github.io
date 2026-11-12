@@ -286,6 +286,7 @@
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
                  <li><a href="behaviour-variable.html">Behaviour variables</a></li>
+                 <li><a href="mfront-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -331,6 +332,7 @@
 	    </li>
 	    <li><a href="mtest.html">MTest</a>
                <ul>
+	      <li><a href="ptest.html">Simulation of pipes</a></li>
 	      <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
               <li><a href="MTest-keywords.html">MTest keywords</a></li>
 	      </ul>
@@ -355,6 +357,7 @@
 		<li><a href="tfel-material-homogenization.html">TFEL/Material homogenization</a></li>
                  <li><a href="glossary.html">Glossary</a></li>
                  <li><a href="physical-constants.html">Physical constants</a></li>
+                 <li><a href="tfel-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="tfel-mfront-database.html">TFELMFrontDatabase</a></li>
 	      </ul>
 	    </li>
@@ -374,6 +377,7 @@
 	  <ul>
 	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
 	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="coding-guidelines.html">Coding guidelines</a></li>
 	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
 	  </ul>
 	</li>
@@ -593,10 +597,12 @@ previous example.</p>
 <h4 id="selecting-a-specific-type-of-material-kowledge">Selecting a
 specific type of material kowledge</h4>
 <p><code>material_knowledge_type</code> may have one of the following
-values <code>material_property</code>, <code>behaviours</code> and
-<code>models</code>.</p>
-<p>If <code>material_knowledge_type</code> is not specified, materials
-properties, behaviours and models are all considered (in that
+values <code>material_property</code> (or
+<code>MaterialProperty</code>), <code>behaviour</code> (or
+<code>Behaviour</code>) and <code>model</code> (or
+<code>Model</code>).</p>
+<p>If <code>material_knowledge_type</code> is empty or not specified,
+materials properties, behaviours and models are all considered (in that
 order).</p>
 <h4 id="about-the-material-identifier">About the material
 identifier</h4>
@@ -607,19 +613,23 @@ with all materials is <code>.+</code>, but this will exclude material
 knowledge associated with no material.</p>
 <p>The regular expression <code>.*</code> will select material knowledge
 associated to all material <em>and</em> material knowledge associated
-with no material. This is what happen if not
-<code>material_identifier</code> is specified.</p>
+with no material.</p>
 <p>The special material identifier <code>&lt;none&gt;</code> selects
-only material knowledge associated with no material.</p>
+only material knowledge associated with no material. This is what
+happens if the <code>material_identifier</code> is empty or not
+specified.</p>
 <h4 id="examples-of-madnex-search-paths">Examples of madnex search
 paths</h4>
 <ul>
 <li><code>MaterialProperties.mdnx</code>: appends all the materials
+properties, behaviours, models associated to no material to the search
+path.</li>
+<li><code>MaterialProperties.mdnx::.*</code>: appends all the materials
 properties, behaviours, models associated to any materials or to no
 material to the search path.</li>
 <li><code>MaterialProperties.mdnx:material_property</code>: appends all
-the materials properties, associated to any materials or to no material
-to the search path.</li>
+the materials properties associated to no material to the search
+path.</li>
 <li><code>MaterialProperties.mdnx:material_property:Zircaloy4</code>:
 appends all the materials properties, associated to
 <code>Zircaloy4</code> to the search path.</li>
@@ -995,7 +1005,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a h
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>d.date <span class="op">=</span> <span class="st">&#39;01/03/2022&#39;</span></span>
 <span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>d.name <span class="op">=</span> <span class="st">&#39;UniaxialTensileTest&#39;</span></span>
 <span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>d.behaviour <span class="op">=</span> <span class="st">&#39;Plasticity&#39;</span></span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>mfm_test_generator.loadMFMTestGeneratorFileContent(d, <span class="st">&#39;Plasticity.mdnx&#39;</span>)</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>mfm_test_generator.loadMFMTestGeneratorFileContent(d, <span class="st">&#39;Plasticity.mfmtg&#39;</span>)</span>
 <span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>mfm_test_generator.write(d,<span class="st">&#39;Plasticity.mdnx&#39;</span>)</span></code></pre></div>
 <h2 id="best-practices-1">Best practices</h2>

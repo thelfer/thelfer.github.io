@@ -189,6 +189,7 @@
 		<li><a href="orthotropic-behaviours.html">Support for orthotropic behaviours</a></li>
 		<li><a href="behaviour-integration-failure-analysis.html">Analysing failure of behaviour integration</a></li>
 		<li><a href="functions.html">Functions</a></li>
+		<li><a href="profiling.html">Profiling</a></li>
 	      </ul>
 	    </li>
 	    <li><a href="faq.html">FAQ</a></li>
@@ -607,15 +608,16 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#c
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator <span class="op">{</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// remove useless warnings, as we always compute the tangent operator</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">static_cast</span><span class="op">&lt;</span><span class="dt">void</span><span class="op">&gt;(</span><span class="va">computeTangentOperator_</span><span class="op">);</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  ∂q∕∂Δg <span class="op">=</span> Gc<span class="op">*</span>l₀<span class="op">*</span> tmatrix<span class="op">&lt;</span>N<span class="op">,</span> N<span class="op">,</span> real<span class="op">&gt;::</span>Id<span class="op">();</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  ∂Y∕∂Δd <span class="op">=</span> Gc<span class="op">/</span>l₀<span class="op">+</span><span class="dv">2</span><span class="op">*</span>H<span class="op">;</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  q <span class="op">=</span> Gc<span class="op">*</span>l₀<span class="op">*(</span>g<span class="op">+</span>Δg<span class="op">);</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  Y <span class="op">=</span> ∂Y∕∂Δd ⋅ <span class="op">(</span>d<span class="op">+</span>Δd<span class="op">)-</span><span class="dv">2</span><span class="op">*</span>H<span class="op">;</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DissipatedEnergy<span class="op">{</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>Psi_d <span class="op">=</span> Gc<span class="op">/</span><span class="dv">2</span><span class="op">/</span>l₀<span class="op">*(</span>d<span class="op">*</span>d <span class="op">+</span> l₀<span class="op">*</span>l₀<span class="op">*(</span>g<span class="op">|</span>g<span class="op">));</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> H_tdt <span class="op">=</span> H<span class="op">+</span>dH<span class="op">;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  ∂q∕∂Δg <span class="op">=</span> Gc<span class="op">*</span>l₀<span class="op">*</span> tmatrix<span class="op">&lt;</span>N<span class="op">,</span> N<span class="op">,</span> real<span class="op">&gt;::</span>Id<span class="op">();</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  ∂Y∕∂Δd <span class="op">=</span> Gc<span class="op">/</span>l₀<span class="op">+</span><span class="dv">2</span><span class="op">*</span>H_tdt<span class="op">;</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  q <span class="op">=</span> Gc<span class="op">*</span>l₀<span class="op">*(</span>g<span class="op">+</span>Δg<span class="op">);</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  Y <span class="op">=</span> ∂Y∕∂Δd ⋅ <span class="op">(</span>d<span class="op">+</span>Δd<span class="op">)-</span><span class="dv">2</span><span class="op">*</span>H_tdt<span class="op">;</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>DissipatedEnergy<span class="op">{</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>Psi_d <span class="op">=</span> Gc<span class="op">/</span><span class="dv">2</span><span class="op">/</span>l₀<span class="op">*(</span>d<span class="op">*</span>d <span class="op">+</span> l₀<span class="op">*</span>l₀<span class="op">*(</span>g<span class="op">|</span>g<span class="op">));</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <h1 id="fenics-implementation">FEniCS implementation</h1>
 <div class="sourceCode" id="cb7"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dolfin <span class="im">import</span> <span class="op">*</span></span>

@@ -187,6 +187,7 @@
 		<li><a href="orthotropic-behaviours.html">Support for orthotropic behaviours</a></li>
 		<li><a href="behaviour-integration-failure-analysis.html">Analysing failure of behaviour integration</a></li>
 		<li><a href="functions.html">Functions</a></li>
+		<li><a href="profiling.html">Profiling</a></li>
 	      </ul>
 	    </li>
 	    <li><a href="faq.html">FAQ</a></li>
@@ -243,12 +244,13 @@ here).</li>
 <p>The interface with <code>FEniCS</code> will be handled by the
 <code>MFrontGenericInterfaceSupport</code> project (<code>MGIS</code>)<a
 href="#fn3" class="footnote-ref" id="fnref3"
-role="doc-noteref"><sup>3</sup></a>. This project aims at proving tools
-(functions, classes, bindings, etc…) to handle behaviours written using
-<code>MFront</code> generic interface. Written in <code>C++</code>, it
-provides bindings for various languages: <code>C</code>,
-<code>python</code>, <code>fortran</code>. This library also provides
-the so-called <code>FEniCS</code> bindings briefly described below.</p>
+role="doc-noteref"><sup>3</sup></a>. This project aims at providing
+tools (functions, classes, bindings, etc…) to handle behaviours written
+using <code>MFront</code> generic interface. Written in
+<code>C++</code>, it provides bindings for various languages:
+<code>C</code>, <code>python</code>, <code>fortran</code>. This library
+also provides the so-called <code>FEniCS</code> bindings briefly
+described below.</p>
 <p>Two approaches are available:</p>
 <ul>
 <li>The first one will rely on the <code>python</code> bindings. This
@@ -329,17 +331,17 @@ by the <code>internal_state_variables_stride</code> member.</li>
 <code>setExternalStateVariable</code> functions can be used to set the
 value a material property or a state variable respectively.</li>
 <li>the <code>update</code> function updates an instance of the
-<code>MaterialStateManager</code> by copying the state <code>s1</code>
-at the end of the time step in the state <code>s0</code> at the
-beginning of the time step.</li>
+<code>MaterialDataManager</code> by copying the state <code>s1</code> at
+the end of the time step in the state <code>s0</code> at the beginning
+of the time step.</li>
 <li>the <code>revert</code> function reverts an instance of the
-<code>MaterialStateManager</code> by copying the state <code>s0</code>
-at the beginning of the time step in the state <code>s1</code> at the
-end of the time step.</li>
+<code>MaterialDataManager</code> by copying the state <code>s0</code> at
+the beginning of the time step in the state <code>s1</code> at the end
+of the time step.</li>
 <li>the <code>integrate</code> function triggers the behaviour
 integration at each integration points. Various overloads of this
 function exist. We will use a version taking as argument a
-<code>MaterialStateManager</code>, the time increment and a range of
+<code>MaterialDataManager</code>, the time increment and a range of
 integration points.</li>
 </ul>
 <p>Those classes and functions are available in the
@@ -389,9 +391,9 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a hr
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        <span class="co"># project the strain on the Quadrature space with `MFront` conventions</span></span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        local_project(eps_MFront(u1), Weps, deps)</span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        <span class="co"># assigning the values in the material data manager</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        m.s1.gradients[:, :] <span class="op">=</span> deps.vector().get_local().reshape((m.n, m.gradients_stride))</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        m.s1.gradients[:, :] <span class="op">=</span> deps.vector().get_local().reshape((m.n, m.s1.gradients_stride))</span>
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        <span class="co"># behaviour integration</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        it <span class="op">=</span> mgis_bv.IntegrationType.IntegrationWithConsitentTangentOperator</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        it <span class="op">=</span> mgis_bv.IntegrationType.IntegrationWithConsistentTangentOperator</span>
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        mgis_bv.integrate(m, it, <span class="dv">0</span>, <span class="dv">0</span>, m.n)<span class="op">;</span></span>
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        <span class="co"># getting the thermodynamic forces and the consistent tangent operator for FEniCS</span></span>
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        sig.vector().set_local(m.s1.thermodynamic_forces.flatten())</span>

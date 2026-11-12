@@ -286,6 +286,7 @@
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
                  <li><a href="behaviour-variable.html">Behaviour variables</a></li>
+                 <li><a href="mfront-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -331,6 +332,7 @@
 	    </li>
 	    <li><a href="mtest.html">MTest</a>
                <ul>
+	      <li><a href="ptest.html">Simulation of pipes</a></li>
 	      <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
               <li><a href="MTest-keywords.html">MTest keywords</a></li>
 	      </ul>
@@ -355,6 +357,7 @@
 		<li><a href="tfel-material-homogenization.html">TFEL/Material homogenization</a></li>
                  <li><a href="glossary.html">Glossary</a></li>
                  <li><a href="physical-constants.html">Physical constants</a></li>
+                 <li><a href="tfel-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="tfel-mfront-database.html">TFELMFrontDatabase</a></li>
 	      </ul>
 	    </li>
@@ -374,6 +377,7 @@
 	  <ul>
 	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
 	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="coding-guidelines.html">Coding guidelines</a></li>
 	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
 	  </ul>
 	</li>
@@ -408,6 +412,11 @@ class="toc-section-number">2.1</span> Notes about updating auxiliary
 state variable or local variables in the <code>Integrator</code> code
 blocks when the numerical evaluation of the jacobian is
 requested</a></li>
+<li><a
+href="#failure-of-the-evaluation-of-the-residual-for-a-perturbed-estimate"
+id="toc-failure-of-the-evaluation-of-the-residual-for-a-perturbed-estimate"><span
+class="toc-section-number">2.2</span> Failure of the evaluation of the
+residual for a perturbed estimate</a></li>
 </ul></li>
 <li><a href="#computation-of-the-consistent-tangent-operator"
 id="toc-computation-of-the-consistent-tangent-operator"><span
@@ -562,6 +571,23 @@ and the associated code blocks.</figcaption>
 href="tfel-math.html"><code>TFEL/Math</code> library</a>. The main steps
 of those algorithms and the associated code blocks are depicted in
 Figure 1.</p>
+<p>The <code>PowellDogLeg_</code> algorithms limit the corrections of
+the underlying algorithm using Powell’s dog leg step: when the sum of
+the absolute values of the components of the correction exceeds <span
+class="math inline">\(N\)</span> times the trust region size, <span
+class="math inline">\(N\)</span> being the number of unknowns, the
+correction is replaced by a step of euclidean norm equal to the trust
+region size. This size is fixed during the iterations (it is not
+updated, and no step is rejected): it is set by the
+<code>@PowellDogLegTrustRegionSize</code> keyword, followed by a
+positive value, or by the <code>powell_dogleg_trust_region_size</code>
+parameter, and is equal to <span class="math inline">\(10^{-4}\)</span>
+by default. It must be chosen according to the expected increments of
+the integration variables over a time step, since the progress per
+iteration is limited to about this size:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Algorithm PowellDogLeg_NewtonRaphson<span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>PowellDogLegTrustRegionSize <span class="fl">1.e-2</span><span class="op">;</span></span></code></pre></div>
 <h2 data-number="2.1"
 id="notes-about-updating-auxiliary-state-variable-or-local-variables-in-the-integrator-code-blocks-when-the-numerical-evaluation-of-the-jacobian-is-requested"><span
 class="header-section-number">2.1</span> Notes about updating auxiliary
@@ -577,26 +603,46 @@ the perturbed values of the unknowns.</p>
 <p>Since <code>TFEL 3.1</code>, this can be circumvented by testing the
 value of the <code>perturbatedSystemEvaluation</code> boolean value as
 follows:</p>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// let av be an auxiliary state variable</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AuxiliaryStateVariable StrainStensor av<span class="op">;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator<span class="op">{</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">// put updated value of av in a temporary variable</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> <span class="va">av_</span> <span class="op">=</span> eval<span class="op">(...);</span>  </span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">...</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  definition of the implicit system</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="op">...</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span><span class="op">(!</span>perturbatedSystemEvaluation<span class="op">){</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">// update auxiliary state variables</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    av <span class="op">=</span> <span class="va">av_</span><span class="op">;</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="co">// end of @Integrator</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// let av be an auxiliary state variable</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AuxiliaryStateVariable StrainStensor av<span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator<span class="op">{</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">// put updated value of av in a temporary variable</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> <span class="va">av_</span> <span class="op">=</span> eval<span class="op">(...);</span>  </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">...</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  definition of the implicit system</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="op">...</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span><span class="op">(!</span>perturbatedSystemEvaluation<span class="op">){</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">// update auxiliary state variables</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    av <span class="op">=</span> <span class="va">av_</span><span class="op">;</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="co">// end of @Integrator</span></span></code></pre></div>
 <p>In many cases, rather than updating auxiliary variables during the
 Newton iterations, it can be more practical to compute its increment,
 defined by a local variable and to update the auxiliary variable in the
 <code>@UpdateAuxiliaryStateVariables</code> code block. The previous
 trick can be used in this case in a straightforward manner.</p>
+<h2 data-number="2.2"
+id="failure-of-the-evaluation-of-the-residual-for-a-perturbed-estimate"><span
+class="header-section-number">2.2</span> Failure of the evaluation of
+the residual for a perturbed estimate</h2>
+<p>The numerical approximation of the jacobian (or of some of its
+blocks) uses a centered finite difference. If the evaluation of the
+residual fails for one of the two perturbed estimates of an unknown, for
+example because the <code>@Integrator</code> code block returns
+<code>false</code> for a negative increment of a viscoplastic strain, a
+one-sided difference based on the other perturbed estimate and on the
+residual at the current estimate is used. If the evaluation fails for
+both perturbed estimates, the computation of the jacobian fails: during
+the iterations, this failure is handled as a failure of the computation
+of the new correction and, once the convergence is reached, the
+integration fails if a tangent operator is requested.</p>
+<p>The residual at the current estimate is the one stored in
+<code>fzeros</code>, which the non-linear solvers compute before the
+jacobian. A code block calling <code>computeNumericalJacobian</code>
+itself, for instance in <code>@InitJacobian</code>, must thus make sure
+that <code>fzeros</code> holds the residual at <code>zeros</code>.</p>
 <!--
 ## Homotopy
 
@@ -895,24 +941,34 @@ class="header-section-number">3.1.3.1</span> The
 computation of the <span
 class="math inline">\(J_{\underline{\varepsilon}^{\mathrm{el}}}^{-1}\)</span>
 tensors as follows:</p>
-<div class="sourceCode" id="cb2"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Stensor4 iJe<span class="op">;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>getPartialJacobianInvert<span class="op">(</span>iJe<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Stensor4 iJe<span class="op">;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>getPartialJacobianInvert<span class="op">(</span>iJe<span class="op">);</span></span></code></pre></div>
 <p>The <code>getPartialJacobianInvert</code> method assumes that the
 jacobian matrix is decomposed (using the <code>LU</code> algorithm with
 partial pivoting in the current version of <code>TFEL</code>), which is
-guaranteed in the <code>@TangentOperatorBlock</code>. So <span
+guaranteed in the <code>@TangentOperator</code> code block. So <span
 class="math inline">\(J_{\underline{\varepsilon}^{\mathrm{el}}}^{-1}\)</span>
 is computed by solving <span class="math inline">\(6\)</span> linear
 systems. In particular, the jacobian matrix is not inverted.</p>
+<p>The jacobian matrix must thus not be modified in the
+<code>@TangentOperator</code> block before calling
+<code>getPartialJacobianInvert</code>.</p>
+<p>Besides, the <code>computeNumericalJacobian</code> method must not be
+called in the <code>@TangentOperator</code> block. This block is
+executed once the state variables are updated and the final
+thermodynamic forces are computed: the residual would be evaluated at a
+wrong state, the thermodynamic forces would be overwritten by values
+computed at this wrong state, and, if the jacobian matrix is given as
+argument, its decomposition would be overwritten.</p>
 <p>A typical computation of the consistent tangent operator is as
 follows:</p>
-<div class="sourceCode" id="cb3"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>    StiffnessTensor De<span class="op">;</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    Stensor4 iJe<span class="op">;</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    computeElasticStiffness<span class="op">&lt;</span>N<span class="op">,</span>Type<span class="op">&gt;::</span>exe<span class="op">(</span>De<span class="op">,</span>lambda<span class="op">,</span>mu<span class="op">);</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    getPartialJacobianInvert<span class="op">(</span>iJe<span class="op">);</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    Dt <span class="op">=</span> De <span class="op">*</span> Je<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>    StiffnessTensor De<span class="op">;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    Stensor4 iJe<span class="op">;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    computeElasticStiffness<span class="op">&lt;</span>N<span class="op">,</span>Type<span class="op">&gt;::</span>exe<span class="op">(</span>De<span class="op">,</span>lambda<span class="op">,</span>mu<span class="op">);</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    getPartialJacobianInvert<span class="op">(</span>iJe<span class="op">);</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    Dt <span class="op">=</span> De <span class="op">*</span> iJe<span class="op">;</span></span></code></pre></div>
 <p>This code is loosely the one generated by the
 <code>StandardElastoViscoplasticy</code> brick.</p>
 <h4 data-number="3.1.3.2"
@@ -930,13 +986,13 @@ role="doc-noteref"><sup>2</sup></a><span
 class="math inline">\(\mbox{}^{,}\)</span><a href="#fn3"
 class="footnote-ref" id="fnref3"
 role="doc-noteref"><sup>3</sup></a>:</p>
-<div class="sourceCode" id="cb4"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>    StiffnessTensor De<span class="op">;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    Stensor4 iJe<span class="op">;</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    Stensor iJd<span class="op">;</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    computeUnalteredElasticStiffness<span class="op">&lt;</span>N<span class="op">,</span>Type<span class="op">&gt;::</span>exe<span class="op">(</span>De<span class="op">,</span> lambda<span class="op">,</span> mu<span class="op">);</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    getPartialJacobianInvert<span class="op">(</span>iJe<span class="op">,</span> iJd<span class="op">);</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    Dt <span class="op">=</span> <span class="op">(</span><span class="dv">1</span> <span class="op">-</span> d<span class="op">)</span> <span class="op">*</span> De <span class="op">*</span> iJe <span class="op">-</span> <span class="op">((</span>De <span class="op">*</span> eel<span class="op">)</span> <span class="op">^</span> iJd<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>    StiffnessTensor De<span class="op">;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    Stensor4 iJe<span class="op">;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    Stensor iJd<span class="op">;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    computeUnalteredElasticStiffness<span class="op">&lt;</span>N<span class="op">,</span>Type<span class="op">&gt;::</span>exe<span class="op">(</span>De<span class="op">,</span> lambda<span class="op">,</span> mu<span class="op">);</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    getPartialJacobianInvert<span class="op">(</span>iJe<span class="op">,</span> iJd<span class="op">);</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    Dt <span class="op">=</span> <span class="op">(</span><span class="dv">1</span> <span class="op">-</span> d<span class="op">)</span> <span class="op">*</span> De <span class="op">*</span> iJe <span class="op">-</span> <span class="op">((</span>De <span class="op">*</span> eel<span class="op">)</span> <span class="op">^</span> iJd<span class="op">);</span></span></code></pre></div>
 <h2 data-number="3.2"
 id="sec:tangent_operator:generalised_behaviours"><span
 class="header-section-number">3.2</span> Extension to generalised
@@ -1060,27 +1116,27 @@ y_{1}\right)}}&amp;\cdots&amp;J^{-1}_{{\left(f_{y_{n}}, y_{n}\right)}}\\
 \end{pmatrix}
 \]</span></p>
 <p>When required in the <code>@TangentOperator</code> code block
-(i.e. when used), for each pair of state variables <span
+(i.e. when used), for each pair of integration variables <span
 class="math inline">\(y\)</span>, <span
-class="math inline">\(z\)</span>, a variable called <code>iJ_x_z</code>
+class="math inline">\(z\)</span>, a variable called <code>iJ_y_z</code>
 is defined:</p>
 <ul>
 <li>If <span class="math inline">\(y\)</span> and <span
-class="math inline">\(z\)</span> are not arrays, <code>iJ_x_z</code> is
+class="math inline">\(z\)</span> are not arrays, <code>iJ_y_z</code> is
 directly a view to the corresponding block of the invert of the
 jacobian.</li>
 <li>If <span class="math inline">\(y\)</span> and/or <span
-class="math inline">\(z\)</span> are arrays, <code>iJ_x_z</code> is a
+class="math inline">\(z\)</span> are arrays, <code>iJ_y_z</code> is a
 function object taking indices as arguments and returning a view to the
 corresponding block of the invert of the jacobian.</li>
 </ul>
 <p>For example:</p>
-<div class="sourceCode" id="cb5"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TangentOperator<span class="op">{</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a> <span class="co">// iJ_eel_p is the block corresponding to:</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a> <span class="co">// 1. the elastic strain (row)</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a> <span class="co">// 2. the equivalent viscoplastic strain</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TangentOperator<span class="op">{</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a> <span class="co">// iJ_eel_p is the block corresponding to:</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a> <span class="co">// 1. the elastic strain (row)</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a> <span class="co">// 2. the equivalent viscoplastic strain</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <h2 data-number="3.3" id="applications"><span
 class="header-section-number">3.3</span> Applications</h2>
 <h3 data-number="3.3.1"
@@ -1192,49 +1248,49 @@ T_{a}}{\displaystyle
 \end{aligned}
 \right.
 \]</span></p>
-<div class="sourceCode" id="cb6"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>∂fεᵉˡ∕∂ΔT <span class="op">=</span> <span class="op">...;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>∂fp∕∂ΔT <span class="op">=</span> <span class="op">...;</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>∂fεᵉˡ∕∂ΔT <span class="op">=</span> <span class="op">...;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>∂fp∕∂ΔT <span class="op">=</span> <span class="op">...;</span></span></code></pre></div>
 <h3 data-number="3.3.3"
 id="computing-displaystyle-fracdisplaystyle-partial-underlinesigmadisplaystyle-partial-deltat-using-getintegrationvariablesderivatives_t"><span
 class="header-section-number">3.3.3</span> Computing <span
 class="math inline">\({\displaystyle \frac{\displaystyle \partial
 \underline{\sigma}}{\displaystyle \partial \Delta\,T}}\)</span> using
 <code>getIntegrationVariablesDerivatives_T</code></h3>
-<div class="sourceCode" id="cb7"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TangentOperatorBlock<span class="op">{</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  ∂fεᵉˡ∕∂ΔT <span class="op">=</span> <span class="op">...;</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  ∂fp∕∂ΔT <span class="op">=</span> <span class="op">...;</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">auto</span> ∂Δεᵉˡ∕∂ΔT <span class="op">=</span> Stensor<span class="op">{};</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  getIntegrationVariablesDerivatives_T<span class="op">(</span>∂Δεᵉˡ∕∂ΔT<span class="op">);</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> λ <span class="op">=...;</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> μ <span class="op">=...;</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ∂λ∕∂T <span class="op">=...;</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ∂μ∕∂T <span class="op">=...;</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> De <span class="op">=</span> λ  ⋅ <span class="op">(</span>I₂ ⊗ I₂<span class="op">)</span> <span class="op">+</span> <span class="dv">2</span> ⋅ μ ⋅ I₄<span class="op">;</span>  </span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ∂De∕∂T <span class="op">=</span> ∂λ∕∂T  ⋅ <span class="op">(</span>I₂ ⊗ I₂<span class="op">)</span> <span class="op">+</span> <span class="dv">2</span> ⋅ ∂μ∕∂T ⋅ I₄<span class="op">;</span>  </span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  ∂σ∕∂ΔT <span class="op">=</span> De ⋅ ∂Δεᵉˡ∕∂ΔT <span class="op">+</span> ∂De∕∂T ⋅ εᵉˡ<span class="op">;</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TangentOperator<span class="op">{</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  ∂fεᵉˡ∕∂ΔT <span class="op">=</span> <span class="op">...;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  ∂fp∕∂ΔT <span class="op">=</span> <span class="op">...;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">auto</span> ∂Δεᵉˡ∕∂ΔT <span class="op">=</span> Stensor<span class="op">{};</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  getIntegrationVariablesDerivatives_T<span class="op">(</span>∂Δεᵉˡ∕∂ΔT<span class="op">);</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> λ <span class="op">=...;</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> μ <span class="op">=...;</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ∂λ∕∂T <span class="op">=...;</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ∂μ∕∂T <span class="op">=...;</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> De <span class="op">=</span> λ  ⋅ <span class="op">(</span>I₂ ⊗ I₂<span class="op">)</span> <span class="op">+</span> <span class="dv">2</span> ⋅ μ ⋅ I₄<span class="op">;</span>  </span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ∂De∕∂T <span class="op">=</span> ∂λ∕∂T  ⋅ <span class="op">(</span>I₂ ⊗ I₂<span class="op">)</span> <span class="op">+</span> <span class="dv">2</span> ⋅ ∂μ∕∂T ⋅ I₄<span class="op">;</span>  </span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  ∂σ∕∂ΔT <span class="op">=</span> De ⋅ ∂Δεᵉˡ∕∂ΔT <span class="op">+</span> ∂De∕∂T ⋅ εᵉˡ<span class="op">;</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <h3 data-number="3.3.4"
 id="computing-displaystyle-fracdisplaystyle-partial-underlinesigmadisplaystyle-partial-deltat-using-the-block-decomposition-of-the-invert-of-jacobian"><span
 class="header-section-number">3.3.4</span> Computing <span
 class="math inline">\({\displaystyle \frac{\displaystyle \partial
 \underline{\sigma}}{\displaystyle \partial \Delta\,T}}\)</span> using
 the block decomposition of the invert of jacobian</h3>
-<div class="sourceCode" id="cb8"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TangentOperatorBlock<span class="op">{</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> λ <span class="op">=...;</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> μ <span class="op">=...;</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> De <span class="op">=</span> λ  ⋅ <span class="op">(</span>I₂ ⊗ I₂<span class="op">)</span> <span class="op">+</span> <span class="dv">2</span> ⋅ μ ⋅ I₄<span class="op">;</span>  </span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">// computation of ∂σ∕∂ΔT</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  ∂fεᵉˡ∕∂ΔT <span class="op">=</span> <span class="op">...;</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  ∂fp∕∂ΔT <span class="op">=</span> <span class="op">...;</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ∂Δεᵉˡ∕∂ΔT <span class="op">=</span> <span class="op">-(</span>iJ_fεᵉˡ_εᵉˡ ⋅ ∂fεᵉˡ∕∂ΔT <span class="op">+</span> iJ_fεᵉˡ_p ⋅ ∂fp∕∂ΔT<span class="op">);</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ∂λ∕∂T <span class="op">=...;</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ∂μ∕∂T <span class="op">=...;</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ∂De∕∂T <span class="op">=</span> ∂λ∕∂T  ⋅ <span class="op">(</span>I₂ ⊗ I₂<span class="op">)</span> <span class="op">+</span> <span class="dv">2</span> ⋅ ∂μ∕∂T ⋅ I₄<span class="op">;</span>  </span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  ∂σ∕∂ΔT <span class="op">=</span> De ⋅ ∂Δεᵉˡ∕∂ΔT <span class="op">+</span> ∂De∕∂T ⋅ εᵉˡ<span class="op">;</span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>TangentOperator<span class="op">{</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> λ <span class="op">=...;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> μ <span class="op">=...;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> De <span class="op">=</span> λ  ⋅ <span class="op">(</span>I₂ ⊗ I₂<span class="op">)</span> <span class="op">+</span> <span class="dv">2</span> ⋅ μ ⋅ I₄<span class="op">;</span>  </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">// computation of ∂σ∕∂ΔT</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  ∂fεᵉˡ∕∂ΔT <span class="op">=</span> <span class="op">...;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  ∂fp∕∂ΔT <span class="op">=</span> <span class="op">...;</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ∂Δεᵉˡ∕∂ΔT <span class="op">=</span> <span class="op">-(</span>iJ_εᵉˡ_εᵉˡ ⋅ ∂fεᵉˡ∕∂ΔT <span class="op">+</span> iJ_εᵉˡ_p ⋅ ∂fp∕∂ΔT<span class="op">);</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ∂λ∕∂T <span class="op">=...;</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ∂μ∕∂T <span class="op">=...;</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> ∂De∕∂T <span class="op">=</span> ∂λ∕∂T  ⋅ <span class="op">(</span>I₂ ⊗ I₂<span class="op">)</span> <span class="op">+</span> <span class="dv">2</span> ⋅ ∂μ∕∂T ⋅ I₄<span class="op">;</span>  </span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  ∂σ∕∂ΔT <span class="op">=</span> De ⋅ ∂Δεᵉˡ∕∂ΔT <span class="op">+</span> ∂De∕∂T ⋅ εᵉˡ<span class="op">;</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <aside id="footnotes" class="footnotes footnotes-end-of-document"
 role="doc-endnotes">
 <hr />

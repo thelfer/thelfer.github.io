@@ -286,6 +286,7 @@
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
                  <li><a href="behaviour-variable.html">Behaviour variables</a></li>
+                 <li><a href="mfront-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -331,6 +332,7 @@
 	    </li>
 	    <li><a href="mtest.html">MTest</a>
                <ul>
+	      <li><a href="ptest.html">Simulation of pipes</a></li>
 	      <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
               <li><a href="MTest-keywords.html">MTest keywords</a></li>
 	      </ul>
@@ -355,6 +357,7 @@
 		<li><a href="tfel-material-homogenization.html">TFEL/Material homogenization</a></li>
                  <li><a href="glossary.html">Glossary</a></li>
                  <li><a href="physical-constants.html">Physical constants</a></li>
+                 <li><a href="tfel-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="tfel-mfront-database.html">TFELMFrontDatabase</a></li>
 	      </ul>
 	    </li>
@@ -374,6 +377,7 @@
 	  <ul>
 	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
 	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="coding-guidelines.html">Coding guidelines</a></li>
 	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
 	  </ul>
 	</li>
@@ -415,7 +419,7 @@ introduced by the <code>@BehaviourVariable</code> keyword.</p>
 <h3 id="declaration">Declaration</h3>
 <p>The following snippet declares a variable named <code>b1</code>
 associated with a behaviour <code>Plasticity</code> defined in the file
-<code>BehaviourVariablePlasticity.mfront</code>.</p>
+<code>Plasticity.mfront</code>.</p>
 <div class="sourceCode" id="cb1"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>BehaviourVariable b1 <span class="op">{</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  file<span class="op">:</span> <span class="st">&quot;Plasticity.mfront&quot;</span><span class="op">,</span></span>
@@ -526,8 +530,8 @@ expressions used to select shared external state variables. This list is
 empty by default.</li>
 <li><code>automatically_save_associated_auxiliary_state_variables</code>:
 flag stating if the persistent variables, gradients (if
-<code>stored_gradients</code> is true) or thermodynamic forces (if
-<code>stored_thermodynamic_forces</code> is true) of the behaviour
+<code>store_gradients</code> is true) or thermodynamic forces (if
+<code>store_thermodynamic_forces</code> is true) of the behaviour
 variable shall automatically be saved in the
 <code>updateAuxiliaryStateVariables</code> method of the calling
 behaviour. This flag is <code>true</code> by default.</li>

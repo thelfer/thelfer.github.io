@@ -188,6 +188,7 @@
 		<li><a href="orthotropic-behaviours.html">Support for orthotropic behaviours</a></li>
 		<li><a href="behaviour-integration-failure-analysis.html">Analysing failure of behaviour integration</a></li>
 		<li><a href="functions.html">Functions</a></li>
+		<li><a href="profiling.html">Profiling</a></li>
 	      </ul>
 	    </li>
 	    <li><a href="faq.html">FAQ</a></li>
@@ -318,7 +319,10 @@ transposed internally to have the inverse transformation.</p>
 <p>The rotation matrix is given as a <span
 class="math inline">\(3\times3\)</span> matrix, packed in an <span
 class="math inline">\(9\)</span> continuous array in <code>C</code>-like
-column-major storage.</p>
+column-major storage. The rows of this matrix are the material axes
+expressed in the global frame, so the array contains the first
+components of the three material axes, then their second components,
+then their third components.</p>
 <p>No checks are made to ensure that the columns of the matrix makes and
 orthonormal basis of <span
 class="math inline">\(\mathcal{R}^{3}\)</span>. In <span

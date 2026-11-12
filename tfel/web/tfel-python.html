@@ -286,6 +286,7 @@
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
                  <li><a href="behaviour-variable.html">Behaviour variables</a></li>
+                 <li><a href="mfront-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -331,6 +332,7 @@
 	    </li>
 	    <li><a href="mtest.html">MTest</a>
                <ul>
+	      <li><a href="ptest.html">Simulation of pipes</a></li>
 	      <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
               <li><a href="MTest-keywords.html">MTest keywords</a></li>
 	      </ul>
@@ -355,6 +357,7 @@
 		<li><a href="tfel-material-homogenization.html">TFEL/Material homogenization</a></li>
                  <li><a href="glossary.html">Glossary</a></li>
                  <li><a href="physical-constants.html">Physical constants</a></li>
+                 <li><a href="tfel-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="tfel-mfront-database.html">TFELMFrontDatabase</a></li>
 	      </ul>
 	    </li>
@@ -374,6 +377,7 @@
 	  <ul>
 	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
 	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="coding-guidelines.html">Coding guidelines</a></li>
 	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
 	  </ul>
 	</li>
@@ -456,26 +460,28 @@ id="toc-polyphasic-microstructures">Polyphasic microstructures</a></li>
 <code>TVector1D</code>, <code>TVector2D</code> and
 <code>TVector3D</code>. These <code>class</code> can be
 initialized/modified as follows:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tfel.math <span class="im">as</span> tm</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>n1<span class="op">=</span>tm.TVector3D([<span class="fl">1.</span>,<span class="fl">0.</span>,<span class="fl">0.</span>])</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>n2<span class="op">=</span>tm.TVector3D()</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>n2[<span class="dv">0</span>]<span class="op">=</span><span class="fl">1.</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>n3_<span class="op">=</span>np.array([<span class="fl">1.</span>,<span class="fl">0.</span>,<span class="fl">0.</span>])</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>n3<span class="op">=</span>tm.TVector3D(n3_)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tfel.math <span class="im">as</span> tm</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>n1<span class="op">=</span>tm.TVector3D([<span class="fl">1.</span>,<span class="fl">0.</span>,<span class="fl">0.</span>])</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>n2<span class="op">=</span>tm.TVector3D()</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>n2[<span class="dv">0</span>]<span class="op">=</span><span class="fl">1.</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>n3_<span class="op">=</span>np.array([<span class="fl">1.</span>,<span class="fl">0.</span>,<span class="fl">0.</span>])</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>n3<span class="op">=</span>tm.TVector3D(n3_)</span></code></pre></div>
 <h2 id="bindings-related-to-the-stensor-class">Bindings related to the
 <code>stensor</code> class</h2>
 <p>Three classes standing for symmetric tensors are available:
 <code>Stensor1D</code>, <code>Stensor2D</code> and
 <code>Stensor3D</code>. These <code>class</code> can be
 initialized/modified as follows:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tfel.math <span class="im">as</span> tm</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>s1<span class="op">=</span>tm.Stensor3D([<span class="fl">1.</span>,<span class="fl">0.</span>,<span class="fl">0.</span>,<span class="fl">0.</span>,<span class="fl">0.</span>,<span class="fl">0.</span>])</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>s2<span class="op">=</span>tm.Stensor2D([<span class="fl">1.</span>,<span class="fl">0.</span>,<span class="fl">0.</span>,<span class="fl">0.</span>])</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>sig<span class="op">=</span>tm.Stensor3D()</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>sig[<span class="dv">2</span>]<span class="op">=</span><span class="fl">1.e9</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>epsilon<span class="op">=</span>np.zeros((<span class="dv">6</span>,))</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>epsilon[<span class="dv">0</span>]<span class="op">=</span><span class="fl">0.001</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>eps<span class="op">=</span>tm.Stensor3D(epsilon)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tfel.math <span class="im">as</span> tm</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>s1<span class="op">=</span>tm.Stensor3D([<span class="fl">1.</span>,<span class="fl">0.</span>,<span class="fl">0.</span>,<span class="fl">0.</span>,<span class="fl">0.</span>,<span class="fl">0.</span>])</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>s2<span class="op">=</span>tm.Stensor2D([<span class="fl">1.</span>,<span class="fl">0.</span>,<span class="fl">0.</span>,<span class="fl">0.</span>])</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>sig<span class="op">=</span>tm.Stensor3D()</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>sig[<span class="dv">2</span>]<span class="op">=</span><span class="fl">1.e9</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>epsilon<span class="op">=</span>np.zeros((<span class="dv">6</span>,))</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>epsilon[<span class="dv">0</span>]<span class="op">=</span><span class="fl">0.001</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>eps<span class="op">=</span>tm.Stensor3D(epsilon)</span></code></pre></div>
 <p>The standard mathematical operations are defined:</p>
 <ul>
 <li>addition of two symmetric tensors.</li>
@@ -499,13 +505,14 @@ tensor.</li>
 are available: <code>ST2toST21D</code>, <code>ST2toST22D</code>,
 <code>ST2toST23D</code>. These classes can be initialized/modified as
 follows:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tfel.math <span class="im">as</span> tm</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>s1<span class="op">=</span>tm.ST2toST22D([[<span class="fl">1.</span>,<span class="fl">0.</span>,<span class="fl">0.</span>,<span class="fl">0.</span>],[<span class="fl">0.</span>,<span class="fl">1.</span>,<span class="fl">0.</span>,<span class="fl">0.</span>],[<span class="fl">0.</span>,<span class="fl">0.</span>,<span class="fl">1.</span>,<span class="fl">0.</span>],[<span class="fl">0.</span>,<span class="fl">0.</span>,<span class="fl">0.</span>,<span class="fl">1.</span>]])</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>C<span class="op">=</span>tm.ST2toST23D()</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>C[<span class="dv">2</span>,<span class="dv">2</span>]<span class="op">=</span><span class="fl">1.e9</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>A<span class="op">=</span>np.zeros((<span class="dv">6</span>,<span class="dv">6</span>))</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>A[<span class="dv">0</span>,<span class="dv">1</span>]<span class="op">=</span><span class="fl">0.001</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>A_<span class="op">=</span>tm.ST2toST23D(A)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tfel.math <span class="im">as</span> tm</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>s1<span class="op">=</span>tm.ST2toST22D([[<span class="fl">1.</span>,<span class="fl">0.</span>,<span class="fl">0.</span>,<span class="fl">0.</span>],[<span class="fl">0.</span>,<span class="fl">1.</span>,<span class="fl">0.</span>,<span class="fl">0.</span>],[<span class="fl">0.</span>,<span class="fl">0.</span>,<span class="fl">1.</span>,<span class="fl">0.</span>],[<span class="fl">0.</span>,<span class="fl">0.</span>,<span class="fl">0.</span>,<span class="fl">1.</span>]])</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>C<span class="op">=</span>tm.ST2toST23D()</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>C[<span class="dv">2</span>,<span class="dv">2</span>]<span class="op">=</span><span class="fl">1.e9</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>A<span class="op">=</span>np.zeros((<span class="dv">6</span>,<span class="dv">6</span>))</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>A[<span class="dv">0</span>,<span class="dv">1</span>]<span class="op">=</span><span class="fl">0.001</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>A_<span class="op">=</span>tm.ST2toST23D(A)</span></code></pre></div>
 <h2 id="walpole-basis">Walpole Basis</h2>
 <p>The Walpole basis associated to a transverse isotropic symmetry can
 be used. See the C++ documentation <a
@@ -678,7 +685,8 @@ anisotropic elasticity <code>C_i</code> can be provided, assuming that
 this elasticiy is expressed in the same basis as the one defined by
 <code>n_a,n_b</code> (the local basis of the inclusion):</p>
 <div class="sourceCode" id="cb13"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>A_aniso <span class="op">=</span> hm.computeLocalisationTensor(IM0,C_i,n_a,a,n_b,b,c)</span></code></pre></div>
+class="sourceCode py"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>C_i<span class="op">=</span>tm.ST2toST23D(<span class="fl">1e9</span><span class="op">*</span>np.eye(<span class="dv">6</span>)) <span class="co"># arbitrary definition of C_i</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>A_aniso <span class="op">=</span> hm.computeLocalisationTensor(IM0,C_i,n_a,a,n_b,b,c)</span></code></pre></div>
 <p>The case of an anisotropic reference medium is detailed below:</p>
 <div class="sourceCode" id="cb14"><pre
 class="sourceCode py"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Anisotropic matrix</span></span>
@@ -790,10 +798,14 @@ of the strains (Hashin-Shtrikman two-phase composite)</h3>
 <p>The second-moments of the strains for a Hahsin-Shtrikman type
 composite can be computed as follows:</p>
 <div class="sourceCode" id="cb17"><pre
-class="sourceCode numberSource py numberLines"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>eeq2r<span class="op">=</span>computeMeanSquaredEquivalentStrain(KG0,f,KGi,Em2,Eeq2)</span>
-<span id="cb17-2"><a href="#cb17-2"></a><span class="bu">print</span>(<span class="st">&quot;average of eeq2 on matrix:&quot;</span>,eeq2r[<span class="dv">0</span>],<span class="st">&quot;average of eeq2 on inclusion:&quot;</span>,eeq2r[<span class="dv">1</span>])</span>
-<span id="cb17-3"><a href="#cb17-3"></a>em2r<span class="op">=</span>computeMeanSquaredHydrostaticStrain(KG0,f,KGi,Em2,Eeq2)</span>
-<span id="cb17-4"><a href="#cb17-4"></a><span class="bu">print</span>(<span class="st">&quot;average of em2 on matrix:&quot;</span>,em2r[<span class="dv">0</span>],<span class="st">&quot;average of em2 on inclusion:&quot;</span>,em2r[<span class="dv">1</span>])</span></code></pre></div>
+class="sourceCode numberSource py numberLines"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>KG0<span class="op">=</span>tmat.KGModuli(<span class="fl">1e9</span>,<span class="fl">1e9</span>)</span>
+<span id="cb17-2"><a href="#cb17-2"></a>KGi<span class="op">=</span>tmat.KGModuli(<span class="fl">1e10</span>,<span class="fl">1e10</span>)</span>
+<span id="cb17-3"><a href="#cb17-3"></a>Em2<span class="op">=</span><span class="fl">1e-6</span> <span class="co"># square of the hydrostatic part of the macroscopic strain</span></span>
+<span id="cb17-4"><a href="#cb17-4"></a>Eeq2<span class="op">=</span><span class="fl">1e-6</span> <span class="co"># square of the equivalent macroscopic strain</span></span>
+<span id="cb17-5"><a href="#cb17-5"></a>eeq2r<span class="op">=</span>hm.computeMeanSquaredEquivalentStrain(KG0,f,KGi,Em2,Eeq2)</span>
+<span id="cb17-6"><a href="#cb17-6"></a><span class="bu">print</span>(<span class="st">&quot;average of eeq2 on matrix:&quot;</span>,eeq2r[<span class="dv">0</span>],<span class="st">&quot;average of eeq2 on inclusion:&quot;</span>,eeq2r[<span class="dv">1</span>])</span>
+<span id="cb17-7"><a href="#cb17-7"></a>em2r<span class="op">=</span>hm.computeMeanSquaredHydrostaticStrain(KG0,f,KGi,Em2,Eeq2)</span>
+<span id="cb17-8"><a href="#cb17-8"></a><span class="bu">print</span>(<span class="st">&quot;average of em2 on matrix:&quot;</span>,em2r[<span class="dv">0</span>],<span class="st">&quot;average of em2 on inclusion:&quot;</span>,em2r[<span class="dv">1</span>])</span></code></pre></div>
 <h3 id="homogenization-bounds">Homogenization bounds</h3>
 <p>The available bounds are:</p>
 <ul>
@@ -892,7 +904,7 @@ object. There are four kinds of such a distribution:</p>
 <li><code>SphereDistribution</code> (distribution of spheres)</li>
 <li><code>IsotropicDistribution</code> (isotropic distribution of
 ellipsoids)</li>
-<li><code>TransverseDistribution</code> (transverse isotropic
+<li><code>TransverseIsotropicDistribution</code> (transverse isotropic
 distribution of ellipsoids)</li>
 <li><code>OrientedDistribution</code> (aligned distribution of
 ellipsoids)</li>
@@ -922,8 +934,8 @@ the basis in which <code>Ci</code> is defined is the local basis for the
 <code>OrientedDistribution</code>, that is, the basis defined by
 <code>n_a</code> and <code>n_b</code> passed as arguments. For a
 <code>SphereDistribution</code>, it is the global basis.</p>
-<p>The <code>TransverseDistribution</code> is a special case which
-requires to precise which axis of the ellipsoid (or spheroid) will
+<p>The <code>TransverseIsotropicDistribution</code> is a special case
+which requires to precise which axis of the ellipsoid (or spheroid) will
 remain fixed when the two other axes rotate:</p>
 <div class="sourceCode" id="cb22"><pre
 class="sourceCode py"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>index<span class="op">=</span><span class="dv">0</span> <span class="co"># here, the first axis (for example, a=10 defined above) is oriented along n_a</span></span>
@@ -954,7 +966,7 @@ tensor, and <code>A4</code> is the fourth-order orientation tensor.</p>
 <p>The inclusion distributions have an attribute
 <code>inclusion</code>:</p>
 <div class="sourceCode" id="cb24"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>elli<span class="op">=</span>ell_dist.inclusion</span>
+class="sourceCode py"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>elli<span class="op">=</span>ellipsoid_dist_iso.inclusion</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(elli.semi_lengths)</span></code></pre></div>
 <p>Note that here, the <code>inclusion</code> object is in fact an
 <code>Inclusion3D</code> object, with the semi-lengths defined at the
@@ -965,21 +977,21 @@ moduli or with a <code>ST2toST2</code> object. Here, it was instantiated
 with a <code>KGModuli</code>, so that it is considered isotropic.
 Hence,</p>
 <div class="sourceCode" id="cb25"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ell_dist.isIsotropic())</span></code></pre></div>
+class="sourceCode py"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ellipsoid_dist_iso.isIsotropic())</span></code></pre></div>
 <p>returns <code>True</code>.</p>
 <p>The second method of the distribution allows to compute the mean
 strain localisation (or concentration) tensor in the inclusions when
 they are embedded in a matrix:</p>
 <div class="sourceCode" id="cb26"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>Ai<span class="op">=</span>ell_dist.computeMeanLocalisator(IM0)</span>
+class="sourceCode py"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>Ai<span class="op">=</span>ellipsoid_dist_iso.computeMeanLocalisator(IM0)</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Ai)</span></code></pre></div>
 <p>Note that in the latter case, passing <code>C0</code>, a
-<code>ST2toST2</code> object as an argument of the method will return an
-error, because it will be considered that the matrix is not isotropic,
-so that computing a average localisator of a distribution of ellipsoids
-in an anisotropic matrix is impossible (too complicated). However, it
-can be done for other kinds of distributions, like sphere distributions
-or distributions of oriented inclusions:</p>
+<code>ST2toST2</code> object as an argument of the method will raise an
+exception, because it will be considered that the matrix is not
+isotropic, so that computing a average localisator of a distribution of
+ellipsoids in an anisotropic matrix is impossible (too complicated).
+However, it can be done for other kinds of distributions, like sphere
+distributions or distributions of oriented inclusions:</p>
 <div class="sourceCode" id="cb27"><pre
 class="sourceCode py"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>A1<span class="op">=</span>sph_dist.computeMeanLocalisator(C0,<span class="dv">10</span>)</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>A2<span class="op">=</span>ellipsoid_dist_O.computeMeanLocalisator(C0,<span class="dv">10</span>)</span>
@@ -1068,17 +1080,17 @@ class="sourceCode py"><code class="sourceCode python"><span id="cb34-1"><a href=
 replaced via a <code>ST2toST2</code> object.</p>
 <h4 id="grain-object"><code>Grain</code> object</h4>
 <p>The <code>Grain</code> object must be instantiated to construct the
-<code>Polycrystal</code>. This grain has 5 attributes:
+<code>Polycrystal</code>. This grain has 4 attributes:
 <code>inclusion</code> (which can be a <code>Sphere</code>, a
 <code>Spheroid</code> or an <code>Ellipsoid</code>), a
-<code>fraction</code> (the volume fraction), a <code>stiffness</code>
-(the stiffness of the <code>Grain</code>), and two vectors,
+<code>fraction</code> (the volume fraction), and two vectors,
 <code>n_a</code> and <code>n_b</code> which define the orientation of
 the grain (the axes of the related <code>inclusion</code>). The
 <code>Grain</code> can be instantiated as follows:</p>
 <div class="sourceCode" id="cb35"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>grain1<span class="op">=</span>Grain(ellipso,frac,IMi,n_a,n_b)</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>grain2<span class="op">=</span>Grain(spheroid,frac,IMi,n_a,n_b)</span></code></pre></div>
+class="sourceCode py"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>frac<span class="op">=</span><span class="fl">0.5</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>grain1<span class="op">=</span>hm.Grain(ellipso,frac,IMi,n_a,n_b)</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>grain2<span class="op">=</span>hm.Grain(spheroid,frac,IMi,n_a,n_b)</span></code></pre></div>
 <p>The <code>Grain</code> has also methods:
 <code>getElasticityOfPhase</code> (get the elasticity of the grain),
 <code>changeElasticityOfPhase</code>, <code>isIsotropic</code>,
@@ -1090,7 +1102,7 @@ documentation</a> for details).</p>
 <code>Polycrystal</code></h4>
 <p>We can instantiate a <code>Polycrystal</code> as follows:</p>
 <div class="sourceCode" id="cb36"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>poly<span class="op">=</span>Polycrystal()</span></code></pre></div>
+class="sourceCode py"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>poly<span class="op">=</span>hm.Polycrystal()</span></code></pre></div>
 <p>We can add some grains to our polycrystal:</p>
 <div class="sourceCode" id="cb37"><pre
 class="sourceCode py"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>poly.addGrain(grain1)</span>

@@ -286,6 +286,7 @@
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
                  <li><a href="behaviour-variable.html">Behaviour variables</a></li>
+                 <li><a href="mfront-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -331,6 +332,7 @@
 	    </li>
 	    <li><a href="mtest.html">MTest</a>
                <ul>
+	      <li><a href="ptest.html">Simulation of pipes</a></li>
 	      <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
               <li><a href="MTest-keywords.html">MTest keywords</a></li>
 	      </ul>
@@ -355,6 +357,7 @@
 		<li><a href="tfel-material-homogenization.html">TFEL/Material homogenization</a></li>
                  <li><a href="glossary.html">Glossary</a></li>
                  <li><a href="physical-constants.html">Physical constants</a></li>
+                 <li><a href="tfel-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="tfel-mfront-database.html">TFELMFrontDatabase</a></li>
 	      </ul>
 	    </li>
@@ -374,6 +377,7 @@
 	  <ul>
 	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
 	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="coding-guidelines.html">Coding guidelines</a></li>
 	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
 	  </ul>
 	</li>
@@ -1222,8 +1226,12 @@ mapped.</p>
 <p>It can be used as follows:</p>
 <div class="sourceCode" id="cb17"><pre
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> a <span class="op">=</span> map_array<span class="op">&lt;</span>tvector<span class="op">&lt;</span><span class="dv">2</span><span class="bu">u</span><span class="op">,</span> stensor<span class="op">&lt;</span><span class="dv">2</span><span class="bu">u</span><span class="op">,</span> <span class="dt">double</span><span class="op">&gt;&gt;&gt;(</span>ptr<span class="op">);</span></span></code></pre></div>
-<p>where <code>ptr</code> is a pointer to a suitable memory
-location.</p>
+<p>where <code>ptr</code> is a pointer to a suitable memory location.
+When the mapped objects hold quantities, this memory location holds
+values of their base type (<code>double</code> for
+<code>qt&lt;Stress&gt;</code> or
+<code>stensor&lt;2u, qt&lt;Stress&gt;&gt;</code>), as for the views
+created by the <code>map</code> function.</p>
 <h3 data-number="1.7.3" id="the-map_derivative-function"><span
 class="header-section-number">1.7.3</span> The
 <code>map_derivative</code> function</h3>
@@ -1529,14 +1537,22 @@ on some components of the current correction or to implement a line
 search along the search direction returned by the
 <code>computeNewCorrection</code> method.</li>
 <li><code>processNewEstimate</code>: this method is meant to update
-variables depending on the current estimate of the unknowns.</li>
+variables depending on the current estimate of the unknowns. It may also
+apply bounds on the estimate: after the update of the estimate by a new
+correction, any modification of the estimate made by this method is
+added to this correction (<code>delta_zeros</code>), which thus remains
+the step actually taken.</li>
 <li>By convention, the <code>computeNewCorrection</code> method may use
 the following helper methods:
 <ul>
 <li><code>updateOrCheckJacobian</code>: This method can be used to
 compute the jacobian or part of the jacobian numerically. If the
 jacobian was computed in <code>computeResidual</code>, this method can
-be used to compare it to a numerical approximation.</li>
+be used to compare it to a numerical approximation. This method may
+return a boolean: the value <code>false</code> reports that the jacobian
+could not be computed, which is handled by the solvers as a failure of
+the computation of the new correction. The solvers call this method
+through the <code>callUpdateOrCheckJacobian</code> method.</li>
 <li><code>solveLinearSystem</code>: This method can be used to solve a
 linear system if required. By default, an LU method with partial
 decomposition is used (implemented by the <code>TinyMatrixSolve</code>

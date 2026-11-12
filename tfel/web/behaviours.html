@@ -285,6 +285,7 @@
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
                  <li><a href="behaviour-variable.html">Behaviour variables</a></li>
+                 <li><a href="mfront-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -330,6 +331,7 @@
 	    </li>
 	    <li><a href="mtest.html">MTest</a>
                <ul>
+	      <li><a href="ptest.html">Simulation of pipes</a></li>
 	      <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
               <li><a href="MTest-keywords.html">MTest keywords</a></li>
 	      </ul>
@@ -354,6 +356,7 @@
 		<li><a href="tfel-material-homogenization.html">TFEL/Material homogenization</a></li>
                  <li><a href="glossary.html">Glossary</a></li>
                  <li><a href="physical-constants.html">Physical constants</a></li>
+                 <li><a href="tfel-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="tfel-mfront-database.html">TFELMFrontDatabase</a></li>
 	      </ul>
 	    </li>
@@ -373,6 +376,7 @@
 	  <ul>
 	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
 	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="coding-guidelines.html">Coding guidelines</a></li>
 	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
 	  </ul>
 	</li>
@@ -771,11 +775,28 @@ of those other parts takes a significant amount of CPU time, this
 algorithm can in some cases outperform the Newton-Raphson
 algorithm.</li>
 <li><code>PowellDogLeg_XX</code> algorithm, where <code>XX</code> is one
-of the previous algorithms. Those trust-region algorithms implement the
-classical Powell dogleg method <span class="citation"
-data-cites="chen_modification_1981">[see <a
-href="#ref-chen_modification_1981" role="doc-biblioref">15</a>]</span>
-to improve the robustness of the resolution.</li>
+of the previous algorithms. Those algorithms limit the corrections given
+by the <code>XX</code> algorithm using Powell’s dog leg step <span
+class="citation" data-cites="chen_modification_1981">[see <a
+href="#ref-chen_modification_1981" role="doc-biblioref">15</a>]</span>:
+when the sum of the absolute values of the components of the correction
+exceeds <span class="math inline">\(N\)</span> times the trust region
+size, <span class="math inline">\(N\)</span> being the number of
+unknowns, the correction is replaced by the point of the dog leg path
+(from the current estimate to the minimum of the linearised residual
+along the steepest descent direction, then to the correction) whose
+euclidean norm is equal to the trust region size. Contrary to the
+classical trust region methods, the trust region size is fixed: it is
+not updated from the ratio of the actual and predicted reductions of the
+residual, and no step is rejected. This size is set by the
+<code>@PowellDogLegTrustRegionSize</code> keyword (or by the
+<code>powell_dogleg_trust_region_size</code> parameter) and is equal to
+<span class="math inline">\(10^{-4}\)</span> by default. Since the
+progress per iteration is limited to about this size, it must be chosen
+according to the expected increments of the integration variables over a
+time step: otherwise, the algorithm may need many more iterations than
+the <code>XX</code> algorithm, or even fail where the latter
+converges.</li>
 </ul>
 <h3 id="consistent-tangent-operator">Consistent tangent operator</h3>
 <p>For most small strain behaviours, algorithms providing the jacobian

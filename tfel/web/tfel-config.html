@@ -223,6 +223,7 @@
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
                  <li><a href="behaviour-variable.html">Behaviour variables</a></li>
+                 <li><a href="mfront-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -268,6 +269,7 @@
 	    </li>
 	    <li><a href="mtest.html">MTest</a>
                <ul>
+	      <li><a href="ptest.html">Simulation of pipes</a></li>
 	      <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
               <li><a href="MTest-keywords.html">MTest keywords</a></li>
 	      </ul>
@@ -292,6 +294,7 @@
 		<li><a href="tfel-material-homogenization.html">TFEL/Material homogenization</a></li>
                  <li><a href="glossary.html">Glossary</a></li>
                  <li><a href="physical-constants.html">Physical constants</a></li>
+                 <li><a href="tfel-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="tfel-mfront-database.html">TFELMFrontDatabase</a></li>
 	      </ul>
 	    </li>
@@ -311,6 +314,7 @@
 	  <ul>
 	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
 	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="coding-guidelines.html">Coding guidelines</a></li>
 	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
 	  </ul>
 	</li>
@@ -332,8 +336,8 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#getdefaultsubstitutions-tfels-default-substitutions"
-id="toc-getdefaultsubstitutions-tfels-default-substitutions"><code>getDefaultSubstitutions</code>:
+<li><a href="#gettfeldefaultsubstitutions-tfels-default-substitutions"
+id="toc-gettfeldefaultsubstitutions-tfels-default-substitutions"><code>getTFELDefaultSubstitutions</code>:
 TFEL’s default substitutions</a></li>
 </ul>
 </div>
@@ -341,12 +345,42 @@ TFEL’s default substitutions</a></li>
 <code>TFEL</code> and provides some information related to the
 project.</p>
 <h1
-id="getdefaultsubstitutions-tfels-default-substitutions"><code>getDefaultSubstitutions</code>:
+id="gettfeldefaultsubstitutions-tfels-default-substitutions"><code>getTFELDefaultSubstitutions</code>:
 TFEL’s default substitutions</h1>
-<p>The <code>getDefaultSubstitutions</code> function returns some
+<p>The <code>getTFELDefaultSubstitutions</code> function returns some
 default substitutions used by <code>MFront</code> when reading
 configuration files and <code>tfel-check</code> when analysing
-<code>.check</code> files.</p>
+<code>.check</code> files. The keys listed below are delimited by the
+<code>@</code> character in those files and in the map returned by this
+function, e.g. <code>@TFEL_CXX_STANDARD@</code>.</p>
+<p>Only <code>TFEL_CXX_STANDARD</code> is always defined. The other keys
+are only defined if <code>TFEL</code> is configured with a configuration
+of the <code>generic-parallel</code> interface which uses them,
+i.e. listed in the <code>generic-parallel-configurations</code> variable
+of <code>cmake</code>:</p>
+<ul>
+<li><code>TFEL_GXX_COMPILER</code>:
+<code>stlpar-parunseq-gcc</code>,</li>
+<li><code>TFEL_CLANGXX_COMPILER</code>: <code>cuda-clang</code>,
+<code>hip-clang</code> or <code>stlpar-parunseq-clang</code>,</li>
+<li><code>TFEL_ICPX_COMPILER</code>: <code>stlpar-parunseq-icpx</code>
+or <code>sycl-default-icpx</code>,</li>
+<li><code>TFEL_ACPP_COMPILER</code>: <code>sycl-default-acpp</code> or
+<code>sycl-gpu-acpp</code>,</li>
+<li><code>TFEL_NVHPC_COMPILER</code>:
+<code>stlpar-parunseq-nvhpc-gpu</code>,</li>
+<li><code>TFEL_HIPCC_COMPILER</code>, <code>TFEL_HIPCC_FLAGS</code> and
+<code>TFEL_HIP_INCLUDE_DIR</code>: <code>hip-hipcc</code> or
+<code>hip-clang</code>,</li>
+<li><code>TFEL_NVCC_COMPILER</code>, <code>TFEL_CUDA_PATH</code> and
+<code>TFEL_CUDA_LIBRARY_DIR</code>: <code>cuda-nvcc</code>,
+<code>cuda-clang</code>, or <code>hip-hipcc</code> and
+<code>hip-clang</code> on the NVIDIA platform (<code>HIP_PLATFORM</code>
+set to <code>nvidia</code>).</li>
+</ul>
+<p>Without such a configuration, these keys are not substituted, and the
+variables <code>TFEL_xxx_COMPILER</code> passed to <code>cmake</code>
+are not used.</p>
 <h3 id="general-substitutions">General substitutions</h3>
 <ul>
 <li><code>TFEL_CXX_STANDARD</code>: the <code>C++</code> standard used
@@ -404,11 +438,11 @@ determined as follows, by order of priority:</p>
 invocation of <code>cmake</code>,</li>
 <li>by using <code>nvhpc</code> as the main compiler to compile
 <code>TFEL</code>,</li>
-<li>by searching <code>nvhpc</code> using <code>cmake</code>’s
+<li>by searching <code>nvc++</code> using <code>cmake</code>’s
 <code>find_program</code> function.</li>
 </ol></li>
 <li><p><code>TFEL_NVCC_COMPILER</code>: path to NVIDIA’s
-<code>nvhcp</code> as found by <code>FindCUDAToolkit</code>.</p></li>
+<code>nvcc</code> as found by <code>FindCUDAToolkit</code>.</p></li>
 <li><p><code>TFEL_HIPCC_COMPILER</code>: path to AMD’s
 <code>hipcc</code> compiler. The value associated with this key is
 determined as follows, by order of priority:</p>
@@ -422,8 +456,8 @@ invocation of <code>cmake</code>,</li>
 <h3 id="substitutions-related-to-the-hipcc-compiler">Substitutions
 related to the <code>HIPCC</code> compiler</h3>
 <ul>
-<li><code>TFEL_HIPCC_FLAGS: additional flags to be passed to the</code>hipcc`
-compiler.</li>
+<li><code>TFEL_HIPCC_FLAGS</code>: additional flags to be passed to the
+<code>hipcc</code> compiler.</li>
 <li><code>TFEL_HIP_INCLUDE_DIR</code>: paths to <code>HIP</code>
 headers</li>
 </ul>

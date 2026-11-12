@@ -285,6 +285,7 @@
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
                  <li><a href="behaviour-variable.html">Behaviour variables</a></li>
+                 <li><a href="mfront-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -330,6 +331,7 @@
 	    </li>
 	    <li><a href="mtest.html">MTest</a>
                <ul>
+	      <li><a href="ptest.html">Simulation of pipes</a></li>
 	      <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
               <li><a href="MTest-keywords.html">MTest keywords</a></li>
 	      </ul>
@@ -354,6 +356,7 @@
 		<li><a href="tfel-material-homogenization.html">TFEL/Material homogenization</a></li>
                  <li><a href="glossary.html">Glossary</a></li>
                  <li><a href="physical-constants.html">Physical constants</a></li>
+                 <li><a href="tfel-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="tfel-mfront-database.html">TFELMFrontDatabase</a></li>
 	      </ul>
 	    </li>
@@ -373,6 +376,7 @@
 	  <ul>
 	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
 	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="coding-guidelines.html">Coding guidelines</a></li>
 	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
 	  </ul>
 	</li>
@@ -444,18 +448,18 @@ class</h2>
 <p>The <code>Evaluator</code> class is used to interpret textual
 formula, as follows:</p>
 <div class="sourceCode" id="cb1"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Evalutator ev<span class="op">(</span><span class="st">&quot;sin(x)&quot;</span><span class="op">);</span></span>
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Evaluator ev<span class="op">(</span><span class="st">&quot;sin(x)&quot;</span><span class="op">);</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>ev<span class="op">.</span>setVariableValue<span class="op">(</span><span class="st">&quot;x&quot;</span><span class="op">,</span><span class="dv">12</span><span class="op">);</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> s <span class="op">=</span> ev<span class="op">.</span>getValue<span class="op">();</span></span></code></pre></div>
 <p>A shorthand for the previous code is the following:</p>
 <div class="sourceCode" id="cb2"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Evalutator ev<span class="op">(</span><span class="st">&quot;sin(x)&quot;</span><span class="op">);</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> s <span class="op">=</span> ev<span class="op">.</span>getValue<span class="op">({{</span>x<span class="op">:</span><span class="dv">12</span><span class="op">}});</span></span></code></pre></div>
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Evaluator ev<span class="op">(</span><span class="st">&quot;sin(x)&quot;</span><span class="op">);</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> s <span class="op">=</span> ev<span class="op">.</span>getValue<span class="op">({{</span><span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="dv">12</span><span class="op">}});</span></span></code></pre></div>
 <p>The <code>getValue</code> method can also be replaced by the call
 operator, as follows:</p>
 <div class="sourceCode" id="cb3"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Evalutator ev<span class="op">(</span><span class="st">&quot;sin(x)&quot;</span><span class="op">);</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> s <span class="op">=</span> ev<span class="op">({{</span>x<span class="op">:</span><span class="dv">12</span><span class="op">}});</span></span></code></pre></div>
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Evaluator ev<span class="op">(</span><span class="st">&quot;sin(x)&quot;</span><span class="op">);</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> s <span class="op">=</span> ev<span class="op">({{</span><span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="dv">12</span><span class="op">}});</span></span></code></pre></div>
 <h3 data-number="4.1.1" id="standard-operations"><span
 class="header-section-number">4.1.1</span> Standard operations</h3>
 <p>Let <code>x</code> and <code>y</code> be two variables, then:</p>
@@ -475,6 +479,12 @@ class="math inline">\(x^{y}\)</span>.</li>
 </ul>
 <p>The standard priority of those operators has been respected.
 Parenthesis may be used to define sub-expressions.</p>
+<p>As in <code>Fortran</code> and <code>Python</code>, the
+exponentiation is right-associative: <code>x**y**z</code> is <span
+class="math inline">\(x^{\left(y^{z}\right)}\)</span>,
+i.e. <code>x**(y**z)</code>, and has a higher priority than the unary
+minus: <code>-x**2</code> is <span class="math inline">\(-x^{2}\)</span>
+and <code>x**-y**z</code> is <code>x**(-(y**z))</code>.</p>
 <h3 data-number="4.1.2" id="standard-function-and-constants"><span
 class="header-section-number">4.1.2</span> Standard function and
 constants</h3>
@@ -486,7 +496,7 @@ class="header-section-number">4.1.2.1</span> Constants</h4>
 href="physical-constants.html">this page</a> are accessible through the
 <code>Cste</code> namespace, as follows:</p>
 <div class="sourceCode" id="cb4"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Evalutator ev<span class="op">(</span><span class="st">&quot;exp(-Q/(Cste::R*T))&quot;</span><span class="op">);</span></span></code></pre></div>
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Evaluator ev<span class="op">(</span><span class="st">&quot;exp(-Q/(Cste::R*T))&quot;</span><span class="op">);</span></span></code></pre></div>
 <h4 data-number="4.1.2.2" id="unary-functions"><span
 class="header-section-number">4.1.2.2</span> Unary functions</h4>
 <p>Most unary function defined by the <code>C++11</code> standard have
@@ -548,8 +558,8 @@ below.</li>
 <h4 data-number="4.1.2.3" id="binary-functions"><span
 class="header-section-number">4.1.2.3</span> Binary functions</h4>
 <ul>
-<li><code>max</code>: returns the minimum of its two arguments.</li>
-<li><code>min</code>: returns the maximum of its two arguments.</li>
+<li><code>max</code>: returns the maximum of its two arguments.</li>
+<li><code>min</code>: returns the minimum of its two arguments.</li>
 <li><code>hypot</code>: returns the hypotenuse of a right-angled
 triangle whose legs are x and y, i.e. computes (.</li>
 <li><code>atan2</code>: returns the principal value of the arc tangent

@@ -14,7 +14,71 @@
         <meta name="author" content="Thomas Helfer, Chao Ling, Jérémy Hure" />
             <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
-                <link rel="stylesheet" href="css/normalize.css"/>
+            <style type="text/css">
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  background-color: #f8f8f8; }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+      code span.al { color: #ef2929; } /* Alert */
+      code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #204a87; } /* Attribute */
+      code span.bn { color: #0000cf; } /* BaseN */
+      code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4e9a06; } /* Char */
+      code span.cn { color: #8f5902; } /* Constant */
+      code span.co { color: #8f5902; font-style: italic; } /* Comment */
+      code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+      code span.dt { color: #204a87; } /* DataType */
+      code span.dv { color: #0000cf; } /* DecVal */
+      code span.er { color: #a40000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #0000cf; } /* Float */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+      code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+      code span.ot { color: #8f5902; } /* Other */
+      code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+      code span.ss { color: #4e9a06; } /* SpecialString */
+      code span.st { color: #4e9a06; } /* String */
+      code span.va { color: #000000; } /* Variable */
+      code span.vs { color: #4e9a06; } /* VerbatimString */
+      code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
         <script
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
@@ -221,6 +285,7 @@
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
                  <li><a href="behaviour-variable.html">Behaviour variables</a></li>
+                 <li><a href="mfront-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -266,6 +331,7 @@
 	    </li>
 	    <li><a href="mtest.html">MTest</a>
                <ul>
+	      <li><a href="ptest.html">Simulation of pipes</a></li>
 	      <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
               <li><a href="MTest-keywords.html">MTest keywords</a></li>
 	      </ul>
@@ -290,6 +356,7 @@
 		<li><a href="tfel-material-homogenization.html">TFEL/Material homogenization</a></li>
                  <li><a href="glossary.html">Glossary</a></li>
                  <li><a href="physical-constants.html">Physical constants</a></li>
+                 <li><a href="tfel-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="tfel-mfront-database.html">TFELMFrontDatabase</a></li>
 	      </ul>
 	    </li>
@@ -309,6 +376,7 @@
 	  <ul>
 	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
 	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="coding-guidelines.html">Coding guidelines</a></li>
 	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
 	  </ul>
 	</li>
@@ -347,6 +415,7 @@ id="toc-the-finitestrainsinglecrystal-brick">The
 <li><a href="#variables-automatically-defined"
 id="toc-variables-automatically-defined">Variables automatically
 defined</a></li>
+<li><a href="#options" id="toc-options">Options</a></li>
 <li><a href="#implementation-of-the-implicit-system"
 id="toc-implementation-of-the-implicit-system">Implementation of the
 implicit system</a></li>
@@ -719,6 +788,28 @@ slip systems and the interaction matrix.</p>
 defined</h2>
 <p>The plastic slip <span class="math inline">\(g\)</span> are
 automatically defined.</p>
+<h2 id="options">Options</h2>
+<p>The <code>FiniteStrainSingleCrystal</code> brick supports the
+following boolean options:</p>
+<ul>
+<li><code>shifted_elastic_deformation_gradient</code>: if
+<code>true</code>, the auxiliary state variable <code>Fe</code> stores
+the elastic part of the deformation gradient minus the identity. This
+option is <code>false</code> by default.</li>
+<li><code>plastic_deformation_gradient_normalisation_corrections</code>:
+if <code>true</code>, the jacobian and the consistent tangent operator
+take into account the normalisation of the inverse of the increment of
+the plastic part of the deformation gradient, as detailed below. If
+<code>false</code>, the derivatives of this normalisation are neglected.
+This option is <code>true</code> by default. The residual and the
+converged results do not depend on this option, up to the convergence
+criteria: it only allows to test if those corrections affect the
+results.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Brick FiniteStrainSingleCrystal<span class="op">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  plastic_deformation_gradient_normalisation_corrections <span class="op">:</span> <span class="kw">false</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <h2 id="implementation-of-the-implicit-system">Implementation of the
 implicit system</h2>
 <p>Le second tenseur de Piola-Kirchhoff est défini par la loi élastique
@@ -731,6 +822,8 @@ class="math display">\[
 {\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{-1} =
 {\underset{\tilde{}}{\mathbf{I}}}-\sum_{i=1}^{12}\Delta\,g_{i}\,{\underset{\tilde{}}{\mathbf{\mu}}}_{i}
 \]</span></p>
+<p>Ce tenseur est ensuite normalisé par la racine cubique de son
+déterminant <span class="math inline">\(J\)</span>.</p>
 <p>Nous calculons la partie élastique de gradient de la transformation
 <span
 class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}_{e}\)</span> en
@@ -794,15 +887,30 @@ class="math inline">\({\underset{\tilde{}}{\mathbf{F}}}_{e}\)</span>:
 {\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{-1}}}} =
 \partial^{r}_{\star}{\left({\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{tr}}\right)}
 \]</span></p>
-<p>En négligeant la correction plastique, la dérivée <span
+<p>Du fait de la normalisation par la racine cubique de <span
+class="math inline">\(J\)</span>, la dérivée <span
 class="math inline">\({{\displaystyle \frac{\displaystyle \partial
 {\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{-1}}{\displaystyle
-\partial \Delta\,g_{i}}}}\)</span> s’écrit simplement: <span
+\partial \Delta\,g_{i}}}}\)</span> s’écrit: <span
 class="math display">\[
 {{\displaystyle \frac{\displaystyle \partial
 {\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{-1}}{\displaystyle
-\partial \Delta\,g_{i}}}} = -{\underset{\tilde{}}{\mathbf{\mu}}}_{i}
+\partial \Delta\,g_{i}}}} = -{\underset{\tilde{}}{\mathbf{\mu}}}^{n}_{i}
+\quad\text{avec}\quad
+{\underset{\tilde{}}{\mathbf{\mu}}}^{n}_{i}=
+{{\displaystyle \frac{\displaystyle 1}{\displaystyle
+J^{1/3}}}}\,{\left({\underset{\tilde{}}{\mathbf{\mu}}}_{i}-
+{{\displaystyle \frac{\displaystyle 1}{\displaystyle
+3}}}\,{\left({\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{T}\,\colon\,{\underset{\tilde{}}{\mathbf{\mu}}}_{i}\right)}\,
+{\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{-1}\right)}
 \]</span></p>
+<p>Si l’option
+<code>plastic_deformation_gradient_normalisation_corrections</code> vaut
+<code>false</code>, ces corrections sont explicitement négligées: <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{\mu}}}^{n}_{i}\)</span>
+est remplacé par <span
+class="math inline">\({\underset{\tilde{}}{\mathbf{\mu}}}_{i}\)</span>
+dans le jacobien et dans l’opérateur tangent.</p>
 <p>Nous obtenons finalement l’expression la dérivée <span
 class="math inline">\({{\displaystyle \frac{\displaystyle \partial
 f}{\displaystyle \partial \Delta\,g_{i}}}}\)</span>: <span
@@ -815,7 +923,7 @@ f_{\underline{\epsilon}^{\mathrm{el}}}}{\displaystyle \partial
 \underline{C}_{e}}{\displaystyle \partial
 {\underset{\tilde{}}{\mathbf{F}}}_{e}}}}\,.\,
 \partial^{r}_{\star}{\left({\underset{\tilde{}}{\mathbf{F}}}_{e}^{\mathrm{tr}}\right)}\,.\,
-{\underset{\tilde{}}{\mathbf{\mu}}}_{i}
+{\underset{\tilde{}}{\mathbf{\mu}}}^{n}_{i}
 \]</span></p>
 <h2
 id="implementation-of-the-consistent-tangent-operator">Implementation of
@@ -893,12 +1001,12 @@ class="math inline">\({{\displaystyle \frac{\displaystyle \partial
 class="math inline">\({{\displaystyle \frac{\displaystyle \partial
 {\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{-1}}{\displaystyle
 \partial \Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}\)</span>, nous
-pouvons nous baser sur l’approximation faite lors de l’intégration. Nous
+pouvons nous baser sur l’expression utilisée lors de l’intégration. Nous
 avons alors directement: <span class="math display">\[
 {{\displaystyle \frac{\displaystyle \partial
 {\left(\Delta\,{\underset{\tilde{}}{\mathbf{F}}}_{p}\right)}^{-1}}{\displaystyle
 \partial \Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}=
--\sum_{i=1}^{12}{\underset{\tilde{}}{\mathbf{\mu}}}_{i}\,\otimes\,{{\displaystyle
+-\sum_{i=1}^{12}{\underset{\tilde{}}{\mathbf{\mu}}}^{n}_{i}\,\otimes\,{{\displaystyle
 \frac{\displaystyle \partial \Delta\,g_{i}}{\displaystyle \partial
 \Delta\,{\underset{\tilde{}}{\mathbf{F}}}}}}
 \]</span></p>

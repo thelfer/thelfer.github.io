@@ -285,6 +285,7 @@
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
                  <li><a href="behaviour-variable.html">Behaviour variables</a></li>
+                 <li><a href="mfront-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -330,6 +331,7 @@
 	    </li>
 	    <li><a href="mtest.html">MTest</a>
                <ul>
+	      <li><a href="ptest.html">Simulation of pipes</a></li>
 	      <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
               <li><a href="MTest-keywords.html">MTest keywords</a></li>
 	      </ul>
@@ -354,6 +356,7 @@
 		<li><a href="tfel-material-homogenization.html">TFEL/Material homogenization</a></li>
                  <li><a href="glossary.html">Glossary</a></li>
                  <li><a href="physical-constants.html">Physical constants</a></li>
+                 <li><a href="tfel-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="tfel-mfront-database.html">TFELMFrontDatabase</a></li>
 	      </ul>
 	    </li>
@@ -373,6 +376,7 @@
 	  <ul>
 	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
 	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="coding-guidelines.html">Coding guidelines</a></li>
 	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
 	  </ul>
 	</li>
@@ -958,12 +962,15 @@ follows:</p>
 function.</p>
 <h3 data-number="2.8.1" id="derivative"><span
 class="header-section-number">2.8.1</span> Derivative</h3>
-<p>The derivative of the symmetric product <span
+<p>The <code>st2tost2::stpd</code> static method, which takes <span
+class="math inline">\(\underline{b}\)</span> as argument, computes the
+derivative of <span
+class="math inline">\(\underline{a}\,\cdot\underline{b}+\underline{b}\,\cdot\underline{a}\)</span>
+with respect to <span class="math inline">\(\underline{a}\)</span>. The
+derivative of the symmetric product <span
 class="math inline">\(\underline{a}\,\cdot_{s}\,\underline{b}\)</span>
-with respect to <span class="math inline">\(\underline{a}\)</span> can
-be computed using the <code>st2tost2::stpd</code> static method with
-takes <span class="math inline">\(\underline{b}\)</span> as
-argument.</p>
+with respect to <span class="math inline">\(\underline{a}\)</span> is
+thus <code>st2tost2::stpd(b) / 2</code>.</p>
 <h2 data-number="2.9"
 id="second-symmetric-product-of-two-symmetric-second-order-tensors-underlineacdotunderlinebcdotunderlinea"><span
 class="header-section-number">2.9</span> Second symmetric product of two
@@ -1514,7 +1521,7 @@ J_{3}^{O}=
 &amp;\frac{1}{27}\,(b_1+b_2)\,s_{xx}^3+\frac{1}{27}\,(b_3+b_4)\,s_{yy}^3+\frac{1}{27}\,(2\,(b_1+b_4)-b_2-b_3)\,s_{zz}^3\\
 &amp;-\frac{1}{9}\,(b_1\,s_{yy}+b_2s_{zz})\,s_{xx}^2\\
 &amp;-\frac{1}{9}\,(b_3\,s_{zz}+b_4\,s_{xx})\,s_{yy}^2\\
-&amp;-\frac{1}{9}\,((b_1-b_2+b_4)\,s_{xx}+(b_1-b3+b_4)\,s_{yy})\,s_{zz}^3\\
+&amp;-\frac{1}{9}\,((b_1-b_2+b_4)\,s_{xx}+(b_1-b_3+b_4)\,s_{yy})\,s_{zz}^2\\
 &amp;+\frac{2}{9}\,(b_1+b_4)\,s_{xx}\,s_{yy}\,s_{zz}\\
 &amp;-\frac{s_{xz}^2}{3}\,(2\,b_9\,s_{yy}-b_8\,s_{zz}-(2\,b_9-b_8)\,s_{xx})\\
 &amp;-\frac{s_{xy}^2}{3}\,(2\,b_{10}\,s_{zz}-b_5\,s_{yy}-(2\,b_{10}-b_5)\,s_{xx})\\
@@ -1669,6 +1676,14 @@ style="text-align: center;"><code>GTESYMMETRICQREIGENSOLVER</code></td>
 </table>
 </div>
 <p>The various eigen solvers available are enumerated in Table 1.</p>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>The analytical formulas of the eigenvectors are not reliable for
+repeated or nearly repeated eigenvalues. The eigenvectors of the
+<code>FSESANALYTICALEIGENSOLVER</code> solver are thus computed as by
+the <code>FSESHYBRIDEIGENSOLVER</code> solver, which falls back to the
+QL algorithm in this case.</p>
+</blockquote>
 <p>The eigen solver is passed as a template argument of the
 <code>computeEigenValues</code> or the <code>computeEigenVectors</code>
 methods as illustrated in the code below:</p>
@@ -1680,6 +1695,14 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb43-1"><a href="#
 <p><strong>Note</strong></p>
 <p>In <code>2D</code>, the last eigenvector always corresponds to the
 out-of-plane direction.</p>
+</blockquote>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>The <code>TFELEIGENSOLVER</code>,
+<code>GTESYMMETRICQREIGENSOLVER</code> and
+<code>HARARIEIGENSOLVER</code> eigen solvers can be used in GPU kernels.
+The eigen solvers based on the <code>FSES</code> library are only
+available on the host.</p>
 </blockquote>
 <p>The <code>computeEigenVectors</code> method can also order the
 eigenvalues in ascending or descending order, see the
@@ -1720,6 +1743,45 @@ f}{\displaystyle \partial \underline{s}}}\)</span> all at once by the
 <code>computeIsotropicFunctionAndDerivative</code> method. All those
 methods are templated by the name of the eigen solver (if no template
 parameter is given, the <code>TFELEIGENSOLVER</code> is used).</p>
+<p>The methods computing <span class="math inline">\({\displaystyle
+\frac{\displaystyle \partial f}{\displaystyle \partial
+\underline{s}}}\)</span> take an argument <span
+class="math inline">\(\varepsilon\)</span>: two eigenvalues <span
+class="math inline">\(\lambda_{i}\)</span> and <span
+class="math inline">\(\lambda_{j}\)</span> are considered equal if <span
+class="math inline">\(\left|\lambda_{i}-\lambda_{j}\right|&lt;\varepsilon\)</span>.
+In this case, the divided difference <span
+class="math inline">\({{\displaystyle \frac{\displaystyle
+f{\left(\lambda_{i}\right)}-f{\left(\lambda_{j}\right)}}{\displaystyle
+\lambda_{i}-\lambda_{j}}}}\)</span> is replaced by the mean of the
+derivatives of <span class="math inline">\(f\)</span> and, in three
+dimensions, when the third eigenvalue <span
+class="math inline">\(\lambda_{k}\)</span> is not considered equal to
+them, the divided differences involving <span
+class="math inline">\(\lambda_{k}\)</span> are computed with the mean of
+<span class="math inline">\(\lambda_{i}\)</span> and <span
+class="math inline">\(\lambda_{j}\)</span> and the mean of <span
+class="math inline">\(f{\left(\lambda_{i}\right)}\)</span> and <span
+class="math inline">\(f{\left(\lambda_{j}\right)}\)</span>. This
+threshold is absolute. It must be well above the rounding errors of the
+eigenvalues: computed in floating point arithmetic, two mathematically
+equal eigenvalues generally differ by a few units in the last place, and
+the divided difference has an error of about <span
+class="math inline">\(u\,\left|f\right|/\left|\lambda_{i}-\lambda_{j}\right|\)</span>,
+where <span class="math inline">\(u\)</span> is the machine precision,
+whereas those replacements have an error of order <span
+class="math inline">\(\left|\lambda_{i}-\lambda_{j}\right|\)</span>. For
+a function whose derivatives vary on the scale of the eigenvalues, such
+as the logarithm, a value of <span
+class="math inline">\(\varepsilon\)</span> of order <span
+class="math inline">\(\sqrt{u}\,\max_{i}\left|\lambda_{i}\right|\)</span>
+bounds both errors by about <span
+class="math inline">\(\sqrt{u}\)</span> relatively: in double precision,
+the relative errors observed on the derivative of the logarithm with
+this threshold stay below <span
+class="math inline">\(2\,10^{-8}\)</span>, including for nearly
+isotropic tensors whose three eigenvalues differ by a few <span
+class="math inline">\(\varepsilon\)</span>.</p>
 <p>Various new overloaded versions of those methods have been
 introduced. Those overloaded methods are meant to:</p>
 <ul>
@@ -2047,7 +2109,6 @@ class="math inline">\(\underline{\underline{\mathbf{C}}}&#39;&#39;\)</span>
 of the deviator stress are defined as follows: <span
 class="math display">\[
 \underline{\underline{\mathbf{C}}}&#39;=
-{{\displaystyle \frac{\displaystyle 1}{\displaystyle 3}}}\,
 \begin{pmatrix}
 0 &amp; -c&#39;_{12} &amp; -c&#39;_{13} &amp; 0 &amp; 0 &amp; 0 \\
 -c&#39;_{21} &amp; 0 &amp; -c&#39;_{23} &amp; 0 &amp; 0 &amp; 0 \\
@@ -2132,7 +2193,7 @@ class="math inline">\(c^{B}\)</span> given by Barlat, one shall call
 this function as follows:</p>
 <div class="sourceCode" id="cb51"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> l1 <span class="op">=</span> makeBarlatLinearTransformation<span class="op">&lt;</span><span class="dv">3</span><span class="op">&gt;(</span>cB_12<span class="op">,</span>cB_21<span class="op">,</span>cB_13<span class="op">,</span>cB_31<span class="op">,</span></span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>                                                  cB_23<span class="op">,</span>cB_32<span class="op">,</span>cB_66<span class="op">,</span>cBB_55<span class="op">,</span>cBB_44<span class="op">);</span></span></code></pre></div>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>                                                  cB_23<span class="op">,</span>cB_32<span class="op">,</span>cB_66<span class="op">,</span>cB_55<span class="op">,</span>cB_44<span class="op">);</span></span></code></pre></div>
 </blockquote>
 <p>The <code>TFEL/Material</code> library also provide an overload of
 the <code>makeBarlatLinearTransformation</code> which template

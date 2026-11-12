@@ -286,6 +286,7 @@
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
                  <li><a href="behaviour-variable.html">Behaviour variables</a></li>
+                 <li><a href="mfront-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -331,6 +332,7 @@
 	    </li>
 	    <li><a href="mtest.html">MTest</a>
                <ul>
+	      <li><a href="ptest.html">Simulation of pipes</a></li>
 	      <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
               <li><a href="MTest-keywords.html">MTest keywords</a></li>
 	      </ul>
@@ -355,6 +357,7 @@
 		<li><a href="tfel-material-homogenization.html">TFEL/Material homogenization</a></li>
                  <li><a href="glossary.html">Glossary</a></li>
                  <li><a href="physical-constants.html">Physical constants</a></li>
+                 <li><a href="tfel-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="tfel-mfront-database.html">TFELMFrontDatabase</a></li>
 	      </ul>
 	    </li>
@@ -374,6 +377,7 @@
 	  <ul>
 	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
 	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="coding-guidelines.html">Coding guidelines</a></li>
 	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
 	  </ul>
 	</li>
@@ -788,7 +792,7 @@ requires to determine their increments during the time step and does not
 require to know their values at the beginning of the time step. If such
 post-processing does not matter, a significant amount of memory can be
 saved by removing their declaration as auxiliary state variables and
-their update in the <code>@UpdateAuxiliaryStateVariable</code> code
+their update in the <code>@UpdateAuxiliaryStateVariables</code> code
 block.</p>
 <h2 id="computation-of-the-stress">Computation of the stress</h2>
 <p>The stress tensor is a function of the increment of the elastic
@@ -982,8 +986,9 @@ introduced in <span class="citation"
 data-cites="liao-mcpherson_regularized_2019">[<a
 href="#ref-liao-mcpherson_regularized_2019"
 role="doc-biblioref">13</a>]</span> and whose application to plasticity
-is described on a <a href="FisherBurmeister.html">dedicated web page</a>
-<span class="citation" data-cites="ceaedf_fisher-burmeister_2021">[<a
+is described on a <a href="FischerBurmeister.html">dedicated web
+page</a> <span class="citation"
+data-cites="ceaedf_fisher-burmeister_2021">[<a
 href="#ref-ceaedf_fisher-burmeister_2021"
 role="doc-biblioref">14</a>]</span>:</p>
 <p><span class="math display">\[

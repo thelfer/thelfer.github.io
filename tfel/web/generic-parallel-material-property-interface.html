@@ -285,6 +285,7 @@
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
                  <li><a href="behaviour-variable.html">Behaviour variables</a></li>
+                 <li><a href="mfront-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -330,6 +331,7 @@
 	    </li>
 	    <li><a href="mtest.html">MTest</a>
                <ul>
+	      <li><a href="ptest.html">Simulation of pipes</a></li>
 	      <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
               <li><a href="MTest-keywords.html">MTest keywords</a></li>
 	      </ul>
@@ -354,6 +356,7 @@
 		<li><a href="tfel-material-homogenization.html">TFEL/Material homogenization</a></li>
                  <li><a href="glossary.html">Glossary</a></li>
                  <li><a href="physical-constants.html">Physical constants</a></li>
+                 <li><a href="tfel-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="tfel-mfront-database.html">TFELMFrontDatabase</a></li>
 	      </ul>
 	    </li>
@@ -373,6 +376,7 @@
 	  <ul>
 	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
 	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="coding-guidelines.html">Coding guidelines</a></li>
 	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
 	  </ul>
 	</li>
@@ -482,18 +486,22 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#c
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>         mfront_gmp_real<span class="op">*</span> <span class="at">const</span><span class="op">,</span>               <span class="co">// output values</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> <span class="dt">mfront_gmp_size_type</span><span class="op">,</span>           <span class="co">// output stride</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>         <span class="op">...,</span>                                  <span class="co">// extra arguments specific to the backend considered</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> mfront_gmp_real<span class="op">*</span> <span class="at">const</span><span class="op">,</span>         <span class="co">// values of the arguments</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> mfront_gmp_size_types<span class="op">*</span> <span class="at">const</span><span class="op">,</span>   <span class="co">// strides of the arguments</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> mfront_gmp_real<span class="op">*</span> <span class="at">const</span><span class="op">*</span> <span class="at">const</span><span class="op">,</span>  <span class="co">// values of the arguments</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> <span class="dt">mfront_gmp_size_type</span><span class="op">*</span> <span class="at">const</span><span class="op">,</span>    <span class="co">// strides of the arguments</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> <span class="dt">mfront_gmp_size_type</span><span class="op">,</span>           <span class="co">// number of arguments</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> <span class="dt">mfront_gmp_size_type</span><span class="op">,</span>           <span class="co">// number of points</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> mfront_gmp_OutOfBoundsPolicy<span class="op">);</span>  <span class="co">// out of bounds policy</span></span></code></pre></div>
 <p>The <code>mfront_gmp_OutputStatus</code> structure and the
 <code>mfront_gmp_OutOfBoundsPolicy</code> enumeration type are described
 in the page dedicated to the <a
-href="generic-parallel-material-property-interface.html"><code>generic</code>
+href="generic-material-property-interface.html"><code>generic</code>
 interface for material properties</a>. The <code>mfront_gmp_real</code>
 type is by default an alias to double precision floating point
 numbers.</p>
+<p>Contrary to the <code>generic</code> interface, <code>errno</code> is
+not used to detect errors: it is thread-local and does not exist on
+GPUs. A result which is not finite (<code>nan</code> or infinite) at one
+point at least is reported by the status <code>-4</code>.</p>
 <p>If the number of points is null, no computation is made.</p>
 <p>A null stride means that the associated argument is uniform. The
 stride of the output can be null only if all the strides of all the
@@ -506,13 +514,13 @@ as a special case and will use an optimized implementation.</p>
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="op">(*)(</span>mfront_gmp_OutputStatus<span class="op">*</span> <span class="at">const</span><span class="op">,</span>       <span class="co">// output status</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>         mfront_gmp_real<span class="op">*</span> <span class="at">const</span><span class="op">,</span>               <span class="co">// output values</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>         <span class="op">...,</span>                                  <span class="co">// extra arguments specific to the backend considered</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> mfront_gmp_real<span class="op">*</span> <span class="at">const</span><span class="op">,</span>         <span class="co">// values of the arguments</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> mfront_gmp_real<span class="op">*</span> <span class="at">const</span><span class="op">*</span> <span class="at">const</span><span class="op">,</span>  <span class="co">// values of the arguments</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> <span class="dt">mfront_gmp_size_type</span><span class="op">,</span>           <span class="co">// number of arguments</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> <span class="dt">mfront_gmp_size_type</span><span class="op">,</span>           <span class="co">// number of points</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">const</span> mfront_gmp_OutOfBoundsPolicy<span class="op">);</span>  <span class="co">// out of bounds policy</span></span></code></pre></div>
 <p>This function assumes that the values of the arguments and the values
 of the output are stored contiguously in memory. In other words, this
-prototype is equivalent to the the first prototype when all strides are
+prototype is equivalent to the first prototype when all strides are
 equal to one.</p>
 <h1 id="backends">Backends</h1>
 <p>Backends are associated with parallel programming models.</p>
@@ -805,16 +813,22 @@ available:</p>
 <ul>
 <li><code>automatic</code>: this policy may automatically trigger a copy
 of the data if needed. No copy is made if the data are already on the
-device or in shared memory.</li>
+device or in shared memory. The output is copied in both directions, so
+that the values which are not computed (points where the evaluation
+fails, values between two values of a strided output) are kept.</li>
 <li><code>none</code>: this policy assumes that the data are already on
 the device on in shared memory.</li>
 </ul>
 <blockquote>
 <p>** Providing data on the device**</p>
-<p>Data copy in <code>SYCL</code> are asynchronous operations. Thus, if
-the data are provided on the device, the user is responsible for
-ensuring that the data are effectively copied before calling
-<code>MFront</code>’s generated functions.</p>
+<p>Data copy in <code>SYCL</code> are asynchronous operations. The
+generated functions submit their commands after the commands previously
+submitted to the given queue: an in-order queue orders them, and the
+generated functions wait for the end of the commands previously
+submitted to an out-of-order queue. If the data are provided by commands
+submitted to another queue, the user is responsible for ensuring that
+the data are effectively copied before calling <code>MFront</code>’s
+generated functions.</p>
 </blockquote>
 <h1 id="tests">Tests</h1>
 <p>Unlike other material property interfaces, the tests for the

@@ -221,6 +221,7 @@
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
                  <li><a href="behaviour-variable.html">Behaviour variables</a></li>
+                 <li><a href="mfront-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -266,6 +267,7 @@
 	    </li>
 	    <li><a href="mtest.html">MTest</a>
                <ul>
+	      <li><a href="ptest.html">Simulation of pipes</a></li>
 	      <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
               <li><a href="MTest-keywords.html">MTest keywords</a></li>
 	      </ul>
@@ -290,6 +292,7 @@
 		<li><a href="tfel-material-homogenization.html">TFEL/Material homogenization</a></li>
                  <li><a href="glossary.html">Glossary</a></li>
                  <li><a href="physical-constants.html">Physical constants</a></li>
+                 <li><a href="tfel-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="tfel-mfront-database.html">TFELMFrontDatabase</a></li>
 	      </ul>
 	    </li>
@@ -309,6 +312,7 @@
 	  <ul>
 	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
 	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="coding-guidelines.html">Coding guidelines</a></li>
 	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
 	  </ul>
 	</li>
@@ -402,7 +406,7 @@ metals.</p>
 entry</h1>
 <p>This entry describes cohesive force for cohesive zone models.</p>
 <ul>
-<li>units: *SI: Newton</li>
+<li>units: *SI: Pa</li>
 <li>type: vector</li>
 </ul>
 <h1 id="the-convectiveheattransfercoefficient-entry">The
@@ -414,7 +418,7 @@ entry</h1>
 </ul>
 <h1 id="the-crosssectionarea-entry">The <code>CrossSectionArea</code>
 entry</h1>
-<p>This entry describes ??.</p>
+<p>This entry describes the area of the cross section of a beam.</p>
 <ul>
 <li>units: *SI: m^{2}</li>
 <li>type: scalar</li>
@@ -449,7 +453,7 @@ and 1 (broken material).</p>
 <h1 id="the-dualstress-entry">The <code>DualStress</code> entry</h1>
 <p>This entry describes the dual stress of the strain measure.</p>
 <ul>
-<li>units: *SI: stress</li>
+<li>units: *SI: Pa</li>
 <li>type: tensor</li>
 </ul>
 <h1 id="the-elasticstrain-entry">The <code>ElasticStrain</code>
@@ -508,21 +512,24 @@ fast neutron is 1 MeV.</p>
 </ul>
 <h1 id="the-fastneutronflux_01mev-entry">The
 <code>FastNeutronFlux_01MeV</code> entry</h1>
-<p>This entry describes the fast neutron fluence.</p>
+<p>This entry describes the fast neutron flux, where the limit for fast
+neutron is 0.1 MeV.</p>
 <ul>
 <li>units: *SI: n.m<sup>{-2}.s</sup>{-1}</li>
 <li>type: scalar</li>
 </ul>
 <h1 id="the-fastneutronflux_1mev-entry">The
 <code>FastNeutronFlux_1MeV</code> entry</h1>
-<p>This entry describes the fast neutron fluence.</p>
+<p>This entry describes the fast neutron flux, where the limit for fast
+neutron is 1 MeV.</p>
 <ul>
 <li>units: *SI: n.m<sup>{-2}.s</sup>{-1}</li>
 <li>type: scalar</li>
 </ul>
 <h1 id="the-firstaxissecondmomentarea-entry">The
 <code>FirstAxisSecondMomentArea</code> entry</h1>
-<p>This entry describes ??.</p>
+<p>This entry describes the second moment of area of the cross section
+of a beam about its first axis.</p>
 <ul>
 <li>units: *SI: m^{4}</li>
 <li>type: scalar</li>
@@ -575,7 +582,7 @@ difference.</p>
 <p>This entry describes the Hill equivalent stress.</p>
 <ul>
 <li>units: *SI: Pa</li>
-<li>type: tensor</li>
+<li>type: scalar</li>
 </ul>
 <h1 id="the-hydrostaticpressure-entry">The
 <code>HydrostaticPressure</code> entry</h1>
@@ -583,7 +590,7 @@ difference.</p>
 of the trace of the stress tensor.</p>
 <ul>
 <li>units: *SI: Pa</li>
-<li>type: tensor</li>
+<li>type: scalar</li>
 </ul>
 <h1 id="the-irradiationdamage-entry">The <code>IrradiationDamage</code>
 entry</h1>
@@ -833,7 +840,7 @@ entry</h1>
 <li>type: tensor</li>
 </ul>
 <h1 id="the-platewidth-entry">The <code>PlateWidth</code> entry</h1>
-<p>This entry describes ??.</p>
+<p>This entry describes the out-of-plane width of a plate.</p>
 <ul>
 <li>units: *SI: m</li>
 <li>type: scalar</li>
@@ -912,7 +919,7 @@ entry</h1>
 </ul>
 <h1 id="the-principalstress2-entry">The <code>PrincipalStress2</code>
 entry</h1>
-<p>This entry describes the third principal stress.</p>
+<p>This entry describes the second principal stress.</p>
 <ul>
 <li>units: *SI: Pa</li>
 <li>type: scalar</li>
@@ -926,7 +933,8 @@ entry</h1>
 </ul>
 <h1 id="the-secondaxissecondmomentarea-entry">The
 <code>SecondAxisSecondMomentArea</code> entry</h1>
-<p>This entry describes ??.</p>
+<p>This entry describes the second moment of area of the cross section
+of a beam about its second axis.</p>
 <ul>
 <li>units: *SI: m^{4}</li>
 <li>type: scalar</li>
@@ -1026,7 +1034,7 @@ zone model.</p>
 <p>This entry describes the temperature gradient, generally in the
 current configuration.</p>
 <ul>
-<li>units: *SI: T.m^{-1}</li>
+<li>units: *SI: K.m^{-1}</li>
 <li>type: vector</li>
 </ul>
 <h1 id="the-thermalconductivity-entry">The
@@ -1105,9 +1113,10 @@ third orthotropy direction.</p>
 MeanThermalExpansionCoefficient3.</p>
 <h1 id="the-torsionconstant-entry">The <code>TorsionConstant</code>
 entry</h1>
-<p>This entry describes ??.</p>
+<p>This entry describes the torsion constant of the cross section of a
+beam.</p>
 <ul>
-<li>units: *SI: ??</li>
+<li>units: *SI: m^{4}</li>
 <li>type: scalar</li>
 </ul>
 <h1 id="the-trescastress-entry">The <code>TrescaStress</code> entry</h1>
@@ -1170,7 +1179,7 @@ material.</p>
 </ul>
 <h1 id="the-youngmodulus1-entry">The <code>YoungModulus1</code>
 entry</h1>
-<p>This entry describes the Young’s modulus of an isotropic material
+<p>This entry describes the Young’s modulus of an orthotropic material
 along the first direction of orthotropy.</p>
 <ul>
 <li>units: *SI: Pa</li>
@@ -1178,7 +1187,7 @@ along the first direction of orthotropy.</p>
 </ul>
 <h1 id="the-youngmodulus2-entry">The <code>YoungModulus2</code>
 entry</h1>
-<p>This entry describes the Young’s modulus of an isotropic material
+<p>This entry describes the Young’s modulus of an orthotropic material
 along the second direction of orthotropy.</p>
 <ul>
 <li>units: *SI: Pa</li>
@@ -1186,7 +1195,7 @@ along the second direction of orthotropy.</p>
 </ul>
 <h1 id="the-youngmodulus3-entry">The <code>YoungModulus3</code>
 entry</h1>
-<p>This entry describes the Young’s modulus of an isotropic material
+<p>This entry describes the Young’s modulus of an orthotropic material
 along the third direction of orthotropy.</p>
 <ul>
 <li>units: *SI: Pa</li>

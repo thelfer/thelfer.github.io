@@ -285,6 +285,7 @@
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
                  <li><a href="behaviour-variable.html">Behaviour variables</a></li>
+                 <li><a href="mfront-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -330,6 +331,7 @@
 	    </li>
 	    <li><a href="mtest.html">MTest</a>
                <ul>
+	      <li><a href="ptest.html">Simulation of pipes</a></li>
 	      <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
               <li><a href="MTest-keywords.html">MTest keywords</a></li>
 	      </ul>
@@ -354,6 +356,7 @@
 		<li><a href="tfel-material-homogenization.html">TFEL/Material homogenization</a></li>
                  <li><a href="glossary.html">Glossary</a></li>
                  <li><a href="physical-constants.html">Physical constants</a></li>
+                 <li><a href="tfel-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="tfel-mfront-database.html">TFELMFrontDatabase</a></li>
 	      </ul>
 	    </li>
@@ -373,6 +376,7 @@
 	  <ul>
 	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
 	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="coding-guidelines.html">Coding guidelines</a></li>
 	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
 	  </ul>
 	</li>
@@ -420,25 +424,32 @@ id="toc-using-the-cmake-build-system"><span
 class="toc-section-number">3.2</span> Using the <code>cmake</code> build
 system</a>
 <ul>
+<li><a href="#sanitizers-and-hardening-options"
+id="toc-sanitizers-and-hardening-options"><span
+class="toc-section-number">3.2.1</span> Sanitizers and hardening
+options</a></li>
 <li><a href="#controlling-the-generation-of-the-documentation"
 id="toc-controlling-the-generation-of-the-documentation"><span
-class="toc-section-number">3.2.1</span> Controlling the generation of
+class="toc-section-number">3.2.2</span> Controlling the generation of
 the documentation</a></li>
 <li><a href="#localisation-of-the-libraries"
 id="toc-localisation-of-the-libraries"><span
-class="toc-section-number">3.2.2</span> Localisation of the
+class="toc-section-number">3.2.3</span> Localisation of the
 libraries</a></li>
 <li><a href="#appending-the-version-number"
 id="toc-appending-the-version-number"><span
-class="toc-section-number">3.2.3</span> Appending the version
+class="toc-section-number">3.2.4</span> Appending the version
 number</a></li>
 <li><a href="#specifying-a-version-flavour"
 id="toc-specifying-a-version-flavour"><span
-class="toc-section-number">3.2.4</span> Specifying a version
+class="toc-section-number">3.2.5</span> Specifying a version
 flavour</a></li>
+<li><a href="#unversioned-libraries"
+id="toc-unversioned-libraries"><span
+class="toc-section-number">3.2.6</span> Unversioned libraries</a></li>
 <li><a href="#selecting-the-python-version"
 id="toc-selecting-the-python-version"><span
-class="toc-section-number">3.2.5</span> Selecting the
+class="toc-section-number">3.2.7</span> Selecting the
 <code>python</code> version</a></li>
 </ul></li>
 </ul></li>
@@ -509,16 +520,19 @@ href="install-freebsd.html">here</a>.</p>
 <p>The installation on <a href="http://windows.microsoft.com">Windows
 platform</a> is described in the following pages:</p>
 <ul>
-<li><a href="install-windows-VisualStudio.html">Installation based on
-<code>cmake</code> and <code>Visual Studio</code></a>.</li>
-<li><a href="install-windows-Cast3M2017.html">Installation based on
-<code>cmake</code> and <code>MinGW</code> (as packaged with
-<code>Cast3M</code> <code>2017</code>)</a>. This tutorial can easily be
-adapted to other versions of <code>MinGW</code>, without requiring
-<code>Cast3M</code> to be installed.</li>
 <li><a href="install-windows-msys.html">Installation on
 [Windows](http://windows.microsoft.com) in the
 [<code>MSYS2</code>](https://www.msys2.org/) environment</a>.</li>
+<li><a href="install-windows-VisualStudio.html">Installation based on
+<code>cmake</code> and <code>Visual Studio</code></a>. This tutorial was
+written for <code>TFEL</code> 3.x: <code>TFEL</code> 5 requires
+<code>Visual Studio</code> <code>2022</code> or later.</li>
+<li><a href="install-windows-Cast3M2017.html">Installation based on
+<code>cmake</code> and <code>MinGW</code> (as packaged with
+<code>Cast3M</code> <code>2017</code>)</a>. This tutorial was written
+for <code>TFEL</code> 3.x: the <code>MinGW</code> compiler packaged with
+<code>Cast3M</code> <code>2017</code> does not support
+<code>C++-20</code> and can not build <code>TFEL</code> 5.</li>
 </ul>
 <p>The creation of binary packages is detailed <a
 href="packages.html">here</a>.</p>
@@ -528,8 +542,8 @@ systems is given in Section 8.</p>
 implemented by the Intel and AMD processors, either 32 or 64 bits. As no
 specific instructions relative to the underlying architecture are used
 in the code, other architectures shall work as well.</p>
-<p>You must have the <code>cmake</code> build system (version greater
-than <span class="math inline">\(2.8\)</span>) installed on your system,
+<p>You must have the <code>cmake</code> build system (version <span
+class="math inline">\(3.20\)</span> or later) installed on your system,
 installing ̀<code>TFEL</code> basically boils down to the following
 simple commands:</p>
 <div class="sourceCode" id="building1"><pre
@@ -570,6 +584,53 @@ compilers</a>.</li>
 <li>The <a href="https://software.intel.com/en-us/c-compilers">Intel
 compilers suite</a>.</li>
 </ul>
+<p>The required <code>C++</code> standard depends on the major version
+of <code>TFEL</code>. The following table gives, for each major version,
+the minimal versions checked at configuration time or required by the
+sources, and the compilers listed in the release notes:</p>
+<table>
+<colgroup>
+<col style="width: 3%" />
+<col style="width: 6%" />
+<col style="width: 23%" />
+<col style="width: 66%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><code>TFEL</code></th>
+<th style="text-align: center;">Standard</th>
+<th style="text-align: center;">Minimal versions</th>
+<th style="text-align: left;">Compilers listed in the release notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">3.x</td>
+<td style="text-align: center;"><code>C++-11</code></td>
+<td style="text-align: center;"><code>gcc</code> 4.7, <code>clang</code>
+3.4</td>
+<td style="text-align: left;"><code>Visual Studio</code> 2015,
+<code>MinGW</code> packaged with <code>Cast3M</code> 2017</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4.x</td>
+<td style="text-align: center;"><code>C++-17</code></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"><code>gcc</code> 8.3 and 10.3,
+<code>clang</code> 11.0.1, Intel oneAPI 2023.2 (Linux, Windows),
+<code>MinGW</code> 10.3 (<code>TFEL</code> 4.2)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5.x</td>
+<td style="text-align: center;"><code>C++-20</code></td>
+<td style="text-align: center;"><code>gcc</code> 11 (<a
+href="https://github.com/thelfer/tfel/issues/918"><code>std::bit_cast</code></a>)</td>
+<td style="text-align: left;"><code>gcc</code> 11.4 to 15.1,
+<code>clang</code> 14 to 21, Intel 2024.2, <code>Visual Studio</code>
+2022 (17.4), <code>MinGW</code> 14.2</td>
+</tr>
+</tbody>
+</table>
 <h2 data-number="1.2" id="third-party-libraries"><span
 class="header-section-number">1.2</span> Third party libraries</h2>
 <p><code>TFEL</code> has been designed to have no dependencies on
@@ -582,8 +643,8 @@ class="header-section-number">1.3</span> Third party tools</h2>
 <p>The best way to build the <code>TFEL</code> is to use the <a
 href="http://www.cmake.org/"><code>cmake</code></a> build system (see
 this <a href="#using-the-cmake-build-system">section</a>). <em>We only
-support <code>cmake</code> versions greater than <span
-class="math inline">\(2.8\)</span></em>.</p>
+support <code>cmake</code> versions <span
+class="math inline">\(3.20\)</span> or later</em>.</p>
 <p>To build <code>TFEL</code> documentation, one may need:</p>
 <ul>
 <li>a valid <a href="http://www.latex-project.org/">LaTeX</a>
@@ -623,11 +684,13 @@ build system</h2>
 <p>The use of the <code>cmake</code> build system is described in depth
 in the <code>INSTALL-cmake</code> file that is located in the top
 directory of <code>TFEL</code> sources. <em>We only support
-<code>cmake</code> versions greater than <span
-class="math inline">\(2.8\)</span></em>, so please check the version
-available on your system:</p>
+<code>cmake</code> versions <span class="math inline">\(3.20\)</span> or
+later</em>, so please check the version available on your system:</p>
 <div class="sourceCode" id="cmake-version"><pre
 class="sourceCode bash"><code class="sourceCode bash"><span id="cmake-version-1"><a href="#cmake-version-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake <span class="at">--version</span></span></code></pre></div>
+<p>On older systems (<code>Ubuntu</code> 20.04, <code>Debian</code> 11),
+a recent version of <code>cmake</code> can be installed with
+<code>python3 -m pip install --user cmake</code>.</p>
 <p>A typical usage of <code>cmake</code> is the following:</p>
 <div class="sourceCode" id="building"><pre
 class="sourceCode bash"><code class="sourceCode bash"><span id="building-1"><a href="#building-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake <span class="op">&lt;</span>srcdir<span class="op">&gt;</span> -DCMAKE_BUILD_TYPE=Release <span class="at">-Dlocal-castem-header</span><span class="op">=</span>ON <span class="at">-Denable-fortran</span><span class="op">=</span>ON <span class="at">-Denable-aster</span><span class="op">=</span>ON <span class="at">-DCMAKE_INSTALL_PREFIX</span><span class="op">=&lt;</span>install_prefix<span class="op">&gt;</span></span></code></pre></div>
@@ -669,9 +732,48 @@ href="https://software.intel.com/en-us/c-compilers">Intel compilers
 suite</a>:</p>
 <div class="sourceCode" id="building-icpc"><pre
 class="sourceCode bash"><code class="sourceCode bash"><span id="building-icpc-1"><a href="#building-icpc-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> CXX=icpc CC=icc FC=ifort F77=ifort cmake <span class="op">&lt;</span>srcdir<span class="op">&gt;</span> -DCMAKE_BUILD_TYPE=Release <span class="at">-Dlocal-castem-header</span><span class="op">=</span>ON <span class="at">-Denable-fortran</span><span class="op">=</span>ON <span class="at">-Denable-aster</span><span class="op">=</span>ON <span class="at">-DCMAKE_INSTALL_PREFIX</span><span class="op">=&lt;</span>install_prefix<span class="op">&gt;</span></span></code></pre></div>
-<h3 data-number="3.2.1"
+<h3 data-number="3.2.1" id="sanitizers-and-hardening-options"><span
+class="header-section-number">3.2.1</span> Sanitizers and hardening
+options</h3>
+<p>The <code>enable-sanitize-options</code> option takes the list of the
+sanitizers to enable, for instance:</p>
+<div class="sourceCode" id="sanitizers"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="sanitizers-1"><a href="#sanitizers-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake <span class="op">&lt;</span>srcdir<span class="op">&gt;</span> -Denable-sanitize-options=<span class="st">&quot;address;undefined&quot;</span></span></code></pre></div>
+<p>As for any <code>cmake</code> list, the sanitizers are separated by
+semicolons. As a convenience, commas may also be used as separators,
+which avoids to quote the separator on some shells:</p>
+<div class="sourceCode" id="sanitizers-comma"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="sanitizers-comma-1"><a href="#sanitizers-comma-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake <span class="op">&lt;</span>srcdir<span class="op">&gt;</span> -Denable-sanitize-options=address,undefined</span></code></pre></div>
+<p>The available sanitizers depend on the compiler and on its version.
+The <code>address</code>, <code>thread</code> and <code>memory</code>
+sanitizers cannot be used simultaneously.</p>
+<p>Each sanitizer can also be enabled individually using the dedicated
+option whose name is obtained from the sanitizer name:
+<code>enable-&lt;name&gt;-sanitizer</code>, for instance:</p>
+<div class="sourceCode" id="address-sanitizer"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="address-sanitizer-1"><a href="#address-sanitizer-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake <span class="op">&lt;</span>srcdir<span class="op">&gt;</span> -Denable-sanitize-options=<span class="st">&quot;undefined&quot;</span> <span class="at">-Denable-bounds-strict-sanitizer</span><span class="op">=</span>ON</span></code></pre></div>
+<p>Such options can be combined with the
+<code>enable-sanitize-options</code> option: the enabled sanitizers are
+the sanitizers listed in the <code>enable-sanitize-options</code> option
+and the sanitizers whose dedicated option is enabled.</p>
+<p>Some sanitizers require specific settings to be fully effective (the
+link time optimization for <code>cfi</code>, instrumentation of all the
+linked code for <code>memory</code>, etc.), as described in the
+<code>gcc</code> and <code>clang</code> documentations.</p>
+<p>Note that passing a boolean value to the
+<code>enable-sanitize-options</code> option is no longer supported: this
+option used to enable a set of sanitizers at once, which is meaningless
+as most sanitizers cannot be combined.</p>
+<p>Standard library hardening can be combined with the sanitizers: the
+<code>enable-glibcxx-debug</code> option enables the debug mode of the
+standard library of the GNU C++ library in debug builds and the
+<code>enable-libcxx-hardening-mode</code> option enables the hardening
+mode of <code>libc++</code>. How to build and run the tests with the
+sanitizers is described in <a href="sanitizers.html">a dedicated
+page</a>.</p>
+<h3 data-number="3.2.2"
 id="controlling-the-generation-of-the-documentation"><span
-class="header-section-number">3.2.1</span> Controlling the generation of
+class="header-section-number">3.2.2</span> Controlling the generation of
 the documentation</h3>
 <p>Generation of the documentation can be controlled by the following
 boolean options:</p>
@@ -679,14 +781,13 @@ boolean options:</p>
 <li><code>enable-doxygen-doc</code>, which enables or disables the
 generation of the doxygen documentation (disabled by default)</li>
 <li><code>enable-reference-doc</code>, which enables or disables the
-reference documentation generation (enabled by default if
-<code>latex</code> or <code>pandoc</code> is found)</li>
+reference documentation generation (disabled by default)</li>
 <li><code>enable-website</code>, which enables or disables the
 generation of the <code>TFEL</code> website (enabled by default if
 <code>pandoc</code> is found)</li>
 </ul>
-<h3 data-number="3.2.2" id="localisation-of-the-libraries"><span
-class="header-section-number">3.2.2</span> Localisation of the
+<h3 data-number="3.2.3" id="localisation-of-the-libraries"><span
+class="header-section-number">3.2.3</span> Localisation of the
 libraries</h3>
 <p>Some <code>LiNuX</code> distributions install libraries in
 <code>lib64</code> on <span class="math inline">\(64\)</span> bits
@@ -694,8 +795,8 @@ architectures and in <code>lib</code>. This can be changed by defining a
 <code>LIB_SUFFIX</code> variable like this:</p>
 <div class="sourceCode" id="lib-dir"><pre
 class="sourceCode bash"><code class="sourceCode bash"><span id="lib-dir-1"><a href="#lib-dir-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cmake <span class="at">-DLIB_SUFFIX</span><span class="op">=</span>64 ....</span></code></pre></div>
-<h3 data-number="3.2.3" id="appending-the-version-number"><span
-class="header-section-number">3.2.3</span> Appending the version
+<h3 data-number="3.2.4" id="appending-the-version-number"><span
+class="header-section-number">3.2.4</span> Appending the version
 number</h3>
 <p>The <code>TFEL_APPEND_VERSION</code> option will append the version
 number to the names of:</p>
@@ -723,8 +824,8 @@ affected.</li>
 </ul>
 <p>This allows multiple executables to be installed in the same
 directory.</p>
-<h3 data-number="3.2.4" id="specifying-a-version-flavour"><span
-class="header-section-number">3.2.4</span> Specifying a version
+<h3 data-number="3.2.5" id="specifying-a-version-flavour"><span
+class="header-section-number">3.2.5</span> Specifying a version
 flavour</h3>
 <p>The <code>TFEL_VERSION_FLAVOUR</code> lets the user define a string
 that will be used to modify the names of executables, libraries and so
@@ -734,13 +835,24 @@ on (see the previous paragraph for details).</p>
 <code>mfront-dbg</code>.</p>
 <p>This option can be combined with the <code>TFEL_APPEND_VERSION</code>
 option.</p>
-<h3 data-number="3.2.5" id="selecting-the-python-version"><span
-class="header-section-number">3.2.5</span> Selecting the
+<h3 data-number="3.2.6" id="unversioned-libraries"><span
+class="header-section-number">3.2.6</span> Unversioned libraries</h3>
+<p>By default, the libraries are versioned: on <code>LiNuX</code>, the
+<code>libTFELMaterial.so</code> library is a symbolic link to
+<code>libTFELMaterial.so.${TFEL_VERSION}</code>, which is the name
+recorded in the libraries and executables which depend on it.</p>
+<p>The <code>unversioned-libraries</code> option disables this
+mechanism: each library is a single file, named
+<code>libTFELMaterial.so</code>. This option is used to build the
+<code>pip</code> package, which can’t store symbolic links.</p>
+<h3 data-number="3.2.7" id="selecting-the-python-version"><span
+class="header-section-number">3.2.7</span> Selecting the
 <code>python</code> version</h3>
-<p>A specific <code>python</code> version can be selected by setting the
-<code>Python_ADDITIONAL_VERSIONS</code>, as follows:</p>
+<p>A specific <code>python</code> interpreter can be selected by setting
+<code>Python_EXECUTABLE</code> (or <code>Python_ROOT_DIR</code>), as
+follows:</p>
 <div class="sourceCode" id="cb3"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> ../master/ <span class="at">-Denable-python-bindings</span><span class="op">=</span>ON <span class="at">-DPython_ADDITIONAL_VERSIONS</span><span class="op">=</span>2.7 ...</span></code></pre></div>
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> ../master/ <span class="at">-Denable-python-bindings</span><span class="op">=</span>ON <span class="at">-DPython_EXECUTABLE</span><span class="op">=</span>/usr/bin/python3.12 ...</span></code></pre></div>
 <h1 data-number="4" id="building"><span
 class="header-section-number">4</span> Building</h1>
 <p>The configuration step created a compilation environment based on the

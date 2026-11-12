@@ -286,6 +286,7 @@
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
                  <li><a href="behaviour-variable.html">Behaviour variables</a></li>
+                 <li><a href="mfront-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -331,6 +332,7 @@
 	    </li>
 	    <li><a href="mtest.html">MTest</a>
                <ul>
+	      <li><a href="ptest.html">Simulation of pipes</a></li>
 	      <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
               <li><a href="MTest-keywords.html">MTest keywords</a></li>
 	      </ul>
@@ -355,6 +357,7 @@
 		<li><a href="tfel-material-homogenization.html">TFEL/Material homogenization</a></li>
                  <li><a href="glossary.html">Glossary</a></li>
                  <li><a href="physical-constants.html">Physical constants</a></li>
+                 <li><a href="tfel-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="tfel-mfront-database.html">TFELMFrontDatabase</a></li>
 	      </ul>
 	    </li>
@@ -374,6 +377,7 @@
 	  <ul>
 	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
 	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="coding-guidelines.html">Coding guidelines</a></li>
 	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
 	  </ul>
 	</li>
@@ -551,7 +555,7 @@ executable relying on the <code>TFELMathCubicSpline</code> library:</p>
 class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">project</span>(Test)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">cmake_minimum_required</span>(<span class="ot">VERSION</span> <span class="dt">3.13</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span>(<span class="dv">CMAKE_CXX_STANDARD</span> 20)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span>(CXX_STANDARD_REQUIRED <span class="ot">ON</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span>(<span class="dv">CMAKE_CXX_STANDARD_REQUIRED</span> <span class="ot">ON</span>)</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">find_package</span>(TFELMathCubicSpline <span class="ot">REQUIRED</span> <span class="ot">HINTS</span> <span class="st">&quot;</span><span class="dv">${TFEL_DIR}</span><span class="st">/share/tfel/cmake&quot;</span>)</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="kw">add_executable</span>(<span class="bn">test</span> main.cxx)</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="kw">target_link_libraries</span>(<span class="bn">test</span> <span class="bn">tfel::TFELMathCubicSpline</span>)</span></code></pre></div>
@@ -563,9 +567,17 @@ variables:</p>
 <li><code>TFEL_COMPILER_FLAGS</code>:</li>
 <li><code>TFEL_COMPILER_CXXFLAGS</code>:</li>
 <li><code>TFEL_COMPILER_WARNINGS</code>:</li>
-<li><code>TFEL_OPTIMISATION_FLAGS0</code>:</li>
-<li><code>TFEL_OPTIMISATION_FLAGS</code>:</li>
-<li><code>TFEL_OPTIMISATION_FLAGS2</code>:</li>
+<li><code>TFEL_OPTIMISATION_FLAGS0</code>: tfel recommended optimisation
+flags, including the visibility flags, without architecture specific
+flags (the flags returned by <code>tfel-config --oflags0</code>).</li>
+<li><code>TFEL_OPTIMISATION_FLAGS</code>: tfel recommended optimisation
+flags, without the visibility flags nor architecture specific flags
+(unlike <code>tfel-config --oflags</code>, which also returns these
+flags).</li>
+<li><code>TFEL_OPTIMISATION_FLAGS2</code>: some aggressive optimisation
+flags, possibly at the expense of numerical precision (the flags
+returned by <code>tfel-config --oflags2</code>). This shall be added to
+the previous ones.</li>
 <li><code>TFEL_CMAKE_C_FLAGS</code>:</li>
 <li><code>TFEL_CMAKE_C_FLAGS_DEBUG</code>:</li>
 <li><code>TFEL_CMAKE_C_FLAGS_RELEASE</code>:</li>

@@ -1,0 +1,1740 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN" xml:lang="en-EN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Coding guidelines</title>
+        <meta name="author" content="Thomas Helfer" />
+            <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  background-color: #f8f8f8; }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+      code span.al { color: #ef2929; } /* Alert */
+      code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #204a87; } /* Attribute */
+      code span.bn { color: #0000cf; } /* BaseN */
+      code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4e9a06; } /* Char */
+      code span.cn { color: #8f5902; } /* Constant */
+      code span.co { color: #8f5902; font-style: italic; } /* Comment */
+      code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+      code span.dt { color: #204a87; } /* DataType */
+      code span.dv { color: #0000cf; } /* DecVal */
+      code span.er { color: #a40000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #0000cf; } /* Float */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+      code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+      code span.ot { color: #8f5902; } /* Other */
+      code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+      code span.ss { color: #4e9a06; } /* SpecialString */
+      code span.st { color: #4e9a06; } /* String */
+      code span.va { color: #000000; } /* Variable */
+      code span.vs { color: #4e9a06; } /* VerbatimString */
+      code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <header>
+      <ul id="nav">
+	<li><a href="news.html">News</a></li>
+	<li><a href="index.html">Overview</a>
+	  <ul>
+	    <li><a>Domain specific languages</a>
+	      <ul>
+		<li><a href="material-properties.html">Material properties</a></li>
+		<li><a href="behaviours.html">Mechanical behaviours</a></li>
+		<li><a href="models.html">Models</a></li>
+	      </ul>
+            </li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting started</a>
+	  <ul>
+	    <li><a href="https://github.com/thelfer/tfel/">Github repository</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/releases">Download</a></li>
+	    <li><a href="release-notes.html">Release notes</a>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		    <li><a href="release-notes-3.0.8.html">Version 3.0.8</a></li>
+		    <li><a href="release-notes-3.0.9.html">Version 3.0.9</a></li>
+		    <li><a href="release-notes-3.0.10.html">Version 3.0.10</a></li>
+		    <li><a href="release-notes-3.0.11.html">Version 3.0.11</a></li>
+		    <li><a href="release-notes-3.0.12.html">Version 3.0.12</a></li>
+		    <li><a href="release-notes-3.0.13.html">Version 3.0.13</a></li>
+		    <li><a href="release-notes-3.0.14.html">Version 3.0.14</a></li>
+		    <li><a href="release-notes-3.0.15.html">Version 3.0.15</a></li>
+		    <li><a href="release-notes-3.0.16.html">Version 3.0.16</a></li>
+		    <li><a href="release-notes-3.0.17.html">Version 3.0.17</a></li>
+		    <li><a href="release-notes-3.0.18.html">Version 3.0.18</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		    <li><a href="release-notes-3.1.8.html">Version 3.1.8</a></li>
+		    <li><a href="release-notes-3.1.9.html">Version 3.1.9</a></li>
+		    <li><a href="release-notes-3.1.10.html">Version 3.1.10</a></li>
+		    <li><a href="release-notes-3.1.11.html">Version 3.1.11</a></li>
+		    <li><a href="release-notes-3.1.12.html">Version 3.1.12</a></li>
+		    <li><a href="release-notes-3.1.13.html">Version 3.1.13</a></li>
+		    <li><a href="release-notes-3.1.14.html">Version 3.1.14</a></li>
+		    <li><a href="release-notes-3.1.15.html">Version 3.1.15</a></li>
+		    <li><a href="release-notes-3.1.16.html">Version 3.1.16</a></li>
+		    <li><a href="release-notes-3.1.17.html">Version 3.1.17</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		    <li><a href="release-notes-3.2.5.html">Version 3.2.5</a></li>
+		    <li><a href="release-notes-3.2.6.html">Version 3.2.6</a></li>
+		    <li><a href="release-notes-3.2.7.html">Version 3.2.7</a></li>
+		    <li><a href="release-notes-3.2.8.html">Version 3.2.8</a></li>
+		    <li><a href="release-notes-3.2.9.html">Version 3.2.9</a></li>
+		    <li><a href="release-notes-3.2.10.html">Version 3.2.10</a></li>
+		    <li><a href="release-notes-3.2.11.html">Version 3.2.11</a></li>
+		    <li><a href="release-notes-3.2.12.html">Version 3.2.12</a></li>
+		    <li><a href="release-notes-3.2.13.html">Version 3.2.13</a></li>
+		    <li><a href="release-notes-3.2.14.html">Version 3.2.14</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		    <li><a href="release-notes-3.3.2.html">Version 3.3.2</a></li>
+		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
+		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
+		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
+		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
+		    <li><a href="release-notes-3.3.7.html">Version 3.3.7</a></li>
+		    <li><a href="release-notes-3.3.8.html">Version 3.3.8</a></li>
+		    <li><a href="release-notes-3.3.9.html">Version 3.3.9</a></li>
+		    <li><a href="release-notes-3.3.10.html">Version 3.3.10</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.1.html">Version 3.4.1</a></li>
+		    <li><a href="release-notes-3.4.2.html">Version 3.4.2</a></li>
+		    <li><a href="release-notes-3.4.3.html">Version 3.4.3</a></li>
+		    <li><a href="release-notes-3.4.4.html">Version 3.4.4</a></li>
+		    <li><a href="release-notes-3.4.5.html">Version 3.4.5</a></li>
+		    <li><a href="release-notes-3.4.6.html">Version 3.4.6</a></li>
+		    <li><a href="release-notes-3.4.7.html">Version 3.4.7</a></li>
+		    <li><a href="release-notes-3.4.8.html">Version 3.4.8</a></li>
+		    <li><a href="release-notes-3.4.9.html">Version 3.4.9</a></li>
+		    <li><a href="release-notes-3.4.10.html">Version 3.4.10</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		    <li><a href="release-notes-4.0.1.html">Version 4.0.1</a></li>
+		    <li><a href="release-notes-4.0.2.html">Version 4.0.2</a></li>
+		    <li><a href="release-notes-4.0.3.html">Version 4.0.3</a></li>
+		    <li><a href="release-notes-4.0.4.html">Version 4.0.4</a></li>
+		    <li><a href="release-notes-4.0.5.html">Version 4.0.5</a></li>
+		    <li><a href="release-notes-4.0.6.html">Version 4.0.6</a></li>
+		    <li><a href="release-notes-4.0.7.html">Version 4.0.7</a></li>
+		    <li><a href="release-notes-4.0.8.html">Version 4.0.8</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.1.html">Version 4.1.0</a></li>
+		    <li><a href="release-notes-4.1.1.html">Version 4.1.1</a></li>
+		    <li><a href="release-notes-4.1.2.html">Version 4.1.2</a></li>
+		    <li><a href="release-notes-4.1.3.html">Version 4.1.3</a></li>
+		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
+		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
+		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.2.html">Version 4.2.0</a></li>
+		    <li><a href="release-notes-4.2.1.html">Version 4.2.1</a></li>
+		    <li><a href="release-notes-4.2.2.html">Version 4.2.2</a></li>
+		    <li><a href="release-notes-4.2.3.html">Version 4.2.3</a></li>
+		    <li><a href="release-notes-4.2.4.html">Version 4.2.4</a></li>
+		    <li><a href="release-notes-4.2.5.html">Version 4.2.5</a></li>
+		    <li><a href="release-notes-4.2.6.html">Version 4.2.6</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 5.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-5.0.html">Version 5.0.0</a></li>
+		    <li><a href="release-notes-5.0.1.html">Version 5.0.1</a></li>
+		    <li><a href="release-notes-5.0.2.html">Version 5.0.2</a></li>
+		    <li><a href="release-notes-5.0.3.html">Version 5.0.3</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 5.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-5.1.html">Version 5.1.0</a></li>
+		    <li><a href="release-notes-5.1.1.html">Version 5.1.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 5.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-5.2.html">Version 5.2.0</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a href="coverity-scan.html">Coverity scan</a></li>
+	    <li><a href="install.html">Installation</a></li>
+	  </ul>
+	</li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="documentations.html">General documentation</a></li>
+	    <li><a href="gallery.html">Gallery</a></li>
+	    <li><a href="https://thelfer.github.io/tfel/doxygen/index.html">Doxygen documentation</a></li>
+	    <li><a>MFront</a>
+	      <ul>
+		<li><a href="tutorial.html">Tutorial</a></li>
+		<li><a href="implicit-dsl.html">The Implicit DSL</a></li>
+		<li><a href="benchmark.html">Benchmark</a></li>
+		<li><a href="parameters.html">Parameters</a></li>
+		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
+                 <li><a href="behaviour-variable.html">Behaviour variables</a></li>
+                 <li><a href="mfront-compatibility-modes.html">Compatibility modes</a></li>
+		<li><a href="interfaces.html">Solver interfaces</a>
+		  <ul>
+		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
+		    <li><a href="aster.html">Code-Aster</a></li>
+    		    <li><a href="abaqus.html">Abaqus</a></li>
+		    <li><a href="zmat.html">ZeBuLoN</a></li>
+   		    <li><a href="calculix.html">CalculiX</a></li>
+		    <!-- <li><a >TMFFT</a></li> -->
+		    <li><a href="cyrano.html">Cyrano</a></li>
+   		    <li><a href="generic-material-property-interface.html">Generic interface for material properties</a></li>
+   		    <li><a href="generic-behaviours-interface.html">Generic interface for behaviours</a></li>
+		  </ul>
+		</li>
+                 <li><a>MFront keywords</a>
+    	              <ul>
+    	        <li><a href="Default-keywords.html">Default</a></li>
+    	        <li><a href="DefaultCZM-keywords.html">DefaultCZM</a></li>
+    	        <li><a href="DefaultFiniteStrain-keywords.html">DefaultFiniteStrain</a></li>
+    	        <li><a href="DefaultGenericBehaviour-keywords.html">DefaultGenericBehaviour</a></li>
+    	        <li><a href="DefaultModel-keywords.html">DefaultModel</a></li>
+    	        <li><a href="Implicit-keywords.html">Implicit</a></li>
+    	        <li><a href="ImplicitCZM-keywords.html">ImplicitCZM</a></li>
+    	        <li><a href="ImplicitFiniteStrain-keywords.html">ImplicitFiniteStrain</a></li>
+    	        <li><a href="ImplicitGenericBehaviour-keywords.html">ImplicitGenericBehaviour</a></li>
+    	        <li><a href="ImplicitModel-keywords.html">ImplicitModel</a></li>
+    	        <li><a href="ImplicitII-keywords.html">ImplicitII</a></li>
+    	        <li><a href="IsotropicMisesCreep-keywords.html">IsotropicMisesCreep</a></li>
+    	        <li><a href="IsotropicMisesPlasticFlow-keywords.html">IsotropicMisesPlasticFlow</a></li>
+    	        <li><a href="IsotropicPlasticMisesFlow-keywords.html">IsotropicPlasticMisesFlow</a></li>
+    	        <li><a href="IsotropicStrainHardeningMisesCreep-keywords.html">IsotropicStrainHardeningMisesCreep</a></li>
+    	        <li><a href="MaterialLaw-keywords.html">MaterialLaw</a></li>
+    	        <li><a href="MaterialProperty-keywords.html">MaterialProperty</a></li>
+    	        <li><a href="Model-keywords.html">Model</a></li>
+    	        <li><a href="MultipleIsotropicMisesFlows-keywords.html">MultipleIsotropicMisesFlows</a></li>
+    	        <li><a href="RungeKutta-keywords.html">RungeKutta</a></li>
+    	        <li><a href="RungeKuttaFiniteStrain-keywords.html">RungeKuttaFiniteStrain</a></li>
+    	        <li><a href="RungeKuttaGenericBehaviour-keywords.html">RungeKuttaGenericBehaviour</a></li>
+    	        <li><a href="RungeKuttaModel-keywords.html">RungeKuttaModel</a></li>
+    	      </ul>
+                </li>
+	      </ul>
+	    </li>
+	    <li><a href="mtest.html">MTest</a>
+               <ul>
+	      <li><a href="ptest.html">Simulation of pipes</a></li>
+	      <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
+              <li><a href="MTest-keywords.html">MTest keywords</a></li>
+	      </ul>
+            </li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
+	    <li><a>TFEL libraries</a>
+	      <ul>
+		<li><a href="libraries_usage.html">Usage of the TFEL libraries in C++</a></li>
+		<li><a href="tfel-math.html">TFEL/Math</a></li>
+                 <ul>
+		  <li><a href="tfel-math-numerical-integration.html">Numerical integeration</a></li>
+		  <li><a href="tfel-math-data-interpolation.html">Data interpolation</a></li>
+	        </ul>
+		<li><a href="tfel-material.html">TFEL/Material</a></li>
+		<li><a href="tfel-material-homogenization.html">TFEL/Material homogenization</a></li>
+                 <li><a href="glossary.html">Glossary</a></li>
+                 <li><a href="physical-constants.html">Physical constants</a></li>
+                 <li><a href="tfel-compatibility-modes.html">Compatibility modes</a></li>
+		<li><a href="tfel-mfront-database.html">TFELMFrontDatabase</a></li>
+	      </ul>
+	    </li>
+	    <li><a>Python modules</a>
+	      <ul>
+		<li><a href="tfel-python.html">TFEL modules</a></li>
+		<li><a href="mfront-python.html">mfront module</a></li>
+		<li><a href="mtest-python.html">mtest module</a></li>
+	      </ul>
+	    </li>
+	    <li><a href="publications.html">Publications</a></li>
+	    <li><a href="faq.html">FAQ</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
+	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="coding-guidelines.html">Coding guidelines</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="search.html">Search on this site</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/discussions">Forum</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Bug report</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Feature request</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+<div id="header">
+<h1 class="title">Coding guidelines</h1>
+<h2 class="author">Thomas Helfer</h2>
+<h3 class="date">22/10/2026</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#quick-reference" id="toc-quick-reference">Quick
+reference</a></li>
+<li><a href="#tooling" id="toc-tooling">Tooling</a>
+<ul>
+<li><a href="#formatting" id="toc-formatting">Formatting</a></li>
+<li><a href="#static-analysis-and-verification"
+id="toc-static-analysis-and-verification">Static analysis and
+verification</a></li>
+</ul></li>
+<li><a href="#backward-compatibility"
+id="toc-backward-compatibility">Backward compatibility</a></li>
+<li><a href="#source-files" id="toc-source-files">Source files</a>
+<ul>
+<li><a href="#extensions-and-roles"
+id="toc-extensions-and-roles">Extensions and roles</a></li>
+<li><a href="#directory-layout" id="toc-directory-layout">Directory
+layout</a></li>
+<li><a href="#naming" id="toc-naming">Naming</a></li>
+</ul></li>
+<li><a href="#file-header" id="toc-file-header">File header</a></li>
+<li><a href="#include-guards" id="toc-include-guards">Include
+guards</a></li>
+<li><a href="#including-headers" id="toc-including-headers">Including
+headers</a>
+<ul>
+<li><a href="#order" id="toc-order">Order</a></li>
+<li><a href="#syntax" id="toc-syntax">Syntax</a></li>
+</ul></li>
+<li><a href="#namespaces" id="toc-namespaces">Namespaces</a></li>
+<li><a href="#naming-conventions" id="toc-naming-conventions">Naming
+conventions</a>
+<ul>
+<li><a href="#types" id="toc-types">Types</a></li>
+<li><a href="#methods-and-free-functions"
+id="toc-methods-and-free-functions">Methods and free functions</a></li>
+<li><a href="#data-members-and-variables"
+id="toc-data-members-and-variables">Data members and variables</a></li>
+<li><a href="#template-parameters" id="toc-template-parameters">Template
+parameters</a></li>
+<li><a href="#enumerations" id="toc-enumerations">Enumerations</a></li>
+<li><a href="#macros-and-constants" id="toc-macros-and-constants">Macros
+and constants</a></li>
+</ul></li>
+<li><a href="#structures-and-classes"
+id="toc-structures-and-classes">Structures and classes</a></li>
+<li><a href="#the-this-pointer" id="toc-the-this-pointer">The
+<code>this</code> pointer</a></li>
+<li><a href="#documentation" id="toc-documentation">Documentation</a>
+<ul>
+<li><a href="#general-rules" id="toc-general-rules">General
+rules</a></li>
+<li><a href="#conventional-forms"
+id="toc-conventional-forms">Conventional forms</a></li>
+</ul></li>
+<li><a href="#language-conventions"
+id="toc-language-conventions">Language conventions</a>
+<ul>
+<li><a href="#constness" id="toc-constness">Constness</a></li>
+<li><a href="#integer-types" id="toc-integer-types">Integer
+types</a></li>
+<li><a href="#attributes" id="toc-attributes">Attributes</a></li>
+<li><a href="#closing-comments" id="toc-closing-comments">Closing
+comments</a></li>
+<li><a href="#exported-symbols" id="toc-exported-symbols">Exported
+symbols</a></li>
+<li><a href="#portability" id="toc-portability">Portability</a></li>
+</ul></li>
+<li><a href="#error-handling" id="toc-error-handling">Error handling</a>
+<ul>
+<li><a href="#error-handling-in-tfelmath-and-tfelmaterial"
+id="toc-error-handling-in-tfelmath-and-tfelmaterial">Error handling in
+<code>TFEL/Math</code> and <code>TFEL/Material</code></a></li>
+<li><a href="#error-handling-in-other-parts-of-the-project"
+id="toc-error-handling-in-other-parts-of-the-project">Error handling in
+other parts of the project</a></li>
+</ul></li>
+<li><a href="#dynamic-polymorphism"
+id="toc-dynamic-polymorphism">Dynamic polymorphism</a>
+<ul>
+<li><a href="#dynamic-polymorphism-in-tfelmath-and-tfelmaterial"
+id="toc-dynamic-polymorphism-in-tfelmath-and-tfelmaterial">Dynamic
+polymorphism in <code>TFEL/Math</code> and
+<code>TFEL/Material</code></a></li>
+<li><a href="#dynamic-polymorphism-in-other-parts-of-the-project"
+id="toc-dynamic-polymorphism-in-other-parts-of-the-project">Dynamic
+polymorphism in other parts of the project</a></li>
+</ul></li>
+<li><a href="#unit-tests" id="toc-unit-tests">Unit tests</a></li>
+<li><a href="#c-sources" id="toc-c-sources">C sources</a></li>
+<li><a href="#build-system" id="toc-build-system">Build system</a></li>
+<li><a href="#documentation-1"
+id="toc-documentation-1">Documentation</a></li>
+<li><a href="#checklist-before-submitting"
+id="toc-checklist-before-submitting">Checklist before
+submitting</a></li>
+</ul>
+</div>
+<p>This page gathers the coding conventions used in the
+<code>TFEL</code>/<code>MFront</code> sources. It is written for
+<strong>new developers</strong> and for <strong>coding agents</strong>,
+which are expected to produce code indistinguishable from the existing
+sources.</p>
+<p>The conventions described here apply to the <code>C</code> and
+<code>C++</code> sources of all the components of the project
+(<code>TFEL</code>, <code>MFront</code>, <code>MTest</code>,
+<code>TFELCheck</code>, the various solver interfaces and the bindings).
+They complement the general contribution process described in the <a
+href="contributing.html">contributing guidelines</a>.</p>
+<p>Rules stated with <strong>shall</strong> are mandatory. When a rule
+is only partially satisfied by the historical sources, this is
+explicitly mentioned: a coding agent shall apply the rule to the code it
+writes or modifies, but shall not rename unrelated entities as a side
+effect.</p>
+<h1 id="quick-reference">Quick reference</h1>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Topic</th>
+<th>Rule</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Formatting</td>
+<td><code>clang-format</code> with the <code>.clang-format</code> file
+of the repository, <code>./format.sh</code> before submitting</td>
+</tr>
+<tr class="even">
+<td>File name</td>
+<td>same name as the main class it declares,
+<code>UpperCamelCase</code></td>
+</tr>
+<tr class="odd">
+<td>File header</td>
+<td>doxygen comment describing the file followed by the copyright
+statement</td>
+</tr>
+<tr class="even">
+<td>Include order</td>
+<td>standard headers, then third-party headers, then <code>TFEL</code>
+headers, then headers of the current library, then own header</td>
+</tr>
+<tr class="odd">
+<td>Types (classes, structures, aliases, enumerations)</td>
+<td><code>UpperCamelCase</code></td>
+</tr>
+<tr class="even">
+<td>Methods and free functions</td>
+<td><code>camelCase</code></td>
+</tr>
+<tr class="odd">
+<td>Data members and variables</td>
+<td><code>snake_case</code></td>
+</tr>
+<tr class="even">
+<td>Template parameters</td>
+<td><code>UpperCamelCase</code> (or a single letter for generic
+parameters)</td>
+</tr>
+<tr class="odd">
+<td>Macros and enumerators</td>
+<td><code>ALL_UPPER_CASE</code>, prefixed by the library name for
+macros</td>
+</tr>
+<tr class="even">
+<td><code>static constexpr</code> constants</td>
+<td><code>UpperCamelCase</code>, with a short lowercase alias for
+physical constants</td>
+</tr>
+<tr class="odd">
+<td>Entity kinds</td>
+<td><code>struct</code> (never <code>class</code>), public members
+first</td>
+</tr>
+<tr class="even">
+<td>Data members and methods</td>
+<td>always qualified by <code>this-&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Integer types</td>
+<td>no <code>long</code> nor <code>long long</code>, except for the API
+of a third-party library</td>
+</tr>
+<tr class="even">
+<td>Documentation</td>
+<td>every member, function and method documented with
+<code>doxygen</code></td>
+</tr>
+<tr class="odd">
+<td>Error handling</td>
+<td><code>tfel::raise</code>, <code>tfel::raise_if</code>, exception
+classes, no macro</td>
+</tr>
+<tr class="even">
+<td>Closing comments</td>
+<td><code>}  // end of &lt;name&gt;</code> on namespaces, types,
+functions and enumerations</td>
+</tr>
+<tr class="odd">
+<td>Backward compatibility</td>
+<td>a development which does not fix a bug but changes the results or
+the behaviour shall be handled by a compatibility mode</td>
+</tr>
+</tbody>
+</table>
+<h1 id="tooling">Tooling</h1>
+<h2 id="formatting">Formatting</h2>
+<p>The sources are formatted with <code>clang-format</code> using the <a
+href="https://github.com/thelfer/tfel/blob/master/.clang-format"><code>.clang-format</code></a>
+file at the root of the project:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Language</span><span class="kw">:</span><span class="at"> Cpp</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Standard</span><span class="kw">:</span><span class="at"> Cpp11</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">BasedOnStyle</span><span class="kw">:</span><span class="at"> Google</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ColumnLimit</span><span class="kw">:</span><span class="at"> </span><span class="dv">80</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">Cpp11BracedListStyle</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">BinPackParameters</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">NamespaceIndentation</span><span class="kw">:</span><span class="at"> All</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">SortIncludes</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span></code></pre></div>
+<p>The main consequences are:</p>
+<ul>
+<li>a hard limit of <strong>80 columns</strong>,</li>
+<li>a <strong>2 space</strong> indentation, and everything inside a
+namespace is indented (<code>NamespaceIndentation: All</code>),</li>
+<li>opening braces are on the same line,</li>
+<li>function arguments are either all on the same line or <strong>one
+per line</strong>, aligned on the opening parenthesis
+(<code>BinPackParameters:   false</code>),</li>
+<li><strong><code>SortIncludes: false</code></strong>: the include order
+is meaningful and is maintained manually (see <a
+href="#including-headers">Including headers</a>).</li>
+</ul>
+<p>Run <code>./format.sh</code> before submitting any modification. This
+script only formats <code>*.hxx</code>, <code>*.ixx</code> and
+<code>*.cxx</code> files.</p>
+<h2 id="static-analysis-and-verification">Static analysis and
+verification</h2>
+<ul>
+<li><code>./check_all.sh -j &lt;n&gt;</code> builds and tests the
+library in many configurations, <code>./check_all.sh -f</code> is the
+fast variant.</li>
+<li><code>./cppcheck.sh -j &lt;n&gt;</code> runs
+<code>cppcheck</code>.</li>
+<li><a
+href="https://github.com/thelfer/tfel/blob/master/clang-tidy.md"><code>clang-tidy.md</code></a>
+lists the <code>clang-tidy</code> checks which are disabled, and thus
+the warnings which are not considered as defects.</li>
+<li><code>git commit</code> messages follow the usual conventions: a
+short imperative summary followed by a blank line and a detailed
+description.</li>
+</ul>
+<h1 id="backward-compatibility">Backward compatibility</h1>
+<p>The results given by the <code>TFEL</code> libraries and the assets
+generated by <code>MFront</code> are used in studies which must remain
+reproducible for many years. A development which does not fix an
+explicit bug, but changes the results or the behaviour of the
+<code>TFEL</code> libraries, the results of the assets generated by
+<code>MFront</code> or the behaviour of <code>MFront</code> itself,
+shall be handled by a compatibility mode. Typical examples of such
+developments are:</p>
+<ul>
+<li>the use of more accurate, or more up-to-date, values of the physical
+constants,</li>
+<li>the replacement of a numerical algorithm by a more robust one,</li>
+<li>the change of the default value of a parameter, or of an
+option,</li>
+<li>the change of the default behaviour of a working keyword.</li>
+</ul>
+<p>Fixing an explicit bug is not such a development: bugs are corrected
+for everybody, whatever the compatibility mode of the asset being
+generated is.</p>
+<p>Such an evolution of the default behaviour shall only be introduced
+on a major version, and be gated by the compatibility mode associated
+with that version: the new behaviour is used by the assets which declare
+no compatibility mode, or a mode which is greater than, or equal to,
+this version; the previous behaviour is kept for the assets which
+declare an older mode. The <code>future</code> compatibility mode allows
+introducing such an evolution before the corresponding major version is
+released, so that it can be tested and anticipated.</p>
+<p>Doing so implies that:</p>
+<ul>
+<li>the code implementing the change is selected by the compatibility
+mode of the material knowledge description which is being generated,
+using the <code>getCompatibilityMode</code> function, or, for the
+<code>TFEL</code> libraries, by the versioned entity which this mode
+designates,</li>
+<li>both behaviours are tested, one test asset per compatibility
+mode,</li>
+<li>users who need the previous behaviour have a documented way to get
+it back,</li>
+<li>the change, and the compatibility mode which introduces it, are
+described in the release notes of the version which introduces
+them.</li>
+</ul>
+<p>The mechanism itself is described in the pages devoted to <a
+href="mfront-compatibility-modes.html">compatibility modes in
+<code>MFront</code></a> and to <a
+href="tfel-compatibility-modes.html">compatibility modes in the
+<code>TFEL</code> libraries</a>, whose last sections are the checklists
+of such a development.</p>
+<h1 id="source-files">Source files</h1>
+<h2 id="extensions-and-roles">Extensions and roles</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Extension</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>.hxx</code></td>
+<td>interface: declarations, type aliases, enumerations,
+<code>static constexpr</code> members, function declarations</td>
+</tr>
+<tr class="even">
+<td><code>.ixx</code></td>
+<td>inline and template definitions, included at the bottom of the
+corresponding <code>.hxx</code></td>
+</tr>
+<tr class="odd">
+<td><code>.cxx</code></td>
+<td>non template definitions, <code>static</code> and anonymous
+namespace helpers</td>
+</tr>
+<tr class="even">
+<td><code>.h</code>, <code>.c</code></td>
+<td>reserved to the <code>C</code> interfaces (see <a
+href="#c-sources">C sources</a>)</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>.hxx</code>/<code>.ixx</code> split is used when the
+implementation is long: the <code>.hxx</code> stays a readable interface
+and the <code>.ixx</code> holds the definitions. Both files have the
+same base name and both have their own include guard.</p>
+<p>The <code>.ixx</code> file is included <strong>at the bottom of the
+<code>.hxx</code>, after the last namespace and before the closing
+<code>#endif</code></strong>:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">}</span>  <span class="co">// end of namespace tfel::material</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Material/Hosford1972YieldCriterion.ixx&quot;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="pp">#endif </span><span class="co">/* LIB_TFEL_MATERIAL_HOSFORD_HXX */</span></span></code></pre></div>
+<p>A <code>.cxx</code> file shall never include a <code>.ixx</code>
+file.</p>
+<h2 id="directory-layout">Directory layout</h2>
+<ul>
+<li><code>Forward/</code> sub-directories contain forward declarations
+only.</li>
+<li><code>Internals/</code> sub-directories contain implementation
+details which are not part of the public interface.</li>
+<li>Private headers of a library are installed with
+<code>install_header</code> (see <a href="#build-system">Build
+system</a>).</li>
+</ul>
+<h2 id="naming">Naming</h2>
+<p>A file is named after the main type it declares, in
+<code>UpperCamelCase</code>: <code>ModellingHypothesis.hxx</code>,
+<code>BehaviourDescription.cxx</code>.</p>
+<p>Files whose name starts with a lowercase letter are the exception:
+they declare types mimicking the standard library
+(<code>stensor.hxx</code>, <code>matrix.hxx</code>, <code>qt.hxx</code>,
+<code>power.hxx</code>, <code>runtime_array.hxx</code>, …) or are
+executable entry points (<code>main.cxx</code>, <code>mfront.cxx</code>,
+<code>mtest.cxx</code>, <code>mfm.cxx</code>).</p>
+<h1 id="file-header">File header</h1>
+<p>Every source file and every header shall start by a
+<code>doxygen</code> comment describing the file and containing the
+copyright statement:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">/*!</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"> * </span><span class="an">\file</span><span class="co">   </span><span class="cv">include/TFEL/Material/BoundsCheck.hxx</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"> * </span><span class="an">\brief</span><span class="co">  This file declares the BoundsCheck class.</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"> * </span><span class="an">\author</span><span class="co"> Thomas Helfer</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"> * </span><span class="an">\date</span><span class="co">   06/03/2007</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"> * </span><span class="an">\copyright</span><span class="co"> </span><span class="do">Copyright</span><span class="co"> </span><span class="do">(C)</span><span class="co"> </span><span class="do">2006-2025</span><span class="co"> </span><span class="do">CEA/DEN,</span><span class="co"> </span><span class="do">EDF</span><span class="co"> </span><span class="do">R&amp;D.</span><span class="co"> </span><span class="do">All</span><span class="co"> </span><span class="do">rights</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"> * reserved.</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"> * This project is publicly released under either the GNU GPL Licence with</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"> * linking exception or the CECILL-A licence. A copy of thoses licences are</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"> * delivered with the sources of TFEL. CEA or EDF may also distribute this</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"> * project under specific licensing conditions.</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"> */</span></span></code></pre></div>
+<p>The tags are always in this order: <code>\file</code>,
+<code>\brief</code>, <code>\author</code>, <code>\date</code>,
+<code>\copyright</code>.</p>
+<ul>
+<li><code>\file</code> is the path of the file, relative to the root of
+the source tree.</li>
+<li><code>\brief</code> is a one line description of the file. It shall
+not be left empty in new files.</li>
+<li><code>\author</code> is the list of the authors of the file.</li>
+<li><code>\date</code> is the creation date, in the
+<code>DD/MM/YYYY</code> format.</li>
+<li><code>\copyright</code> is the copyright statement, reproduced
+verbatim. The end year of the range is updated by
+<code>./licence.sh</code> for the whole tree: the exact text of the
+statement shall not be altered, including the historical spelling of its
+last lines.</li>
+</ul>
+<p>Code generated by <code>MFront</code> uses the same header, with the
+<code>\copyright</code> line replaced by the mention of the generator
+version.</p>
+<h1 id="include-guards">Include guards</h1>
+<p>Headers are protected by an include guard built from the include
+path, in all upper case, ending with the extension of the file:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#ifndef LIB_TFEL_MATH_FORWARD_STENSOR_HXX</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#define LIB_TFEL_MATH_FORWARD_STENSOR_HXX</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="op">...</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="pp">#endif </span><span class="co">/* LIB_TFEL_MATH_FORWARD_STENSOR_HXX */</span></span></code></pre></div>
+<p>The closing <code>#endif</code> shall always repeat the name of the
+macro in a block comment. The same applies to every conditional
+compilation block: <code>#endif /* NDEBUG */</code>,
+<code>#endif /* __cplusplus */</code>, …</p>
+<p><code>#pragma once</code> is not used. <code>.cxx</code> files have
+no include guard.</p>
+<h1 id="including-headers">Including headers</h1>
+<h2 id="order">Order</h2>
+<p>The order of the <code>#include</code> directives is meaningful and
+shall be preserved:</p>
+<ol type="1">
+<li>standard headers, in angle brackets,</li>
+<li>headers of third-party libraries, in quotes,</li>
+<li><code>TFEL</code> headers,</li>
+<li>headers of the current library (<code>MFront</code>,
+<code>MTest</code>, …),</li>
+<li>the header implemented by the current <code>.cxx</code> file,
+last.</li>
+</ol>
+<p><code>TFEL</code> headers shall therefore appear
+<strong>after</strong> the standard headers and after the headers of the
+third-party libraries. A blank line separates the standard headers from
+the following groups; it is optional but recommended.</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;cstring&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;sstream&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iterator&gt;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;algorithm&gt;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdexcept&gt;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Raise.hxx&quot;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Glossary/Glossary.hxx&quot;</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Utilities/CxxTokenizer.hxx&quot;</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;MFront/MFrontLogStream.hxx&quot;</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;MFront/BehaviourData.hxx&quot;</span></span></code></pre></div>
+<p>Since <code>SortIncludes</code> is disabled, adding a new include
+shall not trigger a reordering of the existing ones.</p>
+<h2 id="syntax">Syntax</h2>
+<ul>
+<li>Project headers are always included with quotes and with a path
+relative to the root of the <code>include</code> directory of the
+library: <code>#include "TFEL/Math/stensor.hxx"</code>. Relative paths
+(<code>"../Foo.hxx"</code>) and angle brackets are not used for project
+headers.</li>
+<li><code>TFEL/Raise.hxx</code> is the conventional first project header
+of a <code>.cxx</code> file which reports errors.</li>
+<li>Conditional includes are written with <code>#ifdef HAVE_*</code> and
+the closing <code>#endif</code> comment.</li>
+<li>Headers shared between <code>C</code> and <code>C++</code> use
+<code>#ifdef __cplusplus</code> to include the <code>C++</code> or the
+<code>C</code> version of a standard header.</li>
+</ul>
+<h1 id="namespaces">Namespaces</h1>
+<p>Namespaces use the <code>a::b::c</code> syntax and are always closed
+by a comment giving their <strong>full</strong> name:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">namespace</span> tfel<span class="op">::</span>material <span class="op">{</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">...</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span>  <span class="co">// end of namespace tfel::material</span></span></code></pre></div>
+<p>The main namespaces are <code>tfel::math</code>,
+<code>tfel::material</code>, <code>tfel::system</code>,
+<code>tfel::tests</code>, <code>tfel::utilities</code>,
+<code>tfel::typetraits</code>, <code>mfront</code>,
+<code>mfront::bbrick</code>, <code>mtest</code>,
+<code>tfel::check</code> and the namespaces of the solver interfaces
+(<code>abaqus</code>, <code>aster</code>, <code>ansys</code>,
+<code>castem</code>, <code>calculix</code>, <code>dianafea</code>,
+<code>lsdyna</code>, …).</p>
+<p>Implementation details are put in a sub-namespace named
+<code>internals</code> or <code>details</code>.</p>
+<p><code>using namespace</code> is forbidden in headers. It is allowed
+in functions of <code>.cxx</code> files, where it is the usual way to
+shorten tests and implementations:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>  tfel<span class="op">::</span>tests<span class="op">::</span>TestResult execute<span class="op">()</span> <span class="kw">override</span> <span class="op">{</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">using</span> <span class="kw">namespace</span> tfel<span class="op">::</span>material<span class="op">::</span>moduli_symmetries<span class="op">;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">...</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span>  <span class="co">// end of execute</span></span></code></pre></div>
+<h1 id="naming-conventions">Naming conventions</h1>
+<h2 id="types">Types</h2>
+<p>Types, enumerations and type aliases are in
+<code>UpperCamelCase</code>: <code>ModellingHypothesis</code>,
+<code>BehaviourDescription</code>, <code>IsotropicModuli</code>,
+<code>StressStensor</code>, <code>TestResult</code>.</p>
+<p>Type aliases use <code>using</code> and never <code>typedef</code>.
+They are documented by the conventional comment
+<code>//! a simple alias</code>:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>    <span class="co">//! a simple alias</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">using</span> <span class="dt">size_type</span> <span class="op">=</span> <span class="bu">std::</span>vector<span class="op">&lt;</span><span class="bu">std::</span>thread<span class="op">&gt;::</span><span class="dt">size_type</span><span class="op">;</span></span></code></pre></div>
+<h2 id="methods-and-free-functions">Methods and free functions</h2>
+<p>Methods and free functions are written in <code>camelCase</code>,
+starting with a verb:</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>  <span class="at">static</span> <span class="dt">bool</span> isModellingHypothesis<span class="op">(</span><span class="at">const</span> <span class="bu">std::</span>string<span class="op">&amp;);</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">static</span> <span class="bu">std::</span>string toString<span class="op">(</span><span class="at">const</span> Hypothesis<span class="op">);</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">[[</span><span class="at">nodiscard</span><span class="op">]]</span> <span class="dt">size_type</span> getNumberOfThreads<span class="op">()</span> <span class="at">const</span><span class="op">;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  TFEL_HOST_DEVICE <span class="kw">constexpr</span> StressType computeLambda<span class="op">(</span><span class="at">const</span> StressType<span class="op">&amp;);</span></span></code></pre></div>
+<p>The conventional prefixes are <code>get</code>/<code>set</code>,
+<code>is</code>/<code>has</code>, <code>check</code>,
+<code>throw</code>, <code>compute</code>,
+<code>add</code>/<code>insert</code>/<code>remove</code>,
+<code>to</code>.</p>
+<h2 id="data-members-and-variables">Data members and variables</h2>
+<p>Data members and variables, including function parameters when they
+are not trivial, are written in <code>snake_case</code>:</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>    <span class="co">//! number of integration points</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="dt">size_type</span> nb_of_integration_points<span class="op">;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">//! name of the modelling hypothesis</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>string modelling_hypothesis<span class="op">;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">//! lower bound</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span> lower_bound <span class="op">=</span> <span class="bu">std::</span>numeric_limits<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;::</span>quiet_NaN<span class="op">();</span></span></code></pre></div>
+<p>Multi-word names use underscores, never internal capitals:
+<code>cblock_begin</code>, <code>is_mutable</code>,
+<code>numerical_jacobian_epsilon</code>, <code>include_paths</code>.</p>
+<p>Single word names are preferred for short lived variables and for
+parameters whose meaning is given by the <code>\param</code>
+documentation: <code>n</code>, <code>v</code>, <code>s</code>,
+<code>os</code>, <code>lb</code>, <code>ub</code>, <code>eps</code>.</p>
+<p>The historical sources use a mix of <code>UpperCamelCase</code> and
+<code>camelCase</code> for data members, without any prefix
+(<code>_</code>, <code>m_</code> and <code>s_</code> are never used).
+New code and modified code shall use <code>snake_case</code>; existing
+entities shall not be renamed outside of the scope of the current
+change.</p>
+<h2 id="template-parameters">Template parameters</h2>
+<p>Descriptive template parameters are in <code>UpperCamelCase</code>
+(<code>StressStensor</code>, <code>NumericType</code>,
+<code>InputIterator</code>, <code>ValueType</code>), generic ones use a
+single letter or a short list (<code>T</code>, <code>U</code>,
+<code>F</code>, <code>Op</code>, <code>T1</code>, <code>T2</code>).
+Boolean and concept parameters use lowercase (<code>real</code>,
+<code>stress</code>, <code>use_qt</code>).</p>
+<h2 id="enumerations">Enumerations</h2>
+<p>Enumerations are in <code>UpperCamelCase</code>, their enumerators in
+<code>ALL_UPPER_CASE</code>. Each enumerator is documented by a trailing
+<code>//&lt;!</code> comment and the enumeration is closed by a
+<code>// end of enum</code> comment:</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">/*!</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">   * </span><span class="an">\brief</span><span class="co"> list the possible values for the logging facilities</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">   *        provided by the getVerboseMode/getLogStream functions</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">   */</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">enum</span> VerboseLevel <span class="op">{</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    VERBOSE_QUIET <span class="op">=</span> <span class="op">-</span><span class="dv">1</span><span class="op">,</span>  <span class="co">//&lt;! no output</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    VERBOSE_LEVEL0 <span class="op">=</span> <span class="dv">0</span><span class="op">,</span>  <span class="co">//&lt;! minimal output</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    VERBOSE_LEVEL1 <span class="op">=</span> <span class="dv">1</span><span class="op">,</span>  <span class="co">//&lt;! a simpler output</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    VERBOSE_LEVEL2 <span class="op">=</span> <span class="dv">2</span><span class="op">,</span>  <span class="co">//&lt;! a much detailled output</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    VERBOSE_LEVEL3 <span class="op">=</span> <span class="dv">3</span><span class="op">,</span>  <span class="co">//&lt;! the finer level for standard user</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    VERBOSE_DEBUG <span class="op">=</span> <span class="dv">4</span><span class="op">,</span>   <span class="co">//&lt;! an output adapted for debugging</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    VERBOSE_FULL <span class="op">=</span> <span class="dv">5</span>     <span class="co">//&lt;! a very detailled output</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="op">};</span>                     <span class="co">// end of enum VerboseLevel</span></span></code></pre></div>
+<p>A plain <code>enum</code> is preferred to an <code>enum class</code>
+when the enumerators are used as array indices or have to be visible in
+the <code>C</code> or <code>Fortran</code> interfaces; an
+<code>enum class</code> is used otherwise.</p>
+<h2 id="macros-and-constants">Macros and constants</h2>
+<p>Macros are in <code>ALL_UPPER_CASE</code> and prefixed by the library
+name (<code>TFEL_</code>, <code>MFRONT_</code>, <code>MTEST_</code>, …).
+They are documented with a <code>\def</code> block:</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">/*!</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"> * </span><span class="an">\def</span><span class="co"> </span><span class="cv">TFEL_PP_JOIN</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"> * </span><span class="an">\brief</span><span class="co"> this macro joins its two arguments together.</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"> * </span><span class="an">\author</span><span class="co"> Thomas Helfer</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"> * </span><span class="an">\date</span><span class="co"> 28/08/2006</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="pp">#define TFEL_PP_JOIN</span><span class="op">(</span>X<span class="op">,</span><span class="pp"> </span>Y<span class="op">)</span><span class="pp"> </span>TFEL_PP_DO_JOIN<span class="op">(</span>X<span class="op">,</span><span class="pp"> </span>Y<span class="op">)</span></span></code></pre></div>
+<p><code>static constexpr</code> constants use a descriptive
+<code>UpperCamelCase</code> name and, when the constant is a well known
+physical quantity, a short lowercase alias (see
+<code>TFEL/PhysicalConstants.hxx</code>).</p>
+<h1 id="structures-and-classes">Structures and classes</h1>
+<p><code>struct</code> shall be used in place of <code>class</code>:
+<code>struct</code> is used more than 3 000 times in the sources,
+whereas <code>class</code> is essentially reserved to template
+parameters.</p>
+<p><strong>Public members are declared first.</strong> Since
+<code>struct</code> is already public by default, most types have no
+<code>public:</code> label at all: the private section is written at the
+end of the type.</p>
+<p>The conventional order of the members of a type is:</p>
+<ol type="1">
+<li>documentation of the type,</li>
+<li><code>using</code> aliases,</li>
+<li>nested types and enumerations,</li>
+<li><code>static constexpr</code> constants and static string
+constants,</li>
+<li>constructors, destructor, copy and move operators,</li>
+<li>methods,</li>
+<li><code>protected:</code> section, if any,</li>
+<li><code>private:</code> section, if any, with private methods first
+and data members last.</li>
+</ol>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">/*!</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">   * </span><span class="an">\brief</span><span class="co"> structure handling a fixed-size pool of threads</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">   */</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">struct</span> TFELSYSTEM_VISIBILITY_EXPORT ThreadPool <span class="op">{</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">//! a simple alias</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">using</span> <span class="dt">size_type</span> <span class="op">=</span> <span class="bu">std::</span>vector<span class="op">&lt;</span><span class="bu">std::</span>thread<span class="op">&gt;::</span><span class="dt">size_type</span><span class="op">;</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">/*!</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">     * </span><span class="an">\brief</span><span class="co"> constructor</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">     * </span><span class="an">\param[in]</span><span class="co"> </span><span class="cv">n:</span><span class="co"> number of thread to be created</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co">     */</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">explicit</span> ThreadPool<span class="op">(</span><span class="at">const</span> <span class="dt">size_type</span><span class="op">);</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">...</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="co">//! </span><span class="an">\return</span><span class="co"> the number of threads managed by the pool</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">[[</span><span class="at">nodiscard</span><span class="op">]]</span> <span class="dt">size_type</span> getNumberOfThreads<span class="op">()</span> <span class="at">const</span><span class="op">;</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">//! destructor</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">~</span>ThreadPool<span class="op">();</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>   <span class="kw">private</span><span class="op">:</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    <span class="co">//! enum describing the status of workers</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">enum</span> Status <span class="op">{</span> WORKING<span class="op">,</span> IDLE <span class="op">};</span>  <span class="co">// end of enum Status</span></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>    <span class="co">//! status of the workers</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>vector<span class="op">&lt;</span>Status<span class="op">&gt;</span> statuses<span class="op">;</span></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>    <span class="co">//! list of available threads</span></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>vector<span class="op">&lt;</span><span class="bu">std::</span>thread<span class="op">&gt;</span> workers<span class="op">;</span></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>    <span class="co">// the task queue</span></span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>queue<span class="op">&lt;</span><span class="bu">std::</span>function<span class="op">&lt;</span><span class="dt">void</span><span class="op">()&gt;&gt;</span> tasks<span class="op">;</span></span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>  <span class="op">};</span>  <span class="co">// end of struct ThreadPool</span></span></code></pre></div>
+<p>Non-copyable types explicitly disable the special members rather than
+omitting them:</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>    <span class="co">//! </span><span class="an">\brief</span><span class="co"> copy constructor (disabled)</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    TestCase<span class="op">(</span><span class="at">const</span> TestCase<span class="op">&amp;)</span> <span class="op">=</span> <span class="kw">delete</span><span class="op">;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">//! </span><span class="an">\brief</span><span class="co"> assignement operator (disabled)</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    TestCase<span class="op">&amp;</span> <span class="kw">operator</span><span class="op">=(</span><span class="at">const</span> TestCase<span class="op">&amp;)</span> <span class="op">=</span> <span class="kw">delete</span><span class="op">;</span></span></code></pre></div>
+<p>Leaf types are declared <code>final</code>.</p>
+<h1 id="the-this-pointer">The <code>this</code> pointer</h1>
+<p>Data members and methods shall always be qualified by
+<code>this-&gt;</code>, even when the qualification is not required:</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>  <span class="dt">void</span> LogarithmicStrainHandlerBase<span class="op">::</span>checkLagrangianSetting<span class="op">()</span> <span class="at">const</span> <span class="op">{</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    raise_if<span class="op">(</span><span class="kw">this</span><span class="op">-&gt;</span>s <span class="op">!=</span> LAGRANGIAN<span class="op">,</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>             <span class="st">&quot;LogarithmicStrainHandlerBase::&quot;</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>             <span class="st">&quot;checkLagrangianSetting: &quot;</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>             <span class="st">&quot;setting is not set to LAGRANGIAN&quot;</span><span class="op">);</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span>  <span class="co">// end of LogarithmicStrainHandlerBase::checkLagrangianSetting</span></span></code></pre></div>
+<p>This convention makes member accesses immediately visible, avoids
+shadowing bugs, and is mandatory in template classes, where the
+<code>this-&gt;template</code> form is required to access dependent
+members:</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">-&gt;</span><span class="kw">template</span> test_1<span class="op">&lt;</span><span class="dt">float</span><span class="op">,</span> <span class="kw">false</span><span class="op">&gt;();</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">-&gt;</span><span class="kw">template</span> computeEigenValues<span class="op">&lt;</span>es<span class="op">&gt;(</span>vp0<span class="op">,</span> vp1<span class="op">,</span> vp2<span class="op">,</span> <span class="kw">this</span><span class="op">-&gt;</span>v<span class="op">,</span> b<span class="op">);</span></span></code></pre></div>
+<h1 id="documentation">Documentation</h1>
+<h2 id="general-rules">General rules</h2>
+<p>All members, functions and methods shall be documented with
+<code>doxygen</code>, in the <code>.hxx</code> file: the
+<code>doxygen</code> configuration (<code>Doxyfile.in</code>) only
+processes <code>*.hxx</code>, <code>*.ixx</code> and
+<code>*.doxygen</code> files, so a <code>.cxx</code> file is never
+documented.</p>
+<p>Documentation is written in <code>C++</code> comments, using
+backslash commands (<code>\brief</code>, never <code>@brief</code>):</p>
+<ul>
+<li><code>/*! ... */</code> for types, functions and non-trivial
+members,</li>
+<li><code>//! ...</code> for one line comments: constructors,
+destructors, aliases, getters, data members, enumerators.</li>
+</ul>
+<p><code>///</code> and <code>/** ... */</code> are not used.</p>
+<h2 id="conventional-forms">Conventional forms</h2>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">/*!</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co">   * </span><span class="an">\brief</span><span class="co"> compute the Hosford yield stress</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co">   * </span><span class="an">\tparam</span><span class="co"> </span><span class="cv">StressStensor:</span><span class="co"> type of the stress tensor</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co">   * </span><span class="an">\tparam</span><span class="co"> </span><span class="cv">HosfordExponentType:</span><span class="co"> type of the Hosford exponent</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co">   * (could be a numeric type or an integer type)</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co">   * </span><span class="an">\param[in]</span><span class="co"> </span><span class="cv">s:</span><span class="co"> stress tensor</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co">   * </span><span class="an">\param[in]</span><span class="co"> </span><span class="cv">a:</span><span class="co"> Hosford exponent</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co">   * </span><span class="an">\param[in]</span><span class="co"> </span><span class="cv">e:</span><span class="co"> criterion used to check if the stress are null</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co">   */</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">template</span> <span class="op">&lt;</span>tfel<span class="op">::</span>math<span class="op">::</span>StensorConcept StressStensor<span class="op">,</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>            <span class="kw">typename</span> HosfordExponentType<span class="op">&gt;</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>  TFEL_HOST_DEVICE HosfordStressType<span class="op">&lt;</span>StressStensor<span class="op">&gt;</span> computeHosfordStress<span class="op">(</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> StressStensor<span class="op">&amp;,</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> HosfordExponentType<span class="op">,</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> HosfordStressType<span class="op">&lt;</span>StressStensor<span class="op">&gt;);</span></span></code></pre></div>
+<ul>
+<li>parameters are always annotated with their direction:
+<code>\param[in]</code>, <code>\param[out]</code>,
+<code>\param[in,out]</code>, and the name is followed by a colon.
+Descriptions of several parameters are column-aligned when it
+helps,</li>
+<li><code>\return</code> is used for the returned value, and is often
+the only tag of a trivial accessor,</li>
+<li>template parameters are documented with <code>\tparam</code>,</li>
+<li>limitations of the documented entity are stated with
+<code>\pre</code>, <code>\note</code>, <code>\see</code>.</li>
+</ul>
+<p>The following one line comments are conventional and shall be used
+consistently:</p>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>    <span class="co">//! a simple alias</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">//! </span><span class="an">\brief</span><span class="co"> default constructor</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">//! </span><span class="an">\brief</span><span class="co"> copy constructor (disabled)</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">//! </span><span class="an">\brief</span><span class="co"> assignement operator (disabled)</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">//! destructor</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">//! </span><span class="an">\return</span><span class="co"> the name of the class</span></span></code></pre></div>
+<p>Documentation is also expected for private members, private methods
+and private data members, whose comment states their role.</p>
+<h1 id="language-conventions">Language conventions</h1>
+<h2 id="constness">Constness</h2>
+<p><code>const</code> is written before the type and is applied to
+parameters even when they are passed by value, in the declarations as
+well as in the definitions:</p>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>  <span class="at">static</span> <span class="bu">std::</span>string toString<span class="op">(</span><span class="at">const</span> Hypothesis<span class="op">);</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">void</span> checkModellingHypothesis<span class="op">(</span><span class="at">const</span> Hypothesis<span class="op">)</span> <span class="at">const</span><span class="op">;</span></span></code></pre></div>
+<p>Local variables are <code>const</code> by default:
+<code>const auto</code> is far more frequent than <code>auto</code>, and
+<code>for (const auto&amp; x : ...)</code> far more frequent than
+<code>for (auto&amp; x : ...)</code>.</p>
+<h2 id="integer-types">Integer types</h2>
+<p>Variables, members and parameters are not declared <code>long</code>
+or <code>long long</code>, unless the API of a third-party library
+requires it. For instance, the 64 bits atomic operations of
+<code>CUDA</code> only accept <code>unsigned long long</code>. Such a
+type is then hidden behind an alias, documented with the reason.</p>
+<h2 id="attributes">Attributes</h2>
+<ul>
+<li><code>[[nodiscard]]</code> is applied to every non-void function
+whose result cannot be ignored, that is to say essentially all getters
+and all pure queries.</li>
+<li><code>[[noreturn]]</code> is applied to <code>raise</code>,
+<code>raise_if</code> and the <code>throw...</code> helpers.</li>
+<li><code>noexcept</code> is used for everything that cannot throw.</li>
+<li><code>override</code>, <code>final</code> and <code>explicit</code>
+are always used where they apply.</li>
+</ul>
+<p>Attributes come before the visibility macro and before the return
+type: <code>[[nodiscard]] TFEL_HOST_DEVICE ...</code>.</p>
+<h2 id="closing-comments">Closing comments</h2>
+<p>Namespaces, types, functions and enumerations are closed by a comment
+giving their name, with two spaces before the comment:</p>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span>  <span class="co">// end of computeIsotropicStiffnessTensor</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="op">};</span>  <span class="co">// end of struct BehaviourData</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span>  <span class="co">// end of namespace mfront</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span>  <span class="co">// end of enum VerboseLevel</span></span></code></pre></div>
+<p>Control flow blocks (<code>if</code>, <code>for</code>,
+<code>while</code>) are not annotated.</p>
+<h2 id="exported-symbols">Exported symbols</h2>
+<p>A type or a function belonging to the public interface of a library
+is annotated with the visibility macro of the library,
+<code>&lt;LIBRARY&gt;_VISIBILITY_EXPORT</code>, where the library name
+is the name of the <code>CMake</code> target
+(<code>TFELMATH_VISIBILITY_EXPORT</code>,
+<code>TFELMATERIAL_VISIBILITY_EXPORT</code>,
+<code>TFELTESTS_VISIBILITY_EXPORT</code>,
+<code>MFRONT_VISIBILITY_EXPORT</code>, …). Such macros are defined in
+<code>TFEL/Config/TFELConfig.hxx</code> for the <code>TFEL</code>
+libraries and in <code>MFront/MFrontConfig.hxx</code> for the
+<code>MFront</code> libraries. The macro is written immediately before
+<code>struct</code>, or before the return type of a function, after the
+attributes.</p>
+<p><code>TFEL_VISIBILITY_LOCAL</code> is used for helpers which are
+defined in headers but must not be exported.</p>
+<p>Templates are not exported: their definitions are in the
+<code>.ixx</code> files and the non template helpers they use are marked
+<code>TFEL_VISIBILITY_LOCAL</code>.</p>
+<h2 id="portability">Portability</h2>
+<p>Every function which must be usable on a GPU or through a
+<code>SYCL</code> backend is annotated with
+<code>TFEL_HOST_DEVICE</code> (or <code>TFEL_HOST</code>,
+<code>TFEL_DEVICE</code>), written before the return type and before
+<code>constexpr</code> (see
+<code>TFEL/Config/TFELConfig.hxx</code>).</p>
+<p>The same restriction applies to the code of such functions: no
+allocation, no exception, no <code>STL</code> container which is not
+supported by the targeted backends.</p>
+<p><code>TFEL_INLINE</code> and its variants are used instead of
+<code>inline</code> when the inlining is performance critical.</p>
+<h1 id="error-handling">Error handling</h1>
+<h2 id="error-handling-in-tfelmath-and-tfelmaterial">Error handling in
+<code>TFEL/Math</code> and <code>TFEL/Material</code></h2>
+<p>Due to GPU compatibility, usage of exceptions in
+<code>TFEL/Math</code> and <code>TFEL/Material</code> is generally
+prohibited. There are exceptions for parts not meant to ported on the
+GPU, notably <code>TFEL/Math/Parser</code>. For historical reasons and
+backward compatibility, some usage of exceptions may still exist in
+other parts of those libraries.</p>
+<p>As a general rule, one shall use the return type to indicate success
+or failure: boolean values (<code>true</code> for success,
+<code>false</code> for failuer), error codes, etc..</p>
+<h2 id="error-handling-in-other-parts-of-the-project">Error handling in
+other parts of the project</h2>
+<p>There is no error reporting macro. Errors are reported by calling
+functions declared in <code>TFEL/Raise.hxx</code>:</p>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>  <span class="kw">template</span> <span class="op">&lt;</span><span class="kw">typename</span> Exception <span class="op">=</span> <span class="bu">std::</span>runtime_error<span class="op">&gt;</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">[[</span><span class="at">noreturn</span><span class="op">]]</span> TFEL_VISIBILITY_LOCAL TFEL_INLINE <span class="dt">void</span> raise<span class="op">();</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">template</span> <span class="op">&lt;</span><span class="kw">typename</span> Exception <span class="op">=</span> <span class="bu">std::</span>runtime_error<span class="op">,</span> <span class="kw">typename</span><span class="op">...</span> Args<span class="op">&gt;</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">[[</span><span class="at">noreturn</span><span class="op">]]</span> TFEL_VISIBILITY_LOCAL TFEL_INLINE <span class="dt">void</span> raise<span class="op">(</span>Args<span class="op">&amp;&amp;...);</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">template</span> <span class="op">&lt;</span><span class="kw">typename</span> Exception <span class="op">=</span> <span class="bu">std::</span>runtime_error<span class="op">,</span> <span class="kw">typename</span><span class="op">...</span> Args<span class="op">&gt;</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  TFEL_VISIBILITY_LOCAL TFEL_INLINE <span class="dt">void</span> raise_if<span class="op">(</span><span class="at">const</span> <span class="dt">bool</span><span class="op">,</span> Args<span class="op">&amp;&amp;...);</span></span></code></pre></div>
+<p>The exception object is built outside of the <code>throw</code>
+statement, so that the <code>cert-err60-cpp</code> rule is satisfied
+even if the constructor of the exception throws.</p>
+<p>Error messages are written as
+<code>&lt;Class&gt;::&lt;method&gt;: &lt;message&gt;</code>. They are
+split into adjacent string literals to respect the 80 columns limit, and
+completed by string concatenation when they contain dynamic parts:</p>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>    tfel<span class="op">::</span>raise_if<span class="op">(</span><span class="kw">this</span><span class="op">-&gt;</span>behaviour<span class="op">.</span>empty<span class="op">(),</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;BehaviourDescription::getBehaviourName: &quot;</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;behaviour name not defined&quot;</span><span class="op">);</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">...</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    tfel<span class="op">::</span>raise<span class="op">(</span><span class="st">&quot;BehaviourData::CodeBlocksAggregator::set: &quot;</span> <span class="op">+</span> m<span class="op">);</span></span></code></pre></div>
+<p>Exception classes are <code>struct</code> types, exported and derived
+from <code>TFELException</code>
+(<code>TFEL/Exception/TFELException.hxx</code>),
+<code>MaterialException</code>
+(<code>TFEL/Material/MaterialException.hxx</code>),
+<code>MathRunTimeException</code>, <code>SystemError</code>, … according
+to the library they belong to.</p>
+<p>Out-of-bounds checks are handled by the policy classes of
+<code>TFEL/Material/BoundsCheck.hxx</code>, which use the
+<code>Warning</code>, <code>Strict</code> or <code>None</code> policies
+of <code>TFEL/Material/OutOfBoundsPolicy.hxx</code>.</p>
+<h1 id="dynamic-polymorphism">Dynamic polymorphism</h1>
+<h2 id="dynamic-polymorphism-in-tfelmath-and-tfelmaterial">Dynamic
+polymorphism in <code>TFEL/Math</code> and
+<code>TFEL/Material</code></h2>
+<p>Due to GPU compatibility, usage of dynamic polymorphism in
+<code>TFEL/Math</code> and <code>TFEL/Material</code> is generally
+prohibited. There are exceptions for parts not meant to ported on the
+GPU, notably <code>TFEL/Math/Parser</code>.</p>
+<p>Static polymorphism, through CRTP (Curiously Recurring Template
+Pattern, see <span class="citation"
+data-cites="coplien_curiously_1995">[1]</span>), is used in many places
+as a substitute for dynamic polymorphism.</p>
+<h2 id="dynamic-polymorphism-in-other-parts-of-the-project">Dynamic
+polymorphism in other parts of the project</h2>
+<p>Dynamic polymorphism is used extensively in other parts of the
+project. The general scheme is as follows:</p>
+<ul>
+<li>The root of a class hierarchy shall be pure virtual. Its name shall
+start with <code>Abstract</code> followed by the name of the class
+hierarchy: <code>AbstractNonLinearSystemSolver</code> for instance.</li>
+<li>In most cases, a large part of the interface has meaningful
+defaults. Those defaults are then implemented in a class whose name is
+the name of the class hierarchy suffixed by <code>Base</code>:
+<code>NonLinearSystemSolverBase</code> for instance.</li>
+<li>Leaf classes shall be declared <code>final</code>.</li>
+</ul>
+<p>Multiple inheritance combined with dynamic polymorphism is
+discouraged.</p>
+<h3 id="factories">Factories</h3>
+<p>A hierarchy whose instances are designated by a name, given in an
+input file, on the command line or by a script, is associated with a
+factory. The factory is declared in
+<code>&lt;Name&gt;Factory.hxx</code>, in the same namespace as the
+abstract type, and named after the type it creates:
+<code>DSLFactory</code>, <code>BehaviourInterfaceFactory</code>,
+<code>ModelInterfaceFactory</code>,
+<code>MaterialPropertyInterfaceFactory</code>,
+<code>NonLinearSystemSolverFactory</code>,
+<code>BehaviourBrickFactory</code>,
+<code>bbrick::InelasticFlowFactory</code>,
+<code>bbrick::IsotropicHardeningRuleFactory</code>,
+<code>bbrick::StressCriterionFactory</code>,
+<code>bbrick::StressPotentialFactory</code>,
+<code>bbrick::PorosityNucleationModelFactory</code>,
+<code>bbrick::StrainRateSensitivityFactorFactory</code>,
+<code>generic_parallel::material_property::BackendFactory</code>, …</p>
+<p>All those factories follow the same pattern:</p>
+<ul>
+<li>the factory is a <code>struct</code>, exported with the visibility
+macro of the library (<code>MFRONT_VISIBILITY_EXPORT</code>) and
+documented by a one line <code>doxygen</code> comment:
+<code>//! \brief abstract factory for &lt;types&gt;</code>;</li>
+<li>the factory is a singleton: the unique instance is returned by a
+static function, <code>getFactory()</code>,
+<code>get&lt;Name&gt;Factory()</code> or <code>get()</code>, implemented
+with a function local static. The constructor is private, the destructor
+is defined in the <code>.cxx</code> file, and the copy and move
+operations are deleted;</li>
+<li>the type of the functions which create an instance is defined by a
+<code>using</code> alias, usually named <code>Generator</code>, which is
+a <code>std::function</code> returning a <code>std::shared_ptr</code>
+(or a <code>std::unique_ptr</code>) of the abstract type. The older
+sources use a <code>typedef</code> of a function pointer named
+<code>constructor</code> or <code>&lt;Type&gt;Creator</code>
+instead;</li>
+<li>the registered generators are stored in a
+<code>std::map&lt;std::string, ...&gt;</code> data member,
+<code>generators</code> or <code>constructors</code>, whose key is the
+name used by the user. <code>std::less&lt;&gt;</code> is used as
+comparator when the lookup is performed with a
+<code>std::string_view</code>;</li>
+<li>the registration method (<code>addGenerator</code>,
+<code>registerSolver</code>, <code>registerDSLCreator</code>,
+<code>registerInterfaceCreator</code>,
+<code>registerAbstractBehaviourBrick</code>, …) inserts the generator
+and reports a duplicate name as an error, using <code>tfel::raise</code>
+or <code>tfel::raise_if</code>;</li>
+<li>the creation method (<code>generate</code>, <code>get</code>,
+<code>getSolver</code>, <code>getInterface</code>,
+<code>createNewDSL</code>, …) looks up the name and raises an error when
+the name is unknown. The error message lists the available names when
+their number is reasonable;</li>
+<li>the available names are returned by a
+<code>getRegistred&lt;PluralType&gt;()</code> method, which uses
+<code>getKeys</code> of <code>MFront/MFrontUtilities.hxx</code> and is
+used by the error messages, the <code>--help</code> output and the
+completion scripts. The misspelling <code>Registred</code> is the
+established spelling of the interface and shall be preserved;</li>
+<li>the standard implementations are registered by the private
+constructor of the factory, which only contains calls to the
+registration method with lambdas calling
+<code>std::make_shared</code>.</li>
+</ul>
+<p>A factory may be both coarse grained and extensible from the outside:
+<code>BehaviourBrickFactory</code> is the single factory of all the
+behaviour bricks, its constructor registers the generic bricks, and the
+DSLs register the bricks they own with
+<code>registerAbstractBehaviourBrick</code>.</p>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">//! </span><span class="an">\brief</span><span class="co"> abstract factory for isotropic hardening rules.</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">struct</span> MFRONT_VISIBILITY_EXPORT IsotropicHardeningRuleFactory <span class="op">{</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">//! </span><span class="an">\brief</span><span class="co"> a simple alias</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">using</span> Generator <span class="op">=</span> <span class="bu">std::</span>function<span class="op">&lt;</span><span class="bu">std::</span>shared_ptr<span class="op">&lt;</span>IsotropicHardeningRule<span class="op">&gt;()&gt;;</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">//! </span><span class="an">\return</span><span class="co"> the uniq instance of the class</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">[[</span><span class="at">nodiscard</span><span class="op">]]</span> <span class="at">static</span> IsotropicHardeningRuleFactory<span class="op">&amp;</span> getFactory<span class="op">();</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">//</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    IsotropicHardeningRuleFactory<span class="op">(</span>IsotropicHardeningRuleFactory<span class="op">&amp;&amp;)</span> <span class="op">=</span> <span class="kw">delete</span><span class="op">;</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    IsotropicHardeningRuleFactory<span class="op">(</span><span class="at">const</span> IsotropicHardeningRuleFactory<span class="op">&amp;)</span> <span class="op">=</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>        <span class="kw">delete</span><span class="op">;</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>    IsotropicHardeningRuleFactory<span class="op">&amp;</span> <span class="kw">operator</span><span class="op">=(</span>IsotropicHardeningRuleFactory<span class="op">&amp;&amp;)</span> <span class="op">=</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>        <span class="kw">delete</span><span class="op">;</span></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>    IsotropicHardeningRuleFactory<span class="op">&amp;</span> <span class="kw">operator</span><span class="op">=(</span></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">const</span> IsotropicHardeningRuleFactory<span class="op">&amp;)</span> <span class="op">=</span> <span class="kw">delete</span><span class="op">;</span></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">//! </span><span class="an">\brief</span><span class="co"> return the list of available isotropic hardening rules</span></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">[[</span><span class="at">nodiscard</span><span class="op">]]</span> <span class="bu">std::</span>vector<span class="op">&lt;</span><span class="bu">std::</span>string<span class="op">&gt;</span> getRegistredIsotropicHardeningRules<span class="op">()</span></span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">const</span><span class="op">;</span></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>    <span class="co">/*!</span></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a><span class="co">     * </span><span class="an">\brief</span><span class="co"> add a new generator</span></span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a><span class="co">     * </span><span class="an">\param[in]</span><span class="co"> </span><span class="cv">n:</span><span class="co"> name of the generator</span></span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a><span class="co">     * </span><span class="an">\param[in]</span><span class="co"> </span><span class="cv">g:</span><span class="co"> generator</span></span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a><span class="co">     */</span></span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>    <span class="dt">void</span> addGenerator<span class="op">(</span><span class="at">const</span> <span class="bu">std::</span>string<span class="op">&amp;,</span> <span class="at">const</span> Generator<span class="op">&amp;);</span></span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>    <span class="co">/*!</span></span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a><span class="co">     * </span><span class="an">\brief</span><span class="co"> generate a new isotropic hardening rule</span></span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a><span class="co">     * </span><span class="an">\param[in]</span><span class="co"> </span><span class="cv">n:</span><span class="co"> name of the isotropic hardening rule</span></span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a><span class="co">     */</span></span>
+<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>    <span class="op">[[</span><span class="at">nodiscard</span><span class="op">]]</span> <span class="bu">std::</span>shared_ptr<span class="op">&lt;</span>IsotropicHardeningRule<span class="op">&gt;</span> generate<span class="op">(</span></span>
+<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a>        <span class="at">const</span> <span class="bu">std::</span>string<span class="op">&amp;)</span> <span class="at">const</span><span class="op">;</span></span>
+<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a>   <span class="kw">private</span><span class="op">:</span></span>
+<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a>    <span class="co">//! </span><span class="an">\brief</span><span class="co"> default constructor</span></span>
+<span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a>    IsotropicHardeningRuleFactory<span class="op">();</span></span>
+<span id="cb23-34"><a href="#cb23-34" aria-hidden="true" tabindex="-1"></a>    <span class="co">//! </span><span class="an">\brief</span><span class="co"> destructor</span></span>
+<span id="cb23-35"><a href="#cb23-35" aria-hidden="true" tabindex="-1"></a>    <span class="op">~</span>IsotropicHardeningRuleFactory<span class="op">();</span></span>
+<span id="cb23-36"><a href="#cb23-36" aria-hidden="true" tabindex="-1"></a>    <span class="co">//! </span><span class="an">\brief</span><span class="co"> generators</span></span>
+<span id="cb23-37"><a href="#cb23-37" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>map<span class="op">&lt;</span><span class="bu">std::</span>string<span class="op">,</span> Generator<span class="op">&gt;</span> generators<span class="op">;</span></span>
+<span id="cb23-38"><a href="#cb23-38" aria-hidden="true" tabindex="-1"></a>  <span class="op">};</span>  <span class="co">// end of struct IsotropicHardeningRuleFactory</span></span></code></pre></div>
+<p>The implementation of the singleton, of the two methods which
+manipulate the map and of the constructor is fixed:</p>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>  IsotropicHardeningRuleFactory<span class="op">&amp;</span> IsotropicHardeningRuleFactory<span class="op">::</span>getFactory<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">static</span> IsotropicHardeningRuleFactory i<span class="op">;</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> i<span class="op">;</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span>  <span class="co">// end of getFactory</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">void</span> IsotropicHardeningRuleFactory<span class="op">::</span>addGenerator<span class="op">(</span><span class="at">const</span> <span class="bu">std::</span>string<span class="op">&amp;</span> n<span class="op">,</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>                                                   <span class="at">const</span> Generator<span class="op">&amp;</span> g<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(!</span><span class="kw">this</span><span class="op">-&gt;</span>generators<span class="op">.</span>insert<span class="op">({</span>n<span class="op">,</span> g<span class="op">}).</span>second<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>      tfel<span class="op">::</span>raise<span class="op">(</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>          <span class="st">&quot;IsotropicHardeningRuleFactory::addGenerator: &quot;</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>          <span class="st">&quot;generator &#39;&quot;</span> <span class="op">+</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>          n <span class="op">+</span> <span class="st">&quot;&#39; already registred&quot;</span><span class="op">);</span></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span>  <span class="co">// end of addGenerator</span></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>  <span class="bu">std::</span>shared_ptr<span class="op">&lt;</span>IsotropicHardeningRule<span class="op">&gt;</span></span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>  IsotropicHardeningRuleFactory<span class="op">::</span>generate<span class="op">(</span><span class="at">const</span> <span class="bu">std::</span>string<span class="op">&amp;</span> n<span class="op">)</span> <span class="at">const</span> <span class="op">{</span></span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> p <span class="op">=</span> <span class="kw">this</span><span class="op">-&gt;</span>generators<span class="op">.</span>find<span class="op">(</span>n<span class="op">);</span></span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>p <span class="op">==</span> <span class="kw">this</span><span class="op">-&gt;</span>generators<span class="op">.</span>end<span class="op">())</span> <span class="op">{</span></span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>      tfel<span class="op">::</span>raise<span class="op">(</span></span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>          <span class="st">&quot;IsotropicHardeningRuleFactory::generate: &quot;</span></span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>          <span class="st">&quot;no generator named &#39;&quot;</span> <span class="op">+</span></span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a>          n <span class="op">+</span> <span class="st">&quot;&#39;&quot;</span><span class="op">);</span></span>
+<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> p<span class="op">-&gt;</span>second<span class="op">();</span></span>
+<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span>  <span class="co">// end of generate</span></span>
+<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a>  IsotropicHardeningRuleFactory<span class="op">::</span>IsotropicHardeningRuleFactory<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">-&gt;</span>addGenerator<span class="op">(</span><span class="st">&quot;Linear&quot;</span><span class="op">,</span> <span class="op">[]()</span> <span class="op">{</span></span>
+<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> <span class="bu">std::</span>make_shared<span class="op">&lt;</span>bbrick<span class="op">::</span>LinearIsotropicHardeningRule<span class="op">&gt;();</span></span>
+<span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a>    <span class="op">});</span></span>
+<span id="cb24-32"><a href="#cb24-32" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">-&gt;</span>addGenerator<span class="op">(</span><span class="st">&quot;Voce&quot;</span><span class="op">,</span> <span class="op">[]()</span> <span class="op">{</span></span>
+<span id="cb24-33"><a href="#cb24-33" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> <span class="bu">std::</span>make_shared<span class="op">&lt;</span>bbrick<span class="op">::</span>VoceIsotropicHardeningRule<span class="op">&gt;();</span></span>
+<span id="cb24-34"><a href="#cb24-34" aria-hidden="true" tabindex="-1"></a>    <span class="op">});</span></span>
+<span id="cb24-35"><a href="#cb24-35" aria-hidden="true" tabindex="-1"></a>    <span class="op">...</span></span>
+<span id="cb24-36"><a href="#cb24-36" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span>  <span class="co">// end of IsotropicHardeningRuleFactory</span></span></code></pre></div>
+<p>A factory may store more information than a single generator:
+<code>DSLFactory</code> stores the aliases and the description of each
+DSL, <code>BehaviourBrickFactory</code> stores the behaviour types and
+the integration schemes for which a brick is valid, the interface
+factories store the dependencies of an interface with another one. Those
+additional properties are stored in maps keyed by the same name.</p>
+<h3 id="proxies">Proxies</h3>
+<p>A factory is fed by proxies, small template structures whose only
+role is to build the generator of a given type and to register it:
+<code>DSLProxy</code>, <code>BehaviourInterfaceProxy</code>,
+<code>ModelInterfaceProxy</code>,
+<code>MaterialPropertyInterfaceProxy</code> and, in the unit tests
+framework, <code>tfel::tests::TestProxy</code>, which is instantiated by
+the <code>TFEL_TESTS_GENERATE_PROXY</code> macro.</p>
+<p>A proxy is declared in <code>&lt;Name&gt;Proxy.hxx</code>, is not
+exported, since it is a header only template, and the definitions of its
+members are written in a <code>&lt;Name&gt;Proxy.ixx</code> file
+included at the end of the header:</p>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">/*!</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co">   * </span><span class="an">\brief</span><span class="co"> structure used to register a DSL generator</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co">   * </span><span class="an">\tparam</span><span class="co"> </span><span class="cv">DSLType:</span><span class="co"> type of the DSL generated</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co">   */</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">template</span> <span class="op">&lt;</span><span class="kw">typename</span> DSLType<span class="op">&gt;</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">struct</span> DSLProxy <span class="op">{</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">//! </span><span class="an">\brief</span><span class="co"> default constructor</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>    DSLProxy<span class="op">();</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">/*!</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="co">     * </span><span class="an">\brief</span><span class="co"> constructor</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="co">     * </span><span class="an">\param[in]</span><span class="co"> </span><span class="cv">aliases:</span><span class="co"> alternative names for the DSL</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="co">     */</span></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">explicit</span> DSLProxy<span class="op">(</span><span class="at">const</span> <span class="bu">std::</span>vector<span class="op">&lt;</span><span class="bu">std::</span>string<span class="op">&gt;&amp;);</span></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>    <span class="co">/*!</span></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a><span class="co">     * </span><span class="an">\brief</span><span class="co"> generate an instance of the DSL</span></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a><span class="co">     * </span><span class="an">\param[in]</span><span class="co"> </span><span class="cv">opts:</span><span class="co"> options passed to the DSL constructor</span></span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a><span class="co">     */</span></span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">static</span> <span class="bu">std::</span>shared_ptr<span class="op">&lt;</span>AbstractDSL<span class="op">&gt;</span> createDSL<span class="op">(</span></span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">const</span> AbstractDSL<span class="op">::</span>DSLOptions<span class="op">&amp;);</span></span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>  <span class="op">};</span>  <span class="co">// end of struct DSLProxy</span></span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span>  <span class="co">// end of namespace mfront</span></span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;MFront/DSLProxy.ixx&quot;</span></span></code></pre></div>
+<p>The constructor of the proxy registers the generator built by the
+static member <code>createDSL</code>, which is no more than a
+<code>std::make_shared</code> of the template parameter. The name of the
+type is given by a static <code>getName</code> method of the registered
+type itself, and the overloaded constructors are used to declare the
+aliases and the dependencies of this type:</p>
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>  <span class="kw">template</span> <span class="op">&lt;</span><span class="kw">typename</span> DSLType<span class="op">&gt;</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  DSLProxy<span class="op">&lt;</span>DSLType<span class="op">&gt;::</span>DSLProxy<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span><span class="op">&amp;</span> f <span class="op">=</span> DSLFactory<span class="op">::</span>getDSLFactory<span class="op">();</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    f<span class="op">.</span>registerDSLCreator<span class="op">(</span>DSLType<span class="op">::</span>getName<span class="op">(),</span> <span class="op">&amp;</span>DSLProxy<span class="op">&lt;</span>DSLType<span class="op">&gt;::</span>createDSL<span class="op">,</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>                         <span class="op">&amp;</span>DSLType<span class="op">::</span>getDescription<span class="op">);</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span>  <span class="co">// end of DSLProxy</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">template</span> <span class="op">&lt;</span><span class="kw">typename</span> DSLType<span class="op">&gt;</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>  <span class="bu">std::</span>shared_ptr<span class="op">&lt;</span>AbstractDSL<span class="op">&gt;</span> DSLProxy<span class="op">&lt;</span>DSLType<span class="op">&gt;::</span>createDSL<span class="op">(</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">const</span> AbstractDSL<span class="op">::</span>DSLOptions<span class="op">&amp;</span> opts<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span><span class="op">&amp;</span> opts_validator <span class="op">=</span> DSLType<span class="op">::</span>getDSLOptionsValidator<span class="op">();</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>    opts_validator<span class="op">.</span>validate<span class="op">(</span>opts<span class="op">);</span></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">std::</span>make_shared<span class="op">&lt;</span>DSLType<span class="op">&gt;(</span>opts<span class="op">);</span></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span>  <span class="co">// end of createDSL</span></span></code></pre></div>
+<p>A proxy is a plain object, which must be constructed for the
+registration to take place. Proxies are created as local objects of an
+explicit initialisation function, <code>initDSLs()</code> or
+<code>initInterfaces()</code>, which the executables shall call before
+using the factory and which shall be idempotent and thread safe:</p>
+<div class="sourceCode" id="cb27"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>  <span class="dt">void</span> initDSLs<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">static</span> <span class="dt">bool</span> init <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">...</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>init<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(!</span>init<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>      DSLProxy<span class="op">&lt;</span>DefaultDSL<span class="op">&gt;</span> proxy1<span class="op">(</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>          <span class="bu">std::</span>vector<span class="op">&lt;</span><span class="bu">std::</span>string<span class="op">&gt;{</span><span class="st">&quot;Default&quot;</span><span class="op">,</span> <span class="st">&quot;DefaultParser&quot;</span><span class="op">});</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>      DSLProxy<span class="op">&lt;</span>IsotropicMisesCreepDSL<span class="op">&gt;</span> proxy2<span class="op">(</span><span class="st">&quot;IsotropicMisesCreepParser&quot;</span><span class="op">);</span></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>      <span class="op">...</span></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>      init <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span>  <span class="co">// end of initDSLs</span></span></code></pre></div>
+<p>A global proxy is only used in the interface libraries which are not
+built in <code>MFront</code> and are loaded on demand, since the main
+program cannot know the types they declare:</p>
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>  ModelInterfaceProxy<span class="op">&lt;</span>MFrontGerminalModelInterface<span class="op">&gt;</span> ModelGerminalProxy<span class="op">;</span></span></code></pre></div>
+<p>A proxy is not necessarily one of the templates above: a type
+registered by a library external to <code>MFront</code> is registered by
+a local structure with a <code>static</code> instance:</p>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>  <span class="kw">struct</span> MyStressCriterionProxy <span class="op">{</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    MyStressCriterionProxy<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>      <span class="kw">auto</span><span class="op">&amp;</span> f <span class="op">=</span> StressCriterionFactory<span class="op">::</span>getFactory<span class="op">();</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>      f<span class="op">.</span>addGenerator<span class="op">(</span><span class="st">&quot;MyStressCriterion&quot;</span><span class="op">,</span> <span class="op">[]()</span> <span class="op">{</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">std::</span>make_shared<span class="op">&lt;</span>MyStressCriterion<span class="op">&gt;();</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>      <span class="op">});</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span>  <span class="co">// end of MyStressCriterionProxy</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">};</span>  <span class="co">// end of struct MyStressCriterionProxy</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">static</span> MyStressCriterionProxy proxy<span class="op">;</span></span></code></pre></div>
+<p>In short, adding a new type to an existing hierarchy amounts to:</p>
+<ol type="1">
+<li>deriving from the abstract type, or from the <code>Base</code> class
+which provides the default implementation of its interface,</li>
+<li>giving the new type a static <code>getName</code> method, which is
+the name used by the proxy to register it,</li>
+<li>registering a generator in the corresponding factory, either from
+the constructor of the factory itself (types which are always
+available), from a proxy created by an initialisation function
+(interfaces and DSLs), or from a local proxy with a <code>static</code>
+instance (types of an external library).</li>
+</ol>
+<h1 id="unit-tests">Unit tests</h1>
+<p>Unit tests are written with the framework of <code>TFEL/Tests</code>,
+which is documented <a href="TFELTests.html">here</a>. A test file is a
+<code>.cxx</code> file named after the tested entity, located in the
+<code>tests</code> directory of the library, and follows this
+layout:</p>
+<div class="sourceCode" id="cb30"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#ifdef NDEBUG</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#undef NDEBUG</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#endif </span><span class="co">/* NDEBUG */</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;limits&gt;</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;cstdlib&gt;</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Config/TFELTypes.hxx&quot;</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Material/Lame.hxx&quot;</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Tests/TestCase.hxx&quot;</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Tests/TestProxy.hxx&quot;</span></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;TFEL/Tests/TestManager.hxx&quot;</span></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span> <span class="op">&lt;</span><span class="kw">typename</span> T<span class="op">&gt;</span></span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a><span class="at">static</span> <span class="kw">constexpr</span> T my_abs<span class="op">(</span><span class="at">const</span> T<span class="op">&amp;</span> v<span class="op">)</span> <span class="kw">noexcept</span> <span class="op">{</span></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> v <span class="op">&lt;</span> T<span class="op">(</span><span class="dv">0</span><span class="op">)</span> <span class="op">?</span> <span class="op">-</span>v <span class="op">:</span> v<span class="op">;</span></span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> LameTest <span class="kw">final</span> <span class="op">:</span> <span class="kw">public</span> tfel<span class="op">::</span>tests<span class="op">::</span>TestCase <span class="op">{</span></span>
+<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a>  LameTest<span class="op">()</span></span>
+<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a>      <span class="op">:</span> tfel<span class="op">::</span>tests<span class="op">::</span>TestCase<span class="op">(</span><span class="st">&quot;TFEL/Material&quot;</span><span class="op">,</span> <span class="st">&quot;Lame&quot;</span><span class="op">)</span> <span class="op">{}</span>  <span class="co">// end of LameTest</span></span>
+<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a>  tfel<span class="op">::</span>tests<span class="op">::</span>TestResult execute<span class="op">()</span> <span class="kw">override</span> <span class="op">{</span></span>
+<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">-&gt;</span><span class="kw">template</span> test1<span class="op">&lt;</span><span class="dt">float</span><span class="op">,</span> <span class="kw">false</span><span class="op">&gt;();</span></span>
+<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">-&gt;</span><span class="kw">template</span> test1<span class="op">&lt;</span><span class="dt">double</span><span class="op">,</span> <span class="kw">false</span><span class="op">&gt;();</span></span>
+<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">-&gt;</span><span class="kw">template</span> test1<span class="op">&lt;</span><span class="dt">long</span> <span class="dt">double</span><span class="op">,</span> <span class="kw">false</span><span class="op">&gt;();</span></span>
+<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">this</span><span class="op">-&gt;</span>result<span class="op">;</span></span>
+<span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span>  <span class="co">// end of execute</span></span>
+<span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-29"><a href="#cb30-29" aria-hidden="true" tabindex="-1"></a> <span class="kw">private</span><span class="op">:</span></span>
+<span id="cb30-30"><a href="#cb30-30" aria-hidden="true" tabindex="-1"></a>  <span class="co">//! check the computation of the Lame coefficients</span></span>
+<span id="cb30-31"><a href="#cb30-31" aria-hidden="true" tabindex="-1"></a>  <span class="kw">template</span> <span class="op">&lt;</span><span class="kw">typename</span> NumericType<span class="op">,</span> <span class="dt">bool</span> use_qt<span class="op">&gt;</span></span>
+<span id="cb30-32"><a href="#cb30-32" aria-hidden="true" tabindex="-1"></a>  <span class="dt">void</span> test1<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb30-33"><a href="#cb30-33" aria-hidden="true" tabindex="-1"></a>    <span class="kw">using</span> stress <span class="op">=</span></span>
+<span id="cb30-34"><a href="#cb30-34" aria-hidden="true" tabindex="-1"></a>        <span class="kw">typename</span> tfel<span class="op">::</span>config<span class="op">::</span>Types<span class="op">&lt;</span><span class="dv">1</span><span class="bu">u</span><span class="op">,</span> NumericType<span class="op">,</span> use_qt<span class="op">&gt;::</span>stress<span class="op">;</span></span>
+<span id="cb30-35"><a href="#cb30-35" aria-hidden="true" tabindex="-1"></a>    <span class="kw">using</span> real <span class="op">=</span> <span class="kw">typename</span> tfel<span class="op">::</span>config<span class="op">::</span>Types<span class="op">&lt;</span><span class="dv">1</span><span class="bu">u</span><span class="op">,</span> NumericType<span class="op">,</span> use_qt<span class="op">&gt;::</span>real<span class="op">;</span></span>
+<span id="cb30-36"><a href="#cb30-36" aria-hidden="true" tabindex="-1"></a>    <span class="kw">constexpr</span> <span class="kw">auto</span> eps <span class="op">=</span> <span class="dv">10</span> <span class="op">*</span> <span class="bu">std::</span>numeric_limits<span class="op">&lt;</span>stress<span class="op">&gt;::</span>epsilon<span class="op">();</span></span>
+<span id="cb30-37"><a href="#cb30-37" aria-hidden="true" tabindex="-1"></a>    <span class="kw">constexpr</span> <span class="kw">auto</span> young <span class="op">=</span> stress<span class="op">{</span><span class="fl">150e9</span><span class="op">};</span></span>
+<span id="cb30-38"><a href="#cb30-38" aria-hidden="true" tabindex="-1"></a>    <span class="kw">constexpr</span> <span class="kw">auto</span> nu <span class="op">=</span> real<span class="op">{</span><span class="fl">0.3</span><span class="op">};</span></span>
+<span id="cb30-39"><a href="#cb30-39" aria-hidden="true" tabindex="-1"></a>    <span class="kw">constexpr</span> <span class="kw">auto</span> l <span class="op">=</span> tfel<span class="op">::</span>material<span class="op">::</span>computeLambda<span class="op">(</span>young<span class="op">,</span> nu<span class="op">);</span></span>
+<span id="cb30-40"><a href="#cb30-40" aria-hidden="true" tabindex="-1"></a>    <span class="kw">constexpr</span> <span class="kw">auto</span> l_ref <span class="op">=</span> young <span class="op">*</span> nu <span class="op">/</span> <span class="op">((</span><span class="dv">1</span> <span class="op">+</span> nu<span class="op">)</span> <span class="op">*</span> <span class="op">(</span><span class="dv">1</span> <span class="op">-</span> <span class="dv">2</span> <span class="op">*</span> nu<span class="op">));</span></span>
+<span id="cb30-41"><a href="#cb30-41" aria-hidden="true" tabindex="-1"></a>    TFEL_TESTS_STATIC_ASSERT<span class="op">(</span>my_abs<span class="op">(</span>l <span class="op">-</span> l_ref<span class="op">)</span> <span class="op">&lt;</span> eps<span class="op">);</span></span>
+<span id="cb30-42"><a href="#cb30-42" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span>  <span class="co">// end of test1</span></span>
+<span id="cb30-43"><a href="#cb30-43" aria-hidden="true" tabindex="-1"></a><span class="op">};</span>  <span class="co">// end of struct LameTest</span></span>
+<span id="cb30-44"><a href="#cb30-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-45"><a href="#cb30-45" aria-hidden="true" tabindex="-1"></a>TFEL_TESTS_GENERATE_PROXY<span class="op">(</span>LameTest<span class="op">,</span> <span class="st">&quot;Lame&quot;</span><span class="op">);</span></span>
+<span id="cb30-46"><a href="#cb30-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-47"><a href="#cb30-47" aria-hidden="true" tabindex="-1"></a><span class="co">/* coverity [UNCAUGHT_EXCEPT]*/</span></span>
+<span id="cb30-48"><a href="#cb30-48" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb30-49"><a href="#cb30-49" aria-hidden="true" tabindex="-1"></a>  <span class="kw">auto</span><span class="op">&amp;</span> m <span class="op">=</span> tfel<span class="op">::</span>tests<span class="op">::</span>TestManager<span class="op">::</span>getTestManager<span class="op">();</span></span>
+<span id="cb30-50"><a href="#cb30-50" aria-hidden="true" tabindex="-1"></a>  m<span class="op">.</span>addTestOutput<span class="op">(</span><span class="bu">std::</span>cout<span class="op">);</span></span>
+<span id="cb30-51"><a href="#cb30-51" aria-hidden="true" tabindex="-1"></a>  m<span class="op">.</span>addXMLTestOutput<span class="op">(</span><span class="st">&quot;Lame.xml&quot;</span><span class="op">);</span></span>
+<span id="cb30-52"><a href="#cb30-52" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> m<span class="op">.</span>execute<span class="op">().</span>success<span class="op">()</span> <span class="op">?</span> EXIT_SUCCESS <span class="op">:</span> EXIT_FAILURE<span class="op">;</span></span>
+<span id="cb30-53"><a href="#cb30-53" aria-hidden="true" tabindex="-1"></a><span class="op">}</span>  <span class="co">// end of main</span></span></code></pre></div>
+<p>The points to note are:</p>
+<ul>
+<li><code>NDEBUG</code> is undefined so that <code>assert</code> based
+checks remain active in release builds,</li>
+<li>the test type is <code>final</code> and derived from
+<code>tfel::tests::TestCase</code>, and is registered with
+<code>TFEL_TESTS_GENERATE_PROXY</code>,</li>
+<li>the checks are made with the <code>TFEL_TESTS_ASSERT</code>,
+<code>TFEL_TESTS_CHECK_EQUAL</code>, <code>TFEL_TESTS_CHECK_LT</code>, …
+macros of <code>TFEL/Tests/TestCase.hxx</code>,</li>
+<li>the <code>/* coverity [UNCAUGHT_EXCEPT]*/</code> comment before
+<code>main</code> discards a false positive of the static analyser.</li>
+</ul>
+<p><code>TFEL_TESTS_FUNCTION</code> is a legacy interface and shall not
+be used in new tests.</p>
+<h1 id="c-sources">C sources</h1>
+<p><code>C</code> sources are limited to the interfaces which must be
+<code>C</code> compatible: the <code>GenericBehaviour</code> interface,
+the <code>getFunction</code> helpers, the <code>ProcessManager</code>
+helpers.</p>
+<p>The same file header, the same include guards and the same
+documentation rules apply. The differences are:</p>
+<ul>
+<li><code>extern "C"</code> blocks are opened and closed by commented
+<code>#ifdef __cplusplus</code> / <code>#endif /* __cplusplus */</code>
+pairs,</li>
+<li>portability is obtained through <code>#ifdef __cplusplus</code>
+rather than by including a standard <code>C</code> header directly,</li>
+<li>names are <code>snake_case</code> and are prefixed by the name of
+the interface, in lower case, for instance <code>mfront_gb_State</code>,
+<code>mfront_gb_BehaviourData</code>, <code>mfront_gb_real</code>,
+<code>processManager_wifexited</code>,</li>
+<li>aggregates are anonymous <code>typedef struct</code> types whose
+members are documented by <code>//!</code> comments,</li>
+<li>closing comments use the block comment form:
+<code>} /* end of processManager_wifexited */</code>.</li>
+</ul>
+<p><code>format.sh</code> does not format <code>.c</code> and
+<code>.h</code> files: they shall be formatted as if
+<code>clang-format</code> had been run on them.</p>
+<h1 id="build-system">Build system</h1>
+<p>The conventions of the build system are as important as the
+conventions of the sources, since a new file which is not declared is
+not a part of the library.</p>
+<ul>
+<li><code>CMake</code> options are lower case, verb first and dash
+separated: <code>enable-testing</code>, <code>enable-static</code>,
+<code>enable-portable-build</code>,
+<code>enable-&lt;solver&gt;</code>.</li>
+<li><code>if</code> and <code>endif</code> are always used with their
+argument: <code>endif(enable-static)</code>, never
+<code>endif()</code>.</li>
+<li>Sources are first gathered in a <code>&lt;Target&gt;_SOURCES</code>
+variable, then passed to <code>tfel_library</code>,
+<code>mfront_library</code> or <code>mtest_library</code>.</li>
+<li>A new library duplicates its target properties in an
+<code>if(enable-static)</code> block for the <code>-static</code>
+variant.</li>
+<li>Headers are installed one by one, never by directory, using
+<code>install_header</code>, <code>install_mfront_header</code> or
+<code>install_mtest_header</code>.</li>
+<li>A new library declares its
+<code>install(TARGETS ... EXPORT ...)</code> set and its
+<code>&lt;Library&gt;Config.cmake.in</code> file, and is added to the
+package config file of the project.</li>
+<li>Tests are built through a macro (<code>tests_material</code>,
+<code>tests_math</code>, <code>test_mfront</code>, …) which creates an
+<code>EXCLUDE_FROM_ALL</code> executable and adds it to the
+<code>build-tests</code> target. Tests are therefore never built by a
+plain build, but by <code>make build-tests</code>, which is what the
+continuous integration does.</li>
+</ul>
+<h1 id="documentation-1">Documentation</h1>
+<p>The website is built from the markdown files of <code>docs/web</code>
+by <code>pandoc</code>. A new page is added by calling
+<code>pandoc_html</code> in <code>docs/web/CMakeLists.txt</code> and by
+adding an entry in the menu of
+<code>docs/web/mfront-template.html</code>.</p>
+<p>The markdown conventions of the project are:</p>
+<ul>
+<li>a <code>YAML</code> header with at least <code>title</code>,
+<code>author</code>, <code>date</code> and <code>lang</code>,</li>
+<li>a blank line after every section title,</li>
+<li>no bold markers inside titles,</li>
+<li>code blocks use tildes: <code>~~~~{.cpp}</code> …
+<code>~~~~</code>,</li>
+<li><code>TFEL</code> and <code>MFront</code> are written in code font
+when they refer to the software.</li>
+</ul>
+<p>The <code>doxygen</code> documentation is generated separately from
+the headers (see the <code>doxygen</code> workflow of the continuous
+integration).</p>
+<h1 id="checklist-before-submitting">Checklist before submitting</h1>
+<p>Before submitting a pull request, or a patch generated by a coding
+agent, check that:</p>
+<ol type="1">
+<li>the file header of every new file contains the doxygen description
+of the file and the copyright statement,</li>
+<li>the headers of the file are ordered as specified (standard headers,
+then third-party headers, then <code>TFEL</code> headers, then the
+headers of the current library, then the own header),</li>
+<li>the file is named after the main type it declares,</li>
+<li>types are <code>struct</code>, public members are declared
+first,</li>
+<li>data members and variables are in <code>snake_case</code>, methods
+and free functions are in <code>camelCase</code>,</li>
+<li>data members and methods are qualified by
+<code>this-&gt;</code>,</li>
+<li>every member, function and method is documented, in the header,</li>
+<li>namespaces, types, functions and enumerations are closed by a
+<code>// end of ...</code> comment,</li>
+<li><code>./format.sh</code> has been run,</li>
+<li>new sources and new tests are declared in the
+<code>CMakeLists.txt</code> files,</li>
+<li>a development which does not fix an explicit bug but changes the
+results or the behaviour is handled by a compatibility mode, and both
+behaviours are tested,</li>
+<li><code>./check_all.sh -f</code> passes,</li>
+<li>new features are described in the relevant release notes file of
+<code>docs/web/release-notes</code>,</li>
+<li>new pages are declared in <code>docs/web/CMakeLists.txt</code> and
+added to the menu of <code>docs/web/mfront-template.html</code>.</li>
+</ol>
+<div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-coplien_curiously_1995" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div
+class="csl-right-inline"><span class="smallcaps">Coplien</span>, James
+O. Curiously recurring template patterns. <em>C++ Report</em>. 1995.
+Vol. 7, no. 2, p. 24–27. </div>
+</div>
+</div>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

@@ -286,6 +286,7 @@
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
                  <li><a href="behaviour-variable.html">Behaviour variables</a></li>
+                 <li><a href="mfront-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -331,6 +332,7 @@
 	    </li>
 	    <li><a href="mtest.html">MTest</a>
                <ul>
+	      <li><a href="ptest.html">Simulation of pipes</a></li>
 	      <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
               <li><a href="MTest-keywords.html">MTest keywords</a></li>
 	      </ul>
@@ -355,6 +357,7 @@
 		<li><a href="tfel-material-homogenization.html">TFEL/Material homogenization</a></li>
                  <li><a href="glossary.html">Glossary</a></li>
                  <li><a href="physical-constants.html">Physical constants</a></li>
+                 <li><a href="tfel-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="tfel-mfront-database.html">TFELMFrontDatabase</a></li>
 	      </ul>
 	    </li>
@@ -374,6 +377,7 @@
 	  <ul>
 	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
 	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="coding-guidelines.html">Coding guidelines</a></li>
 	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
 	  </ul>
 	</li>
@@ -582,18 +586,18 @@ interaction matrix only contains a few independent coefficients.</p>
 <p>Using <code>mfront-query</code>, one may have access to the whole
 matrix using the <code>--interaction-matrix</code> query:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mfront-query <span class="at">--interaction-matrix</span> SlipSystemGenerationTest.mfront </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">0</span> 1 2 2 3 4 5 6 5 6 4 3 <span class="kw">|</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">1</span> 0 2 2 6 5 4 3 4 3 5 6 <span class="kw">|</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">2</span> 2 0 1 5 6 3 4 6 5 3 4 <span class="kw">|</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">2</span> 2 1 0 4 3 6 5 3 4 6 5 <span class="kw">|</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">3</span> 4 5 6 0 1 2 2 6 5 4 3 <span class="kw">|</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">6</span> 5 4 3 1 0 2 2 3 4 5 6 <span class="kw">|</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">5</span> 6 3 4 2 2 0 1 5 6 3 4 <span class="kw">|</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">4</span> 3 6 5 2 2 1 0 4 3 6 5 <span class="kw">|</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">5</span> 6 4 3 4 3 5 6 0 1 2 2 <span class="kw">|</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">4</span> 3 5 6 5 6 4 3 1 0 2 2 <span class="kw">|</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">6</span> 5 3 4 6 5 3 4 2 2 0 1 <span class="kw">|</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">3</span> 4 6 5 3 4 6 5 2 2 1 0 <span class="kw">|</span></span></code></pre></div>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">0</span> 1 1 2 3 4 5 6 6 2 4 3 <span class="kw">|</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">1</span> 0 1 3 2 4 4 2 3 6 5 6 <span class="kw">|</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">1</span> 1 0 6 6 5 4 3 2 3 4 2 <span class="kw">|</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">2</span> 3 4 0 1 1 2 4 3 5 6 6 <span class="kw">|</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">3</span> 2 4 1 0 1 6 5 6 4 2 3 <span class="kw">|</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">6</span> 6 5 1 1 0 3 4 2 4 3 2 <span class="kw">|</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">5</span> 6 6 2 4 3 0 1 1 2 3 4 <span class="kw">|</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">4</span> 2 3 6 5 6 1 0 1 3 2 4 <span class="kw">|</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">4</span> 3 2 3 4 2 1 1 0 6 6 5 <span class="kw">|</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">2</span> 4 3 5 6 6 2 3 4 0 1 1 <span class="kw">|</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">6</span> 5 6 4 2 3 3 2 4 1 0 1 <span class="kw">|</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">3</span> 4 2 4 3 2 6 6 5 1 1 0 <span class="kw">|</span></span></code></pre></div>
 <p>Here only <span class="math inline">\(7\)</span> coefficients are
 needed. The number corresponding to a pair of slip systems defines the
 rank of the interaction.</p>
@@ -607,8 +611,26 @@ class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="#
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> rank 0: <span class="er">(</span><span class="ex">[0,1,-1]</span><span class="er">(</span><span class="ex">1,1,1</span><span class="kw">)</span><span class="ex">:[0,1,-1]</span><span class="er">(</span><span class="ex">1,1,1</span><span class="kw">))</span> <span class="kw">(</span><span class="ex">[1,0,-1]</span><span class="er">(</span><span class="ex">1,1,1</span><span class="kw">)</span><span class="ex">:[1,0,-1]</span><span class="er">(</span><span class="ex">1,1,1</span><span class="kw">))</span> <span class="kw">(</span><span class="ex">[1,-1,0]</span><span class="er">(</span><span class="ex">1,1,1</span><span class="kw">)</span><span class="ex">:[1,-1,0]</span><span class="er">(</span><span class="ex">1,1,1</span><span class="kw">))</span> <span class="kw">(</span><span class="ex">[0,1,1]</span><span class="er">(</span><span class="ex">1,1,-1</span><span class="kw">)</span><span class="ex">:[0,1,1]</span><span class="er">(</span><span class="ex">1,1,-1</span><span class="kw">))</span> <span class="kw">(</span><span class="ex">[1,0,1]</span><span class="er">(</span><span class="ex">1,1,-1</span><span class="kw">)</span><span class="ex">:[1,0,1]</span><span class="er">(</span><span class="ex">1,1,-1</span><span class="kw">))</span> <span class="kw">(</span><span class="ex">[1,-1,0]</span><span class="er">(</span><span class="ex">1,1,-1</span><span class="kw">)</span><span class="ex">:[1,-1,0]</span><span class="er">(</span><span class="ex">1,1,-1</span><span class="kw">))</span> <span class="kw">(</span><span class="ex">[0,1,-1]</span><span class="er">(</span><span class="ex">1,-1,-1</span><span class="kw">)</span><span class="ex">:[0,1,-1]</span><span class="er">(</span><span class="ex">1,-1,-1</span><span class="kw">))</span> <span class="kw">(</span><span class="ex">[1,0,1]</span><span class="er">(</span><span class="ex">1,-1,-1</span><span class="kw">)</span><span class="ex">:[1,0,1]</span><span class="er">(</span><span class="ex">1,-1,-1</span><span class="kw">))</span> <span class="kw">(</span><span class="ex">[1,1,0]</span><span class="er">(</span><span class="ex">1,-1,-1</span><span class="kw">)</span><span class="ex">:[1,1,0]</span><span class="er">(</span><span class="ex">1,-1,-1</span><span class="kw">))</span> <span class="kw">(</span><span class="ex">[0,1,1]</span><span class="er">(</span><span class="ex">1,-1,1</span><span class="kw">)</span><span class="ex">:[0,1,1]</span><span class="er">(</span><span class="ex">1,-1,1</span><span class="kw">))</span> <span class="kw">(</span><span class="ex">[1,0,-1]</span><span class="er">(</span><span class="ex">1,-1,1</span><span class="kw">)</span><span class="ex">:[1,0,-1]</span><span class="er">(</span><span class="ex">1,-1,1</span><span class="kw">))</span> <span class="kw">(</span><span class="ex">[1,1,0]</span><span class="er">(</span><span class="ex">1,-1,1</span><span class="kw">)</span><span class="ex">:[1,1,0]</span><span class="er">(</span><span class="ex">1,-1,1</span><span class="kw">))</span></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> rank 1: <span class="er">(</span><span class="ex">[0,1,-1]</span><span class="er">(</span><span class="ex">1,1,1</span><span class="kw">)</span><span class="ex">:[1,0,-1]</span><span class="er">(</span><span class="ex">1,1,1</span><span class="kw">))</span> <span class="kw">(</span><span class="ex">[0,1,-1]</span><span class="er">(</span><span class="ex">1,1,1</span><span class="kw">)</span><span class="ex">:[1,-1,0]</span><span class="er">(</span><span class="ex">1,1,1</span><span class="kw">))</span> <span class="kw">(</span><span class="ex">[1,0,-1]</span><span class="er">(</span><span class="ex">1,1,1</span><span class="kw">)</span><span class="ex">:[0,1,-1]</span><span class="er">(</span><span class="ex">1,1,1</span><span class="kw">))</span> <span class="kw">(</span><span class="ex">[1,0,-1]</span><span class="er">(</span><span class="ex">1,1,1</span><span class="kw">)</span><span class="ex">:[1,-1,0]</span><span class="er">(</span><span class="ex">1,1,1</span><span class="kw">))</span> <span class="kw">(</span><span class="ex">[1,-1,0]</span><span class="er">(</span><span class="ex">1,1,1</span><span class="kw">)</span><span class="ex">:[0,1,-1]</span><span class="er">(</span><span class="ex">1,1,1</span><span class="kw">))</span> <span class="kw">(</span><span class="ex">[1,-1,0]</span><span class="er">(</span><span class="ex">1,1,1</span><span class="kw">)</span><span class="ex">:[1,0,-1]</span><span class="er">(</span><span class="ex">1,1,1</span><span class="kw">))</span> <span class="kw">(</span><span class="ex">[0,1,1]</span><span class="er">(</span><span class="ex">1,1,-1</span><span class="kw">)</span><span class="ex">:[1,0,1]</span><span class="er">(</span><span class="ex">1,1,-1</span><span class="kw">))</span> <span class="kw">(</span><span class="ex">[0,1,1]</span><span class="er">(</span><span class="ex">1,1,-1</span><span class="kw">)</span><span class="ex">:[1,-1,0]</span><span class="er">(</span><span class="ex">1,1,-1</span><span class="kw">))</span> <span class="kw">(</span><span class="ex">[1,0,1]</span><span class="er">(</span><span class="ex">1,1,-1</span><span class="kw">)</span><span class="ex">:[0,1,1]</span><span class="er">(</span><span class="ex">1,1,-1</span><span class="kw">))</span> <span class="kw">(</span><span class="ex">[1,0,1]</span><span class="er">(</span><span class="ex">1,1,-1</span><span class="kw">)</span><span class="ex">:[1,-1,0]</span><span class="er">(</span><span class="ex">1,1,-1</span><span class="kw">))</span> <span class="kw">(</span><span class="ex">[1,-1,0]</span><span class="er">(</span><span class="ex">1,1,-1</span><span class="kw">)</span><span class="ex">:[0,1,1]</span><span class="er">(</span><span class="ex">1,1,-1</span><span class="kw">))</span> <span class="kw">(</span><span class="ex">[1,-1,0]</span><span class="er">(</span><span class="ex">1,1,-1</span><span class="kw">)</span><span class="ex">:[1,0,1]</span><span class="er">(</span><span class="ex">1,1,-1</span><span class="kw">))</span> <span class="kw">(</span><span class="ex">[0,1,-1]</span><span class="er">(</span><span class="ex">1,-1,-1</span><span class="kw">)</span><span class="ex">:[1,0,1]</span><span class="er">(</span><span class="ex">1,-1,-1</span><span class="kw">))</span> <span class="kw">(</span><span class="ex">[0,1,-1]</span><span class="er">(</span><span class="ex">1,-1,-1</span><span class="kw">)</span><span class="ex">:[1,1,0]</span><span class="er">(</span><span class="ex">1,-1,-1</span><span class="kw">))</span> <span class="kw">(</span><span class="ex">[1,0,1]</span><span class="er">(</span><span class="ex">1,-1,-1</span><span class="kw">)</span><span class="ex">:[0,1,-1]</span><span class="er">(</span><span class="ex">1,-1,-1</span><span class="kw">))</span> <span class="kw">(</span><span class="ex">[1,0,1]</span><span class="er">(</span><span class="ex">1,-1,-1</span><span class="kw">)</span><span class="ex">:[1,1,0]</span><span class="er">(</span><span class="ex">1,-1,-1</span><span class="kw">))</span> <span class="kw">(</span><span class="ex">[1,1,0]</span><span class="er">(</span><span class="ex">1,-1,-1</span><span class="kw">)</span><span class="ex">:[0,1,-1]</span><span class="er">(</span><span class="ex">1,-1,-1</span><span class="kw">))</span> <span class="kw">(</span><span class="ex">[1,1,0]</span><span class="er">(</span><span class="ex">1,-1,-1</span><span class="kw">)</span><span class="ex">:[1,0,1]</span><span class="er">(</span><span class="ex">1,-1,-1</span><span class="kw">))</span> <span class="kw">(</span><span class="ex">[0,1,1]</span><span class="er">(</span><span class="ex">1,-1,1</span><span class="kw">)</span><span class="ex">:[1,0,-1]</span><span class="er">(</span><span class="ex">1,-1,1</span><span class="kw">))</span> <span class="kw">(</span><span class="ex">[0,1,1]</span><span class="er">(</span><span class="ex">1,-1,1</span><span class="kw">)</span><span class="ex">:[1,1,0]</span><span class="er">(</span><span class="ex">1,-1,1</span><span class="kw">))</span> <span class="kw">(</span><span class="ex">[1,0,-1]</span><span class="er">(</span><span class="ex">1,-1,1</span><span class="kw">)</span><span class="ex">:[0,1,1]</span><span class="er">(</span><span class="ex">1,-1,1</span><span class="kw">))</span> <span class="kw">(</span><span class="ex">[1,0,-1]</span><span class="er">(</span><span class="ex">1,-1,1</span><span class="kw">)</span><span class="ex">:[1,1,0]</span><span class="er">(</span><span class="ex">1,-1,1</span><span class="kw">))</span> <span class="kw">(</span><span class="ex">[1,1,0]</span><span class="er">(</span><span class="ex">1,-1,1</span><span class="kw">)</span><span class="ex">:[0,1,1]</span><span class="er">(</span><span class="ex">1,-1,1</span><span class="kw">))</span> <span class="kw">(</span><span class="ex">[1,1,0]</span><span class="er">(</span><span class="ex">1,-1,1</span><span class="kw">)</span><span class="ex">:[1,0,-1]</span><span class="er">(</span><span class="ex">1,-1,1</span><span class="kw">))</span></span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="ex">.....</span></span></code></pre></div>
-<p>In this example, the rank <span class="math inline">\(0\)</span>
-contains all the interactions of a slip system with itself.</p>
+<p>In this example, the ranks correspond to the following interactions
+between the first system of a pair (the row of the matrix) and the
+second one (the column of the matrix):</p>
+<ul>
+<li>rank <span class="math inline">\(0\)</span>: interaction of a slip
+system with itself,</li>
+<li>rank <span class="math inline">\(1\)</span>: coplanar systems (same
+slip plane),</li>
+<li>rank <span class="math inline">\(2\)</span>: Hirth lock (orthogonal
+Burgers vectors),</li>
+<li>rank <span class="math inline">\(3\)</span>: Lomer lock (junction
+whose Burgers vector lies in neither slip plane),</li>
+<li>ranks <span class="math inline">\(4\)</span> and <span
+class="math inline">\(6\)</span>: glissile junction, whose Burgers
+vector lies in the slip plane of the first system (rank <span
+class="math inline">\(4\)</span>) or of the second system (rank <span
+class="math inline">\(6\)</span>),</li>
+<li>rank <span class="math inline">\(5\)</span>: collinear systems (same
+Burgers vector).</li>
+</ul>
 <h4 id="fcc-case"><code>FCC</code> case</h4>
 <p>In the case of <code>FCC</code>, the interaction matrix has <span
 class="math inline">\(7\)</span> independent coefficients and the matrix

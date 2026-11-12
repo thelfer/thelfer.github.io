@@ -188,6 +188,7 @@
 		<li><a href="orthotropic-behaviours.html">Support for orthotropic behaviours</a></li>
 		<li><a href="behaviour-integration-failure-analysis.html">Analysing failure of behaviour integration</a></li>
 		<li><a href="functions.html">Functions</a></li>
+		<li><a href="profiling.html">Profiling</a></li>
 	      </ul>
 	    </li>
 	    <li><a href="faq.html">FAQ</a></li>
@@ -438,9 +439,9 @@ be retrieved by the <code>getErrorMessage</code> method (or
 using <code>mgis::raise</code>.</p>
 <h3 id="source-location">Source location</h3>
 <p>In debug mode, the source location, as returned by the
-<code>std::source_location::current_location</code> method, is
-automatically added to the error message returned by the
-<code>getErrorMessage</code> method.</p>
+<code>std::source_location::current</code> method, is automatically
+added to the error message returned by the <code>getErrorMessage</code>
+method.</p>
 <p>Note that this feature is currently only supported by
 <code>gcc</code> compilers.</p>
 <p>In some cases, the source location is not meaningful. In this case,
@@ -487,7 +488,7 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#c
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> f1<span class="op">(</span>Context <span class="op">&amp;</span>ctx<span class="op">)</span></span>
 <span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(!</span>f2<span class="op">(</span>ctx<span class="op">))</span> <span class="op">{</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> e<span class="op">.</span>registerErrorMessage<span class="op">(</span><span class="st">&quot;invalid call to f2&quot;</span><span class="op">);</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ctx<span class="op">.</span>registerErrorMessage<span class="op">(</span><span class="st">&quot;invalid call to f2&quot;</span><span class="op">);</span></span>
 <span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  processNext<span class="op">();</span></span>
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
@@ -533,7 +534,7 @@ exception in a safe way: building the exception is not done in the
 undefined behaviour if the constructor of the exception throws.</p>
 <p>The type of the exception thrown is given by the first template
 argument of the <code>raise</code> function and defaults to
-<code>std::runtime_exception</code>.</p>
+<code>std::runtime_error</code>.</p>
 <h2 id="the-construct-function">The <code>construct</code> function</h2>
 <p>The <code>construct</code> function calls the constructor of an
 object that may throw an exception and returns a

@@ -289,6 +289,7 @@
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
                  <li><a href="behaviour-variable.html">Behaviour variables</a></li>
+                 <li><a href="mfront-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -334,6 +335,7 @@
 	    </li>
 	    <li><a href="mtest.html">MTest</a>
                <ul>
+	      <li><a href="ptest.html">Simulation of pipes</a></li>
 	      <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
               <li><a href="MTest-keywords.html">MTest keywords</a></li>
 	      </ul>
@@ -358,6 +360,7 @@
 		<li><a href="tfel-material-homogenization.html">TFEL/Material homogenization</a></li>
                  <li><a href="glossary.html">Glossary</a></li>
                  <li><a href="physical-constants.html">Physical constants</a></li>
+                 <li><a href="tfel-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="tfel-mfront-database.html">TFELMFrontDatabase</a></li>
 	      </ul>
 	    </li>
@@ -377,6 +380,7 @@
 	  <ul>
 	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
 	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="coding-guidelines.html">Coding guidelines</a></li>
 	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
 	  </ul>
 	</li>
@@ -553,24 +557,24 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#c
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>      poisson_ratio <span class="op">:</span> <span class="fl">0.3</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>   <span class="op">},</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>   inelastic_flow <span class="op">:</span> <span class="st">&quot;Plastic&quot;</span> <span class="op">{</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>      criterion <span class="op">:</span> <span class="st">&quot;GursonTvergaardNeedleman&quot;</span> <span class="op">{</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>         q1 <span class="op">:</span> <span class="fl">1.5</span><span class="op">,</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>         q2 <span class="op">:</span> <span class="fl">1.0</span><span class="op">,</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>         q3 <span class="op">:</span> <span class="fl">2.2</span><span class="op">,</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>         fc <span class="op">:</span> <span class="fl">0.01</span><span class="op">,</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>         fr <span class="op">:</span> <span class="fl">0.1</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>      criterion <span class="op">:</span> <span class="st">&quot;GursonTvergaardNeedleman1982&quot;</span> <span class="op">{</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>         q_1 <span class="op">:</span> <span class="fl">1.5</span><span class="op">,</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>         q_2 <span class="op">:</span> <span class="fl">1.0</span><span class="op">,</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>         q_3 <span class="op">:</span> <span class="fl">2.2</span><span class="op">,</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>         f_c <span class="op">:</span> <span class="fl">0.01</span><span class="op">,</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>         f_r <span class="op">:</span> <span class="fl">0.1</span></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>      <span class="op">},</span></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>      isotropic_hardening <span class="op">:</span> <span class="st">&quot;Linear&quot;</span> <span class="op">{</span></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>         R0 <span class="op">:</span> <span class="fl">150e6</span></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>      <span class="op">}</span></span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>   <span class="op">},</span></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>   porosity_evolution <span class="op">:</span> <span class="op">{</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>      nucleation_model <span class="op">:</span> <span class="st">&quot;Chu_Needleman&quot;</span> <span class="op">{</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>         An <span class="op">:</span> <span class="fl">0.01</span><span class="op">,</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>         pn <span class="op">:</span> <span class="fl">0.1</span><span class="op">,</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>      nucleation_model <span class="op">:</span> <span class="st">&quot;Chu-Needleman 1980 (strain)&quot;</span> <span class="op">{</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>         fn <span class="op">:</span> <span class="fl">0.01</span><span class="op">,</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>         en <span class="op">:</span> <span class="fl">0.1</span><span class="op">,</span></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>         sn <span class="op">:</span> <span class="fl">0.1</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>      <span class="op">},</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>      growth_model <span class="op">:</span> <span class="st">&quot;StandardPlasticModel&quot;</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>      <span class="op">}</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <blockquote>
 <p><strong>Note</strong> For backward compatibility, effect of the
@@ -771,7 +775,8 @@ role="doc-biblioref">1</a>]</span> which has no free parameter.</p>
 class="math inline">\(q_3\)</span> different from <span
 class="math inline">\(q_1^2\)</span> is doubtful. Moreover, the current
 implementation is incorrect for <span class="math inline">\(q_3 &gt;
-q_1^2\)</span>.</p>
+q_1^2\)</span>. If <span class="math inline">\(q_3\)</span> is not
+given, <span class="math inline">\(q_3 = q_1^2\)</span> is assumed.</p>
 <ul>
 <li><strong>Rousselier-Tanguy-Besson</strong> <span class="citation"
 data-cites="tanguybesson2002">[<a href="#ref-tanguybesson2002"
@@ -1791,10 +1796,12 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#c
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    poisson_ratio <span class="op">:</span> <span class="fl">0.3</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">},</span></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  inelastic_flow <span class="op">:</span> <span class="st">&quot;Plastic&quot;</span> <span class="op">{</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    criterion <span class="op">:</span> <span class="st">&quot;Gurson1975&quot;</span> <span class="op">{},</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening <span class="op">:</span> <span class="st">&quot;Linear&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="st">&quot;0&quot;</span><span class="op">}</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    criterion <span class="op">:</span> <span class="st">&quot;GursonTvergaardNeedleman1982&quot;</span> <span class="op">{</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>      f_c <span class="op">:</span> <span class="fl">0.01</span><span class="op">,</span> f_r <span class="op">:</span> <span class="fl">0.1</span><span class="op">,</span> q_1 <span class="op">:</span> <span class="dv">2</span><span class="op">,</span> q_2 <span class="op">:</span> <span class="dv">1</span><span class="op">,</span> q_3 <span class="op">:</span> <span class="dv">4</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">},</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening <span class="op">:</span> <span class="st">&quot;Linear&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="st">&quot;0&quot;</span><span class="op">}</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <blockquote>
 <p><strong>Note</strong></p>
 <p>It is important to note that, by default (if none of the three above
@@ -1833,7 +1840,7 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb6-1"><a href="#c
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>      a <span class="op">:</span> <span class="fl">1e1</span>       <span class="co">// tension cuff-off parameter</span></span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">},</span></span>
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening <span class="op">:</span> <span class="st">&quot;Linear&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="st">&quot;0&quot;</span><span class="op">}</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="op">},</span></span>
 <span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  porosity_evolution<span class="op">:</span> <span class="op">{}</span></span>
 <span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 </blockquote>
@@ -1866,32 +1873,34 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb7-1"><a href="#c
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    poisson_ratio <span class="op">:</span> <span class="fl">0.3</span></span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">},</span></span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  inelastic_flow <span class="op">:</span> <span class="st">&quot;Plastic&quot;</span> <span class="op">{</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    criterion <span class="op">:</span> <span class="st">&quot;Gurson1975&quot;</span> <span class="op">{},</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening <span class="op">:</span> <span class="st">&quot;Linear&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="st">&quot;0&quot;</span><span class="op">}</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator<span class="op">{</span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  <span class="co">// adding the contribution of the solid swelling</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  <span class="co">// the porosity increase in the implicit equation describing</span></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>  <span class="co">// the porosity.</span></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  <span class="co">// This shall only been done after the convergence of the</span></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  <span class="co">// staggered scheme has converged.</span></span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span><span class="op">(</span>compute_standard_system_of_implicit_equations<span class="op">){</span></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    ff <span class="op">-=</span> <span class="op">;</span></span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AdditionalConvergenceChecks <span class="op">{</span></span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>  <span class="co">// adding the contribution of the solid swelling</span></span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>  <span class="co">// the porosity increase to the next estimate of the porosity by</span></span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>  <span class="co">// the staggered scheme.</span></span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>  <span class="co">// This shall only been done after the convergence of the</span></span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>  <span class="co">// staggered scheme has converged.</span></span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>converged <span class="op">&amp;&amp;</span> <span class="op">(!</span>compute_standard_system_of_implicit_equations<span class="op">))</span> <span class="op">{</span></span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>    next_estimate_of_the_porosity_increment <span class="op">+=</span> <span class="op">...</span></span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    criterion <span class="op">:</span> <span class="st">&quot;GursonTvergaardNeedleman1982&quot;</span> <span class="op">{</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>      f_c <span class="op">:</span> <span class="fl">0.01</span><span class="op">,</span> f_r <span class="op">:</span> <span class="fl">0.1</span><span class="op">,</span> q_1 <span class="op">:</span> <span class="dv">2</span><span class="op">,</span> q_2 <span class="op">:</span> <span class="dv">1</span><span class="op">,</span> q_3 <span class="op">:</span> <span class="dv">4</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">},</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening <span class="op">:</span> <span class="st">&quot;Linear&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="st">&quot;0&quot;</span><span class="op">}</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Integrator<span class="op">{</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>  <span class="co">// adding the contribution of the solid swelling</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  <span class="co">// the porosity increase in the implicit equation describing</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  <span class="co">// the porosity.</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>  <span class="co">// This shall only been done after the convergence of the</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>  <span class="co">// staggered scheme has converged.</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span><span class="op">(</span>compute_standard_system_of_implicit_equations<span class="op">){</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    ff <span class="op">-=</span> <span class="op">...;</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>AdditionalConvergenceChecks <span class="op">{</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>  <span class="co">// adding the contribution of the solid swelling</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>  <span class="co">// the porosity increase to the next estimate of the porosity by</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>  <span class="co">// the staggered scheme.</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>  <span class="co">// This shall only been done after the convergence of the</span></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>  <span class="co">// staggered scheme has converged.</span></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>converged <span class="op">&amp;&amp;</span> <span class="op">(!</span>compute_standard_system_of_implicit_equations<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>    next_estimate_of_the_porosity_increment <span class="op">+=</span> <span class="op">...</span></span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>The previous code uses variables that are automatically defined by
 the <code>StandardElastoViscoPlasticity</code> brick when the staggered
 approach is used:</p>
@@ -1956,15 +1965,18 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb10-1"><a href="#
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    save_individual_porosity_increase<span class="op">:</span> <span class="kw">true</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span></code></pre></div>
 <p>However, this behaviour can be overloaded in every inelastic flow
-section and every nucleation model by setting the
-<code>save_porosity_increase</code> boolean variable.</p>
+section by setting the <code>save_porosity_increase</code> boolean
+variable and in every nucleation model by setting the
+<code>save_individual_porosity_increase</code> boolean variable.</p>
 <p>For example, one may use the following declaration:</p>
 <div class="sourceCode" id="cb11"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>  inelastic_flow <span class="op">:</span> <span class="st">&quot;Plasticity&quot;</span> <span class="op">{</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    criterion <span class="op">:</span> <span class="st">&quot;Gurson1975&quot;</span><span class="op">,</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening <span class="op">:</span> <span class="st">&quot;Voce&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="dv">200</span><span class="op">,</span> Rinf <span class="op">:</span> <span class="dv">100</span><span class="op">,</span> b <span class="op">:</span> <span class="dv">20</span><span class="op">},</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    save_porosity_increase <span class="op">:</span> <span class="kw">true</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span></code></pre></div>
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>  inelastic_flow <span class="op">:</span> <span class="st">&quot;Plastic&quot;</span> <span class="op">{</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    criterion <span class="op">:</span> <span class="st">&quot;GursonTvergaardNeedleman1982&quot;</span> <span class="op">{</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>      f_c <span class="op">:</span> <span class="fl">0.01</span><span class="op">,</span> f_r <span class="op">:</span> <span class="fl">0.1</span><span class="op">,</span> q_1 <span class="op">:</span> <span class="dv">2</span><span class="op">,</span> q_2 <span class="op">:</span> <span class="dv">1</span><span class="op">,</span> q_3 <span class="op">:</span> <span class="dv">4</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">},</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    isotropic_hardening <span class="op">:</span> <span class="st">&quot;Voce&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="dv">200</span><span class="op">,</span> Rinf <span class="op">:</span> <span class="dv">100</span><span class="op">,</span> b <span class="op">:</span> <span class="dv">20</span><span class="op">},</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    save_porosity_increase <span class="op">:</span> <span class="kw">true</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span></code></pre></div>
 <blockquote>
 <p><strong>Note</strong></p>
 <p>Inelastic flows which declare that the flow is deviatoric discard
@@ -2121,16 +2133,18 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb14-1"><a href="#
 <span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>   <span class="op">},</span></span>
 <span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>   isotropic_hardening <span class="op">:</span> <span class="st">&quot;Linear&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="dv">274</span><span class="op">},</span></span>
 <span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>   isotropic_hardening <span class="op">:</span> <span class="st">&quot;Voce&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="dv">0</span><span class="op">,</span> Rinf <span class="op">:</span> <span class="dv">85</span><span class="op">,</span> b <span class="op">:</span> <span class="dv">17</span><span class="op">},</span></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>   isotropic_hardening <span class="op">:</span> <span class="st">&quot;Voce&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="dv">0</span><span class="op">,</span> Rinf <span class="op">:</span> <span class="dv">17</span><span class="op">,</span> b <span class="op">:</span> <span class="dv">262</span><span class="op">},</span></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>   nucleation_model <span class="op">:</span> <span class="st">&quot;Power-based&quot;</span> <span class="op">{</span></span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>     An0 <span class="op">:</span> <span class="fl">2.92</span><span class="op">,</span></span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>     s1_n <span class="op">:</span> <span class="dv">500</span><span class="op">,</span></span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>     p_n <span class="op">:</span> <span class="fl">0.0321</span><span class="op">,</span></span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>     s1_max <span class="op">:</span> <span class="dv">700</span><span class="op">,</span></span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>     fg_max <span class="op">:</span> <span class="fl">0.0215</span><span class="op">,</span></span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>     ng <span class="op">:</span> <span class="dv">2</span></span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a> <span class="op">}</span></span></code></pre></div>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>   isotropic_hardening <span class="op">:</span> <span class="st">&quot;Voce&quot;</span> <span class="op">{</span>R0 <span class="op">:</span> <span class="dv">0</span><span class="op">,</span> Rinf <span class="op">:</span> <span class="dv">17</span><span class="op">,</span> b <span class="op">:</span> <span class="dv">262</span><span class="op">}</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a> <span class="op">},</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a> porosity_evolution <span class="op">:</span> <span class="op">{</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>   nucleation_model <span class="op">:</span> <span class="st">&quot;PowerLaw (stress)&quot;</span> <span class="op">{</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>     fn <span class="op">:</span> <span class="fl">2.92</span><span class="op">,</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>     sn <span class="op">:</span> <span class="dv">500</span><span class="op">,</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>     m <span class="op">:</span> <span class="dv">2</span><span class="op">,</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>     pmin <span class="op">:</span> <span class="fl">0.0321</span><span class="op">,</span></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>     fmax <span class="op">:</span> <span class="fl">0.0215</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a> <span class="op">}</span></span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 </blockquote>
 <p>The numerical response of NT specimens (notch radii are noted as :
 NT10, NT4, and NT2) is shown on Figure 4 and compared to the
@@ -2201,7 +2215,7 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb15-1"><a href="#
 <span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>   nucleation_model <span class="op">:</span> <span class="st">&quot;PowerLaw (strain)&quot;</span> <span class="op">{</span></span>
 <span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>      fn <span class="op">:</span> <span class="fl">0.038</span><span class="op">,</span> en <span class="op">:</span> <span class="fl">0.5</span><span class="op">,</span> m <span class="op">:</span> <span class="fl">0.</span><span class="op">,</span> fmax <span class="op">:</span> <span class="fl">0.023</span><span class="op">}</span></span>
 <span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a> <span class="op">}</span></span>
-<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 </blockquote>
 <p>Simulations are performed with <code>Cast3M</code> finite element
 code, using second-order reduced-integration elements (user-modified

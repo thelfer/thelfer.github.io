@@ -125,6 +125,7 @@
 		<li><a href="orthotropic-behaviours.html">Support for orthotropic behaviours</a></li>
 		<li><a href="behaviour-integration-failure-analysis.html">Analysing failure of behaviour integration</a></li>
 		<li><a href="functions.html">Functions</a></li>
+		<li><a href="profiling.html">Profiling</a></li>
 	      </ul>
 	    </li>
 	    <li><a href="faq.html">FAQ</a></li>
@@ -167,15 +168,26 @@
 <img src="img/mgis.svg" style="width:100.0%" alt="Principle of MGIS" />
 <figcaption aria-hidden="true">Principle of MGIS</figcaption>
 </figure>
-<p>This project aims at proving tools (functions, classes, bindings,
+<p>This project aims at providing tools (functions, classes, bindings,
 etc…) to handle behaviours written using <code>MFront</code> generic
 interface. For information about <code>MFront</code>, see <a
 href="http://thelfer.github.io/tfel/web/index.html"
 class="uri">http://thelfer.github.io/tfel/web/index.html</a>.</p>
 <p>Those tools are meant to be used by (<code>FEM</code>,
-<code>FFT</code>, etc.) solver developers. This tools are <em>not</em>
-linked to the <code>TFEL</code> libraries. Permissive licences have been
-chosen to allow integration in open-source and proprietary codes.</p>
+<code>FFT</code>, etc.) solver developers. Permissive licences have been
+chosen to allow integration in open-source and proprietary codes:
+<code>MGIS</code> is distributed under either the <code>LGPL</code> v3
+licence or the <code>CeCILL-C</code> licence.</p>
+<p>By default, <code>MGIS</code> looks for the <code>TFEL</code>
+libraries and, if they are found, is linked to the <code>TFELMath</code>
+and <code>TFELMFrontDatabase</code> libraries, which provide the
+<code>TFEL/Math</code> objects of <code>MGIS/Function</code> and the
+<code>MFront</code> database (<code>mgis::getDatabase</code> and
+<code>mgis::behaviour::loadFromDatabase</code>). Those libraries are
+distributed under either the <code>GPL</code> licence with a linking
+exception or the <code>CeCILL-A</code> licence. Passing
+<code>-Ddisable-tfel=ON</code> to <code>cmake</code> builds a library
+independent of <code>TFEL</code>.</p>
 <h1 id="the-mfrontgenericinterface-c-library">The
 <code>MFrontGenericInterface</code> <code>C++</code> library</h1>
 <p>The project is build around the <code>MFrontGenericInterface</code>

@@ -287,6 +287,7 @@
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
                  <li><a href="behaviour-variable.html">Behaviour variables</a></li>
+                 <li><a href="mfront-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -332,6 +333,7 @@
 	    </li>
 	    <li><a href="mtest.html">MTest</a>
                <ul>
+	      <li><a href="ptest.html">Simulation of pipes</a></li>
 	      <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
               <li><a href="MTest-keywords.html">MTest keywords</a></li>
 	      </ul>
@@ -356,6 +358,7 @@
 		<li><a href="tfel-material-homogenization.html">TFEL/Material homogenization</a></li>
                  <li><a href="glossary.html">Glossary</a></li>
                  <li><a href="physical-constants.html">Physical constants</a></li>
+                 <li><a href="tfel-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="tfel-mfront-database.html">TFELMFrontDatabase</a></li>
 	      </ul>
 	    </li>
@@ -375,6 +378,7 @@
 	  <ul>
 	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
 	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="coding-guidelines.html">Coding guidelines</a></li>
 	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
 	  </ul>
 	</li>
@@ -427,8 +431,8 @@ library.</p>
 <h3 data-number="1.1.1" id="treatment-of-unbouded-intervals"><span
 class="header-section-number">1.1.1</span> Treatment of unbouded
 intervals</h3>
-<p>If any of the integration interval is finite, a change of variable is
-automatically perform to perform an integration on the interval <span
+<p>If any of the integration interval is infinite, a change of variable
+is automatically perform to perform an integration on the interval <span
 class="math inline">\([-1, 1]\)</span>:</p>
 <ul>
 <li>when integrating from <span class="math inline">\([-\infty,
@@ -492,19 +496,19 @@ f_{2}\left(x\right) =
 class="math inline">\(\displaystyle\int_{-\infty}^{0}f_{2}\left(x\right)\,\mathrm{d}x\)</span>:</p>
 <div class="sourceCode" id="cb2"><pre
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> or2 <span class="op">=</span> tfel<span class="op">::</span>math<span class="op">::</span>gauss_kronrod_integrate<span class="op">(</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    f1<span class="op">,</span> <span class="op">-</span><span class="bu">std::</span>numeric_limits<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;::</span>max<span class="op">(),</span> <span class="dt">double</span><span class="op">{},</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    f2<span class="op">,</span> <span class="op">-</span><span class="bu">std::</span>numeric_limits<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;::</span>max<span class="op">(),</span> <span class="dt">double</span><span class="op">{},</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">{.</span>absolute_tolerance <span class="op">=</span> <span class="fl">1e-12</span><span class="op">,</span> <span class="op">.</span>maximum_number_of_refinements <span class="op">=</span> <span class="dv">8</span><span class="op">});</span></span></code></pre></div>
 <p>The following code computes an approximation of the integral <span
 class="math inline">\(\displaystyle\int_{0}^{\infty}f_{2}\left(x\right)\,\mathrm{d}x\)</span>:</p>
 <div class="sourceCode" id="cb3"><pre
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> or3 <span class="op">=</span> tfel<span class="op">::</span>math<span class="op">::</span>gauss_kronrod_integrate<span class="op">(</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    f1<span class="op">,</span> <span class="dt">double</span><span class="op">{},</span> <span class="bu">std::</span>numeric_limits<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;::</span>max<span class="op">(),</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    f2<span class="op">,</span> <span class="dt">double</span><span class="op">{},</span> <span class="bu">std::</span>numeric_limits<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;::</span>max<span class="op">(),</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">{.</span>absolute_tolerance <span class="op">=</span> <span class="fl">1e-12</span><span class="op">,</span> <span class="op">.</span>maximum_number_of_refinements <span class="op">=</span> <span class="dv">8</span><span class="op">});</span></span></code></pre></div>
 <p>The following code computes an approximation of the integral <span
 class="math inline">\(\displaystyle\int_{-\infty}^{\infty}f_{2}\left(x\right)\,\mathrm{d}x\)</span>:</p>
 <div class="sourceCode" id="cb4"><pre
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> or4 <span class="op">=</span> tfel<span class="op">::</span>math<span class="op">::</span>gauss_kronrod_integrate<span class="op">(</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    f1<span class="op">,</span> <span class="op">-</span><span class="bu">std::</span>numeric_limits<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;::</span>max<span class="op">(),</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    f2<span class="op">,</span> <span class="op">-</span><span class="bu">std::</span>numeric_limits<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;::</span>max<span class="op">(),</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>numeric_limits<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;::</span>max<span class="op">(),</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">{.</span>absolute_tolerance <span class="op">=</span> <span class="fl">1e-12</span><span class="op">,</span> <span class="op">.</span>maximum_number_of_refinements <span class="op">=</span> <span class="dv">8</span><span class="op">});</span></span></code></pre></div>
 <h4 data-number="1.1.3.3" id="vector-valuated-function"><span
@@ -523,7 +527,7 @@ class="math inline">\(\displaystyle\int_{0}^{\pi/4}f_{3}\left(x\right)\,\mathrm{
 <div class="sourceCode" id="cb5"><pre
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> a <span class="op">=</span> <span class="dt">double</span><span class="op">{};</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> b <span class="op">=</span> <span class="bu">std::</span>numbers::pi_v<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;</span> <span class="op">/</span> <span class="dv">4</span><span class="op">;</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> <span class="kw">or</span> <span class="op">=</span> tfel<span class="op">::</span>math<span class="op">::</span>gauss_kronrod_integrate<span class="op">(</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> oi <span class="op">=</span> tfel<span class="op">::</span>math<span class="op">::</span>gauss_kronrod_integrate<span class="op">(</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">[](</span><span class="at">const</span> <span class="dt">double</span> x<span class="op">)</span> <span class="kw">noexcept</span> <span class="op">-&gt;</span> tfel<span class="op">::</span>math<span class="op">::</span>tvector<span class="op">&lt;</span><span class="dv">2</span><span class="bu">u</span><span class="op">,</span> <span class="dt">double</span><span class="op">&gt;</span> <span class="op">{</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> <span class="op">{</span><span class="bu">std::</span>sin<span class="op">(</span>x<span class="op">),</span> <span class="bu">std::</span>cos<span class="op">(</span>x<span class="op">)};</span></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">},</span></span>
@@ -538,6 +542,14 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb6-1"><a href="#c
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> c <span class="op">=</span> tfel<span class="op">::</span>math<span class="op">::</span><span class="dt">derivative_type</span><span class="op">&lt;</span>strainrate<span class="op">,</span> time<span class="op">&gt;{</span><span class="fl">2.3e-5</span><span class="op">};</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> or1 <span class="op">=</span> tfel<span class="op">::</span>math<span class="op">::</span>gauss_kronrod_integrate<span class="op">(</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">[</span>c<span class="op">](</span><span class="at">const</span> time t<span class="op">)</span> <span class="kw">noexcept</span> <span class="op">{</span> <span class="cf">return</span> c <span class="op">*</span> t<span class="op">;</span> <span class="op">},</span> a<span class="op">,</span> b<span class="op">);</span></span></code></pre></div>
+<p>With the adaptative version, the absolute tolerance has the unit of
+the integral, i.e. the type of the estimate of the error returned by the
+non-adaptative version:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> oi <span class="op">=</span> tfel<span class="op">::</span>math<span class="op">::</span>gauss_kronrod_integrate<span class="op">(</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">[</span>c<span class="op">](</span><span class="at">const</span> time t<span class="op">)</span> <span class="kw">noexcept</span> <span class="op">{</span> <span class="cf">return</span> c <span class="op">*</span> t<span class="op">;</span> <span class="op">},</span> a<span class="op">,</span> b<span class="op">,</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">{.</span>absolute_tolerance <span class="op">=</span> strain<span class="op">{</span><span class="fl">1e-12</span><span class="op">},</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>     <span class="op">.</span>maximum_number_of_refinements <span class="op">=</span> <span class="dv">8</span><span class="op">});</span></span></code></pre></div>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

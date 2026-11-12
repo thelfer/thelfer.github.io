@@ -188,6 +188,7 @@
 		<li><a href="orthotropic-behaviours.html">Support for orthotropic behaviours</a></li>
 		<li><a href="behaviour-integration-failure-analysis.html">Analysing failure of behaviour integration</a></li>
 		<li><a href="functions.html">Functions</a></li>
+		<li><a href="profiling.html">Profiling</a></li>
 	      </ul>
 	    </li>
 	    <li><a href="faq.html">FAQ</a></li>
@@ -273,8 +274,14 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#c
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> sig_ev <span class="op">=</span> pk1 <span class="op">|</span> as_tensor<span class="op">&lt;</span><span class="dv">3</span><span class="op">&gt;</span> <span class="op">|</span> from_pk1_to_cauchy<span class="op">(</span>Ft<span class="op">)</span> <span class="op">|</span> rotate_backwards<span class="op">(</span>R<span class="op">);</span></span></code></pre></div>
 <p>where <code>F</code> is an evaluator the deformation gradient in the
 material frame, <code>R</code> is the rotation matrix from the global
-frame to the material frame (a function returning a different rotation
-matrix for each element can also be used).</p>
+frame to the material frame, i.e. the matrix whose columns are the
+material axes expressed in the global frame (a function returning a
+different rotation matrix for each element can also be used).
+<code>R</code> is thus the transpose of the rotation matrix described in
+the page about <a href="orthotropic-behaviours.html">orthotropic
+behaviours</a>, whose rows are the material axes: stored row by row,
+<code>R</code> has the same 9 components as this matrix stored in
+column-major format.</p>
 <p>This evaluator, named <code>sig_ev</code>, only describes the
 operations to be performed to calculate the Cauchy stress and does not
 make any calculation at this stage. <code>as_tensor&lt;3&gt;</code>,

@@ -285,6 +285,7 @@
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
                  <li><a href="behaviour-variable.html">Behaviour variables</a></li>
+                 <li><a href="mfront-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -330,6 +331,7 @@
 	    </li>
 	    <li><a href="mtest.html">MTest</a>
                <ul>
+	      <li><a href="ptest.html">Simulation of pipes</a></li>
 	      <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
               <li><a href="MTest-keywords.html">MTest keywords</a></li>
 	      </ul>
@@ -354,6 +356,7 @@
 		<li><a href="tfel-material-homogenization.html">TFEL/Material homogenization</a></li>
                  <li><a href="glossary.html">Glossary</a></li>
                  <li><a href="physical-constants.html">Physical constants</a></li>
+                 <li><a href="tfel-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="tfel-mfront-database.html">TFELMFrontDatabase</a></li>
 	      </ul>
 	    </li>
@@ -373,6 +376,7 @@
 	  <ul>
 	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
 	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="coding-guidelines.html">Coding guidelines</a></li>
 	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
 	  </ul>
 	</li>
@@ -635,7 +639,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a hr
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>m.setMaterialProperty(<span class="st">&#39;TangentialStiffness&#39;</span>,<span class="fl">2.e16</span>)</span>
 <span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>m.setMaterialProperty(<span class="st">&#39;MassDensity&#39;</span>,<span class="fl">0.</span>)</span>
 <span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>m.setMaterialProperty(<span class="st">&#39;NormalThermalExpansion&#39;</span>,<span class="fl">0.</span>)</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>m.setMaterialProperty(<span class="st">&#39;MaximumStress&#39;</span>,<span class="fl">200.e6</span>)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>m.setMaterialProperty(<span class="st">&#39;UltimateTensileStrength&#39;</span>,<span class="fl">200.e6</span>)</span>
 <span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>m.setMaterialProperty(<span class="st">&#39;MaximumOpeningDisplacement&#39;</span>,<span class="fl">3.e-6</span>)</span>
 <span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>m.setExternalStateVariable(<span class="st">&quot;Temperature&quot;</span>,<span class="fl">293.15</span>)</span>
@@ -766,10 +770,13 @@ force vector.</li>
 </ul>
 <h3 id="methods-of-the-mtestcurrentstate-class">Methods of the
 <code>MTestCurrentState</code> class</h3>
-<p>The <code>MTestCurrentState</code> class provide the
-<code>copy</code> method to get a deep copy of the structure. It is
-mandatory to use such a copy in some advanced usage of the
-<code>MTest</code> class. This includes the following cases:</p>
+<p>The <code>MTestCurrentState</code> class provides the
+<code>copy</code> method, which returns a shallow copy of the structure:
+the copy shares the states of the integration point with the original
+structure. The <code>makeDeepCopy</code> method returns a deep copy of
+the structure. It is mandatory to use such a deep copy in some advanced
+usage of the <code>MTest</code> class. This includes the following
+cases:</p>
 <ul>
 <li>make appropriate time substepping in case of integration
 failure</li>
@@ -1041,8 +1048,8 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a h
 <span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a>t.setBehaviour(<span class="st">&#39;castem&#39;</span>,<span class="st">&#39;../../src/libUmatBehaviour.so&#39;</span>,<span class="st">&#39;umatnorton&#39;</span>)</span>
 <span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>t.setMaterialProperty(<span class="st">&#39;YoungModulus&#39;</span>,<span class="fl">150e9</span>)</span>
 <span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a>t.setMaterialProperty(<span class="st">&#39;PoissonRatio&#39;</span>,<span class="fl">0.3</span>)</span>
-<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a>t.setMaterialProperty(<span class="st">&#39;A&#39;</span>,<span class="fl">8.e-67</span>)</span>
-<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a>t.setMaterialProperty(<span class="st">&#39;E&#39;</span>,<span class="fl">8.2</span>)</span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a>t.setMaterialProperty(<span class="st">&#39;NortonCoefficient&#39;</span>,<span class="fl">8.e-67</span>)</span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a>t.setMaterialProperty(<span class="st">&#39;NortonExponent&#39;</span>,<span class="fl">8.2</span>)</span>
 <span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a><span class="co"># temperature (mandatory)</span></span>
 <span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a>t.setExternalStateVariable(<span class="st">&#39;Temperature&#39;</span>,<span class="fl">293.15</span>)</span>

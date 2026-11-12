@@ -287,6 +287,7 @@
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
                  <li><a href="behaviour-variable.html">Behaviour variables</a></li>
+                 <li><a href="mfront-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -332,6 +333,7 @@
 	    </li>
 	    <li><a href="mtest.html">MTest</a>
                <ul>
+	      <li><a href="ptest.html">Simulation of pipes</a></li>
 	      <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
               <li><a href="MTest-keywords.html">MTest keywords</a></li>
 	      </ul>
@@ -356,6 +358,7 @@
 		<li><a href="tfel-material-homogenization.html">TFEL/Material homogenization</a></li>
                  <li><a href="glossary.html">Glossary</a></li>
                  <li><a href="physical-constants.html">Physical constants</a></li>
+                 <li><a href="tfel-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="tfel-mfront-database.html">TFELMFrontDatabase</a></li>
 	      </ul>
 	    </li>
@@ -375,6 +378,7 @@
 	  <ul>
 	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
 	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="coding-guidelines.html">Coding guidelines</a></li>
 	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
 	  </ul>
 	</li>
@@ -524,6 +528,17 @@ class="sourceCode fortran"><code class="sourceCode fortranfixed"><span id="cb4-1
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">*Material, name=@CALCULIXBEHAVIOUR_ELASTICITY@2</span></span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">*User Material, constants=2</span></span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="dv">200000</span>,<span class="fl">0.3</span></span></code></pre></div>
+<h3 id="thermal-expansion">Thermal expansion</h3>
+<p>The <code>CalculiX</code> native interface only gives the temperature
+at the end of the time step to the behaviour, so the increment of a
+stress-free expansion over the time step can’t be computed. The
+<code>calculix</code> interface thus rejects behaviours declaring a
+stress-free expansion (<code>@ComputeThermalExpansion</code>,
+<code>@Swelling</code>, <code>@AxialGrowth</code>,
+<code>@Relocation</code>, <code>@ComputeStressFreeExpansion</code>). The
+thermal expansion shall be declared in <code>CalculiX</code>
+(<code>*EXPANSION</code> keyword), which subtracts the thermal strain
+from the total strain before calling the behaviour.</p>
 <h3 id="using-a-small-strain-behaviour-in-finite-strain-analysis">Using
 a small strain behaviour in finite strain analysis</h3>
 <p>In finite strain, <code>CalculiX</code> replaces the linearised

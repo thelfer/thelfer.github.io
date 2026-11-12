@@ -188,6 +188,7 @@
 		<li><a href="orthotropic-behaviours.html">Support for orthotropic behaviours</a></li>
 		<li><a href="behaviour-integration-failure-analysis.html">Analysing failure of behaviour integration</a></li>
 		<li><a href="functions.html">Functions</a></li>
+		<li><a href="profiling.html">Profiling</a></li>
 	      </ul>
 	    </li>
 	    <li><a href="faq.html">FAQ</a></li>
@@ -217,7 +218,14 @@
 <div id="TOC">
 <ul>
 <li><a href="#known-incompatibilities"
-id="toc-known-incompatibilities">Known incompatibilities</a></li>
+id="toc-known-incompatibilities">Known incompatibilities</a>
+<ul>
+<li><a
+href="#new-definitions-of-the-field-holders-of-the-materialstatemanager-class"
+id="toc-new-definitions-of-the-field-holders-of-the-materialstatemanager-class">New
+definitions of the field holders of the
+<code>MaterialStateManager</code> class</a></li>
+</ul></li>
 <li><a href="#documentation" id="toc-documentation">Documentation</a>
 <ul>
 <li><a href="#new-cmake-options" id="toc-new-cmake-options">New
@@ -239,6 +247,18 @@ href="#scripts-to-define-environment-variables-for-mgis-to-work-properly"
 id="toc-scripts-to-define-environment-variables-for-mgis-to-work-properly">Scripts
 to define environment variables for <code>MGIS</code> to work
 properly</a></li>
+<li><a href="#profiling" id="toc-profiling">Profiling</a>
+<ul>
+<li><a href="#example-of-usage" id="toc-example-of-usage">Example of
+usage</a></li>
+</ul></li>
+<li><a href="#the-mgisterminate-and-mgisabort-functions"
+id="toc-the-mgisterminate-and-mgisabort-functions">The
+<code>mgis::terminate</code> and <code>mgis::abort</code> functions</a>
+<ul>
+<li><a href="#example-of-usage-1" id="toc-example-of-usage-1">Example of
+usage</a></li>
+</ul></li>
 </ul></li>
 <li><a href="#new-features-of-the-mgisbehaviour-library"
 id="toc-new-features-of-the-mgisbehaviour-library">New features of the
@@ -254,7 +274,7 @@ href="#control-on-variables-updatedreverted-in-materialstatemanager"
 id="toc-control-on-variables-updatedreverted-in-materialstatemanager">Control
 on variables updated/reverted in <code>MaterialStateManager</code></a>
 <ul>
-<li><a href="#example-of-usage" id="toc-example-of-usage">Example of
+<li><a href="#example-of-usage-2" id="toc-example-of-usage-2">Example of
 usage</a></li>
 </ul></li>
 </ul></li>
@@ -265,7 +285,7 @@ id="toc-new-features-of-the-mgisfunction-library">New features of the
 <li><a href="#support-for-quantities"
 id="toc-support-for-quantities">Support for quantities</a>
 <ul>
-<li><a href="#example-of-usage-1" id="toc-example-of-usage-1">Example of
+<li><a href="#example-of-usage-3" id="toc-example-of-usage-3">Example of
 usage</a></li>
 </ul></li>
 <li><a href="#functions-using-a-strided-memory-access"
@@ -288,6 +308,233 @@ views can be used in “assignement” <code>operator|</code> and
 </ul></li>
 <li><a href="#issues-fixed" id="toc-issues-fixed">Issues fixed</a>
 <ul>
+<li><a
+href="#issue-344-documentation-pages-with-wrong-types-names-and-examples-and-test-slips-leaving-values-unchecked"
+id="toc-issue-344-documentation-pages-with-wrong-types-names-and-examples-and-test-slips-leaving-values-unchecked">Issue
+344: Documentation pages with wrong types, names and examples, and test
+slips leaving values unchecked</a></li>
+<li><a
+href="#issue-342-mgisfunction-with-tfel-logarithmic-strain-tensorialfunction-copies-quantitymodifier-check-finite-strain-stiffness-conversion-and-mutablescalarconcept"
+id="toc-issue-342-mgisfunction-with-tfel-logarithmic-strain-tensorialfunction-copies-quantitymodifier-check-finite-strain-stiffness-conversion-and-mutablescalarconcept">Issue
+342: MGIS/Function with TFEL: logarithmic strain, TensorialFunction
+copies, QuantityModifier check, finite strain stiffness conversion and
+MutableScalarConcept</a></li>
+<li><a
+href="#issue-340-build-system-headers-and-cmake-packages-of-the-installation-environment-scripts-debug-flags-and-test-targets"
+id="toc-issue-340-build-system-headers-and-cmake-packages-of-the-installation-environment-scripts-debug-flags-and-test-targets">Issue
+340: Build system: headers and CMake packages of the installation,
+environment scripts, Debug flags and test targets</a></li>
+<li><a
+href="#issue-338-mgisfunction-cuda-assign-leaves-multi-component-values-unassigned-parallel-overloads-depend-on-the-include-order-and-other-defects-of-the-algorithms"
+id="toc-issue-338-mgisfunction-cuda-assign-leaves-multi-component-values-unassigned-parallel-overloads-depend-on-the-include-order-and-other-defects-of-the-algorithms">Issue
+338: MGIS/Function: CUDA assign leaves multi-component values
+unassigned, parallel overloads depend on the include order, and other
+defects of the algorithms</a></li>
+<li><a
+href="#issue-336-c-bindings-null-arguments-and-offsets-out-of-range-headers-not-usable-from-c-dtau_ddf-and-fixed-dimension-types-refused-messages-and-documentation"
+id="toc-issue-336-c-bindings-null-arguments-and-offsets-out-of-range-headers-not-usable-from-c-dtau_ddf-and-fixed-dimension-types-refused-messages-and-documentation">Issue
+336: C bindings: null arguments and offsets out of range, headers not
+usable from C, DTAU_DDF and fixed-dimension types refused, messages and
+documentation</a></li>
+<li><a
+href="#issue-334-states-mass-density-lost-by-update-and-revert-rejected-external-storage-print_markdown-bound-check-integrate_debug-report-names"
+id="toc-issue-334-states-mass-density-lost-by-update-and-revert-rejected-external-storage-print_markdown-bound-check-integrate_debug-report-names">Issue
+334: States: mass density lost by update and revert, rejected external
+storage, print_markdown bound check, integrate_debug report
+names</a></li>
+<li><a
+href="#issue-332-mgisfunction-accessors-layout-constructors-checkcompatibility-and-view-of-functionview-coalesced-views-and-binary_operation"
+id="toc-issue-332-mgisfunction-accessors-layout-constructors-checkcompatibility-and-view-of-functionview-coalesced-views-and-binary_operation">Issue
+332: MGIS/Function: accessors, layout constructors, checkCompatibility
+and view<N> of FunctionView, coalesced views and
+binary_operation</a></li>
+<li><a
+href="#issue-330-loading-of-behaviours-and-models-error-messages-eto-pk1-kinematic-documentation-exported-and-installed-symbols"
+id="toc-issue-330-loading-of-behaviours-and-models-error-messages-eto-pk1-kinematic-documentation-exported-and-installed-symbols">Issue
+330: Loading of behaviours and models: error messages, eto-pk1
+kinematic, documentation, exported and installed symbols</a></li>
+<li><a
+href="#issue-328-fortran-bindings-status-of-the-free-functions-debug-output-modules-not-installed-and-integration-tests-checking-the-first-point-twice"
+id="toc-issue-328-fortran-bindings-status-of-the-free-functions-debug-output-modules-not-installed-and-integration-tests-checking-the-first-point-twice">Issue
+328: Fortran bindings: status of the free functions, debug output,
+modules not installed and integration tests checking the first point
+twice</a></li>
+<li><a
+href="#issue-326-debug-builds-with-gcc-fail-and-the-mgis_try-macros-and-the-const-operators-of-threadedtaskresult-do-not-compile"
+id="toc-issue-326-debug-builds-with-gcc-fail-and-the-mgis_try-macros-and-the-const-operators-of-threadedtaskresult-do-not-compile">Issue
+326: Debug builds with gcc fail, and the MGIS_TRY macros and the const
+operators of ThreadedTaskResult do not compile</a></li>
+<li><a
+href="#issue-324-hdf5-saverestore-mass-density-option-externally-stored-scalars-behaviours-without-internal-state-variables-rank-checks-and-absolute-paths"
+id="toc-issue-324-hdf5-saverestore-mass-density-option-externally-stored-scalars-behaviours-without-internal-state-variables-rank-checks-and-absolute-paths">Issue
+324: HDF5 save/restore: mass density option, externally stored scalars,
+behaviours without internal state variables, rank checks and absolute
+paths</a></li>
+<li><a
+href="#issue-322-python-bindings-shape-of-behaviourdata.k-update-policy-of-setmaterialproperty-and-other-defects"
+id="toc-issue-322-python-bindings-shape-of-behaviourdata.k-update-policy-of-setmaterialproperty-and-other-defects">Issue
+322: Python bindings: shape of BehaviourData.K, update policy of
+setMaterialProperty and other defects</a></li>
+<li><a
+href="#issue-308-wrong-statements-and-typos-in-the-documentation-and-error-messages"
+id="toc-issue-308-wrong-statements-and-typos-in-the-documentation-and-error-messages">Issue
+308: Wrong statements and typos in the documentation and error
+messages</a></li>
+<li><a
+href="#issue-307-getvariableoffset-terminates-the-program-thread-pool-tasks-outlive-an-exception"
+id="toc-issue-307-getvariableoffset-terminates-the-program-thread-pool-tasks-outlive-an-exception">Issue
+307: <code>getVariableOffset</code> terminates the program, thread pool
+tasks outlive an exception</a></li>
+<li><a
+href="#issue-306-python-bindings-strided-numpy-arrays-read-as-contiguous-initializers-without-constructor"
+id="toc-issue-306-python-bindings-strided-numpy-arrays-read-as-contiguous-initializers-without-constructor">Issue
+306: Python bindings: strided NumPy arrays read as contiguous,
+initializers without constructor</a></li>
+<li><a
+href="#issue-305-initialize-functions-and-post-processings-do-not-receive-the-behaviour-options"
+id="toc-issue-305-initialize-functions-and-post-processings-do-not-receive-the-behaviour-options">Issue
+305: Initialize functions and post-processings do not receive the
+behaviour options</a></li>
+<li><a
+href="#issue-304-copies-of-rotation-matrices-point-into-the-storage-of-the-original"
+id="toc-issue-304-copies-of-rotation-matrices-point-into-the-storage-of-the-original">Issue
+304: Copies of rotation matrices point into the storage of the
+original</a></li>
+<li><a
+href="#issue-297-the-fatal-failure-handler-raises-instead-of-aborting-for-non-optional-values"
+id="toc-issue-297-the-fatal-failure-handler-raises-instead-of-aborting-for-non-optional-values">Issue
+297: The fatal failure handler raises instead of aborting for non
+optional values</a></li>
+<li><a
+href="#issue-295-fenics-binding-mixes-up-the-jacobian-stride-in-two-dimensions"
+id="toc-issue-295-fenics-binding-mixes-up-the-jacobian-stride-in-two-dimensions">Issue
+295: FEniCS binding mixes up the jacobian stride in two
+dimensions</a></li>
+<li><a
+href="#issue-293-python-constructors-do-not-keep-the-referenced-behaviour-alive"
+id="toc-issue-293-python-constructors-do-not-keep-the-referenced-behaviour-alive">Issue
+293: Python constructors do not keep the referenced behaviour
+alive</a></li>
+<li><a
+href="#issue-292-variable-lookup-returns-a-reference-into-a-temporary-vector"
+id="toc-issue-292-variable-lookup-returns-a-reference-into-a-temporary-vector">Issue
+292: Variable lookup returns a reference into a temporary
+vector</a></li>
+<li><a
+href="#issue-290-numpy-arrays-are-exposed-as-non-owning-views-with-no-lifetime-link"
+id="toc-issue-290-numpy-arrays-are-exposed-as-non-owning-views-with-no-lifetime-link">Issue
+290: NumPy arrays are exposed as non-owning views with no lifetime
+link</a></li>
+<li><a
+href="#issue-289-quantity-modifier-keeps-a-reference-into-a-temporary"
+id="toc-issue-289-quantity-modifier-keeps-a-reference-into-a-temporary">Issue
+289: Quantity modifier keeps a reference into a temporary</a></li>
+<li><a
+href="#issue-288-tensor-views-over-function-views-are-never-size-checked"
+id="toc-issue-288-tensor-views-over-function-views-are-never-size-checked">Issue
+288: Tensor views over function views are never size-checked</a></li>
+<li><a
+href="#issue-286-scalar-reductions-return-zero-instead-of-failing"
+id="toc-issue-286-scalar-reductions-return-zero-instead-of-failing">Issue
+286: Scalar reductions return zero instead of failing</a></li>
+<li><a
+href="#issue-285-fixed-size-views-alias-temporaries-returned-by-value"
+id="toc-issue-285-fixed-size-views-alias-temporaries-returned-by-value">Issue
+285: Fixed-size views alias temporaries returned by value</a></li>
+<li><a href="#issue-284-fixedsizemodifier-breaks-the-check-chain"
+id="toc-issue-284-fixedsizemodifier-breaks-the-check-chain">Issue 284:
+<code>FixedSizeModifier</code> breaks the check chain</a></li>
+<li><a
+href="#issue-282-restoring-a-non-scalar-per-point-field-overflows-the-buffer"
+id="toc-issue-282-restoring-a-non-scalar-per-point-field-overflows-the-buffer">Issue
+282: Restoring a non-scalar per-point field overflows the
+buffer</a></li>
+<li><a
+href="#issue-281-restoring-a-per-point-scalar-field-into-a-uniform-holder-reads-nothing"
+id="toc-issue-281-restoring-a-per-point-scalar-field-into-a-uniform-holder-reads-nothing">Issue
+281: Restoring a per-point scalar field into a uniform holder reads
+nothing</a></li>
+<li><a
+href="#issue-280-restoring-from-hdf5-never-creates-a-missing-field"
+id="toc-issue-280-restoring-from-hdf5-never-creates-a-missing-field">Issue
+280: Restoring from HDF5 never creates a missing field</a></li>
+<li><a
+href="#issue-279-saving-a-material-data-manager-to-hdf5-always-fails"
+id="toc-issue-279-saving-a-material-data-manager-to-hdf5-always-fails">Issue
+279: Saving a material data manager to HDF5 always fails</a></li>
+<li><a
+href="#issue-277-initialize-functions-and-post-processings-report-success-after-failing"
+id="toc-issue-277-initialize-functions-and-post-processings-report-success-after-failing">Issue
+277: Initialize functions and post-processings report success after
+failing</a></li>
+<li><a href="#issue-275-material-axis-size-checks-are-inverted"
+id="toc-issue-275-material-axis-size-checks-are-inverted">Issue 275:
+Material axis size checks are inverted</a></li>
+<li><a
+href="#issue-273-fortran-tangent-operator-view-is-transposed-only-for-square-blocks"
+id="toc-issue-273-fortran-tangent-operator-view-is-transposed-only-for-square-blocks">Issue
+273: Fortran tangent operator view is transposed only for square
+blocks</a></li>
+<li><a
+href="#issue-272-fortran-upper-bound-accessor-compares-against-an-undefined-variable"
+id="toc-issue-272-fortran-upper-bound-accessor-compares-against-an-undefined-variable">Issue
+272: Fortran upper bound accessor compares against an undefined
+variable</a></li>
+<li><a
+href="#issue-271-c-rotation-functions-call-null-pointers-on-isotropic-behaviours"
+id="toc-issue-271-c-rotation-functions-call-null-pointers-on-isotropic-behaviours">Issue
+271: C rotation functions call null pointers on isotropic
+behaviours</a></li>
+<li><a
+href="#issue-270-fortran-tangent-operator-accessor-builds-its-shape-from-an-unset-variable"
+id="toc-issue-270-fortran-tangent-operator-accessor-builds-its-shape-from-an-unset-variable">Issue
+270: Fortran tangent operator accessor builds its shape from an unset
+variable</a></li>
+<li><a
+href="#issue-269-fortran-internal-state-variable-accessor-uses-the-variable-count-as-the-array-size"
+id="toc-issue-269-fortran-internal-state-variable-accessor-uses-the-variable-count-as-the-array-size">Issue
+269: Fortran internal state variable accessor uses the variable count as
+the array size</a></li>
+<li><a
+href="#issue-268-fortran-array-rotation-functions-pass-the-point-count-by-reference"
+id="toc-issue-268-fortran-array-rotation-functions-pass-the-point-count-by-reference">Issue
+268: Fortran array rotation functions pass the point count by
+reference</a></li>
+<li><a
+href="#issue-267-fortran-rotation-interfaces-pass-array-descriptors-instead-of-addresses"
+id="toc-issue-267-fortran-rotation-interfaces-pass-array-descriptors-instead-of-addresses">Issue
+267: Fortran rotation interfaces pass array descriptors instead of
+addresses</a></li>
+<li><a
+href="#issue-266-hydrostatic-pressure-function-returns-the-von-mises-stress"
+id="toc-issue-266-hydrostatic-pressure-function-returns-the-von-mises-stress">Issue
+266: Hydrostatic pressure function returns the von Mises stress</a></li>
+<li><a
+href="#issue-265-integrate_debug-crashes-from-the-second-integration-point"
+id="toc-issue-265-integrate_debug-crashes-from-the-second-integration-point">Issue
+265: <code>integrate_debug</code> crashes from the second integration
+point</a></li>
+<li><a
+href="#issue-264-update-policy-test-inverted-for-non-uniform-external-storage"
+id="toc-issue-264-update-policy-test-inverted-for-non-uniform-external-storage">Issue
+264: Update policy test inverted for non-uniform external
+storage</a></li>
+<li><a
+href="#issue-261-error-handling-add-proper-abort-and-terminate-functions"
+id="toc-issue-261-error-handling-add-proper-abort-and-terminate-functions">Issue
+261: [[error-handling]] add proper <code>abort</code> and
+<code>terminate</code> functions</a></li>
+<li><a
+href="#issue-258-construct-does-not-work-for-objects-non-movable-and-non-copyable"
+id="toc-issue-258-construct-does-not-work-for-objects-non-movable-and-non-copyable">Issue
+258: <code>construct</code> does not work for objects non movable and
+non copyable</a></li>
+<li><a
+href="#issue-257-conversion-of-invalidresult-to-optional-type-may-be-ambiguous-if-invalidtype-is-convertible-to-the-type-hold-by-the-optional"
+id="toc-issue-257-conversion-of-invalidresult-to-optional-type-may-be-ambiguous-if-invalidtype-is-convertible-to-the-type-hold-by-the-optional">Issue
+257: Conversion of <code>InvalidResult</code> to optional type may be
+ambiguous if InvalidType is convertible to the type hold by the
+<code>optional</code></a></li>
 <li><a href="#issue-255-fix-invoketest-on-macos"
 id="toc-issue-255-fix-invoketest-on-macos">Issue 255: Fix
 <code>InvokeTest</code> on <code>MacOS</code></a></li>
@@ -334,9 +581,18 @@ href="#issue-226-mgis-function-make-assign_value-extensible-to-support-external-
 id="toc-issue-226-mgis-function-make-assign_value-extensible-to-support-external-types">Issue
 226: [mgis-function] make assign_value extensible to support external
 types</a></li>
+<li><a
+href="#issue-224-github-actions-add-support-actions-based-on-mac-os-windowsvisual-studio-and-windowsminggw"
+id="toc-issue-224-github-actions-add-support-actions-based-on-mac-os-windowsvisual-studio-and-windowsminggw">Issue
+224: [github-actions] Add support actions based on <code>Mac Os</code>,
+<code>Windows/Visual Studio</code> and
+<code>Windows/MingGW</code></a></li>
 <li><a href="#issue-220-mgis-function-add-support-for-nvcc"
 id="toc-issue-220-mgis-function-add-support-for-nvcc">Issue 220:
 [mgis-function] Add support for <code>nvcc</code></a></li>
+<li><a href="#issue-219-enable-profiling-via-context"
+id="toc-issue-219-enable-profiling-via-context">Issue 219: Enable
+profiling via Context</a></li>
 <li><a
 href="#issue-210-documentation-deployment-of-the-doxygen-documentation"
 id="toc-issue-210-documentation-deployment-of-the-doxygen-documentation">Issue
@@ -347,9 +603,9 @@ id="toc-issue-209-add-basic-support-for-saverestore-operations-in-materialdatama
 209: Add basic support for <code>save</code>/<code>restore</code>
 operations in <code>MaterialDataManager</code></a></li>
 <li><a
-href="#issue-201-add-the-ability-to-update-only-the-state-variables-of-a-materialstatemanager"
-id="toc-issue-201-add-the-ability-to-update-only-the-state-variables-of-a-materialstatemanager">Issue
-201: Add the ability to update only the state variables of a
+href="#issue-202-add-the-ability-to-update-only-the-state-variables-of-a-materialstatemanager"
+id="toc-issue-202-add-the-ability-to-update-only-the-state-variables-of-a-materialstatemanager">Issue
+202: Add the ability to update only the state variables of a
 <code>MaterialStateManager</code></a></li>
 <li><a
 href="#issue-200-create-environment-file-in-the-installation-directory"
@@ -365,6 +621,17 @@ href="#issue-196-mgisfunction-add-function-view-with-strided-coalesent-memory-ac
 id="toc-issue-196-mgisfunction-add-function-view-with-strided-coalesent-memory-access">Issue
 196: [MGIS/Function] Add function view with strided coalesent memory
 access</a></li>
+<li><a href="#issue-195-python-expose-setmaterialproperty"
+id="toc-issue-195-python-expose-setmaterialproperty">Issue 195: [python]
+Expose <code>setMaterialProperty</code></a></li>
+<li><a href="#issue-191-document-error-handling"
+id="toc-issue-191-document-error-handling">Issue 191: Document error
+handling</a></li>
+<li><a
+href="#issue-160-add-pre-compiled-postprocessings-based-on-mgisfunction"
+id="toc-issue-160-add-pre-compiled-postprocessings-based-on-mgisfunction">Issue
+160: Add pre-compiled postprocessings based on
+<code>MGIS/Function</code></a></li>
 <li><a href="#issue-158-model-implicite-for-licos-software"
 id="toc-issue-158-model-implicite-for-licos-software">Issue 158: Model
 implicite for LICOS software</a></li>
@@ -381,7 +648,64 @@ id="toc-acknowledgements">Acknowledgements</a></li>
 temporary view rather than an evaluator. See below for details. In
 practice, most views are also evaluators, so this shall not impact
 existing user code.</li>
+<li>The types of the members <code>material_properties</code>,
+<code>mass_density</code> and <code>external_state_variables</code> of
+the <code>MaterialStateManager</code> class have changed to allow the
+usage of immutable externally allocated memory. See below for
+details.</li>
 </ul>
+<h2
+id="new-definitions-of-the-field-holders-of-the-materialstatemanager-class">New
+definitions of the field holders of the
+<code>MaterialStateManager</code> class</h2>
+<p>In Version 3.1, <code>MaterialStateManager::FieldHolder</code> was an
+alias to
+<code>std::variant&lt;real, std::span&lt;real&gt;, std::vector&lt;real&gt;&gt;</code>,
+the material properties and the external state variables were stored in
+<code>std::map&lt;std::string, FieldHolder&gt;</code> and the mass
+density in a <code>std::optional&lt;FieldHolder&gt;</code>.</p>
+<p>In Version 3.2:</p>
+<ul>
+<li><code>MaterialStateManager::MutableFieldHolder</code> is a structure
+whose member <code>value</code> is a
+<code>std::variant&lt;real, std::span&lt;real&gt;, std::vector&lt;real&gt;&gt;</code>,
+i.e. the former <code>FieldHolder</code>, and whose member
+<code>shall_be_updated</code> states if the values are updated by the
+<code>update</code> and <code>revert</code> functions.</li>
+<li><code>MaterialStateManager::FieldHolder</code> is a structure
+derived from
+<code>std::variant&lt;std::monostate, std::span&lt;const real&gt;,   MutableFieldHolder&gt;</code>.
+The <code>std::span&lt;const real&gt;</code> alternative refers to
+immutable externally allocated memory.</li>
+<li>The members <code>material_properties</code> and
+<code>external_state_variables</code> are of type
+<code>std::map&lt;std::string, FieldHolder, std::less&lt;&gt;&gt;</code>.
+The transparent comparator <code>std::less&lt;&gt;</code> allows looking
+up a variable using a <code>std::string_view</code>.</li>
+<li>The member <code>mass_density</code> is of type
+<code>std::optional&lt;MutableFieldHolder&gt;</code>.</li>
+</ul>
+<p>The following code, valid in Version 3.1:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span><span class="op">&amp;</span> h <span class="op">=</span> s<span class="op">.</span>material_properties<span class="op">.</span>at<span class="op">(</span><span class="st">&quot;YoungModulus&quot;</span><span class="op">);</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">std::</span>holds_alternative<span class="op">&lt;</span>real<span class="op">&gt;(</span>h<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span> E <span class="op">=</span> <span class="bu">std::</span>get<span class="op">&lt;</span>real<span class="op">&gt;(</span>h<span class="op">);</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> rho <span class="op">=</span> <span class="bu">std::</span>get<span class="op">&lt;</span>real<span class="op">&gt;(*(</span>s<span class="op">.</span>mass_density<span class="op">));</span></span></code></pre></div>
+<p>shall be written as follows in Version 3.2:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> MutableFieldHolder <span class="op">=</span> MaterialStateManager<span class="op">::</span>MutableFieldHolder<span class="op">;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span><span class="op">&amp;</span> h <span class="op">=</span> s<span class="op">.</span>material_properties<span class="op">.</span>at<span class="op">(</span><span class="st">&quot;YoungModulus&quot;</span><span class="op">);</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">std::</span>holds_alternative<span class="op">&lt;</span>MutableFieldHolder<span class="op">&gt;(</span>h<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">const</span> <span class="kw">auto</span><span class="op">&amp;</span> v <span class="op">=</span> <span class="bu">std::</span>get<span class="op">&lt;</span>MutableFieldHolder<span class="op">&gt;(</span>h<span class="op">).</span>value<span class="op">;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span><span class="bu">std::</span>holds_alternative<span class="op">&lt;</span>real<span class="op">&gt;(</span>v<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">const</span> <span class="kw">auto</span> E <span class="op">=</span> <span class="bu">std::</span>get<span class="op">&lt;</span>real<span class="op">&gt;(</span>v<span class="op">);</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> rho <span class="op">=</span> <span class="bu">std::</span>get<span class="op">&lt;</span>real<span class="op">&gt;(</span>s<span class="op">.</span>mass_density<span class="op">-&gt;</span>value<span class="op">);</span></span></code></pre></div>
+<p>Code naming the former type of the maps, for instance
+<code>const std::map&lt;std::string, MaterialStateManager::FieldHolder&gt;&amp;</code>,
+shall use the new comparator or <code>auto</code>.</p>
 <h1 id="documentation">Documentation</h1>
 <h2 id="new-cmake-options">New <code>cmake</code> options</h2>
 <h3 id="support-for-cuda-in-mgisfunction">Support for <code>CUDA</code>
@@ -422,18 +746,18 @@ the installation directory (refered to
 <li><p><code>&lt;install_prefix&gt;/share/mgis/env/env.sh</code> for
 <code>UNIX</code> systems and the <code>bash</code> shell. This file
 shall be used as follows:</p>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> source <span class="op">&lt;</span>install_prefix<span class="op">&gt;</span>/share/mgis/env/env.sh</span></code></pre></div></li>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> source <span class="op">&lt;</span>install_prefix<span class="op">&gt;</span>/share/mgis/env/env.sh</span></code></pre></div></li>
 <li><p><code>&lt;install_prefix&gt;\share\mgis\env\env.ps1</code> for
 <code>PowerShell</code> shell under <code>Windows</code>. This file
 shall be used as follows:</p>
-<div class="sourceCode" id="cb2"><pre
-class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> .<span class="dt">\&lt;</span>install_prefix<span class="op">&gt;</span><span class="dt">\s</span>hare\mgis\env\env.ps1</span></code></pre></div></li>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> .<span class="dt">\&lt;</span>install_prefix<span class="op">&gt;</span><span class="dt">\s</span>hare\mgis\env\env.ps1</span></code></pre></div></li>
 <li><p><code>&lt;install_prefix&gt;\share\mgis\env\env.bat</code> for
 the historical <code>cmd</code> shell under <code>Windows</code>. This
 file shall be used as follows:</p>
-<div class="sourceCode" id="cb3"><pre
-class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> call <span class="op">&lt;</span>install_prefix<span class="op">&gt;</span><span class="dt">\s</span>hare\mgis\env\env.bat</span></code></pre></div></li>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> call <span class="op">&lt;</span>install_prefix<span class="op">&gt;</span><span class="dt">\s</span>hare\mgis\env\env.bat</span></code></pre></div></li>
 </ul>
 <blockquote>
 <p><strong>Note</strong></p>
@@ -448,6 +772,41 @@ process as the installation directory).</p>
 <p>If <code>MGIS</code> is built with <code>TFEL</code> support, the
 <code>TFEL</code> environment shall be properly set.</p>
 </blockquote>
+<h2 id="profiling">Profiling</h2>
+<p>The <code>Context</code> class can now measure the time spent in the
+sections of code instrumented by the <code>CatchTimeSection</code>
+macro, declared in the <code>MGIS/Profiling.hxx</code> header. Profiling
+is disabled by default and is enabled by the
+<code>enableProfiling</code> method. The measured times are stored in a
+tree of <code>ProfilingData</code> objects whose root is returned by the
+<code>getProfilingResultTree</code> method.</p>
+<p>See the <a href="profiling.html">profiling page</a> for details.</p>
+<h3 id="example-of-usage">Example of usage</h3>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> ctx <span class="op">=</span> Context<span class="op">{};</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>ctx<span class="op">.</span>enableProfiling<span class="op">(</span><span class="kw">true</span><span class="op">);</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  CatchTimeSection<span class="op">(</span>ctx<span class="op">,</span> <span class="st">&quot;IntegrationStep&quot;</span><span class="op">);</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">// ... code to be profiled ...</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span><span class="op">&amp;</span> root <span class="op">=</span> ctx<span class="op">.</span>getProfilingResultTree<span class="op">();</span></span></code></pre></div>
+<h2 id="the-mgisterminate-and-mgisabort-functions">The
+<code>mgis::terminate</code> and <code>mgis::abort</code> functions</h2>
+<p>The <code>mgis::terminate</code> function, declared in the
+<code>MGIS/Config.hxx</code> header, terminates the program after
+calling the terminate handler of <code>MGIS</code> with the given
+message. The default terminate handler prints the message on the
+standard error stream and calls <code>std::terminate</code>. The
+<code>mgis::abort</code> function is an alias to
+<code>mgis::terminate</code>.</p>
+<p>The <code>terminate</code> methods of the <code>Context</code> class
+call <code>mgis::terminate</code> with the error messages registered in
+the context.</p>
+<h3 id="example-of-usage-1">Example of usage</h3>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(!</span>isInvariantSatisfied<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  mgis<span class="op">::</span>terminate<span class="op">(</span><span class="st">&quot;internal error: invariant not satisfied&quot;</span><span class="op">);</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <h1 id="new-features-of-the-mgisbehaviour-library">New features of the
 <code>MGIS/Behaviour</code> library</h1>
 <h2
@@ -479,10 +838,10 @@ functions.</p>
 <code>MaterialStateManager::UpdatePolicy</code> type to the functions
 <code>setMaterialProperty</code>, <code>setMassDensity</code> or
 <code>setExternalStateVariable</code>.</p>
-<h3 id="example-of-usage">Example of usage</h3>
-<div class="sourceCode" id="cb4"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>setExternalStateVariable<span class="op">(</span>m<span class="op">.</span>s1<span class="op">,</span> <span class="st">&quot;Temperature&quot;</span><span class="op">,</span> T1<span class="op">,</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                         MaterialStateManager<span class="op">::</span>UPDATE<span class="op">);</span></span></code></pre></div>
+<h3 id="example-of-usage-2">Example of usage</h3>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>setExternalStateVariable<span class="op">(</span>m<span class="op">.</span>s1<span class="op">,</span> <span class="st">&quot;Temperature&quot;</span><span class="op">,</span> T1<span class="op">,</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                         MaterialStateManager<span class="op">::</span>UPDATE<span class="op">);</span></span></code></pre></div>
 <h1 id="new-features-of-the-mgisfunction-library">New features of the
 <code>MGIS/Function</code> library</h1>
 <h2 id="support-for-quantities">Support for quantities</h2>
@@ -494,7 +853,7 @@ number.</p>
 function into a view returning quantities. Tensor modifiers, such as
 <code>as_stensor</code> now allows to specify a quantity as an optional
 argument.</p>
-<h3 id="example-of-usage-1">Example of usage</h3>
+<h3 id="example-of-usage-3">Example of usage</h3>
 <p>~~<del>{.c++} // make a view of a scalar function which returns a
 stress value auto s = f | as_qt<stress>; // make a view of the function
 return a symmetric tensor in 2D whose values are stress auto s = f2 |
@@ -515,35 +874,35 @@ using the following scheme:</p>
 +-------++-------++------++-------+----+-------++------++------++-------+
 | Elt 1 || Elt 2 || .... || Elt N |....| Elt 1 ||Elt 2 || .... || Elt N |
 +-------++-------++------++-------+----+-------++------++------++-------+</code></pre>
-<h4 id="example-of-usage-2">Example of usage</h4>
-<div class="sourceCode" id="cb6"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> ne <span class="op">=</span> <span class="dt">size_type</span><span class="op">{</span><span class="dv">2</span><span class="op">};</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> space <span class="op">=</span> BasicLinearSpace<span class="op">{</span>ne<span class="op">};</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>array<span class="op">&lt;</span><span class="at">const</span> real<span class="op">,</span> <span class="dv">4</span> <span class="op">*</span> ne<span class="op">&gt;</span> values <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">40</span><span class="op">};</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> f <span class="op">=</span> StridedCoalescedMemoryAccessTensorView<span class="op">&lt;</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    BasicLinearSpace<span class="op">,</span> tfel<span class="op">::</span>math<span class="op">::</span>stensor<span class="op">&lt;</span><span class="dv">2</span><span class="op">,</span> real<span class="op">&gt;,</span> <span class="kw">false</span><span class="op">&gt;{</span>space<span class="op">,</span> values<span class="op">};</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> e1 <span class="op">=</span> f<span class="op">(</span><span class="dv">0</span><span class="op">);</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">// e1 = {1, 2, 3, 4}</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> e2 <span class="op">=</span> f<span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">// e2 = {10, 20, 30, 40}</span></span></code></pre></div>
+<h4 id="example-of-usage-4">Example of usage</h4>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> ne <span class="op">=</span> <span class="dt">size_type</span><span class="op">{</span><span class="dv">2</span><span class="op">};</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> space <span class="op">=</span> BasicLinearSpace<span class="op">{</span>ne<span class="op">};</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>array<span class="op">&lt;</span><span class="at">const</span> real<span class="op">,</span> <span class="dv">4</span> <span class="op">*</span> ne<span class="op">&gt;</span> values <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">40</span><span class="op">};</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> f <span class="op">=</span> StridedCoalescedMemoryAccessTensorView<span class="op">&lt;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    BasicLinearSpace<span class="op">,</span> tfel<span class="op">::</span>math<span class="op">::</span>stensor<span class="op">&lt;</span><span class="dv">2</span><span class="op">,</span> real<span class="op">&gt;,</span> <span class="kw">false</span><span class="op">&gt;{</span>space<span class="op">,</span> values<span class="op">};</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> e1 <span class="op">=</span> f<span class="op">(</span><span class="dv">0</span><span class="op">);</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">// e1 = {1, 2, 3, 4}</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> e2 <span class="op">=</span> f<span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co">// e2 = {10, 20, 30, 40}</span></span></code></pre></div>
 <h2
 id="stridedcoalescedmemoryaccesscompositetensorsview"><code>StridedCoalescedMemoryAccessCompositeTensorsView</code></h2>
 <p><code>StridedCoalescedMemoryAccessCompositeTensorsView</code> allows
 retrieving scalar or tensorial objects which are stored in a non
 interleaved manner.</p>
-<h4 id="example-of-usage-3">Example of usage</h4>
-<div class="sourceCode" id="cb7"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> CompositeFunctionView <span class="op">=</span> </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    StridedCoalescedMemoryAccessCompositeTensorsView<span class="op">&lt;</span>BasicLinearSpace<span class="op">,</span> <span class="dv">4</span><span class="op">,</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                                                     <span class="kw">false</span><span class="op">&gt;;</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> ne <span class="op">=</span> <span class="dt">size_type</span><span class="op">{</span><span class="dv">2</span><span class="op">};</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> space <span class="op">=</span> BasicLinearSpace<span class="op">{</span>ne<span class="op">};</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>array<span class="op">&lt;</span><span class="at">const</span> real<span class="op">,</span> <span class="dv">4</span> <span class="op">*</span> ne<span class="op">&gt;</span> values <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">40</span><span class="op">};</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> f <span class="op">=</span> CompositeFunctionView<span class="op">{</span>space<span class="op">,</span> values<span class="op">};</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> e1 <span class="op">=</span> f<span class="op">.</span>get<span class="op">&lt;</span><span class="dv">0</span><span class="op">,</span> tfel<span class="op">::</span>math<span class="op">::</span>stensor<span class="op">&lt;</span><span class="dv">2</span><span class="op">,</span> real<span class="op">&gt;&gt;(</span><span class="dv">0</span><span class="op">);</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">// e1 = {1, 2, 3, 4}</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> e2 <span class="op">=</span> f<span class="op">.</span>get<span class="op">&lt;</span><span class="dv">0</span><span class="op">,</span> tfel<span class="op">::</span>math<span class="op">::</span>stensor<span class="op">&lt;</span><span class="dv">2</span><span class="op">,</span> real<span class="op">&gt;&gt;(</span><span class="dv">1</span><span class="op">);</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">// e2 = {10, 20, 30, 40}</span></span></code></pre></div>
+<h4 id="example-of-usage-5">Example of usage</h4>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> CompositeFunctionView <span class="op">=</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    StridedCoalescedMemoryAccessCompositeTensorsView<span class="op">&lt;</span>BasicLinearSpace<span class="op">,</span> <span class="dv">4</span><span class="op">,</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                                                     <span class="kw">false</span><span class="op">&gt;;</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> ne <span class="op">=</span> <span class="dt">size_type</span><span class="op">{</span><span class="dv">2</span><span class="op">};</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> space <span class="op">=</span> BasicLinearSpace<span class="op">{</span>ne<span class="op">};</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>array<span class="op">&lt;</span><span class="at">const</span> real<span class="op">,</span> <span class="dv">4</span> <span class="op">*</span> ne<span class="op">&gt;</span> values <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">40</span><span class="op">};</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> f <span class="op">=</span> CompositeFunctionView<span class="op">{</span>space<span class="op">,</span> values<span class="op">};</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> e1 <span class="op">=</span> f<span class="op">.</span>get<span class="op">&lt;</span><span class="dv">0</span><span class="op">,</span> tfel<span class="op">::</span>math<span class="op">::</span>stensor<span class="op">&lt;</span><span class="dv">2</span><span class="op">,</span> real<span class="op">&gt;&gt;(</span><span class="dv">0</span><span class="op">);</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">// e1 = {1, 2, 3, 4}</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> e2 <span class="op">=</span> f<span class="op">.</span>get<span class="op">&lt;</span><span class="dv">0</span><span class="op">,</span> tfel<span class="op">::</span>math<span class="op">::</span>stensor<span class="op">&lt;</span><span class="dv">2</span><span class="op">,</span> real<span class="op">&gt;&gt;(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co">// e2 = {10, 20, 30, 40}</span></span></code></pre></div>
 <h2 id="allow-modifiers-to-handle-temporary-views">Allow modifiers to
 handle temporary views</h2>
 <p>In Version 3.1, passing a temporary view to a modifier would create
@@ -559,16 +918,16 @@ on temporary evaluators</li>
 <p>In Version 3.2, modifiers are now allowed to operate on temporary
 views. This following code now generates a view rather than an
 evaluator:</p>
-<div class="sourceCode" id="cb8"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">// creating an array view from an rvalue.</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> v <span class="op">=</span> f<span class="op">.</span>view<span class="op">()</span> <span class="op">|</span> as_array<span class="op">&lt;</span><span class="dv">2</span><span class="op">&gt;;</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">// creating an array view from an rvalue.</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> v <span class="op">=</span> f<span class="op">.</span>view<span class="op">()</span> <span class="op">|</span> as_array<span class="op">&lt;</span><span class="dv">2</span><span class="op">&gt;;</span></span></code></pre></div>
 <blockquote>
 <p>By comparison, to achieve the same behaviour in Version 3.1, creation
 of an intermediate variable was required, as follows:</p>
-<div class="sourceCode" id="cb9"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">// creating an array view in Version 3.1:</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> f_view <span class="op">=</span> f<span class="op">.</span>view<span class="op">();</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> v <span class="op">=</span> f_view <span class="op">|</span> as_array<span class="op">&lt;</span><span class="dv">2</span><span class="op">&gt;;</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">// creating an array view in Version 3.1:</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> f_view <span class="op">=</span> f<span class="op">.</span>view<span class="op">();</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> v <span class="op">=</span> f_view <span class="op">|</span> as_array<span class="op">&lt;</span><span class="dv">2</span><span class="op">&gt;;</span></span></code></pre></div>
 </blockquote>
 <h2
 id="temporary-views-can-be-used-in-assignement-operator-and-assign-function">Temporary
@@ -578,20 +937,332 @@ views can be used in “assignement” <code>operator|</code> and
 <code>assign</code> function did not accept temporaries.</p>
 <p>This behaviour has been changed in Version 3.2 which allows a more
 direct code:</p>
-<div class="sourceCode" id="cb10"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>f2 <span class="op">|</span> as_scalar <span class="op">|</span> <span class="op">(</span>f <span class="op">|</span> as_scalar<span class="op">);</span> <span class="co">// &quot;assignement&quot; operator|</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>f2 <span class="op">|</span> as_scalar <span class="op">|</span> <span class="op">(</span>f <span class="op">|</span> as_scalar<span class="op">);</span> <span class="co">// &quot;assignement&quot; operator|</span></span></code></pre></div>
 <p>or equivalently:</p>
-<div class="sourceCode" id="cb11"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>assign<span class="op">(</span>ctx<span class="op">,</span> f <span class="op">|</span> as_scalar<span class="op">,</span> f2 <span class="op">|</span> as_scalar<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>assign<span class="op">(</span>ctx<span class="op">,</span> f <span class="op">|</span> as_scalar<span class="op">,</span> f2 <span class="op">|</span> as_scalar<span class="op">);</span></span></code></pre></div>
 <blockquote>
 <p>By comparison, Version 3.1 would have forced to store the view
 resulting from <code>f | as_scalar</code> into a temporary as
 follows:</p>
-<div class="sourceCode" id="cb12"><pre
-class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> tmp <span class="op">=</span> f <span class="op">|</span> as_scalar<span class="op">;</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>assign<span class="op">(</span>ctx<span class="op">,</span> tmp<span class="op">,</span> f2 <span class="op">|</span> as_scalar<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">auto</span> tmp <span class="op">=</span> f <span class="op">|</span> as_scalar<span class="op">;</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>assign<span class="op">(</span>ctx<span class="op">,</span> tmp<span class="op">,</span> f2 <span class="op">|</span> as_scalar<span class="op">);</span></span></code></pre></div>
 </blockquote>
 <h1 id="issues-fixed">Issues fixed</h1>
+<h2
+id="issue-344-documentation-pages-with-wrong-types-names-and-examples-and-test-slips-leaving-values-unchecked">Issue
+344: Documentation pages with wrong types, names and examples, and test
+slips leaving values unchecked</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/344"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/344</a></p>
+<h2
+id="issue-342-mgisfunction-with-tfel-logarithmic-strain-tensorialfunction-copies-quantitymodifier-check-finite-strain-stiffness-conversion-and-mutablescalarconcept">Issue
+342: MGIS/Function with TFEL: logarithmic strain, TensorialFunction
+copies, QuantityModifier check, finite strain stiffness conversion and
+MutableScalarConcept</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/342"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/342</a></p>
+<h2
+id="issue-340-build-system-headers-and-cmake-packages-of-the-installation-environment-scripts-debug-flags-and-test-targets">Issue
+340: Build system: headers and CMake packages of the installation,
+environment scripts, Debug flags and test targets</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/340"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/340</a></p>
+<h2
+id="issue-338-mgisfunction-cuda-assign-leaves-multi-component-values-unassigned-parallel-overloads-depend-on-the-include-order-and-other-defects-of-the-algorithms">Issue
+338: MGIS/Function: CUDA assign leaves multi-component values
+unassigned, parallel overloads depend on the include order, and other
+defects of the algorithms</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/338"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/338</a></p>
+<h2
+id="issue-336-c-bindings-null-arguments-and-offsets-out-of-range-headers-not-usable-from-c-dtau_ddf-and-fixed-dimension-types-refused-messages-and-documentation">Issue
+336: C bindings: null arguments and offsets out of range, headers not
+usable from C, DTAU_DDF and fixed-dimension types refused, messages and
+documentation</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/336"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/336</a></p>
+<h2
+id="issue-334-states-mass-density-lost-by-update-and-revert-rejected-external-storage-print_markdown-bound-check-integrate_debug-report-names">Issue
+334: States: mass density lost by update and revert, rejected external
+storage, print_markdown bound check, integrate_debug report names</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/334"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/334</a></p>
+<h2
+id="issue-332-mgisfunction-accessors-layout-constructors-checkcompatibility-and-view-of-functionview-coalesced-views-and-binary_operation">Issue
+332: MGIS/Function: accessors, layout constructors, checkCompatibility
+and view<N> of FunctionView, coalesced views and binary_operation</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/332"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/332</a></p>
+<h2
+id="issue-330-loading-of-behaviours-and-models-error-messages-eto-pk1-kinematic-documentation-exported-and-installed-symbols">Issue
+330: Loading of behaviours and models: error messages, eto-pk1
+kinematic, documentation, exported and installed symbols</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/330"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/330</a></p>
+<h2
+id="issue-328-fortran-bindings-status-of-the-free-functions-debug-output-modules-not-installed-and-integration-tests-checking-the-first-point-twice">Issue
+328: Fortran bindings: status of the free functions, debug output,
+modules not installed and integration tests checking the first point
+twice</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/328"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/328</a></p>
+<h2
+id="issue-326-debug-builds-with-gcc-fail-and-the-mgis_try-macros-and-the-const-operators-of-threadedtaskresult-do-not-compile">Issue
+326: Debug builds with gcc fail, and the MGIS_TRY macros and the const
+operators of ThreadedTaskResult do not compile</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/326"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/326</a></p>
+<h2
+id="issue-324-hdf5-saverestore-mass-density-option-externally-stored-scalars-behaviours-without-internal-state-variables-rank-checks-and-absolute-paths">Issue
+324: HDF5 save/restore: mass density option, externally stored scalars,
+behaviours without internal state variables, rank checks and absolute
+paths</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/324"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/324</a></p>
+<h2
+id="issue-322-python-bindings-shape-of-behaviourdata.k-update-policy-of-setmaterialproperty-and-other-defects">Issue
+322: Python bindings: shape of BehaviourData.K, update policy of
+setMaterialProperty and other defects</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/322"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/322</a></p>
+<h2
+id="issue-308-wrong-statements-and-typos-in-the-documentation-and-error-messages">Issue
+308: Wrong statements and typos in the documentation and error
+messages</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/308"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/308</a></p>
+<h2
+id="issue-307-getvariableoffset-terminates-the-program-thread-pool-tasks-outlive-an-exception">Issue
+307: <code>getVariableOffset</code> terminates the program, thread pool
+tasks outlive an exception</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/307"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/307</a></p>
+<h2
+id="issue-306-python-bindings-strided-numpy-arrays-read-as-contiguous-initializers-without-constructor">Issue
+306: Python bindings: strided NumPy arrays read as contiguous,
+initializers without constructor</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/306"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/306</a></p>
+<h2
+id="issue-305-initialize-functions-and-post-processings-do-not-receive-the-behaviour-options">Issue
+305: Initialize functions and post-processings do not receive the
+behaviour options</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/305"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/305</a></p>
+<h2
+id="issue-304-copies-of-rotation-matrices-point-into-the-storage-of-the-original">Issue
+304: Copies of rotation matrices point into the storage of the
+original</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/304"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/304</a></p>
+<h2
+id="issue-297-the-fatal-failure-handler-raises-instead-of-aborting-for-non-optional-values">Issue
+297: The fatal failure handler raises instead of aborting for non
+optional values</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/297"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/297</a></p>
+<h2
+id="issue-295-fenics-binding-mixes-up-the-jacobian-stride-in-two-dimensions">Issue
+295: FEniCS binding mixes up the jacobian stride in two dimensions</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/295"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/295</a></p>
+<h2
+id="issue-293-python-constructors-do-not-keep-the-referenced-behaviour-alive">Issue
+293: Python constructors do not keep the referenced behaviour alive</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/293"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/293</a></p>
+<h2
+id="issue-292-variable-lookup-returns-a-reference-into-a-temporary-vector">Issue
+292: Variable lookup returns a reference into a temporary vector</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/292"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/292</a></p>
+<h2
+id="issue-290-numpy-arrays-are-exposed-as-non-owning-views-with-no-lifetime-link">Issue
+290: NumPy arrays are exposed as non-owning views with no lifetime
+link</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/290"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/290</a></p>
+<h2
+id="issue-289-quantity-modifier-keeps-a-reference-into-a-temporary">Issue
+289: Quantity modifier keeps a reference into a temporary</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/289"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/289</a></p>
+<h2
+id="issue-288-tensor-views-over-function-views-are-never-size-checked">Issue
+288: Tensor views over function views are never size-checked</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/288"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/288</a></p>
+<h2
+id="issue-286-scalar-reductions-return-zero-instead-of-failing">Issue
+286: Scalar reductions return zero instead of failing</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/286"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/286</a></p>
+<h2
+id="issue-285-fixed-size-views-alias-temporaries-returned-by-value">Issue
+285: Fixed-size views alias temporaries returned by value</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/285"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/285</a></p>
+<h2 id="issue-284-fixedsizemodifier-breaks-the-check-chain">Issue 284:
+<code>FixedSizeModifier</code> breaks the check chain</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/284"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/284</a></p>
+<h2
+id="issue-282-restoring-a-non-scalar-per-point-field-overflows-the-buffer">Issue
+282: Restoring a non-scalar per-point field overflows the buffer</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/282"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/282</a></p>
+<h2
+id="issue-281-restoring-a-per-point-scalar-field-into-a-uniform-holder-reads-nothing">Issue
+281: Restoring a per-point scalar field into a uniform holder reads
+nothing</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/281"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/281</a></p>
+<h2
+id="issue-280-restoring-from-hdf5-never-creates-a-missing-field">Issue
+280: Restoring from HDF5 never creates a missing field</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/280"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/280</a></p>
+<h2
+id="issue-279-saving-a-material-data-manager-to-hdf5-always-fails">Issue
+279: Saving a material data manager to HDF5 always fails</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/279"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/279</a></p>
+<h2
+id="issue-277-initialize-functions-and-post-processings-report-success-after-failing">Issue
+277: Initialize functions and post-processings report success after
+failing</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/277"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/277</a></p>
+<h2 id="issue-275-material-axis-size-checks-are-inverted">Issue 275:
+Material axis size checks are inverted</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/275"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/275</a></p>
+<h2
+id="issue-273-fortran-tangent-operator-view-is-transposed-only-for-square-blocks">Issue
+273: Fortran tangent operator view is transposed only for square
+blocks</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/273"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/273</a></p>
+<h2
+id="issue-272-fortran-upper-bound-accessor-compares-against-an-undefined-variable">Issue
+272: Fortran upper bound accessor compares against an undefined
+variable</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/272"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/272</a></p>
+<h2
+id="issue-271-c-rotation-functions-call-null-pointers-on-isotropic-behaviours">Issue
+271: C rotation functions call null pointers on isotropic
+behaviours</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/271"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/271</a></p>
+<h2
+id="issue-270-fortran-tangent-operator-accessor-builds-its-shape-from-an-unset-variable">Issue
+270: Fortran tangent operator accessor builds its shape from an unset
+variable</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/270"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/270</a></p>
+<h2
+id="issue-269-fortran-internal-state-variable-accessor-uses-the-variable-count-as-the-array-size">Issue
+269: Fortran internal state variable accessor uses the variable count as
+the array size</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/269"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/269</a></p>
+<h2
+id="issue-268-fortran-array-rotation-functions-pass-the-point-count-by-reference">Issue
+268: Fortran array rotation functions pass the point count by
+reference</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/268"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/268</a></p>
+<h2
+id="issue-267-fortran-rotation-interfaces-pass-array-descriptors-instead-of-addresses">Issue
+267: Fortran rotation interfaces pass array descriptors instead of
+addresses</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/267"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/267</a></p>
+<h2
+id="issue-266-hydrostatic-pressure-function-returns-the-von-mises-stress">Issue
+266: Hydrostatic pressure function returns the von Mises stress</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/266"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/266</a></p>
+<h2
+id="issue-265-integrate_debug-crashes-from-the-second-integration-point">Issue
+265: <code>integrate_debug</code> crashes from the second integration
+point</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/265"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/265</a></p>
+<h2
+id="issue-264-update-policy-test-inverted-for-non-uniform-external-storage">Issue
+264: Update policy test inverted for non-uniform external storage</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/264"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/264</a></p>
+<h2
+id="issue-261-error-handling-add-proper-abort-and-terminate-functions">Issue
+261: [[error-handling]] add proper <code>abort</code> and
+<code>terminate</code> functions</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/261"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/261</a></p>
+<h2
+id="issue-258-construct-does-not-work-for-objects-non-movable-and-non-copyable">Issue
+258: <code>construct</code> does not work for objects non movable and
+non copyable</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/258"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/258</a></p>
+<h2
+id="issue-257-conversion-of-invalidresult-to-optional-type-may-be-ambiguous-if-invalidtype-is-convertible-to-the-type-hold-by-the-optional">Issue
+257: Conversion of <code>InvalidResult</code> to optional type may be
+ambiguous if InvalidType is convertible to the type hold by the
+<code>optional</code></h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/257"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/257</a></p>
 <h2 id="issue-255-fix-invoketest-on-macos">Issue 255: Fix
 <code>InvokeTest</code> on <code>MacOS</code></h2>
 <p>For more details, see <a
@@ -627,7 +1298,6 @@ class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/244<
 id="issue-236-mgis-function-allow-assignement-operator-and-assign-algorithm-to-work-on-temporary-views">Issue
 236: [mgis-function] Allow “assignement” operator | and
 <code>assign</code> algorithm to work on temporary views</h2>
-<p>￼</p>
 <p>For more details, see <a
 href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/236"
 class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/236</a></p>
@@ -659,11 +1329,23 @@ types</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/226"
 class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/226</a></p>
+<h2
+id="issue-224-github-actions-add-support-actions-based-on-mac-os-windowsvisual-studio-and-windowsminggw">Issue
+224: [github-actions] Add support actions based on <code>Mac Os</code>,
+<code>Windows/Visual Studio</code> and <code>Windows/MingGW</code></h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/224"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/224</a></p>
 <h2 id="issue-220-mgis-function-add-support-for-nvcc">Issue 220:
 [mgis-function] Add support for <code>nvcc</code></h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/220"
 class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/220</a></p>
+<h2 id="issue-219-enable-profiling-via-context">Issue 219: Enable
+profiling via Context</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/219"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/219</a></p>
 <h2
 id="issue-210-documentation-deployment-of-the-doxygen-documentation">Issue
 210: <a href="#documentation">documentation</a> Deployment of the
@@ -679,12 +1361,12 @@ operations in <code>MaterialDataManager</code></h2>
 href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/209"
 class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/209</a></p>
 <h2
-id="issue-201-add-the-ability-to-update-only-the-state-variables-of-a-materialstatemanager">Issue
-201: Add the ability to update only the state variables of a
+id="issue-202-add-the-ability-to-update-only-the-state-variables-of-a-materialstatemanager">Issue
+202: Add the ability to update only the state variables of a
 <code>MaterialStateManager</code></h2>
 <p>For more details, see <a
-href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/201"
-class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/201</a></p>
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/202"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/202</a></p>
 <h2
 id="issue-200-create-environment-file-in-the-installation-directory">Issue
 200: Create environment file in the installation directory</h2>
@@ -704,12 +1386,29 @@ id="issue-196-mgisfunction-add-function-view-with-strided-coalesent-memory-acces
 access</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/196"
-class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/196</a>￼</p>
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/196</a></p>
+<h2 id="issue-195-python-expose-setmaterialproperty">Issue 195: [python]
+Expose <code>setMaterialProperty</code></h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/195"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/195</a></p>
+<h2 id="issue-191-document-error-handling">Issue 191: Document error
+handling</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/191"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/191</a></p>
+<h2
+id="issue-160-add-pre-compiled-postprocessings-based-on-mgisfunction">Issue
+160: Add pre-compiled postprocessings based on
+<code>MGIS/Function</code></h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/160"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/160</a></p>
 <h2 id="issue-158-model-implicite-for-licos-software">Issue 158: Model
 implicite for LICOS software</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/158"
-class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/158</a>￼</p>
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/158</a></p>
 <h1 id="acknowledgements">Acknowledgements</h1>
 <p>The authors are grateful to the many contributors to the
 <code>TFEL/MFront</code> project. This research was conducted in the

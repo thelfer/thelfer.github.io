@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>List of physical constants</title>
         <meta name="author" content="Thomas Helfer" />
-            <meta name="date" content="2017-01-01" />
+            <meta name="date" content="2026-10-11" />
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style type="text/css">code{white-space: pre;}</style>
             <style type="text/css">
@@ -286,6 +286,7 @@
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
                  <li><a href="behaviour-variable.html">Behaviour variables</a></li>
+                 <li><a href="mfront-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -331,6 +332,7 @@
 	    </li>
 	    <li><a href="mtest.html">MTest</a>
                <ul>
+	      <li><a href="ptest.html">Simulation of pipes</a></li>
 	      <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
               <li><a href="MTest-keywords.html">MTest keywords</a></li>
 	      </ul>
@@ -355,6 +357,7 @@
 		<li><a href="tfel-material-homogenization.html">TFEL/Material homogenization</a></li>
                  <li><a href="glossary.html">Glossary</a></li>
                  <li><a href="physical-constants.html">Physical constants</a></li>
+                 <li><a href="tfel-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="tfel-mfront-database.html">TFELMFrontDatabase</a></li>
 	      </ul>
 	    </li>
@@ -374,6 +377,7 @@
 	  <ul>
 	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
 	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="coding-guidelines.html">Coding guidelines</a></li>
 	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
 	  </ul>
 	</li>
@@ -391,24 +395,57 @@
 <div id="header">
 <h1 class="title">List of physical constants</h1>
 <h2 class="author">Thomas Helfer</h2>
-<h3 class="date">2017</h3>
+<h3 class="date">10/11/2026</h3>
 </div>
-<p>Various physical constants are now available. The values are
-extracted from: <a
+<div id="TOC">
+<ul>
+<li><a href="#values-of-the-physical-constants"
+id="toc-values-of-the-physical-constants">Values of the physical
+constants</a></li>
+<li><a href="#versioned-values" id="toc-versioned-values">Versioned
+values</a></li>
+<li><a href="#c" id="toc-c"><code>C++</code></a>
+<ul>
+<li><a href="#quantities" id="toc-quantities">Quantities</a></li>
+</ul></li>
+<li><a href="#python" id="toc-python"><code>Python</code></a></li>
+<li><a href="#fortran" id="toc-fortran"><code>Fortran</code></a></li>
+<li><a href="#changing-the-values-of-the-physical-constants"
+id="toc-changing-the-values-of-the-physical-constants">Changing the
+values of the physical constants</a></li>
+<li><a href="#known-limitations" id="toc-known-limitations">Known
+limitations</a></li>
+<li><a href="#see-also" id="toc-see-also">See also</a></li>
+</ul>
+</div>
+<p>The physical constants are extracted from: <a
 href="http://physics.nist.gov/cuu/Constants/index.htm"
 class="uri">http://physics.nist.gov/cuu/Constants/index.htm</a></p>
+<p>Their values are subject to compatibility modes: the values which are
+used by default are those of the compatibility mode of the version,
+whereas the values of the next major version, which use all the
+published digits of the <code>CODATA</code> 2014 values, are available
+in a specific namespace. Compatibility modes are described in the page
+devoted to <a href="tfel-compatibility-modes.html">compatibility modes
+in the <code>TFEL</code> libraries</a>.</p>
+<h1 id="values-of-the-physical-constants">Values of the physical
+constants</h1>
+<p>Version 5.2 provides the following values, where the
+<code>5.2.0</code> column is the default:</p>
 <table>
 <colgroup>
-<col style="width: 11%" />
-<col style="width: 29%" />
-<col style="width: 32%" />
-<col style="width: 26%" />
+<col style="width: 9%" />
+<col style="width: 22%" />
+<col style="width: 24%" />
+<col style="width: 24%" />
+<col style="width: 19%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th>Symbol</th>
 <th>Description</th>
-<th>Value</th>
+<th>Value (<code>5.2.0</code>)</th>
+<th>Value (<code>6.0.0</code>)</th>
 <th>Unit</th>
 </tr>
 </thead>
@@ -416,90 +453,388 @@ class="uri">http://physics.nist.gov/cuu/Constants/index.htm</a></p>
 <tr class="odd">
 <td><span class="math inline">\(\mu\)</span></td>
 <td>Atomic mass constant</td>
+<td><span class="math inline">\(1.66054\,.10^{-27}\)</span></td>
 <td><span class="math inline">\(1.660539040\,.10^{-27}\)</span></td>
 <td><span class="math inline">\(kg\)</span></td>
 </tr>
 <tr class="even">
 <td><span class="math inline">\(N_{a}\)</span></td>
 <td>Avogadro constant</td>
+<td><span class="math inline">\(6.02214\,.10^{23}\)</span></td>
 <td><span class="math inline">\(6.022140857\,.10^{23}\)</span></td>
 <td><span class="math inline">\(\mathrm{mol}^{-1}\)</span></td>
 </tr>
 <tr class="odd">
 <td><span class="math inline">\(k_{b}\)</span></td>
 <td>Boltzmann constant</td>
+<td><span class="math inline">\(1.38065\,.10^{-23}\)</span></td>
 <td><span class="math inline">\(1.38064852\,.10^{-23}\)</span></td>
 <td><span class="math inline">\(J.K^{-1}\)</span></td>
 </tr>
 <tr class="even">
 <td><span class="math inline">\(G_{0}\)</span></td>
 <td>Conductance quantum</td>
+<td><span class="math inline">\(7.74809\,.10^{-5}\)</span></td>
 <td><span class="math inline">\(7.7480917310\,.10^{-5}\)</span></td>
 <td><span class="math inline">\(S\)</span></td>
 </tr>
 <tr class="odd">
 <td><span class="math inline">\(e_{0}\)</span></td>
 <td>Electric constant</td>
+<td><span class="math inline">\(8.85419\,.10^{-12}\)</span></td>
 <td><span class="math inline">\(8.854187817\,.10^{-12}\)</span></td>
 <td><span class="math inline">\(F.m^{-1}\)</span></td>
 </tr>
 <tr class="even">
 <td><span class="math inline">\(m_{e}\)</span></td>
 <td>Electron mass</td>
+<td><span class="math inline">\(9.10938\,.10^{-31}\)</span></td>
 <td><span class="math inline">\(9.10938356\,.10^{-31}\)</span></td>
 <td><span class="math inline">\(kg\)</span></td>
 </tr>
 <tr class="odd">
 <td><span class="math inline">\(eV\)</span></td>
 <td>Electron volt</td>
+<td><span class="math inline">\(1.60218\,.10^{-19}\)</span></td>
 <td><span class="math inline">\(1.6021766208\,.10^{-19}\)</span></td>
 <td><span class="math inline">\(J\)</span></td>
 </tr>
 <tr class="even">
 <td><span class="math inline">\(e\)</span></td>
 <td>Elementary charge</td>
+<td><span class="math inline">\(1.60218\,.10^{-19}\)</span></td>
 <td><span class="math inline">\(1.6021766208\,.10^{-19}\)</span></td>
 <td><span class="math inline">\(C\)</span></td>
 </tr>
 <tr class="odd">
 <td><span class="math inline">\(F\)</span></td>
 <td>Faraday constant</td>
+<td><span class="math inline">\(96485.3\)</span></td>
 <td><span class="math inline">\(96485.33289\)</span></td>
 <td><span class="math inline">\(C.\mathrm{mol}^{-1}\)</span></td>
 </tr>
 <tr class="even">
 <td><span class="math inline">\(a\)</span></td>
 <td>Fine-structure constant</td>
+<td><span class="math inline">\(7.29735\,.10^{-3}\)</span></td>
 <td><span class="math inline">\(7.2973525664\,.10^{-3}\)</span></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td><span class="math inline">\(R\)</span></td>
 <td>Molar gas constant</td>
+<td><span class="math inline">\(8.31446\)</span></td>
 <td><span class="math inline">\(8.3144598\)</span></td>
 <td><span class="math inline">\(J.\mathrm{mol}^{-1}.K^{-1}\)</span></td>
 </tr>
 <tr class="even">
 <td><span class="math inline">\(s\)</span></td>
 <td>Stefan-Boltzmann constant</td>
+<td><span class="math inline">\(5.67037\,.10^{-8}\)</span></td>
 <td><span class="math inline">\(5.670367\,.10^{-8}\)</span></td>
 <td><span class="math inline">\(W.m^{-2}.K^{-4}\)</span></td>
 </tr>
 </tbody>
 </table>
+<p>The set of the next major version, <code>6.0.0</code>, uses the
+<code>CODATA</code> 2014 internationally recommended values with all
+their published digits.</p>
+<h1 id="versioned-values">Versioned values</h1>
+<p>The <code>TFEL/PhysicalConstants</code> library defines one header
+per version which introduced a change of those values, which all declare
+the same names:</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Version</th>
+<th>Header</th>
+<th><code>PhysicalConstants</code> class</th>
+<th>Constants</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>5.2.0</code></td>
+<td><code>TFEL/PhysicalConstants-5.2.0.hxx</code></td>
+<td><code>tfel::v5_2_0::PhysicalConstants</code></td>
+<td><code>tfel::constants::v5_2_0</code></td>
+</tr>
+<tr class="even">
+<td><code>6.0.0</code></td>
+<td><code>TFEL/PhysicalConstants-6.0.0.hxx</code></td>
+<td><code>tfel::v6_0_0::PhysicalConstants</code></td>
+<td><code>tfel::constants::v6_0_0</code></td>
+</tr>
+</tbody>
+</table>
+<p>Each of these headers declares:</p>
+<ul>
+<li>a template class
+<code>PhysicalConstants&lt;NumericType, use_quantities&gt;</code>, with
+the same members, in the namespace
+<code>tfel::v&lt;x&gt;_&lt;y&gt;_&lt;z&gt;</code>,</li>
+<li>a variable template per constant, in the namespace
+<code>tfel::constants::v&lt;x&gt;_&lt;y&gt;_&lt;z&gt;</code>. Those
+variable templates have the two template parameters
+<code>NumericType</code>, whose default type is <code>double</code>, and
+<code>use_quantities</code>, whose default value is
+<code>false</code>.</li>
+</ul>
+<p>The header <code>TFEL/PhysicalConstants.hxx</code> includes all of
+them and defines the aliases giving access to the values of the current
+version, and to those of the next major version, without naming a mode
+explicitly:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Alias</th>
+<th>Values</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>tfel::PhysicalConstants</code></td>
+<td>those of the current version, <code>5.2.0</code> in Version 5.2</td>
+</tr>
+<tr class="even">
+<td><code>tfel::constants</code></td>
+<td>those of the current version, <code>5.2.0</code> in Version 5.2</td>
+</tr>
+<tr class="odd">
+<td><code>tfel::future::PhysicalConstants</code></td>
+<td>those of the next major version, <code>6.0.0</code></td>
+</tr>
+<tr class="even">
+<td><code>tfel::constants::future</code></td>
+<td>those of the next major version, <code>6.0.0</code></td>
+</tr>
+</tbody>
+</table>
+<p>In Version 5.2, <code>tfel::PhysicalConstants</code> is
+<code>tfel::v5_2_0::PhysicalConstants</code>: the unversioned names give
+the values of Version 5.1.</p>
 <h1 id="c"><code>C++</code></h1>
 <p>The physical constants are available as constexpr static members of
 <code>tfel::PhysicalConstants</code> class defined in the
 <code>TFEL/PhysicalConstants.hxx</code> header.</p>
 <div class="sourceCode" id="cb1"><pre
-class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> Cste   <span class="op">=</span> tfel<span class="op">::</span>PhysicalConstants<span class="op">&lt;</span>real<span class="op">&gt;;</span></span>
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> Cste   <span class="op">=</span> tfel<span class="op">::</span>PhysicalConstants<span class="op">&lt;</span>real<span class="op">&gt;;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> R <span class="op">=</span> Cste<span class="op">::</span>R<span class="op">;</span></span></code></pre></div>
-<h1 id="python"><code>Python</code></h1>
-<p>The physical constants are available as members of the
-<code>tfel.PhysicalConstants</code> class, as follows:</p>
+<p>This class gives the values of the current version of
+<code>TFEL</code>. The values of a given compatibility mode are
+available in the namespace
+<code>tfel::v&lt;x&gt;_&lt;y&gt;_&lt;z&gt;</code>, whereas those of the
+next major version are available in the namespace
+<code>tfel::future</code>:</p>
 <div class="sourceCode" id="cb2"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tfel <span class="im">import</span> PhysicalConstants <span class="im">as</span> Cste</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Cste.Na)</span></code></pre></div>
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> R <span class="op">=</span> tfel<span class="op">::</span>v5_2_0<span class="op">::</span>PhysicalConstants<span class="op">&lt;</span>real<span class="op">&gt;::</span>R<span class="op">;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="kw">auto</span> s <span class="op">=</span> tfel<span class="op">::</span>future<span class="op">::</span>PhysicalConstants<span class="op">&lt;</span>real<span class="op">&gt;::</span>s<span class="op">;</span></span></code></pre></div>
+<p>The same values are accessible through the variable templates of the
+<code>tfel::constants</code> namespace:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> R <span class="op">=</span> tfel<span class="op">::</span>constants<span class="op">::</span>R<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> s <span class="op">=</span> tfel<span class="op">::</span>constants<span class="op">::</span>v6_0_0<span class="op">::</span>s<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;;</span></span></code></pre></div>
+<p>The following example shows that the default value of the molar gas
+constant and the value of the set of the next major version differ, and
+how both are accessed:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iomanip&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;TFEL/PhysicalConstants.hxx&quot;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">// the values of the current version</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="kw">auto</span> r <span class="op">=</span> tfel<span class="op">::</span>constants<span class="op">::</span>R<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;;</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">// a given compatibility mode</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="kw">auto</span> r520 <span class="op">=</span> tfel<span class="op">::</span>constants<span class="op">::</span>v5_2_0<span class="op">::</span>R<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;;</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="kw">auto</span> r600 <span class="op">=</span> tfel<span class="op">::</span>constants<span class="op">::</span>v6_0_0<span class="op">::</span>R<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="co">// the values of the next major version</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constexpr</span> <span class="kw">auto</span> rf <span class="op">=</span> tfel<span class="op">::</span>constants<span class="op">::</span>future<span class="op">::</span>R<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;;</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="bu">std::</span>cout <span class="op">&lt;&lt;</span> <span class="bu">std::</span>setprecision<span class="op">(</span><span class="dv">17</span><span class="op">);</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="bu">std::</span>cout <span class="op">&lt;&lt;</span> r <span class="op">&lt;&lt;</span> <span class="ch">&#39; &#39;</span> <span class="op">&lt;&lt;</span> r520 <span class="op">&lt;&lt;</span> <span class="ch">&#39; &#39;</span> <span class="op">&lt;&lt;</span> r600 <span class="op">&lt;&lt;</span> <span class="ch">&#39; &#39;</span> <span class="op">&lt;&lt;</span> rf <span class="op">&lt;&lt;</span> <span class="ch">&#39;</span><span class="sc">\n</span><span class="ch">&#39;</span><span class="op">;</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span>  <span class="co">// end of main</span></span></code></pre></div>
+<p>Since the <code>TFEL/PhysicalConstants</code> library is a
+header-only library, only the path to the headers is needed to compile
+this example:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> g++ <span class="at">-std</span><span class="op">=</span>c++20 <span class="va">$(</span><span class="ex">tfel-config</span> <span class="at">--includes</span><span class="va">)</span> constants.cxx</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ./a.out</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">8.3144600000000004</span> 8.3144600000000004 8.3144597999999998 8.3144597999999998</span></code></pre></div>
+<p>The call to <code>std::setprecision</code> is required:
+<code>std::cout</code> prints only six significant digits by default,
+which is not enough to distinguish the values of two compatibility
+modes.</p>
+<h2 id="quantities">Quantities</h2>
+<p>Quantities are used in the same way, by setting the second template
+argument to <code>true</code>:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> s <span class="op">=</span> tfel<span class="op">::</span>constants<span class="op">::</span>future<span class="op">::</span>s<span class="op">&lt;</span><span class="dt">double</span><span class="op">,</span> <span class="kw">true</span><span class="op">&gt;;</span></span></code></pre></div>
+<p>The class <code>tfel::PhysicalConstants</code> and the constants of
+the current version can also be used with quantities:
+<code>@UseQt</code> behaviours of <code>MFront</code> do so, as
+described in the <a
+href="tfel-math.html#sec:tfel_math:quantities">quantities section of the
+<code>TFEL/Math</code> documentation</a>.</p>
+<h1 id="python"><code>Python</code></h1>
+<p>The physical constants are available as read-only attributes of the
+<code>tfel.PhysicalConstants</code> class, which gives the values of the
+current version of <code>TFEL</code>:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">from</span> tfel <span class="im">import</span> PhysicalConstants <span class="im">as</span> Cste</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(Cste.Na)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fl">6.02214e+23</span></span></code></pre></div>
+<p>The values of a given compatibility mode are available in the
+submodule of the same name, whereas those of the next major version are
+available in the <code>future</code> submodule:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">import</span> tfel</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> tfel.PhysicalConstants.R</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fl">8.31446</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> tfel.v5_2_0.PhysicalConstants.R</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fl">8.31446</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> tfel.v6_0_0.PhysicalConstants.R</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fl">8.3144598</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> tfel.future.PhysicalConstants.R</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fl">8.3144598</span></span></code></pre></div>
+<h1 id="fortran"><code>Fortran</code></h1>
+<p>The <code>Fortran</code> bindings, both the <code>Fortran 77</code>
+include file and the <code>Fortran 95</code> module, expose a single set
+of constants, which is that of the next major version: they are not
+affected by compatibility modes at the time of writing.</p>
+<h1 id="changing-the-values-of-the-physical-constants">Changing the
+values of the physical constants</h1>
+<p>The list of the compatibility modes which affect the values of the
+physical constants and those values are those of the
+<code>tools/PhysicalConstants/physical_constants.json</code> file. A
+development which changes the values of the physical constants shall
+proceed as follows:</p>
+<ol type="1">
+<li><p>Declare the new compatibility mode at the end of the list of the
+compatibility modes, which are the first records of the
+<code>tools/PhysicalConstants/physical_constants.json</code> file:</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="er">mode</span><span class="fu">:</span> <span class="st">&quot;&lt;X&gt;.&lt;Y&gt;.&lt;Z&gt;&quot;</span><span class="er">;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="er">description:</span> <span class="st">&quot;Compatibility module with version &lt;X&gt;.&lt;Y&gt;.&lt;Z&gt;.&quot;</span><span class="er">;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p>The compatibility modes are declared in increasing order. The values
+of the last compatibility mode are those of the next major version of
+<code>TFEL</code>, which are not used yet. Since the <code>Python</code>
+bindings select the values to use with the
+<code>TFEL_VERSION_MAJOR</code> preprocessor variable only, the major
+version of a new compatibility mode shall be greater than that of the
+compatibility mode of the current version of <code>TFEL</code>.</p></li>
+<li><p>Give the values of the next major version in the
+<code>value</code> field of the constants which change, and those of the
+compatibility mode those values replace in the <code>values</code> field
+of the same records:</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a> <span class="er">name</span><span class="fu">:</span> <span class="st">&quot;StefanBoltzmannConstant&quot;</span><span class="er">;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a> <span class="er">short_name:</span> <span class="st">&quot;s&quot;</span><span class="er">;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a> <span class="er">description:</span> <span class="st">&quot;Stefan-Boltzmann constant&quot;</span><span class="er">;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a> <span class="er">unit:</span> <span class="st">&quot;W.m^{-2}.K^{-4}&quot;</span><span class="er">;</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a> <span class="er">qt_unit:</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>   <span class="ot">[</span> <span class="dv">1</span><span class="ot">,</span> <span class="dv">0</span><span class="ot">,</span> <span class="dv">-3</span><span class="ot">,</span> <span class="dv">0</span><span class="ot">,</span> <span class="dv">-4</span><span class="ot">,</span> <span class="dv">0</span><span class="ot">,</span> <span class="dv">0</span> <span class="ot">]</span><span class="er">;</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a> <span class="er">value:</span> <span class="fl">5.670367e-8</span><span class="er">;</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a> <span class="er">values:</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a> <span class="ot">[</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>   <span class="fu">{</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>     <span class="er">mode</span><span class="fu">:</span> <span class="st">&quot;5.2.0&quot;</span><span class="er">;</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>     <span class="er">value:</span> <span class="fl">5.67037e-8</span><span class="er">;</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>   <span class="fu">}</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a> <span class="ot">]</span><span class="er">;</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p>A compatibility mode which does not appear in the <code>values</code>
+field uses the values of the <code>value</code> field. The latter are
+also those used by the language bindings which are not versioned, such
+as the <code>Fortran</code> ones. As the values of an already published
+compatibility mode shall never change, the values of the mode of the
+current version of <code>TFEL</code> are pinned in the
+<code>values</code> field of each constant whose values change: without
+doing so, changing the values of the next major version would change
+those of the published compatibility mode.</p></li>
+<li><p>Regenerate the headers, the <code>Python</code> bindings and the
+page describing the library, then copy them to the source tree:</p>
+<pre class="shell"><code>g++ physical_constants.cxx -o physical_constants \
+    `tfel-config --compiler-flags --includes --libs --utilities`
+./physical_constants
+clang-format -i PhysicalConstants*.hxx PhysicalConstants-python.cxx
+cp PhysicalConstants-&lt;X&gt;.&lt;Y&gt;.&lt;Z&gt;.hxx PhysicalConstants.hxx \
+   ../../include/TFEL/
+cp PhysicalConstants-python.cxx \
+   ../../bindings/python/tfel/PhysicalConstants.cxx
+cp TFELPHYSICALCONSTANTS.INC ../../bindings/fortran77/
+cp tfel_physical_constants.f90 ../../bindings/fortran90/
+cp tfel-physical-constants.md ../../docs/web/</code></pre>
+<p>One header is generated per compatibility mode, together with the
+<code>PhysicalConstants.hxx</code> header, which includes all of those
+headers and redirects the names without suffix to the values of the
+compatibility mode of the current version of <code>TFEL</code> and those
+of the <code>tfel::future</code> and
+<code>tfel::constants::future</code> namespaces to the values of the
+next major version. The <code>Fortran</code> bindings expose the values
+of the next major version. Once formatted by <code>clang-format</code>,
+the regenerated files are identical to the committed ones, except for
+the values which have changed: checking those differences is the way of
+checking that no value has been changed by mistake.</p></li>
+<li><p>Install the new header in
+<code>include/CMakeLists.txt</code>:</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install_header</span>(TFEL PhysicalConstants-&lt;X&gt;.&lt;<span class="ot">Y</span>&gt;.&lt;Z&gt;.hxx)</span></code></pre></div></li>
+<li><p>Describe the new values in the section giving the <a
+href="#values-of-the-physical-constants">values of the physical
+constants</a>, which tabulates the values of each compatibility
+mode.</p></li>
+<li><p>Declare the new mode in <code>MFront</code>, as described in the
+<a
+href="mfront-compatibility-modes.html#adding-a-new-compatibility-mode">corresponding
+section</a>, so that <code>MFront</code> generates code using the new
+values.</p></li>
+<li><p>Describe the change in the release notes of the version which
+introduces it and mention the compatibility modes which are
+affected.</p></li>
+</ol>
+<p>The two test models <code>PhysicalConstants_v5_2_0</code> and
+<code>PhysicalConstants_v6_0_0</code> of <code>MFront</code>, which
+return the value of the Stefan-Boltzmann constant, and the
+<code>MTest</code> files <code>physical-constants-5.2.0.mtest</code> and
+<code>physical-constants-6.0.0.mtest</code>, which check the value they
+give, are the reference tests of this mechanism: a new compatibility
+mode shall be tested in the same way.</p>
+<h1 id="known-limitations">Known limitations</h1>
+<ul>
+<li>The values tabulated in the section giving the <a
+href="#values-of-the-physical-constants">values of the physical
+constants</a> are described by hand, whereas those of the headers and of
+the <code>Python</code> bindings are generated from the
+<code>tools/PhysicalConstants/physical_constants.json</code> file:
+checking that those two descriptions agree is done when the values
+change.</li>
+<li>The <code>Fortran</code> bindings are not versioned yet: they expose
+a single set of constants, which is that of the next major version.</li>
+</ul>
+<h1 id="see-also">See also</h1>
+<ul>
+<li><a href="tfel-compatibility-modes.html">Compatibility modes in the
+<code>TFEL</code> libraries</a></li>
+<li><a href="mfront-compatibility-modes.html">Compatibility modes in
+<code>MFront</code></a></li>
+<li><a href="tfel-physical-constants.html">The
+<code>TFEL/PhysicalConstants</code> library</a></li>
+<li><a href="coding-guidelines.html#backward-compatibility">Coding
+guidelines</a></li>
+</ul>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

@@ -124,6 +124,7 @@
 		<li><a href="orthotropic-behaviours.html">Support for orthotropic behaviours</a></li>
 		<li><a href="behaviour-integration-failure-analysis.html">Analysing failure of behaviour integration</a></li>
 		<li><a href="functions.html">Functions</a></li>
+		<li><a href="profiling.html">Profiling</a></li>
 	      </ul>
 	    </li>
 	    <li><a href="faq.html">FAQ</a></li>
@@ -154,14 +155,30 @@
 <ul>
 <li><a href="#issues-fixed" id="toc-issues-fixed">Issues fixed</a>
 <ul>
+<li><a
+href="#issue-291-division-by-zero-when-a-behaviour-declares-no-internal-state-variable"
+id="toc-issue-291-division-by-zero-when-a-behaviour-declares-no-internal-state-variable">Issue
+291: Division by zero when a behaviour declares no internal state
+variable</a></li>
 <li><a href="#issue-287-tensormodifier-may-map-a-temporary"
 id="toc-issue-287-tensormodifier-may-map-a-temporary">Issue 287:
 <code>TensorModifier</code> may map a temporary</a></li>
+<li><a
+href="#issue-276-dangling-reference-while-collecting-threaded-integration-results"
+id="toc-issue-276-dangling-reference-while-collecting-threaded-integration-results">Issue
+276: Dangling reference while collecting threaded integration
+results</a></li>
 <li><a
 href="#issue-263-copyn-does-not-compile-for-n-5-and-loses-the-first-value"
 id="toc-issue-263-copyn-does-not-compile-for-n-5-and-loses-the-first-value">Issue
 263: <code>copy&lt;N&gt;</code> does not compile for <code>N ≥ 5</code>
 and loses the first value</a></li>
+<li><a
+href="#issue-252-fix-conditional-tests-using-math_errhandling-this-may-is-defined-on-macos-by-a-macro-calling-an-intrinsic-which-is-not-constexpr"
+id="toc-issue-252-fix-conditional-tests-using-math_errhandling-this-may-is-defined-on-macos-by-a-macro-calling-an-intrinsic-which-is-not-constexpr">Issue
+252: Fix conditional tests using <code>math_errhandling</code>: this may
+is defined on MacOS by a macro calling an intrinsic which is not
+<code>constexpr</code></a></li>
 <li><a
 href="#issue-243-cmake-fix-_tfel_module_path-when-tfelhome-is-defined"
 id="toc-issue-243-cmake-fix-_tfel_module_path-when-tfelhome-is-defined">Issue
@@ -173,6 +190,11 @@ id="toc-issue-242-mgis-function-dont-include-execution-if-support-for-parallel-s
 242: [mgis-function] don’t include execution if support for parallel STL
 algorithms is not requested, to avoid implicit dependeny to
 <code>TBB</code> with <code>gcc</code></a></li>
+<li><a
+href="#issue-212-stridedcoalescedmemoryaccessfunctionviewbase-and-coalescedmemoryaccessfunctionviewbase-tests-fail-to-compile"
+id="toc-issue-212-stridedcoalescedmemoryaccessfunctionviewbase-and-coalescedmemoryaccessfunctionviewbase-tests-fail-to-compile">Issue
+212: StridedCoalescedMemoryAccessFunctionViewBase and
+CoalescedMemoryAccessFunctionViewBase tests fail to compile</a></li>
 <li><a
 href="#issue-208-mgis-function-fix-algorithms.ixx-some-captures-of-the-element-space-are-missing"
 id="toc-issue-208-mgis-function-fix-algorithms.ixx-some-captures-of-the-element-space-are-missing">Issue
@@ -200,17 +222,36 @@ id="toc-issue-197-mgisfunction-fix-coalescedmemoryaccesscompositetensorsview-for
 197: [MGIS/Function] Fix
 <code>CoalescedMemoryAccessCompositeTensorsView</code> for scalar
 values</a></li>
+<li><a
+href="#issue-194-python-setexternalstatevariable-shall-accept-integers"
+id="toc-issue-194-python-setexternalstatevariable-shall-accept-integers">Issue
+194: [python] <code>setExternalStateVariable</code> shall accept
+integers</a></li>
 </ul></li>
 </ul>
 </div>
 <p>The page describes the new functionalities of Version 3.1.1 of the
 <code>MFrontGenericInterfaceSupport</code> project.</p>
 <h1 id="issues-fixed">Issues fixed</h1>
+<h2
+id="issue-291-division-by-zero-when-a-behaviour-declares-no-internal-state-variable">Issue
+291: Division by zero when a behaviour declares no internal state
+variable</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/291"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/291</a></p>
 <h2 id="issue-287-tensormodifier-may-map-a-temporary">Issue 287:
 <code>TensorModifier</code> may map a temporary</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/287"
 class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/287</a></p>
+<h2
+id="issue-276-dangling-reference-while-collecting-threaded-integration-results">Issue
+276: Dangling reference while collecting threaded integration
+results</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/276"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/276</a></p>
 <h2
 id="issue-263-copyn-does-not-compile-for-n-5-and-loses-the-first-value">Issue
 263: <code>copy&lt;N&gt;</code> does not compile for <code>N ≥ 5</code>
@@ -218,6 +259,14 @@ and loses the first value</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/263"
 class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/263</a></p>
+<h2
+id="issue-252-fix-conditional-tests-using-math_errhandling-this-may-is-defined-on-macos-by-a-macro-calling-an-intrinsic-which-is-not-constexpr">Issue
+252: Fix conditional tests using <code>math_errhandling</code>: this may
+is defined on MacOS by a macro calling an intrinsic which is not
+<code>constexpr</code></h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/252"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/252</a></p>
 <h2
 id="issue-243-cmake-fix-_tfel_module_path-when-tfelhome-is-defined">Issue
 243: [cmake] Fix <code>_TFEL_MODULE_PATH</code> when
@@ -233,6 +282,13 @@ algorithms is not requested, to avoid implicit dependeny to
 <p>For more details, see <a
 href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/242"
 class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/242</a></p>
+<h2
+id="issue-212-stridedcoalescedmemoryaccessfunctionviewbase-and-coalescedmemoryaccessfunctionviewbase-tests-fail-to-compile">Issue
+212: StridedCoalescedMemoryAccessFunctionViewBase and
+CoalescedMemoryAccessFunctionViewBase tests fail to compile</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/212"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/212</a></p>
 <h2
 id="issue-208-mgis-function-fix-algorithms.ixx-some-captures-of-the-element-space-are-missing">Issue
 208: [mgis-function] Fix <code>Algorithms.ixx</code>: some captures of
@@ -272,5 +328,12 @@ values</h2>
 <p>For more details, see <a
 href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/197"
 class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/197</a></p>
+<h2
+id="issue-194-python-setexternalstatevariable-shall-accept-integers">Issue
+194: [python] <code>setExternalStateVariable</code> shall accept
+integers</h2>
+<p>For more details, see <a
+href="https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/194"
+class="uri">https://github.com/thelfer/MFrontGenericInterfaceSupport/issues/194</a></p>
 </body>
 </html>

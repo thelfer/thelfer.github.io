@@ -285,6 +285,7 @@
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
                  <li><a href="behaviour-variable.html">Behaviour variables</a></li>
+                 <li><a href="mfront-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -330,6 +331,7 @@
 	    </li>
 	    <li><a href="mtest.html">MTest</a>
                <ul>
+	      <li><a href="ptest.html">Simulation of pipes</a></li>
 	      <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
               <li><a href="MTest-keywords.html">MTest keywords</a></li>
 	      </ul>
@@ -354,6 +356,7 @@
 		<li><a href="tfel-material-homogenization.html">TFEL/Material homogenization</a></li>
                  <li><a href="glossary.html">Glossary</a></li>
                  <li><a href="physical-constants.html">Physical constants</a></li>
+                 <li><a href="tfel-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="tfel-mfront-database.html">TFELMFrontDatabase</a></li>
 	      </ul>
 	    </li>
@@ -373,6 +376,7 @@
 	  <ul>
 	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
 	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="coding-guidelines.html">Coding guidelines</a></li>
 	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
 	  </ul>
 	</li>
@@ -701,7 +705,7 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb9-1"><a href="#c
 <p><strong>Note</strong></p>
 <p>At this stage, the <code>MFront</code> implementation based on a
 numerical jacobian could be fully functional if one modifies the
-<code>@InitLocalVarialbes</code> block to initialize the parameters of
+<code>@InitLocalVariables</code> block to initialize the parameters of
 stress criterion.</p>
 </blockquote>
 <h3 data-number="1.3.4"
@@ -835,7 +839,10 @@ class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href=
 <ul>
 <li>The convergence of <code>MTest</code> is quadratic, i.e. that the
 consistent tangent operator is correct (this is just another way of
-checking if the jacobian of the implicit system is correct):</li>
+checking if the jacobian of the implicit system is correct). The
+comparison to a numerical approximation of the tangent operator is a
+debugging tool: a failed comparison is printed in the output of
+<code>MTest</code>, but does not make the test fail:</li>
 </ul>
 <div class="sourceCode" id="cb17"><pre
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mtest Green1972PerfectPlasticity.mtest                   <span class="dt">\</span></span>

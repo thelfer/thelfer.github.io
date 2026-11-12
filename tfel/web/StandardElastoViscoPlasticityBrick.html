@@ -286,6 +286,7 @@
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
                  <li><a href="behaviour-variable.html">Behaviour variables</a></li>
+                 <li><a href="mfront-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -331,6 +332,7 @@
 	    </li>
 	    <li><a href="mtest.html">MTest</a>
                <ul>
+	      <li><a href="ptest.html">Simulation of pipes</a></li>
 	      <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
               <li><a href="MTest-keywords.html">MTest keywords</a></li>
 	      </ul>
@@ -355,6 +357,7 @@
 		<li><a href="tfel-material-homogenization.html">TFEL/Material homogenization</a></li>
                  <li><a href="glossary.html">Glossary</a></li>
                  <li><a href="physical-constants.html">Physical constants</a></li>
+                 <li><a href="tfel-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="tfel-mfront-database.html">TFELMFrontDatabase</a></li>
 	      </ul>
 	    </li>
@@ -374,6 +377,7 @@
 	  <ul>
 	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
 	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="coding-guidelines.html">Coding guidelines</a></li>
 	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
 	  </ul>
 	</li>
@@ -720,6 +724,13 @@ class="math inline">\(\underline{X}_{i}\)</span></li>
 <li>one isotropic hardening rule (optional), denoted <span
 class="math inline">\(R_{i}\)</span></li>
 </ul>
+<h4 data-number="2.2.3.1" id="newton-steps-rejection"><span
+class="header-section-number">2.2.3.1</span> Newton steps rejection</h4>
+<p>The exponential nature of the hyperbolic sinus function may lead to
+divergence of the Newton method. To avoid this, one may specify a
+relative threshold denoted <span class="math inline">\(K_{sf}\)</span>:
+if the stress estimate is greater than <span
+class="math inline">\(K_{sf}\,K\)</span>, the step is rejected.</p>
 <h3 data-number="2.2.4"
 id="the-harmonicsumofnortonhoffviscoplasticflows-inelastic-flow"><span
 class="header-section-number">2.2.4</span> The
@@ -755,13 +766,6 @@ class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb3-1"><a href="#c
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    n <span class="op">:</span> <span class="op">{</span><span class="fl">8.2</span><span class="op">,</span><span class="fl">8.2</span><span class="op">}</span></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
-<h4 data-number="2.2.4.2" id="newton-steps-rejection"><span
-class="header-section-number">2.2.4.2</span> Newton steps rejection</h4>
-<p>The exponential nature of the hyperbolic sinus function may lead to
-divergence of the Newton method. To avoid this, one may specify a
-relative threshold denoted <span class="math inline">\(K_{sf}\)</span>:
-if the stress estimate is greater than <span
-class="math inline">\(K_{sf}\,K\)</span>, the step is rejected.</p>
 <h3 data-number="2.2.5"
 id="the-userdefinedviscoplasticity-inelastic-flow"><span
 class="header-section-number">2.2.5</span> The
@@ -800,7 +804,11 @@ viscoplastic strain rate and a stress threshold.</p>
 <p>If those derivatives are not provided, automatic differentiation will
 be used. The user shall be warned that the automatic differentiation
 provided by the <code>tfel::math::Evaluator</code> class may result in
-inefficient code.</p>
+inefficient code. The functions <code>tgamma</code> and
+<code>lgamma</code> can’t be differentiated: the derivatives must be
+provided if <code>vp</code> uses them. The functions <code>abs</code>,
+<code>max</code>, <code>min</code> and <code>H</code> are differentiated
+piecewise, the derivative of <code>H</code> being null.</p>
 <h4 class="unnumbered" id="example-of-usage">Example of usage</h4>
 <div class="sourceCode" id="cb4"><pre
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter temperature Ta <span class="op">=</span> <span class="dv">600</span><span class="op">;</span></span>
@@ -1094,7 +1102,7 @@ J_{3}^{O}=
 &amp;\frac{1}{27}\,(b_1+b_2)\,s_{xx}^3+\frac{1}{27}\,(b_3+b_4)\,s_{yy}^3+\frac{1}{27}\,(2\,(b_1+b_4)-b_2-b_3)\,s_{zz}^3\\
 &amp;-\frac{1}{9}\,(b_1\,s_{yy}+b_2s_{zz})\,s_{xx}^2\\
 &amp;-\frac{1}{9}\,(b_3\,s_{zz}+b_4\,s_{xx})\,s_{yy}^2\\
-&amp;-\frac{1}{9}\,((b_1-b_2+b_4)\,s_{xx}+(b_1-b3+b_4)\,s_{yy})\,s_{zz}^3\\
+&amp;-\frac{1}{9}\,((b_1-b_2+b_4)\,s_{xx}+(b_1-b_3+b_4)\,s_{yy})\,s_{zz}^2\\
 &amp;+\frac{2}{9}\,(b_1+b_4)\,s_{xx}\,s_{yy}\,s_{zz}\\
 &amp;-\frac{s_{xz}^2}{3}\,(2\,b_9\,s_{yy}-b_8\,s_{zz}-(2\,b_9-b_8)\,s_{xx})\\
 &amp;-\frac{s_{xy}^2}{3}\,(2\,b_{10}\,s_{zz}-b_5\,s_{yy}-(2\,b_{10}-b_5)\,s_{xx})\\
@@ -1518,7 +1526,11 @@ The derivative <code>dR_dp</code> can depend on the variable
 <p>If this derivative is not provided, automatic differentiation will be
 used. The user shall be warned that the automatic differentiation
 provided by the <code>tfel::math::Evaluator</code> class may result in
-inefficient code.</p>
+inefficient code. The functions <code>tgamma</code> and
+<code>lgamma</code> can’t be differentiated: the derivative must be
+provided if <code>R</code> uses them. The functions <code>abs</code>,
+<code>max</code>, <code>min</code> and <code>H</code> are differentiated
+piecewise, the derivative of <code>H</code> being null.</p>
 <h4 class="unnumbered" id="example-of-usage-3">Example of usage</h4>
 <div class="sourceCode" id="cb20"><pre
 class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter stress R0 <span class="op">=</span> <span class="fl">200e6</span><span class="op">;</span></span>
@@ -1553,8 +1565,9 @@ type. Possible values are <code>linear</code> (default choice) and
 <code>cubic_spline</code>.</li>
 <li><code>extrapolation</code>: which allows to select the extrapolation
 type. Possible values are <code>bound_to_last_value</code> (or
-<code>constant</code>) and <code>extrapolation</code> (default
-choice).</li>
+<code>constant</code>, or the boolean value <code>false</code>) and
+<code>extrapolation</code> (or the boolean value <code>true</code>,
+default choice).</li>
 </ul>
 <h4 data-number="2.5.6.1" id="example-of-usage-4"><span
 class="header-section-number">2.5.6.1</span> Example of usage</h4>
@@ -1767,10 +1780,10 @@ class="math inline">\(\underline{X}=\frac{2}{3}\,C\,\underline{a}\)</span></li>
 \left(1-\phi_{\infty}\right)\,\exp\left(-b\,p\right)\)</span></li>
 <li><span
 class="math inline">\(\Psi^{\left(\underline{X}\right)}\left(\underline{X}\right)=
-\frac{\left&lt;D\,J\left(\underline{X}\right)-\omega\,C\right&gt;^{m}}{1-\omega}\,
+\frac{\left&lt;D\,J\left(\underline{X}\right)-\omega\,C\right&gt;^{m}}{\left(1-\omega\right)^{m}}\,
 \frac{1}{\left(D\,J\left(\underline{X}\right)\right)^{m}}\)</span></li>
 <li><span class="math inline">\(\Psi\left(\underline{a}\right)=
-\frac{\left&lt;D\,J\left(\underline{a}\right)-\frac{3}{2}\omega\right&gt;^{m}}{1-\omega}\,
+\frac{\left&lt;D\,J\left(\underline{a}\right)-\frac{3}{2}\omega\right&gt;^{m}}{\left(1-\omega\right)^{m}}\,
 \frac{1}{\left(D\,J\left(\underline{a}\right)\right)^{m}}\)</span></li>
 </ul>
 <h4 data-number="2.6.4.1" id="example-16"><span
@@ -1782,8 +1795,171 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb27-1"><a href="#
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>      C <span class="op">:</span> <span class="fl">250e7</span><span class="op">,</span></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>      D <span class="op">:</span> <span class="dv">100</span><span class="op">,</span></span>
 <span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>      m <span class="op">:</span> <span class="dv">2</span><span class="op">,</span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>      w <span class="op">:</span> <span class="fl">0.6</span><span class="op">,</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>      w <span class="op">:</span> <span class="fl">0.6</span></span>
 <span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span></code></pre></div>
+<h4 data-number="2.6.4.2" id="properties-of-this-rule"><span
+class="header-section-number">2.6.4.2</span> Properties of this
+rule</h4>
+<p>In this section, <span class="math inline">\(\Phi=1\)</span>. The
+dynamic recovery only acts above the threshold <span
+class="math inline">\(J\left(\underline{X}\right)=\omega\,C/D\)</span>.
+Under a monotonic loading, <span
+class="math inline">\(J\left(\underline{X}\right)\)</span> saturates at
+<span class="math inline">\(C/D\)</span>, whatever the values of <span
+class="math inline">\(m\)</span> and <span
+class="math inline">\(\omega\)</span>.</p>
+<p>Two particular cases are worth noting:</p>
+<ul>
+<li>For <span class="math inline">\(m=1\)</span>, this is the rule used
+in <span class="citation" data-cites="chaboche_cyclic_2012">[<a
+href="#ref-chaboche_cyclic_2012"
+role="doc-biblioref">10</a>]</span>.</li>
+<li>For <span class="math inline">\(\omega=0\)</span>, <span
+class="math inline">\(\Psi=1\)</span>: the exponent <span
+class="math inline">\(m\)</span> has no effect, and this is the
+<code>Armstrong-Frederick</code> rule.</li>
+</ul>
+<p>The values of <span class="math inline">\(m\)</span> and <span
+class="math inline">\(\omega\)</span> (option <code>w</code>) are not
+checked: <span class="math inline">\(\omega=1\)</span> leads to a
+division by zero, and for <span class="math inline">\(m&lt;1\)</span>,
+the derivative of <span class="math inline">\(\Psi\)</span> is singular
+at the threshold.</p>
+<h4 data-number="2.6.4.3" id="comparison-with-the-literature"><span
+class="header-section-number">2.6.4.3</span> Comparison with the
+literature</h4>
+<p>For <span class="math inline">\(m\neq 1\)</span>, this rule is not
+the same as the ones found in the literature, so parameters identified
+for one of them can’t be used as they are in another one.</p>
+<p>Under a uniaxial loading and with <span
+class="math inline">\(\Phi=1\)</span>, the kinematic variable evolves
+as:</p>
+<p><span class="math display">\[
+\dot{X}=C\,\dot{\varepsilon}^{p}-R\,\dot{p}\,\mathrm{sign}\left(X\right)
+\]</span></p>
+<p>The three forms below only differ by the dynamic recovery <span
+class="math inline">\(R\)</span>, given as a function of <span
+class="math inline">\(x=D\,\left|X\right|/C\)</span>. They are identical
+for <span class="math inline">\(m=1\)</span>.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Source</th>
+<th><span class="math inline">\(R/C\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>This rule</td>
+<td><span
+class="math inline">\(\left&lt;\dfrac{x-\omega}{1-\omega}\right&gt;^{m}\,x^{1-m}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="chaboche_cyclic_2012">[<a
+href="#ref-chaboche_cyclic_2012" role="doc-biblioref">10</a>]</span>,
+equation 7, with <span class="math inline">\(m_{1}=m_{2}=m\)</span></td>
+<td><span
+class="math inline">\(D^{m-1}\,\left&lt;\dfrac{x-\omega}{1-\omega}\right&gt;^{m}\,x^{1-m}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="citation" data-cites="chaboche_review_2008">[<a
+href="#ref-chaboche_review_2008" role="doc-biblioref">11</a>]</span>,
+equation 124</td>
+<td><span
+class="math inline">\(\left&lt;\dfrac{x-\omega}{1-\omega}\right&gt;^{m}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Equation 7 of <span class="citation"
+data-cites="chaboche_cyclic_2012">[<a href="#ref-chaboche_cyclic_2012"
+role="doc-biblioref">10</a>]</span>.</strong> This paper only uses <span
+class="math inline">\(m_{1}=m_{2}=1\)</span>. With <span
+class="math inline">\(m_{1}=m_{2}=m\)</span>, its equation describes the
+same family of laws as this rule, but with other values of the
+parameters: the values <span
+class="math inline">\(\left(D,\omega\right)\)</span> of the paper
+correspond to the values <span
+class="math inline">\(\left(D&#39;,\omega&#39;\right)\)</span> of this
+rule such that:</p>
+<p><span class="math display">\[
+\dfrac{\omega&#39;}{D&#39;}=\dfrac{\omega}{D}
+\quad\text{and}\quad
+\dfrac{D&#39;}{\left(1-\omega&#39;\right)^{m}}=\left(\dfrac{D}{1-\omega}\right)^{m}
+\]</span></p>
+<p>This rule has a single exponent: the case <span
+class="math inline">\(m_{1}\neq m_{2}\)</span> can’t be expressed.</p>
+<p><strong>Equation 124 of <span class="citation"
+data-cites="chaboche_review_2008">[<a href="#ref-chaboche_review_2008"
+role="doc-biblioref">11</a>]</span>.</strong> No change of the
+parameters removes the factor <span
+class="math inline">\(x^{1-m}\)</span>. Both forms have the same
+threshold and the same saturation, and their tensile curves are close:
+for <span class="math inline">\(C=2.5\,10^{9}\,\mathrm{Pa}\)</span>,
+<span class="math inline">\(D=100\)</span>, <span
+class="math inline">\(m=2\)</span> and <span
+class="math inline">\(\omega=0.6\)</span>, the largest difference on
+<span class="math inline">\(X\)</span> is <span
+class="math inline">\(0.33\,\mathrm{MPa}\)</span>.</p>
+<p>The ratcheting differs. The following table gives the plastic strain
+per stabilized cycle, with one kinematic variable with the same values
+of <span class="math inline">\(C\)</span> and <span
+class="math inline">\(D\)</span>, an elastic limit of <span
+class="math inline">\(120\,\mathrm{MPa}\)</span> and a stress between
+<span class="math inline">\(-132\,\mathrm{MPa}\)</span> and <span
+class="math inline">\(144\,\mathrm{MPa}\)</span>. This single loading
+only gives an order of magnitude.</p>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(\omega\)</span></th>
+<th><span class="math inline">\(m\)</span></th>
+<th>This rule</th>
+<th>Equation 124</th>
+<th>Ratio</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.6</td>
+<td>1</td>
+<td><span class="math inline">\(6.643\,10^{-3}\)</span></td>
+<td><span class="math inline">\(6.643\,10^{-3}\)</span></td>
+<td>1.00</td>
+</tr>
+<tr class="even">
+<td>0.6</td>
+<td>2</td>
+<td><span class="math inline">\(3.736\,10^{-3}\)</span></td>
+<td><span class="math inline">\(2.958\,10^{-3}\)</span></td>
+<td>1.26</td>
+</tr>
+<tr class="odd">
+<td>0.6</td>
+<td>4</td>
+<td><span class="math inline">\(1.802\,10^{-3}\)</span></td>
+<td><span class="math inline">\(1.163\,10^{-3}\)</span></td>
+<td>1.55</td>
+</tr>
+<tr class="even">
+<td>0.3</td>
+<td>2</td>
+<td><span class="math inline">\(1.095\,10^{-2}\)</span></td>
+<td><span class="math inline">\(6.971\,10^{-3}\)</span></td>
+<td>1.57</td>
+</tr>
+<tr class="odd">
+<td>0</td>
+<td>2</td>
+<td><span class="math inline">\(2.284\,10^{-2}\)</span></td>
+<td><span class="math inline">\(1.105\,10^{-2}\)</span></td>
+<td>2.07</td>
+</tr>
+</tbody>
+</table>
 <h3 data-number="2.6.5"
 id="delobelle-robinet-schaffler-drs-kinematic-hardening-rule"><span
 class="header-section-number">2.6.5</span> Delobelle-Robinet-Schaffler
@@ -1792,9 +1968,9 @@ class="header-section-number">2.6.5</span> Delobelle-Robinet-Schaffler
 been introduced to describe orthotropic viscoplasticity of Zircaloy
 alloys <span class="citation"
 data-cites="delobelle_model_1996 schaffler_thermomechanical_1999">[<a
-href="#ref-delobelle_model_1996" role="doc-biblioref">11</a>, <a
+href="#ref-delobelle_model_1996" role="doc-biblioref">12</a>, <a
 href="#ref-schaffler_thermomechanical_1999"
-role="doc-biblioref">12</a>]</span>. It describes both dynamic and
+role="doc-biblioref">13</a>]</span>. It describes both dynamic and
 static recovery by the following evolution law: <span
 class="math display">\[
 \underline{\dot{a}}=
@@ -1817,6 +1993,8 @@ class="math inline">\(6\)</span> components (see <a
 href="tensors.html">this page</a> for details).</p>
 <p>The <code>f</code> and <code>a0</code> parameters are optional and
 defaults to <span class="math inline">\(1\)</span>.</p>
+<p>This kinematic hardening rule requires the behaviour to be
+orthotropic (see the <code>@OrthotropicBehaviour</code> keyword).</p>
 <h4 data-number="2.6.5.1" id="example-17"><span
 class="header-section-number">2.6.5.1</span> Example</h4>
 <div class="sourceCode" id="cb28"><pre
@@ -1944,8 +2122,17 @@ href="https://doi.org/10.1016/j.ijplas.2012.01.010">10.1016/j.ijplas.2012.01.010
 Available from: <a
 href="http://www.sciencedirect.com/science/article/pii/S0749641912000113">http://www.sciencedirect.com/science/article/pii/S0749641912000113</a></div>
 </div>
-<div id="ref-delobelle_model_1996" class="csl-entry" role="listitem">
+<div id="ref-chaboche_review_2008" class="csl-entry" role="listitem">
 <div class="csl-left-margin">11. </div><div
+class="csl-right-inline"><span class="smallcaps">Chaboche</span>, J. L.
+A review of some plasticity and viscoplasticity constitutive theories.
+<em>International Journal of Plasticity</em>. 1 October 2008. Vol. 24,
+no. 10, p. 1642–1693. DOI <a
+href="https://doi.org/10.1016/j.ijplas.2008.03.009">10.1016/j.ijplas.2008.03.009</a>.
+</div>
+</div>
+<div id="ref-delobelle_model_1996" class="csl-entry" role="listitem">
+<div class="csl-left-margin">12. </div><div
 class="csl-right-inline"><span class="smallcaps">Delobelle</span>, P.,
 <span class="smallcaps">Robinet</span>, P., <span
 class="smallcaps">Geyer</span>, P. and <span
@@ -1959,7 +2146,7 @@ href="https://www.sciencedirect.com/science/article/pii/S0022311596004503">https
 </div>
 <div id="ref-schaffler_thermomechanical_1999" class="csl-entry"
 role="listitem">
-<div class="csl-left-margin">12. </div><div
+<div class="csl-left-margin">13. </div><div
 class="csl-right-inline"><span class="smallcaps">Schäffler</span>, I.,
 <span class="smallcaps">Geyer</span>, P., <span
 class="smallcaps">Bouffioux</span>, P. and <span

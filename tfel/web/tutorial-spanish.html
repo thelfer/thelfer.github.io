@@ -286,6 +286,7 @@
 		<li><a href="parameters.html">Parameters</a></li>
 		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
                  <li><a href="behaviour-variable.html">Behaviour variables</a></li>
+                 <li><a href="mfront-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="interfaces.html">Solver interfaces</a>
 		  <ul>
 		    <li><a href="castem.html">Cast3M</a></li>
@@ -331,6 +332,7 @@
 	    </li>
 	    <li><a href="mtest.html">MTest</a>
                <ul>
+	      <li><a href="ptest.html">Simulation of pipes</a></li>
 	      <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
               <li><a href="MTest-keywords.html">MTest keywords</a></li>
 	      </ul>
@@ -355,6 +357,7 @@
 		<li><a href="tfel-material-homogenization.html">TFEL/Material homogenization</a></li>
                  <li><a href="glossary.html">Glossary</a></li>
                  <li><a href="physical-constants.html">Physical constants</a></li>
+                 <li><a href="tfel-compatibility-modes.html">Compatibility modes</a></li>
 		<li><a href="tfel-mfront-database.html">TFELMFrontDatabase</a></li>
 	      </ul>
 	    </li>
@@ -374,6 +377,7 @@
 	  <ul>
 	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
 	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="coding-guidelines.html">Coding guidelines</a></li>
 	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
 	  </ul>
 	</li>
@@ -883,7 +887,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#
 <h3 id="instrucciones-de-compilación-de-librerías">Instrucciones de
 compilación de librerías</h3>
 <p>Hay tres instrucciones relacionadas con la compilación de fuentes.
-Las instrucciones <code>@Include</code> y <code>@Link</code> tienen una
+Las instrucciones <code>@Includes</code> y <code>@Link</code> tienen una
 importancia particular debido a que permiten utilizar características
 definidas en librerías <code>C++</code> externas.</p>
 <p><code>@Library</code> permite al usuario especificar el nombre de la
@@ -949,11 +953,11 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb16-1"><a href="#
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter fc<span class="op">;</span></span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>fc<span class="op">.</span>setDefaultValue<span class="op">(</span><span class="fl">1.e-2</span><span class="op">);</span></span></code></pre></div>
 <p>Para el analizador <code>Model</code> unas instrucciones específicas,
-<code>@GlobalParameter</code> para definir los parámetros del modelo que
-se podrán usar en otros modelos, y <code>@LocalParameter</code> para
+<code>@Parameter</code> para definir los parámetros del modelo que se
+podrán usar en otros modelos, y <code>@LocalParameter</code> para
 definir parámetros especializados del modelo actual.</p>
 <div class="sourceCode" id="cb17"><pre
-class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>GlobalParameter real a<span class="op">;</span></span>
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Parameter real a<span class="op">;</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>a<span class="op">.</span>setDefaultValue<span class="op">(</span><span class="fl">1.23</span><span class="op">);</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>LocalParameter real b<span class="op">;</span></span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>b<span class="op">.</span>setDefaultValue<span class="op">(</span><span class="fl">1.23</span><span class="op">);</span></span></code></pre></div>
@@ -1014,7 +1018,7 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb21-1"><a href="#
 valor constante. Esta instrucción es sinónima de la instrucción
 <code>@StaticVariable</code> para una variable real.</p>
 <div class="sourceCode" id="cb22"><pre
-class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Constant A <span class="fl">1.234e56</span><span class="op">;</span></span></code></pre></div>
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Constant A <span class="op">=</span> <span class="fl">1.234e56</span><span class="op">;</span></span></code></pre></div>
 <h2 id="modelos-puntuales-simples">Modelos puntuales simples</h2>
 <p>Generalmente, se pueden distinguir dos tipos de modelos:</p>
 <ul>
@@ -1116,11 +1120,11 @@ la rigidez del tensor. Esto generalmente significa que se introducirán
 algunas propiedades de material extra y serán usadas por la interfaz
 antes de la integración del comportamiento.</p>
 <div class="sourceCode" id="cb28"><pre
-class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>RequireStiffnessTensor <span class="kw">true</span><span class="op">;</span></span></code></pre></div>
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>RequireStiffnessTensor<span class="op">;</span></span></code></pre></div>
 <p><code>@RequireThermalExpansionCoefficientTensor</code> requiere que
 el código calcule el tensor del coeficiente de expansión térmica.</p>
 <div class="sourceCode" id="cb29"><pre
-class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>RequireThermalExpansionCoefficientTensor <span class="kw">true</span><span class="op">;</span></span></code></pre></div>
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>RequireThermalExpansionCoefficientTensor<span class="op">;</span></span></code></pre></div>
 <p><code>@MaterialProperty</code> permite al usuario una varias
 propiedades del material. Se le debe especificar el tipo de propiedad
 del material y una lista de los nombres de las propiedades. Se
@@ -1376,6 +1380,8 @@ establece los niveles crecientes.</li>
 puede usar como <code>–v</code>.</li>
 <li><code>--xml-output</code>: salida xml de control (‘No’ por
 defecto).</li>
+<li><code>--xml-output-file</code>: nombre del archivo de salida xml,
+que prevalece sobre la palabra clave <code>@XMLOutputFile</code>.</li>
 </ul>
 <figure>
 <img src="img/tutorial-spanish-6.png"
@@ -1468,8 +1474,8 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb47-1"><a href="#
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="co">//Evolución lineal</span></span>
 <span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Evolution <span class="ch">&#39;P</span><span class="er">ressure</span><span class="ch">&#39;</span> <span class="op">{</span><span class="dv">0</span><span class="op">:</span><span class="fl">0.</span><span class="op">,</span><span class="fl">1.</span><span class="op">:</span><span class="fl">1.e5</span><span class="op">};</span></span>
 <span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="co">//Función</span></span>
-<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Real P0 <span class="fl">2.e5</span></span>
-<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Real P1 <span class="fl">4.e5</span></span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Real <span class="ch">&#39;P</span><span class="er">0</span><span class="ch">&#39;</span> <span class="fl">2.e5</span><span class="op">;</span></span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Real <span class="ch">&#39;P</span><span class="er">1</span><span class="ch">&#39;</span> <span class="fl">4.e5</span><span class="op">;</span></span>
 <span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Evolution<span class="op">&lt;</span>function<span class="op">&gt;</span> <span class="ch">&#39;P</span><span class="er">ressure</span><span class="ch">&#39;</span> <span class="ch">&#39;P</span><span class="er">0+(P1-P0)\*t\*\*2</span><span class="ch">&#39;</span><span class="op">;</span></span></code></pre></div>
 <p><code>@ExternalStateVariable</code> permite al usuario especificar la
 evolución de las variables de estado externas, incluida la temperatura
@@ -1485,8 +1491,8 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb48-1"><a href="#
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="co">//Evolución lineal</span></span>
 <span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ExternalStateVariable <span class="ch">&#39;T</span><span class="er">emperature</span><span class="ch">&#39;</span> <span class="op">{</span><span class="dv">0</span><span class="op">:</span><span class="fl">293.15</span><span class="op">,</span><span class="fl">1.</span><span class="op">:</span><span class="dv">800</span><span class="op">};</span></span>
 <span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="co">//Función</span></span>
-<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Real T0 <span class="fl">293.15</span></span>
-<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Real T1 <span class="fl">400.15</span></span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Real <span class="ch">&#39;T</span><span class="er">0</span><span class="ch">&#39;</span> <span class="fl">293.15</span><span class="op">;</span></span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Real <span class="ch">&#39;T</span><span class="er">1</span><span class="ch">&#39;</span> <span class="fl">400.15</span><span class="op">;</span></span>
 <span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>ExternalStateVariable<span class="op">&lt;</span>function<span class="op">&gt;</span><span class="ch">&#39;T</span><span class="er">emperature</span><span class="ch">&#39;&#39;T</span><span class="er">0+(T1-T0)\*t\*\*2</span><span class="ch">&#39;</span><span class="op">;</span></span></code></pre></div>
 <p><code>@ImposedStrain</code> permite al usuario imponer la evolución
 de un componente de las tensiones.</p>
@@ -1593,7 +1599,7 @@ tiempo puede dividirse por dos. El número máximo de veces que el paso de
 tiempo se reduce se da por el número máximo de sub-pasos.</p>
 <div class="sourceCode" id="cb57"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>MaximumNumberOsSubSteps <span class="dv">10</span><span class="op">;</span></span></code></pre></div>
-<p><code>@ModellingHypotesis</code> permite al usuario elegir la
+<p><code>@ModellingHypothesis</code> permite al usuario elegir la
 hipótesis de modelado a utilizar. Se admiten los siguientes valores
 dados como una cadena:</p>
 <ul>
@@ -1619,12 +1625,12 @@ class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb59-1"><a href="#
 <p><code>@PredictionPolicy</code> le permite al usuario definir cómo se
 obtendrá la estimación inicial de la solución, pudiendo ser:</p>
 <ul>
-<li><code>Noprediction</code></li>
+<li><code>NoPrediction</code></li>
 <li><code>LinearPrediction</code></li>
 <li><code>ElasticPrediction</code></li>
 <li><code>ElasticPredictionFromMaterialProperties</code></li>
-<li><code>SecantPrediction</code></li>
-<li><code>TangentPrediction</code></li>
+<li><code>SecantOperatorPrediction</code></li>
+<li><code>TangentOperatorPrediction</code></li>
 </ul>
 <div class="sourceCode" id="cb60"><pre
 class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>PredictionPolicy <span class="ch">&#39;E</span><span class="er">lasticPrediction</span><span class="ch">&#39;</span><span class="op">;</span></span></code></pre></div>

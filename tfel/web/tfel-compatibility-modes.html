@@ -1,0 +1,643 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN" xml:lang="en-EN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Compatibility modes in the TFEL libraries</title>
+        <meta name="author" content="Thomas Helfer" />
+            <meta name="date" content="2026-10-11" />
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <style type="text/css">code{white-space: pre;}</style>
+            <style type="text/css">
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  background-color: #f8f8f8; }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+      code span.al { color: #ef2929; } /* Alert */
+      code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #204a87; } /* Attribute */
+      code span.bn { color: #0000cf; } /* BaseN */
+      code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4e9a06; } /* Char */
+      code span.cn { color: #8f5902; } /* Constant */
+      code span.co { color: #8f5902; font-style: italic; } /* Comment */
+      code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+      code span.dt { color: #204a87; } /* DataType */
+      code span.dv { color: #0000cf; } /* DecVal */
+      code span.er { color: #a40000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #0000cf; } /* Float */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+      code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+      code span.ot { color: #8f5902; } /* Other */
+      code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+      code span.ss { color: #4e9a06; } /* SpecialString */
+      code span.st { color: #4e9a06; } /* String */
+      code span.va { color: #000000; } /* Variable */
+      code span.vs { color: #4e9a06; } /* VerbatimString */
+      code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+            <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+        <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+        type="text/javascript"></script>
+          </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <header>
+      <ul id="nav">
+	<li><a href="news.html">News</a></li>
+	<li><a href="index.html">Overview</a>
+	  <ul>
+	    <li><a>Domain specific languages</a>
+	      <ul>
+		<li><a href="material-properties.html">Material properties</a></li>
+		<li><a href="behaviours.html">Mechanical behaviours</a></li>
+		<li><a href="models.html">Models</a></li>
+	      </ul>
+            </li>
+	    <li><a href="interfaces.html">Available interfaces</a></li>
+	    <li><a href="associated-projects.html">Associated projects</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting started</a>
+	  <ul>
+	    <li><a href="https://github.com/thelfer/tfel/">Github repository</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/releases">Download</a></li>
+	    <li><a href="release-notes.html">Release notes</a>
+	      <ul>
+		<li><a>Versions 2.0.x</a>
+                  <ul>
+                    <li><a href="release-notes.html">Versions prior to 2.0.5</a></li>
+	 	    <li><a href="release-notes-2.0.5.html">Version 2.0.5</a></li>
+                  </ul>
+		</li>
+		<li><a>Versions 3.0.x</a>
+                  <ul>
+		    <li><a href="release-notes-3.0.html">Version 3.0.0</a></li>
+		    <li><a href="release-notes-3.0.1.html">Version 3.0.1</a></li>
+		    <li><a href="release-notes-3.0.2.html">Version 3.0.2</a></li>
+		    <li><a href="release-notes-3.0.3.html">Version 3.0.3</a></li>
+		    <li><a href="release-notes-3.0.4.html">Version 3.0.4</a></li>
+		    <li><a href="release-notes-3.0.5.html">Version 3.0.5</a></li>
+		    <li><a href="release-notes-3.0.6.html">Version 3.0.6</a></li>
+		    <li><a href="release-notes-3.0.7.html">Version 3.0.7</a></li>
+		    <li><a href="release-notes-3.0.8.html">Version 3.0.8</a></li>
+		    <li><a href="release-notes-3.0.9.html">Version 3.0.9</a></li>
+		    <li><a href="release-notes-3.0.10.html">Version 3.0.10</a></li>
+		    <li><a href="release-notes-3.0.11.html">Version 3.0.11</a></li>
+		    <li><a href="release-notes-3.0.12.html">Version 3.0.12</a></li>
+		    <li><a href="release-notes-3.0.13.html">Version 3.0.13</a></li>
+		    <li><a href="release-notes-3.0.14.html">Version 3.0.14</a></li>
+		    <li><a href="release-notes-3.0.15.html">Version 3.0.15</a></li>
+		    <li><a href="release-notes-3.0.16.html">Version 3.0.16</a></li>
+		    <li><a href="release-notes-3.0.17.html">Version 3.0.17</a></li>
+		    <li><a href="release-notes-3.0.18.html">Version 3.0.18</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.1.html">Version 3.1.0</a></li>
+		    <li><a href="release-notes-3.1.1.html">Version 3.1.1</a></li>
+		    <li><a href="release-notes-3.1.2.html">Version 3.1.2</a></li>
+		    <li><a href="release-notes-3.1.3.html">Version 3.1.3</a></li>
+		    <li><a href="release-notes-3.1.4.html">Version 3.1.4</a></li>
+		    <li><a href="release-notes-3.1.5.html">Version 3.1.5</a></li>
+		    <li><a href="release-notes-3.1.6.html">Version 3.1.6</a></li>
+		    <li><a href="release-notes-3.1.7.html">Version 3.1.7</a></li>
+		    <li><a href="release-notes-3.1.8.html">Version 3.1.8</a></li>
+		    <li><a href="release-notes-3.1.9.html">Version 3.1.9</a></li>
+		    <li><a href="release-notes-3.1.10.html">Version 3.1.10</a></li>
+		    <li><a href="release-notes-3.1.11.html">Version 3.1.11</a></li>
+		    <li><a href="release-notes-3.1.12.html">Version 3.1.12</a></li>
+		    <li><a href="release-notes-3.1.13.html">Version 3.1.13</a></li>
+		    <li><a href="release-notes-3.1.14.html">Version 3.1.14</a></li>
+		    <li><a href="release-notes-3.1.15.html">Version 3.1.15</a></li>
+		    <li><a href="release-notes-3.1.16.html">Version 3.1.16</a></li>
+		    <li><a href="release-notes-3.1.17.html">Version 3.1.17</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.2.html">Version 3.2.0</a></li>
+		    <li><a href="release-notes-3.2.1.html">Version 3.2.1</a></li>
+		    <li><a href="release-notes-3.2.2.html">Version 3.2.2</a></li>
+		    <li><a href="release-notes-3.2.3.html">Version 3.2.3</a></li>
+		    <li><a href="release-notes-3.2.4.html">Version 3.2.4</a></li>
+		    <li><a href="release-notes-3.2.5.html">Version 3.2.5</a></li>
+		    <li><a href="release-notes-3.2.6.html">Version 3.2.6</a></li>
+		    <li><a href="release-notes-3.2.7.html">Version 3.2.7</a></li>
+		    <li><a href="release-notes-3.2.8.html">Version 3.2.8</a></li>
+		    <li><a href="release-notes-3.2.9.html">Version 3.2.9</a></li>
+		    <li><a href="release-notes-3.2.10.html">Version 3.2.10</a></li>
+		    <li><a href="release-notes-3.2.11.html">Version 3.2.11</a></li>
+		    <li><a href="release-notes-3.2.12.html">Version 3.2.12</a></li>
+		    <li><a href="release-notes-3.2.13.html">Version 3.2.13</a></li>
+		    <li><a href="release-notes-3.2.14.html">Version 3.2.14</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.3.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.3.html">Version 3.3.0</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.1</a></li>
+		    <li><a href="release-notes-3.3.1.html">Version 3.3.2</a></li>
+		    <li><a href="release-notes-3.3.2.html">Version 3.3.2</a></li>
+		    <li><a href="release-notes-3.3.3.html">Version 3.3.3</a></li>
+		    <li><a href="release-notes-3.3.4.html">Version 3.3.4</a></li>
+		    <li><a href="release-notes-3.3.5.html">Version 3.3.5</a></li>
+		    <li><a href="release-notes-3.3.6.html">Version 3.3.6</a></li>
+		    <li><a href="release-notes-3.3.7.html">Version 3.3.7</a></li>
+		    <li><a href="release-notes-3.3.8.html">Version 3.3.8</a></li>
+		    <li><a href="release-notes-3.3.9.html">Version 3.3.9</a></li>
+		    <li><a href="release-notes-3.3.10.html">Version 3.3.10</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 3.4.x</a>
+		  <ul>
+		    <li><a href="release-notes-3.4.html">Version 3.4.0</a></li>
+		    <li><a href="release-notes-3.4.1.html">Version 3.4.1</a></li>
+		    <li><a href="release-notes-3.4.2.html">Version 3.4.2</a></li>
+		    <li><a href="release-notes-3.4.3.html">Version 3.4.3</a></li>
+		    <li><a href="release-notes-3.4.4.html">Version 3.4.4</a></li>
+		    <li><a href="release-notes-3.4.5.html">Version 3.4.5</a></li>
+		    <li><a href="release-notes-3.4.6.html">Version 3.4.6</a></li>
+		    <li><a href="release-notes-3.4.7.html">Version 3.4.7</a></li>
+		    <li><a href="release-notes-3.4.8.html">Version 3.4.8</a></li>
+		    <li><a href="release-notes-3.4.9.html">Version 3.4.9</a></li>
+		    <li><a href="release-notes-3.4.10.html">Version 3.4.10</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.0.html">Version 4.0.0</a></li>
+		    <li><a href="release-notes-4.0.1.html">Version 4.0.1</a></li>
+		    <li><a href="release-notes-4.0.2.html">Version 4.0.2</a></li>
+		    <li><a href="release-notes-4.0.3.html">Version 4.0.3</a></li>
+		    <li><a href="release-notes-4.0.4.html">Version 4.0.4</a></li>
+		    <li><a href="release-notes-4.0.5.html">Version 4.0.5</a></li>
+		    <li><a href="release-notes-4.0.6.html">Version 4.0.6</a></li>
+		    <li><a href="release-notes-4.0.7.html">Version 4.0.7</a></li>
+		    <li><a href="release-notes-4.0.8.html">Version 4.0.8</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.1.html">Version 4.1.0</a></li>
+		    <li><a href="release-notes-4.1.1.html">Version 4.1.1</a></li>
+		    <li><a href="release-notes-4.1.2.html">Version 4.1.2</a></li>
+		    <li><a href="release-notes-4.1.3.html">Version 4.1.3</a></li>
+		    <li><a href="release-notes-4.1.4.html">Version 4.1.4</a></li>
+		    <li><a href="release-notes-4.1.5.html">Version 4.1.5</a></li>
+		    <li><a href="release-notes-4.1.6.html">Version 4.1.6</a></li>
+		    <li><a href="release-notes-4.1.7.html">Version 4.1.7</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 4.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-4.2.html">Version 4.2.0</a></li>
+		    <li><a href="release-notes-4.2.1.html">Version 4.2.1</a></li>
+		    <li><a href="release-notes-4.2.2.html">Version 4.2.2</a></li>
+		    <li><a href="release-notes-4.2.3.html">Version 4.2.3</a></li>
+		    <li><a href="release-notes-4.2.4.html">Version 4.2.4</a></li>
+		    <li><a href="release-notes-4.2.5.html">Version 4.2.5</a></li>
+		    <li><a href="release-notes-4.2.6.html">Version 4.2.6</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 5.0.x</a>
+		  <ul>
+		    <li><a href="release-notes-5.0.html">Version 5.0.0</a></li>
+		    <li><a href="release-notes-5.0.1.html">Version 5.0.1</a></li>
+		    <li><a href="release-notes-5.0.2.html">Version 5.0.2</a></li>
+		    <li><a href="release-notes-5.0.3.html">Version 5.0.3</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 5.1.x</a>
+		  <ul>
+		    <li><a href="release-notes-5.1.html">Version 5.1.0</a></li>
+		    <li><a href="release-notes-5.1.1.html">Version 5.1.1</a></li>
+		  </ul>
+		</li>
+		<li><a>Versions 5.2.x</a>
+		  <ul>
+		    <li><a href="release-notes-5.2.html">Version 5.2.0</a></li>
+		  </ul>
+		</li>
+	      </ul>
+	    </li>
+	    <li><a href="coverity-scan.html">Coverity scan</a></li>
+	    <li><a href="install.html">Installation</a></li>
+	  </ul>
+	</li>
+	<li><a>Documentation</a>
+	  <ul>
+	    <li><a href="documentations.html">General documentation</a></li>
+	    <li><a href="gallery.html">Gallery</a></li>
+	    <li><a href="https://thelfer.github.io/tfel/doxygen/index.html">Doxygen documentation</a></li>
+	    <li><a>MFront</a>
+	      <ul>
+		<li><a href="tutorial.html">Tutorial</a></li>
+		<li><a href="implicit-dsl.html">The Implicit DSL</a></li>
+		<li><a href="benchmark.html">Benchmark</a></li>
+		<li><a href="parameters.html">Parameters</a></li>
+		<li><a href="BehaviourBricks.html">Behaviour bricks</a></li>
+                 <li><a href="behaviour-variable.html">Behaviour variables</a></li>
+                 <li><a href="mfront-compatibility-modes.html">Compatibility modes</a></li>
+		<li><a href="interfaces.html">Solver interfaces</a>
+		  <ul>
+		    <li><a href="castem.html">Cast3M</a></li>
+		    <li><a href="amitex.html">AMITEX_FFTP</a></li>
+		    <li><a href="aster.html">Code-Aster</a></li>
+    		    <li><a href="abaqus.html">Abaqus</a></li>
+		    <li><a href="zmat.html">ZeBuLoN</a></li>
+   		    <li><a href="calculix.html">CalculiX</a></li>
+		    <!-- <li><a >TMFFT</a></li> -->
+		    <li><a href="cyrano.html">Cyrano</a></li>
+   		    <li><a href="generic-material-property-interface.html">Generic interface for material properties</a></li>
+   		    <li><a href="generic-behaviours-interface.html">Generic interface for behaviours</a></li>
+		  </ul>
+		</li>
+                 <li><a>MFront keywords</a>
+    	              <ul>
+    	        <li><a href="Default-keywords.html">Default</a></li>
+    	        <li><a href="DefaultCZM-keywords.html">DefaultCZM</a></li>
+    	        <li><a href="DefaultFiniteStrain-keywords.html">DefaultFiniteStrain</a></li>
+    	        <li><a href="DefaultGenericBehaviour-keywords.html">DefaultGenericBehaviour</a></li>
+    	        <li><a href="DefaultModel-keywords.html">DefaultModel</a></li>
+    	        <li><a href="Implicit-keywords.html">Implicit</a></li>
+    	        <li><a href="ImplicitCZM-keywords.html">ImplicitCZM</a></li>
+    	        <li><a href="ImplicitFiniteStrain-keywords.html">ImplicitFiniteStrain</a></li>
+    	        <li><a href="ImplicitGenericBehaviour-keywords.html">ImplicitGenericBehaviour</a></li>
+    	        <li><a href="ImplicitModel-keywords.html">ImplicitModel</a></li>
+    	        <li><a href="ImplicitII-keywords.html">ImplicitII</a></li>
+    	        <li><a href="IsotropicMisesCreep-keywords.html">IsotropicMisesCreep</a></li>
+    	        <li><a href="IsotropicMisesPlasticFlow-keywords.html">IsotropicMisesPlasticFlow</a></li>
+    	        <li><a href="IsotropicPlasticMisesFlow-keywords.html">IsotropicPlasticMisesFlow</a></li>
+    	        <li><a href="IsotropicStrainHardeningMisesCreep-keywords.html">IsotropicStrainHardeningMisesCreep</a></li>
+    	        <li><a href="MaterialLaw-keywords.html">MaterialLaw</a></li>
+    	        <li><a href="MaterialProperty-keywords.html">MaterialProperty</a></li>
+    	        <li><a href="Model-keywords.html">Model</a></li>
+    	        <li><a href="MultipleIsotropicMisesFlows-keywords.html">MultipleIsotropicMisesFlows</a></li>
+    	        <li><a href="RungeKutta-keywords.html">RungeKutta</a></li>
+    	        <li><a href="RungeKuttaFiniteStrain-keywords.html">RungeKuttaFiniteStrain</a></li>
+    	        <li><a href="RungeKuttaGenericBehaviour-keywords.html">RungeKuttaGenericBehaviour</a></li>
+    	        <li><a href="RungeKuttaModel-keywords.html">RungeKuttaModel</a></li>
+    	      </ul>
+                </li>
+	      </ul>
+	    </li>
+	    <li><a href="mtest.html">MTest</a>
+               <ul>
+	      <li><a href="ptest.html">Simulation of pipes</a></li>
+	      <li><a href="mtest-nonlinear-constraints.html">Nonlinear constraints</a></li>
+              <li><a href="MTest-keywords.html">MTest keywords</a></li>
+	      </ul>
+            </li>
+     	    <li><a>Tools</a>
+	      <ul>
+	        <li><a href="mfront-doc.html">mfront-doc</a></li>
+	        <li><a href="mfm.html">mfm</a></li>
+	        <li><a href="mfm-test-generator.html">mfm-test-generator</a></li>
+	        <li><a href="tfel-check.html">tfel-check</a></li>
+	      </ul>
+	    </li>
+	    <li><a>TFEL libraries</a>
+	      <ul>
+		<li><a href="libraries_usage.html">Usage of the TFEL libraries in C++</a></li>
+		<li><a href="tfel-math.html">TFEL/Math</a></li>
+                 <ul>
+		  <li><a href="tfel-math-numerical-integration.html">Numerical integeration</a></li>
+		  <li><a href="tfel-math-data-interpolation.html">Data interpolation</a></li>
+	        </ul>
+		<li><a href="tfel-material.html">TFEL/Material</a></li>
+		<li><a href="tfel-material-homogenization.html">TFEL/Material homogenization</a></li>
+                 <li><a href="glossary.html">Glossary</a></li>
+                 <li><a href="physical-constants.html">Physical constants</a></li>
+                 <li><a href="tfel-compatibility-modes.html">Compatibility modes</a></li>
+		<li><a href="tfel-mfront-database.html">TFELMFrontDatabase</a></li>
+	      </ul>
+	    </li>
+	    <li><a>Python modules</a>
+	      <ul>
+		<li><a href="tfel-python.html">TFEL modules</a></li>
+		<li><a href="mfront-python.html">mfront module</a></li>
+		<li><a href="mtest-python.html">mtest module</a></li>
+	      </ul>
+	    </li>
+	    <li><a href="publications.html">Publications</a></li>
+	    <li><a href="faq.html">FAQ</a></li>
+	    <li><a href="about.html">About</a></li>
+	  </ul>
+	</li>
+	<li><a>Contributing</a>
+	  <ul>
+	    <li><a href="https://github.com/thelfer/tfel">Access to sources</a></li>
+	    <li><a href="contributing.html">Contributing guidelines</a></li>
+	    <li><a href="coding-guidelines.html">Coding guidelines</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Report bugs</a></li>
+	  </ul>
+	</li>
+	<li><a>Getting Help</a>
+	  <ul>
+	    <li><a href="search.html">Search on this site</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/discussions">Forum</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Bug report</a></li>
+	    <li><a href="https://github.com/thelfer/tfel/issues">Feature request</a></li>
+	    <li><a href="mailto:tfel-contact@cea.fr">Contact</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </header>
+<div id="header">
+<h1 class="title">Compatibility modes in the <code>TFEL</code>
+libraries</h1>
+<h2 class="author">Thomas Helfer</h2>
+<h3 class="date">10/11/2026</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#principle-of-the-versioned-entities"
+id="toc-principle-of-the-versioned-entities">Principle of the versioned
+entities</a>
+<ul>
+<li><a href="#naming-convention" id="toc-naming-convention">Naming
+convention</a></li>
+<li><a href="#example" id="toc-example">Example</a></li>
+</ul></li>
+<li><a href="#versioned-language-bindings"
+id="toc-versioned-language-bindings">Versioned language
+bindings</a></li>
+<li><a href="#adding-a-new-compatibility-mode"
+id="toc-adding-a-new-compatibility-mode">Adding a new compatibility
+mode</a></li>
+<li><a href="#known-limitations" id="toc-known-limitations">Known
+limitations</a></li>
+<li><a href="#see-also" id="toc-see-also">See also</a></li>
+</ul>
+</div>
+<p>The assets generated by <code>MFront</code> are used in studies which
+must remain reproducible for many years. A development which does not
+fix an explicit bug but changes the results of the <code>TFEL</code>
+libraries, such as the use of more accurate values of the physical
+constants or the introduction of a more robust numerical algorithm, is
+therefore handled by a compatibility mode: the new behaviour becomes the
+default of a new version and the previous behaviour remains available
+for the users who need it. This policy is stated in the <a
+href="coding-guidelines.html#backward-compatibility">coding
+guidelines</a>.</p>
+<p>A compatibility mode is a version number: the mode associated with a
+change is the version in which this change becomes the default. Such
+evolutions of the default behaviour shall only be introduced on major
+versions. The <code>future</code> compatibility mode gathers the changes
+which are not the default yet but which shall be the default of the next
+major version, so that they can be tested and anticipated.</p>
+<p>The way <code>MFront</code> selects the compatibility mode of the
+code it generates, and the way this mode is recorded in the generated
+assets, are described in <a href="mfront-compatibility-modes.html">this
+page</a>.</p>
+<h1 id="principle-of-the-versioned-entities">Principle of the versioned
+entities</h1>
+<p>Compatibility modes are a compile time mechanism in the
+<code>TFEL</code> libraries: the entities which are subject to such an
+evolution are duplicated, once per mode, in a header and in a namespace
+named after the version which introduced them. Both behaviours are thus
+compiled, once for each mode, and the user selects the one it needs by
+naming the mode it contains.</p>
+<p>This mechanism relies on names: the versioned entities are
+<code>constexpr</code> entities or templates which are resolved when the
+code using them is compiled, whatever the way this code has been
+generated. Only the <code>Python</code> bindings use a preprocessor
+definition, <code>TFEL_VERSION_MAJOR</code>, to select the values of the
+current version.</p>
+<p>The names which do not mention a mode, such as
+<code>tfel::PhysicalConstants</code>, refer to the entity of the mode of
+the current version of the library, whereas the entities of the previous
+modes stay available, as those of the next major version.</p>
+<h2 id="naming-convention">Naming convention</h2>
+<p>The names which a versioned entity gives rise to are gathered in the
+following table, where <code>&lt;X&gt;.&lt;Y&gt;.&lt;Z&gt;</code> is the
+compatibility mode which introduced the entity,
+<code>&lt;Name&gt;</code> is the name of the entity,
+<code>PhysicalConstants</code> in the case of the physical constants,
+and <code>&lt;NS&gt;</code> is the namespace which declares the
+variables of the entity, <code>tfel::constants</code> in the case of the
+physical constants:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Role</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Header of the mode</td>
+<td><code>TFEL/&lt;Name&gt;-&lt;X&gt;.&lt;Y&gt;.&lt;Z&gt;.hxx</code></td>
+</tr>
+<tr class="even">
+<td>Class of the mode</td>
+<td><code>tfel::v&lt;x&gt;_&lt;y&gt;_&lt;z&gt;::&lt;Name&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Variables of the mode</td>
+<td><code>&lt;NS&gt;::v&lt;x&gt;_&lt;y&gt;_&lt;z&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Header gathering all the modes</td>
+<td><code>TFEL/&lt;Name&gt;.hxx</code>, which includes all the previous
+ones</td>
+</tr>
+<tr class="odd">
+<td>Name of the current mode</td>
+<td><code>tfel::&lt;Name&gt;</code> and <code>&lt;NS&gt;</code>, which
+refer to the entity of the mode of the current version</td>
+</tr>
+<tr class="even">
+<td>Name of the next major version</td>
+<td><code>tfel::future::&lt;Name&gt;</code> and
+<code>&lt;NS&gt;::future</code>, which refer to the entity of the mode
+of the next major version</td>
+</tr>
+</tbody>
+</table>
+<p>The suffix <code>v&lt;x&gt;_&lt;y&gt;_&lt;z&gt;</code> used in the
+names above is the name of the version in which the mode was introduced,
+with underscores instead of dots. It is also the name under which the
+mode is declared in <code>MFront</code>, in the
+<code>known_compatibility_modes</code> array of the
+<code>CompatibilityMode</code> structure, as described in <a
+href="mfront-compatibility-modes.html#adding-a-new-compatibility-mode">this
+section</a>.</p>
+<h2 id="example">Example</h2>
+<p>The <code>TFEL/PhysicalConstants</code> library, which is at the time
+of writing the only versioned library of <code>TFEL</code>, illustrates
+this convention. The value of the molar gas constant is accessed in four
+different ways:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cxx"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;TFEL/PhysicalConstants.hxx&quot;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">// the value of the current version, 5.2.0 in Version 5.2</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> r1 <span class="op">=</span> tfel<span class="op">::</span>constants<span class="op">::</span>R<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">// the value of a given mode</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> r2 <span class="op">=</span> tfel<span class="op">::</span>constants<span class="op">::</span>v5_2_0<span class="op">::</span>R<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">// the value of the next major version</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> r3 <span class="op">=</span> tfel<span class="op">::</span>constants<span class="op">::</span>future<span class="op">::</span>R<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">// so is the value of the mode of the next major version</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="kw">constexpr</span> <span class="kw">auto</span> r4 <span class="op">=</span> tfel<span class="op">::</span>constants<span class="op">::</span>v6_0_0<span class="op">::</span>R<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;;</span></span></code></pre></div>
+<p>The same convention applies to the class which groups the constants
+of a mode: <code>tfel::PhysicalConstants</code>,
+<code>tfel::v5_2_0::PhysicalConstants</code> and
+<code>tfel::future::PhysicalConstants</code>.</p>
+<p>The page devoted to the <a href="physical-constants.html">values of
+the physical constants</a> describes in detail how this library handles
+the compatibility modes, how those values are used in the
+<code>C++</code>, <code>Python</code> and <code>Fortran</code>
+interfaces and how a new set of values is introduced.</p>
+<h1 id="versioned-language-bindings">Versioned language bindings</h1>
+<p>The language bindings follow the same convention: the entities which
+do not mention a mode give the values of the current version of
+<code>TFEL</code>, whereas the entities of the other modes are made
+available in a scope named after the mode, which is a submodule in
+<code>Python</code>:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">import</span> tfel</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> tfel.PhysicalConstants.R</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fl">8.31446</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> tfel.v5_2_0.PhysicalConstants.R</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fl">8.31446</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> tfel.future.PhysicalConstants.R</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fl">8.3144598</span></span></code></pre></div>
+<p><code>tfel.PhysicalConstants</code> gives the values of the current
+version, <code>tfel.v5_2_0.PhysicalConstants</code> those of the
+<code>5.2.0</code> compatibility mode and
+<code>tfel.future.PhysicalConstants</code> those of the next major
+version.</p>
+<p>A binding which is not versioned yet, such as the
+<code>Fortran</code> one, exposes the values of the next major
+version.</p>
+<h1 id="adding-a-new-compatibility-mode">Adding a new compatibility
+mode</h1>
+<p>A development which changes the results given by an entity of the
+<code>TFEL</code> libraries, without fixing an explicit bug, shall
+proceed as follows:</p>
+<ol type="1">
+<li><p>Duplicate the entity, giving the version which introduces the
+change: the previous version keeps the names it has, whereas the new
+entity is defined in the header and in the namespace of the new mode, as
+described in <a href="#naming-convention">the previous section</a>. Both
+entities declare the same names, so that switching from a mode to
+another one does not require any other modification.</p></li>
+<li><p>Keep the names which do not mention a mode pointing to the entity
+of the mode of the current version of <code>TFEL</code> and those of the
+<code>tfel::future</code> namespace pointing to the entity of the next
+major version.</p></li>
+<li><p>Install the new header in
+<code>include/CMakeLists.txt</code>:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install_header</span>(TFEL &lt;Name&gt;-&lt;X&gt;.&lt;<span class="ot">Y</span>&gt;.&lt;Z&gt;.hxx)</span></code></pre></div></li>
+<li><p>Give access to the new entity in the language bindings which are
+versioned, following the convention of the language, as described in <a
+href="#versioned-language-bindings">the corresponding
+section</a>.</p></li>
+<li><p>Declare the new mode in <code>MFront</code>, in the
+<code>CompatibilityMode</code> structure, as described in <a
+href="mfront-compatibility-modes.html#adding-a-new-compatibility-mode">this
+section</a>, so that <code>MFront</code> can generate code using the
+entities of this mode.</p></li>
+<li><p>Test both behaviours: a test behaviour, model or material
+property, generated with each mode and an <code>MTest</code> file
+checking the results it gives. The <code>PhysicalConstants_v5_2_0</code>
+and <code>PhysicalConstants_v6_0_0</code> test models, which return the
+value of the Stefan-Boltzmann constant, and the <code>MTest</code> files
+<code>physical-constants-5.2.0.mtest</code> and
+<code>physical-constants-6.0.0.mtest</code>, which check the value they
+give, are the reference tests of this mechanism.</p></li>
+<li><p>Describe the change, and the compatibility mode which introduces
+it, in the release notes of the version which introduces them.</p></li>
+</ol>
+<p>The <a
+href="physical-constants.html#changing-the-values-of-the-physical-constants">values
+of the physical constants</a> page describes how this checklist is
+applied to the physical constants, whose values are generated from a
+single data file.</p>
+<h1 id="known-limitations">Known limitations</h1>
+<ul>
+<li>The <code>Fortran</code> bindings are not versioned yet: they expose
+a single set of constants, which is that of the next major version.</li>
+<li>Compatibility modes only cover the entities which are versioned in
+this way at the time of writing, that is to say the physical constants.
+Extending them to other parts of the <code>TFEL</code> libraries raises
+no fundamental difficulty, as long as the versioned entities are
+<code>constexpr</code> entities or templates: the mechanism does not
+rely on a preprocessor definition, since the values are resolved when
+the generated code is compiled.</li>
+</ul>
+<h1 id="see-also">See also</h1>
+<ul>
+<li><a href="mfront-compatibility-modes.html">Compatibility modes in
+<code>MFront</code></a></li>
+<li><a href="coding-guidelines.html#backward-compatibility">Coding
+guidelines</a></li>
+<li><a href="tfel-physical-constants.html">The
+<code>TFEL/PhysicalConstants</code> library</a></li>
+<li><a href="physical-constants.html">Values of the physical
+constants</a></li>
+</ul>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62273823-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

@@ -1,5 +1,15 @@
 var NAVTREEINDEX3 =
 {
+"_tensor_operations_8hxx.html#ad91e53ef3a6d0b6afc04988924e3cffaace2f94540fa9914e8fe6f0de9817717b":[4,0,1,0,1,1,23,1,1],
+"_tensor_operations_8hxx.html#ae08938a2575a6dcfb0ced611d085c33c":[4,0,1,0,1,1,23,7],
+"_tensor_operations_8hxx.html#af6f03d7f14ff7329426463fd8ebaca57":[4,0,1,0,1,1,23,2],
+"_tensor_view_8hxx.html":[4,0,1,0,1,1,26],
+"_tensor_view_8hxx.html#a2ff968e80151ac57da80b5e52a4a26d0":[4,0,1,0,1,1,26,3],
+"_tensor_view_8hxx.html#a3a2cf14ba1cdb79d8d06ba76712bb278":[4,0,1,0,1,1,26,4],
+"_tensor_view_8hxx.html#a5e9909f1f481c266fd442802160271be":[4,0,1,0,1,1,26,2],
+"_tensor_view_8ixx.html":[4,0,1,0,1,1,27],
+"_tensor_view_8ixx.html#a2ff968e80151ac57da80b5e52a4a26d0":[4,0,1,0,1,1,27,1],
+"_tensor_view_8ixx.html#a3a2cf14ba1cdb79d8d06ba76712bb278":[4,0,1,0,1,1,27,2],
 "_tensor_view_8ixx.html#a5e9909f1f481c266fd442802160271be":[4,0,1,0,1,1,27,0],
 "_tensorial_function_8hxx.html":[4,0,1,0,1,1,19],
 "_tensorial_function_8hxx.html#a2bc3ff21653cbf2788f2b7cde2ae9aca":[4,0,1,0,1,1,19,11],
@@ -239,15 +249,5 @@ var NAVTREEINDEX3 =
 "functions_vars_n.html":[3,3,2,12],
 "functions_vars_o.html":[3,3,2,13],
 "functions_vars_p.html":[3,3,2,14],
-"functions_vars_r.html":[3,3,2,15],
-"functions_vars_s.html":[3,3,2,16],
-"functions_vars_t.html":[3,3,2,17],
-"functions_vars_u.html":[3,3,2,18],
-"functions_vars_v.html":[3,3,2,19],
-"functions_vars_z.html":[3,3,2,20],
-"functions_w.html":[3,3,0,22],
-"functions_z.html":[3,3,0,23],
-"functions_~.html":[3,3,0,24],
-"globals.html":[4,1,0],
-"globals_defs.html":[4,1,5]
+"functions_vars_r.html":[3,3,2,15]
 };

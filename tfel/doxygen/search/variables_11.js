@@ -5,5 +5,6 @@ var searchData=
   ['q_5f3_2',['q_3',['../structtfel_1_1material_1_1_gurson_tvergaard_needleman1982_stress_criterion_parameters.html#aeb17b403d676714ebec6cca99245620d',1,'tfel::material::GursonTvergaardNeedleman1982StressCriterionParameters']]],
   ['qr_3',['qR',['../structtfel_1_1material_1_1_rousselier_tanguy_besson2002_stress_criterion_parameters.html#ad0c322c921e7abf02a8db5d131b96db3',1,'tfel::material::RousselierTanguyBesson2002StressCriterionParameters']]],
   ['qualifymembervariables_4',['qualifyMemberVariables',['../structmfront_1_1_d_s_l_base_1_1_code_block_parser_options.html#a21a6296190b09971c81e727cc92da666',1,'mfront::DSLBase::CodeBlockParserOptions']]],
-  ['qualifystaticvariables_5',['qualifyStaticVariables',['../structmfront_1_1_d_s_l_base_1_1_code_block_parser_options.html#a3659a7e0bf8ac26f276bfc1235649aac',1,'mfront::DSLBase::CodeBlockParserOptions']]]
+  ['qualifystaticvariables_5',['qualifyStaticVariables',['../structmfront_1_1_d_s_l_base_1_1_code_block_parser_options.html#a3659a7e0bf8ac26f276bfc1235649aac',1,'mfront::DSLBase::CodeBlockParserOptions']]],
+  ['queue_6',['queue',['../structmfront_1_1generic__parallel_1_1_sycl_backend_execution_policy.html#af7a7ec4400186461939a7893196165a8',1,'mfront::generic_parallel::SyclBackendExecutionPolicy']]]
 ];

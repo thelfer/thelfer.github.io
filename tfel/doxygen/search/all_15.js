@@ -42,5 +42,6 @@ var searchData=
   ['query_39',['Query',['../structmfront_1_1_m_front_database_1_1_query.html',1,'mfront::MFrontDatabase']]],
   ['queryhandlerbase_40',['queryhandlerbase',['../structmfront_1_1_query_handler_base.html',1,'mfront::QueryHandlerBase'],['../structmfront_1_1_query_handler_base.html#a680500f342c1a3329b9cd2356be66feb',1,'mfront::QueryHandlerBase::QueryHandlerBase()']]],
   ['queryhandlerbase_2ehxx_41',['QueryHandlerBase.hxx',['../_query_handler_base_8hxx.html',1,'']]],
-  ['queryutilities_2ehxx_42',['QueryUtilities.hxx',['../_query_utilities_8hxx.html',1,'']]]
+  ['queryutilities_2ehxx_42',['QueryUtilities.hxx',['../_query_utilities_8hxx.html',1,'']]],
+  ['queue_43',['queue',['../structmfront_1_1generic__parallel_1_1_sycl_backend_execution_policy.html#af7a7ec4400186461939a7893196165a8',1,'mfront::generic_parallel::SyclBackendExecutionPolicy']]]
 ];

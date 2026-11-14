@@ -1,6 +1,7 @@
 var structmfront_1_1bbrick_1_1_gurson_tvergaard_needleman1982_stress_criterion =
 [
     [ "GursonTvergaardNeedleman1982StressCriterion", "structmfront_1_1bbrick_1_1_gurson_tvergaard_needleman1982_stress_criterion.html#ab6a0017f7784d02b6688d9b9285e6229", null ],
+    [ "GursonTvergaardNeedleman1982StressCriterion", "structmfront_1_1bbrick_1_1_gurson_tvergaard_needleman1982_stress_criterion.html#acf51b7fa4171df17a3c7a2848fee1c82", null ],
     [ "~GursonTvergaardNeedleman1982StressCriterion", "structmfront_1_1bbrick_1_1_gurson_tvergaard_needleman1982_stress_criterion.html#a6b53796935d0b129d8d63717e004a68d", null ],
     [ "generateMissingMaterialPropertyInitializationCode", "structmfront_1_1bbrick_1_1_gurson_tvergaard_needleman1982_stress_criterion.html#a85ca6899d5df2479a8d918f2cdf906c1", null ],
     [ "getOptions", "structmfront_1_1bbrick_1_1_gurson_tvergaard_needleman1982_stress_criterion.html#ac70621ab52b3d6ddd8584223cebfe1e9", null ],

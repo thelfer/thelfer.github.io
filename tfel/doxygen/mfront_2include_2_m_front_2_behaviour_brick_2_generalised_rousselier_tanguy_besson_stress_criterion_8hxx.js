@@ -1,0 +1,4 @@
+var mfront_2include_2_m_front_2_behaviour_brick_2_generalised_rousselier_tanguy_besson_stress_criterion_8hxx =
+[
+    [ "mfront::bbrick::GeneralisedRousselierTanguyBessonStressCriterion", "structmfront_1_1bbrick_1_1_generalised_rousselier_tanguy_besson_stress_criterion.html", "structmfront_1_1bbrick_1_1_generalised_rousselier_tanguy_besson_stress_criterion" ]
+];

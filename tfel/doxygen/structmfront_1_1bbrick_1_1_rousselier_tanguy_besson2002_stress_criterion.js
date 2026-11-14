@@ -1,6 +1,7 @@
 var structmfront_1_1bbrick_1_1_rousselier_tanguy_besson2002_stress_criterion =
 [
     [ "RousselierTanguyBesson2002StressCriterion", "structmfront_1_1bbrick_1_1_rousselier_tanguy_besson2002_stress_criterion.html#adf41b80871661b748f504517d62c4e1b", null ],
+    [ "RousselierTanguyBesson2002StressCriterion", "structmfront_1_1bbrick_1_1_rousselier_tanguy_besson2002_stress_criterion.html#a103b627ce9658559ba3740d9e7fd2aa2", null ],
     [ "~RousselierTanguyBesson2002StressCriterion", "structmfront_1_1bbrick_1_1_rousselier_tanguy_besson2002_stress_criterion.html#a955c15124f2fb0c160916d0ad88bfa9f", null ],
     [ "getOptions", "structmfront_1_1bbrick_1_1_rousselier_tanguy_besson2002_stress_criterion.html#a7bcd581ad8fcf2fec8f5c79cd368b992", null ],
     [ "getPorosityEffectOnEquivalentPlasticStrain", "structmfront_1_1bbrick_1_1_rousselier_tanguy_besson2002_stress_criterion.html#ae8f50c394cc8221a6499a2816aff1706", null ],

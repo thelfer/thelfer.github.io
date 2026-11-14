@@ -2680,6 +2680,7 @@ var hierarchy =
       ] ]
     ] ],
     [ "mfront::bbrick::PorosityNucleationModelFactory", "structmfront_1_1bbrick_1_1_porosity_nucleation_model_factory.html", null ],
+    [ "mfront::bbrick::PorousStressCriterionEquivalentStress", "structmfront_1_1bbrick_1_1_porous_stress_criterion_equivalent_stress.html", null ],
     [ "tfel::config::internals::PositionType< N, T, use_qt >", "structtfel_1_1config_1_1internals_1_1_position_type.html", null ],
     [ "tfel::config::internals::PositionType< 1u, T, false >", "structtfel_1_1config_1_1internals_1_1_position_type_3_011u_00_01_t_00_01false_01_4.html", null ],
     [ "tfel::config::internals::PositionType< 1u, T, use_qt >", "structtfel_1_1config_1_1internals_1_1_position_type_3_011u_00_01_t_00_01use__qt_01_4.html", null ],
@@ -3205,9 +3206,13 @@ var hierarchy =
         [ "mfront::bbrick::MisesStressCriterion", "structmfront_1_1bbrick_1_1_mises_stress_criterion.html", null ],
         [ "mfront::bbrick::MohrCoulombStressCriterion", "structmfront_1_1bbrick_1_1_mohr_coulomb_stress_criterion.html", null ],
         [ "mfront::bbrick::StandardPorousStressCriterionBase", "structmfront_1_1bbrick_1_1_standard_porous_stress_criterion_base.html", [
-          [ "mfront::bbrick::GursonTvergaardNeedleman1982StressCriterion", "structmfront_1_1bbrick_1_1_gurson_tvergaard_needleman1982_stress_criterion.html", null ],
+          [ "mfront::bbrick::GursonTvergaardNeedleman1982StressCriterion", "structmfront_1_1bbrick_1_1_gurson_tvergaard_needleman1982_stress_criterion.html", [
+            [ "mfront::bbrick::GeneralisedGursonTvergaardNeedlemanStressCriterion", "structmfront_1_1bbrick_1_1_generalised_gurson_tvergaard_needleman_stress_criterion.html", null ]
+          ] ],
           [ "mfront::bbrick::MichelAndSuquet1992HollowSphereStressCriterion", "structmfront_1_1bbrick_1_1_michel_and_suquet1992_hollow_sphere_stress_criterion.html", null ],
-          [ "mfront::bbrick::RousselierTanguyBesson2002StressCriterion", "structmfront_1_1bbrick_1_1_rousselier_tanguy_besson2002_stress_criterion.html", null ]
+          [ "mfront::bbrick::RousselierTanguyBesson2002StressCriterion", "structmfront_1_1bbrick_1_1_rousselier_tanguy_besson2002_stress_criterion.html", [
+            [ "mfront::bbrick::GeneralisedRousselierTanguyBessonStressCriterion", "structmfront_1_1bbrick_1_1_generalised_rousselier_tanguy_besson_stress_criterion.html", null ]
+          ] ]
         ] ],
         [ "mfront::bbrick::StandardStressCriterionBase", "structmfront_1_1bbrick_1_1_standard_stress_criterion_base.html", null ]
       ] ]

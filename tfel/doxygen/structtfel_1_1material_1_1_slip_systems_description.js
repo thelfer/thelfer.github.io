@@ -1,8 +1,8 @@
 var structtfel_1_1material_1_1_slip_systems_description =
 [
-    [ "InteractionMatrixStructure", "structtfel_1_1material_1_1_slip_systems_description_1_1_interaction_matrix_structure.html", "structtfel_1_1material_1_1_slip_systems_description_1_1_interaction_matrix_structure" ],
     [ "system3d", "structtfel_1_1material_1_1_slip_systems_description_1_1system3d.html", null ],
     [ "system4d", "structtfel_1_1material_1_1_slip_systems_description_1_1system4d.html", null ],
+    [ "InteractionMatrixStructure", "structtfel_1_1material_1_1_slip_systems_description_1_1_interaction_matrix_structure.html", "structtfel_1_1material_1_1_slip_systems_description_1_1_interaction_matrix_structure" ],
     [ "size_type", "structtfel_1_1material_1_1_slip_systems_description.html#ab5b8c7509beaec3f020d7623cdf449fa", null ],
     [ "system", "structtfel_1_1material_1_1_slip_systems_description.html#addb7fcd46a1c827a0b8fb26487cdf2d5", null ],
     [ "tensor", "structtfel_1_1material_1_1_slip_systems_description.html#abd64b6a7243f69262c756ae3763042f5", null ],
@@ -10,10 +10,7 @@ var structtfel_1_1material_1_1_slip_systems_description =
     [ "vec3d", "structtfel_1_1material_1_1_slip_systems_description.html#ab2ca618f986305cf0c3eaf620e28d0ca", null ],
     [ "vec4d", "structtfel_1_1material_1_1_slip_systems_description.html#afeafac8f641d7267f964e14bcb6c23c8", null ],
     [ "vector", "structtfel_1_1material_1_1_slip_systems_description.html#a2f229bddc88b25122eb271c882c48b24", null ],
-    [ "InteractionMatrixModel", "structtfel_1_1material_1_1_slip_systems_description.html#a89447d838f965a9e49cf25c00bcfe85b", [
-      [ "NONE", "structtfel_1_1material_1_1_slip_systems_description.html#a89447d838f965a9e49cf25c00bcfe85ba514673c4702d691769946598cc860da6", null ],
-      [ "DUPUY2017", "structtfel_1_1material_1_1_slip_systems_description.html#a89447d838f965a9e49cf25c00bcfe85ba1279f8bba959ce6a444f1ace364c941f", null ]
-    ] ],
+    [ "InteractionMatrixModel", "structtfel_1_1material_1_1_slip_systems_description.html#a89447d838f965a9e49cf25c00bcfe85b", null ],
     [ "SlipSystemsDescription", "structtfel_1_1material_1_1_slip_systems_description.html#a0af2e3582db3602a1990870d6d0d0fc9", null ],
     [ "SlipSystemsDescription", "structtfel_1_1material_1_1_slip_systems_description.html#a27de0b9964fa5c9d94e86ba1690e93f5", null ],
     [ "SlipSystemsDescription", "structtfel_1_1material_1_1_slip_systems_description.html#a18aa6bbcd0bf3898a3c24cecb096f5fd", null ],

@@ -1,7 +1,7 @@
 var structmfront_1_1_m_test_file_generator_base =
 [
-    [ "ExternalStateVariable", "structmfront_1_1_m_test_file_generator_base_1_1_external_state_variable.html", "structmfront_1_1_m_test_file_generator_base_1_1_external_state_variable" ],
     [ "InternalStateVariable", "structmfront_1_1_m_test_file_generator_base_1_1_internal_state_variable.html", "structmfront_1_1_m_test_file_generator_base_1_1_internal_state_variable" ],
+    [ "ExternalStateVariable", "structmfront_1_1_m_test_file_generator_base_1_1_external_state_variable.html", "structmfront_1_1_m_test_file_generator_base_1_1_external_state_variable" ],
     [ "Hypothesis", "structmfront_1_1_m_test_file_generator_base.html#aa16b100be6d1fede95ae2c8e2fb54a02", null ],
     [ "real", "structmfront_1_1_m_test_file_generator_base.html#a0e9381736bfa421eaaa4dbaefceeae42", null ],
     [ "MTestFileGeneratorBase", "structmfront_1_1_m_test_file_generator_base.html#a3cab12b9eb27bd2ecc5e2fdc8b72c014", null ],

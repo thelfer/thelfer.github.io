@@ -2,7 +2,8 @@ var namespacetfel =
 [
     [ "material", "namespacetfel_1_1material.html", "namespacetfel_1_1material" ],
     [ "math", "namespacetfel_1_1math.html", "namespacetfel_1_1math" ],
-    [ "ContractViolationHandler", "namespacetfel.html#afef4238598a162cc75be153491a3ed70", null ],
+    [ "PhysicalConstants", "structtfel_1_1_physical_constants.html", null ],
+    [ "ContractViolationHandler", "namespacetfel.html#a905bc57d1b2a4a7d71ef8fd42bf7875e", null ],
     [ "getTFELExecutableName", "namespacetfel.html#a056578f1a8b8c284dfa5b7bffd854f39", null ],
     [ "raise", "namespacetfel.html#ab078b2be289d5db6af0c3cb08154af56", null ],
     [ "raise", "namespacetfel.html#ad708d09e4e58c21146271d517e772176", null ],

@@ -1,9 +1,9 @@
 var structmfront_1_1_m_front_database =
 [
-    [ "AnalyseDirectoryOptions", "structmfront_1_1_m_front_database_1_1_analyse_directory_options.html", "structmfront_1_1_m_front_database_1_1_analyse_directory_options" ],
-    [ "AnalyseDirectoryResults", "structmfront_1_1_m_front_database_1_1_analyse_directory_results.html", "structmfront_1_1_m_front_database_1_1_analyse_directory_results" ],
     [ "EntryPoint", "structmfront_1_1_m_front_database_1_1_entry_point.html", "structmfront_1_1_m_front_database_1_1_entry_point" ],
     [ "Query", "structmfront_1_1_m_front_database_1_1_query.html", "structmfront_1_1_m_front_database_1_1_query" ],
+    [ "AnalyseDirectoryOptions", "structmfront_1_1_m_front_database_1_1_analyse_directory_options.html", "structmfront_1_1_m_front_database_1_1_analyse_directory_options" ],
+    [ "AnalyseDirectoryResults", "structmfront_1_1_m_front_database_1_1_analyse_directory_results.html", "structmfront_1_1_m_front_database_1_1_analyse_directory_results" ],
     [ "analyseDirectories", "structmfront_1_1_m_front_database.html#a9fd3502fecf34a4a789ff24eb3978a19", null ],
     [ "analyseDirectories", "structmfront_1_1_m_front_database.html#a618c13f309945f1b05d7ba64845bd254", null ],
     [ "analyseDirectoriesListedInEnvironmentVariable", "structmfront_1_1_m_front_database.html#a47ed4d2d7f65e589ff92f239fc5149a0", null ],

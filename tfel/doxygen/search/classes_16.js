@@ -6,5 +6,6 @@ var searchData=
   ['writelinearinterpolationvaluesarguments_3',['WriteLinearInterpolationValuesArguments',['../structmfront_1_1_single_variable_interpolated_data_1_1_write_linear_interpolation_values_arguments.html',1,'mfront::SingleVariableInterpolatedData']]],
   ['writematerialpropertyparametershandlerarguments_4',['WriteMaterialPropertyParametersHandlerArguments',['../structmfront_1_1_write_material_property_parameters_handler_arguments.html',1,'mfront']]],
   ['writematerialpropertyparameterssetterfunctionarguments_5',['WriteMaterialPropertyParametersSetterFunctionArguments',['../structmfront_1_1_write_material_property_parameters_setter_function_arguments.html',1,'mfront']]],
-  ['wstreamview_6',['wstreamView',['../structtfel_1_1system_1_1wstream_view.html',1,'tfel::system']]]
+  ['wstreamview_6',['wstreamView',['../structtfel_1_1system_1_1wstream_view.html',1,'tfel::system']]],
+  ['wstreamview_3c_20true_20_3e_7',['wstreamView&lt; true &gt;',['../structtfel_1_1system_1_1wstream_view.html',1,'tfel::system']]]
 ];

@@ -8,7 +8,7 @@ var _integer_evaluator_t_expr_8hxx =
     [ "tfel::math::IntegerEvaluator::TBinaryOperation::IntegerOpMinus", "structtfel_1_1math_1_1_integer_evaluator_1_1_t_binary_operation_1_1_integer_op_minus.html", null ],
     [ "tfel::math::IntegerEvaluator::TBinaryOperation::IntegerOpMult", "structtfel_1_1math_1_1_integer_evaluator_1_1_t_binary_operation_1_1_integer_op_mult.html", null ],
     [ "tfel::math::IntegerEvaluator::TBinaryOperation::IntegerOpDiv", "structtfel_1_1math_1_1_integer_evaluator_1_1_t_binary_operation_1_1_integer_op_div.html", null ],
-    [ "tfel::math::IntegerEvaluator::TBinaryOperation::BinaryOperation< Op >", "structtfel_1_1math_1_1_integer_evaluator_1_1_t_binary_operation_1_1_binary_operation.html", null ],
+    [ "tfel::math::IntegerEvaluator::TBinaryOperation::BinaryOperation&lt; Op &gt;", "structtfel_1_1math_1_1_integer_evaluator_1_1_t_binary_operation_1_1_binary_operation.html", null ],
     [ "tfel::math::IntegerEvaluator::TVariable", "structtfel_1_1math_1_1_integer_evaluator_1_1_t_variable.html", "structtfel_1_1math_1_1_integer_evaluator_1_1_t_variable" ],
     [ "tfel::math::IntegerEvaluator::TVariable::Variable", "structtfel_1_1math_1_1_integer_evaluator_1_1_t_variable_1_1_variable.html", null ],
     [ "tfel::math::IntegerEvaluator::TOperator", "structtfel_1_1math_1_1_integer_evaluator_1_1_t_operator.html", null ],

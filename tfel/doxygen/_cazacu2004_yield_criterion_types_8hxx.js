@@ -1,8 +1,8 @@
 var _cazacu2004_yield_criterion_types_8hxx =
 [
-    [ "Cazacu2004BaseType", "_cazacu2004_yield_criterion_types_8hxx.html#a9145b4aec2091a92c3d7fd811254430a", null ],
-    [ "Cazacu2004InvertStressType", "_cazacu2004_yield_criterion_types_8hxx.html#aeb312e97cac5b37e58edda8a1f64653f", null ],
-    [ "Cazacu2004StressNormalType", "_cazacu2004_yield_criterion_types_8hxx.html#a224cf0f608d6b8786e7dd466211bc13d", null ],
-    [ "Cazacu2004StressSecondDerivativeType", "_cazacu2004_yield_criterion_types_8hxx.html#a5e2d573de034f635d9467818aef7b746", null ],
-    [ "Cazacu2004StressType", "_cazacu2004_yield_criterion_types_8hxx.html#ac11458864880808d8404cd5fd96af433", null ]
+    [ "tfel::material::Cazacu2004BaseType", "namespacetfel_1_1material.html#ac738d86c19f84bf5b54ab98bd9c0039c", null ],
+    [ "tfel::material::Cazacu2004InvertStressType", "namespacetfel_1_1material.html#ad8a6d64323056ca168e3aa7dcbb29790", null ],
+    [ "tfel::material::Cazacu2004StressNormalType", "namespacetfel_1_1material.html#a9a570ad2822b313678d1735456661c0f", null ],
+    [ "tfel::material::Cazacu2004StressSecondDerivativeType", "namespacetfel_1_1material.html#a8b5d5ad7093312e3bc7657d744ffd0aa", null ],
+    [ "tfel::material::Cazacu2004StressType", "namespacetfel_1_1material.html#aa5c2da36eadc4f3e4d94f3acb32eb2e4", null ]
 ];

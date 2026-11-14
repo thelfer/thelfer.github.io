@@ -15,7 +15,6 @@ var structmtest_1_1_scheme_parser_base =
     [ "handleDescription", "structmtest_1_1_scheme_parser_base.html#a14a132c0dcef0db47eecb751196f9026", null ],
     [ "handleDynamicTimeStepScaling", "structmtest_1_1_scheme_parser_base.html#a7b4b6ffd708bfa0786f029245611687e", null ],
     [ "handleEvolution", "structmtest_1_1_scheme_parser_base.html#a19498765cd5a42b08b3dd116f48a8e56", null ],
-    [ "handleImport", "structmtest_1_1_scheme_parser_base.html#a4e385a157950b938e8324ee324a96aa3", null ],
     [ "handleLonelySeparator", "structmtest_1_1_scheme_parser_base.html#ad3eac91e20408a8aa1421b507ecf190e", null ],
     [ "handleMaximalTimeStep", "structmtest_1_1_scheme_parser_base.html#a0900d51ade66dc11fad199d349deb016", null ],
     [ "handleMaximalTimeStepScalingFactor", "structmtest_1_1_scheme_parser_base.html#a4ce50c4b62d871a5ea94d2abedf4fea3", null ],

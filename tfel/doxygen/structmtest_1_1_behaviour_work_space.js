@@ -19,7 +19,7 @@ var structmtest_1_1_behaviour_work_space =
     [ "ns", "structmtest_1_1_behaviour_work_space.html#abd83cc7b82a859bdb7d4058395ec3443", null ],
     [ "pk0", "structmtest_1_1_behaviour_work_space.html#a49121b136df07756f7b4af7f2b07734a", null ],
     [ "pk1", "structmtest_1_1_behaviour_work_space.html#a76857f73d95a3ba70d9cf3028e7f844f", null ],
-    [ "s0", "structmtest_1_1_behaviour_work_space.html#a6b6a23c2984585a359c406c97f2bcf23", null ],
     [ "S0", "structmtest_1_1_behaviour_work_space.html#a9b368b9943ca8f404419da06014cae34", null ],
+    [ "s0", "structmtest_1_1_behaviour_work_space.html#a6b6a23c2984585a359c406c97f2bcf23", null ],
     [ "S1", "structmtest_1_1_behaviour_work_space.html#ae38809334fb881ff2d76b8362748444d", null ]
 ];

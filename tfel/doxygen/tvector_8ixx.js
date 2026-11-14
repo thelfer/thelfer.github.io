@@ -1,17 +1,17 @@
 var tvector_8ixx =
 [
-    [ "abs", "tvector_8ixx.html#a454810374cc12b2d664ca1f8f00d95f1", null ],
-    [ "exportToBaseTypeArray", "tvector_8ixx.html#a6c644c2d0f8c8d3def658b9ea90875cc", null ],
-    [ "find_perpendicular_vector", "tvector_8ixx.html#ac217149688d39a823f1a3ae87752cbf6", null ],
-    [ "map", "tvector_8ixx.html#a6f2b48d374c3a40427e12cbf0cf142fb", null ],
-    [ "map", "tvector_8ixx.html#ab6acab4804d26d7656c7470cd5c2515a", null ],
-    [ "map", "tvector_8ixx.html#af7fd19245192e38f1a09ad60ea1a4207", null ],
-    [ "map", "tvector_8ixx.html#a8c6b4a22f3a5b1445356be90333b33f0", null ],
-    [ "map", "tvector_8ixx.html#a4735fef0e90486b87503c505783cd20d", null ],
-    [ "map", "tvector_8ixx.html#a26df386f6cd5e91599838d85410ae2a7", null ],
-    [ "map", "tvector_8ixx.html#a1a033078be85ca72b1dcf60d8ffc019b", null ],
-    [ "slice", "tvector_8ixx.html#ab4817d67586485015954ed112cdbe061", null ],
-    [ "slice", "tvector_8ixx.html#a1db734623544b4da9c5d2f206597c64b", null ],
-    [ "slice", "tvector_8ixx.html#a86a6c7993dd592c621855e42ac7302f1", null ],
-    [ "slice", "tvector_8ixx.html#a3916e3b8d0a89eb66013c3fd2ec3257d", null ]
+    [ "tfel::math::abs", "namespacetfel_1_1math.html#a454810374cc12b2d664ca1f8f00d95f1", null ],
+    [ "tfel::math::exportToBaseTypeArray", "namespacetfel_1_1math.html#a6c644c2d0f8c8d3def658b9ea90875cc", null ],
+    [ "tfel::math::find_perpendicular_vector", "namespacetfel_1_1math.html#ac217149688d39a823f1a3ae87752cbf6", null ],
+    [ "tfel::math::map", "namespacetfel_1_1math.html#a6f2b48d374c3a40427e12cbf0cf142fb", null ],
+    [ "tfel::math::map", "namespacetfel_1_1math.html#ab6acab4804d26d7656c7470cd5c2515a", null ],
+    [ "tfel::math::map", "namespacetfel_1_1math.html#af7fd19245192e38f1a09ad60ea1a4207", null ],
+    [ "tfel::math::map", "namespacetfel_1_1math.html#a8c6b4a22f3a5b1445356be90333b33f0", null ],
+    [ "tfel::math::map", "namespacetfel_1_1math.html#a4735fef0e90486b87503c505783cd20d", null ],
+    [ "tfel::math::map", "namespacetfel_1_1math.html#a26df386f6cd5e91599838d85410ae2a7", null ],
+    [ "tfel::math::map", "namespacetfel_1_1math.html#a1a033078be85ca72b1dcf60d8ffc019b", null ],
+    [ "tfel::math::slice", "namespacetfel_1_1math.html#a1db734623544b4da9c5d2f206597c64b", null ],
+    [ "tfel::math::slice", "namespacetfel_1_1math.html#ab4817d67586485015954ed112cdbe061", null ],
+    [ "tfel::math::slice", "namespacetfel_1_1math.html#a3916e3b8d0a89eb66013c3fd2ec3257d", null ],
+    [ "tfel::math::slice", "namespacetfel_1_1math.html#a86a6c7993dd592c621855e42ac7302f1", null ]
 ];

@@ -8,5 +8,6 @@ var structtfel_1_1math_1_1_expr_3_01_result_type_00_01_diadic_product_operation_
     [ "size_type", "structtfel_1_1math_1_1_expr_3_01_result_type_00_01_diadic_product_operation_3_01_t1_00_01_t2_01_4_01_4.html#abe5b7372298d8dfd8d881c4c29597449", null ],
     [ "value_type", "structtfel_1_1math_1_1_expr_3_01_result_type_00_01_diadic_product_operation_3_01_t1_00_01_t2_01_4_01_4.html#a93e93b0ce3915cc16a2aeffd1f96a438", null ],
     [ "Expr", "structtfel_1_1math_1_1_expr_3_01_result_type_00_01_diadic_product_operation_3_01_t1_00_01_t2_01_4_01_4.html#a629a527c471426cd1251f25566017005", null ],
-    [ "operator()", "structtfel_1_1math_1_1_expr_3_01_result_type_00_01_diadic_product_operation_3_01_t1_00_01_t2_01_4_01_4.html#a41f0f1ed9a2352ce76ea7a902dd298e6", null ]
+    [ "operator()", "structtfel_1_1math_1_1_expr_3_01_result_type_00_01_diadic_product_operation_3_01_t1_00_01_t2_01_4_01_4.html#a41f0f1ed9a2352ce76ea7a902dd298e6", null ],
+    [ "operator[]", "structtfel_1_1math_1_1_expr.html#af0d99a8948f6dd2dace4ea6a2be3e4b8", null ]
 ];

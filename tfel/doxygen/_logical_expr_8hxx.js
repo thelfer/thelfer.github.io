@@ -8,8 +8,8 @@ var _logical_expr_8hxx =
     [ "tfel::math::parser::OpAnd", "structtfel_1_1math_1_1parser_1_1_op_and.html", null ],
     [ "tfel::math::parser::OpOr", "structtfel_1_1math_1_1parser_1_1_op_or.html", null ],
     [ "tfel::math::parser::LogicalExpr", "structtfel_1_1math_1_1parser_1_1_logical_expr.html", "structtfel_1_1math_1_1parser_1_1_logical_expr" ],
-    [ "tfel::math::parser::LogicalOperation< Op >", "structtfel_1_1math_1_1parser_1_1_logical_operation.html", "structtfel_1_1math_1_1parser_1_1_logical_operation" ],
-    [ "tfel::math::parser::LogicalBinaryOperation< Op >", "structtfel_1_1math_1_1parser_1_1_logical_binary_operation.html", "structtfel_1_1math_1_1parser_1_1_logical_binary_operation" ],
+    [ "tfel::math::parser::LogicalOperation&lt; Op &gt;", "structtfel_1_1math_1_1parser_1_1_logical_operation.html", "structtfel_1_1math_1_1parser_1_1_logical_operation" ],
+    [ "tfel::math::parser::LogicalBinaryOperation&lt; Op &gt;", "structtfel_1_1math_1_1parser_1_1_logical_binary_operation.html", "structtfel_1_1math_1_1parser_1_1_logical_binary_operation" ],
     [ "tfel::math::parser::NegLogicalExpression", "structtfel_1_1math_1_1parser_1_1_neg_logical_expression.html", "structtfel_1_1math_1_1parser_1_1_neg_logical_expression" ],
-    [ "LogicalExprPtr", "_logical_expr_8hxx.html#adaa49a572ef6a0f6d4c13aef99e06eb5", null ]
+    [ "tfel::math::parser::LogicalExprPtr", "_logical_expr_8hxx.html#a120ae0a3f3c47d7b4d0fb86abc687c5d", null ]
 ];

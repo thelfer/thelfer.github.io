@@ -1,10 +1,6 @@
 var structmfront_1_1_variable_bounds_description =
 [
-    [ "BoundsType", "structmfront_1_1_variable_bounds_description.html#a717ded1ded8da8f800a1d58feafab7fe", [
-      [ "LOWER", "structmfront_1_1_variable_bounds_description.html#a717ded1ded8da8f800a1d58feafab7fea3253b124afd189c58226f35b0195fd00", null ],
-      [ "UPPER", "structmfront_1_1_variable_bounds_description.html#a717ded1ded8da8f800a1d58feafab7fea208db6d9c9e7c48f6631ea50117b046f", null ],
-      [ "LOWERANDUPPER", "structmfront_1_1_variable_bounds_description.html#a717ded1ded8da8f800a1d58feafab7feaedfc1edb291f73c956d3697181bad555", null ]
-    ] ],
+    [ "BoundsType", "structmfront_1_1_variable_bounds_description.html#a717ded1ded8da8f800a1d58feafab7fe", null ],
     [ "VariableBoundsDescription", "structmfront_1_1_variable_bounds_description.html#a79b544f66172979b81dbc53603fff66f", null ],
     [ "VariableBoundsDescription", "structmfront_1_1_variable_bounds_description.html#a9fc191d8789aca724c5a4efbbb10db4d", null ],
     [ "VariableBoundsDescription", "structmfront_1_1_variable_bounds_description.html#a4fe94374f99bf0832264d3041df4cd40", null ],

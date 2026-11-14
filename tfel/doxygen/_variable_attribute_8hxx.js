@@ -1,5 +1,5 @@
 var _variable_attribute_8hxx =
 [
-    [ "VariableAttribute", "_variable_attribute_8hxx.html#a5d945de16a5c5534aa7d75bd6e6f0a4f", null ],
-    [ "VariableAttributeTypes", "_variable_attribute_8hxx.html#a0b5621195b0f22a982221797669d042a", null ]
+    [ "mfront::VariableAttribute", "namespacemfront.html#abd4bca3da7873a531499f539727f6f0a", null ],
+    [ "mfront::VariableAttributeTypes", "namespacemfront.html#a3b96de5f8928172da2bdecb3fd250dc6", null ]
 ];

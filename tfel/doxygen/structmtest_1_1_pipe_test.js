@@ -1,27 +1,15 @@
 var structmtest_1_1_pipe_test =
 [
-    [ "OxidationModel", "structmtest_1_1_pipe_test_1_1_oxidation_model.html", "structmtest_1_1_pipe_test_1_1_oxidation_model" ],
     [ "UTest", "structmtest_1_1_pipe_test_1_1_u_test.html", "structmtest_1_1_pipe_test_1_1_u_test" ],
+    [ "OxidationModel", "structmtest_1_1_pipe_test_1_1_oxidation_model.html", "structmtest_1_1_pipe_test_1_1_oxidation_model" ],
     [ "size_type", "structmtest_1_1_pipe_test.html#afd4e8cb238e0445637a218f6ba360101", null ],
-    [ "AxialLoading", "structmtest_1_1_pipe_test.html#ad1011c4e6525000dbd201d4f29aa380d", [
-      [ "DEFAULTAXIALLOADING", "structmtest_1_1_pipe_test.html#ad1011c4e6525000dbd201d4f29aa380da146a834bfae3762ae30d571fd09dda53", null ],
-      [ "ENDCAPEFFECT", "structmtest_1_1_pipe_test.html#ad1011c4e6525000dbd201d4f29aa380da639c8894ba89358849bfa54e1b50a4d4", null ],
-      [ "IMPOSEDAXIALFORCE", "structmtest_1_1_pipe_test.html#ad1011c4e6525000dbd201d4f29aa380da94217cc12ad2dd4d0e29bcf65cd7af87", null ],
-      [ "IMPOSEDAXIALGROWTH", "structmtest_1_1_pipe_test.html#ad1011c4e6525000dbd201d4f29aa380da7970fab712ad1265f4cb0ba2fc953b7b", null ],
-      [ "NONE", "structmtest_1_1_pipe_test.html#ad1011c4e6525000dbd201d4f29aa380da5782fce664db342f858586402f691eda", null ]
-    ] ],
+    [ "AxialLoading", "structmtest_1_1_pipe_test.html#ad1011c4e6525000dbd201d4f29aa380d", null ],
     [ "FailurePolicy", "structmtest_1_1_pipe_test.html#a32721fb3e813da707d6a6b2cea8a5cad", [
       [ "STOPCOMPUTATION", "structmtest_1_1_pipe_test.html#a32721fb3e813da707d6a6b2cea8a5cada41726ce98f1d9489b6303372a68d34b9", null ],
       [ "REPORTONLY", "structmtest_1_1_pipe_test.html#a32721fb3e813da707d6a6b2cea8a5cada4726aad83c8e1f174fbaa98ab7108e7a", null ],
       [ "FREEZESTATEUNTILENDOFCOMPUTATION", "structmtest_1_1_pipe_test.html#a32721fb3e813da707d6a6b2cea8a5cadacb4b67914c3ac6689ab6186c33cb0753", null ]
     ] ],
-    [ "RadialLoading", "structmtest_1_1_pipe_test.html#afa0eae7421b01cda11841c0b7204d5b9", [
-      [ "DEFAULTLOADINGTYPE", "structmtest_1_1_pipe_test.html#afa0eae7421b01cda11841c0b7204d5b9a5190cfff940cfb27c2894f7cf56cacc8", null ],
-      [ "TIGHTPIPE", "structmtest_1_1_pipe_test.html#afa0eae7421b01cda11841c0b7204d5b9a666c684afaec3d4090a59c5f8beaff57", null ],
-      [ "IMPOSEDPRESSURE", "structmtest_1_1_pipe_test.html#afa0eae7421b01cda11841c0b7204d5b9a7260832afb84db18197e44b3effcf51e", null ],
-      [ "IMPOSEDINNERRADIUS", "structmtest_1_1_pipe_test.html#afa0eae7421b01cda11841c0b7204d5b9ac77188715723c19358dea727d178f93a", null ],
-      [ "IMPOSEDOUTERRADIUS", "structmtest_1_1_pipe_test.html#afa0eae7421b01cda11841c0b7204d5b9a5021cde2dae3832a280e1ad6ff134b07", null ]
-    ] ],
+    [ "RadialLoading", "structmtest_1_1_pipe_test.html#afa0eae7421b01cda11841c0b7204d5b9", null ],
     [ "PipeTest", "structmtest_1_1_pipe_test.html#a25f49af000ccc1ec387d7d7edcb744b6", null ],
     [ "~PipeTest", "structmtest_1_1_pipe_test.html#a00e370c8d26f30e421db757b06d1c8ac", null ],
     [ "addFailureCriterion", "structmtest_1_1_pipe_test.html#ae14d88f490623bf6bfbe295d23ecaa45", null ],

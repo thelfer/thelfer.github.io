@@ -1,6 +1,6 @@
 var structmtest_1_1_behaviour =
 [
-    [ "BehaviourType", "structmtest_1_1_behaviour.html#a14a522e10766db449bf09a7066c57ed8", null ],
+    [ "BehaviourType", "structmtest_1_1_behaviour.html#a8b1d418ec06cf20a79b73f2a84b20f90", null ],
     [ "Hypothesis", "structmtest_1_1_behaviour.html#a2d456dc5b24e8a5e2acf51def89ea426", null ],
     [ "Kinematic", "structmtest_1_1_behaviour.html#a866c6ab5894db5fb19d791baa21238e1", null ],
     [ "ModellingHypothesis", "structmtest_1_1_behaviour.html#ad65d4e2326e875e940de2ae38e0dc3f6", null ],

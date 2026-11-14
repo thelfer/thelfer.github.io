@@ -1,7 +1,7 @@
 var structtfel_1_1math_1_1_quantity =
 [
     [ "IsQtScalarOperationValid", "structtfel_1_1math_1_1_quantity_1_1_is_qt_scalar_operation_valid.html", null ],
-    [ "promote", "structtfel_1_1math_1_1_quantity.html#a6e2a67a0c2b9a5ee7b2a91a28ca802d4", null ],
+    [ "promote", "structtfel_1_1math_1_1_quantity.html#a1e6490235dffa6d05f144bb37e54ebcd", null ],
     [ "value_type", "structtfel_1_1math_1_1_quantity.html#aebbf0d5a8fc81c524fbfece229661416", null ],
     [ "operator*=", "structtfel_1_1math_1_1_quantity.html#a0a8176b8d3c3679e8edbaa41122375ed", null ],
     [ "operator*=", "structtfel_1_1math_1_1_quantity.html#af5cd17f7b92f44b2b7a934f4abaa51cd", null ],

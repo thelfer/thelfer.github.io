@@ -1,9 +1,9 @@
 var structmfront_1_1_abstract_linear_system_solver =
 [
-    [ "LinearSystemSubstitutionVariables", "structmfront_1_1_abstract_linear_system_solver_1_1_linear_system_substitution_variables.html", "structmfront_1_1_abstract_linear_system_solver_1_1_linear_system_substitution_variables" ],
-    [ "LinearSystemVariables", "structmfront_1_1_abstract_linear_system_solver_1_1_linear_system_variables.html", "structmfront_1_1_abstract_linear_system_solver_1_1_linear_system_variables" ],
-    [ "MatrixDecompositionResult", "structmfront_1_1_abstract_linear_system_solver_1_1_matrix_decomposition_result.html", "structmfront_1_1_abstract_linear_system_solver_1_1_matrix_decomposition_result" ],
     [ "MatrixDecompositionVariables", "structmfront_1_1_abstract_linear_system_solver_1_1_matrix_decomposition_variables.html", null ],
+    [ "MatrixDecompositionResult", "structmfront_1_1_abstract_linear_system_solver_1_1_matrix_decomposition_result.html", "structmfront_1_1_abstract_linear_system_solver_1_1_matrix_decomposition_result" ],
+    [ "LinearSystemVariables", "structmfront_1_1_abstract_linear_system_solver_1_1_linear_system_variables.html", "structmfront_1_1_abstract_linear_system_solver_1_1_linear_system_variables" ],
+    [ "LinearSystemSubstitutionVariables", "structmfront_1_1_abstract_linear_system_solver_1_1_linear_system_substitution_variables.html", "structmfront_1_1_abstract_linear_system_solver_1_1_linear_system_substitution_variables" ],
     [ "Hypothesis", "structmfront_1_1_abstract_linear_system_solver.html#a212c35032aead271bbf38aedf0448b07", null ],
     [ "~AbstractLinearSystemSolver", "structmfront_1_1_abstract_linear_system_solver.html#a9b8d71aee96188d1b2f1029afaf1e6e0", null ],
     [ "getMatrixDecompositionResults", "structmfront_1_1_abstract_linear_system_solver.html#ab6b0ded8b9c50e57bd78ba2471b43dff", null ],

@@ -1,11 +1,6 @@
 var structmtest_1_1_current_state =
 [
-    [ "PostProcessingVariableType", "structmtest_1_1_current_state.html#a49173b1697b421280be1fc1105973d51", [
-      [ "EXTERNALSTATEVARIABLE", "structmtest_1_1_current_state.html#a49173b1697b421280be1fc1105973d51ab3ac23615a9e19977758f3e7f7e5715c", null ],
-      [ "INTERNALSTATEVARIABLE", "structmtest_1_1_current_state.html#a49173b1697b421280be1fc1105973d51a9bf377449fb68bcfec11e00fbacdbab0", null ],
-      [ "DRIVINGVARIABLE", "structmtest_1_1_current_state.html#a49173b1697b421280be1fc1105973d51a442e84a8c95695cb659616e07b49db55", null ],
-      [ "THERMODYNAMICFORCE", "structmtest_1_1_current_state.html#a49173b1697b421280be1fc1105973d51a68126da8b7cd02ac6e43b5a414233bc4", null ]
-    ] ],
+    [ "PostProcessingVariableType", "structmtest_1_1_current_state.html#a49173b1697b421280be1fc1105973d51", null ],
     [ "CurrentState", "structmtest_1_1_current_state.html#a6670c26f6ef92be1c4667b85a441a4e3", null ],
     [ "CurrentState", "structmtest_1_1_current_state.html#a99579d4e3be91270abbaffec6054bf83", null ],
     [ "CurrentState", "structmtest_1_1_current_state.html#a88fd4df07526a28dadb888353e81af41", null ],

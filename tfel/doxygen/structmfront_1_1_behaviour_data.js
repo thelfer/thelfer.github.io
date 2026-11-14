@@ -1,35 +1,27 @@
 var structmfront_1_1_behaviour_data =
 [
-    [ "AxialGrowth", "structmfront_1_1_behaviour_data_1_1_axial_growth.html", "structmfront_1_1_behaviour_data_1_1_axial_growth" ],
-    [ "IsotropicStressFreeExpansion", "structmfront_1_1_behaviour_data_1_1_isotropic_stress_free_expansion.html", "structmfront_1_1_behaviour_data_1_1_isotropic_stress_free_expansion" ],
+    [ "SFED_ESV", "structmfront_1_1_behaviour_data_1_1_s_f_e_d___e_s_v.html", "structmfront_1_1_behaviour_data_1_1_s_f_e_d___e_s_v" ],
     [ "NullExpansion", "structmfront_1_1_behaviour_data_1_1_null_expansion.html", null ],
+    [ "VolumeSwellingStressFreeExpansion", "structmfront_1_1_behaviour_data_1_1_volume_swelling_stress_free_expansion.html", "structmfront_1_1_behaviour_data_1_1_volume_swelling_stress_free_expansion" ],
+    [ "AxialGrowth", "structmfront_1_1_behaviour_data_1_1_axial_growth.html", "structmfront_1_1_behaviour_data_1_1_axial_growth" ],
+    [ "Relocation", "structmfront_1_1_behaviour_data_1_1_relocation.html", "structmfront_1_1_behaviour_data_1_1_relocation" ],
+    [ "IsotropicStressFreeExpansion", "structmfront_1_1_behaviour_data_1_1_isotropic_stress_free_expansion.html", "structmfront_1_1_behaviour_data_1_1_isotropic_stress_free_expansion" ],
     [ "OrthotropicStressFreeExpansion", "structmfront_1_1_behaviour_data_1_1_orthotropic_stress_free_expansion.html", "structmfront_1_1_behaviour_data_1_1_orthotropic_stress_free_expansion" ],
     [ "OrthotropicStressFreeExpansionII", "structmfront_1_1_behaviour_data_1_1_orthotropic_stress_free_expansion_i_i.html", "structmfront_1_1_behaviour_data_1_1_orthotropic_stress_free_expansion_i_i" ],
-    [ "Relocation", "structmfront_1_1_behaviour_data_1_1_relocation.html", "structmfront_1_1_behaviour_data_1_1_relocation" ],
-    [ "SFED_ESV", "structmfront_1_1_behaviour_data_1_1_s_f_e_d___e_s_v.html", "structmfront_1_1_behaviour_data_1_1_s_f_e_d___e_s_v" ],
-    [ "VolumeSwellingStressFreeExpansion", "structmfront_1_1_behaviour_data_1_1_volume_swelling_stress_free_expansion.html", "structmfront_1_1_behaviour_data_1_1_volume_swelling_stress_free_expansion" ],
     [ "Hypothesis", "structmfront_1_1_behaviour_data.html#a14ba78003c8267164078fceb8b77e98c", null ],
     [ "ModellingHypothesis", "structmfront_1_1_behaviour_data.html#a5a9c62fbfc63551c31a251fd18afcb66", null ],
-    [ "StressFreeExpansionDescription", "structmfront_1_1_behaviour_data.html#aa09ada7a83bb997e7d787a523c3f938c", null ],
-    [ "StressFreeExpansionDescriptionTypes", "structmfront_1_1_behaviour_data.html#aeda291341a3edfd30c6cc9552f0b94eb", null ],
-    [ "StressFreeExpansionHandler", "structmfront_1_1_behaviour_data.html#a43012ccfccedbe1f59b4cea266b2f9f4", null ],
-    [ "StressFreeExpansionHandlerTypes", "structmfront_1_1_behaviour_data.html#a385609f4333354c2a657cb2b57d4c24d", null ],
+    [ "StressFreeExpansionDescription", "structmfront_1_1_behaviour_data.html#a418e6f05bee087b9dd0b99fe02e9b37b", null ],
+    [ "StressFreeExpansionDescriptionTypes", "structmfront_1_1_behaviour_data.html#abc7448ff47f5ee7820c5a63b1988747e", null ],
+    [ "StressFreeExpansionHandler", "structmfront_1_1_behaviour_data.html#aa953e79a6fbeb135dc87ae745580e522", null ],
+    [ "StressFreeExpansionHandlerTypes", "structmfront_1_1_behaviour_data.html#a1795567a9ad58acb0150f2c5266b5a0d", null ],
     [ "Mode", "structmfront_1_1_behaviour_data.html#aa5a0c6f5788069d5c18bb2282c3e991f", [
       [ "CREATE", "structmfront_1_1_behaviour_data.html#aa5a0c6f5788069d5c18bb2282c3e991fa10a57bc06ef10f9c07a9059ae27bf159", null ],
       [ "CREATEORREPLACE", "structmfront_1_1_behaviour_data.html#aa5a0c6f5788069d5c18bb2282c3e991faf2da41b6d44911d2d3a349933f3e8e71", null ],
       [ "CREATEORAPPEND", "structmfront_1_1_behaviour_data.html#aa5a0c6f5788069d5c18bb2282c3e991fa7904f6855bdd3603dc7f105deabc6ff7", null ],
       [ "CREATEBUTDONTREPLACE", "structmfront_1_1_behaviour_data.html#aa5a0c6f5788069d5c18bb2282c3e991faa8c3502338f14276b7f72c80ffb34235", null ]
     ] ],
-    [ "Position", "structmfront_1_1_behaviour_data.html#a2ee171d22d3b83ccee9f89c0334e059b", [
-      [ "AT_BEGINNING", "structmfront_1_1_behaviour_data.html#a2ee171d22d3b83ccee9f89c0334e059babe7103848923c625da98ad795b50160e", null ],
-      [ "BODY", "structmfront_1_1_behaviour_data.html#a2ee171d22d3b83ccee9f89c0334e059ba6d127bd4f96bdb965e04848a082d3184", null ],
-      [ "AT_END", "structmfront_1_1_behaviour_data.html#a2ee171d22d3b83ccee9f89c0334e059bac1d07769d07579e5981888391832abb4", null ]
-    ] ],
-    [ "RegistrationStatus", "structmfront_1_1_behaviour_data.html#a0ab606d9d21be795172a3a929aa3c7f5", [
-      [ "UNREGISTRED", "structmfront_1_1_behaviour_data.html#a0ab606d9d21be795172a3a929aa3c7f5aaf4f88555534b912db3fdacb0ba658cc", null ],
-      [ "FORCEREGISTRATION", "structmfront_1_1_behaviour_data.html#a0ab606d9d21be795172a3a929aa3c7f5a145af288dfaaa443ea67b8db3b9b2e5c", null ],
-      [ "ALREADYREGISTRED", "structmfront_1_1_behaviour_data.html#a0ab606d9d21be795172a3a929aa3c7f5aaafb0484a8532b04d3527a6e04e4a0cd", null ]
-    ] ],
+    [ "Position", "structmfront_1_1_behaviour_data.html#a2ee171d22d3b83ccee9f89c0334e059b", null ],
+    [ "RegistrationStatus", "structmfront_1_1_behaviour_data.html#a0ab606d9d21be795172a3a929aa3c7f5", null ],
     [ "BehaviourData", "structmfront_1_1_behaviour_data.html#a26ad58aaba55ca5d8ab2be86d6baa372", null ],
     [ "BehaviourData", "structmfront_1_1_behaviour_data.html#a33fcf5c3baf5c6e3dbb1556966d0563d", null ],
     [ "BehaviourData", "structmfront_1_1_behaviour_data.html#a64a5400fc03e887724192c26969fa17d", null ],

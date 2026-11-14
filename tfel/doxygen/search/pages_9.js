@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['solver_0',['The MTest solver',['../mtest.html',1,'']]]
+  ['generator_0',['The MFront code generator',['../mfront.html',1,'']]]
 ];

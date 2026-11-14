@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['j2ocoefficients_0',['J2OCoefficients',['../namespacetfel_1_1material.html#a62fad0f0d0c554697afef27b740dbb0a',1,'tfel::material']]],
-  ['j3ocoefficients_1',['J3OCoefficients',['../namespacetfel_1_1material.html#a54fd6c0605754328b4b7805d031f2227',1,'tfel::material']]]
+  ['j2ocoefficients_0',['J2OCoefficients',['../namespacetfel_1_1material.html#a110f4b5e9823684b9498731d528bf327',1,'tfel::material']]],
+  ['j3ocoefficients_1',['J3OCoefficients',['../namespacetfel_1_1material.html#a424fb2f63101858590ddccfef2accb11',1,'tfel::material']]]
 ];

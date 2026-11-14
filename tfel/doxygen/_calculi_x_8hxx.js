@@ -1,6 +1,6 @@
 var _calculi_x_8hxx =
 [
-    [ "CalculiXInt", "_calculi_x_8hxx.html#a0412cfbfb9b27ba3059834ce32084c63", null ],
-    [ "CalculiXReal", "_calculi_x_8hxx.html#a64cd3663dfb2e54740d31ca10d9cac80", null ],
-    [ "StressFreeExpansionHandler", "_calculi_x_8hxx.html#a704401cfb65bd4b717339f05046de1f7", null ]
+    [ "calculix::CalculiXInt", "namespacecalculix.html#a5c8445d269363acce1c50098a5cf176a", null ],
+    [ "calculix::CalculiXReal", "namespacecalculix.html#a01bef416fdfaa902d6dd86ef1de914ed", null ],
+    [ "calculix::StressFreeExpansionHandler", "namespacecalculix.html#a22378ed6042414630a69859d2e231cb1", null ]
 ];

@@ -1,11 +1,6 @@
 var structmfront_1_1_compiled_target_description_base =
 [
-    [ "TargetSystem", "structmfront_1_1_compiled_target_description_base.html#a0428f6a559ba8ce9240a6dfb5e028968", [
-      [ "WINDOWS", "structmfront_1_1_compiled_target_description_base.html#a0428f6a559ba8ce9240a6dfb5e028968a3c66d754c3cd21f0b1a22dfb718cb001", null ],
-      [ "CYGWIN", "structmfront_1_1_compiled_target_description_base.html#a0428f6a559ba8ce9240a6dfb5e028968aca708d84291619218f06faccd46ab374", null ],
-      [ "MACOSX", "structmfront_1_1_compiled_target_description_base.html#a0428f6a559ba8ce9240a6dfb5e028968ab20d01236d2e0a801770d6ab96a5dee8", null ],
-      [ "UNIX", "structmfront_1_1_compiled_target_description_base.html#a0428f6a559ba8ce9240a6dfb5e028968a5b485ea4a75274900a96534849c6afa3", null ]
-    ] ],
+    [ "TargetSystem", "structmfront_1_1_compiled_target_description_base.html#a0428f6a559ba8ce9240a6dfb5e028968", null ],
     [ "CompiledTargetDescriptionBase", "structmfront_1_1_compiled_target_description_base.html#acd77ffaaea344ed4714909dc13afd22e", null ],
     [ "CompiledTargetDescriptionBase", "structmfront_1_1_compiled_target_description_base.html#abacbf2b299a838ac3e77d70973d0cd3c", null ],
     [ "CompiledTargetDescriptionBase", "structmfront_1_1_compiled_target_description_base.html#a13bc984b7bbf158830369fbc2ac9340e", null ],

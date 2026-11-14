@@ -1,8 +1,8 @@
 var structmfront_1_1_d_s_l_base =
 [
-    [ "CodeBlockParserOptions", "structmfront_1_1_d_s_l_base_1_1_code_block_parser_options.html", "structmfront_1_1_d_s_l_base_1_1_code_block_parser_options" ],
     [ "VariableModifier", "structmfront_1_1_d_s_l_base_1_1_variable_modifier.html", "structmfront_1_1_d_s_l_base_1_1_variable_modifier" ],
     [ "WordAnalyser", "structmfront_1_1_d_s_l_base_1_1_word_analyser.html", "structmfront_1_1_d_s_l_base_1_1_word_analyser" ],
+    [ "CodeBlockParserOptions", "structmfront_1_1_d_s_l_base_1_1_code_block_parser_options.html", "structmfront_1_1_d_s_l_base_1_1_code_block_parser_options" ],
     [ "DSLBase", "structmfront_1_1_d_s_l_base.html#ada003b27b1877ddd5076383e21517307", null ],
     [ "~DSLBase", "structmfront_1_1_d_s_l_base.html#a5e5dac09ba1c82d0ed09811339e893cb", null ],
     [ "addExternalMFrontFile", "structmfront_1_1_d_s_l_base.html#a3f212d8fe3c9b9dc8b6195fb8bca1f36", null ],

@@ -1,6 +1,7 @@
 var structtfel_1_1math_1_1_expr_3_01_stensor_result_type_00_01_tensor_s_t2to_t2_product_expr_3_012u_01_4_01_4 =
 [
     [ "RunTimeProperties", "structtfel_1_1math_1_1_expr_3_01_stensor_result_type_00_01_tensor_s_t2to_t2_product_expr_3_012u_01_4_01_4.html#af202f28a92442a48b2251285aeca75cd", null ],
+    [ "size_type", "structtfel_1_1math_1_1_expr.html#a61a4d4c416bfffd39595081fb097c93b", null ],
     [ "value_type", "structtfel_1_1math_1_1_expr_3_01_stensor_result_type_00_01_tensor_s_t2to_t2_product_expr_3_012u_01_4_01_4.html#a20edf6555921a7e4a8441a979ccf0fc9", null ],
     [ "Expr", "structtfel_1_1math_1_1_expr_3_01_stensor_result_type_00_01_tensor_s_t2to_t2_product_expr_3_012u_01_4_01_4.html#a6ab8144cc2f2d4cf34b97fb56bdcdfdf", null ],
     [ "getRunTimeProperties", "structtfel_1_1math_1_1_expr_3_01_stensor_result_type_00_01_tensor_s_t2to_t2_product_expr_3_012u_01_4_01_4.html#ab0a3220ece3a1e00e193ceff4e4caae6", null ],

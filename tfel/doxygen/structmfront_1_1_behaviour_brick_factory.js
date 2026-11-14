@@ -1,7 +1,7 @@
 var structmfront_1_1_behaviour_brick_factory =
 [
     [ "BehaviourType", "structmfront_1_1_behaviour_brick_factory.html#a64a25c76b018fe200e7bb104589e752a", null ],
-    [ "constructor", "structmfront_1_1_behaviour_brick_factory.html#a2d7f6f6049fe59dc890508aef3bff3c2", null ],
+    [ "constructor", "structmfront_1_1_behaviour_brick_factory.html#a2fe6afbf4cd0162deb6c60530375d9f1", null ],
     [ "CxxTokenizer", "structmfront_1_1_behaviour_brick_factory.html#a98a9af5cc4851dbf8cda4d9b61f6e91d", null ],
     [ "IntegrationScheme", "structmfront_1_1_behaviour_brick_factory.html#ac08b50242c2a82c2777248fb7f0ea5a4", null ],
     [ "tokens_iterator", "structmfront_1_1_behaviour_brick_factory.html#a614ef26c3ce91e32b6e2f2f0df600060", null ],

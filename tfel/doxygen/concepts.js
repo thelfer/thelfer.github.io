@@ -42,12 +42,12 @@ var concepts =
         [ "StressTensorConcept", "concepttfel_1_1math_1_1_stress_tensor_concept.html", null ],
         [ "VectorConcept", "concepttfel_1_1math_1_1_vector_concept.html", null ]
       ] ],
-      [ "meta", null, [
-        [ "ReferenceConcept", "concepttfel_1_1meta_1_1_reference_concept.html", null ]
-      ] ],
       [ "typetraits", null, [
         [ "StandardArithmeticTypeConcept", "concepttfel_1_1typetraits_1_1_standard_arithmetic_type_concept.html", null ],
         [ "FundamentalNumericTypeConcept", "concepttfel_1_1typetraits_1_1_fundamental_numeric_type_concept.html", null ]
+      ] ],
+      [ "meta", null, [
+        [ "ReferenceConcept", "concepttfel_1_1meta_1_1_reference_concept.html", null ]
       ] ]
     ] ],
     [ "tfel ", null, [

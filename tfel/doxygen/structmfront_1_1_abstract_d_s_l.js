@@ -2,11 +2,7 @@ var structmfront_1_1_abstract_d_s_l =
 [
     [ "DSLOptionDescription", "structmfront_1_1_abstract_d_s_l_1_1_d_s_l_option_description.html", null ],
     [ "DSLOptions", "structmfront_1_1_abstract_d_s_l.html#ab2c4d3244310655b5554f808a6f66ae9", null ],
-    [ "DSLTarget", "structmfront_1_1_abstract_d_s_l.html#ae9f53194d2e8ff2d4ba6299cf4e35423", [
-      [ "MATERIALPROPERTYDSL", "structmfront_1_1_abstract_d_s_l.html#ae9f53194d2e8ff2d4ba6299cf4e35423a7c254b36b0264fa97a25db9a78888aa7", null ],
-      [ "BEHAVIOURDSL", "structmfront_1_1_abstract_d_s_l.html#ae9f53194d2e8ff2d4ba6299cf4e35423ae879a9cec1d9c3434207fa8a64cadd4d", null ],
-      [ "MODELDSL", "structmfront_1_1_abstract_d_s_l.html#ae9f53194d2e8ff2d4ba6299cf4e35423a15f67baaa5c10a57c8a19c5e6f946748", null ]
-    ] ],
+    [ "DSLTarget", "structmfront_1_1_abstract_d_s_l.html#ae9f53194d2e8ff2d4ba6299cf4e35423", null ],
     [ "~AbstractDSL", "structmfront_1_1_abstract_d_s_l.html#a96030854ac3035711fb02dbdf7519f18", null ],
     [ "analyseFile", "structmfront_1_1_abstract_d_s_l.html#a8fb02cda1b678a6aca4dee26e3f141cd", null ],
     [ "analyseString", "structmfront_1_1_abstract_d_s_l.html#af57e8a7872c949eda17bdb201aee894a", null ],

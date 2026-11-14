@@ -1,14 +1,6 @@
 var structmfront_1_1bbrick_1_1_option_description =
 [
     [ "Type", "structmfront_1_1bbrick_1_1_option_description.html#a23fad421ed5b4200f338d1a642640179", [
-      [ "MATERIALPROPERTY", "structmfront_1_1bbrick_1_1_option_description.html#a23fad421ed5b4200f338d1a642640179a220cf7465086a68136ec93360fed2a96", null ],
-      [ "ARRAYOFMATERIALPROPERTIES", "structmfront_1_1bbrick_1_1_option_description.html#a23fad421ed5b4200f338d1a642640179ac8fc3e5af8bdb8055fb18db92f51a952", null ],
-      [ "BOOLEAN", "structmfront_1_1bbrick_1_1_option_description.html#a23fad421ed5b4200f338d1a642640179ac01c92f94a0802d2680dee7e6c789246", null ],
-      [ "REAL", "structmfront_1_1bbrick_1_1_option_description.html#a23fad421ed5b4200f338d1a642640179afae5783f5e6c305db68964730afe7b39", null ],
-      [ "STRING", "structmfront_1_1bbrick_1_1_option_description.html#a23fad421ed5b4200f338d1a642640179a410859721ce92ceb159a7a11ccf4330b", null ],
-      [ "DOUBLEDOUBLEMAP", "structmfront_1_1bbrick_1_1_option_description.html#a23fad421ed5b4200f338d1a642640179ac8602604ee5463717c5827b48cb490d3", null ],
-      [ "DATAMAP", "structmfront_1_1bbrick_1_1_option_description.html#a23fad421ed5b4200f338d1a642640179aef36a2f6f73c4a23b8a0586f2379b8bd", null ],
-      [ "DATASTRUCTURE", "structmfront_1_1bbrick_1_1_option_description.html#a23fad421ed5b4200f338d1a642640179a5b7fd81e39a5479232a3e13f90bd7cd6", null ],
       [ "DATASTRUCTURES", "structmfront_1_1bbrick_1_1_option_description.html#a23fad421ed5b4200f338d1a642640179a9f711a677a57e51dd5cfdf263fe4763c", null ]
     ] ],
     [ "OptionDescription", "structmfront_1_1bbrick_1_1_option_description.html#abcf86a8975fd58bbe48d02c336b60245", null ],

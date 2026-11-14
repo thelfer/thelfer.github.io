@@ -1,4 +1,4 @@
 var _cyrano_8hxx =
 [
-    [ "StressFreeExpansionHandler", "_cyrano_8hxx.html#ab3cf99030cbeb8ef25a4f924f5d0d16f", null ]
+    [ "cyrano::StressFreeExpansionHandler", "namespacecyrano.html#aaed0a18fe1bded988df2b197a590565a", null ]
 ];

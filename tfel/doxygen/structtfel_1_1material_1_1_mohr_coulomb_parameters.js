@@ -2,10 +2,7 @@ var structtfel_1_1material_1_1_mohr_coulomb_parameters =
 [
     [ "real", "structtfel_1_1material_1_1_mohr_coulomb_parameters.html#a7fdce997134cb1f0bf06237304bc48cd", null ],
     [ "stress", "structtfel_1_1material_1_1_mohr_coulomb_parameters.html#a00e54fcf8e050c232508e3d8ea012db0", null ],
-    [ "AngleUnit", "structtfel_1_1material_1_1_mohr_coulomb_parameters.html#aed31edf70ddd55d137086c28af809741", [
-      [ "RADIAN", "structtfel_1_1material_1_1_mohr_coulomb_parameters.html#aed31edf70ddd55d137086c28af809741a23ede38158b3955eea9c148f3875c835", null ],
-      [ "DEGREE", "structtfel_1_1material_1_1_mohr_coulomb_parameters.html#aed31edf70ddd55d137086c28af809741a792925616e3fd405dea8417201466ba0", null ]
-    ] ],
+    [ "AngleUnit", "structtfel_1_1material_1_1_mohr_coulomb_parameters.html#aed31edf70ddd55d137086c28af809741", null ],
     [ "MohrCoulombParameters", "structtfel_1_1material_1_1_mohr_coulomb_parameters.html#ae3777e048d4abea703922e330ebd6fb1", null ],
     [ "MohrCoulombParameters", "structtfel_1_1material_1_1_mohr_coulomb_parameters.html#a278b289b32720d0d01b92bf13f032656", null ],
     [ "MohrCoulombParameters", "structtfel_1_1material_1_1_mohr_coulomb_parameters.html#a81be04175285def07f9ef4e09977e86b", null ],

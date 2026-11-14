@@ -1,6 +1,7 @@
 var structtfel_1_1math_1_1_expr_3_01_tensor_result_type_00_01_tensor_t2to_t2_product_expr_3_013u_01_4_01_4 =
 [
     [ "RunTimeProperties", "structtfel_1_1math_1_1_expr_3_01_tensor_result_type_00_01_tensor_t2to_t2_product_expr_3_013u_01_4_01_4.html#a9208dc8834cfd3752387450bf7a8f049", null ],
+    [ "size_type", "structtfel_1_1math_1_1_expr.html#a61a4d4c416bfffd39595081fb097c93b", null ],
     [ "value_type", "structtfel_1_1math_1_1_expr_3_01_tensor_result_type_00_01_tensor_t2to_t2_product_expr_3_013u_01_4_01_4.html#acf67348875a2646ef9206521afaa2daa", null ],
     [ "Expr", "structtfel_1_1math_1_1_expr_3_01_tensor_result_type_00_01_tensor_t2to_t2_product_expr_3_013u_01_4_01_4.html#af05a95b29d60a555ac46b135154af31e", null ],
     [ "getRunTimeProperties", "structtfel_1_1math_1_1_expr_3_01_tensor_result_type_00_01_tensor_t2to_t2_product_expr_3_013u_01_4_01_4.html#a1d1ba73b52cdab3f1c3bf2e3e9d01522", null ],

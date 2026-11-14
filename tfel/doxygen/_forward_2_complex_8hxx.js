@@ -1,4 +1,4 @@
 var _forward_2_complex_8hxx =
 [
-    [ "Complex", "_forward_2_complex_8hxx.html#a037360e732078b2d8b6bee5f80a0c819", null ]
+    [ "tfel::math::Complex", "namespacetfel_1_1math.html#a37eb4fc551118036dde85508fb97dc64", null ]
 ];

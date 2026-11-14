@@ -1,12 +1,12 @@
 var structtfel_1_1math_1_1_integer_evaluator =
 [
-    [ "TBinaryOperation", "structtfel_1_1math_1_1_integer_evaluator_1_1_t_binary_operation.html", "structtfel_1_1math_1_1_integer_evaluator_1_1_t_binary_operation" ],
     [ "TExpr", "structtfel_1_1math_1_1_integer_evaluator_1_1_t_expr.html", null ],
-    [ "TGroup", "structtfel_1_1math_1_1_integer_evaluator_1_1_t_group.html", null ],
     [ "TNegation", "structtfel_1_1math_1_1_integer_evaluator_1_1_t_negation.html", "structtfel_1_1math_1_1_integer_evaluator_1_1_t_negation" ],
-    [ "TNumber", "structtfel_1_1math_1_1_integer_evaluator_1_1_t_number.html", "structtfel_1_1math_1_1_integer_evaluator_1_1_t_number" ],
-    [ "TOperator", "structtfel_1_1math_1_1_integer_evaluator_1_1_t_operator.html", null ],
+    [ "TBinaryOperation", "structtfel_1_1math_1_1_integer_evaluator_1_1_t_binary_operation.html", "structtfel_1_1math_1_1_integer_evaluator_1_1_t_binary_operation" ],
     [ "TVariable", "structtfel_1_1math_1_1_integer_evaluator_1_1_t_variable.html", "structtfel_1_1math_1_1_integer_evaluator_1_1_t_variable" ],
+    [ "TOperator", "structtfel_1_1math_1_1_integer_evaluator_1_1_t_operator.html", null ],
+    [ "TGroup", "structtfel_1_1math_1_1_integer_evaluator_1_1_t_group.html", null ],
+    [ "TNumber", "structtfel_1_1math_1_1_integer_evaluator_1_1_t_number.html", "structtfel_1_1math_1_1_integer_evaluator_1_1_t_number" ],
     [ "IntegerEvaluator", "structtfel_1_1math_1_1_integer_evaluator.html#ab6cc6e48363b6bd7026afe3e99476457", null ],
     [ "IntegerEvaluator", "structtfel_1_1math_1_1_integer_evaluator.html#af698d6390a962a34da56278f488ea3a0", null ],
     [ "IntegerEvaluator", "structtfel_1_1math_1_1_integer_evaluator.html#abb0528e93877a1c871d710346c56aed9", null ],

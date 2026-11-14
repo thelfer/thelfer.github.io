@@ -1,23 +1,9 @@
 var structmfront_1_1_configuration_manager =
 [
     [ "DataMap", "structmfront_1_1_configuration_manager.html#ad19b3bc503c13dc0ec586c76a736bd38", null ],
-    [ "Language", "structmfront_1_1_configuration_manager.html#aee16a1b77a0b15c6ffcd0a97742fe964", [
-      [ "CXX", "structmfront_1_1_configuration_manager.html#aee16a1b77a0b15c6ffcd0a97742fe964a72671922346db5fdb39f4789403c73a0", null ],
-      [ "C", "structmfront_1_1_configuration_manager.html#aee16a1b77a0b15c6ffcd0a97742fe964ae660a1db32b0c0183098d3285b557e15", null ],
-      [ "FORTRAN", "structmfront_1_1_configuration_manager.html#aee16a1b77a0b15c6ffcd0a97742fe964a09380e66dd221326f2f4c6b9d176068d", null ],
-      [ "CUDA", "structmfront_1_1_configuration_manager.html#aee16a1b77a0b15c6ffcd0a97742fe964ae3668b9ee2ac4dc643dd959760053c22", null ],
-      [ "HIP", "structmfront_1_1_configuration_manager.html#aee16a1b77a0b15c6ffcd0a97742fe964a6b96f2508c30a14fa07d74f4de58f70a", null ],
-      [ "SYCL", "structmfront_1_1_configuration_manager.html#aee16a1b77a0b15c6ffcd0a97742fe964a29b9f671f96fb79145704159e929969b", null ]
-    ] ],
-    [ "LanguageOptionCategory", "structmfront_1_1_configuration_manager.html#a25603c90b948fcb4d728029d2f3fe0c8", [
-      [ "PREPROCESSOR_FLAGS", "structmfront_1_1_configuration_manager.html#a25603c90b948fcb4d728029d2f3fe0c8a201569939eedf7f8d6d7da1ea9096a81", null ],
-      [ "COMPILATION_FLAGS", "structmfront_1_1_configuration_manager.html#a25603c90b948fcb4d728029d2f3fe0c8a9b93d1ab0b2ee0164aa0a964231cff3b", null ]
-    ] ],
-    [ "LinkerOptionCategory", "structmfront_1_1_configuration_manager.html#ae7ed210246a28b61e92e67d33a63f8f9", [
-      [ "LINKER_FLAGS", "structmfront_1_1_configuration_manager.html#ae7ed210246a28b61e92e67d33a63f8f9afb981d15673a91e7c870a90070e02932", null ],
-      [ "LINK_PATHS", "structmfront_1_1_configuration_manager.html#ae7ed210246a28b61e92e67d33a63f8f9a1b66ee54b6f8c45f65cad642013137a9", null ],
-      [ "LINK_LIBRARIES", "structmfront_1_1_configuration_manager.html#ae7ed210246a28b61e92e67d33a63f8f9a6627e233259d203371435d413095fa58", null ]
-    ] ],
+    [ "Language", "structmfront_1_1_configuration_manager.html#aee16a1b77a0b15c6ffcd0a97742fe964", null ],
+    [ "LanguageOptionCategory", "structmfront_1_1_configuration_manager.html#a25603c90b948fcb4d728029d2f3fe0c8", null ],
+    [ "LinkerOptionCategory", "structmfront_1_1_configuration_manager.html#ae7ed210246a28b61e92e67d33a63f8f9", null ],
     [ "addBehaviourInterfaceOptions", "structmfront_1_1_configuration_manager.html#a98a4429f6c737daa48cc239d30d3ab2b", null ],
     [ "addCompilationOption", "structmfront_1_1_configuration_manager.html#ab87fbebcc478a693c3459847a7b1685f", null ],
     [ "addCompilationOptions", "structmfront_1_1_configuration_manager.html#aecf045048959178ebf4489db30e5d956", null ],

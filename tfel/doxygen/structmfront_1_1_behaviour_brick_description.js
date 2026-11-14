@@ -1,7 +1,7 @@
 var structmfront_1_1_behaviour_brick_description =
 [
     [ "BehaviourSymmetryType", "structmfront_1_1_behaviour_brick_description.html#a91216209166373711b40526cb8614dd4", null ],
-    [ "BehaviourType", "structmfront_1_1_behaviour_brick_description.html#a4dc19388f2f4c7bb1491a75412914465", null ],
+    [ "BehaviourType", "structmfront_1_1_behaviour_brick_description.html#aac34f3dfd29ae55bd26c11569ce4023c", null ],
     [ "Hypothesis", "structmfront_1_1_behaviour_brick_description.html#a6975934df33ae443e2e3b27106bf9f5d", null ],
     [ "IntegrationScheme", "structmfront_1_1_behaviour_brick_description.html#af4c6ddbbb9ef831fb64389c515e4c5fb", null ],
     [ "ModellingHypothesis", "structmfront_1_1_behaviour_brick_description.html#ae9448e8c1f9df31a90bf4dda09228397", null ],

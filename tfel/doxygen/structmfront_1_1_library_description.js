@@ -1,9 +1,6 @@
 var structmfront_1_1_library_description =
 [
-    [ "LibraryType", "structmfront_1_1_library_description.html#a04d5489883402187075df9f5ddf1dc0b", [
-      [ "SHARED_LIBRARY", "structmfront_1_1_library_description.html#a04d5489883402187075df9f5ddf1dc0ba8384953a6faee92cb2bc9d7c3afb4b58", null ],
-      [ "MODULE", "structmfront_1_1_library_description.html#a04d5489883402187075df9f5ddf1dc0ba0f45a7e1f3975071d48a80baa9ad7ce8", null ]
-    ] ],
+    [ "LibraryType", "structmfront_1_1_library_description.html#a04d5489883402187075df9f5ddf1dc0b", null ],
     [ "LibraryDescription", "structmfront_1_1_library_description.html#a751d957f1775067517cd948e24421466", null ],
     [ "LibraryDescription", "structmfront_1_1_library_description.html#a57b58262db4e5ec106ac8ee6721da2cc", null ],
     [ "LibraryDescription", "structmfront_1_1_library_description.html#a623b34e6123baee49b2777fba4111066", null ],

@@ -1,17 +1,17 @@
 var include_2_t_f_e_l_2_material_2_gurson_tvergaard_needleman1982_stress_criterion_8hxx =
 [
-    [ "tfel::material::GursonTvergaardNeedleman1982StressCriterionParameters< StressStensor >", "structtfel_1_1material_1_1_gurson_tvergaard_needleman1982_stress_criterion_parameters.html", "structtfel_1_1material_1_1_gurson_tvergaard_needleman1982_stress_criterion_parameters" ],
-    [ "GursonTvergaardNeedleman1982BaseType", "include_2_t_f_e_l_2_material_2_gurson_tvergaard_needleman1982_stress_criterion_8hxx.html#a35f32a6ccdb6da003743071efb083eba", null ],
-    [ "GursonTvergaardNeedleman1982InvertStressType", "include_2_t_f_e_l_2_material_2_gurson_tvergaard_needleman1982_stress_criterion_8hxx.html#a930968e097b7ff03acdb5ab19e9b4672", null ],
-    [ "GursonTvergaardNeedleman1982NormalDerivativeWithRespectToPorosityType", "include_2_t_f_e_l_2_material_2_gurson_tvergaard_needleman1982_stress_criterion_8hxx.html#a3ef9dce6975761b0dcb7ff143b830181", null ],
-    [ "GursonTvergaardNeedleman1982PorosityType", "include_2_t_f_e_l_2_material_2_gurson_tvergaard_needleman1982_stress_criterion_8hxx.html#ade65d09ade52799c5771e0757931d9bf", null ],
-    [ "GursonTvergaardNeedleman1982StressDerivativeWithRespectToPorosityType", "include_2_t_f_e_l_2_material_2_gurson_tvergaard_needleman1982_stress_criterion_8hxx.html#abf7efc533f5eb37afb647c855f8a28d8", null ],
-    [ "GursonTvergaardNeedleman1982StressEigenTensorType", "include_2_t_f_e_l_2_material_2_gurson_tvergaard_needleman1982_stress_criterion_8hxx.html#a939fd75d0f07d9bba206540fc85a1d92", null ],
-    [ "GursonTvergaardNeedleman1982StressNormalType", "include_2_t_f_e_l_2_material_2_gurson_tvergaard_needleman1982_stress_criterion_8hxx.html#a480760c7575b9d510b3b4cabcf524432", null ],
-    [ "GursonTvergaardNeedleman1982StressSecondDerivativeType", "include_2_t_f_e_l_2_material_2_gurson_tvergaard_needleman1982_stress_criterion_8hxx.html#a1a8fda12c84381bc0376103cb3888566", null ],
-    [ "GursonTvergaardNeedleman1982StressType", "include_2_t_f_e_l_2_material_2_gurson_tvergaard_needleman1982_stress_criterion_8hxx.html#adbe9bd1c55ce180d72260979aba3107c", null ],
-    [ "computeGursonTvergaardNeedleman1982Stress", "include_2_t_f_e_l_2_material_2_gurson_tvergaard_needleman1982_stress_criterion_8hxx.html#a70b7a6d1affc201e34be679989e48b91", null ],
-    [ "computeGursonTvergaardNeedleman1982StressNormal", "include_2_t_f_e_l_2_material_2_gurson_tvergaard_needleman1982_stress_criterion_8hxx.html#a68f2ed59ffe8f1994c737cb7d71e8787", null ],
-    [ "computeGursonTvergaardNeedleman1982StressSecondDerivative", "include_2_t_f_e_l_2_material_2_gurson_tvergaard_needleman1982_stress_criterion_8hxx.html#a7578410b52e5a49d54d7e757c7ad6e6f", null ],
-    [ "operator<<", "include_2_t_f_e_l_2_material_2_gurson_tvergaard_needleman1982_stress_criterion_8hxx.html#a090c51866484a25d73d2942b426d506d", null ]
+    [ "tfel::material::GursonTvergaardNeedleman1982StressCriterionParameters&lt; StressStensor &gt;", "structtfel_1_1material_1_1_gurson_tvergaard_needleman1982_stress_criterion_parameters.html", "structtfel_1_1material_1_1_gurson_tvergaard_needleman1982_stress_criterion_parameters" ],
+    [ "tfel::material::GursonTvergaardNeedleman1982BaseType", "namespacetfel_1_1material.html#a56cad0438dba8a86ed63ac9749de5b7f", null ],
+    [ "tfel::material::GursonTvergaardNeedleman1982InvertStressType", "namespacetfel_1_1material.html#a663e53b41a5f2c57b38eac88d5adedd3", null ],
+    [ "tfel::material::GursonTvergaardNeedleman1982NormalDerivativeWithRespectToPorosityType", "namespacetfel_1_1material.html#a10929effea700c1e38c6424758af9cf0", null ],
+    [ "tfel::material::GursonTvergaardNeedleman1982PorosityType", "namespacetfel_1_1material.html#ae05358007389f9e199e21612ae86361e", null ],
+    [ "tfel::material::GursonTvergaardNeedleman1982StressDerivativeWithRespectToPorosityType", "namespacetfel_1_1material.html#a0e72b93da428df091ec076f57d58dd18", null ],
+    [ "tfel::material::GursonTvergaardNeedleman1982StressEigenTensorType", "namespacetfel_1_1material.html#a706ebc5e3c2cbe2031458064fdef384e", null ],
+    [ "tfel::material::GursonTvergaardNeedleman1982StressNormalType", "namespacetfel_1_1material.html#a8cc797c0f4f7c0c732993409729c929f", null ],
+    [ "tfel::material::GursonTvergaardNeedleman1982StressSecondDerivativeType", "namespacetfel_1_1material.html#aad00557b350a405d42ec118da62640f0", null ],
+    [ "tfel::material::GursonTvergaardNeedleman1982StressType", "namespacetfel_1_1material.html#a9b64f16ec416c087fbbf5457b1d3d786", null ],
+    [ "tfel::material::computeGursonTvergaardNeedleman1982Stress", "namespacetfel_1_1material.html#a70b7a6d1affc201e34be679989e48b91", null ],
+    [ "tfel::material::computeGursonTvergaardNeedleman1982StressNormal", "namespacetfel_1_1material.html#a68f2ed59ffe8f1994c737cb7d71e8787", null ],
+    [ "tfel::material::computeGursonTvergaardNeedleman1982StressSecondDerivative", "namespacetfel_1_1material.html#a7578410b52e5a49d54d7e757c7ad6e6f", null ],
+    [ "tfel::material::operator<<", "namespacetfel_1_1material.html#a090c51866484a25d73d2942b426d506d", null ]
 ];

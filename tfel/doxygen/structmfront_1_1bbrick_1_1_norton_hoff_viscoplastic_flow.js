@@ -2,7 +2,6 @@ var structmfront_1_1bbrick_1_1_norton_hoff_viscoplastic_flow =
 [
     [ "~NortonHoffViscoplasticFlow", "structmfront_1_1bbrick_1_1_norton_hoff_viscoplastic_flow.html#a20f6c95fefeeff73efec30ff7b5b087c", null ],
     [ "computeFlowRate", "structmfront_1_1bbrick_1_1_norton_hoff_viscoplastic_flow.html#a2796c536ff0c514ec60cf9cae70fddae", null ],
-    [ "computeFlowRateAndDerivative", "structmfront_1_1bbrick_1_1_norton_hoff_viscoplastic_flow.html#a7cd768cb375e54176262dde138007094", null ],
     [ "describesStrainHardeningExplicitly", "structmfront_1_1bbrick_1_1_norton_hoff_viscoplastic_flow.html#aa1b59d63af5788bc6c810186e4a3d022", null ],
     [ "endTreatment", "structmfront_1_1bbrick_1_1_norton_hoff_viscoplastic_flow.html#a08c3833c26263a78072a28a35f7d6614", null ],
     [ "getOptions", "structmfront_1_1bbrick_1_1_norton_hoff_viscoplastic_flow.html#a7e566d846a319368327f3d3e546518b5", null ],

@@ -1,9 +1,6 @@
 var structmfront_1_1generic__parallel_1_1material__property_1_1_s_y_c_l_backend =
 [
-    [ "DataTransferPolicy", "structmfront_1_1generic__parallel_1_1material__property_1_1_s_y_c_l_backend.html#ad46d8e50edb31a2c02695c0bb9c1c78a", [
-      [ "AUTOMATIC", "structmfront_1_1generic__parallel_1_1material__property_1_1_s_y_c_l_backend.html#ad46d8e50edb31a2c02695c0bb9c1c78aa008f6cdd0c190839e9885cf9f9e2a652", null ],
-      [ "NONE", "structmfront_1_1generic__parallel_1_1material__property_1_1_s_y_c_l_backend.html#ad46d8e50edb31a2c02695c0bb9c1c78aab50339a10e1de285ac99d4c3990b8693", null ]
-    ] ],
+    [ "DataTransferPolicy", "structmfront_1_1generic__parallel_1_1material__property_1_1_s_y_c_l_backend.html#ad46d8e50edb31a2c02695c0bb9c1c78a", null ],
     [ "SYCLBackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_s_y_c_l_backend.html#a95fa5b1a57ef379328aacb04685d63cb", null ],
     [ "SYCLBackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_s_y_c_l_backend.html#a849f96ce4765e75a511e905497f19d35", null ],
     [ "~SYCLBackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_s_y_c_l_backend.html#a3e311ebf476e5250a87f5eb0a537cb5d", null ],

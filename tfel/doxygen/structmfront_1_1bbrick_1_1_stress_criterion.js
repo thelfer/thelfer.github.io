@@ -11,7 +11,6 @@ var structmfront_1_1bbrick_1_1_stress_criterion =
       [ "STANDARD_POROSITY_CORRECTION_ON_EQUIVALENT_PLASTIC_STRAIN", "structmfront_1_1bbrick_1_1_stress_criterion.html#a1343e0fe4aa42fb9895b70b5e63e988ca1302a32b4e965213fe96752573154b82", null ]
     ] ],
     [ "Role", "structmfront_1_1bbrick_1_1_stress_criterion.html#a8a23956846e12c290e4d8a4c8c88dc43", [
-      [ "STRESSCRITERION", "structmfront_1_1bbrick_1_1_stress_criterion.html#a8a23956846e12c290e4d8a4c8c88dc43a14ddff1979aad88c9bda6590091a884a", null ],
       [ "FLOWCRITERION", "structmfront_1_1bbrick_1_1_stress_criterion.html#a8a23956846e12c290e4d8a4c8c88dc43a3c4fe25447848c50ad0f50d478646be5", null ],
       [ "STRESSANDFLOWCRITERION", "structmfront_1_1bbrick_1_1_stress_criterion.html#a8a23956846e12c290e4d8a4c8c88dc43a65d1f8ddb16848b347246b035e4ee494", null ]
     ] ],

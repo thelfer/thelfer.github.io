@@ -1,5 +1,6 @@
 var NAVTREEINDEX45 =
 {
+"structmfront_1_1bbrick_1_1_stress_criterion.html#a6cd59442ab031816862048844ec0b909":[7,0,10,0,57,13],
 "structmfront_1_1bbrick_1_1_stress_criterion.html#a6fef49c62bdcd064095d2c301b695ae1":[7,0,10,0,57,3],
 "structmfront_1_1bbrick_1_1_stress_criterion.html#a8399028daa2cc1ec329587a8bb742161":[7,0,10,0,57,1],
 "structmfront_1_1bbrick_1_1_stress_criterion.html#a86a61027176d24d9708f40b888425db6":[7,0,10,0,57,4],
@@ -248,6 +249,5 @@ var NAVTREEINDEX45 =
 "structmfront_1_1generic__parallel_1_1material__property_1_1_h_i_p_backend.html#a7543de1e928e1f51960f18431f1c7867":[7,0,10,2,1,6,7],
 "structmfront_1_1generic__parallel_1_1material__property_1_1_h_i_p_backend.html#a7f6f3432155f14c7bf725c717fff2652":[7,0,10,2,1,6,6],
 "structmfront_1_1generic__parallel_1_1material__property_1_1_h_i_p_backend.html#a838463c1e7290c5d33544c4decdb65f2":[7,0,10,2,1,6,5],
-"structmfront_1_1generic__parallel_1_1material__property_1_1_h_i_p_backend.html#a95d9d7a9da4ee12d82f8263425670a80":[7,0,10,2,1,6,3],
-"structmfront_1_1generic__parallel_1_1material__property_1_1_h_i_p_backend.html#aa4a98887652e1561e17375fde7b50de0":[7,0,10,2,1,6,2]
+"structmfront_1_1generic__parallel_1_1material__property_1_1_h_i_p_backend.html#a95d9d7a9da4ee12d82f8263425670a80":[7,0,10,2,1,6,3]
 };

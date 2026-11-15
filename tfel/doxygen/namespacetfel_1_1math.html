@@ -2039,10 +2039,10 @@ requires (<a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimens
 requires ((<a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;ST2toST2Type&gt;() == <a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;StensorType&gt;()) &amp;&amp; (std::is_same_v&lt;<a class="el" href="#a709eb5b335cdba556bd7a3eee391f2c4">numeric_type</a>&lt;ST2toST2Type&gt;, <a class="el" href="#a709eb5b335cdba556bd7a3eee391f2c4">numeric_type</a>&lt;StensorType&gt;&gt;))</td></tr>
 <tr class="memitem:adb34a15b9fd07dea5539671669b9ee1c template"><td class="memItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb34a15b9fd07dea5539671669b9ee1c">convertSpatialModuliToKirchhoffJaumanRateModuli</a> (const ST2toST2Type &amp;C_s, const StensorType &amp;tau) noexcept</td></tr>
 <tr class="memdesc:adb34a15b9fd07dea5539671669b9ee1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">convert the spatial moduli in the moduli associated with Jauman rate of the Kirchhoff stress  <br /></td></tr>
-<tr class="memitem:a6967c0ba3cc7d772ce16d48cd2ff6838" id="r_a6967c0ba3cc7d772ce16d48cd2ff6838"><td class="memTemplParams" colspan="2"><a id="a6967c0ba3cc7d772ce16d48cd2ff6838" name="a6967c0ba3cc7d772ce16d48cd2ff6838"></a>
-template&lt;T2toST2Concept T2toST2Type, TensorConcept TensorType&gt; <br />
+<tr class="memitem:a6967c0ba3cc7d772ce16d48cd2ff6838" id="r_a6967c0ba3cc7d772ce16d48cd2ff6838"><td class="memTemplParams" colspan="2">template&lt;T2toST2Concept T2toST2Type, TensorConcept TensorType&gt; <br />
 requires (<a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;T2toST2Type&gt;() == <a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;TensorType&gt;())</td></tr>
-<tr class="memitem:a6967c0ba3cc7d772ce16d48cd2ff6838 template"><td class="memItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><b>convertToTangentModuli</b> (const T2toST2Type &amp;K, const TensorType &amp;F) noexcept</td></tr>
+<tr class="memitem:a6967c0ba3cc7d772ce16d48cd2ff6838 template"><td class="memItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6967c0ba3cc7d772ce16d48cd2ff6838">convertToTangentModuli</a> (const T2toST2Type &amp;K, const TensorType &amp;F) noexcept</td></tr>
+<tr class="memdesc:a6967c0ba3cc7d772ce16d48cd2ff6838"><td class="mdescLeft">&#160;</td><td class="mdescRight">compute the moduli \(C\) such that \(C\,\colon\,D = K\,\colon\,\left(D\,\cdot\,F\right)\) for every symmetric tensor \(D\).  <br /></td></tr>
 <tr class="memitem:af23f9c160ceddd7337e86d13cbe60e75" id="r_af23f9c160ceddd7337e86d13cbe60e75"><td class="memItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af23f9c160ceddd7337e86d13cbe60e75">abs</a> (const ST2toST2Concept auto &amp;) noexcept</td></tr>
 <tr class="memitem:ac0dabf37e4b396ce571f4aa86d05adba" id="r_ac0dabf37e4b396ce571f4aa86d05adba"><td class="memItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac0dabf37e4b396ce571f4aa86d05adba">transpose</a> (ST2toST2Concept auto &amp;&amp;) noexcept</td></tr>
 <tr class="memdesc:ac0dabf37e4b396ce571f4aa86d05adba"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function computes the transpose of a <span class="tt"><a class="el" href="structtfel_1_1math_1_1st2tost2.html" title="linear operator on symmetric tensors.">st2tost2</a></span> as.  <br /></td></tr>
@@ -7429,6 +7429,47 @@ requires ((<a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimen
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>fourth order tensor to be converted </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6967c0ba3cc7d772ce16d48cd2ff6838" name="a6967c0ba3cc7d772ce16d48cd2ff6838"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6967c0ba3cc7d772ce16d48cd2ff6838">&#9670;&#160;</a></span>convertToTangentModuli()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;T2toST2Concept T2toST2Type, TensorConcept TensorType&gt; <br />
+requires (<a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;T2toST2Type&gt;() == <a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;TensorType&gt;())</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TFEL_HOST_DEVICE constexpr auto tfel::math::convertToTangentModuli </td>
+          <td>(</td>
+          <td class="paramtype">const T2toST2Type &amp;</td>          <td class="paramname"><span class="paramname"><em>K</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const TensorType &amp;</td>          <td class="paramname"><span class="paramname"><em>F</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>compute the moduli \(C\) such that \(C\,\colon\,D = K\,\colon\,\left(D\,\cdot\,F\right)\) for every symmetric tensor \(D\). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">K</td><td>derivative of the Kirchhoff stress with respect to the deformation gradient </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">F</td><td>deformation gradient </td></tr>
   </table>
   </dd>
 </dl>

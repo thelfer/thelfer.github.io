@@ -1,5 +1,6 @@
 var NAVTREEINDEX26 =
 {
+"structmfront_1_1_broyden_solver.html":[5,0,7,44],
 "structmfront_1_1_broyden_solver.html":[7,0,10,48],
 "structmfront_1_1_broyden_solver.html#a3c4d3db0725f578283151acf007072f8":[5,0,7,44,2],
 "structmfront_1_1_broyden_solver.html#a3c4d3db0725f578283151acf007072f8":[7,0,10,48,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX26 =
 "structmfront_1_1_castem21_model_interface.html#af10b6ca43c84c5e3d799dff65ee33c07":[5,0,7,50,1],
 "structmfront_1_1_castem21_model_interface.html#af10b6ca43c84c5e3d799dff65ee33c07":[7,0,10,54,1],
 "structmfront_1_1_castem_interface.html":[5,0,7,51],
-"structmfront_1_1_castem_interface.html":[7,0,10,55],
-"structmfront_1_1_castem_interface.html#a039ac70a7321ee52fc7d737298619188":[5,0,7,51,1]
+"structmfront_1_1_castem_interface.html":[7,0,10,55]
 };

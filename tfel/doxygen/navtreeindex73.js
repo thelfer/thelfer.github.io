@@ -1,5 +1,6 @@
 var NAVTREEINDEX73 =
 {
+"structtfel_1_1math_1_1_levenberg_marquardt.html":[5,0,9,1,249],
 "structtfel_1_1math_1_1_levenberg_marquardt.html":[7,0,14,5,252],
 "structtfel_1_1math_1_1_levenberg_marquardt_function_wrapper.html":[5,0,9,1,291],
 "structtfel_1_1math_1_1_levenberg_marquardt_function_wrapper.html":[7,0,14,5,294],
@@ -248,6 +249,5 @@ var NAVTREEINDEX73 =
 "structtfel_1_1math_1_1_quantity_traits.html#a7dbdbc6704ea7a3c1497d0f320e1287d":[7,0,14,5,125,0],
 "structtfel_1_1math_1_1_quantity_traits.html#a7dbdbc6704ea7a3c1497d0f320e1287d":[7,0,14,5,307,0],
 "structtfel_1_1math_1_1_quantity_traits.html#a7dbdbc6704ea7a3c1497d0f320e1287d":[7,0,14,5,308,0],
-"structtfel_1_1math_1_1_quantity_traits.html#a7dbdbc6704ea7a3c1497d0f320e1287d":[7,0,14,5,309,0],
-"structtfel_1_1math_1_1_quantity_traits.html#ad3a17cd7df4714111b863bc0e9565ee1":[5,0,9,1,122,1]
+"structtfel_1_1math_1_1_quantity_traits.html#a7dbdbc6704ea7a3c1497d0f320e1287d":[7,0,14,5,309,0]
 };

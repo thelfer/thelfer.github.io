@@ -1,5 +1,6 @@
 var NAVTREEINDEX79 =
 {
+"structtfel_1_1math_1_1_u_anderson.html#a1e30267901c9d8c2d575c7e8a1561ecf":[5,0,9,1,5,1],
 "structtfel_1_1math_1_1_u_anderson.html#a1e30267901c9d8c2d575c7e8a1561ecf":[7,0,14,5,8,1],
 "structtfel_1_1math_1_1_u_anderson.html#a5b5d15931d01ebe07f5d9f9548854b5d":[5,0,9,1,5,2],
 "structtfel_1_1math_1_1_u_anderson.html#a5b5d15931d01ebe07f5d9f9548854b5d":[7,0,14,5,8,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX79 =
 "structtfel_1_1math_1_1internals_1_1_check_unit_compatibility_implementation.html":[5,0,9,1,0,111],
 "structtfel_1_1math_1_1internals_1_1_check_unit_compatibility_implementation.html":[7,0,14,5,1,111],
 "structtfel_1_1math_1_1internals_1_1_check_unit_compatibility_implementation_3_01_unit_00_01_math_object_type_01_4.html":[5,0,9,1,0,113],
-"structtfel_1_1math_1_1internals_1_1_check_unit_compatibility_implementation_3_01_unit_00_01_math_object_type_01_4.html":[7,0,14,5,1,113],
-"structtfel_1_1math_1_1internals_1_1_check_unit_compatibility_implementation_3_01_unit_00_01_numeric_type_01_4.html":[5,0,9,1,0,112]
+"structtfel_1_1math_1_1internals_1_1_check_unit_compatibility_implementation_3_01_unit_00_01_math_object_type_01_4.html":[7,0,14,5,1,113]
 };

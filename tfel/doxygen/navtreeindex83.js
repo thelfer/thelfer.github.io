@@ -1,5 +1,6 @@
 var NAVTREEINDEX83 =
 {
+"structtfel_1_1math_1_1unit_1_1_stress_rate.html":[7,0,14,5,2,22],
 "structtfel_1_1math_1_1unit_1_1_temperature.html":[7,0,14,5,2,11],
 "structtfel_1_1math_1_1unit_1_1_temperature_gradient.html":[7,0,14,5,2,25],
 "structtfel_1_1math_1_1unit_1_1_thermal_conductivity.html":[7,0,14,5,2,26],
@@ -248,6 +249,5 @@ var NAVTREEINDEX83 =
 "structtfel_1_1system_1_1_external_library_manager.html#a3c576e7671d01549a735522eb0b3d6c4":[7,0,14,11,22,26],
 "structtfel_1_1system_1_1_external_library_manager.html#a3d0f12c9d36eab5fdb1e59bcec467596":[7,0,14,11,22,28],
 "structtfel_1_1system_1_1_external_library_manager.html#a3d6a0dfa8de23987365de270402ec6e7":[7,0,14,11,22,11],
-"structtfel_1_1system_1_1_external_library_manager.html#a3daa785b4560324cb80d1df76856a9f9":[7,0,14,11,22,27],
-"structtfel_1_1system_1_1_external_library_manager.html#a447bb60a5e7a3f98bc33d3f998278361":[7,0,14,11,22,64]
+"structtfel_1_1system_1_1_external_library_manager.html#a3daa785b4560324cb80d1df76856a9f9":[7,0,14,11,22,27]
 };

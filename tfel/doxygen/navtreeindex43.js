@@ -1,5 +1,6 @@
 var NAVTREEINDEX43 =
 {
+"structmfront_1_1bbrick_1_1_delobelle_robinet_schaffler_kinematic_hardening_rule.html#a398ff227bd677b89b6097d083af450f9":[7,0,10,0,12,5],
 "structmfront_1_1bbrick_1_1_delobelle_robinet_schaffler_kinematic_hardening_rule.html#a4b37c2e25d4c62173b83a06ef78da17f":[7,0,10,0,12,1],
 "structmfront_1_1bbrick_1_1_delobelle_robinet_schaffler_kinematic_hardening_rule.html#a9c7b741ad76fbccd895adfb3e9faa811":[7,0,10,0,12,0],
 "structmfront_1_1bbrick_1_1_delobelle_robinet_schaffler_kinematic_hardening_rule.html#ab9587e39228a581ffbf14e75caa073fb":[7,0,10,0,12,10],
@@ -248,6 +249,5 @@ var NAVTREEINDEX43 =
 "structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html#acdf216bb1c14e2f669ee6acfc6c5d673":[7,0,10,0,30,5],
 "structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html#ae2617a5e2b0b5dd98156a16d5fd74a13":[7,0,10,0,30,9],
 "structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html#ae8fee4824a0ae31f3760dec220d6cd2a":[7,0,10,0,30,6],
-"structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html#ae9a9dd4e811008e37e75cac86775c0ab":[7,0,10,0,30,1],
-"structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html#aedeaeeb694d00ddaa725b1e322c51cc7":[7,0,10,0,30,4]
+"structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html#ae9a9dd4e811008e37e75cac86775c0ab":[7,0,10,0,30,1]
 };

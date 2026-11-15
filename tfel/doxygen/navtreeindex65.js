@@ -1,5 +1,6 @@
 var NAVTREEINDEX65 =
 {
+"structtfel_1_1math_1_1_derivative_type_dispatcher.html#ab07f35defb621a2bcd08bd5c410645b5":[7,0,14,5,521,2],
 "structtfel_1_1math_1_1_derivative_type_dispatcher.html#ab07f35defb621a2bcd08bd5c410645b5":[7,0,14,5,556,2],
 "structtfel_1_1math_1_1_derivative_type_dispatcher.html#ab07f35defb621a2bcd08bd5c410645b5":[7,0,14,5,557,2],
 "structtfel_1_1math_1_1_derivative_type_dispatcher.html#ab07f35defb621a2bcd08bd5c410645b5":[7,0,14,5,618,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX65 =
 "structtfel_1_1math_1_1_evaluator.html#a7c56bf306e5da6ddab74ac964f5f3763":[5,0,9,1,94,20],
 "structtfel_1_1math_1_1_evaluator.html#a7c56bf306e5da6ddab74ac964f5f3763":[7,0,14,5,97,20],
 "structtfel_1_1math_1_1_evaluator.html#a7d4a803c4a96d969c487acfd1fef2eae":[5,0,9,1,94,24],
-"structtfel_1_1math_1_1_evaluator.html#a7d4a803c4a96d969c487acfd1fef2eae":[7,0,14,5,97,24],
-"structtfel_1_1math_1_1_evaluator.html#a7dc252a8156eadb39409cabfc3f2b440":[5,0,9,1,94,22]
+"structtfel_1_1math_1_1_evaluator.html#a7d4a803c4a96d969c487acfd1fef2eae":[7,0,14,5,97,24]
 };

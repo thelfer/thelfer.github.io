@@ -1,5 +1,6 @@
 var NAVTREEINDEX80 =
 {
+"structtfel_1_1math_1_1internals_1_1_check_unit_compatibility_implementation_3_01_unit_00_01_numeric_type_01_4.html":[5,0,9,1,0,112],
 "structtfel_1_1math_1_1internals_1_1_check_unit_compatibility_implementation_3_01_unit_00_01_numeric_type_01_4.html":[7,0,14,5,1,112],
 "structtfel_1_1math_1_1internals_1_1_cubic_spline_collocation_point_comparator.html":[5,0,9,1,0,33],
 "structtfel_1_1math_1_1internals_1_1_cubic_spline_collocation_point_comparator.html":[7,0,14,5,1,33],
@@ -248,6 +249,5 @@ var NAVTREEINDEX80 =
 "structtfel_1_1math_1_1internals_1_1_strided_coalesced_views_array_base.html#a356241b1c72d97b761360ab3d8c6a74c":[5,0,9,1,0,3,0],
 "structtfel_1_1math_1_1internals_1_1_strided_coalesced_views_array_base.html#a356241b1c72d97b761360ab3d8c6a74c":[7,0,14,5,1,3,0],
 "structtfel_1_1math_1_1internals_1_1_strided_coalesced_views_array_base.html#aae8dd5117f07f2435ee08820fb36068c":[5,0,9,1,0,3,1],
-"structtfel_1_1math_1_1internals_1_1_strided_coalesced_views_array_base.html#aae8dd5117f07f2435ee08820fb36068c":[7,0,14,5,1,3,1],
-"structtfel_1_1math_1_1internals_1_1_strided_coalesced_views_array_base_3_01true_00_01_mapped_typa6ea68aee97b0071904a85abcaaa5f10.html":[5,0,9,1,0,4]
+"structtfel_1_1math_1_1internals_1_1_strided_coalesced_views_array_base.html#aae8dd5117f07f2435ee08820fb36068c":[7,0,14,5,1,3,1]
 };

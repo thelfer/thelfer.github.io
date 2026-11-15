@@ -834,6 +834,7 @@ var namespacetfel_1_1math =
     [ "convertSecondPiolaKirchhoffStressToCorotationnalCauchyStress", "namespacetfel_1_1math.html#a5943258c1642815c562d79ca9fe91644", null ],
     [ "convertSpatialModuliToKirchhoffJaumanRateModuli", "namespacetfel_1_1math.html#adb34a15b9fd07dea5539671669b9ee1c", null ],
     [ "convertToT2toST2", "namespacetfel_1_1math.html#a43a87f1daee86d37020bff65e68ca486", null ],
+    [ "convertToTangentModuli", "namespacetfel_1_1math.html#a6967c0ba3cc7d772ce16d48cd2ff6838", null ],
     [ "det", "namespacetfel_1_1math.html#ae9c6fd9e45d2ae97238d774f6fefb8e0", null ],
     [ "det", "namespacetfel_1_1math.html#a7a5a5d52c467c682b81d8ee175a3be57", null ],
     [ "det", "namespacetfel_1_1math.html#a2d347371055d53b525bf632924a3165c", null ],

@@ -1,5 +1,6 @@
 var NAVTREEINDEX61 =
 {
+"structtfel_1_1material_1_1_logarithmic_strain_handler_base.html":[5,0,9,0,47],
 "structtfel_1_1material_1_1_logarithmic_strain_handler_base.html":[7,0,14,4,46],
 "structtfel_1_1material_1_1_logarithmic_strain_handler_base.html#a3402695d25d9896b74110254bac856c1":[5,0,9,0,47,0],
 "structtfel_1_1material_1_1_logarithmic_strain_handler_base.html#a3402695d25d9896b74110254bac856c1":[7,0,14,4,46,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX61 =
 "structtfel_1_1material_1_1_slip_systems_description.html#a4d9d29504f530777f928d5f2fc7efe88":[5,0,9,0,94,34],
 "structtfel_1_1material_1_1_slip_systems_description.html#a4d9d29504f530777f928d5f2fc7efe88":[7,0,14,4,93,34],
 "structtfel_1_1material_1_1_slip_systems_description.html#a4e8e14918355f9aad936e8c1049ead32":[5,0,9,0,94,20],
-"structtfel_1_1material_1_1_slip_systems_description.html#a4e8e14918355f9aad936e8c1049ead32":[7,0,14,4,93,20],
-"structtfel_1_1material_1_1_slip_systems_description.html#a4eeb3983b8e0d02d5598b72259a9ec7b":[5,0,9,0,94,37]
+"structtfel_1_1material_1_1_slip_systems_description.html#a4e8e14918355f9aad936e8c1049ead32":[7,0,14,4,93,20]
 };

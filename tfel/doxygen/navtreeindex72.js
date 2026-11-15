@@ -1,5 +1,6 @@
 var NAVTREEINDEX72 =
 {
+"structtfel_1_1math_1_1_gauss_kronrod_quadrature_1_1_numerical_parameters.html#a5bc90ccf7e622b20fec64fb60d114053":[5,0,9,1,295,0,1],
 "structtfel_1_1math_1_1_gauss_kronrod_quadrature_1_1_numerical_parameters.html#a5bc90ccf7e622b20fec64fb60d114053":[7,0,14,5,298,0,1],
 "structtfel_1_1math_1_1_gauss_kronrod_quadrature_1_1_numerical_parameters.html#a9ce2822607da8e9d2066060a0690cce6":[5,0,9,1,295,0,0],
 "structtfel_1_1math_1_1_gauss_kronrod_quadrature_1_1_numerical_parameters.html#a9ce2822607da8e9d2066060a0690cce6":[7,0,14,5,298,0,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX72 =
 "structtfel_1_1math_1_1_l_u_unmatched_size.html#ac91ad04a26dd9cc76e3b7617fba837f7":[5,0,9,1,252,1],
 "structtfel_1_1math_1_1_l_u_unmatched_size.html#ac91ad04a26dd9cc76e3b7617fba837f7":[7,0,14,5,255,1],
 "structtfel_1_1math_1_1_left_cauchy_green_tensor_derivative_expr.html":[5,0,9,1,464],
-"structtfel_1_1math_1_1_left_cauchy_green_tensor_derivative_expr.html":[7,0,14,5,467],
-"structtfel_1_1math_1_1_levenberg_marquardt.html":[5,0,9,1,249]
+"structtfel_1_1math_1_1_left_cauchy_green_tensor_derivative_expr.html":[7,0,14,5,467]
 };

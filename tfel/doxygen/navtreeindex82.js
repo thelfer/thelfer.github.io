@@ -1,5 +1,6 @@
 var NAVTREEINDEX82 =
 {
+"structtfel_1_1math_1_1parser_1_1_power_function.html#a3daab8a4df45c941aa333357cf27f179":[7,0,14,5,3,86,3],
 "structtfel_1_1math_1_1parser_1_1_power_function.html#a61f35edfa7d92a75768e44dee1658103":[7,0,14,5,3,86,1],
 "structtfel_1_1math_1_1parser_1_1_power_function.html#ae05112ddb6fa62af43f1401f00527f7a":[7,0,14,5,3,86,0],
 "structtfel_1_1math_1_1parser_1_1_power_function.html#aebea572ed3663567dfd3518b08425a1f":[7,0,14,5,3,86,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX82 =
 "structtfel_1_1math_1_1unit_1_1_no_unit.html":[7,0,14,5,2,6],
 "structtfel_1_1math_1_1unit_1_1_speed.html":[7,0,14,5,2,17],
 "structtfel_1_1math_1_1unit_1_1_standard_unit.html":[7,0,14,5,2,5],
-"structtfel_1_1math_1_1unit_1_1_stress.html":[7,0,14,5,2,21],
-"structtfel_1_1math_1_1unit_1_1_stress_rate.html":[7,0,14,5,2,22]
+"structtfel_1_1math_1_1unit_1_1_stress.html":[7,0,14,5,2,21]
 };

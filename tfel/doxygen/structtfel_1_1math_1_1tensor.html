@@ -184,6 +184,7 @@ TFEL_HOST_DEVICE constexpr&#160;</td><td class="memItemRight" valign="bottom"><b
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:aceeea4a9dcd93f2203559af561d579bb" id="r_aceeea4a9dcd93f2203559af561d579bb"><td class="memItemLeft" align="right" valign="top">static TFEL_HOST_DEVICE constexpr <a class="el" href="structtfel_1_1math_1_1tensor.html">tensor</a>&lt; N, base_type&lt; ValueType &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aceeea4a9dcd93f2203559af561d579bb">Id</a> () noexcept</td></tr>
+<tr class="memitem:abe6cb06d43de2ae4c00cc298d41a7364" id="r_abe6cb06d43de2ae4c00cc298d41a7364"><td class="memItemLeft" align="right" valign="top">static TFEL_HOST_DEVICE constexpr base_type&lt; ValueType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe6cb06d43de2ae4c00cc298d41a7364">Id</a> (const typename <a class="el" href="structtfel_1_1math_1_1tensor.html">tensor</a>&lt; N, ValueType &gt;<a class="el" href="structtfel_1_1math_1_1vector.html">::size_type</a>) noexcept</td></tr>
 <tr class="memitem:aaacca43ef1e1a5742f738ef51dc11133" id="r_aaacca43ef1e1a5742f738ef51dc11133"><td class="memItemLeft" align="right" valign="top">static TFEL_HOST_DEVICE constexpr <a class="el" href="include_2_cyrano_2_behaviour_8hxx.html#a1f775cf4fa3cbc5f015abdd0796e276c">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaacca43ef1e1a5742f738ef51dc11133">buildFromFortranMatrix</a> (<a class="el" href="structtfel_1_1math_1_1tensor.html">tensor</a>&lt; N, ValueType &gt; &amp;, const base_type&lt; ValueType &gt; *const) noexcept</td></tr>
 <tr class="memdesc:aaacca43ef1e1a5742f738ef51dc11133"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a tensor from a fortran matrix.  <br /></td></tr>
 <tr class="memitem:ac1e8d9032c641fe97e48bf17cfc34c98" id="r_ac1e8d9032c641fe97e48bf17cfc34c98"><td class="memItemLeft" align="right" valign="top">static TFEL_HOST_DEVICE constexpr <a class="el" href="structtfel_1_1math_1_1tensor.html">tensor</a>&lt; N, ValueType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac1e8d9032c641fe97e48bf17cfc34c98">buildFromFortranMatrix</a> (const base_type&lt; ValueType &gt; *const) noexcept</td></tr>
@@ -307,7 +308,7 @@ template&lt;unsigned short N, typename ValueType&gt; </div>
 </div>
 </div>
 <a id="aceeea4a9dcd93f2203559af561d579bb" name="aceeea4a9dcd93f2203559af561d579bb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aceeea4a9dcd93f2203559af561d579bb">&#9670;&#160;</a></span>Id()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aceeea4a9dcd93f2203559af561d579bb">&#9670;&#160;</a></span>Id() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -331,6 +332,40 @@ template&lt;unsigned short N, typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>the identity tensor </dd></dl>
+
+</div>
+</div>
+<a id="abe6cb06d43de2ae4c00cc298d41a7364" name="abe6cb06d43de2ae4c00cc298d41a7364"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe6cb06d43de2ae4c00cc298d41a7364">&#9670;&#160;</a></span>Id() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned short N, typename ValueType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TFEL_HOST_DEVICE constexpr base_type&lt; ValueType &gt; <a class="el" href="structtfel_1_1math_1_1tensor.html">tfel::math::tensor</a>&lt; N, ValueType &gt;::Id </td>
+          <td>(</td>
+          <td class="paramtype">const typename <a class="el" href="structtfel_1_1math_1_1tensor.html">tensor</a>&lt; N, ValueType &gt;<a class="el" href="structtfel_1_1math_1_1vector.html">::size_type</a></td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the component i of <span class="tt"><a class="el" href="#aceeea4a9dcd93f2203559af561d579bb">Id()</a></span>, without building the tensor. This is useful when the index is only known at run time: no table is stored nor read. The component has no unit: its type is the base type of <span class="tt">ValueType</span>. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>index </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

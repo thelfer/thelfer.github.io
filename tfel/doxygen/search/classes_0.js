@@ -59,7 +59,7 @@ var searchData=
   ['abscompare_56',['absCompare',['../structtfel_1_1math_1_1abs_compare.html',1,'tfel::math']]],
   ['absolutecomparison_57',['AbsoluteComparison',['../class_absolute_comparison.html',1,'AbsoluteComparison'],['../structtfel_1_1check_1_1_absolute_comparison.html',1,'tfel::check::AbsoluteComparison']]],
   ['abssum_58',['AbsSum',['../structtfel_1_1math_1_1_abs_sum.html',1,'tfel::math']]],
-  ['abstractbackend_59',['AbstractBackend',['../structmfront_1_1generic__parallel_1_1material__property_1_1_abstract_backend.html',1,'mfront::generic_parallel::material_property']]],
+  ['abstractbackend_59',['AbstractBackend',['../structmfront_1_1generic__parallel_1_1_abstract_backend.html',1,'mfront::generic_parallel']]],
   ['abstractbackendexecutionpolicy_60',['AbstractBackendExecutionPolicy',['../structmfront_1_1generic__parallel_1_1_abstract_backend_execution_policy.html',1,'mfront::generic_parallel']]],
   ['abstractbehaviourbrick_61',['AbstractBehaviourBrick',['../structmfront_1_1_abstract_behaviour_brick.html',1,'mfront']]],
   ['abstractbehaviourcodegenerator_62',['AbstractBehaviourCodeGenerator',['../structmfront_1_1_abstract_behaviour_code_generator.html',1,'mfront']]],
@@ -242,5 +242,6 @@ var searchData=
   ['astertangentoperator_239',['AsterTangentOperator',['../structaster_1_1_aster_tangent_operator.html',1,'aster']]],
   ['astertraits_240',['AsterTraits',['../structaster_1_1_aster_traits.html',1,'aster']]],
   ['asterunsupportedcasehandler_241',['AsterUnSupportedCaseHandler',['../structaster_1_1_aster_un_supported_case_handler.html',1,'aster']]],
-  ['axialgrowth_242',['AxialGrowth',['../structmfront_1_1_behaviour_data_1_1_axial_growth.html',1,'mfront::BehaviourData']]]
+  ['atomics_242',['Atomics',['../structmfront_1_1generic__parallel_1_1sycl_1_1internals_1_1_atomics.html',1,'mfront::generic_parallel::sycl::internals']]],
+  ['axialgrowth_243',['AxialGrowth',['../structmfront_1_1_behaviour_data_1_1_axial_growth.html',1,'mfront::BehaviourData']]]
 ];

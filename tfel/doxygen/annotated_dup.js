@@ -518,39 +518,45 @@ var annotated_dup =
         [ "DissipatedEnergyComputer", "structmfront_1_1gb_1_1_dissipated_energy_computer.html", null ],
         [ "DoNothingEnergyComputer", "structmfront_1_1gb_1_1_do_nothing_energy_computer.html", null ]
       ] ],
-      [ "generic_parallel", null, [
+      [ "generic_parallel", "namespacemfront_1_1generic__parallel.html", [
         [ "gpu", null, [
           [ "StackSizeCheck", "structmfront_1_1generic__parallel_1_1gpu_1_1_stack_size_check.html", "structmfront_1_1generic__parallel_1_1gpu_1_1_stack_size_check" ]
         ] ],
-        [ "material_property", null, [
-          [ "AbstractBackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_abstract_backend.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_abstract_backend" ],
-          [ "BackendBase", "structmfront_1_1generic__parallel_1_1material__property_1_1_backend_base.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_backend_base" ],
-          [ "BackendFactory", "structmfront_1_1generic__parallel_1_1material__property_1_1_backend_factory.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_backend_factory" ],
-          [ "CUDABackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend" ],
-          [ "CUDABackendBase", "structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend_base.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend_base" ],
-          [ "CxxProgrammingModelBackendBase", "structmfront_1_1generic__parallel_1_1material__property_1_1_cxx_programming_model_backend_base.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_cxx_programming_model_backend_base" ],
-          [ "HIPBackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_h_i_p_backend.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_h_i_p_backend" ],
-          [ "ParallelSTLBackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_parallel_s_t_l_backend.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_parallel_s_t_l_backend" ],
-          [ "SYCLBackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_s_y_c_l_backend.html", "structmfront_1_1generic__parallel_1_1material__property_1_1_s_y_c_l_backend" ]
-        ] ],
         [ "sycl", null, [
+          [ "internals", null, [
+            [ "Atomics", "structmfront_1_1generic__parallel_1_1sycl_1_1internals_1_1_atomics.html", "structmfront_1_1generic__parallel_1_1sycl_1_1internals_1_1_atomics" ],
+            [ "Kernel", "structmfront_1_1generic__parallel_1_1sycl_1_1internals_1_1_kernel.html", "structmfront_1_1generic__parallel_1_1sycl_1_1internals_1_1_kernel" ]
+          ] ],
           [ "StridedArray", "structmfront_1_1generic__parallel_1_1sycl_1_1_strided_array.html", "structmfront_1_1generic__parallel_1_1sycl_1_1_strided_array" ],
           [ "DeviceCopies", "structmfront_1_1generic__parallel_1_1sycl_1_1_device_copies.html", "structmfront_1_1generic__parallel_1_1sycl_1_1_device_copies" ]
         ] ],
+        [ "AbstractBackend", "structmfront_1_1generic__parallel_1_1_abstract_backend.html", "structmfront_1_1generic__parallel_1_1_abstract_backend" ],
         [ "AbstractBackendExecutionPolicy", "structmfront_1_1generic__parallel_1_1_abstract_backend_execution_policy.html", "structmfront_1_1generic__parallel_1_1_abstract_backend_execution_policy" ],
         [ "BackendExecutionCommonPolicy", "structmfront_1_1generic__parallel_1_1_backend_execution_common_policy.html", "structmfront_1_1generic__parallel_1_1_backend_execution_common_policy" ],
         [ "BackendExecutionPolicyBase", "structmfront_1_1generic__parallel_1_1_backend_execution_policy_base.html", "structmfront_1_1generic__parallel_1_1_backend_execution_policy_base" ],
         [ "CheckedBackendExecutionPolicy", "structmfront_1_1generic__parallel_1_1_checked_backend_execution_policy.html", "structmfront_1_1generic__parallel_1_1_checked_backend_execution_policy" ],
+        [ "BackendFactory", "structmfront_1_1generic__parallel_1_1_backend_factory.html", "structmfront_1_1generic__parallel_1_1_backend_factory" ],
+        [ "BatchStatistics", "structmfront_1_1generic__parallel_1_1_batch_statistics.html", "structmfront_1_1generic__parallel_1_1_batch_statistics" ],
+        [ "CombineStatistics", "structmfront_1_1generic__parallel_1_1_combine_statistics.html", "structmfront_1_1generic__parallel_1_1_combine_statistics" ],
+        [ "BatchExecution", "structmfront_1_1generic__parallel_1_1_batch_execution.html", "structmfront_1_1generic__parallel_1_1_batch_execution" ],
         [ "CountingIterator", "structmfront_1_1generic__parallel_1_1_counting_iterator.html", "structmfront_1_1generic__parallel_1_1_counting_iterator" ],
         [ "CUDABackendExecutionOptions", "structmfront_1_1generic__parallel_1_1_c_u_d_a_backend_execution_options.html", "structmfront_1_1generic__parallel_1_1_c_u_d_a_backend_execution_options" ],
         [ "CUDABackendExecutionPolicy", "structmfront_1_1generic__parallel_1_1_c_u_d_a_backend_execution_policy.html", "structmfront_1_1generic__parallel_1_1_c_u_d_a_backend_execution_policy" ],
+        [ "GPUBackend", "structmfront_1_1generic__parallel_1_1_g_p_u_backend.html", "structmfront_1_1generic__parallel_1_1_g_p_u_backend" ],
+        [ "CUDABackend", "structmfront_1_1generic__parallel_1_1_c_u_d_a_backend.html", "structmfront_1_1generic__parallel_1_1_c_u_d_a_backend" ],
+        [ "HIPBackend", "structmfront_1_1generic__parallel_1_1_h_i_p_backend.html", "structmfront_1_1generic__parallel_1_1_h_i_p_backend" ],
         [ "HIPBackendExecutionOptions", "structmfront_1_1generic__parallel_1_1_h_i_p_backend_execution_options.html", "structmfront_1_1generic__parallel_1_1_h_i_p_backend_execution_options" ],
         [ "HIPBackendExecutionPolicy", "structmfront_1_1generic__parallel_1_1_h_i_p_backend_execution_policy.html", "structmfront_1_1generic__parallel_1_1_h_i_p_backend_execution_policy" ],
+        [ "ParallelSTLBackend", "structmfront_1_1generic__parallel_1_1_parallel_s_t_l_backend.html", "structmfront_1_1generic__parallel_1_1_parallel_s_t_l_backend" ],
         [ "ParallelSTLBackendExecutionPolicy", "structmfront_1_1generic__parallel_1_1_parallel_s_t_l_backend_execution_policy.html", "structmfront_1_1generic__parallel_1_1_parallel_s_t_l_backend_execution_policy" ],
         [ "StatusBlockPool", "classmfront_1_1generic__parallel_1_1_status_block_pool.html", "classmfront_1_1generic__parallel_1_1_status_block_pool" ],
+        [ "SYCLBackend", "structmfront_1_1generic__parallel_1_1_s_y_c_l_backend.html", "structmfront_1_1generic__parallel_1_1_s_y_c_l_backend" ],
         [ "SyclBackendExecutionPolicy", "structmfront_1_1generic__parallel_1_1_sycl_backend_execution_policy.html", "structmfront_1_1generic__parallel_1_1_sycl_backend_execution_policy" ]
       ] ],
       [ "gpmp", null, [
+        [ "PointResult", "structmfront_1_1gpmp_1_1_point_result.html", "structmfront_1_1gpmp_1_1_point_result" ],
+        [ "StatisticsHandler", "structmfront_1_1gpmp_1_1_statistics_handler.html", "structmfront_1_1gpmp_1_1_statistics_handler" ],
+        [ "PointEvaluator", "structmfront_1_1gpmp_1_1_point_evaluator.html", "structmfront_1_1gpmp_1_1_point_evaluator" ],
         [ "PointStatus", "structmfront_1_1gpmp_1_1_point_status.html", "structmfront_1_1gpmp_1_1_point_status" ]
       ] ],
       [ "BehaviourDocumentationGenerator", "structmfront_1_1_behaviour_documentation_generator.html", "structmfront_1_1_behaviour_documentation_generator" ],

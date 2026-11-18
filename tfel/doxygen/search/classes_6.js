@@ -114,10 +114,11 @@ var searchData=
   ['glossary_111',['Glossary',['../structtfel_1_1glossary_1_1_glossary.html',1,'tfel::glossary']]],
   ['glossaryentry_112',['GlossaryEntry',['../structtfel_1_1glossary_1_1_glossary_entry.html',1,'tfel::glossary']]],
   ['gnuplotmaterialpropertyinterface_113',['GnuplotMaterialPropertyInterface',['../structmfront_1_1_gnuplot_material_property_interface.html',1,'mfront']]],
-  ['gradient_114',['Gradient',['../structmfront_1_1_gradient.html',1,'mfront']]],
-  ['grain_115',['Grain',['../structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_grain.html',1,'tfel::material::homogenization::elasticity']]],
-  ['gsystem_116',['GSystem',['../structnumodis_1_1_g_system.html',1,'numodis']]],
-  ['gtesymmetriceigensolver3x3_117',['GteSymmetricEigensolver3x3',['../structtfel_1_1math_1_1internals_1_1_gte_symmetric_eigensolver3x3.html',1,'tfel::math::internals']]],
-  ['gursontvergaardneedleman1982stresscriterion_118',['GursonTvergaardNeedleman1982StressCriterion',['../structmfront_1_1bbrick_1_1_gurson_tvergaard_needleman1982_stress_criterion.html',1,'mfront::bbrick']]],
-  ['gursontvergaardneedleman1982stresscriterionparameters_119',['GursonTvergaardNeedleman1982StressCriterionParameters',['../structtfel_1_1material_1_1_gurson_tvergaard_needleman1982_stress_criterion_parameters.html',1,'tfel::material']]]
+  ['gpubackend_114',['GPUBackend',['../structmfront_1_1generic__parallel_1_1_g_p_u_backend.html',1,'mfront::generic_parallel']]],
+  ['gradient_115',['Gradient',['../structmfront_1_1_gradient.html',1,'mfront']]],
+  ['grain_116',['Grain',['../structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_grain.html',1,'tfel::material::homogenization::elasticity']]],
+  ['gsystem_117',['GSystem',['../structnumodis_1_1_g_system.html',1,'numodis']]],
+  ['gtesymmetriceigensolver3x3_118',['GteSymmetricEigensolver3x3',['../structtfel_1_1math_1_1internals_1_1_gte_symmetric_eigensolver3x3.html',1,'tfel::math::internals']]],
+  ['gursontvergaardneedleman1982stresscriterion_119',['GursonTvergaardNeedleman1982StressCriterion',['../structmfront_1_1bbrick_1_1_gurson_tvergaard_needleman1982_stress_criterion.html',1,'mfront::bbrick']]],
+  ['gursontvergaardneedleman1982stresscriterionparameters_120',['GursonTvergaardNeedleman1982StressCriterionParameters',['../structtfel_1_1material_1_1_gurson_tvergaard_needleman1982_stress_criterion_parameters.html',1,'tfel::material']]]
 ];

@@ -1,8 +1,5 @@
 var NAVTREEINDEX1 =
 {
-"_cazacu2004_orthotropic_yield_criterion_8hxx.html":[8,0,0,3,4,8],
-"_cazacu2004_orthotropic_yield_criterion_8ixx.html":[8,0,0,3,4,9],
-"_cazacu2004_yield_criterion_types_8hxx.html":[8,0,0,3,4,10],
 "_chaboche2012_kinematic_hardening_rule_8hxx.html":[8,0,2,0,0,3,8],
 "_child_process_8hxx.html":[8,0,0,3,7,6],
 "_chu_needleman1980_strain_based_nucleation_model_8hxx.html":[8,0,0,3,4,11],
@@ -52,7 +49,7 @@ var NAVTREEINDEX1 =
 "_convert_to_p_k1_derivative_8hxx.html":[8,0,0,3,5,20,2],
 "_convert_to_p_k1_derivative_8ixx.html":[8,0,0,3,5,20,3],
 "_convert_to_tangent_moduli_8hxx.html":[8,0,0,3,5,16,5],
-"_counting_iterator_8hxx.html":[8,0,2,0,0,10,4],
+"_counting_iterator_8hxx.html":[8,0,2,0,0,10,6],
 "_covariance_matrix_8hxx.html":[8,0,0,3,5,0,4],
 "_covariance_matrix_8ixx.html":[8,0,0,3,5,0,5],
 "_cowper_symonds_strain_rate_sensitivity_factor_8hxx.html":[8,0,2,0,0,3,11],
@@ -72,7 +69,6 @@ var NAVTREEINDEX1 =
 "_current_state_8hxx.html":[8,0,5,0,0,44],
 "_curve_8hxx.html":[8,0,8,0,0,0,6],
 "_cxx_keywords_8hxx.html":[8,0,0,3,11,4],
-"_cxx_programming_model_backend_base_8hxx.html":[8,0,2,0,0,10,0,5],
 "_cxx_tokenizer_8hxx.html":[8,0,0,3,11,5],
 "_cxx_tokenizer_8ixx.html":[8,0,0,3,11,6],
 "_cxx_tokenizer_options_8hxx.html":[8,0,0,3,11,7],
@@ -135,7 +131,7 @@ var NAVTREEINDEX1 =
 "_derivatives_of_localisation_tensors_8hxx.html":[8,0,0,3,4,18],
 "_derivatives_of_localisation_tensors_8hxx.html#a06c94a952639f20a51f21a83f440d0b7":[5,0,9,0,0,0,36],
 "_derivatives_of_localisation_tensors_8hxx.html#ac8d33a90759628a08a1b7be1cc6f223a":[5,0,9,0,0,0,37],
-"_device_stack_size_8hxx.html":[8,0,2,0,0,10,6],
+"_device_stack_size_8hxx.html":[8,0,2,0,0,10,8],
 "_diana_f_e_a_2_diana_f_e_a_interface_8hxx.html":[8,0,2,0,0,7,9],
 "_diana_f_e_a_8hxx.html":[8,0,2,0,0,7,1],
 "_diana_f_e_a_behaviour_handler_8hxx.html":[8,0,2,0,0,7,2],
@@ -168,6 +164,7 @@ var NAVTREEINDEX1 =
 "_eshelby_8hxx.html":[8,0,0,3,4,21],
 "_eshelby_based_homogenization_8hxx.html":[8,0,0,3,4,22],
 "_eshelby_tolerances_8hxx.html":[8,0,0,3,4,23],
+"_evaluate_8hxx.html":[8,0,2,0,0,11,0],
 "_evaluator_8hxx.html":[8,0,0,3,5,30],
 "_evaluator_base_8hxx.html":[8,0,0,3,5,12,7],
 "_evaluator_function_8hxx.html":[8,0,0,3,5,12,8],
@@ -249,5 +246,8 @@ var NAVTREEINDEX1 =
 "_forward_8hxx.html":[8,0,1,0,0,6],
 "_frank_read_8hxx.html":[8,0,0,2,7],
 "_function_8hxx.html":[8,0,0,3,5,12,20],
-"_function_8ixx.html":[8,0,0,3,5,12,21]
+"_function_8ixx.html":[8,0,0,3,5,12,21],
+"_function_evolution_8hxx.html":[8,0,5,0,0,51],
+"_g_p_u_8hxx.html":[8,0,2,0,0,10,9],
+"_g_p_u_backend_8hxx.html":[8,0,2,0,0,10,10]
 };

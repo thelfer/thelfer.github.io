@@ -21,7 +21,7 @@ var searchData=
   ['heatfluxvectortype_3c_20n_2c_20t_2c_20false_20_3e_18',['HeatFluxVectorType&lt; N, T, false &gt;',['../structtfel_1_1config_1_1internals_1_1_heat_flux_vector_type_3_01_n_00_01_t_00_01false_01_4.html',1,'tfel::config::internals']]],
   ['hill1948stresscriterion_19',['Hill1948StressCriterion',['../structmfront_1_1bbrick_1_1_hill1948_stress_criterion.html',1,'mfront::bbrick']]],
   ['hilltensor_20',['HillTensor',['../structmfront_1_1_behaviour_description_1_1_hill_tensor.html',1,'mfront::BehaviourDescription']]],
-  ['hipbackend_21',['HIPBackend',['../structmfront_1_1generic__parallel_1_1material__property_1_1_h_i_p_backend.html',1,'mfront::generic_parallel::material_property']]],
+  ['hipbackend_21',['HIPBackend',['../structmfront_1_1generic__parallel_1_1_h_i_p_backend.html',1,'mfront::generic_parallel']]],
   ['hipbackendexecutionoptions_22',['HIPBackendExecutionOptions',['../structmfront_1_1generic__parallel_1_1_h_i_p_backend_execution_options.html',1,'mfront::generic_parallel']]],
   ['hipbackendexecutionpolicy_23',['HIPBackendExecutionPolicy',['../structmfront_1_1generic__parallel_1_1_h_i_p_backend_execution_policy.html',1,'mfront::generic_parallel']]],
   ['homogenizationscheme_24',['HomogenizationScheme',['../structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_homogenization_scheme.html',1,'tfel::material::homogenization::elasticity']]],

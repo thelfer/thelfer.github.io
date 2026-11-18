@@ -1,10 +1,11 @@
 var NAVTREEINDEX4 =
 {
+"_s_t_l_container_binary_read_8hxx.html":[8,0,0,3,7,21],
 "_s_t_l_container_binary_write_8hxx.html":[8,0,0,3,7,22],
-"_s_y_c_l_backend_8hxx.html":[8,0,2,0,0,10,0,8],
-"_s_y_c_l_device_copies_8hxx.html":[8,0,2,0,0,10,14],
-"_s_y_c_l_device_copies_8hxx.html#ab282f8c840121a57234c49019f362bb3a008f6cdd0c190839e9885cf9f9e2a652":[8,0,2,0,0,10,14,3,0],
-"_s_y_c_l_device_copies_8hxx.html#ab282f8c840121a57234c49019f362bb3ab50339a10e1de285ac99d4c3990b8693":[8,0,2,0,0,10,14,3,1],
+"_s_y_c_l_backend_8hxx.html":[8,0,2,0,0,10,20],
+"_s_y_c_l_device_copies_8hxx.html":[8,0,2,0,0,10,22],
+"_s_y_c_l_device_copies_8hxx.html#ab282f8c840121a57234c49019f362bb3a008f6cdd0c190839e9885cf9f9e2a652":[8,0,2,0,0,10,22,3,0],
+"_s_y_c_l_device_copies_8hxx.html#ab282f8c840121a57234c49019f362bb3ab50339a10e1de285ac99d4c3990b8693":[8,0,2,0,0,10,22,3,1],
 "_scalar_damage_hooke_stress_potential_8hxx.html":[8,0,2,0,0,3,51],
 "_scalar_damage_hooke_stress_potential_base_8hxx.html":[8,0,2,0,0,3,52],
 "_scalar_newton_raphson_8hxx.html":[8,0,0,3,5,57],
@@ -39,8 +40,8 @@ var NAVTREEINDEX4 =
 "_state_8hxx.html":[8,0,2,0,0,8,9],
 "_static_var_handler_8hxx.html":[8,0,2,0,0,206],
 "_static_variable_description_8hxx.html":[8,0,2,0,0,207],
-"_statistics_keys_8hxx.html":[8,0,2,0,0,10,11],
-"_status_block_pool_8hxx.html":[8,0,2,0,0,10,12],
+"_statistics_keys_8hxx.html":[8,0,2,0,0,10,17],
+"_status_block_pool_8hxx.html":[8,0,2,0,0,10,18],
 "_std_stream_test_output_8hxx.html":[8,0,0,3,8,1],
 "_steffensen_acceleration_algorithm_8hxx.html":[8,0,5,0,0,93],
 "_stensor_change_basis_8hxx.html":[8,0,0,3,5,18,0,8],
@@ -87,7 +88,7 @@ var NAVTREEINDEX4 =
 "_substitutions_8hxx.html":[8,0,0,3,0,2],
 "_supported_types_8hxx.html":[8,0,2,0,0,208],
 "_swift_isotropic_hardening_rule_8hxx.html":[8,0,2,0,0,3,65],
-"_sycl_backend_execution_policy_8hxx.html":[8,0,2,0,0,10,13],
+"_sycl_backend_execution_policy_8hxx.html":[8,0,2,0,0,10,21],
 "_symbols_generator_8hxx.html":[8,0,2,0,0,209],
 "_symmetric_stensor_product_8hxx.html":[8,0,0,3,5,18,11],
 "_symmetric_stensor_product_8ixx.html":[8,0,0,3,5,18,12],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "_views_array_i_o_8hxx.html":[8,0,0,3,5,1,36],
 "_viscoplastic_flow_base_8hxx.html":[8,0,2,0,0,3,68],
 "_voce_isotropic_hardening_rule_8hxx.html":[8,0,2,0,0,3,69],
-"_walpole_basis_8hxx.html":[8,0,0,3,5,16,22],
-"_x_m_l_test_output_8hxx.html":[8,0,0,3,8,12]
+"_walpole_basis_8hxx.html":[8,0,0,3,5,16,22]
 };

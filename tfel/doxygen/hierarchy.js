@@ -48,17 +48,13 @@ var hierarchy =
     [ "tfel::math::absCompare&lt; T &gt;", "structtfel_1_1math_1_1abs_compare.html", null ],
     [ "AbsoluteComparison", "class_absolute_comparison.html", null ],
     [ "tfel::math::AbsSum&lt; T &gt;", "structtfel_1_1math_1_1_abs_sum.html", null ],
-    [ "mfront::generic_parallel::material_property::AbstractBackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_abstract_backend.html", [
-      [ "mfront::generic_parallel::material_property::BackendBase", "structmfront_1_1generic__parallel_1_1material__property_1_1_backend_base.html", [
-        [ "mfront::generic_parallel::material_property::CUDABackendBase", "structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend_base.html", [
-          [ "mfront::generic_parallel::material_property::CUDABackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend.html", null ],
-          [ "mfront::generic_parallel::material_property::HIPBackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_h_i_p_backend.html", null ]
-        ] ],
-        [ "mfront::generic_parallel::material_property::CxxProgrammingModelBackendBase", "structmfront_1_1generic__parallel_1_1material__property_1_1_cxx_programming_model_backend_base.html", [
-          [ "mfront::generic_parallel::material_property::ParallelSTLBackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_parallel_s_t_l_backend.html", null ],
-          [ "mfront::generic_parallel::material_property::SYCLBackend", "structmfront_1_1generic__parallel_1_1material__property_1_1_s_y_c_l_backend.html", null ]
-        ] ]
-      ] ]
+    [ "mfront::generic_parallel::AbstractBackend", "structmfront_1_1generic__parallel_1_1_abstract_backend.html", [
+      [ "mfront::generic_parallel::GPUBackend", "structmfront_1_1generic__parallel_1_1_g_p_u_backend.html", [
+        [ "mfront::generic_parallel::CUDABackend", "structmfront_1_1generic__parallel_1_1_c_u_d_a_backend.html", null ],
+        [ "mfront::generic_parallel::HIPBackend", "structmfront_1_1generic__parallel_1_1_h_i_p_backend.html", null ]
+      ] ],
+      [ "mfront::generic_parallel::ParallelSTLBackend", "structmfront_1_1generic__parallel_1_1_parallel_s_t_l_backend.html", null ],
+      [ "mfront::generic_parallel::SYCLBackend", "structmfront_1_1generic__parallel_1_1_s_y_c_l_backend.html", null ]
     ] ],
     [ "mfront::generic_parallel::AbstractBackendExecutionPolicy", "structmfront_1_1generic__parallel_1_1_abstract_backend_execution_policy.html", [
       [ "OtherBackendExecutionPolicy", "struct_other_backend_execution_policy.html", null ],
@@ -406,11 +402,12 @@ var hierarchy =
     [ "aster::AsterTangentOperator", "structaster_1_1_aster_tangent_operator.html", null ],
     [ "aster::AsterTraits&lt; Behaviour &gt;", "structaster_1_1_aster_traits.html", null ],
     [ "aster::AsterUnSupportedCaseHandler", "structaster_1_1_aster_un_supported_case_handler.html", null ],
+    [ "mfront::generic_parallel::sycl::internals::Atomics", "structmfront_1_1generic__parallel_1_1sycl_1_1internals_1_1_atomics.html", null ],
     [ "mfront::BehaviourData::AxialGrowth", "structmfront_1_1_behaviour_data_1_1_axial_growth.html", null ],
     [ "mfront::generic_parallel::BackendExecutionCommonPolicy", "structmfront_1_1generic__parallel_1_1_backend_execution_common_policy.html", [
       [ "mfront::generic_parallel::BackendExecutionPolicyBase", "structmfront_1_1generic__parallel_1_1_backend_execution_policy_base.html", null ]
     ] ],
-    [ "mfront::generic_parallel::material_property::BackendFactory", "structmfront_1_1generic__parallel_1_1material__property_1_1_backend_factory.html", null ],
+    [ "mfront::generic_parallel::BackendFactory", "structmfront_1_1generic__parallel_1_1_backend_factory.html", null ],
     [ "tfel::material::BarlatStressAndDerivativesWithRespectToEigenvalues&lt; StressStensor &gt;", "structtfel_1_1material_1_1_barlat_stress_and_derivatives_with_respect_to_eigenvalues.html", null ],
     [ "tfel::math::BaseType&lt; T &gt;", "structtfel_1_1math_1_1_base_type.html", null ],
     [ "tfel::typetraits::BaseType&lt; T &gt;", "structtfel_1_1typetraits_1_1_base_type.html", null ],
@@ -433,6 +430,8 @@ var hierarchy =
       [ "tfel::system::wstreamView< true >", "structtfel_1_1system_1_1wstream_view.html", null ],
       [ "tfel::system::wstreamView< isBlocking >", "structtfel_1_1system_1_1wstream_view.html", null ]
     ] ],
+    [ "mfront::generic_parallel::BatchExecution&lt; Statistics &gt;", "structmfront_1_1generic__parallel_1_1_batch_execution.html", null ],
+    [ "mfront::generic_parallel::BatchStatistics&lt; real &gt;", "structmfront_1_1generic__parallel_1_1_batch_statistics.html", null ],
     [ "mfront::BehaviourBrickDescription", "structmfront_1_1_behaviour_brick_description.html", null ],
     [ "mfront::BehaviourBrickFactory", "structmfront_1_1_behaviour_brick_factory.html", null ],
     [ "mfmtg::BehaviourData", "structmfmtg_1_1_behaviour_data.html", [
@@ -576,6 +575,7 @@ var hierarchy =
     [ "tfel::check::Column", "structtfel_1_1check_1_1_column.html", null ],
     [ "tfel::math::TMatrixTMatrixExpr&lt; N, M, K, A, B &gt;::ColumnConstIterator", "structtfel_1_1math_1_1_t_matrix_t_matrix_expr_1_1_column_const_iterator.html", null ],
     [ "tfel::math::TVectorTMatrixExpr&lt; N, M, A, B &gt;::ColumnConstIterator", "structtfel_1_1math_1_1_t_vector_t_matrix_expr_1_1_column_const_iterator.html", null ],
+    [ "mfront::generic_parallel::CombineStatistics", "structmfront_1_1generic__parallel_1_1_combine_statistics.html", null ],
     [ "tfel::system::ProcessManager::Command", "structtfel_1_1system_1_1_process_manager_1_1_command.html", null ],
     [ "Comparison", "class_comparison.html", null ],
     [ "tfel::check::Comparison", "structtfel_1_1check_1_1_comparison.html", [
@@ -2276,6 +2276,7 @@ var hierarchy =
     [ "tfel::config::internals::JacobianType&lt; 1u, T, false &gt;", "structtfel_1_1config_1_1internals_1_1_jacobian_type_3_011u_00_01_t_00_01false_01_4.html", null ],
     [ "tfel::config::internals::JacobianType&lt; 1u, T, use_qt &gt;", "structtfel_1_1config_1_1internals_1_1_jacobian_type_3_011u_00_01_t_00_01use__qt_01_4.html", null ],
     [ "tfel::config::internals::JacobianType&lt; N, T, false &gt;", "structtfel_1_1config_1_1internals_1_1_jacobian_type_3_01_n_00_01_t_00_01false_01_4.html", null ],
+    [ "mfront::generic_parallel::sycl::internals::Kernel&lt; Statistics, PointFunction &gt;", "structmfront_1_1generic__parallel_1_1sycl_1_1internals_1_1_kernel.html", null ],
     [ "mfront::bbrick::KinematicHardeningRule", "structmfront_1_1bbrick_1_1_kinematic_hardening_rule.html", [
       [ "mfront::bbrick::KinematicHardeningRuleBase", "structmfront_1_1bbrick_1_1_kinematic_hardening_rule_base.html", [
         [ "mfront::bbrick::ArmstrongFrederickKinematicHardeningRule", "structmfront_1_1bbrick_1_1_armstrong_frederick_kinematic_hardening_rule.html", null ],
@@ -2858,6 +2859,8 @@ var hierarchy =
     [ "tfel::system::PointerBinaryReader&lt; T &gt;", "structtfel_1_1system_1_1_pointer_binary_reader.html", null ],
     [ "tfel::system::PointerBinaryWriter&lt; T &gt;", "structtfel_1_1system_1_1_pointer_binary_writer.html", null ],
     [ "mfront::GenericMaterialPropertyInterfaceBase::PointEvaluationOptions", "structmfront_1_1_generic_material_property_interface_base_1_1_point_evaluation_options.html", null ],
+    [ "mfront::gpmp::PointEvaluator&lt; Evaluation, N &gt;", "structmfront_1_1gpmp_1_1_point_evaluator.html", null ],
+    [ "mfront::gpmp::PointResult", "structmfront_1_1gpmp_1_1_point_result.html", null ],
     [ "mfront::gpmp::PointStatus", "structmfront_1_1gpmp_1_1_point_status.html", null ],
     [ "mfront::GenericMaterialPropertyInterfaceBase::PointwiseFunctionDescription", "structmfront_1_1_generic_material_property_interface_base_1_1_pointwise_function_description.html", null ],
     [ "tfel::material::PolyCrystalsSlidingSystems&lt; Ng, GS, NumType &gt;", "structtfel_1_1material_1_1_poly_crystals_sliding_systems.html", null ],
@@ -3416,6 +3419,7 @@ var hierarchy =
     ] ],
     [ "tfel::system::StandardBinaryReader&lt; T &gt;", "structtfel_1_1system_1_1_standard_binary_reader.html", null ],
     [ "tfel::system::StandardBinaryWriter&lt; T &gt;", "structtfel_1_1system_1_1_standard_binary_writer.html", null ],
+    [ "mfront::gpmp::StatisticsHandler", "structmfront_1_1gpmp_1_1_statistics_handler.html", null ],
     [ "mfront::generic_parallel::StatusBlockPool&lt; T, Device &gt;", "classmfront_1_1generic__parallel_1_1_status_block_pool.html", null ],
     [ "tfel::utilities::internals::StdVariantFromTypeList&lt; List, Types &gt;", "structtfel_1_1utilities_1_1internals_1_1_std_variant_from_type_list.html", null ],
     [ "tfel::utilities::internals::StdVariantFromTypeList&lt; tfel::meta::TLE, Types... &gt;", "structtfel_1_1utilities_1_1internals_1_1_std_variant_from_type_list_3_01tfel_1_1meta_1_1_t_l_e_00_01_types_8_8_8_01_4.html", null ],

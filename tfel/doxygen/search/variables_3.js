@@ -10,7 +10,7 @@ var searchData=
   ['cf_7',['cf',['../structmfront_1_1_finite_strain_behaviour_tangent_operator_conversion.html#ade42aba0ae4a8faf7da2dc48278f9392',1,'mfront::FiniteStrainBehaviourTangentOperatorConversion']]],
   ['charasstring_8',['charAsString',['../structtfel_1_1utilities_1_1_cxx_tokenizer_options.html#a86f41c26cd7a1256d48bc29f0576a447',1,'tfel::utilities::CxxTokenizerOptions']]],
   ['check_9',['check',['../structmfront_1_1gpmp_1_1_point_status.html#a6ff91691935b24c9de79ce2bfe3bc72a',1,'mfront::gpmp::PointStatus']]],
-  ['check_5fbits_10',['check_bits',['../_statistics_keys_8hxx.html#a99722f0267ac45f6429fe7e6adc08854',1,'mfront::generic_parallel::check_bits'],['../_point_status_8hxx.html#a99722f0267ac45f6429fe7e6adc08854',1,'mfront::gpmp::check_bits']]],
+  ['check_5fbits_10',['check_bits',['../namespacemfront_1_1generic__parallel.html#a99722f0267ac45f6429fe7e6adc08854',1,'mfront::generic_parallel::check_bits'],['../_point_status_8hxx.html#a99722f0267ac45f6429fe7e6adc08854',1,'mfront::gpmp::check_bits']]],
   ['ci_11',['ci',['../structtfel_1_1check_1_1_comparison.html#a0d214672ee8eb4b9cd75bcb466030eb7',1,'tfel::check::Comparison']]],
   ['class_5fname_12',['class_name',['../structmfront_1_1_user_defined_non_linear_system_solver.html#ac436c9902d6d5e69f66fb10cf707dcc7',1,'mfront::UserDefinedNonLinearSystemSolver']]],
   ['classname_13',['className',['../structmfront_1_1_material_property_description.html#a1d21f87ca9c4afd7b12c682435f9fa93',1,'mfront::MaterialPropertyDescription::className'],['../structmfront_1_1_model_description.html#ac642ad22dcf133ec6dc58f1852f09a9c',1,'mfront::ModelDescription::className']]],

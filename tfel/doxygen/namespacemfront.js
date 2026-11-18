@@ -1,5 +1,6 @@
 var namespacemfront =
 [
+    [ "generic_parallel", "namespacemfront_1_1generic__parallel.html", "namespacemfront_1_1generic__parallel" ],
     [ "BehaviourDocumentationGenerator", "structmfront_1_1_behaviour_documentation_generator.html", "structmfront_1_1_behaviour_documentation_generator" ],
     [ "DocumentationGeneratorBase", "structmfront_1_1_documentation_generator_base.html", "structmfront_1_1_documentation_generator_base" ],
     [ "MaterialPropertyDocumentationGenerator", "structmfront_1_1_material_property_documentation_generator.html", "structmfront_1_1_material_property_documentation_generator" ],

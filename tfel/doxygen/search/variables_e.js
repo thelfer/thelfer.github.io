@@ -12,7 +12,7 @@ var searchData=
   ['nivs_9',['nivs',['../structmtest_1_1_behaviour_work_space.html#a1de4079346f35b43c2bcbb58625b9e7f',1,'mtest::BehaviourWorkSpace']]],
   ['nk_10',['nk',['../structmtest_1_1_behaviour_work_space.html#a60c0cb1f68d58e1de7ceaeadde7e24b0',1,'mtest::BehaviourWorkSpace']]],
   ['nmax_11',['Nmax',['../structtfel_1_1math_1_1anderson_1_1_covariance_matrix.html#a7116f4bc0de3cf75efc09ff3823f3df4',1,'tfel::math::anderson::CovarianceMatrix::Nmax'],['../structmtest_1_1_f_anderson_acceleration_algorithm.html#a730a463c5803ef530688e1e57af85928',1,'mtest::FAndersonAccelerationAlgorithm::Nmax'],['../structmtest_1_1_u_anderson_acceleration_algorithm.html#a593b3ce19d868c45a6840446180e9441',1,'mtest::UAndersonAccelerationAlgorithm::Nmax']]],
-  ['no_5fevent_12',['no_event',['../_statistics_keys_8hxx.html#a46b27840c6bf88d44e53c13620688b07',1,'mfront::generic_parallel::no_event'],['../_point_status_8hxx.html#a46b27840c6bf88d44e53c13620688b07',1,'mfront::gpmp::no_event']]],
+  ['no_5fevent_12',['no_event',['../namespacemfront_1_1generic__parallel.html#a46b27840c6bf88d44e53c13620688b07',1,'mfront::generic_parallel::no_event'],['../_point_status_8hxx.html#a46b27840c6bf88d44e53c13620688b07',1,'mfront::gpmp::no_event']]],
   ['norm_13',['norm',['../structtfel_1_1check_1_1_area_comparison.html#a07cec15d51c477360e985347f33cee3f',1,'tfel::check::AreaComparison']]],
   ['nprops_14',['NPROPS',['../structansys_1_1_ansys_data.html#ac738ef0d6525364802fc4fa84d36c02b',1,'ansys::AnsysData::NPROPS'],['../structdianafea_1_1_diana_f_e_a_data.html#a0839fc152910ddfefd28a9be83882db3',1,'dianafea::DianaFEAData::NPROPS']]],
   ['ns_15',['ns',['../structmtest_1_1_behaviour_work_space.html#abd83cc7b82a859bdb7d4058395ec3443',1,'mtest::BehaviourWorkSpace']]],
@@ -20,7 +20,9 @@ var searchData=
   ['nstatv_17',['NSTATV',['../structansys_1_1_ansys_data.html#aa194ec01646b82cf2104a4d35a204bb0',1,'ansys::AnsysData::NSTATV'],['../structdianafea_1_1_diana_f_e_a_data.html#ae28646e17848fbbeeab0941b5e2edbb1',1,'dianafea::DianaFEAData::NSTATV']]],
   ['ntens_18',['NTENS',['../structansys_1_1_ansys_data.html#a92c6fa6495082f177f87d6a4b95b9a09',1,'ansys::AnsysData::NTENS'],['../structdianafea_1_1_diana_f_e_a_data.html#a47d04989659ee1110409127f829a2e56',1,'dianafea::DianaFEAData::NTENS']]],
   ['number_5fof_5felements_19',['number_of_elements',['../structmfmtg_1_1_closed_pipe_test.html#ada369acc949fb89990e59172985453a2',1,'mfmtg::ClosedPipeTest::number_of_elements'],['../structmtest_1_1_pipe_mesh.html#a8bb362d72a356701e2d74a2bdcf47d38',1,'mtest::PipeMesh::number_of_elements']]],
-  ['number_5fof_5fthreads_5fper_5fblock_20',['number_of_threads_per_block',['../structmfront_1_1generic__parallel_1_1material__property_1_1_c_u_d_a_backend_base.html#a2f68b936779f159431fc2cead9cd63a6',1,'mfront::generic_parallel::material_property::CUDABackendBase']]],
-  ['numberofevaluations_21',['numberOfEvaluations',['../structmfront_1_1_behaviour_data.html#a8da094366a05f146ad17a6042157a401',1,'mfront::BehaviourData']]],
-  ['numericallycomputedjacobianblocks_22',['numericallyComputedJacobianBlocks',['../structmfront_1_1_behaviour_data.html#a2c7fc9bef078ec36266c052c1850f434',1,'mfront::BehaviourData']]]
+  ['number_5fof_5ffailures_20',['number_of_failures',['../structmfront_1_1generic__parallel_1_1_batch_statistics.html#ae55e34311b0620a97f2e3dc8108a52bf',1,'mfront::generic_parallel::BatchStatistics']]],
+  ['number_5fof_5fthreads_5fper_5fblock_21',['number_of_threads_per_block',['../structmfront_1_1generic__parallel_1_1_g_p_u_backend.html#a6b3e2d04622b7cf77121e5c7c5b932e4',1,'mfront::generic_parallel::GPUBackend']]],
+  ['number_5fof_5funreliable_5fresults_22',['number_of_unreliable_results',['../structmfront_1_1generic__parallel_1_1_batch_statistics.html#ae2caf14a5ea56986f29789930a02b186',1,'mfront::generic_parallel::BatchStatistics']]],
+  ['numberofevaluations_23',['numberOfEvaluations',['../structmfront_1_1_behaviour_data.html#a8da094366a05f146ad17a6042157a401',1,'mfront::BehaviourData']]],
+  ['numericallycomputedjacobianblocks_24',['numericallyComputedJacobianBlocks',['../structmfront_1_1_behaviour_data.html#a2c7fc9bef078ec36266c052c1850f434',1,'mfront::BehaviourData']]]
 ];

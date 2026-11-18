@@ -1,5 +1,9 @@
 var NAVTREEINDEX7 =
 {
+"dir_2ac233450942c757ff2eafe6c6d33e15.html":[8,0,3,0,0],
+"dir_2c0e8e0dca43bf8b0bb78e91bebdf4cb.html":[8,0,0,3,5,20],
+"dir_2e5dc639163dd27a95142269bb372038.html":[8,0,0,3,1],
+"dir_3097f94986a26b7ab8c05cf1e4aa3aa6.html":[8,0,9,0,0],
 "dir_30e2524c5f86031604bb14395f1f6473.html":[8,0,2,1],
 "dir_324fa130bba627c94d544bcdc3866756.html":[8,0,2,0,0,6],
 "dir_374ca431428046c3076fa4d1e3d886c0.html":[8,0,0,3,9],
@@ -67,7 +71,6 @@ var NAVTREEINDEX7 =
 "dir_cac03336bff2ff9b79faeacb90cf9bb0.html":[8,0,2],
 "dir_ccb0cd059f35cde3b9fc9b9db65037bc.html":[8,0,1,0],
 "dir_cd6f5c32aa513e05859983550d6b1dc6.html":[8,0,0,2,0],
-"dir_d2809d52e9b48a5aa5f9b5130a78cf24.html":[8,0,2,0,0,10,0],
 "dir_d44c64559bbebec7f509842c48db8b23.html":[8,0,0],
 "dir_dbb33c708bcc01430520458c9fe37e22.html":[8,0,0,3,5,12],
 "dir_e0e4966d2c2b15c952fd74379e38c598.html":[8,0,0,3,9,0],
@@ -215,8 +218,8 @@ var NAVTREEINDEX7 =
 "include_2_cyrano_2_behaviour_8hxx.html#a1f775cf4fa3cbc5f015abdd0796e276c":[8,0,0,0,0,0],
 "include_2_cyrano_2_material_property_8hxx.html":[8,0,0,0,1],
 "include_2_cyrano_2_material_property_8hxx.html#ad441054c2d53a90469a7f2d1b15e0019":[8,0,0,0,1,0],
-"include_2_cyrano_2types_8hxx.html":[8,0,0,0,4],
-"include_2_cyrano_2types_8hxx.html#ae0739d5c3a87cc19dec118becec41859":[8,0,0,0,4,0],
+"include_2_cyrano_2_types_8hxx.html":[8,0,0,0,4],
+"include_2_cyrano_2_types_8hxx.html#ae0739d5c3a87cc19dec118becec41859":[8,0,0,0,4,0],
 "include_2_n_u_m_o_d_i_s_2_config_8hxx.html":[8,0,0,2,3],
 "include_2_t_f_e_l_2_material_2_generalised_gurson_tvergaard_needleman_stress_criterion_8hxx.html":[8,0,0,3,4,27],
 "include_2_t_f_e_l_2_material_2_generalised_rousselier_tanguy_besson_stress_criterion_8hxx.html":[8,0,0,3,4,29],
@@ -225,7 +228,7 @@ var NAVTREEINDEX7 =
 "include_2_t_f_e_l_2_material_2_michel_and_suquet1992_hollow_sphere_stress_criterion_8hxx.html":[8,0,0,3,4,68],
 "include_2_t_f_e_l_2_material_2_rousselier_tanguy_besson2002_stress_criterion_8hxx.html":[8,0,0,3,4,94],
 "include_2_t_f_e_l_2_math_2_linear_interpolation_8hxx.html":[8,0,0,3,5,43],
-"include_2_t_f_e_l_2_math_2types_8hxx.html":[8,0,0,3,5,74],
+"include_2_t_f_e_l_2_math_2_types_8hxx.html":[8,0,0,3,5,74],
 "include_2_t_f_e_l_2_tests_2_test_8hxx.html":[8,0,0,3,8,2],
 "index.html":[],
 "index.html":[0],
@@ -246,8 +249,5 @@ var NAVTREEINDEX7 =
 "mfm-test-generator_2include_2_m_f_m_test_generator_2_config_8hxx.html":[8,0,1,0,0,4],
 "mfm-test-generator_2include_2_m_f_m_test_generator_2_evolution_8hxx.html":[8,0,1,0,0,5],
 "mfront.html":[2],
-"mfront_2include_2_m_front_2_behaviour_brick_2_generalised_gurson_tvergaard_needleman_stress_criterion_8hxx.html":[8,0,2,0,0,3,16],
-"mfront_2include_2_m_front_2_behaviour_brick_2_generalised_rousselier_tanguy_besson_stress_criterion_8hxx.html":[8,0,2,0,0,3,17],
-"mfront_2include_2_m_front_2_behaviour_brick_2_gurson_tvergaard_needleman1982_stress_criterion_8hxx.html":[8,0,2,0,0,3,18],
-"mfront_2include_2_m_front_2_behaviour_brick_2_harmonic_sum_of_norton_hoff_viscoplastic_flows_8hxx.html":[8,0,2,0,0,3,19]
+"mfront_2include_2_m_front_2_behaviour_brick_2_generalised_gurson_tvergaard_needleman_stress_criterion_8hxx.html":[8,0,2,0,0,3,16]
 };

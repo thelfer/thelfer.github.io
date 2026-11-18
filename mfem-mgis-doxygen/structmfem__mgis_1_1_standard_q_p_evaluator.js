@@ -1,7 +1,7 @@
 var structmfem__mgis_1_1_standard_q_p_evaluator =
 [
-    [ "FirstFunctionType", "structmfem__mgis_1_1_standard_q_p_evaluator.html#a5ce353005054d5ce9cdeaac19f474940", null ],
-    [ "SecondFunctionType", "structmfem__mgis_1_1_standard_q_p_evaluator.html#a99cb5540201896e9e1864bb1d7bc5029", null ],
+    [ "FirstFunctionType", "structmfem__mgis_1_1_standard_q_p_evaluator.html#a40985ec2df0b78052991006e5e5378ae", null ],
+    [ "SecondFunctionType", "structmfem__mgis_1_1_standard_q_p_evaluator.html#ac41dc4967da4813529ad8330f35a0730", null ],
     [ "StandardQPEvaluator", "structmfem__mgis_1_1_standard_q_p_evaluator.html#aa45fdfd1a7e2311f2239a4f769c5781c", null ],
     [ "StandardQPEvaluator", "structmfem__mgis_1_1_standard_q_p_evaluator.html#a3a993751907bd1c48d0dad9f83d09013", null ],
     [ "~StandardQPEvaluator", "structmfem__mgis_1_1_standard_q_p_evaluator.html#a9c2450c735d97e54c5cbd0fb2bd91058", null ],

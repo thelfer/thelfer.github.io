@@ -1,17 +1,17 @@
 var _m_f_e_m_forward_8hxx =
 [
-    [ "BilinearForm", "_m_f_e_m_forward_8hxx.html#a87a49e7fbd2e09201c20505da151d5b0", null ],
-    [ "BilinearFormIntegrator", "_m_f_e_m_forward_8hxx.html#ac763cee3ce2c96743d4072401dc6eb0c", null ],
-    [ "FiniteElementCollection", "_m_f_e_m_forward_8hxx.html#ae8e6f8927adfc5d3f2ed838209824483", null ],
-    [ "FiniteElementSpace", "_m_f_e_m_forward_8hxx.html#a25ba04adaf648f69a2d19bc66a598a82", null ],
-    [ "GridFunction", "_m_f_e_m_forward_8hxx.html#a635e6b6265fe66128b71f8645049d212", null ],
-    [ "IterativeSolver", "_m_f_e_m_forward_8hxx.html#ad3b1bd6f967c6c58ae2164b884396dd8", null ],
-    [ "LinearForm", "_m_f_e_m_forward_8hxx.html#a03e82f0b94a681b66e06e96a416b3738", null ],
-    [ "LinearFormIntegrator", "_m_f_e_m_forward_8hxx.html#a7b48cd5134a040c1918c0692327d0973", null ],
-    [ "LinearSolver", "_m_f_e_m_forward_8hxx.html#aefa0d77e7956dfd3aa58b5a348850982", null ],
-    [ "LinearSolverPreconditioner", "_m_f_e_m_forward_8hxx.html#a57b39971ceedd0078eb70a35eb48df87", null ],
-    [ "Mesh", "_m_f_e_m_forward_8hxx.html#a990c3900c22231a90960bc742791edc5", null ],
-    [ "NonlinearForm", "_m_f_e_m_forward_8hxx.html#a603d2c35f3a2ae4903ae8b479e777377", null ],
-    [ "NonlinearFormIntegrator", "_m_f_e_m_forward_8hxx.html#a171bb8e85c68136a41a0b656662e46ce", null ],
-    [ "SubMesh", "_m_f_e_m_forward_8hxx.html#ad9e05df2ee2047fcf81f7571cce0bb27", null ]
+    [ "mfem_mgis::BilinearForm", "namespacemfem__mgis.html#a11bd9ee26890311d2a03a3efd583cc9b", null ],
+    [ "mfem_mgis::BilinearFormIntegrator", "namespacemfem__mgis.html#aae18f2e02ba39e73592f1f0270013c0d", null ],
+    [ "mfem_mgis::FiniteElementCollection", "namespacemfem__mgis.html#adc5bd29ee2c8bc092d27700e9120e3c8", null ],
+    [ "mfem_mgis::FiniteElementSpace", "namespacemfem__mgis.html#a46ac861fc752e7ada3215d9b8fa93518", null ],
+    [ "mfem_mgis::GridFunction", "namespacemfem__mgis.html#abee51a7fb4710bd2ea209b253a0e5a28", null ],
+    [ "mfem_mgis::IterativeSolver", "namespacemfem__mgis.html#ab7926ddac98e899c4a5df8c74f708818", null ],
+    [ "mfem_mgis::LinearForm", "namespacemfem__mgis.html#a23edbbbd4fb95670f31336c008765048", null ],
+    [ "mfem_mgis::LinearFormIntegrator", "namespacemfem__mgis.html#aac732d356e89a2ce5c492332c05b4efe", null ],
+    [ "mfem_mgis::LinearSolver", "namespacemfem__mgis.html#a6dc64528af56390e8622cf46eee4cffc", null ],
+    [ "mfem_mgis::LinearSolverPreconditioner", "namespacemfem__mgis.html#a3e64df49fc1ea4b47ca9976b1def612e", null ],
+    [ "mfem_mgis::Mesh", "namespacemfem__mgis.html#ae4a809ce5fd98b49d60dc94ec3a5d4ab", null ],
+    [ "mfem_mgis::NonlinearForm", "namespacemfem__mgis.html#ab22a82f456b6af85f5ce79d18cef8905", null ],
+    [ "mfem_mgis::NonlinearFormIntegrator", "namespacemfem__mgis.html#ae91ac7926ed29ed6fb660ff8396ab7fc", null ],
+    [ "mfem_mgis::SubMesh", "namespacemfem__mgis.html#a2bce3db6230ca3d829779f9523476b68", null ]
 ];

@@ -1,0 +1,28 @@
+var structmfem__mgis_1_1_partial_quadrature_space =
+[
+    [ "PartialQuadratureSpace", "structmfem__mgis_1_1_partial_quadrature_space.html#add1db55a257417c058c025099ba530aa", null ],
+    [ "PartialQuadratureSpace", "structmfem__mgis_1_1_partial_quadrature_space.html#a6f78a4714ef5a05a64e1922998a3db17", null ],
+    [ "PartialQuadratureSpace", "structmfem__mgis_1_1_partial_quadrature_space.html#a45b3fbcd4a03befca6926baf8e6747f9", null ],
+    [ "PartialQuadratureSpace", "structmfem__mgis_1_1_partial_quadrature_space.html#a8ec040e69d0185a27667be1a83a7c2a6", null ],
+    [ "PartialQuadratureSpace", "structmfem__mgis_1_1_partial_quadrature_space.html#a21a53fa770a57192c6ff65acd1f296e6", null ],
+    [ "~PartialQuadratureSpace", "structmfem__mgis_1_1_partial_quadrature_space.html#a3018ef2639ee119f8e1c6c680eef847f", null ],
+    [ "getFiniteElementDiscretization", "structmfem__mgis_1_1_partial_quadrature_space.html#a7a005353725efa2d14f98208f4154060", null ],
+    [ "getFiniteElementSpace", "structmfem__mgis_1_1_partial_quadrature_space.html#a280fae8103c5d97a40f399c5e565edd3", null ],
+    [ "getImplementation", "structmfem__mgis_1_1_partial_quadrature_space.html#af8e78b19641205846740953241d2fbc8", null ],
+    [ "getIntegrationRule", "structmfem__mgis_1_1_partial_quadrature_space.html#ae870e9ec7a906bcec8625634b6985fed", null ],
+    [ "getLocation", "structmfem__mgis_1_1_partial_quadrature_space.html#a4f08e6709463ec82360800ee702f41e9", null ],
+    [ "getLocationName", "structmfem__mgis_1_1_partial_quadrature_space.html#a2c22860b00614e6b4d6db958ef1e701c", null ],
+    [ "getMesh", "structmfem__mgis_1_1_partial_quadrature_space.html#ada80708d3bf753b0a42a65412f8c60d3", null ],
+    [ "getMeshDiscretization", "structmfem__mgis_1_1_partial_quadrature_space.html#ab71a33f8e8de373f8693f66cf5e275c4", null ],
+    [ "getNumberOfElements", "structmfem__mgis_1_1_partial_quadrature_space.html#ad8e0e2aa6ce6ae03d5f802eef85a2cff", null ],
+    [ "getNumberOfIntegrationPoints", "structmfem__mgis_1_1_partial_quadrature_space.html#a1ce929615b69a1b4a3bdde5c2cefe742", null ],
+    [ "getNumberOfQuadraturePoints", "structmfem__mgis_1_1_partial_quadrature_space.html#a6f87dbbd9b4f4d5f8de98250dce819f0", null ],
+    [ "getNumberOfQuadraturePoints", "structmfem__mgis_1_1_partial_quadrature_space.html#aab5dc0b39b7de4d0d35a096387736f19", null ],
+    [ "getOffset", "structmfem__mgis_1_1_partial_quadrature_space.html#a9b5542e73397403e76cb90a471d28ed0", null ],
+    [ "getOffsets", "structmfem__mgis_1_1_partial_quadrature_space.html#a392151713eaa160ac3e531068d3ff662", null ],
+    [ "isDefinedOnABoundary", "structmfem__mgis_1_1_partial_quadrature_space.html#afec690bb91f86c1039eeac0a94e1d49b", null ],
+    [ "isDefinedOnAMaterial", "structmfem__mgis_1_1_partial_quadrature_space.html#aaaaee2adefdf1a30bde72f2c4603ef5f", null ],
+    [ "operator!=", "structmfem__mgis_1_1_partial_quadrature_space.html#ac8daa5b2a97d4f082f853bbb241a5336", null ],
+    [ "operator==", "structmfem__mgis_1_1_partial_quadrature_space.html#ae3dbd6a49b39bb5e90d8f3ed852409db", null ],
+    [ "shallUseBoundaryElementsAPI", "structmfem__mgis_1_1_partial_quadrature_space.html#a5f9dc8c09cbe3d29ceef0a07beaebe90", null ]
+];

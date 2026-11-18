@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['unsafe_0',['Unsafe',['../_config_8hxx.html#a4f0ecfb57aea4eb5b176d6c9bd71683c',1,'mfem_mgis::attributes']]],
-  ['updatefunction_1',['UpdateFunction',['../structmfem__mgis_1_1_partial_quadrature_functions_set.html#a492334baad68c888f3b29ebab6bad15a',1,'mfem_mgis::PartialQuadratureFunctionsSet']]],
-  ['updatefunction2_2',['UpdateFunction2',['../structmfem__mgis_1_1_partial_quadrature_functions_set.html#ad19e2cda2c645b426b0235555e567390',1,'mfem_mgis::PartialQuadratureFunctionsSet']]]
+  ['throwing_0',['Throwing',['../_config_8hxx.html#a57f77d62f7b87964541762498c85e547',1,'mfem_mgis::attributes']]],
+  ['type_1',['type',['../structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator_base_dispatch_3_01_hyaa26bf8bf73500ccbab0c0881c6776f0.html#a48b62375fc53cb0457ffa95b5c4b8eed',1,'mfem_mgis::Faltus2026RegularizedIsotropicBehaviourIntegratorBaseDispatch&lt; Hypothesis::PLANESTRAIN &gt;::type'],['../structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator_base_dispatch_3_01_hy84eb42220287bea87d37518f2e58db7e.html#ac230f4ae304b8c4b759118fd2c84e0f7',1,'mfem_mgis::Faltus2026RegularizedIsotropicBehaviourIntegratorBaseDispatch&lt; Hypothesis::PLANESTRESS &gt;::type'],['../structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator_base_dispatch_3_01_hy585a1f6e00216ee05121fca4c0a3aaad.html#a09a75c5f2b44ed2e8afb02aad615fe59',1,'mfem_mgis::Faltus2026RegularizedIsotropicBehaviourIntegratorBaseDispatch&lt; Hypothesis::TRIDIMENSIONAL &gt;::type']]]
 ];

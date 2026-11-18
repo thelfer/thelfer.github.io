@@ -125,15 +125,15 @@ var hierarchy =
         [ "mfem_mgis::NonLinearEvolutionProblemImplementation< true >", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation_3_01true_01_4.html", null ]
       ] ]
     ] ],
-    [ "mfem_mgis::AbstractNonLinearEvolutionProblemPostProcessing< parallel >", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem_post_processing.html", [
+    [ "mfem_mgis::AbstractNonLinearEvolutionProblemPostProcessing&lt; parallel &gt;", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem_post_processing.html", [
       [ "mfem_mgis::ParaviewExportIntegrationPointPostProcessingsResultsAtNodes< parallel >", "structmfem__mgis_1_1_paraview_export_integration_point_post_processings_results_at_nodes.html", null ]
     ] ],
-    [ "mfem_mgis::AbstractNonLinearEvolutionProblemPostProcessing< false >", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem_post_processing_3_01false_01_4.html", [
+    [ "mfem_mgis::AbstractNonLinearEvolutionProblemPostProcessing&lt; false &gt;", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem_post_processing_3_01false_01_4.html", [
       [ "mfem_mgis::NonLinearEvolutionProblemPostProcessingBase< false >", "structmfem__mgis_1_1_non_linear_evolution_problem_post_processing_base_3_01false_01_4.html", [
         [ "mfem_mgis::ComputeResultantForceOnBoundary< false >", "structmfem__mgis_1_1_compute_resultant_force_on_boundary_3_01false_01_4.html", null ]
       ] ]
     ] ],
-    [ "mfem_mgis::AbstractNonLinearEvolutionProblemPostProcessing< true >", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem_post_processing_3_01true_01_4.html", [
+    [ "mfem_mgis::AbstractNonLinearEvolutionProblemPostProcessing&lt; true &gt;", "structmfem__mgis_1_1_abstract_non_linear_evolution_problem_post_processing_3_01true_01_4.html", [
       [ "mfem_mgis::NonLinearEvolutionProblemPostProcessingBase< true >", "structmfem__mgis_1_1_non_linear_evolution_problem_post_processing_base_3_01true_01_4.html", [
         [ "mfem_mgis::ComputeResultantForceOnBoundary< true >", "structmfem__mgis_1_1_compute_resultant_force_on_boundary_3_01true_01_4.html", null ]
       ] ]
@@ -172,32 +172,32 @@ var hierarchy =
     [ "mfem_mgis::MeshDiscretization::AttributesList", "structmfem__mgis_1_1_mesh_discretization_1_1_attributes_list.html", null ],
     [ "mfem_mgis::BehaviourIntegratorFactory", "structmfem__mgis_1_1_behaviour_integrator_factory.html", null ],
     [ "mfem_mgis::BehaviourIntegratorsSelection", "structmfem__mgis_1_1_behaviour_integrators_selection.html", null ],
-    [ "mfem_mgis::BehaviourIntegratorTraits< BehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits.html", null ],
-    [ "mfem_mgis::BehaviourIntegratorTraits< FBarIsotropicPlaneStrainBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_f_bar_isotropic_plane_strain_behaviour_integrator_01_4.html", null ],
-    [ "mfem_mgis::BehaviourIntegratorTraits< FBarIsotropicTridimensionalBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_f_bar_isotropic_tridimensional_behaviour_integrator_01_4.html", null ],
-    [ "mfem_mgis::BehaviourIntegratorTraits< FBarOrthotropicPlaneStrainBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_f_bar_orthotropic_plane_strain_behaviour_integrator_01_4.html", null ],
-    [ "mfem_mgis::BehaviourIntegratorTraits< FBarOrthotropicTridimensionalBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_f_bar_orthotropic_tridimensional_behaviour_integrator_01_4.html", null ],
-    [ "mfem_mgis::BehaviourIntegratorTraits< IsotropicPlaneStrainStandardFiniteStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_isotropic_plane_strain_standard_finite_str058555a310f31d3525091c27fe446de1.html", null ],
-    [ "mfem_mgis::BehaviourIntegratorTraits< IsotropicPlaneStrainStandardSmallStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_isotropic_plane_strain_standard_small_strab03ca29ba6e154ecb055438675cf8841.html", null ],
-    [ "mfem_mgis::BehaviourIntegratorTraits< IsotropicPlaneStrainStationaryNonLinearHeatTransferBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_isotropic_plane_strain_stationary_non_line763eaaeb4027aae18449d8f97a056eb1.html", null ],
-    [ "mfem_mgis::BehaviourIntegratorTraits< IsotropicPlaneStressStandardFiniteStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_isotropic_plane_stress_standard_finite_strbd77ccca9ddae255fd5ac1ee873636a5.html", null ],
-    [ "mfem_mgis::BehaviourIntegratorTraits< IsotropicPlaneStressStandardSmallStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_isotropic_plane_stress_standard_small_stra139874cef464eaafb1689d10b1e39543.html", null ],
-    [ "mfem_mgis::BehaviourIntegratorTraits< IsotropicPlaneStressStationaryNonLinearHeatTransferBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_isotropic_plane_stress_stationary_non_line680d4dfc3d3114ba6c5360047e7abadd.html", null ],
-    [ "mfem_mgis::BehaviourIntegratorTraits< IsotropicTridimensionalStandardFiniteStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_isotropic_tridimensional_standard_finite_s1234bc842a2a389342bd14f07fe4ec78.html", null ],
-    [ "mfem_mgis::BehaviourIntegratorTraits< IsotropicTridimensionalStandardSmallStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_isotropic_tridimensional_standard_small_stb525bfbc70970b6cc9f76ee6026e5cb2.html", null ],
-    [ "mfem_mgis::BehaviourIntegratorTraits< IsotropicTridimensionalStationaryNonLinearHeatTransferBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_isotropic_tridimensional_stationary_non_lie14e5cb5dd488b8c265cfe42f20567ec.html", null ],
-    [ "mfem_mgis::BehaviourIntegratorTraits< OrthotropicPlaneStrainStandardFiniteStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_orthotropic_plane_strain_standard_finite_sd7dacb62a0757798a293664924599d11.html", null ],
-    [ "mfem_mgis::BehaviourIntegratorTraits< OrthotropicPlaneStrainStandardSmallStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_orthotropic_plane_strain_standard_small_st0f4aa67dc89ad340d5cde8c05f2ac658.html", null ],
-    [ "mfem_mgis::BehaviourIntegratorTraits< OrthotropicPlaneStrainStationaryNonLinearHeatTransferBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_orthotropic_plane_strain_stationary_non_li21e9368022b199aa1db822f7372565a8.html", null ],
-    [ "mfem_mgis::BehaviourIntegratorTraits< OrthotropicPlaneStressStandardFiniteStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_orthotropic_plane_stress_standard_finite_s237fb33c5765bbc5b84b15bd6a23998e.html", null ],
-    [ "mfem_mgis::BehaviourIntegratorTraits< OrthotropicPlaneStressStandardSmallStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_orthotropic_plane_stress_standard_small_st362c3e1c839cf61f476c652ee949a08c.html", null ],
-    [ "mfem_mgis::BehaviourIntegratorTraits< OrthotropicPlaneStressStationaryNonLinearHeatTransferBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_orthotropic_plane_stress_stationary_non_li305b39e3239fc561e5f9eb21b39001bc.html", null ],
-    [ "mfem_mgis::BehaviourIntegratorTraits< OrthotropicTridimensionalStandardFiniteStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_orthotropic_tridimensional_standard_finite80fd5621ba12a0fe0b2f6bdebdd9e4c0.html", null ],
-    [ "mfem_mgis::BehaviourIntegratorTraits< OrthotropicTridimensionalStandardSmallStrainMechanicsBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_orthotropic_tridimensional_standard_small_5a4f15b906d3c681863e254a22446e58.html", null ],
-    [ "mfem_mgis::BehaviourIntegratorTraits< OrthotropicTridimensionalStationaryNonLinearHeatTransferBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_orthotropic_tridimensional_stationary_non_f3c5025a602c5357d2adce42482f7d73.html", null ],
-    [ "mfem_mgis::BehaviourIntegratorTraits< TransientHeatTransferBehaviourIntegrator >", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_transient_heat_transfer_behaviour_integrator_01_4.html", null ],
+    [ "mfem_mgis::BehaviourIntegratorTraits&lt; BehaviourIntegrator &gt;", "structmfem__mgis_1_1_behaviour_integrator_traits.html", null ],
+    [ "mfem_mgis::BehaviourIntegratorTraits&lt; FBarIsotropicPlaneStrainBehaviourIntegrator &gt;", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_f_bar_isotropic_plane_strain_behaviour_integrator_01_4.html", null ],
+    [ "mfem_mgis::BehaviourIntegratorTraits&lt; FBarIsotropicTridimensionalBehaviourIntegrator &gt;", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_f_bar_isotropic_tridimensional_behaviour_integrator_01_4.html", null ],
+    [ "mfem_mgis::BehaviourIntegratorTraits&lt; FBarOrthotropicPlaneStrainBehaviourIntegrator &gt;", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_f_bar_orthotropic_plane_strain_behaviour_integrator_01_4.html", null ],
+    [ "mfem_mgis::BehaviourIntegratorTraits&lt; FBarOrthotropicTridimensionalBehaviourIntegrator &gt;", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_f_bar_orthotropic_tridimensional_behaviour_integrator_01_4.html", null ],
+    [ "mfem_mgis::BehaviourIntegratorTraits&lt; IsotropicPlaneStrainStandardFiniteStrainMechanicsBehaviourIntegrator &gt;", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_isotropic_plane_strain_standard_finite_str058555a310f31d3525091c27fe446de1.html", null ],
+    [ "mfem_mgis::BehaviourIntegratorTraits&lt; IsotropicPlaneStrainStandardSmallStrainMechanicsBehaviourIntegrator &gt;", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_isotropic_plane_strain_standard_small_strab03ca29ba6e154ecb055438675cf8841.html", null ],
+    [ "mfem_mgis::BehaviourIntegratorTraits&lt; IsotropicPlaneStrainStationaryNonLinearHeatTransferBehaviourIntegrator &gt;", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_isotropic_plane_strain_stationary_non_line763eaaeb4027aae18449d8f97a056eb1.html", null ],
+    [ "mfem_mgis::BehaviourIntegratorTraits&lt; IsotropicPlaneStressStandardFiniteStrainMechanicsBehaviourIntegrator &gt;", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_isotropic_plane_stress_standard_finite_strbd77ccca9ddae255fd5ac1ee873636a5.html", null ],
+    [ "mfem_mgis::BehaviourIntegratorTraits&lt; IsotropicPlaneStressStandardSmallStrainMechanicsBehaviourIntegrator &gt;", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_isotropic_plane_stress_standard_small_stra139874cef464eaafb1689d10b1e39543.html", null ],
+    [ "mfem_mgis::BehaviourIntegratorTraits&lt; IsotropicPlaneStressStationaryNonLinearHeatTransferBehaviourIntegrator &gt;", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_isotropic_plane_stress_stationary_non_line680d4dfc3d3114ba6c5360047e7abadd.html", null ],
+    [ "mfem_mgis::BehaviourIntegratorTraits&lt; IsotropicTridimensionalStandardFiniteStrainMechanicsBehaviourIntegrator &gt;", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_isotropic_tridimensional_standard_finite_s1234bc842a2a389342bd14f07fe4ec78.html", null ],
+    [ "mfem_mgis::BehaviourIntegratorTraits&lt; IsotropicTridimensionalStandardSmallStrainMechanicsBehaviourIntegrator &gt;", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_isotropic_tridimensional_standard_small_stb525bfbc70970b6cc9f76ee6026e5cb2.html", null ],
+    [ "mfem_mgis::BehaviourIntegratorTraits&lt; IsotropicTridimensionalStationaryNonLinearHeatTransferBehaviourIntegrator &gt;", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_isotropic_tridimensional_stationary_non_lie14e5cb5dd488b8c265cfe42f20567ec.html", null ],
+    [ "mfem_mgis::BehaviourIntegratorTraits&lt; OrthotropicPlaneStrainStandardFiniteStrainMechanicsBehaviourIntegrator &gt;", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_orthotropic_plane_strain_standard_finite_sd7dacb62a0757798a293664924599d11.html", null ],
+    [ "mfem_mgis::BehaviourIntegratorTraits&lt; OrthotropicPlaneStrainStandardSmallStrainMechanicsBehaviourIntegrator &gt;", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_orthotropic_plane_strain_standard_small_st0f4aa67dc89ad340d5cde8c05f2ac658.html", null ],
+    [ "mfem_mgis::BehaviourIntegratorTraits&lt; OrthotropicPlaneStrainStationaryNonLinearHeatTransferBehaviourIntegrator &gt;", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_orthotropic_plane_strain_stationary_non_li21e9368022b199aa1db822f7372565a8.html", null ],
+    [ "mfem_mgis::BehaviourIntegratorTraits&lt; OrthotropicPlaneStressStandardFiniteStrainMechanicsBehaviourIntegrator &gt;", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_orthotropic_plane_stress_standard_finite_s237fb33c5765bbc5b84b15bd6a23998e.html", null ],
+    [ "mfem_mgis::BehaviourIntegratorTraits&lt; OrthotropicPlaneStressStandardSmallStrainMechanicsBehaviourIntegrator &gt;", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_orthotropic_plane_stress_standard_small_st362c3e1c839cf61f476c652ee949a08c.html", null ],
+    [ "mfem_mgis::BehaviourIntegratorTraits&lt; OrthotropicPlaneStressStationaryNonLinearHeatTransferBehaviourIntegrator &gt;", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_orthotropic_plane_stress_stationary_non_li305b39e3239fc561e5f9eb21b39001bc.html", null ],
+    [ "mfem_mgis::BehaviourIntegratorTraits&lt; OrthotropicTridimensionalStandardFiniteStrainMechanicsBehaviourIntegrator &gt;", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_orthotropic_tridimensional_standard_finite80fd5621ba12a0fe0b2f6bdebdd9e4c0.html", null ],
+    [ "mfem_mgis::BehaviourIntegratorTraits&lt; OrthotropicTridimensionalStandardSmallStrainMechanicsBehaviourIntegrator &gt;", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_orthotropic_tridimensional_standard_small_5a4f15b906d3c681863e254a22446e58.html", null ],
+    [ "mfem_mgis::BehaviourIntegratorTraits&lt; OrthotropicTridimensionalStationaryNonLinearHeatTransferBehaviourIntegrator &gt;", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_orthotropic_tridimensional_stationary_non_f3c5025a602c5357d2adce42482f7d73.html", null ],
+    [ "mfem_mgis::BehaviourIntegratorTraits&lt; TransientHeatTransferBehaviourIntegrator &gt;", "structmfem__mgis_1_1_behaviour_integrator_traits_3_01_transient_heat_transfer_behaviour_integrator_01_4.html", null ],
     [ "mfem_mgis::BehaviourIntegratorBase::CheckBehaviourVariablesSizesArguments", "structmfem__mgis_1_1_behaviour_integrator_base_1_1_check_behaviour_variables_sizes_arguments.html", null ],
-    [ "mfem_mgis::ComputeResultantForceOnBoundary< parallel >", "structmfem__mgis_1_1_compute_resultant_force_on_boundary.html", null ],
+    [ "mfem_mgis::ComputeResultantForceOnBoundary&lt; parallel &gt;", "structmfem__mgis_1_1_compute_resultant_force_on_boundary.html", null ],
     [ "mfem_mgis::ComputeResultantForceOnBoundaryCommon", "structmfem__mgis_1_1_compute_resultant_force_on_boundary_common.html", [
       [ "mfem_mgis::ComputeResultantForceOnBoundary< false >", "structmfem__mgis_1_1_compute_resultant_force_on_boundary_3_01false_01_4.html", null ],
       [ "mfem_mgis::ComputeResultantForceOnBoundary< true >", "structmfem__mgis_1_1_compute_resultant_force_on_boundary_3_01true_01_4.html", null ]
@@ -215,17 +215,17 @@ var hierarchy =
     [ "Faltus2026RegularizedIsotropicBehaviourIntegratorBase", null, [
       [ "mfem_mgis::Faltus2026RegularizedIsotropicBehaviourIntegrator< H >", "structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator.html", null ]
     ] ],
-    [ "mfem_mgis::Faltus2026RegularizedIsotropicBehaviourIntegratorBaseDispatch< H >", "structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator_base_dispatch.html", null ],
-    [ "mfem_mgis::Faltus2026RegularizedIsotropicBehaviourIntegratorBaseDispatch< Hypothesis::PLANESTRAIN >", "structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator_base_dispatch_3_01_hyaa26bf8bf73500ccbab0c0881c6776f0.html", null ],
-    [ "mfem_mgis::Faltus2026RegularizedIsotropicBehaviourIntegratorBaseDispatch< Hypothesis::PLANESTRESS >", "structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator_base_dispatch_3_01_hy84eb42220287bea87d37518f2e58db7e.html", null ],
-    [ "mfem_mgis::Faltus2026RegularizedIsotropicBehaviourIntegratorBaseDispatch< Hypothesis::TRIDIMENSIONAL >", "structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator_base_dispatch_3_01_hy585a1f6e00216ee05121fca4c0a3aaad.html", null ],
+    [ "mfem_mgis::Faltus2026RegularizedIsotropicBehaviourIntegratorBaseDispatch&lt; H &gt;", "structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator_base_dispatch.html", null ],
+    [ "mfem_mgis::Faltus2026RegularizedIsotropicBehaviourIntegratorBaseDispatch&lt; Hypothesis::PLANESTRAIN &gt;", "structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator_base_dispatch_3_01_hyaa26bf8bf73500ccbab0c0881c6776f0.html", null ],
+    [ "mfem_mgis::Faltus2026RegularizedIsotropicBehaviourIntegratorBaseDispatch&lt; Hypothesis::PLANESTRESS &gt;", "structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator_base_dispatch_3_01_hy84eb42220287bea87d37518f2e58db7e.html", null ],
+    [ "mfem_mgis::Faltus2026RegularizedIsotropicBehaviourIntegratorBaseDispatch&lt; Hypothesis::TRIDIMENSIONAL &gt;", "structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator_base_dispatch_3_01_hy585a1f6e00216ee05121fca4c0a3aaad.html", null ],
     [ "mfem_mgis::FiniteElementSpacesManager", "structmfem__mgis_1_1_finite_element_spaces_manager.html", null ],
     [ "mfem_mgis::FiniteElementSpacesManager::GetFiniteElementSpaceOnSubMeshArguments", "structmfem__mgis_1_1_finite_element_spaces_manager_1_1_get_finite_element_space_on_sub_mesh_arguments.html", null ],
     [ "mfem_mgis::GridFunctionInterpolator", "structmfem__mgis_1_1_grid_function_interpolator.html", null ],
-    [ "mgis::internal::InvalidValueTraits< mfem_mgis::ExitStatus >", "structmgis_1_1internal_1_1_invalid_value_traits_3_01mfem__mgis_1_1_exit_status_01_4.html", null ],
-    [ "mgis::internal::InvalidValueTraits< mfem_mgis::LinearSolverHandler >", "structmgis_1_1internal_1_1_invalid_value_traits_3_01mfem__mgis_1_1_linear_solver_handler_01_4.html", null ],
-    [ "mgis::internal::InvalidValueTraits< mfem_mgis::NonLinearResolutionOutput >", "structmgis_1_1internal_1_1_invalid_value_traits_3_01mfem__mgis_1_1_non_linear_resolution_output_01_4.html", null ],
-    [ "mgis::internal::InvalidValueTraits<::mfem_mgis::LocationIdentifier >", "structmgis_1_1internal_1_1_invalid_value_traits_3_1_1mfem__mgis_1_1_location_identifier_01_4.html", null ],
+    [ "mgis::internal::InvalidValueTraits&lt; mfem_mgis::ExitStatus &gt;", "structmgis_1_1internal_1_1_invalid_value_traits_3_01mfem__mgis_1_1_exit_status_01_4.html", null ],
+    [ "mgis::internal::InvalidValueTraits&lt; mfem_mgis::LinearSolverHandler &gt;", "structmgis_1_1internal_1_1_invalid_value_traits_3_01mfem__mgis_1_1_linear_solver_handler_01_4.html", null ],
+    [ "mgis::internal::InvalidValueTraits&lt; mfem_mgis::NonLinearResolutionOutput &gt;", "structmgis_1_1internal_1_1_invalid_value_traits_3_01mfem__mgis_1_1_non_linear_resolution_output_01_4.html", null ],
+    [ "mgis::internal::InvalidValueTraits&lt;::mfem_mgis::LocationIdentifier &gt;", "structmgis_1_1internal_1_1_invalid_value_traits_3_1_1mfem__mgis_1_1_location_identifier_01_4.html", null ],
     [ "mfem::IterativeSolver", null, [
       [ "mfem_mgis::AbstractNonLinearSolver", "structmfem__mgis_1_1_abstract_non_linear_solver.html", [
         [ "mfem_mgis::NonLinearSolverBase", "structmfem__mgis_1_1_non_linear_solver_base.html", [
@@ -233,11 +233,11 @@ var hierarchy =
         ] ]
       ] ]
     ] ],
-    [ "mfem_mgis::L2ProjectionResult< parallel >", "structmfem__mgis_1_1_l2_projection_result.html", null ],
+    [ "mfem_mgis::L2ProjectionResult&lt; parallel &gt;", "structmfem__mgis_1_1_l2_projection_result.html", null ],
     [ "mfem_mgis::LinearizedOperators", "structmfem__mgis_1_1_linearized_operators.html", null ],
-    [ "mfem_mgis::LinearSolverFactory< parallel >", "structmfem__mgis_1_1_linear_solver_factory.html", null ],
-    [ "mfem_mgis::LinearSolverFactory< false >", "structmfem__mgis_1_1_linear_solver_factory_3_01false_01_4.html", null ],
-    [ "mfem_mgis::LinearSolverFactory< true >", "structmfem__mgis_1_1_linear_solver_factory_3_01true_01_4.html", null ],
+    [ "mfem_mgis::LinearSolverFactory&lt; parallel &gt;", "structmfem__mgis_1_1_linear_solver_factory.html", null ],
+    [ "mfem_mgis::LinearSolverFactory&lt; false &gt;", "structmfem__mgis_1_1_linear_solver_factory_3_01false_01_4.html", null ],
+    [ "mfem_mgis::LinearSolverFactory&lt; true &gt;", "structmfem__mgis_1_1_linear_solver_factory_3_01true_01_4.html", null ],
     [ "mfem_mgis::LinearSolverHandler", "structmfem__mgis_1_1_linear_solver_handler.html", null ],
     [ "mfem_mgis::QPEvaluatorsFactory::LocalDependenciesAnalysisOutput", "structmfem__mgis_1_1_q_p_evaluators_factory_1_1_local_dependencies_analysis_output.html", null ],
     [ "mfem_mgis::MeshDiscretization::LocationIdentifier", "structmfem__mgis_1_1_mesh_discretization_1_1_location_identifier.html", null ],
@@ -258,8 +258,8 @@ var hierarchy =
     [ "mfem_mgis::MeshDiscretization", "structmfem__mgis_1_1_mesh_discretization.html", [
       [ "mfem_mgis::FiniteElementDiscretization", "structmfem__mgis_1_1_finite_element_discretization.html", null ]
     ] ],
-    [ "mfem_mgis::NonLinearEvolutionProblemImplementation< parallel >", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation.html", null ],
-    [ "mfem_mgis::NonLinearEvolutionProblemPostProcessingBase< parallel >", "structmfem__mgis_1_1_non_linear_evolution_problem_post_processing_base.html", [
+    [ "mfem_mgis::NonLinearEvolutionProblemImplementation&lt; parallel &gt;", "structmfem__mgis_1_1_non_linear_evolution_problem_implementation.html", null ],
+    [ "mfem_mgis::NonLinearEvolutionProblemPostProcessingBase&lt; parallel &gt;", "structmfem__mgis_1_1_non_linear_evolution_problem_post_processing_base.html", [
       [ "mfem_mgis::EnergyPostProcessingBase< parallel >", "structmfem__mgis_1_1_energy_post_processing_base.html", [
         [ "mfem_mgis::DissipatedEnergyPostProcessing< parallel >", "structmfem__mgis_1_1_dissipated_energy_post_processing.html", null ],
         [ "mfem_mgis::StoredEnergyPostProcessing< parallel >", "structmfem__mgis_1_1_stored_energy_post_processing.html", null ]
@@ -288,6 +288,7 @@ var hierarchy =
     [ "mfem_mgis::PartialQuadratureFunctionStorage", "structmfem__mgis_1_1_partial_quadrature_function_storage.html", [
       [ "mfem_mgis::PartialQuadratureFunction", "structmfem__mgis_1_1_partial_quadrature_function.html", null ]
     ] ],
+    [ "mfem_mgis::PartialQuadratureSpace", "structmfem__mgis_1_1_partial_quadrature_space.html", null ],
     [ "mfem_mgis::internals::PartialQuadratureSpaceImplementation", "structmfem__mgis_1_1internals_1_1_partial_quadrature_space_implementation.html", null ],
     [ "mfem_mgis::PartialQuadratureSpaceInformation", "structmfem__mgis_1_1_partial_quadrature_space_information.html", null ],
     [ "mfem_mgis::PhysicalSystem", "structmfem__mgis_1_1_physical_system.html", null ],
@@ -303,9 +304,9 @@ var hierarchy =
     ] ],
     [ "mfem_mgis::PointsSetCurves", "structmfem__mgis_1_1_points_set_curves.html", null ],
     [ "mfem_mgis::PointsSetCurvesWriter", "structmfem__mgis_1_1_points_set_curves_writer.html", null ],
-    [ "mfem_mgis::PostProcessingFactory< parallel >", "structmfem__mgis_1_1_post_processing_factory.html", null ],
-    [ "mfem_mgis::PostProcessingFactory< false >", "structmfem__mgis_1_1_post_processing_factory_3_01false_01_4.html", null ],
-    [ "mfem_mgis::PostProcessingFactory< true >", "structmfem__mgis_1_1_post_processing_factory_3_01true_01_4.html", null ],
+    [ "mfem_mgis::PostProcessingFactory&lt; parallel &gt;", "structmfem__mgis_1_1_post_processing_factory.html", null ],
+    [ "mfem_mgis::PostProcessingFactory&lt; false &gt;", "structmfem__mgis_1_1_post_processing_factory_3_01false_01_4.html", null ],
+    [ "mfem_mgis::PostProcessingFactory&lt; true &gt;", "structmfem__mgis_1_1_post_processing_factory_3_01true_01_4.html", null ],
     [ "mfem_mgis::PredictionPolicy", "structmfem__mgis_1_1_prediction_policy.html", null ],
     [ "mfem_mgis::Provider", "structmfem__mgis_1_1_provider.html", [
       [ "mfem_mgis::AbstractModel", "structmfem__mgis_1_1_abstract_model.html", null ]
@@ -316,10 +317,10 @@ var hierarchy =
       [ "mfem_mgis::QPEvaluatorResult", "structmfem__mgis_1_1_q_p_evaluator_result.html", null ]
     ] ],
     [ "mfem_mgis::QPEvaluatorsFactory", "structmfem__mgis_1_1_q_p_evaluators_factory.html", null ],
-    [ "mfem_mgis::MeshDiscretization::RawLocationIdentifier< Location >", "structmfem__mgis_1_1_mesh_discretization_1_1_raw_location_identifier.html", null ],
+    [ "mfem_mgis::MeshDiscretization::RawLocationIdentifier&lt; Location &gt;", "structmfem__mgis_1_1_mesh_discretization_1_1_raw_location_identifier.html", null ],
     [ "mfem_mgis::AbstractTimeStepValidator::Result", "structmfem__mgis_1_1_abstract_time_step_validator_1_1_result.html", null ],
-    [ "mfem_mgis::RotatedGradientsMatrixQPEvaluator< GradientsSize >", "structmfem__mgis_1_1_rotated_gradients_matrix_q_p_evaluator.html", null ],
-    [ "mfem_mgis::RotatedThermodynamicForcesMatrixQPEvaluator< ThermodynamicForcesSize >", "structmfem__mgis_1_1_rotated_thermodynamic_forces_matrix_q_p_evaluator.html", null ],
+    [ "mfem_mgis::RotatedGradientsMatrixQPEvaluator&lt; GradientsSize &gt;", "structmfem__mgis_1_1_rotated_gradients_matrix_q_p_evaluator.html", null ],
+    [ "mfem_mgis::RotatedThermodynamicForcesMatrixQPEvaluator&lt; ThermodynamicForcesSize &gt;", "structmfem__mgis_1_1_rotated_thermodynamic_forces_matrix_q_p_evaluator.html", null ],
     [ "mfem_mgis::FBarIsotropicPlaneStrainBehaviourIntegrator::RotationMatrix", "structmfem__mgis_1_1_f_bar_isotropic_plane_strain_behaviour_integrator_1_1_rotation_matrix.html", null ],
     [ "mfem_mgis::FBarIsotropicTridimensionalBehaviourIntegrator::RotationMatrix", "structmfem__mgis_1_1_f_bar_isotropic_tridimensional_behaviour_integrator_1_1_rotation_matrix.html", null ],
     [ "mfem_mgis::IsotropicPlaneStrainStandardFiniteStrainMechanicsBehaviourIntegrator::RotationMatrix", "structmfem__mgis_1_1_isotropic_plane_strain_standard_finite_strain_mechanics_behaviour_integrator_1_1_rotation_matrix.html", null ],
@@ -336,6 +337,7 @@ var hierarchy =
     [ "mfem_mgis::RotationMatrixQPEvaluator", "structmfem__mgis_1_1_rotation_matrix_q_p_evaluator.html", null ],
     [ "mfem_mgis::Simulation", "structmfem__mgis_1_1_simulation.html", null ],
     [ "mfem_mgis::Simulation::SimulationRunState", "structmfem__mgis_1_1_simulation_1_1_simulation_run_state.html", null ],
+    [ "mgis::function::SpaceTraits&lt; mfem_mgis::PartialQuadratureSpace &gt;", "structmgis_1_1function_1_1_space_traits_3_01mfem__mgis_1_1_partial_quadrature_space_01_4.html", null ],
     [ "mfem_mgis::StateManager", "structmfem__mgis_1_1_state_manager.html", null ],
     [ "mfem_mgis::unit_tests::TestParameters", "structmfem__mgis_1_1unit__tests_1_1_test_parameters.html", null ],
     [ "mfem_mgis::TimeStep", "structmfem__mgis_1_1_time_step.html", null ],

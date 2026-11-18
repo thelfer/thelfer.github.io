@@ -1,14 +1,14 @@
 var _profiler_8hxx =
 [
-    [ "build_name", "_profiler_8hxx.html#a27f825a1eb0ae7a16d5845f4eb0fb9b3", null ],
-    [ "is_master", "_profiler_8hxx.html#af8b9592a501066549e8ba100ba123664", null ],
-    [ "Message", "_profiler_8hxx.html#ada017982c9cdb7ea9c0f5ae00ba3c239", null ],
-    [ "Message", "_profiler_8hxx.html#a16f1a4a475c34c9de3edb0b7be7aee0a", null ],
-    [ "printTimeTable", "_profiler_8hxx.html#a07d43b5c37b573374d1c60de6b5daf62", null ],
-    [ "reduce_max", "_profiler_8hxx.html#a726a639eab875e5b43ee4302d58c025d", null ],
-    [ "sum", "_profiler_8hxx.html#a5ef5615f1a2aa27e0d04316f16394418", null ],
-    [ "sum", "_profiler_8hxx.html#ae8175a0b1edab10c1fdc437fd46aa1c6", null ],
-    [ "sum", "_profiler_8hxx.html#ab95758e2d81a4b517508cda666fec69e", null ],
-    [ "writeFile", "_profiler_8hxx.html#a5921ab539cf309503e6aab2b42549856", null ],
-    [ "writeFile", "_profiler_8hxx.html#a76f1dabbfac30d52baea3991a88ce175", null ]
+    [ "mfem_mgis::Profiler::OutputManager::build_name", "_profiler_8hxx.html#a27f825a1eb0ae7a16d5845f4eb0fb9b3", null ],
+    [ "mfem_mgis::Profiler::Utils::is_master", "_profiler_8hxx.html#af8b9592a501066549e8ba100ba123664", null ],
+    [ "mfem_mgis::Profiler::Utils::Message", "_profiler_8hxx.html#ada017982c9cdb7ea9c0f5ae00ba3c239", null ],
+    [ "mfem_mgis::Profiler::Utils::Message", "_profiler_8hxx.html#a16f1a4a475c34c9de3edb0b7be7aee0a", null ],
+    [ "mfem_mgis::Profiler::OutputManager::printTimeTable", "_profiler_8hxx.html#a07d43b5c37b573374d1c60de6b5daf62", null ],
+    [ "mfem_mgis::Profiler::Utils::reduce_max", "_profiler_8hxx.html#a726a639eab875e5b43ee4302d58c025d", null ],
+    [ "mfem_mgis::Profiler::Utils::sum", "_profiler_8hxx.html#a5ef5615f1a2aa27e0d04316f16394418", null ],
+    [ "mfem_mgis::Profiler::Utils::sum", "_profiler_8hxx.html#ae8175a0b1edab10c1fdc437fd46aa1c6", null ],
+    [ "mfem_mgis::Profiler::Utils::sum", "_profiler_8hxx.html#ab95758e2d81a4b517508cda666fec69e", null ],
+    [ "mfem_mgis::Profiler::OutputManager::writeFile", "_profiler_8hxx.html#a5921ab539cf309503e6aab2b42549856", null ],
+    [ "mfem_mgis::Profiler::OutputManager::writeFile", "_profiler_8hxx.html#a76f1dabbfac30d52baea3991a88ce175", null ]
 ];

@@ -1,4 +1,4 @@
 var structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator_base_dispatch_3_01_hyaa26bf8bf73500ccbab0c0881c6776f0 =
 [
-    [ "type", "structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator_base_dispatch_3_01_hyaa26bf8bf73500ccbab0c0881c6776f0.html#aaad00723927d7a1a82400d158a18e768", null ]
+    [ "type", "structmfem__mgis_1_1_faltus2026_regularized_isotropic_behaviour_integrator_base_dispatch_3_01_hyaa26bf8bf73500ccbab0c0881c6776f0.html#a48b62375fc53cb0457ffa95b5c4b8eed", null ]
 ];

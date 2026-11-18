@@ -1,5 +1,6 @@
 var structnumodis_1_1_h_c_p =
 [
+    [ "HCP", "structnumodis_1_1_h_c_p.html#a2de87064154fad9e0186e72a95361d11", null ],
     [ "CrossProduct", "structnumodis_1_1_h_c_p.html#a1a86f4070a5d2a2a7fc762ba4292fa88", null ],
     [ "CrossProduct", "structnumodis_1_1_h_c_p.html#ac601b7852a198ae3baf923a963905f41", null ],
     [ "GenerateOrthogonalVector", "structnumodis_1_1_h_c_p.html#a1cbdf74bd1baee5d55878ab16363a82a", null ],

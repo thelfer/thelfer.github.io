@@ -1,5 +1,10 @@
 var NAVTREEINDEX72 =
 {
+"structtfel_1_1math_1_1_gauss_kronrod_quadrature.html#a54c3c17a26dfbab6fb870e153ad613f2":[7,0,14,5,298,1],
+"structtfel_1_1math_1_1_gauss_kronrod_quadrature.html#adf082da855db4a93df0769460ad60860":[5,0,9,1,295,3],
+"structtfel_1_1math_1_1_gauss_kronrod_quadrature.html#adf082da855db4a93df0769460ad60860":[7,0,14,5,298,3],
+"structtfel_1_1math_1_1_gauss_kronrod_quadrature_1_1_numerical_parameters.html":[5,0,9,1,295,0],
+"structtfel_1_1math_1_1_gauss_kronrod_quadrature_1_1_numerical_parameters.html":[7,0,14,5,298,0],
 "structtfel_1_1math_1_1_gauss_kronrod_quadrature_1_1_numerical_parameters.html#a5bc90ccf7e622b20fec64fb60d114053":[5,0,9,1,295,0,1],
 "structtfel_1_1math_1_1_gauss_kronrod_quadrature_1_1_numerical_parameters.html#a5bc90ccf7e622b20fec64fb60d114053":[7,0,14,5,298,0,1],
 "structtfel_1_1math_1_1_gauss_kronrod_quadrature_1_1_numerical_parameters.html#a9ce2822607da8e9d2066060a0690cce6":[5,0,9,1,295,0,0],
@@ -244,10 +249,5 @@ var NAVTREEINDEX72 =
 "structtfel_1_1math_1_1_l_u_solve.html":[7,0,14,5,262],
 "structtfel_1_1math_1_1_l_u_unmatched_size.html":[5,0,9,1,252],
 "structtfel_1_1math_1_1_l_u_unmatched_size.html":[7,0,14,5,255],
-"structtfel_1_1math_1_1_l_u_unmatched_size.html#a2354ff01ed921c6fa2de0aca52f5f139":[5,0,9,1,252,0],
-"structtfel_1_1math_1_1_l_u_unmatched_size.html#a2354ff01ed921c6fa2de0aca52f5f139":[7,0,14,5,255,0],
-"structtfel_1_1math_1_1_l_u_unmatched_size.html#ac91ad04a26dd9cc76e3b7617fba837f7":[5,0,9,1,252,1],
-"structtfel_1_1math_1_1_l_u_unmatched_size.html#ac91ad04a26dd9cc76e3b7617fba837f7":[7,0,14,5,255,1],
-"structtfel_1_1math_1_1_left_cauchy_green_tensor_derivative_expr.html":[5,0,9,1,464],
-"structtfel_1_1math_1_1_left_cauchy_green_tensor_derivative_expr.html":[7,0,14,5,467]
+"structtfel_1_1math_1_1_l_u_unmatched_size.html#a2354ff01ed921c6fa2de0aca52f5f139":[5,0,9,1,252,0]
 };

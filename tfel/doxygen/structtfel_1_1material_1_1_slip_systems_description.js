@@ -12,6 +12,7 @@ var structtfel_1_1material_1_1_slip_systems_description =
     [ "vector", "structtfel_1_1material_1_1_slip_systems_description.html#a2f229bddc88b25122eb271c882c48b24", null ],
     [ "InteractionMatrixModel", "structtfel_1_1material_1_1_slip_systems_description.html#a89447d838f965a9e49cf25c00bcfe85b", null ],
     [ "SlipSystemsDescription", "structtfel_1_1material_1_1_slip_systems_description.html#a0af2e3582db3602a1990870d6d0d0fc9", null ],
+    [ "SlipSystemsDescription", "structtfel_1_1material_1_1_slip_systems_description.html#ad6f1132942044d096fe48701f4cc47b6", null ],
     [ "SlipSystemsDescription", "structtfel_1_1material_1_1_slip_systems_description.html#a27de0b9964fa5c9d94e86ba1690e93f5", null ],
     [ "SlipSystemsDescription", "structtfel_1_1material_1_1_slip_systems_description.html#a18aa6bbcd0bf3898a3c24cecb096f5fd", null ],
     [ "~SlipSystemsDescription", "structtfel_1_1material_1_1_slip_systems_description.html#a663a835e81755adfcd2239e0fa7753f9", null ],

@@ -1,5 +1,10 @@
 var NAVTREEINDEX64 =
 {
+"structtfel_1_1math_1_1_compute_unary_result___3_01_t2to_s_t2_tag_00_01_unary_operator_tag_00_01_a_00_01_op_neg_01_4.html":[7,0,14,5,497],
+"structtfel_1_1math_1_1_compute_unary_result___3_01_t2to_t2_tag_00_01_unary_operator_tag_00_01_a_00_01_op_neg_01_4.html":[5,0,9,1,525],
+"structtfel_1_1math_1_1_compute_unary_result___3_01_t2to_t2_tag_00_01_unary_operator_tag_00_01_a_00_01_op_neg_01_4.html":[7,0,14,5,528],
+"structtfel_1_1math_1_1_compute_unary_result___3_01_t2to_t2_tag_00_01_unary_operator_tag_00_01_a_ec5bda053166ff2c168b666b0caa549b.html":[5,0,9,1,525,0],
+"structtfel_1_1math_1_1_compute_unary_result___3_01_t2to_t2_tag_00_01_unary_operator_tag_00_01_a_ec5bda053166ff2c168b666b0caa549b.html":[7,0,14,5,528,0],
 "structtfel_1_1math_1_1_compute_unary_result___3_01_tensor_tag_00_01_unary_operator_tag_00_01_a_00_01_op_neg_01_4.html":[5,0,9,1,573],
 "structtfel_1_1math_1_1_compute_unary_result___3_01_tensor_tag_00_01_unary_operator_tag_00_01_a_00_01_op_neg_01_4.html":[7,0,14,5,576],
 "structtfel_1_1math_1_1_compute_unary_result___3_01_tensor_tag_00_01_unary_operator_tag_00_01_a_03e8041f47bb57ab6694a0fd44bc8591a.html":[5,0,9,1,573,0],
@@ -244,10 +249,5 @@ var NAVTREEINDEX64 =
 "structtfel_1_1math_1_1_derivative_type_dispatcher.html#ab07f35defb621a2bcd08bd5c410645b5":[7,0,14,5,387,2],
 "structtfel_1_1math_1_1_derivative_type_dispatcher.html#ab07f35defb621a2bcd08bd5c410645b5":[7,0,14,5,388,2],
 "structtfel_1_1math_1_1_derivative_type_dispatcher.html#ab07f35defb621a2bcd08bd5c410645b5":[7,0,14,5,443,2],
-"structtfel_1_1math_1_1_derivative_type_dispatcher.html#ab07f35defb621a2bcd08bd5c410645b5":[7,0,14,5,444,2],
-"structtfel_1_1math_1_1_derivative_type_dispatcher.html#ab07f35defb621a2bcd08bd5c410645b5":[7,0,14,5,468,2],
-"structtfel_1_1math_1_1_derivative_type_dispatcher.html#ab07f35defb621a2bcd08bd5c410645b5":[7,0,14,5,469,2],
-"structtfel_1_1math_1_1_derivative_type_dispatcher.html#ab07f35defb621a2bcd08bd5c410645b5":[7,0,14,5,470,2],
-"structtfel_1_1math_1_1_derivative_type_dispatcher.html#ab07f35defb621a2bcd08bd5c410645b5":[7,0,14,5,519,2],
-"structtfel_1_1math_1_1_derivative_type_dispatcher.html#ab07f35defb621a2bcd08bd5c410645b5":[7,0,14,5,520,2]
+"structtfel_1_1math_1_1_derivative_type_dispatcher.html#ab07f35defb621a2bcd08bd5c410645b5":[7,0,14,5,444,2]
 };

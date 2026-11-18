@@ -1,5 +1,10 @@
 var NAVTREEINDEX79 =
 {
+"structtfel_1_1math_1_1_transverse_isotropic_walpole_basis.html":[7,0,14,5,385],
+"structtfel_1_1math_1_1_type_rebind.html":[5,0,9,1,621],
+"structtfel_1_1math_1_1_type_rebind.html":[7,0,14,5,624],
+"structtfel_1_1math_1_1_u_anderson.html":[5,0,9,1,5],
+"structtfel_1_1math_1_1_u_anderson.html":[7,0,14,5,8],
 "structtfel_1_1math_1_1_u_anderson.html#a1e30267901c9d8c2d575c7e8a1561ecf":[5,0,9,1,5,1],
 "structtfel_1_1math_1_1_u_anderson.html#a1e30267901c9d8c2d575c7e8a1561ecf":[7,0,14,5,8,1],
 "structtfel_1_1math_1_1_u_anderson.html#a5b5d15931d01ebe07f5d9f9548854b5d":[5,0,9,1,5,2],
@@ -244,10 +249,5 @@ var NAVTREEINDEX79 =
 "structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix_implementatioef3bc416f53f57c1abb08339e3051441.html#af904662da8e90a85862fcea37660bdc5":[7,0,14,5,1,109,0],
 "structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix_implementation.html":[5,0,9,1,0,108],
 "structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix_implementation.html":[7,0,14,5,1,108],
-"structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix_implementation.html#a23723ad39acd5b166db42fb42e6290dd":[5,0,9,1,0,108,0],
-"structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix_implementation.html#a23723ad39acd5b166db42fb42e6290dd":[7,0,14,5,1,108,0],
-"structtfel_1_1math_1_1internals_1_1_check_unit_compatibility_implementation.html":[5,0,9,1,0,111],
-"structtfel_1_1math_1_1internals_1_1_check_unit_compatibility_implementation.html":[7,0,14,5,1,111],
-"structtfel_1_1math_1_1internals_1_1_check_unit_compatibility_implementation_3_01_unit_00_01_math_object_type_01_4.html":[5,0,9,1,0,113],
-"structtfel_1_1math_1_1internals_1_1_check_unit_compatibility_implementation_3_01_unit_00_01_math_object_type_01_4.html":[7,0,14,5,1,113]
+"structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix_implementation.html#a23723ad39acd5b166db42fb42e6290dd":[5,0,9,1,0,108,0]
 };

@@ -1,5 +1,7 @@
 var NAVTREEINDEX31 =
 {
+"structmfront_1_1_generic_behaviour_interface.html#a3bfdff61f05164ea627d123984971fc0":[5,0,7,95,10],
+"structmfront_1_1_generic_behaviour_interface.html#a3bfdff61f05164ea627d123984971fc0":[7,0,10,99,10],
 "structmfront_1_1_generic_behaviour_interface.html#a4d2cedf3465c68e302b6a2cf63c28c7f":[5,0,7,95,11],
 "structmfront_1_1_generic_behaviour_interface.html#a4d2cedf3465c68e302b6a2cf63c28c7f":[7,0,10,99,11],
 "structmfront_1_1_generic_behaviour_interface.html#a72a44c898deb45e731a44db149e0707e":[5,0,7,95,12],
@@ -247,7 +249,5 @@ var NAVTREEINDEX31 =
 "structmfront_1_1_global_domain_specific_language_options_manager.html#afe396a80946466a50fa34b7b98f38807":[5,0,7,103,3],
 "structmfront_1_1_global_domain_specific_language_options_manager.html#afe396a80946466a50fa34b7b98f38807":[7,0,10,107,3],
 "structmfront_1_1_gnuplot_material_property_interface.html":[5,0,7,104],
-"structmfront_1_1_gnuplot_material_property_interface.html":[7,0,10,108],
-"structmfront_1_1_gnuplot_material_property_interface.html#a193636e71a56f5c061b34bf74c59b97f":[5,0,7,104,0],
-"structmfront_1_1_gnuplot_material_property_interface.html#a193636e71a56f5c061b34bf74c59b97f":[7,0,10,108,0]
+"structmfront_1_1_gnuplot_material_property_interface.html":[7,0,10,108]
 };

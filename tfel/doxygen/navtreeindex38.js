@@ -1,5 +1,7 @@
 var NAVTREEINDEX38 =
 {
+"structmfront_1_1_model_query.html#afada1a5ffef647a51c02306fbbdf43fb":[5,0,7,5,2],
+"structmfront_1_1_model_query.html#afada1a5ffef647a51c02306fbbdf43fb":[7,0,10,9,2],
 "structmfront_1_1_multiple_isotropic_mises_flows_code_generator.html":[5,0,7,157],
 "structmfront_1_1_multiple_isotropic_mises_flows_code_generator.html":[7,0,10,161],
 "structmfront_1_1_multiple_isotropic_mises_flows_code_generator.html#a7a4401aff556c4d496d3e2c5c798191f":[5,0,7,157,2],
@@ -247,7 +249,5 @@ var NAVTREEINDEX38 =
 "structmfront_1_1_powell_dog_leg_newton_raphson_solver.html#af2cf47bd6eaf787d81d40db857a1754d":[5,0,7,162,1],
 "structmfront_1_1_powell_dog_leg_newton_raphson_solver.html#af2cf47bd6eaf787d81d40db857a1754d":[7,0,10,166,1],
 "structmfront_1_1_python_material_property_interface.html":[5,0,7,172],
-"structmfront_1_1_python_material_property_interface.html":[7,0,10,176],
-"structmfront_1_1_python_material_property_interface.html#a094f5980d995b47d550f796d0fd6ad1c":[5,0,7,172,3],
-"structmfront_1_1_python_material_property_interface.html#a094f5980d995b47d550f796d0fd6ad1c":[7,0,10,176,3]
+"structmfront_1_1_python_material_property_interface.html":[7,0,10,176]
 };

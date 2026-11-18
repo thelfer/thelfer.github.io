@@ -1,5 +1,10 @@
 var NAVTREEINDEX63 =
 {
+"structtfel_1_1material_1_1internals_1_1_inverse_langevin_function_3_01tfel_1_1material_1_1_inver5c835493bb048147cfe236570e10368d.html":[7,0,14,4,1,15],
+"structtfel_1_1material_1_1internals_1_1_inverse_langevin_function_3_01tfel_1_1material_1_1_inver960b332bdcf497ca432d26836ecb80e4.html":[5,0,9,0,1,17],
+"structtfel_1_1material_1_1internals_1_1_inverse_langevin_function_3_01tfel_1_1material_1_1_inver960b332bdcf497ca432d26836ecb80e4.html":[7,0,14,4,1,17],
+"structtfel_1_1material_1_1internals_1_1_inverse_langevin_function_3_01tfel_1_1material_1_1_inverd0d6d436096d57cd3fb601a692ced0d7.html":[5,0,9,0,1,16],
+"structtfel_1_1material_1_1internals_1_1_inverse_langevin_function_3_01tfel_1_1material_1_1_inverd0d6d436096d57cd3fb601a692ced0d7.html":[7,0,14,4,1,16],
 "structtfel_1_1material_1_1internals_1_1_orthotropic_axes_convention_converter.html":[5,0,9,0,1,18],
 "structtfel_1_1material_1_1internals_1_1_orthotropic_axes_convention_converter.html":[7,0,14,4,1,18],
 "structtfel_1_1material_1_1internals_1_1_orthotropic_axes_convention_converter_3_01_modelling_hyp579130ff7a848cd9e9c5af3e73723746.html":[5,0,9,0,1,22],
@@ -244,10 +249,5 @@ var NAVTREEINDEX63 =
 "structtfel_1_1math_1_1_compute_unary_result___3_01_stensor_tag_00_01_unary_operator_tag_00_01_a_24616a2b7579d81975c6a2b9fe93a142.html":[7,0,14,5,451,0],
 "structtfel_1_1math_1_1_compute_unary_result___3_01_t2to_s_t2_tag_00_01_unary_operator_tag_00_01_298af5140761385399debe5c847fd037.html":[5,0,9,1,494,0],
 "structtfel_1_1math_1_1_compute_unary_result___3_01_t2to_s_t2_tag_00_01_unary_operator_tag_00_01_298af5140761385399debe5c847fd037.html":[7,0,14,5,497,0],
-"structtfel_1_1math_1_1_compute_unary_result___3_01_t2to_s_t2_tag_00_01_unary_operator_tag_00_01_a_00_01_op_neg_01_4.html":[5,0,9,1,494],
-"structtfel_1_1math_1_1_compute_unary_result___3_01_t2to_s_t2_tag_00_01_unary_operator_tag_00_01_a_00_01_op_neg_01_4.html":[7,0,14,5,497],
-"structtfel_1_1math_1_1_compute_unary_result___3_01_t2to_t2_tag_00_01_unary_operator_tag_00_01_a_00_01_op_neg_01_4.html":[5,0,9,1,525],
-"structtfel_1_1math_1_1_compute_unary_result___3_01_t2to_t2_tag_00_01_unary_operator_tag_00_01_a_00_01_op_neg_01_4.html":[7,0,14,5,528],
-"structtfel_1_1math_1_1_compute_unary_result___3_01_t2to_t2_tag_00_01_unary_operator_tag_00_01_a_ec5bda053166ff2c168b666b0caa549b.html":[5,0,9,1,525,0],
-"structtfel_1_1math_1_1_compute_unary_result___3_01_t2to_t2_tag_00_01_unary_operator_tag_00_01_a_ec5bda053166ff2c168b666b0caa549b.html":[7,0,14,5,528,0]
+"structtfel_1_1math_1_1_compute_unary_result___3_01_t2to_s_t2_tag_00_01_unary_operator_tag_00_01_a_00_01_op_neg_01_4.html":[5,0,9,1,494]
 };

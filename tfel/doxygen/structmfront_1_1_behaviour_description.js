@@ -208,6 +208,7 @@ var structmfront_1_1_behaviour_description =
     [ "setClassName", "structmfront_1_1_behaviour_description.html#af1de1c67d7c66849f5ad763338c4f00e", null ],
     [ "setCode", "structmfront_1_1_behaviour_description.html#a823d6deb208b9ce8481637a18ee45ef8", null ],
     [ "setCrystalStructure", "structmfront_1_1_behaviour_description.html#a9d6edb014bf5131f2625b912f9cf245f", null ],
+    [ "setCrystalStructure", "structmfront_1_1_behaviour_description.html#ad2f6b963bd7713f5d54af0dc232a11e1", null ],
     [ "setDislocationsMeanFreePathInteractionMatrix", "structmfront_1_1_behaviour_description.html#aa8ae1ba08a3ffaf9907688ac232becc0", null ],
     [ "setDSLName", "structmfront_1_1_behaviour_description.html#afa395af26dcb4e7fa66ac0e73c336d52", null ],
     [ "setElasticMaterialProperties", "structmfront_1_1_behaviour_description.html#a79cfbbd39ef7453075f071e0ead072a7", null ],

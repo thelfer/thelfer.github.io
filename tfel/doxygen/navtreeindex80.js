@@ -1,5 +1,10 @@
 var NAVTREEINDEX80 =
 {
+"structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix_implementation.html#a23723ad39acd5b166db42fb42e6290dd":[7,0,14,5,1,108,0],
+"structtfel_1_1math_1_1internals_1_1_check_unit_compatibility_implementation.html":[5,0,9,1,0,111],
+"structtfel_1_1math_1_1internals_1_1_check_unit_compatibility_implementation.html":[7,0,14,5,1,111],
+"structtfel_1_1math_1_1internals_1_1_check_unit_compatibility_implementation_3_01_unit_00_01_math_object_type_01_4.html":[5,0,9,1,0,113],
+"structtfel_1_1math_1_1internals_1_1_check_unit_compatibility_implementation_3_01_unit_00_01_math_object_type_01_4.html":[7,0,14,5,1,113],
 "structtfel_1_1math_1_1internals_1_1_check_unit_compatibility_implementation_3_01_unit_00_01_numeric_type_01_4.html":[5,0,9,1,0,112],
 "structtfel_1_1math_1_1internals_1_1_check_unit_compatibility_implementation_3_01_unit_00_01_numeric_type_01_4.html":[7,0,14,5,1,112],
 "structtfel_1_1math_1_1internals_1_1_cubic_spline_collocation_point_comparator.html":[5,0,9,1,0,33],
@@ -244,10 +249,5 @@ var NAVTREEINDEX80 =
 "structtfel_1_1math_1_1internals_1_1_stensor_compute_isotropic_function_derivative_3_012u_01_4.html":[7,0,14,5,1,89],
 "structtfel_1_1math_1_1internals_1_1_stensor_compute_isotropic_function_derivative_3_013u_01_4.html":[5,0,9,1,0,90],
 "structtfel_1_1math_1_1internals_1_1_stensor_compute_isotropic_function_derivative_3_013u_01_4.html":[7,0,14,5,1,90],
-"structtfel_1_1math_1_1internals_1_1_strided_coalesced_views_array_base.html":[5,0,9,1,0,3],
-"structtfel_1_1math_1_1internals_1_1_strided_coalesced_views_array_base.html":[7,0,14,5,1,3],
-"structtfel_1_1math_1_1internals_1_1_strided_coalesced_views_array_base.html#a356241b1c72d97b761360ab3d8c6a74c":[5,0,9,1,0,3,0],
-"structtfel_1_1math_1_1internals_1_1_strided_coalesced_views_array_base.html#a356241b1c72d97b761360ab3d8c6a74c":[7,0,14,5,1,3,0],
-"structtfel_1_1math_1_1internals_1_1_strided_coalesced_views_array_base.html#aae8dd5117f07f2435ee08820fb36068c":[5,0,9,1,0,3,1],
-"structtfel_1_1math_1_1internals_1_1_strided_coalesced_views_array_base.html#aae8dd5117f07f2435ee08820fb36068c":[7,0,14,5,1,3,1]
+"structtfel_1_1math_1_1internals_1_1_strided_coalesced_views_array_base.html":[5,0,9,1,0,3]
 };

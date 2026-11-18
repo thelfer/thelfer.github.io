@@ -1,6 +1,9 @@
 var concepts =
 [
     [ "tfel", "namespacetfel.html", [
+      [ "material", "namespacetfel_1_1material.html", [
+        [ "ThermalConductivityOrDerivativeConcept", "concepttfel_1_1material_1_1_thermal_conductivity_or_derivative_concept.html", null ]
+      ] ],
       [ "math", "namespacetfel_1_1math.html", [
         [ "unit", null, [
           [ "UnitConcept", "concepttfel_1_1math_1_1unit_1_1_unit_concept.html", null ],

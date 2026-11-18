@@ -114,7 +114,16 @@ var namespacetfel_1_1math_1_1internals =
     [ "CheckUnitCompatibilityImplementation", "structtfel_1_1math_1_1internals_1_1_check_unit_compatibility_implementation.html", null ],
     [ "CheckUnitCompatibilityImplementation&lt; Unit, NumericType &gt;", "structtfel_1_1math_1_1internals_1_1_check_unit_compatibility_implementation_3_01_unit_00_01_numeric_type_01_4.html", null ],
     [ "CheckUnitCompatibilityImplementation&lt; Unit, MathObjectType &gt;", "structtfel_1_1math_1_1internals_1_1_check_unit_compatibility_implementation_3_01_unit_00_01_math_object_type_01_4.html", null ],
+    [ "VectorDerivativeWithRespectToTensor", "namespacetfel_1_1math_1_1internals.html#a6b17ee5c3e55bb26e3582f68510aa3e1", null ],
     [ "advance", "namespacetfel_1_1math_1_1internals.html#a79ba194e607fff93c0ff57431c0c75eb", null ],
+    [ "applyTensor", "namespacetfel_1_1math_1_1internals.html#a426a2eea3a02275be277669461f3e767", null ],
+    [ "applyTransposedTensor", "namespacetfel_1_1math_1_1internals.html#ae29ad842203c21e9fa2b249255fd1eaa", null ],
+    [ "buildDerivativeWithRespectToTensor", "namespacetfel_1_1math_1_1internals.html#ab2091a33853a4509c6572a9801387fd7", null ],
+    [ "buildMatrix", "namespacetfel_1_1math_1_1internals.html#ad358764be6483052d5659ecbdfde42a9", null ],
     [ "getStridedDerivativeSubBlockExtent", "namespacetfel_1_1math_1_1internals.html#a5edebcbf413d500cc54368a54e5834d2", null ],
+    [ "getTensorComponent", "namespacetfel_1_1math_1_1internals.html#aecda559fb6b4b4ec14af6eec322c6060", null ],
+    [ "getTensorComponentColumnIndex", "namespacetfel_1_1math_1_1internals.html#a2172ebb93873918511fffd0c6e43013d", null ],
+    [ "getTensorComponentRowIndex", "namespacetfel_1_1math_1_1internals.html#a854a0b511816c39dd18bcfdc0c6bb0e0", null ],
+    [ "getVectorComponent", "namespacetfel_1_1math_1_1internals.html#a7371092167c6e3faebf84e26b26bdfaf", null ],
     [ "previous", "namespacetfel_1_1math_1_1internals.html#a8aaa9173b903435043857030b84b59e6", null ]
 ];

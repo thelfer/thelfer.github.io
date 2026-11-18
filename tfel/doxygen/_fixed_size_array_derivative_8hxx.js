@@ -20,5 +20,6 @@ var _fixed_size_array_derivative_8hxx =
     [ "tfel::math::LoopOverSecondIndices&lt; SizeType, I &gt;", "structtfel_1_1math_1_1_loop_over_second_indices.html", null ],
     [ "tfel::math::LoopOverFirstIndices&lt; SizeType, I &gt;", "structtfel_1_1math_1_1_loop_over_first_indices.html", null ],
     [ "tfel::math::MultiplyFixedSizeArrayDerivatives", "structtfel_1_1math_1_1_multiply_fixed_size_array_derivatives.html", null ],
-    [ "tfel::typetraits::IsAssignableTo&lt; tfel::math::FixedSizeArrayDerivative&lt; Array11, Array12 &gt;, tfel::math::FixedSizeArrayDerivative&lt; Array21, Array22 &gt; &gt;", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1_fixed_size_array_derivative_3b0616bd542046a5e9a12fb67c2512da4.html", null ]
+    [ "tfel::typetraits::IsAssignableTo&lt; tfel::math::FixedSizeArrayDerivative&lt; Array11, Array12 &gt;, tfel::math::FixedSizeArrayDerivative&lt; Array21, Array22 &gt; &gt;", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1_fixed_size_array_derivative_3b0616bd542046a5e9a12fb67c2512da4.html", null ],
+    [ "tfel::math::operator*", "namespacetfel_1_1math.html#a3654729573f44d60786d51ea427e117c", null ]
 ];

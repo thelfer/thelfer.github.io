@@ -256,6 +256,9 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a1ce156c765e6285b5618be7cdec1acb2" id="r_a1ce156c765e6285b5618be7cdec1acb2"><td class="memTemplParams" colspan="2"><a id="a1ce156c765e6285b5618be7cdec1acb2" name="a1ce156c765e6285b5618be7cdec1acb2"></a>
 template&lt;typename... Ts&gt; </td></tr>
 <tr class="memitem:a1ce156c765e6285b5618be7cdec1acb2 template"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><b>select_last</b> = typename decltype((<a class="el" href="structtfel_1_1math_1_1internals_1_1tag.html">tag</a>&lt;Ts&gt;{}, ...))<a class="el" href="structtfel_1_1math_1_1_f_s_levenberg_marquardt_variable.html">::type</a></td></tr>
+<tr class="memitem:a6b17ee5c3e55bb26e3582f68510aa3e1" id="r_a6b17ee5c3e55bb26e3582f68510aa3e1"><td class="memTemplParams" colspan="2">template&lt;typename VectorType, TensorConcept TensorType&gt; </td></tr>
+<tr class="memitem:a6b17ee5c3e55bb26e3582f68510aa3e1 template"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b17ee5c3e55bb26e3582f68510aa3e1">VectorDerivativeWithRespectToTensor</a></td></tr>
+<tr class="memdesc:a6b17ee5c3e55bb26e3582f68510aa3e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of the derivative of a vector with respect to a tensor  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -291,10 +294,51 @@ template&lt;typename NumType&gt; </td></tr>
 <tr class="memitem:a738e7cdd2cb00419c861deccc83b4cce" id="r_a738e7cdd2cb00419c861deccc83b4cce"><td class="memTemplParams" colspan="2"><a id="a738e7cdd2cb00419c861deccc83b4cce" name="a738e7cdd2cb00419c861deccc83b4cce"></a>
 template&lt;typename NumType&gt; </td></tr>
 <tr class="memitem:a738e7cdd2cb00419c861deccc83b4cce template"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><b>stensor_pneg</b> (const NumType x)</td></tr>
+<tr class="memitem:a426a2eea3a02275be277669461f3e767" id="r_a426a2eea3a02275be277669461f3e767"><td class="memTemplParams" colspan="2">template&lt;unsigned short N, typename ValueType, TensorConcept TensorType&gt; <br />
+requires (<a class="el" href="namespacetfel_1_1math.html#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;TensorType&gt;() == N)</td></tr>
+<tr class="memitem:a426a2eea3a02275be277669461f3e767 template"><td class="memItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a426a2eea3a02275be277669461f3e767">applyTensor</a> (const TensorType &amp;t, const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;v) noexcept</td></tr>
+<tr class="memitem:ae29ad842203c21e9fa2b249255fd1eaa" id="r_ae29ad842203c21e9fa2b249255fd1eaa"><td class="memTemplParams" colspan="2">template&lt;unsigned short N, typename ValueType, TensorConcept TensorType&gt; <br />
+requires (<a class="el" href="namespacetfel_1_1math.html#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;TensorType&gt;() == N)</td></tr>
+<tr class="memitem:ae29ad842203c21e9fa2b249255fd1eaa template"><td class="memItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae29ad842203c21e9fa2b249255fd1eaa">applyTransposedTensor</a> (const TensorType &amp;t, const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;v) noexcept</td></tr>
+<tr class="memitem:a854a0b511816c39dd18bcfdc0c6bb0e0" id="r_a854a0b511816c39dd18bcfdc0c6bb0e0"><td class="memItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a854a0b511816c39dd18bcfdc0c6bb0e0">getTensorComponentRowIndex</a> (const unsigned short c) noexcept</td></tr>
+<tr class="memitem:a2172ebb93873918511fffd0c6e43013d" id="r_a2172ebb93873918511fffd0c6e43013d"><td class="memItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2172ebb93873918511fffd0c6e43013d">getTensorComponentColumnIndex</a> (const unsigned short c) noexcept</td></tr>
+<tr class="memitem:aecda559fb6b4b4ec14af6eec322c6060" id="r_aecda559fb6b4b4ec14af6eec322c6060"><td class="memTemplParams" colspan="2">template&lt;TensorConcept TensorType&gt; </td></tr>
+<tr class="memitem:aecda559fb6b4b4ec14af6eec322c6060 template"><td class="memItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr <a class="el" href="namespacetfel_1_1math.html#a709eb5b335cdba556bd7a3eee391f2c4">numeric_type</a>&lt; TensorType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aecda559fb6b4b4ec14af6eec322c6060">getTensorComponent</a> (const TensorType &amp;t, const unsigned short i, const unsigned short j) noexcept</td></tr>
+<tr class="memitem:a7371092167c6e3faebf84e26b26bdfaf" id="r_a7371092167c6e3faebf84e26b26bdfaf"><td class="memTemplParams" colspan="2">template&lt;unsigned short N, typename ValueType&gt; </td></tr>
+<tr class="memitem:a7371092167c6e3faebf84e26b26bdfaf template"><td class="memItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr ValueType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7371092167c6e3faebf84e26b26bdfaf">getVectorComponent</a> (const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;v, const unsigned short i) noexcept</td></tr>
+<tr class="memitem:ad358764be6483052d5659ecbdfde42a9" id="r_ad358764be6483052d5659ecbdfde42a9"><td class="memTemplParams" colspan="2">template&lt;unsigned short N, typename MatrixType, typename FunctionType&gt; </td></tr>
+<tr class="memitem:ad358764be6483052d5659ecbdfde42a9 template"><td class="memItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr MatrixType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad358764be6483052d5659ecbdfde42a9">buildMatrix</a> (const FunctionType &amp;f) noexcept</td></tr>
+<tr class="memitem:ab2091a33853a4509c6572a9801387fd7" id="r_ab2091a33853a4509c6572a9801387fd7"><td class="memTemplParams" colspan="2">template&lt;unsigned short N, typename <a class="el" href="structtfel_1_1math_1_1_derivative_type.html">DerivativeType</a>, typename FunctionType&gt; </td></tr>
+<tr class="memitem:ab2091a33853a4509c6572a9801387fd7 template"><td class="memItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr <a class="el" href="structtfel_1_1math_1_1_derivative_type.html">DerivativeType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2091a33853a4509c6572a9801387fd7">buildDerivativeWithRespectToTensor</a> (const FunctionType &amp;f) noexcept</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This namespace contains classes, functions, metafunctions and data structures that are used internally in the <span class="tt"><a class="el" href="namespacetfel_1_1math.html" title="This namespace contains various classes and functions défining mathematical objects and numerical alg...">tfel::math</a></span> namespace and that are meant to be used by the end user. </p>
-</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+</div><a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Typedef Documentation</h2>
+<a id="a6b17ee5c3e55bb26e3582f68510aa3e1" name="a6b17ee5c3e55bb26e3582f68510aa3e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b17ee5c3e55bb26e3582f68510aa3e1">&#9670;&#160;</a></span>VectorDerivativeWithRespectToTensor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename VectorType, TensorConcept TensorType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a6b17ee5c3e55bb26e3582f68510aa3e1">tfel::math::internals::VectorDerivativeWithRespectToTensor</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line"> <a class="code hl_typedef" href="namespacetfel_1_1math.html#ab8410667681d135dfec7816e4352bef8">derivative_type</a>&lt;</div>
+<div class="line">      VectorType,</div>
+<div class="line">      <a class="code hl_struct" href="structtfel_1_1math_1_1tensor.html">tensor&lt;getSpaceDimension&lt;TensorType&gt;</a>(), <a class="code hl_typedef" href="namespacetfel_1_1math.html#a709eb5b335cdba556bd7a3eee391f2c4">numeric_type&lt;TensorType&gt;</a>&gt;&gt;</div>
+<div class="ttc" id="anamespacetfel_1_1math_html_a709eb5b335cdba556bd7a3eee391f2c4"><div class="ttname"><a href="namespacetfel_1_1math.html#a709eb5b335cdba556bd7a3eee391f2c4">tfel::math::numeric_type</a></div><div class="ttdeci">std::conditional_t&lt; tfel::typetraits::isScalar&lt; std::decay_t&lt; MathObjectType &gt; &gt;(), std::decay_t&lt; MathObjectType &gt;, typename MathObjectTraits&lt; std::decay_t&lt; MathObjectType &gt; &gt;::value_type &gt; numeric_type</div><div class="ttdoc">a simple alias</div><div class="ttdef"><b>Definition</b> MathObjectTraits.hxx:80</div></div>
+<div class="ttc" id="anamespacetfel_1_1math_html_ab8410667681d135dfec7816e4352bef8"><div class="ttname"><a href="namespacetfel_1_1math.html#ab8410667681d135dfec7816e4352bef8">tfel::math::derivative_type</a></div><div class="ttdeci">typename DerivativeTypeMetaFunction&lt; FunctionType, VariableTypes... &gt;::type derivative_type</div><div class="ttdoc">a simple alias giving the type representing the derivative of an object of type FunctionType with res...</div><div class="ttdef"><b>Definition</b> DerivativeType.hxx:223</div></div>
+<div class="ttc" id="astructtfel_1_1math_1_1tensor_html"><div class="ttname"><a href="structtfel_1_1math_1_1tensor.html">tfel::math::tensor</a></div><div class="ttdef"><b>Definition</b> tensor.hxx:77</div></div>
+</div><!-- fragment -->
+<p>type of the derivative of a vector with respect to a tensor </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a79ba194e607fff93c0ff57431c0c75eb" name="a79ba194e607fff93c0ff57431c0c75eb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a79ba194e607fff93c0ff57431c0c75eb">&#9670;&#160;</a></span>advance()</h2>
 
@@ -329,6 +373,166 @@ template&lt;typename Iterator&gt; </div>
 
 </div>
 </div>
+<a id="a426a2eea3a02275be277669461f3e767" name="a426a2eea3a02275be277669461f3e767"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a426a2eea3a02275be277669461f3e767">&#9670;&#160;</a></span>applyTensor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned short N, typename ValueType, TensorConcept TensorType&gt; <br />
+requires (<a class="el" href="namespacetfel_1_1math.html#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;TensorType&gt;() == N)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TFEL_HOST_DEVICE constexpr auto tfel::math::internals::applyTensor </td>
+          <td>(</td>
+          <td class="paramtype">const TensorType &amp;</td>          <td class="paramname"><span class="paramname"><em>t</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>v</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the product of a tensor and a vector </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>tensor </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">v</td><td>vector </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae29ad842203c21e9fa2b249255fd1eaa" name="ae29ad842203c21e9fa2b249255fd1eaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae29ad842203c21e9fa2b249255fd1eaa">&#9670;&#160;</a></span>applyTransposedTensor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned short N, typename ValueType, TensorConcept TensorType&gt; <br />
+requires (<a class="el" href="namespacetfel_1_1math.html#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;TensorType&gt;() == N)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TFEL_HOST_DEVICE constexpr auto tfel::math::internals::applyTransposedTensor </td>
+          <td>(</td>
+          <td class="paramtype">const TensorType &amp;</td>          <td class="paramname"><span class="paramname"><em>t</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>v</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the product of the transpose of a tensor and a vector </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>tensor </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">v</td><td>vector </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab2091a33853a4509c6572a9801387fd7" name="ab2091a33853a4509c6572a9801387fd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2091a33853a4509c6572a9801387fd7">&#9670;&#160;</a></span>buildDerivativeWithRespectToTensor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned short N, typename <a class="el" href="structtfel_1_1math_1_1_derivative_type.html">DerivativeType</a>, typename FunctionType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TFEL_HOST_DEVICE constexpr <a class="el" href="structtfel_1_1math_1_1_derivative_type.html">DerivativeType</a> tfel::math::internals::buildDerivativeWithRespectToTensor </td>
+          <td>(</td>
+          <td class="paramtype">const FunctionType &amp;</td>          <td class="paramname"><span class="paramname"><em>f</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the derivative of a vector with respect to a tensor </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname"><a class="el" href="structtfel_1_1math_1_1_derivative_type.html" title="a meta function returning the type of the derivative of a variable of type FunctionType with respect ...">DerivativeType</a></td><td>type of the derivative </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">f</td><td>function returning the derivative of the component i of the vector with respect to the component (k, l) of the tensor </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad358764be6483052d5659ecbdfde42a9" name="ad358764be6483052d5659ecbdfde42a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad358764be6483052d5659ecbdfde42a9">&#9670;&#160;</a></span>buildMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned short N, typename MatrixType, typename FunctionType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TFEL_HOST_DEVICE constexpr MatrixType tfel::math::internals::buildMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const FunctionType &amp;</td>          <td class="paramname"><span class="paramname"><em>f</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>a matrix whose components are given by a function </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">MatrixType</td><td>type of the matrix </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">f</td><td>function of the indices (i, j) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a5edebcbf413d500cc54368a54e5834d2" name="a5edebcbf413d500cc54368a54e5834d2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5edebcbf413d500cc54368a54e5834d2">&#9670;&#160;</a></span>getStridedDerivativeSubBlockExtent()</h2>
 
@@ -358,6 +562,156 @@ template&lt;typename MathObjectType&gt; </div>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">MathObjectType</td><td>scalar or tensorial type. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aecda559fb6b4b4ec14af6eec322c6060" name="aecda559fb6b4b4ec14af6eec322c6060"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecda559fb6b4b4ec14af6eec322c6060">&#9670;&#160;</a></span>getTensorComponent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;TensorConcept TensorType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TFEL_HOST_DEVICE constexpr <a class="el" href="namespacetfel_1_1math.html#a709eb5b335cdba556bd7a3eee391f2c4">numeric_type</a>&lt; TensorType &gt; tfel::math::internals::getTensorComponent </td>
+          <td>(</td>
+          <td class="paramtype">const TensorType &amp;</td>          <td class="paramname"><span class="paramname"><em>t</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned short</td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned short</td>          <td class="paramname"><span class="paramname"><em>j</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the component (i, j) of a tensor, the components which are not stored in 1D and 2D being null </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>tensor </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>row index, lower than 3 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">j</td><td>column index, lower than 3 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2172ebb93873918511fffd0c6e43013d" name="a2172ebb93873918511fffd0c6e43013d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2172ebb93873918511fffd0c6e43013d">&#9670;&#160;</a></span>getTensorComponentColumnIndex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TFEL_HOST_DEVICE constexpr unsigned short tfel::math::internals::getTensorComponentColumnIndex </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned short</td>          <td class="paramname"><span class="paramname"><em>c</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the column index of a component of a tensor </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">c</td><td>index of the component </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a854a0b511816c39dd18bcfdc0c6bb0e0">getTensorComponentRowIndex</a> </dd></dl>
+
+</div>
+</div>
+<a id="a854a0b511816c39dd18bcfdc0c6bb0e0" name="a854a0b511816c39dd18bcfdc0c6bb0e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a854a0b511816c39dd18bcfdc0c6bb0e0">&#9670;&#160;</a></span>getTensorComponentRowIndex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TFEL_HOST_DEVICE constexpr unsigned short tfel::math::internals::getTensorComponentRowIndex </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned short</td>          <td class="paramname"><span class="paramname"><em>c</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the row index of a component of a tensor </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">c</td><td>index of the component </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>the components are stored in the following order: 00, 11, 22, 01, 10, 02, 20, 12, 21. Only the first 3 (1D) or 5 (2D) are stored in 1D and 2D. The indices are computed, not read from a table. </dd></dl>
+
+</div>
+</div>
+<a id="a7371092167c6e3faebf84e26b26bdfaf" name="a7371092167c6e3faebf84e26b26bdfaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7371092167c6e3faebf84e26b26bdfaf">&#9670;&#160;</a></span>getVectorComponent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned short N, typename ValueType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TFEL_HOST_DEVICE constexpr ValueType tfel::math::internals::getVectorComponent </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>v</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned short</td>          <td class="paramname"><span class="paramname"><em>i</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the component i of a vector, the components which are not stored in 1D and 2D being null </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">v</td><td>vector </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>index, lower than 3 </td></tr>
   </table>
   </dd>
 </dl>

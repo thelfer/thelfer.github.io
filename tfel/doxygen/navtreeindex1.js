@@ -219,6 +219,8 @@ var NAVTREEINDEX1 =
 "_finite_strain_behaviour_tangent_operator_base_8hxx.html":[8,0,0,3,4,26],
 "_finite_strain_behaviour_tangent_operator_conversion_8hxx.html":[8,0,2,0,0,102],
 "_finite_strain_behaviour_tangent_operator_conversion_path_8hxx.html":[8,0,2,0,0,103],
+"_finite_strain_heat_transfer_8hxx.html":[8,0,0,3,4,27],
+"_finite_strain_heat_transfer_8ixx.html":[8,0,0,3,4,28],
 "_finite_strain_single_crystal_brick_8hxx.html":[8,0,2,0,0,104],
 "_fixed_size_array_derivative_8hxx.html":[8,0,0,3,5,1,10],
 "_fixed_size_array_policies_8hxx.html":[8,0,0,3,5,1,11],
@@ -247,7 +249,5 @@ var NAVTREEINDEX1 =
 "_frank_read_8hxx.html":[8,0,0,2,7],
 "_function_8hxx.html":[8,0,0,3,5,12,20],
 "_function_8ixx.html":[8,0,0,3,5,12,21],
-"_function_evolution_8hxx.html":[8,0,5,0,0,51],
-"_g_p_u_8hxx.html":[8,0,2,0,0,10,9],
-"_g_p_u_backend_8hxx.html":[8,0,2,0,0,10,10]
+"_function_evolution_8hxx.html":[8,0,5,0,0,51]
 };

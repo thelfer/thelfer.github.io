@@ -1286,6 +1286,9 @@ template&lt;ImmutableQuantityConcept T&gt; </td></tr>
 template&lt;typename T&gt; </td></tr>
 <tr class="memitem:ad873320b327730f20601eb7cc124897b template"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><b>rotation_matrix</b> = <a class="el" href="structtfel_1_1math_1_1tmatrix.html">tmatrix</a>&lt;3, 3, base_type&lt;T&gt;&gt;</td></tr>
 <tr class="memdesc:ad873320b327730f20601eb7cc124897b"><td class="mdescLeft">&#160;</td><td class="mdescRight">a simple alias <br /></td></tr>
+<tr class="memitem:a10cff7cb74e38132a83b163f63bc24d5" id="r_a10cff7cb74e38132a83b163f63bc24d5"><td class="memTemplParams" colspan="2"><a id="a10cff7cb74e38132a83b163f63bc24d5" name="a10cff7cb74e38132a83b163f63bc24d5"></a>
+template&lt;typename X, typename Y&gt; </td></tr>
+<tr class="memitem:a10cff7cb74e38132a83b163f63bc24d5 template"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><b>promote_type</b> = typename <a class="el" href="structtfel_1_1typetraits_1_1_promote.html">tfel::typetraits::Promote</a>&lt;X, Y&gt;<a class="el" href="structtfel_1_1math_1_1_f_s_levenberg_marquardt_variable.html">::type</a></td></tr>
 <tr class="memitem:a6bce1b1d390002b0569de31a789f3552" id="r_a6bce1b1d390002b0569de31a789f3552"><td class="memTemplParams" colspan="2">template&lt;typename T1, typename T2, typename Op&gt; </td></tr>
 <tr class="memitem:a6bce1b1d390002b0569de31a789f3552 template"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6bce1b1d390002b0569de31a789f3552">BinaryOperationResult</a></td></tr>
 <tr class="memdesc:a6bce1b1d390002b0569de31a789f3552"><td class="mdescLeft">&#160;</td><td class="mdescRight">an alias for the result of an binary operation  <br /></td></tr>
@@ -1434,6 +1437,10 @@ template&lt;typename Array1, typename Array2&gt; </td></tr>
 <tr class="memitem:ab33c2524b6b0c7c35fb944027554319f" id="r_ab33c2524b6b0c7c35fb944027554319f"><td class="memTemplParams" colspan="2"><a id="ab33c2524b6b0c7c35fb944027554319f" name="ab33c2524b6b0c7c35fb944027554319f"></a>
 template&lt;typename Array11, typename Array12, typename Array21, typename Array22&gt; </td></tr>
 <tr class="memitem:ab33c2524b6b0c7c35fb944027554319f template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtfel_1_1math_1_1_fixed_size_array_derivative.html">FixedSizeArrayDerivative</a>&lt; Array11, Array22 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (const <a class="el" href="structtfel_1_1math_1_1_fixed_size_array_derivative.html">FixedSizeArrayDerivative</a>&lt; Array11, Array12 &gt; &amp;a, const <a class="el" href="structtfel_1_1math_1_1_fixed_size_array_derivative.html">FixedSizeArrayDerivative</a>&lt; Array21, Array22 &gt; &amp;b)</td></tr>
+<tr class="memitem:a3654729573f44d60786d51ea427e117c" id="r_a3654729573f44d60786d51ea427e117c"><td class="memTemplParams" colspan="2">template&lt;unsigned short M, unsigned short N, typename MatrixValueType, typename VectorValueType, typename Array2&gt; <br />
+requires (Array2::indexing_policy::arity == 1)</td></tr>
+<tr class="memitem:a3654729573f44d60786d51ea427e117c template"><td class="memItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3654729573f44d60786d51ea427e117c">operator*</a> (const <a class="el" href="structtfel_1_1math_1_1tmatrix.html">tmatrix</a>&lt; M, N, MatrixValueType &gt; &amp;m, const <a class="el" href="structtfel_1_1math_1_1_fixed_size_array_derivative.html">FixedSizeArrayDerivative</a>&lt; <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, VectorValueType &gt;, Array2 &gt; &amp;d) noexcept</td></tr>
+<tr class="memdesc:a3654729573f44d60786d51ea427e117c"><td class="mdescLeft">&#160;</td><td class="mdescRight">product of a matrix by the derivative of a vector with respect to an array. If the matrix is the derivative of a vector \(u\) with respect to a vector \(v\) and the derivative is the derivative of \(v\) with respect to an array \(a\), the result is the derivative of \(u\) with respect to \(a\) (chain rule).  <br /></td></tr>
 <tr class="memitem:ab0fc287521de837c9e662fbc2814f401" id="r_ab0fc287521de837c9e662fbc2814f401"><td class="memTemplParams" colspan="2"><a id="ab0fc287521de837c9e662fbc2814f401" name="ab0fc287521de837c9e662fbc2814f401"></a>
 template&lt;typename IndexingPolicy&gt; </td></tr>
 <tr class="memitem:ab0fc287521de837c9e662fbc2814f401 template"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><b>getUnderlyingArrayMinimalSize</b> ()</td></tr>
@@ -2342,6 +2349,58 @@ requires (<a class="el" href="#a0196d3aa4f78bb5e2b9c9b460742c349">isScalar</a>&l
 <tr class="memdesc:adf456be339650796f57f13df9f4e559a"><td class="mdescLeft">&#160;</td><td class="mdescRight">convert the Cauchy stress to the first Piola-Kirchhoff stress.  <br /></td></tr>
 <tr class="memitem:a0e9ca3b85b6facfcbfd9235ebd8caa47" id="r_a0e9ca3b85b6facfcbfd9235ebd8caa47"><td class="memItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e9ca3b85b6facfcbfd9235ebd8caa47">convertFirstPiolaKirchhoffStressToCauchyStress</a> (const TensorConcept auto &amp;, const TensorConcept auto &amp;) noexcept</td></tr>
 <tr class="memdesc:a0e9ca3b85b6facfcbfd9235ebd8caa47"><td class="mdescLeft">&#160;</td><td class="mdescRight">convert the first Piola-Kirchhoff stress to the Cauchy stress  <br /></td></tr>
+<tr class="memitem:a9f62b0c188bda4716bf99a367ad087a8" id="r_a9f62b0c188bda4716bf99a367ad087a8"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="concepttfel_1_1math_1_1_no_unit_tensor_concept.html">tfel::math::NoUnitTensorConcept</a> DeformationGradientType&gt; </td></tr>
+<tr class="memitem:a9f62b0c188bda4716bf99a367ad087a8 template"><td class="memItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f62b0c188bda4716bf99a367ad087a8">computePiolaTransformOfIdentityMatrixInReferenceConfiguration</a> (const DeformationGradientType &amp;F) noexcept</td></tr>
+<tr class="memitem:aa6130542b8c2856e5fabc823011175c9" id="r_aa6130542b8c2856e5fabc823011175c9"><td class="memTemplParams" colspan="2">template&lt;unsigned short N, typename ValueType, <a class="el" href="concepttfel_1_1math_1_1_no_unit_tensor_concept.html">tfel::math::NoUnitTensorConcept</a> DeformationGradientType&gt; <br />
+requires (<a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;DeformationGradientType&gt;() == N)</td></tr>
+<tr class="memitem:aa6130542b8c2856e5fabc823011175c9 template"><td class="memItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa6130542b8c2856e5fabc823011175c9">computePiolaTransform</a> (const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;, const DeformationGradientType &amp;) noexcept</td></tr>
+<tr class="memitem:a436e63c3cd130da359aee3f6dac646c9" id="r_a436e63c3cd130da359aee3f6dac646c9"><td class="memTemplParams" colspan="2">template&lt;unsigned short N, typename ValueType, <a class="el" href="concepttfel_1_1math_1_1_no_unit_tensor_concept.html">tfel::math::NoUnitTensorConcept</a> DeformationGradientType&gt; <br />
+requires (<a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;DeformationGradientType&gt;() == N)</td></tr>
+<tr class="memitem:a436e63c3cd130da359aee3f6dac646c9 template"><td class="memItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a436e63c3cd130da359aee3f6dac646c9">computeInversePiolaTransform</a> (const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;, const DeformationGradientType &amp;) noexcept</td></tr>
+<tr class="memitem:a8571ad290c6822a9481b8f3ed8a3cf31" id="r_a8571ad290c6822a9481b8f3ed8a3cf31"><td class="memTemplParams" colspan="2">template&lt;unsigned short N, typename ValueType, <a class="el" href="concepttfel_1_1math_1_1_no_unit_tensor_concept.html">tfel::math::NoUnitTensorConcept</a> DeformationGradientType&gt; <br />
+requires (<a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;DeformationGradientType&gt;() == N)</td></tr>
+<tr class="memitem:a8571ad290c6822a9481b8f3ed8a3cf31 template"><td class="memItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8571ad290c6822a9481b8f3ed8a3cf31">computeNansonTransform</a> (const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;, const DeformationGradientType &amp;) noexcept</td></tr>
+<tr class="memitem:a0822c05a6d3e636fe010482b7a69b1b1" id="r_a0822c05a6d3e636fe010482b7a69b1b1"><td class="memTemplParams" colspan="2">template&lt;unsigned short N, typename ValueType, <a class="el" href="concepttfel_1_1math_1_1_no_unit_tensor_concept.html">tfel::math::NoUnitTensorConcept</a> DeformationGradientType&gt; <br />
+requires (<a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;DeformationGradientType&gt;() == N)</td></tr>
+<tr class="memitem:a0822c05a6d3e636fe010482b7a69b1b1 template"><td class="memItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0822c05a6d3e636fe010482b7a69b1b1">computeInverseNansonTransform</a> (const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;, const DeformationGradientType &amp;) noexcept</td></tr>
+<tr class="memitem:a91f31877770f8c408f13fc265b51e6ec" id="r_a91f31877770f8c408f13fc265b51e6ec"><td class="memTemplParams" colspan="2">template&lt;unsigned short N, typename ValueType, <a class="el" href="concepttfel_1_1math_1_1_no_unit_tensor_concept.html">tfel::math::NoUnitTensorConcept</a> DeformationGradientType&gt; <br />
+requires (<a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;DeformationGradientType&gt;() == N)</td></tr>
+<tr class="memitem:a91f31877770f8c408f13fc265b51e6ec template"><td class="memItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a91f31877770f8c408f13fc265b51e6ec">computePiolaTransformAndDerivatives</a> (const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;, const DeformationGradientType &amp;) noexcept</td></tr>
+<tr class="memitem:a53b3129102ef6c536dd9e09594da9c22" id="r_a53b3129102ef6c536dd9e09594da9c22"><td class="memTemplParams" colspan="2">template&lt;unsigned short N, typename ValueType, <a class="el" href="concepttfel_1_1math_1_1_no_unit_tensor_concept.html">tfel::math::NoUnitTensorConcept</a> DeformationGradientType&gt; <br />
+requires (<a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;DeformationGradientType&gt;() == N)</td></tr>
+<tr class="memitem:a53b3129102ef6c536dd9e09594da9c22 template"><td class="memItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a53b3129102ef6c536dd9e09594da9c22">computeInversePiolaTransformAndDerivatives</a> (const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;, const DeformationGradientType &amp;) noexcept</td></tr>
+<tr class="memitem:a8603b5c52ba6bf5dc6fc2cb8a84aab31" id="r_a8603b5c52ba6bf5dc6fc2cb8a84aab31"><td class="memTemplParams" colspan="2">template&lt;unsigned short N, typename ValueType, <a class="el" href="concepttfel_1_1math_1_1_no_unit_tensor_concept.html">tfel::math::NoUnitTensorConcept</a> DeformationGradientType&gt; <br />
+requires (<a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;DeformationGradientType&gt;() == N)</td></tr>
+<tr class="memitem:a8603b5c52ba6bf5dc6fc2cb8a84aab31 template"><td class="memItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8603b5c52ba6bf5dc6fc2cb8a84aab31">computeNansonTransformAndDerivatives</a> (const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;, const DeformationGradientType &amp;) noexcept</td></tr>
+<tr class="memitem:a91ec4e7eb18245b63df7e589f282b431" id="r_a91ec4e7eb18245b63df7e589f282b431"><td class="memTemplParams" colspan="2">template&lt;unsigned short N, typename ValueType, <a class="el" href="concepttfel_1_1math_1_1_no_unit_tensor_concept.html">tfel::math::NoUnitTensorConcept</a> DeformationGradientType&gt; <br />
+requires (<a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;DeformationGradientType&gt;() == N)</td></tr>
+<tr class="memitem:a91ec4e7eb18245b63df7e589f282b431 template"><td class="memItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a91ec4e7eb18245b63df7e589f282b431">computeInverseNansonTransformAndDerivatives</a> (const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;, const DeformationGradientType &amp;) noexcept</td></tr>
+<tr class="memitem:af449b8d61f13640143e2f149866cefcd" id="r_af449b8d61f13640143e2f149866cefcd"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="concepttfel_1_1math_1_1_no_unit_tensor_concept.html">tfel::math::NoUnitTensorConcept</a> DeformationGradientType&gt; </td></tr>
+<tr class="memitem:af449b8d61f13640143e2f149866cefcd template"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af449b8d61f13640143e2f149866cefcd">computePiolaTransformOfIdentityMatrixInReferenceConfiguration</a> (const DeformationGradientType &amp;F) noexcept</td></tr>
+<tr class="memitem:a9c03c65ae66f3fb5ef6c84815d15966a" id="r_a9c03c65ae66f3fb5ef6c84815d15966a"><td class="memTemplParams" colspan="2">template&lt;unsigned short N, typename ValueType, <a class="el" href="concepttfel_1_1math_1_1_no_unit_tensor_concept.html">tfel::math::NoUnitTensorConcept</a> DeformationGradientType&gt; <br />
+requires (<a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;DeformationGradientType&gt;() == N)</td></tr>
+<tr class="memitem:a9c03c65ae66f3fb5ef6c84815d15966a template"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c03c65ae66f3fb5ef6c84815d15966a">computePiolaTransform</a> (const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;q, const DeformationGradientType &amp;F) noexcept</td></tr>
+<tr class="memitem:a5a8930331057bf0af7036b3c08833961" id="r_a5a8930331057bf0af7036b3c08833961"><td class="memTemplParams" colspan="2">template&lt;unsigned short N, typename ValueType, <a class="el" href="concepttfel_1_1math_1_1_no_unit_tensor_concept.html">tfel::math::NoUnitTensorConcept</a> DeformationGradientType&gt; <br />
+requires (<a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;DeformationGradientType&gt;() == N)</td></tr>
+<tr class="memitem:a5a8930331057bf0af7036b3c08833961 template"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5a8930331057bf0af7036b3c08833961">computeInversePiolaTransform</a> (const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;Q, const DeformationGradientType &amp;F) noexcept</td></tr>
+<tr class="memitem:a058867744043cd15e7fde386ce12290e" id="r_a058867744043cd15e7fde386ce12290e"><td class="memTemplParams" colspan="2">template&lt;unsigned short N, typename ValueType, <a class="el" href="concepttfel_1_1math_1_1_no_unit_tensor_concept.html">tfel::math::NoUnitTensorConcept</a> DeformationGradientType&gt; <br />
+requires (<a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;DeformationGradientType&gt;() == N)</td></tr>
+<tr class="memitem:a058867744043cd15e7fde386ce12290e template"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a058867744043cd15e7fde386ce12290e">computeNansonTransform</a> (const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;n, const DeformationGradientType &amp;F) noexcept</td></tr>
+<tr class="memitem:a74fae7ed55de4c05cb4498a26edcd49d" id="r_a74fae7ed55de4c05cb4498a26edcd49d"><td class="memTemplParams" colspan="2">template&lt;unsigned short N, typename ValueType, <a class="el" href="concepttfel_1_1math_1_1_no_unit_tensor_concept.html">tfel::math::NoUnitTensorConcept</a> DeformationGradientType&gt; <br />
+requires (<a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;DeformationGradientType&gt;() == N)</td></tr>
+<tr class="memitem:a74fae7ed55de4c05cb4498a26edcd49d template"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a74fae7ed55de4c05cb4498a26edcd49d">computeInverseNansonTransform</a> (const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;n, const DeformationGradientType &amp;F) noexcept</td></tr>
+<tr class="memitem:a875af0175fe040ab3ee3c75047794f1f" id="r_a875af0175fe040ab3ee3c75047794f1f"><td class="memTemplParams" colspan="2">template&lt;unsigned short N, typename ValueType, <a class="el" href="concepttfel_1_1math_1_1_no_unit_tensor_concept.html">tfel::math::NoUnitTensorConcept</a> DeformationGradientType&gt; <br />
+requires (<a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;DeformationGradientType&gt;() == N)</td></tr>
+<tr class="memitem:a875af0175fe040ab3ee3c75047794f1f template"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a875af0175fe040ab3ee3c75047794f1f">computePiolaTransformAndDerivatives</a> (const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;q, const DeformationGradientType &amp;F) noexcept</td></tr>
+<tr class="memitem:a27b04e0845465bd851cda44c3dd166e5" id="r_a27b04e0845465bd851cda44c3dd166e5"><td class="memTemplParams" colspan="2">template&lt;unsigned short N, typename ValueType, <a class="el" href="concepttfel_1_1math_1_1_no_unit_tensor_concept.html">tfel::math::NoUnitTensorConcept</a> DeformationGradientType&gt; <br />
+requires (<a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;DeformationGradientType&gt;() == N)</td></tr>
+<tr class="memitem:a27b04e0845465bd851cda44c3dd166e5 template"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a27b04e0845465bd851cda44c3dd166e5">computeInversePiolaTransformAndDerivatives</a> (const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;Q, const DeformationGradientType &amp;F) noexcept</td></tr>
+<tr class="memitem:ab899cacdfe718503c274acaade012678" id="r_ab899cacdfe718503c274acaade012678"><td class="memTemplParams" colspan="2">template&lt;unsigned short N, typename ValueType, <a class="el" href="concepttfel_1_1math_1_1_no_unit_tensor_concept.html">tfel::math::NoUnitTensorConcept</a> DeformationGradientType&gt; <br />
+requires (<a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;DeformationGradientType&gt;() == N)</td></tr>
+<tr class="memitem:ab899cacdfe718503c274acaade012678 template"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab899cacdfe718503c274acaade012678">computeNansonTransformAndDerivatives</a> (const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;Nv, const DeformationGradientType &amp;F) noexcept</td></tr>
+<tr class="memitem:a7cbec4994ff9512aa6fe3d63ef24fea4" id="r_a7cbec4994ff9512aa6fe3d63ef24fea4"><td class="memTemplParams" colspan="2">template&lt;unsigned short N, typename ValueType, <a class="el" href="concepttfel_1_1math_1_1_no_unit_tensor_concept.html">tfel::math::NoUnitTensorConcept</a> DeformationGradientType&gt; <br />
+requires (<a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;DeformationGradientType&gt;() == N)</td></tr>
+<tr class="memitem:a7cbec4994ff9512aa6fe3d63ef24fea4 template"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7cbec4994ff9512aa6fe3d63ef24fea4">computeInverseNansonTransformAndDerivatives</a> (const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;n, const DeformationGradientType &amp;F) noexcept</td></tr>
 <tr class="memitem:a0bbb5f73b2f9d61fb33755429b9d7fbd" id="r_a0bbb5f73b2f9d61fb33755429b9d7fbd"><td class="memItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0bbb5f73b2f9d61fb33755429b9d7fbd">abs</a> (const TensorConcept auto &amp;) noexcept</td></tr>
 <tr class="memitem:a388fda44455cd8d8bd49a92a262e0da1" id="r_a388fda44455cd8d8bd49a92a262e0da1"><td class="memItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a388fda44455cd8d8bd49a92a262e0da1">trace</a> (const TensorConcept auto &amp;) noexcept</td></tr>
 <tr class="memitem:af825063d1746dad1423d6367b11017b1" id="r_af825063d1746dad1423d6367b11017b1"><td class="memItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af825063d1746dad1423d6367b11017b1">syme</a> (const TensorConcept auto &amp;) noexcept</td></tr>
@@ -5664,6 +5723,330 @@ requires (<a class="el" href="#a0196d3aa4f78bb5e2b9c9b460742c349">isScalar</a>&l
 
 </div>
 </div>
+<a id="a0822c05a6d3e636fe010482b7a69b1b1" name="a0822c05a6d3e636fe010482b7a69b1b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0822c05a6d3e636fe010482b7a69b1b1">&#9670;&#160;</a></span>computeInverseNansonTransform() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned short N, typename ValueType, <a class="el" href="concepttfel_1_1math_1_1_no_unit_tensor_concept.html">tfel::math::NoUnitTensorConcept</a> DeformationGradientType&gt; <br />
+requires (<a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;DeformationGradientType&gt;() == N)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TFEL_HOST_DEVICE constexpr auto tfel::math::computeInverseNansonTransform </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const DeformationGradientType &amp;</td>          <td class="paramname"><span class="paramname"><em>F</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the vector \(F^{T}\,n/J\) of the reference configuration whose transform by Nanson's formula is the given vector </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>vector in the current configuration </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">F</td><td>deformation gradient</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>In space dimensions one and two, the given vector is a plane vector: its out of plane component is taken equal to zero and \(J\) is the three dimensional determinant, so the out of plane stretch, given by the third component of the deformation gradient, is taken into account. The out of plane component of the result is then null. </dd></dl>
+
+</div>
+</div>
+<a id="a74fae7ed55de4c05cb4498a26edcd49d" name="a74fae7ed55de4c05cb4498a26edcd49d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74fae7ed55de4c05cb4498a26edcd49d">&#9670;&#160;</a></span>computeInverseNansonTransform() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned short N, typename ValueType, <a class="el" href="concepttfel_1_1math_1_1_no_unit_tensor_concept.html">tfel::math::NoUnitTensorConcept</a> DeformationGradientType&gt; <br />
+requires (<a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;DeformationGradientType&gt;() == N)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto tfel::math::computeInverseNansonTransform </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const DeformationGradientType &amp;</td>          <td class="paramname"><span class="paramname"><em>F</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the vector \(F^{T}\,n/J\) of the reference configuration whose transform by Nanson's formula is the given vector </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>vector in the current configuration </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">F</td><td>deformation gradient</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>In space dimensions one and two, the given vector is a plane vector: its out of plane component is taken equal to zero and \(J\) is the three dimensional determinant, so the out of plane stretch, given by the third component of the deformation gradient, is taken into account. The out of plane component of the result is then null. </dd></dl>
+
+</div>
+</div>
+<a id="a91ec4e7eb18245b63df7e589f282b431" name="a91ec4e7eb18245b63df7e589f282b431"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91ec4e7eb18245b63df7e589f282b431">&#9670;&#160;</a></span>computeInverseNansonTransformAndDerivatives() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned short N, typename ValueType, <a class="el" href="concepttfel_1_1math_1_1_no_unit_tensor_concept.html">tfel::math::NoUnitTensorConcept</a> DeformationGradientType&gt; <br />
+requires (<a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;DeformationGradientType&gt;() == N)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TFEL_HOST_DEVICE constexpr auto tfel::math::computeInverseNansonTransformAndDerivatives </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const DeformationGradientType &amp;</td>          <td class="paramname"><span class="paramname"><em>F</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the vector \(N=F^{T}\,n/J\) of the reference configuration whose transform by Nanson's formula is the given vector, its derivative with respect to \(n\) and its derivative with respect to \(F\) </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>vector in the current configuration </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">F</td><td>deformation gradient </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7cbec4994ff9512aa6fe3d63ef24fea4" name="a7cbec4994ff9512aa6fe3d63ef24fea4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cbec4994ff9512aa6fe3d63ef24fea4">&#9670;&#160;</a></span>computeInverseNansonTransformAndDerivatives() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned short N, typename ValueType, <a class="el" href="concepttfel_1_1math_1_1_no_unit_tensor_concept.html">tfel::math::NoUnitTensorConcept</a> DeformationGradientType&gt; <br />
+requires (<a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;DeformationGradientType&gt;() == N)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto tfel::math::computeInverseNansonTransformAndDerivatives </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const DeformationGradientType &amp;</td>          <td class="paramname"><span class="paramname"><em>F</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the vector \(N=F^{T}\,n/J\) of the reference configuration whose transform by Nanson's formula is the given vector, its derivative with respect to \(n\) and its derivative with respect to \(F\) </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>vector in the current configuration </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">F</td><td>deformation gradient </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a436e63c3cd130da359aee3f6dac646c9" name="a436e63c3cd130da359aee3f6dac646c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a436e63c3cd130da359aee3f6dac646c9">&#9670;&#160;</a></span>computeInversePiolaTransform() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned short N, typename ValueType, <a class="el" href="concepttfel_1_1math_1_1_no_unit_tensor_concept.html">tfel::math::NoUnitTensorConcept</a> DeformationGradientType&gt; <br />
+requires (<a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;DeformationGradientType&gt;() == N)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TFEL_HOST_DEVICE constexpr auto tfel::math::computeInversePiolaTransform </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>Q</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const DeformationGradientType &amp;</td>          <td class="paramname"><span class="paramname"><em>F</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the vector \(F\,Q/J\) of the current configuration whose Piola transform is the given vector </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">Q</td><td>vector in the reference configuration </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">F</td><td>deformation gradient</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>In space dimensions one and two, the given vector is a plane vector: its out of plane component is taken equal to zero and \(J\) is the three dimensional determinant, so the out of plane stretch, given by the third component of the deformation gradient, is taken into account. The out of plane component of the result is then null. </dd></dl>
+
+</div>
+</div>
+<a id="a5a8930331057bf0af7036b3c08833961" name="a5a8930331057bf0af7036b3c08833961"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a8930331057bf0af7036b3c08833961">&#9670;&#160;</a></span>computeInversePiolaTransform() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned short N, typename ValueType, <a class="el" href="concepttfel_1_1math_1_1_no_unit_tensor_concept.html">tfel::math::NoUnitTensorConcept</a> DeformationGradientType&gt; <br />
+requires (<a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;DeformationGradientType&gt;() == N)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto tfel::math::computeInversePiolaTransform </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>Q</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const DeformationGradientType &amp;</td>          <td class="paramname"><span class="paramname"><em>F</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the vector \(F\,Q/J\) of the current configuration whose Piola transform is the given vector </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">Q</td><td>vector in the reference configuration </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">F</td><td>deformation gradient</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>In space dimensions one and two, the given vector is a plane vector: its out of plane component is taken equal to zero and \(J\) is the three dimensional determinant, so the out of plane stretch, given by the third component of the deformation gradient, is taken into account. The out of plane component of the result is then null. </dd></dl>
+
+</div>
+</div>
+<a id="a53b3129102ef6c536dd9e09594da9c22" name="a53b3129102ef6c536dd9e09594da9c22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53b3129102ef6c536dd9e09594da9c22">&#9670;&#160;</a></span>computeInversePiolaTransformAndDerivatives() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned short N, typename ValueType, <a class="el" href="concepttfel_1_1math_1_1_no_unit_tensor_concept.html">tfel::math::NoUnitTensorConcept</a> DeformationGradientType&gt; <br />
+requires (<a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;DeformationGradientType&gt;() == N)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TFEL_HOST_DEVICE constexpr auto tfel::math::computeInversePiolaTransformAndDerivatives </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>Q</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const DeformationGradientType &amp;</td>          <td class="paramname"><span class="paramname"><em>F</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the vector \(q=F\,Q/J\) of the current configuration whose Piola transform is the given vector, its derivative with respect to \(Q\) and its derivative with respect to \(F\) </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">Q</td><td>vector in the reference configuration </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">F</td><td>deformation gradient </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a27b04e0845465bd851cda44c3dd166e5" name="a27b04e0845465bd851cda44c3dd166e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27b04e0845465bd851cda44c3dd166e5">&#9670;&#160;</a></span>computeInversePiolaTransformAndDerivatives() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned short N, typename ValueType, <a class="el" href="concepttfel_1_1math_1_1_no_unit_tensor_concept.html">tfel::math::NoUnitTensorConcept</a> DeformationGradientType&gt; <br />
+requires (<a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;DeformationGradientType&gt;() == N)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto tfel::math::computeInversePiolaTransformAndDerivatives </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>Q</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const DeformationGradientType &amp;</td>          <td class="paramname"><span class="paramname"><em>F</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the vector \(q=F\,Q/J\) of the current configuration whose Piola transform is the given vector, its derivative with respect to \(Q\) and its derivative with respect to \(F\) </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">Q</td><td>vector in the reference configuration </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">F</td><td>deformation gradient </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a00e88c5dd0f3ecceb418c4d8e3d7491f" name="a00e88c5dd0f3ecceb418c4d8e3d7491f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a00e88c5dd0f3ecceb418c4d8e3d7491f">&#9670;&#160;</a></span>computeIsotropicFunction()</h2>
 
@@ -6037,6 +6420,168 @@ template&lt;bool extrapolate, typename AbscissaContainer, typename ValueContaine
 
 </div>
 </div>
+<a id="a8571ad290c6822a9481b8f3ed8a3cf31" name="a8571ad290c6822a9481b8f3ed8a3cf31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8571ad290c6822a9481b8f3ed8a3cf31">&#9670;&#160;</a></span>computeNansonTransform() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned short N, typename ValueType, <a class="el" href="concepttfel_1_1math_1_1_no_unit_tensor_concept.html">tfel::math::NoUnitTensorConcept</a> DeformationGradientType&gt; <br />
+requires (<a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;DeformationGradientType&gt;() == N)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TFEL_HOST_DEVICE constexpr auto tfel::math::computeNansonTransform </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const DeformationGradientType &amp;</td>          <td class="paramname"><span class="paramname"><em>F</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the vector \(J\,F^{-T}\,N\) given by Nanson's formula. If \(N\) is an oriented surface element of the reference configuration, the result is the oriented surface element of the current configuration. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>vector in the reference configuration </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">F</td><td>deformation gradient</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>In space dimensions one and two, the given vector is a plane vector: its out of plane component is taken equal to zero and \(J\) is the three dimensional determinant, so the out of plane stretch, given by the third component of the deformation gradient, is taken into account. The out of plane component of the result is then null. </dd></dl>
+
+</div>
+</div>
+<a id="a058867744043cd15e7fde386ce12290e" name="a058867744043cd15e7fde386ce12290e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a058867744043cd15e7fde386ce12290e">&#9670;&#160;</a></span>computeNansonTransform() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned short N, typename ValueType, <a class="el" href="concepttfel_1_1math_1_1_no_unit_tensor_concept.html">tfel::math::NoUnitTensorConcept</a> DeformationGradientType&gt; <br />
+requires (<a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;DeformationGradientType&gt;() == N)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto tfel::math::computeNansonTransform </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const DeformationGradientType &amp;</td>          <td class="paramname"><span class="paramname"><em>F</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the vector \(J\,F^{-T}\,N\) given by Nanson's formula. If \(N\) is an oriented surface element of the reference configuration, the result is the oriented surface element of the current configuration. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>vector in the reference configuration </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">F</td><td>deformation gradient</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>In space dimensions one and two, the given vector is a plane vector: its out of plane component is taken equal to zero and \(J\) is the three dimensional determinant, so the out of plane stretch, given by the third component of the deformation gradient, is taken into account. The out of plane component of the result is then null. </dd></dl>
+
+</div>
+</div>
+<a id="a8603b5c52ba6bf5dc6fc2cb8a84aab31" name="a8603b5c52ba6bf5dc6fc2cb8a84aab31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8603b5c52ba6bf5dc6fc2cb8a84aab31">&#9670;&#160;</a></span>computeNansonTransformAndDerivatives() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned short N, typename ValueType, <a class="el" href="concepttfel_1_1math_1_1_no_unit_tensor_concept.html">tfel::math::NoUnitTensorConcept</a> DeformationGradientType&gt; <br />
+requires (<a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;DeformationGradientType&gt;() == N)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TFEL_HOST_DEVICE constexpr auto tfel::math::computeNansonTransformAndDerivatives </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>Nv</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const DeformationGradientType &amp;</td>          <td class="paramname"><span class="paramname"><em>F</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the vector \(n=J\,F^{-T}\,N\) given by Nanson's formula, its derivative with respect to \(N\) and its derivative with respect to \(F\) </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">N</td><td>vector in the reference configuration </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">F</td><td>deformation gradient </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab899cacdfe718503c274acaade012678" name="ab899cacdfe718503c274acaade012678"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab899cacdfe718503c274acaade012678">&#9670;&#160;</a></span>computeNansonTransformAndDerivatives() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned short N, typename ValueType, <a class="el" href="concepttfel_1_1math_1_1_no_unit_tensor_concept.html">tfel::math::NoUnitTensorConcept</a> DeformationGradientType&gt; <br />
+requires (<a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;DeformationGradientType&gt;() == N)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto tfel::math::computeNansonTransformAndDerivatives </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>Nv</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const DeformationGradientType &amp;</td>          <td class="paramname"><span class="paramname"><em>F</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the vector \(n=J\,F^{-T}\,N\) given by Nanson's formula, its derivative with respect to \(N\) and its derivative with respect to \(F\) </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">N</td><td>vector in the reference configuration </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">F</td><td>deformation gradient </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a9ce5052f3be1ed8aafc46864ee173477" name="a9ce5052f3be1ed8aafc46864ee173477"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9ce5052f3be1ed8aafc46864ee173477">&#9670;&#160;</a></span>computeNumericalDerivative()</h2>
 
@@ -6080,6 +6625,250 @@ template&lt;typename FunctionType, typename VariableType, typename ScalarType&gt
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="aa6130542b8c2856e5fabc823011175c9" name="aa6130542b8c2856e5fabc823011175c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6130542b8c2856e5fabc823011175c9">&#9670;&#160;</a></span>computePiolaTransform() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned short N, typename ValueType, <a class="el" href="concepttfel_1_1math_1_1_no_unit_tensor_concept.html">tfel::math::NoUnitTensorConcept</a> DeformationGradientType&gt; <br />
+requires (<a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;DeformationGradientType&gt;() == N)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TFEL_HOST_DEVICE constexpr auto tfel::math::computePiolaTransform </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>q</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const DeformationGradientType &amp;</td>          <td class="paramname"><span class="paramname"><em>F</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the Piola transform \(J\,F^{-1}\,q\) of a vector defined in the current configuration </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">q</td><td>vector in the current configuration </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">F</td><td>deformation gradient </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This operation gives the heat flux in the reference configuration from the heat flux in the current configuration.</dd>
+<dd>
+In space dimensions one and two, the given vector is a plane vector: its out of plane component is taken equal to zero and \(J\) is the three dimensional determinant, so the out of plane stretch, given by the third component of the deformation gradient, is taken into account. The out of plane component of the result is then null. </dd></dl>
+
+</div>
+</div>
+<a id="a9c03c65ae66f3fb5ef6c84815d15966a" name="a9c03c65ae66f3fb5ef6c84815d15966a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c03c65ae66f3fb5ef6c84815d15966a">&#9670;&#160;</a></span>computePiolaTransform() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned short N, typename ValueType, <a class="el" href="concepttfel_1_1math_1_1_no_unit_tensor_concept.html">tfel::math::NoUnitTensorConcept</a> DeformationGradientType&gt; <br />
+requires (<a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;DeformationGradientType&gt;() == N)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto tfel::math::computePiolaTransform </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>q</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const DeformationGradientType &amp;</td>          <td class="paramname"><span class="paramname"><em>F</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the Piola transform \(J\,F^{-1}\,q\) of a vector defined in the current configuration </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">q</td><td>vector in the current configuration </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">F</td><td>deformation gradient </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This operation gives the heat flux in the reference configuration from the heat flux in the current configuration.</dd>
+<dd>
+In space dimensions one and two, the given vector is a plane vector: its out of plane component is taken equal to zero and \(J\) is the three dimensional determinant, so the out of plane stretch, given by the third component of the deformation gradient, is taken into account. The out of plane component of the result is then null. </dd></dl>
+
+</div>
+</div>
+<a id="a91f31877770f8c408f13fc265b51e6ec" name="a91f31877770f8c408f13fc265b51e6ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91f31877770f8c408f13fc265b51e6ec">&#9670;&#160;</a></span>computePiolaTransformAndDerivatives() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned short N, typename ValueType, <a class="el" href="concepttfel_1_1math_1_1_no_unit_tensor_concept.html">tfel::math::NoUnitTensorConcept</a> DeformationGradientType&gt; <br />
+requires (<a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;DeformationGradientType&gt;() == N)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TFEL_HOST_DEVICE constexpr auto tfel::math::computePiolaTransformAndDerivatives </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>q</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const DeformationGradientType &amp;</td>          <td class="paramname"><span class="paramname"><em>F</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the Piola transform \(Q=J\,F^{-1}\,q\) of a vector, its derivative with respect to \(q\) and its derivative with respect to \(F\) </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">q</td><td>vector in the current configuration </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">F</td><td>deformation gradient </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a875af0175fe040ab3ee3c75047794f1f" name="a875af0175fe040ab3ee3c75047794f1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a875af0175fe040ab3ee3c75047794f1f">&#9670;&#160;</a></span>computePiolaTransformAndDerivatives() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned short N, typename ValueType, <a class="el" href="concepttfel_1_1math_1_1_no_unit_tensor_concept.html">tfel::math::NoUnitTensorConcept</a> DeformationGradientType&gt; <br />
+requires (<a class="el" href="#a78e6e124b6c3ec6286d482b8856be7ec">getSpaceDimension</a>&lt;DeformationGradientType&gt;() == N)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto tfel::math::computePiolaTransformAndDerivatives </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, ValueType &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>q</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const DeformationGradientType &amp;</td>          <td class="paramname"><span class="paramname"><em>F</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the Piola transform \(Q=J\,F^{-1}\,q\) of a vector, its derivative with respect to \(q\) and its derivative with respect to \(F\) </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">q</td><td>vector in the current configuration </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">F</td><td>deformation gradient </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9f62b0c188bda4716bf99a367ad087a8" name="a9f62b0c188bda4716bf99a367ad087a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f62b0c188bda4716bf99a367ad087a8">&#9670;&#160;</a></span>computePiolaTransformOfIdentityMatrixInReferenceConfiguration() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="concepttfel_1_1math_1_1_no_unit_tensor_concept.html">tfel::math::NoUnitTensorConcept</a> DeformationGradientType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TFEL_HOST_DEVICE constexpr auto tfel::math::computePiolaTransformOfIdentityMatrixInReferenceConfiguration </td>
+          <td>(</td>
+          <td class="paramtype">const DeformationGradientType &amp;</td>          <td class="paramname"><span class="paramname"><em>F</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the Piola transform of the identity matrix of the current configuration, i.e. the matrix \(J\,F^{-1}\,F^{-T}\) of the reference configuration, where \(J=\det\left(F\right)\), which is also \(J\,C^{-1}\), \(C^{-1}\) being the inverse of the right Cauchy-Green tensor </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">F</td><td>deformation gradient</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This operation is useful when computing the thermal conductivity matrix in the reference frame</dd>
+<dd>
+In space dimensions one and two, the returned matrix is the in plane block of the result obtained in the three dimensional case, where the out of plane stretch, given by the third component of the deformation gradient, is taken into account. This block cannot be deduced from the in plane components of the deformation gradient alone: in space dimension two, the missing out of plane component of the three dimensional result is \(\det\left(F\right)/F_{33}^{2}\).</dd>
+<dd>
+In space dimension one, only the three diagonal components of the deformation gradient are available and the returned matrix is \(F_{22}\,F_{33}/F_{11}\). </dd></dl>
+
+</div>
+</div>
+<a id="af449b8d61f13640143e2f149866cefcd" name="af449b8d61f13640143e2f149866cefcd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af449b8d61f13640143e2f149866cefcd">&#9670;&#160;</a></span>computePiolaTransformOfIdentityMatrixInReferenceConfiguration() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="concepttfel_1_1math_1_1_no_unit_tensor_concept.html">tfel::math::NoUnitTensorConcept</a> DeformationGradientType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto tfel::math::computePiolaTransformOfIdentityMatrixInReferenceConfiguration </td>
+          <td>(</td>
+          <td class="paramtype">const DeformationGradientType &amp;</td>          <td class="paramname"><span class="paramname"><em>F</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>the Piola transform of the identity matrix of the current configuration, i.e. the matrix \(J\,F^{-1}\,F^{-T}\) of the reference configuration, where \(J=\det\left(F\right)\), which is also \(J\,C^{-1}\), \(C^{-1}\) being the inverse of the right Cauchy-Green tensor </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">F</td><td>deformation gradient</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This operation is useful when computing the thermal conductivity matrix in the reference frame</dd>
+<dd>
+In space dimensions one and two, the returned matrix is the in plane block of the result obtained in the three dimensional case, where the out of plane stretch, given by the third component of the deformation gradient, is taken into account. This block cannot be deduced from the in plane components of the deformation gradient alone: in space dimension two, the missing out of plane component of the three dimensional result is \(\det\left(F\right)/F_{33}^{2}\).</dd>
+<dd>
+In space dimension one, only the three diagonal components of the deformation gradient are available and the returned matrix is \(F_{22}\,F_{33}/F_{11}\). </dd></dl>
 
 </div>
 </div>
@@ -8770,7 +9559,7 @@ template&lt;typename TensorType&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -10111,7 +10900,7 @@ template&lt;TensorConcept TensorType&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -10264,8 +11053,49 @@ template&lt;ScalarConcept T&gt; </div>
 
 </div>
 </div>
+<a id="a3654729573f44d60786d51ea427e117c" name="a3654729573f44d60786d51ea427e117c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3654729573f44d60786d51ea427e117c">&#9670;&#160;</a></span>operator*() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned short M, unsigned short N, typename MatrixValueType, typename VectorValueType, typename Array2&gt; <br />
+requires (Array2::indexing_policy::arity == 1)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TFEL_HOST_DEVICE constexpr auto tfel::math::operator* </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structtfel_1_1math_1_1tmatrix.html">tmatrix</a>&lt; M, N, MatrixValueType &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>m</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structtfel_1_1math_1_1_fixed_size_array_derivative.html">FixedSizeArrayDerivative</a>&lt; <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, VectorValueType &gt;, Array2 &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>d</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>product of a matrix by the derivative of a vector with respect to an array. If the matrix is the derivative of a vector \(u\) with respect to a vector \(v\) and the derivative is the derivative of \(v\) with respect to an array \(a\), the result is the derivative of \(u\) with respect to \(a\) (chain rule). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">m</td><td>matrix </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">d</td><td>derivative of a vector with respect to an array </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a51c9ccbbe1200cfe3c60139153e40052" name="a51c9ccbbe1200cfe3c60139153e40052"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a51c9ccbbe1200cfe3c60139153e40052">&#9670;&#160;</a></span>operator*()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a51c9ccbbe1200cfe3c60139153e40052">&#9670;&#160;</a></span>operator*() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -12957,7 +13787,7 @@ template&lt;TensorConcept TensorType&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

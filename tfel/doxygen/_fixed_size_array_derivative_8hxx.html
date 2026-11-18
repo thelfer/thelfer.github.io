@@ -109,6 +109,8 @@ $(function(){initNavTree('_fixed_size_array_derivative_8hxx.html','',''); });
 <code>#include &quot;<a class="el" href="_generic_fixed_size_array_8hxx.html">TFEL/Math/Array/GenericFixedSizeArray.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_view_8hxx.html">TFEL/Math/Array/View.hxx</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_expression_templates_2_expr_8hxx.html">TFEL/Math/ExpressionTemplates/Expr.hxx</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_forward_2tvector_8hxx.html">TFEL/Math/Forward/tvector.hxx</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_forward_2tmatrix_8hxx.html">TFEL/Math/Forward/tmatrix.hxx</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -175,6 +177,10 @@ template&lt;typename Array1, typename Array2&gt; </td></tr>
 <tr class="memitem:ab33c2524b6b0c7c35fb944027554319f" id="r_ab33c2524b6b0c7c35fb944027554319f"><td class="memTemplParams" colspan="2"><a id="ab33c2524b6b0c7c35fb944027554319f" name="ab33c2524b6b0c7c35fb944027554319f"></a>
 template&lt;typename Array11, typename Array12, typename Array21, typename Array22&gt; </td></tr>
 <tr class="memitem:ab33c2524b6b0c7c35fb944027554319f template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtfel_1_1math_1_1_fixed_size_array_derivative.html">FixedSizeArrayDerivative</a>&lt; Array11, Array22 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>tfel::math::operator*</b> (const <a class="el" href="structtfel_1_1math_1_1_fixed_size_array_derivative.html">FixedSizeArrayDerivative</a>&lt; Array11, Array12 &gt; &amp;a, const <a class="el" href="structtfel_1_1math_1_1_fixed_size_array_derivative.html">FixedSizeArrayDerivative</a>&lt; Array21, Array22 &gt; &amp;b)</td></tr>
+<tr class="memitem:a3654729573f44d60786d51ea427e117c" id="r_a3654729573f44d60786d51ea427e117c"><td class="memTemplParams" colspan="2">template&lt;unsigned short M, unsigned short N, typename MatrixValueType, typename VectorValueType, typename Array2&gt; <br />
+requires (Array2::indexing_policy::arity == 1)</td></tr>
+<tr class="memitem:a3654729573f44d60786d51ea427e117c template"><td class="memItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetfel_1_1math.html#a3654729573f44d60786d51ea427e117c">tfel::math::operator*</a> (const <a class="el" href="structtfel_1_1math_1_1tmatrix.html">tmatrix</a>&lt; M, N, MatrixValueType &gt; &amp;m, const <a class="el" href="structtfel_1_1math_1_1_fixed_size_array_derivative.html">FixedSizeArrayDerivative</a>&lt; <a class="el" href="structtfel_1_1math_1_1tvector.html">tvector</a>&lt; N, VectorValueType &gt;, Array2 &gt; &amp;d) noexcept</td></tr>
+<tr class="memdesc:a3654729573f44d60786d51ea427e117c"><td class="mdescLeft">&#160;</td><td class="mdescRight">product of a matrix by the derivative of a vector with respect to an array. If the matrix is the derivative of a vector \(u\) with respect to a vector \(v\) and the derivative is the derivative of \(v\) with respect to an array \(a\), the result is the derivative of \(u\) with respect to \(a\) (chain rule).  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Thomas Helfer </dd></dl>

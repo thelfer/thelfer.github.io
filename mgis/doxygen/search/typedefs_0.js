@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['basicimmutablefunctionview_0',['BasicImmutableFunctionView',['../_mechanical_operations_8hxx.html#ab3104f6474991fa040ee9969be584697',1,'mgis::function']]],
-  ['buffer_1',['Buffer',['../_buffer_8hxx.html#ac056a101b9c1813da8e52cd02d5daa73',1,'mgis::function']]]
+  ['basicimmutablefunctionview_0',['BasicImmutableFunctionView',['../_mechanical_operations_8hxx.html#abaef17112c36832c83a1e9a9e87b22fe',1,'mgis::function']]],
+  ['buffer_1',['Buffer',['../_buffer_8hxx.html#a75b46b69d9c3fc573cbfec27ff24959d',1,'mgis::function']]]
 ];

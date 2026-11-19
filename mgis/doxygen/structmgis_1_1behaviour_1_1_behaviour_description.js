@@ -1,22 +1,8 @@
 var structmgis_1_1behaviour_1_1_behaviour_description =
 [
-    [ "BehaviourType", "structmgis_1_1behaviour_1_1_behaviour_description.html#a443379838de05873285dc8074e29c866", [
-      [ "GENERALBEHAVIOUR", "structmgis_1_1behaviour_1_1_behaviour_description.html#a443379838de05873285dc8074e29c866a60c6cd8dc2bdd3e3c414786f72a80146", null ],
-      [ "STANDARDSTRAINBASEDBEHAVIOUR", "structmgis_1_1behaviour_1_1_behaviour_description.html#a443379838de05873285dc8074e29c866a7e471009296cf97aee785f06916301a9", null ],
-      [ "STANDARDFINITESTRAINBEHAVIOUR", "structmgis_1_1behaviour_1_1_behaviour_description.html#a443379838de05873285dc8074e29c866aeb3e4664bf1affecaafb0c19ab2c22f7", null ],
-      [ "COHESIVEZONEMODEL", "structmgis_1_1behaviour_1_1_behaviour_description.html#a443379838de05873285dc8074e29c866ac819730f5495c9fa35a555ffb19ebc4c", null ]
-    ] ],
-    [ "Kinematic", "structmgis_1_1behaviour_1_1_behaviour_description.html#a72f57700c99f09fa6a0a49f0b858e911", [
-      [ "UNDEFINEDKINEMATIC", "structmgis_1_1behaviour_1_1_behaviour_description.html#a72f57700c99f09fa6a0a49f0b858e911a6ff38197e988e9e437f00f95f3763ec4", null ],
-      [ "SMALLSTRAINKINEMATIC", "structmgis_1_1behaviour_1_1_behaviour_description.html#a72f57700c99f09fa6a0a49f0b858e911a97ff4cd9e95efdfd0ee98a42a443282a", null ],
-      [ "COHESIVEZONEKINEMATIC", "structmgis_1_1behaviour_1_1_behaviour_description.html#a72f57700c99f09fa6a0a49f0b858e911af508d206d19505e0376793d592de730d", null ],
-      [ "FINITESTRAINKINEMATIC_F_CAUCHY", "structmgis_1_1behaviour_1_1_behaviour_description.html#a72f57700c99f09fa6a0a49f0b858e911a056183706f01a55f3cf6e5a42e4c47f2", null ],
-      [ "FINITESTRAINKINEMATIC_ETO_PK1", "structmgis_1_1behaviour_1_1_behaviour_description.html#a72f57700c99f09fa6a0a49f0b858e911a65b38154cca1166e7d6b14454214f091", null ]
-    ] ],
-    [ "Symmetry", "structmgis_1_1behaviour_1_1_behaviour_description.html#af0afee273c4d836e6e147a208e2ee8cf", [
-      [ "ISOTROPIC", "structmgis_1_1behaviour_1_1_behaviour_description.html#af0afee273c4d836e6e147a208e2ee8cfa32579d54899f55eb2f6a11bf0a329a71", null ],
-      [ "ORTHOTROPIC", "structmgis_1_1behaviour_1_1_behaviour_description.html#af0afee273c4d836e6e147a208e2ee8cfa29bad3b166a112f473b5106ee0851778", null ]
-    ] ],
+    [ "BehaviourType", "structmgis_1_1behaviour_1_1_behaviour_description.html#a443379838de05873285dc8074e29c866", null ],
+    [ "Kinematic", "structmgis_1_1behaviour_1_1_behaviour_description.html#a72f57700c99f09fa6a0a49f0b858e911", null ],
+    [ "Symmetry", "structmgis_1_1behaviour_1_1_behaviour_description.html#af0afee273c4d836e6e147a208e2ee8cf", null ],
     [ "~BehaviourDescription", "structmgis_1_1behaviour_1_1_behaviour_description.html#af25ef6781f6d7ced145bbc7d645880e3", null ],
     [ "BehaviourDescription", "structmgis_1_1behaviour_1_1_behaviour_description.html#a9ed58ec9adf7fff87395795e9358daa0", null ],
     [ "BehaviourDescription", "structmgis_1_1behaviour_1_1_behaviour_description.html#ad7a4d20484dee4cee17bd1bcad8abda3", null ],

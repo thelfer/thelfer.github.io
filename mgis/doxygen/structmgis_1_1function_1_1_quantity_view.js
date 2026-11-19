@@ -1,6 +1,6 @@
 var structmgis_1_1function_1_1_quantity_view =
 [
-    [ "ConstructorArgumentType", "structmgis_1_1function_1_1_quantity_view.html#a98463afeb31a2d0d1e866d49aa6fb14a", null ],
+    [ "ConstructorArgumentType", "structmgis_1_1function_1_1_quantity_view.html#a364e786970594742a55a48d2f010560e", null ],
     [ "Space", "structmgis_1_1function_1_1_quantity_view.html#ac658a4bd84fb0ec1380bc9ef95221d5c", null ],
     [ "QuantityView", "structmgis_1_1function_1_1_quantity_view.html#a57b84079aeacd50433e65a8732ffc087", null ],
     [ "QuantityView", "structmgis_1_1function_1_1_quantity_view.html#a6102eea5abc1dd7de6106473a1a0e5c8", null ],

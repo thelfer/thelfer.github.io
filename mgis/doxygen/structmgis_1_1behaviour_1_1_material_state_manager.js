@@ -1,12 +1,9 @@
 var structmgis_1_1behaviour_1_1_material_state_manager =
 [
-    [ "FieldHolder", "structmgis_1_1behaviour_1_1_material_state_manager_1_1_field_holder.html", "structmgis_1_1behaviour_1_1_material_state_manager_1_1_field_holder" ],
     [ "MutableFieldHolder", "structmgis_1_1behaviour_1_1_material_state_manager_1_1_mutable_field_holder.html", "structmgis_1_1behaviour_1_1_material_state_manager_1_1_mutable_field_holder" ],
+    [ "FieldHolder", "structmgis_1_1behaviour_1_1_material_state_manager_1_1_field_holder.html", "structmgis_1_1behaviour_1_1_material_state_manager_1_1_field_holder" ],
     [ "StorageMode", "structmgis_1_1behaviour_1_1_material_state_manager.html#a9635178f50914f0e16e4b31fb57a2c3d", null ],
-    [ "UpdatePolicy", "structmgis_1_1behaviour_1_1_material_state_manager.html#ab737b9e4ca20f29a0e43de464d70c139", [
-      [ "UPDATE", "structmgis_1_1behaviour_1_1_material_state_manager.html#ab737b9e4ca20f29a0e43de464d70c139a5f6bcd386cdd183feaaffd718a9605f2", null ],
-      [ "NOUPDATE", "structmgis_1_1behaviour_1_1_material_state_manager.html#ab737b9e4ca20f29a0e43de464d70c139a1cc2069a1b638180becb2ae98544ff7a", null ]
-    ] ],
+    [ "UpdatePolicy", "structmgis_1_1behaviour_1_1_material_state_manager.html#ab737b9e4ca20f29a0e43de464d70c139", null ],
     [ "MaterialStateManager", "structmgis_1_1behaviour_1_1_material_state_manager.html#a28d10267063415ac8ce83bd013a4a6ae", null ],
     [ "MaterialStateManager", "structmgis_1_1behaviour_1_1_material_state_manager.html#a033ff5306f0dba1c2bac058415f77d19", null ],
     [ "~MaterialStateManager", "structmgis_1_1behaviour_1_1_material_state_manager.html#ade3d9135dd8f607e36cdc1ec4373375a", null ],

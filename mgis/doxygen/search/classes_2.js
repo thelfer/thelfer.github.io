@@ -40,6 +40,7 @@ var searchData=
   ['contractviolationhandler_37',['ContractViolationHandler',['../structmgis_1_1_contract_violation_handler.html',1,'mgis']]],
   ['convertfinitestrainstiffnessevaluator_38',['ConvertFiniteStrainStiffnessEvaluator',['../structmgis_1_1function_1_1internals_1_1_convert_finite_strain_stiffness_evaluator.html',1,'mgis::function::internals']]],
   ['convertfinitestrainstiffnessmodifiergenerator_39',['ConvertFiniteStrainStiffnessModifierGenerator',['../structmgis_1_1function_1_1internals_1_1_convert_finite_strain_stiffness_modifier_generator.html',1,'mgis::function::internals']]],
-  ['cste_40',['Cste',['../structmgis_1_1_cste.html',1,'mgis']]],
-  ['cudaexecutionconfiguration_41',['CUDAExecutionConfiguration',['../structmgis_1_1function_1_1_c_u_d_a_execution_configuration.html',1,'mgis::function']]]
+  ['converttojulia_3c_20mgis_3a_3ajulia_3a_3aarrayview_3c_20t_2c_20n_20_3e_20_3e_40',['ConvertToJulia&lt; mgis::julia::ArrayView&lt; T, N &gt; &gt;',['../structjlcxx_1_1_convert_to_julia_3_01mgis_1_1julia_1_1_array_view_3_01_t_00_01_n_01_4_01_4.html',1,'jlcxx']]],
+  ['cste_41',['Cste',['../structmgis_1_1_cste.html',1,'mgis']]],
+  ['cudaexecutionconfiguration_42',['CUDAExecutionConfiguration',['../structmgis_1_1function_1_1_c_u_d_a_execution_configuration.html',1,'mgis::function']]]
 ];

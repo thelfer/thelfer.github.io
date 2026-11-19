@@ -1,6 +1,6 @@
 var structmgis_1_1function_1_1internals_1_1_function_result_query_implementation3_3_01true_00_01_function_type_01_4 =
 [
-    [ "const_result_type", "structmgis_1_1function_1_1internals_1_1_function_result_query_implementation3_3_01true_00_01_function_type_01_4.html#a70f3296182f17083fa0e30a2a5a5f39d", null ],
-    [ "result_type", "structmgis_1_1function_1_1internals_1_1_function_result_query_implementation3_3_01true_00_01_function_type_01_4.html#aa539eb469e2441432154bedbcdfe97cf", null ],
-    [ "Space", "structmgis_1_1function_1_1internals_1_1_function_result_query_implementation3_3_01true_00_01_function_type_01_4.html#aab98933e7783dda9efcba06098136f7d", null ]
+    [ "const_result_type", "structmgis_1_1function_1_1internals_1_1_function_result_query_implementation3_3_01true_00_01_function_type_01_4.html#a24f7208eb208ab1b0ce3e640906c39d4", null ],
+    [ "result_type", "structmgis_1_1function_1_1internals_1_1_function_result_query_implementation3_3_01true_00_01_function_type_01_4.html#a3bd97baf4281c9bdc4bc1849e7ee9373", null ],
+    [ "Space", "structmgis_1_1function_1_1internals_1_1_function_result_query_implementation3_3_01true_00_01_function_type_01_4.html#a73958b942d427c1c61b95c2ba8c2b8ff", null ]
 ];

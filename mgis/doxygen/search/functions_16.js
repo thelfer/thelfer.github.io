@@ -29,7 +29,8 @@ var searchData=
   ['_7enonlinearmechanicalproblem_26',['~NonLinearMechanicalProblem',['../structmgis_1_1fenics_1_1_non_linear_mechanical_problem.html#a2cb6e623279d99d5f4ca6079332accc8',1,'mgis::fenics::NonLinearMechanicalProblem']]],
   ['_7erotationmatrix2d_27',['~RotationMatrix2D',['../structmgis_1_1behaviour_1_1_rotation_matrix2_d.html#ab12e0700dc131f8bff92ecaa536c78d7',1,'mgis::behaviour::RotationMatrix2D']]],
   ['_7erotationmatrix3d_28',['~RotationMatrix3D',['../structmgis_1_1behaviour_1_1_rotation_matrix3_d.html#a1b32fe197254b58eacb63e95eb388ccb',1,'mgis::behaviour::RotationMatrix3D']]],
-  ['_7ethreadedtaskresult_29',['~threadedtaskresult',['../structmgis_1_1_threaded_task_result.html#abb3eb373ca75a97c22d489f9658324fa',1,'mgis::ThreadedTaskResult::~ThreadedTaskResult()'],['../structmgis_1_1_threaded_task_result_3_01void_01_4.html#ad47a01290eca5480fa075495154d7ad6',1,'mgis::ThreadedTaskResult&lt; void &gt;::~ThreadedTaskResult()']]],
-  ['_7ethreadpool_30',['~ThreadPool',['../structmgis_1_1_thread_pool.html#afbfad1e9fb35a50226973da18895f47d',1,'mgis::ThreadPool']]],
-  ['_7euniformevaluator_31',['~UniformEvaluator',['../structmgis_1_1function_1_1_uniform_evaluator.html#aa1cae60fe7cee28be471e0757e87f6c3',1,'mgis::function::UniformEvaluator']]]
+  ['_7etensorialfunction_29',['~TensorialFunction',['../structmgis_1_1function_1_1_tensorial_function.html#a047138a2beb551465da6e9634bd4f28d',1,'mgis::function::TensorialFunction']]],
+  ['_7ethreadedtaskresult_30',['~ThreadedTaskResult',['../structmgis_1_1_threaded_task_result.html#abb3eb373ca75a97c22d489f9658324fa',1,'mgis::ThreadedTaskResult::~ThreadedTaskResult()'],['../structmgis_1_1_threaded_task_result_3_01void_01_4.html#ad47a01290eca5480fa075495154d7ad6',1,'mgis::ThreadedTaskResult&lt; void &gt;::~ThreadedTaskResult()']]],
+  ['_7ethreadpool_31',['~ThreadPool',['../structmgis_1_1_thread_pool.html#afbfad1e9fb35a50226973da18895f47d',1,'mgis::ThreadPool']]],
+  ['_7euniformevaluator_32',['~UniformEvaluator',['../structmgis_1_1function_1_1_uniform_evaluator.html#aa1cae60fe7cee28be471e0757e87f6c3',1,'mgis::function::UniformEvaluator']]]
 ];

@@ -116,6 +116,11 @@ Namespaces</h2></td></tr>
 <tr class="memdesc:namespacemfront"><td class="mdescLeft">&#160;</td><td class="mdescRight">This namespace contains material used to build the <span class="tt"><a class="el" href="structmfront_1_1_m_front.html" title="the main class of MFront">MFront</a></span> code generator. <br /></td></tr>
 <tr class="memitem:mfront_3A_3Ageneric_5Fparallel" id="r_mfront_3A_3Ageneric_5Fparallel"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemfront_1_1generic__parallel.html">mfront::generic_parallel</a></td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:af1ef03f2cacc8ed2470ecc3030c2df02" id="r_af1ef03f2cacc8ed2470ecc3030c2df02"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1ef03f2cacc8ed2470ecc3030c2df02">MFRONT_GENERIC_PARALLEL_GPU_GRID_CONSTANT</a></td></tr>
+<tr class="memdesc:af1ef03f2cacc8ed2470ecc3030c2df02"><td class="mdescLeft">&#160;</td><td class="mdescRight">qualifier of the function object passed by value to the kernels.  <br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:a9d13c00ed624ebc61377544678fe4dce" id="r_a9d13c00ed624ebc61377544678fe4dce"><td class="memItemLeft" align="right" valign="top"><a id="a9d13c00ed624ebc61377544678fe4dce" name="a9d13c00ed624ebc61377544678fe4dce"></a>
@@ -138,9 +143,9 @@ template&lt;typename T&gt; </td></tr>
 <tr class="memitem:a84147066faef0a95c527066f6f44062b" id="r_a84147066faef0a95c527066f6f44062b"><td class="memItemLeft" align="right" valign="top"><a id="a84147066faef0a95c527066f6f44062b" name="a84147066faef0a95c527066f6f44062b"></a>
 __device__ <a class="el" href="namespacemfront_1_1generic__parallel.html#a75c74d21d79657f436cb2e443f47c3dd">atomic_size_type</a>&#160;</td><td class="memItemRight" valign="bottom"><b>mfront::generic_parallel::gpu::internals::warpMin</b> (<a class="el" href="namespacemfront_1_1generic__parallel.html#a75c74d21d79657f436cb2e443f47c3dd">atomic_size_type</a> v)</td></tr>
 <tr class="memdesc:a84147066faef0a95c527066f6f44062b"><td class="mdescLeft">&#160;</td><td class="mdescRight">minimum of the values of a warp, in the first thread of the warp <br /></td></tr>
-<tr class="memitem:a31513db6c17035430daa280a752c5733" id="r_a31513db6c17035430daa280a752c5733"><td class="memTemplParams" colspan="2">template&lt;typename Statistics, typename PointFunction&gt; </td></tr>
-<tr class="memitem:a31513db6c17035430daa280a752c5733 template"><td class="memItemLeft" align="right" valign="top">__global__ <a class="el" href="include_2_cyrano_2_behaviour_8hxx.html#a1f775cf4fa3cbc5f015abdd0796e276c">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a31513db6c17035430daa280a752c5733">mfront::generic_parallel::gpu::internals::apply</a> (const PointFunction f, const <a class="el" href="namespacemfront_1_1generic__parallel.html#a4880f0e9585d1b27a0572997fb9d2718">size_type</a> n, Statistics *const s, const <a class="el" href="namespacemfront_1_1generic__parallel.html#a75c74d21d79657f436cb2e443f47c3dd">atomic_size_type</a> rdt0)</td></tr>
-<tr class="memdesc:a31513db6c17035430daa280a752c5733"><td class="mdescLeft">&#160;</td><td class="mdescRight">apply a function at the points of a batch, one thread per point, and update the statistics of the batch. The number of threads per block must be a multiple of the warp size.  <br /></td></tr>
+<tr class="memitem:a74b6f7a2a344283c3b96f3cb595603de" id="r_a74b6f7a2a344283c3b96f3cb595603de"><td class="memTemplParams" colspan="2">template&lt;typename Statistics, typename PointFunction&gt; </td></tr>
+<tr class="memitem:a74b6f7a2a344283c3b96f3cb595603de template"><td class="memItemLeft" align="right" valign="top">__global__ <a class="el" href="include_2_cyrano_2_behaviour_8hxx.html#a1f775cf4fa3cbc5f015abdd0796e276c">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a74b6f7a2a344283c3b96f3cb595603de">mfront::generic_parallel::gpu::internals::apply</a> (const <a class="el" href="#af1ef03f2cacc8ed2470ecc3030c2df02">MFRONT_GENERIC_PARALLEL_GPU_GRID_CONSTANT</a> PointFunction f, const <a class="el" href="namespacemfront_1_1generic__parallel.html#a4880f0e9585d1b27a0572997fb9d2718">size_type</a> n, Statistics *const s, const <a class="el" href="namespacemfront_1_1generic__parallel.html#a75c74d21d79657f436cb2e443f47c3dd">atomic_size_type</a> rdt0)</td></tr>
+<tr class="memdesc:a74b6f7a2a344283c3b96f3cb595603de"><td class="mdescLeft">&#160;</td><td class="mdescRight">apply a function at the points of a batch, one thread per point, and update the statistics of the batch. The number of threads per block must be a multiple of the warp size.  <br /></td></tr>
 <tr class="memitem:aafd7f4575c9840b6ce70745dad8a4598" id="r_aafd7f4575c9840b6ce70745dad8a4598"><td class="memTemplParams" colspan="2">template&lt;typename Statistics, typename PointFunction&gt; </td></tr>
 <tr class="memitem:aafd7f4575c9840b6ce70745dad8a4598 template"><td class="memItemLeft" align="right" valign="top">auto &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aafd7f4575c9840b6ce70745dad8a4598">mfront::generic_parallel::gpu::internals::getStatisticsBlocks</a> () noexcept</td></tr>
 <tr class="memitem:acd9385cfdbc77a308f1b004921dddf3d" id="r_acd9385cfdbc77a308f1b004921dddf3d"><td class="memTemplParams" colspan="2">template&lt;typename StatisticsHandler, typename PointFunction&gt; </td></tr>
@@ -158,7 +163,25 @@ constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><b>mfront::gen
 <div class="textblock"><p>This file declares the primitive of the <span class="tt">cuda</span> and <span class="tt">hip</span> backends of the <span class="tt">generic-parallel</span> interfaces. This file must be compiled by a CUDA or a HIP compiler. The HIP runtime is used if the <span class="tt">hip/hip_runtime.h</span> header has been included before this file or if the HIP language is enabled, the CUDA runtime otherwise. Including the HIP runtime header first is required to use HIP on NVIDIA GPUs, since <span class="tt">hipcc</span> then calls <span class="tt">nvcc</span>. </p>
 <dl class="section date"><dt>Date</dt><dd>05/10/2026 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (C) 2006-2025 CEA/DEN, EDF R&amp;D. All rights reserved. This project is publicly released under either the GNU GPL Licence with linking exception or the CECILL-A licence. A copy of thoses licences are delivered with the sources of TFEL. CEA or EDF may also distribute this project under specific licensing conditions. </dd></dl>
-</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+</div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
+<a id="af1ef03f2cacc8ed2470ecc3030c2df02" name="af1ef03f2cacc8ed2470ecc3030c2df02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1ef03f2cacc8ed2470ecc3030c2df02">&#9670;&#160;</a></span>MFRONT_GENERIC_PARALLEL_GPU_GRID_CONSTANT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MFRONT_GENERIC_PARALLEL_GPU_GRID_CONSTANT</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>qualifier of the function object passed by value to the kernels. </p>
+<p>The member functions of this object take its address. nvcc then copies it in the stack of each thread (local memory), unless the parameter is declared <span class="tt">__grid_constant__</span>: the threads then read it in place. This qualifier is defined by the headers of CUDA 11.7 or later and requires a compute capability of 7.0 or later. clang reads this parameter in place without it, as do the HIP compilers for AMD GPUs. </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="acd9385cfdbc77a308f1b004921dddf3d" name="acd9385cfdbc77a308f1b004921dddf3d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acd9385cfdbc77a308f1b004921dddf3d">&#9670;&#160;</a></span>apply() <span class="overload">[1/2]</span></h2>
 
@@ -226,8 +249,8 @@ template&lt;typename StatisticsHandler, typename PointFunction&gt; </div>
 
 </div>
 </div>
-<a id="a31513db6c17035430daa280a752c5733" name="a31513db6c17035430daa280a752c5733"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a31513db6c17035430daa280a752c5733">&#9670;&#160;</a></span>apply() <span class="overload">[2/2]</span></h2>
+<a id="a74b6f7a2a344283c3b96f3cb595603de" name="a74b6f7a2a344283c3b96f3cb595603de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74b6f7a2a344283c3b96f3cb595603de">&#9670;&#160;</a></span>apply() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -237,7 +260,7 @@ template&lt;typename Statistics, typename PointFunction&gt; </div>
         <tr>
           <td class="memname">__global__ <a class="el" href="include_2_cyrano_2_behaviour_8hxx.html#a1f775cf4fa3cbc5f015abdd0796e276c">void</a> mfront::generic_parallel::gpu::internals::apply </td>
           <td>(</td>
-          <td class="paramtype">const PointFunction</td>          <td class="paramname"><span class="paramname"><em>f</em></span>, </td>
+          <td class="paramtype">const <a class="el" href="#af1ef03f2cacc8ed2470ecc3030c2df02">MFRONT_GENERIC_PARALLEL_GPU_GRID_CONSTANT</a> PointFunction</td>          <td class="paramname"><span class="paramname"><em>f</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>

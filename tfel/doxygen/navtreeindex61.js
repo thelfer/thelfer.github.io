@@ -1,5 +1,6 @@
 var NAVTREEINDEX61 =
 {
+"structtfel_1_1material_1_1_logarithmic_strain_handler_3_011u_00_01_stress_type_01_4.html":[7,0,14,4,48],
 "structtfel_1_1material_1_1_logarithmic_strain_handler_3_011u_00_01_stress_type_01_4.html#a0caa716d689fadd57ba8a7a674fd0c63":[5,0,9,0,49,3],
 "structtfel_1_1material_1_1_logarithmic_strain_handler_3_011u_00_01_stress_type_01_4.html#a0caa716d689fadd57ba8a7a674fd0c63":[7,0,14,4,48,3],
 "structtfel_1_1material_1_1_logarithmic_strain_handler_3_011u_00_01_stress_type_01_4.html#a0d2d7feb95532502589dcf9ffba64c75":[5,0,9,0,49,11],
@@ -248,6 +249,5 @@ var NAVTREEINDEX61 =
 "structtfel_1_1material_1_1_michel_and_suquet1992_hollow_sphere_stress_criterion_parameters.html#ab79f4eee1a1c361158328e15525c6adf":[7,0,14,4,61,2],
 "structtfel_1_1material_1_1_modelling_hypothesis.html":[5,0,9,0,63],
 "structtfel_1_1material_1_1_modelling_hypothesis.html":[7,0,14,4,62],
-"structtfel_1_1material_1_1_modelling_hypothesis.html#a9a637e1af46e51842514a724c47da119":[5,0,9,0,63,0],
-"structtfel_1_1material_1_1_modelling_hypothesis.html#a9a637e1af46e51842514a724c47da119":[7,0,14,4,62,0]
+"structtfel_1_1material_1_1_modelling_hypothesis.html#a9a637e1af46e51842514a724c47da119":[5,0,9,0,63,0]
 };

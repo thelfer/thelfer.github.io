@@ -1,5 +1,6 @@
 var NAVTREEINDEX8 =
 {
+"matrix_8ixx.html":[8,0,0,3,5,8,0],
 "max__element_8hxx.html":[8,0,0,3,2,10],
 "mfm-test-generator_2include_2_m_f_m_test_generator_2_behaviour_data_8hxx.html":[8,0,1,0,0,2],
 "mfm-test-generator_2include_2_m_f_m_test_generator_2_config_8hxx.html":[8,0,1,0,0,4],
@@ -248,6 +249,5 @@ var NAVTREEINDEX8 =
 "namespacemfront.html#a48aace90b197d783f8c755a54efe1054":[5,0,7,252],
 "namespacemfront.html#a4907839604bbff6c63df574686107563":[5,0,7,356],
 "namespacemfront.html#a4915b276070b5eb2df80e2952dd964f6":[5,0,7,271],
-"namespacemfront.html#a4a480b03a49c150c9d02d3155ad51b16":[5,0,7,274],
-"namespacemfront.html#a4b8fd2a7fc06151ed727703b7d7dff5a":[5,0,7,226]
+"namespacemfront.html#a4a480b03a49c150c9d02d3155ad51b16":[5,0,7,274]
 };

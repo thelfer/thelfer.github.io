@@ -1,5 +1,6 @@
 var NAVTREEINDEX34 =
 {
+"structmfront_1_1_law_function.html#ad2f3ef818df0660eb859aa64d00f4cdc":[5,0,7,125,4],
 "structmfront_1_1_law_function.html#ad2f3ef818df0660eb859aa64d00f4cdc":[7,0,10,128,4],
 "structmfront_1_1_law_function.html#ade192a7d5f7c3e895ac07c98eeb74cd6":[5,0,7,125,8],
 "structmfront_1_1_law_function.html#ade192a7d5f7c3e895ac07c98eeb74cd6":[7,0,10,128,8],
@@ -248,6 +249,5 @@ var NAVTREEINDEX34 =
 "structmfront_1_1_m_front_behaviour_interface.html#a2c12df3cb3db49709f0dfdc74315f82b":[5,0,7,143,6],
 "structmfront_1_1_m_front_behaviour_interface.html#a2c12df3cb3db49709f0dfdc74315f82b":[7,0,10,146,6],
 "structmfront_1_1_m_front_behaviour_interface.html#a36af926adda3a71ff424f576315e00f2":[5,0,7,143,2],
-"structmfront_1_1_m_front_behaviour_interface.html#a36af926adda3a71ff424f576315e00f2":[7,0,10,146,2],
-"structmfront_1_1_m_front_behaviour_interface.html#a44a5fd397fe852aa74df17e26bac5f32":[5,0,7,143,3]
+"structmfront_1_1_m_front_behaviour_interface.html#a36af926adda3a71ff424f576315e00f2":[7,0,10,146,2]
 };

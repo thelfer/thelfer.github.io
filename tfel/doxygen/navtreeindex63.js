@@ -1,5 +1,6 @@
 var NAVTREEINDEX63 =
 {
+"structtfel_1_1material_1_1compute_elastic_stiffness.html":[7,0,14,4,40],
 "structtfel_1_1material_1_1compute_unaltered_elastic_stiffness.html":[5,0,9,0,42],
 "structtfel_1_1material_1_1compute_unaltered_elastic_stiffness.html":[7,0,14,4,41],
 "structtfel_1_1material_1_1homogenization_1_1elasticity_1_1_anisotropic_localisation_tensor.html":[5,0,9,0,0,0,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX63 =
 "structtfel_1_1math_1_1_anderson_base.html#aed99a669c83dd46c39c78fa9b855a973":[7,0,14,5,6,6],
 "structtfel_1_1math_1_1_anderson_base.html#af01462244639efe03041c4160c9f0504":[5,0,9,1,3,9],
 "structtfel_1_1math_1_1_anderson_base.html#af01462244639efe03041c4160c9f0504":[7,0,14,5,6,9],
-"structtfel_1_1math_1_1_array_concept_base.html":[5,0,9,1,9],
-"structtfel_1_1math_1_1_array_concept_base.html":[7,0,14,5,12]
+"structtfel_1_1math_1_1_array_concept_base.html":[5,0,9,1,9]
 };

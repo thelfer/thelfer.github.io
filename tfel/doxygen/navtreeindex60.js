@@ -1,5 +1,6 @@
 var NAVTREEINDEX60 =
 {
+"structtfel_1_1glossary_1_1_glossary.html#a92060d048f7e1794f04f35221bfb0993":[7,0,14,3,0,5],
 "structtfel_1_1glossary_1_1_glossary.html#aba8013e399701c836449ae7dad09f5f2":[7,0,14,3,0,0],
 "structtfel_1_1glossary_1_1_glossary.html#abdb64db983219fc800682a756a639b81":[7,0,14,3,0,3],
 "structtfel_1_1glossary_1_1_glossary_entry.html":[7,0,14,3,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX60 =
 "structtfel_1_1material_1_1_lambda_mu_moduli.html":[7,0,14,4,34],
 "structtfel_1_1material_1_1_logarithmic_strain_handler.html":[5,0,9,0,48],
 "structtfel_1_1material_1_1_logarithmic_strain_handler.html":[7,0,14,4,47],
-"structtfel_1_1material_1_1_logarithmic_strain_handler_3_011u_00_01_stress_type_01_4.html":[5,0,9,0,49],
-"structtfel_1_1material_1_1_logarithmic_strain_handler_3_011u_00_01_stress_type_01_4.html":[7,0,14,4,48]
+"structtfel_1_1material_1_1_logarithmic_strain_handler_3_011u_00_01_stress_type_01_4.html":[5,0,9,0,49]
 };

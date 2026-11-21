@@ -1,8 +1,9 @@
 var _g_p_u_8hxx =
 [
+    [ "MFRONT_GENERIC_PARALLEL_GPU_GRID_CONSTANT", "_g_p_u_8hxx.html#af1ef03f2cacc8ed2470ecc3030c2df02", null ],
     [ "mfront::generic_parallel::gpu::internals::ExecutionPolicy", "_g_p_u_8hxx.html#a9d13c00ed624ebc61377544678fe4dce", null ],
     [ "mfront::generic_parallel::gpu::apply", "_g_p_u_8hxx.html#acd9385cfdbc77a308f1b004921dddf3d", null ],
-    [ "mfront::generic_parallel::gpu::internals::apply", "_g_p_u_8hxx.html#a31513db6c17035430daa280a752c5733", null ],
+    [ "mfront::generic_parallel::gpu::internals::apply", "_g_p_u_8hxx.html#a74b6f7a2a344283c3b96f3cb595603de", null ],
     [ "mfront::generic_parallel::gpu::internals::ensureStackSize", "_g_p_u_8hxx.html#ab1bea6247867439171d5b69ca791d012", null ],
     [ "mfront::generic_parallel::gpu::internals::failed", "_g_p_u_8hxx.html#a659c86a21febf258b664850ed98a726c", null ],
     [ "mfront::generic_parallel::gpu::internals::getStatisticsBlocks", "_g_p_u_8hxx.html#aafd7f4575c9840b6ce70745dad8a4598", null ],

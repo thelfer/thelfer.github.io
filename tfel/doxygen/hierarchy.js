@@ -254,6 +254,9 @@ var hierarchy =
       [ "mtest::UAndersonAccelerationAlgorithm", "structmtest_1_1_u_anderson_acceleration_algorithm.html", null ]
     ] ],
     [ "mtest::AccelerationAlgorithmFactory", "structmtest_1_1_acceleration_algorithm_factory.html", null ],
+    [ "AccessPolicy", null, [
+      [ "tfel::math::AccessPolicyBasedView< MappedType, IndexingPolicyType, AccessPolicy >", "structtfel_1_1math_1_1_access_policy_based_view.html", null ]
+    ] ],
     [ "tfel::fsalgo::accumulate&lt; N &gt;", "structtfel_1_1fsalgo_1_1accumulate.html", null ],
     [ "tfel::math::unit::internals::AddUnit&lt; UnitType1, UnitType2 &gt;", "structtfel_1_1math_1_1unit_1_1internals_1_1_add_unit.html", null ],
     [ "tfel::math::AitkenAccelerationAlgorithm&lt; NumericType, IndexType &gt;", "structtfel_1_1math_1_1_aitken_acceleration_algorithm.html", null ],
@@ -474,6 +477,9 @@ var hierarchy =
     [ "tfel::math::st2tost2_internals::BuildFromRotationMatrix&lt; 2u, T &gt;", "structtfel_1_1math_1_1st2tost2__internals_1_1_build_from_rotation_matrix_3_012u_00_01_t_01_4.html", null ],
     [ "tfel::math::st2tost2_internals::BuildFromRotationMatrix&lt; 3u, T &gt;", "structtfel_1_1math_1_1st2tost2__internals_1_1_build_from_rotation_matrix_3_013u_00_01_t_01_4.html", null ],
     [ "mfront::BuildMaterialPropertiesListOptions", "structmfront_1_1_build_material_properties_list_options.html", null ],
+    [ "tfel::math::internals::BuildScatteredDerivativeViewFromTinyMatrix&lt; M, FunctionType, VariableType &gt;", "structtfel_1_1math_1_1internals_1_1_build_scattered_derivative_view_from_tiny_matrix.html", null ],
+    [ "tfel::math::internals::BuildScatteredDerivativeViewFromTinyMatrixImplementation&lt; are_both_scalars, M, FunctionType, VariableType &gt;", "structtfel_1_1math_1_1internals_1_1_build_scattered_derivative_view_from_tiny_matrix_implementation.html", null ],
+    [ "tfel::math::internals::BuildScatteredDerivativeViewFromTinyMatrixImplementation&lt; true, M, FunctionType, VariableType &gt;", "structtfel_1_1math_1_1internals_1_1_build_scattered_derivative_view_from_tiny_matrix_implementat51947b0f142ec85104dcdad69aebc5b5.html", null ],
     [ "tfel::math::internals::BuildStridedDerivativeViewFromTinyMatrix&lt; M, FunctionType, VariableType &gt;", "structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix.html", null ],
     [ "tfel::math::internals::BuildStridedDerivativeViewFromTinyMatrixImplementation&lt; are_both_scalars, M, FunctionType, VariableType &gt;", "structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix_implementation.html", null ],
     [ "tfel::math::internals::BuildStridedDerivativeViewFromTinyMatrixImplementation&lt; true, M, FunctionType, VariableType &gt;", "structtfel_1_1math_1_1internals_1_1_build_strided_derivative_view_from_tiny_matrix_implementatioef3bc416f53f57c1abb08339e3051441.html", null ],
@@ -565,9 +571,6 @@ var hierarchy =
     [ "tfel::typetraits::internals::ChooseType&lt; A, B, true, true &gt;", "structtfel_1_1typetraits_1_1internals_1_1_choose_type_3_01_a_00_01_b_00_01true_00_01true_01_4.html", null ],
     [ "tfel::material::ChuNeedleman1980StrainBasedNucleationModelParameters&lt; real &gt;", "structtfel_1_1material_1_1_chu_needleman1980_strain_based_nucleation_model_parameters.html", null ],
     [ "tfel::material::ChuNeedleman1980StressBasedNucleationModelParameters&lt; StressStensorType &gt;", "structtfel_1_1material_1_1_chu_needleman1980_stress_based_nucleation_model_parameters.html", null ],
-    [ "CoalescedAccessPolicy", null, [
-      [ "tfel::math::CoalescedViewBase< MappedType, IndexingPolicyType, CoalescedAccessPolicy >", "structtfel_1_1math_1_1_coalesced_view_base.html", null ]
-    ] ],
     [ "mfront::CodeBlock", "structmfront_1_1_code_block.html", null ],
     [ "mfront::BehaviourDSLCommon::CodeBlockOptions", "structmfront_1_1_behaviour_d_s_l_common_1_1_code_block_options.html", null ],
     [ "mfront::DSLBase::CodeBlockParserOptions", "structmfront_1_1_d_s_l_base_1_1_code_block_parser_options.html", null ],
@@ -1352,9 +1355,6 @@ var hierarchy =
     [ "tfel::utilities::DataParsingOptions", "structtfel_1_1utilities_1_1_data_parsing_options.html", null ],
     [ "tfel::utilities::DataStructure", "structtfel_1_1utilities_1_1_data_structure.html", null ],
     [ "tfel::material::DDIF2Base", "structtfel_1_1material_1_1_d_d_i_f2_base.html", null ],
-    [ "tfel::math::DefaultCoalescedAccessPolicy&lt; MappedType, IndexingPolicyType &gt;", "structtfel_1_1math_1_1_default_coalesced_access_policy.html", [
-      [ "tfel::math::CoalescedViewBase< MappedType, IndexingPolicyType, DefaultCoalescedAccessPolicy< MappedType, IndexingPolicyType > >", "structtfel_1_1math_1_1_coalesced_view_base.html", null ]
-    ] ],
     [ "tfel::math::DerivativeType&lt; FunctionType, VariablesTypes &gt;", "structtfel_1_1math_1_1_derivative_type.html", null ],
     [ "tfel::math::DerivativeType&lt; FunctionType, VariableType &gt;", "structtfel_1_1math_1_1_derivative_type_3_01_function_type_00_01_variable_type_01_4.html", null ],
     [ "tfel::math::DerivativeType&lt; FunctionType, VariableType, OtherVariablesTypes... &gt;", "structtfel_1_1math_1_1_derivative_type_3_01_function_type_00_01_variable_type_00_01_other_variables_types_8_8_8_01_4.html", null ],
@@ -1928,8 +1928,8 @@ var hierarchy =
       ] ]
     ] ],
     [ "tfel::math::FixedSizeVectorIndexingPolicy&lt; SizeType, N, 1 &gt;", "structtfel_1_1math_1_1_fixed_size_vector_indexing_policy.html", [
-      [ "tfel::math::StridedCoalescedViewsFixedSizeVectorIndexingPolicy< MappedType, SizeType, N >", "structtfel_1_1math_1_1_strided_coalesced_views_fixed_size_vector_indexing_policy.html", [
-        [ "tfel::math::StridedCoalescedViewsArray< MappedType, StridedCoalescedViewsFixedSizeVectorIndexingPolicy< MappedType, SizeType, N > >", "structtfel_1_1math_1_1_strided_coalesced_views_array.html", null ]
+      [ "tfel::math::StridedViewsFixedSizeVectorIndexingPolicy< MappedType, SizeType, N >", "structtfel_1_1math_1_1_strided_views_fixed_size_vector_indexing_policy.html", [
+        [ "tfel::math::StridedViewsArray< MappedType, StridedViewsFixedSizeVectorIndexingPolicy< MappedType, SizeType, N > >", "structtfel_1_1math_1_1_strided_views_array.html", null ]
       ] ]
     ] ],
     [ "tfel::fsalgo::for_each&lt; N &gt;", "structtfel_1_1fsalgo_1_1for__each.html", null ],
@@ -2109,9 +2109,14 @@ var hierarchy =
       [ "tfel::math::MutableRuntimeArrayBase< GenericRuntimeArray< vector< ValueType >, RuntimeVectorArrayPolicy< ValueType > >, RuntimeVectorArrayPolicy< ValueType > >", "structtfel_1_1math_1_1_mutable_runtime_array_base.html", null ]
     ] ],
     [ "IndexingPolicyType", null, [
-      [ "tfel::math::CoalescedViewBase< MappedType, IndexingPolicyType, DefaultCoalescedAccessPolicy< MappedType, IndexingPolicyType > >", "structtfel_1_1math_1_1_coalesced_view_base.html", null ],
-      [ "tfel::math::CoalescedViewBase< MappedType, IndexingPolicyType, StridedCoalescedAccessPolicy< MappedType, IndexingPolicyType > >", "structtfel_1_1math_1_1_coalesced_view_base.html", null ],
-      [ "tfel::math::CoalescedViewBase< MappedType, IndexingPolicyType, CoalescedAccessPolicy >", "structtfel_1_1math_1_1_coalesced_view_base.html", null ]
+      [ "tfel::math::AccessPolicyBasedView< MappedType, IndexingPolicyType, ScatteredAccessPolicy< MappedType, IndexingPolicyType > >", "structtfel_1_1math_1_1_access_policy_based_view.html", null ],
+      [ "tfel::math::AccessPolicyBasedView< MappedType, IndexingPolicyType, StridedAccessPolicy< MappedType, IndexingPolicyType > >", "structtfel_1_1math_1_1_access_policy_based_view.html", null ],
+      [ "tfel::math::AccessPolicyBasedView< MappedType, IndexingPolicyType, AccessPolicy >", "structtfel_1_1math_1_1_access_policy_based_view.html", null ]
+    ] ],
+    [ "tfel::math::IndexingPolicyType", "classtfel_1_1math_1_1_indexing_policy_type.html", [
+      [ "tfel::math::AccessPolicyBasedView< MappedType, IndexingPolicyType, ScatteredAccessPolicy< MappedType, IndexingPolicyType > >", "structtfel_1_1math_1_1_access_policy_based_view.html", null ],
+      [ "tfel::math::AccessPolicyBasedView< MappedType, IndexingPolicyType, StridedAccessPolicy< MappedType, IndexingPolicyType > >", "structtfel_1_1math_1_1_access_policy_based_view.html", null ],
+      [ "tfel::math::AccessPolicyBasedView< MappedType, IndexingPolicyType, AccessPolicy >", "structtfel_1_1math_1_1_access_policy_based_view.html", null ]
     ] ],
     [ "mfront::bbrick::InelasticFlow", "structmfront_1_1bbrick_1_1_inelastic_flow.html", [
       [ "mfront::bbrick::InelasticFlowBase", "structmfront_1_1bbrick_1_1_inelastic_flow_base.html", [
@@ -2194,18 +2199,18 @@ var hierarchy =
     [ "tfel::typetraits::internals::IsAssignableTo&lt; T1, T2 &gt;", "structtfel_1_1typetraits_1_1internals_1_1_is_assignable_to.html", null ],
     [ "tfel::typetraits::IsAssignableTo&lt; A, B &gt;", "structtfel_1_1typetraits_1_1_is_assignable_to.html", null ],
     [ "tfel::typetraits::IsAssignableTo&lt; cadna::numeric_type&lt; T1 &gt;, cadna::numeric_type&lt; T2 &gt; &gt;", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01cadna_1_1numeric__type_3_01_t1_01_4_00_01cadna00080c0aa566ae1242c1236099e0c74b.html", null ],
-    [ "tfel::typetraits::IsAssignableTo&lt; MathObject, tfel::math::CoalescedViewBase&lt; MathObject2, IndexingPolicyType2, CoalescedAccessPolicy2 &gt; &gt;", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01_math_object_00_01tfel_1_1math_1_1_coalesced_vcefbceb19857cc3fa92dd1f3d652b031.html", null ],
+    [ "tfel::typetraits::IsAssignableTo&lt; MathObject, tfel::math::AccessPolicyBasedView&lt; MathObject2, IndexingPolicyType2, AccessPolicy2 &gt; &gt;", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01_math_object_00_01tfel_1_1math_1_1_access_polifa1edaaa6311e3fbeb4b74809d6af926.html", null ],
     [ "tfel::typetraits::IsAssignableTo&lt; MathObject, tfel::math::View&lt; MathObject2, IndexingPolicyType2 &gt; &gt;", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01_math_object_00_01tfel_1_1math_1_1_view_3_01_md0266b3485fe6ba56cf4c6589c821b29.html", null ],
     [ "tfel::typetraits::IsAssignableTo&lt; QuantityType, ScalarType &gt;", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01_quantity_type_00_01_scalar_type_01_4.html", null ],
     [ "tfel::typetraits::IsAssignableTo&lt; QuantityType1, QuantityType2 &gt;", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01_quantity_type1_00_01_quantity_type2_01_4.html", null ],
     [ "tfel::typetraits::IsAssignableTo&lt; ScalarType, QuantityType &gt;", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01_scalar_type_00_01_quantity_type_01_4.html", null ],
     [ "tfel::typetraits::IsAssignableTo&lt; T1, cadna::numeric_type&lt; T2 &gt; &gt;", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01_t1_00_01cadna_1_1numeric__type_3_01_t2_01_4_01_4.html", null ],
-    [ "tfel::typetraits::IsAssignableTo&lt; tfel::math::CoalescedViewBase&lt; MathObject, IndexingPolicyType, CoalescedAccessPolicy &gt;, MathObject2 &gt;", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1_coalesced_view_base_3_01_math4ad81ce017d8ad0d08733a3d4f513dbd.html", null ],
-    [ "tfel::typetraits::IsAssignableTo&lt; tfel::math::CoalescedViewBase&lt; MathObject, IndexingPolicyType, CoalescedAccessPolicy &gt;, tfel::math::CoalescedViewBase&lt; MathObject2, IndexingPolicyType2, CoalescedAccessPolicy2 &gt; &gt;", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1_coalesced_view_base_3_01_mathb5c6ce3185391dbba214237b5c4df4cb.html", null ],
+    [ "tfel::typetraits::IsAssignableTo&lt; tfel::math::AccessPolicyBasedView&lt; MathObject, IndexingPolicyType, AccessPolicy &gt;, MathObject2 &gt;", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1_access_policy_based_view_3_01ee4d8e11b1018ac4e42c3c59841c3dff.html", null ],
+    [ "tfel::typetraits::IsAssignableTo&lt; tfel::math::AccessPolicyBasedView&lt; MathObject, IndexingPolicyType, AccessPolicy &gt;, tfel::math::AccessPolicyBasedView&lt; MathObject2, IndexingPolicyType2, AccessPolicy2 &gt; &gt;", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1_access_policy_based_view_3_01e370bfc69368c28a4b02471880ac0c3c.html", null ],
     [ "tfel::typetraits::IsAssignableTo&lt; tfel::math::CubicSplineCollocationPoint&lt; AbscissaType, ValueType &gt;, tfel::math::CubicSplineCollocationPoint&lt; AbscissaType2, ValueType2 &gt; &gt;", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1_cubic_spline_collocation_poin46974f192869bf19e684fe2b85e73dc1.html", null ],
     [ "tfel::typetraits::IsAssignableTo&lt; tfel::math::Expr&lt; EvaluationResult, Operation &gt;, DestinationType &gt;", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1_expr_3_01_evaluation_result_0aa2c796ffa320d86073740cd9ceada2d.html", null ],
     [ "tfel::typetraits::IsAssignableTo&lt; tfel::math::Expr&lt; EvaluationResult, Operation &gt;, EvaluationResult &gt;", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1_expr_3_01_evaluation_result_0ff0694db7badc15bf4a46b3efb50ca0e.html", null ],
-    [ "tfel::typetraits::IsAssignableTo&lt; tfel::math::Expr&lt; EvaluationResult, Operation &gt;, tfel::math::CoalescedViewBase&lt; MathObject, IndexingPolicyType, CoalescedAccessPolicy &gt; &gt;", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1_expr_3_01_evaluation_result_04d8b79c58df94ab3a79a72ec0413bb69.html", null ],
+    [ "tfel::typetraits::IsAssignableTo&lt; tfel::math::Expr&lt; EvaluationResult, Operation &gt;, tfel::math::AccessPolicyBasedView&lt; MathObject, IndexingPolicyType, AccessPolicy &gt; &gt;", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1_expr_3_01_evaluation_result_0c835ec1b8a54e674a2d3a4e3ab8c3f97.html", null ],
     [ "tfel::typetraits::IsAssignableTo&lt; tfel::math::Expr&lt; EvaluationResult, Operation &gt;, tfel::math::View&lt; MathObject, IndexingPolicyType &gt; &gt;", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1_expr_3_01_evaluation_result_0c38b47a81fb777f62eb8fdd8f70ae7e6.html", null ],
     [ "tfel::typetraits::IsAssignableTo&lt; tfel::math::FixedSizeArrayDerivative&lt; Array11, Array12 &gt;, tfel::math::FixedSizeArrayDerivative&lt; Array21, Array22 &gt; &gt;", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1_fixed_size_array_derivative_3b0616bd542046a5e9a12fb67c2512da4.html", null ],
     [ "tfel::typetraits::IsAssignableTo&lt; tfel::math::fsarray&lt; N, ValueType &gt;, tfel::math::fsarray&lt; N, ValueType2 &gt; &gt;", "structtfel_1_1typetraits_1_1_is_assignable_to_3_01tfel_1_1math_1_1fsarray_3_01_n_00_01_value_typ94196d0bcac94dbae23cc17573410fb5.html", null ],
@@ -2453,13 +2458,13 @@ var hierarchy =
     [ "tfel::math::MathObjectTraitsBase&lt; tfel::meta::InvalidType, tfel::meta::InvalidType &gt;", "structtfel_1_1math_1_1_math_object_traits_base.html", [
       [ "tfel::math::MathObjectTraits< stype >", "structtfel_1_1math_1_1_math_object_traits.html", null ],
       [ "tfel::math::MathObjectTraits< std::remove_cv_t< MappedType > >", "structtfel_1_1math_1_1_math_object_traits.html", [
-        [ "tfel::math::MathObjectTraits< CoalescedViewBase< MappedType, IndexingPolicyType, CoalescedAccessPolicy > >", "structtfel_1_1math_1_1_math_object_traits_3_01_coalesced_view_base_3_01_mapped_type_00_01_indexib78fa0da091a39be697a9af0d8910c48.html", null ],
+        [ "tfel::math::MathObjectTraits< AccessPolicyBasedView< MappedType, IndexingPolicyType, AccessPolicy > >", "structtfel_1_1math_1_1_math_object_traits_3_01_access_policy_based_view_3_01_mapped_type_00_01_i171aee2b589298ab9fa143c7de16267f.html", null ],
         [ "tfel::math::MathObjectTraits< View< MappedType, ArrayPolicy > >", "structtfel_1_1math_1_1_math_object_traits_3_01_view_3_01_mapped_type_00_01_array_policy_01_4_01_4.html", null ]
       ] ],
       [ "tfel::math::MathObjectTraits< ResultType >", "structtfel_1_1math_1_1_math_object_traits.html", [
         [ "tfel::math::MathObjectTraits< Expr< ResultType, Operation > >", "structtfel_1_1math_1_1_math_object_traits_3_01_expr_3_01_result_type_00_01_operation_01_4_01_4.html", null ]
       ] ],
-      [ "tfel::math::MathObjectTraits< CoalescedViewBase< MappedType, IndexingPolicyType, CoalescedAccessPolicy > >", "structtfel_1_1math_1_1_math_object_traits_3_01_coalesced_view_base_3_01_mapped_type_00_01_indexib78fa0da091a39be697a9af0d8910c48.html", null ],
+      [ "tfel::math::MathObjectTraits< AccessPolicyBasedView< MappedType, IndexingPolicyType, AccessPolicy > >", "structtfel_1_1math_1_1_math_object_traits_3_01_access_policy_based_view_3_01_mapped_type_00_01_i171aee2b589298ab9fa143c7de16267f.html", null ],
       [ "tfel::math::MathObjectTraits< Expr< ResultType, Operation > >", "structtfel_1_1math_1_1_math_object_traits_3_01_expr_3_01_result_type_00_01_operation_01_4_01_4.html", null ],
       [ "tfel::math::MathObjectTraits< FixedSizeArrayDerivative< Array1, Array2 > >", "structtfel_1_1math_1_1_math_object_traits_3_01_fixed_size_array_derivative_3_01_array1_00_01_array2_01_4_01_4.html", null ],
       [ "tfel::math::MathObjectTraits< View< MappedType, ArrayPolicy > >", "structtfel_1_1math_1_1_math_object_traits_3_01_view_3_01_mapped_type_00_01_array_policy_01_4_01_4.html", null ],
@@ -2529,7 +2534,11 @@ var hierarchy =
     ] ],
     [ "tfel::material::MechanicalBehaviourTraits&lt; Behaviour &gt;", "structtfel_1_1material_1_1_mechanical_behaviour_traits.html", null ],
     [ "MemoryIndexingPolicyType", null, [
-      [ "tfel::math::StridedCoalescedViewsArray< MappedType, MemoryIndexingPolicyType, ViewIndexingPolicyType >", "structtfel_1_1math_1_1_strided_coalesced_views_array.html", null ],
+      [ "tfel::math::StridedViewsArray< MappedType, MemoryIndexingPolicyType, ViewIndexingPolicyType >", "structtfel_1_1math_1_1_strided_views_array.html", null ],
+      [ "tfel::math::ViewsArray< MappedType, MemoryIndexingPolicyType, ViewIndexingPolicyType >", "structtfel_1_1math_1_1_views_array.html", null ]
+    ] ],
+    [ "tfel::math::MemoryIndexingPolicyType", "classtfel_1_1math_1_1_memory_indexing_policy_type.html", [
+      [ "tfel::math::StridedViewsArray< MappedType, MemoryIndexingPolicyType, ViewIndexingPolicyType >", "structtfel_1_1math_1_1_strided_views_array.html", null ],
       [ "tfel::math::ViewsArray< MappedType, MemoryIndexingPolicyType, ViewIndexingPolicyType >", "structtfel_1_1math_1_1_views_array.html", null ]
     ] ],
     [ "tfel::material::MetallicCFCGenericSlidingSystemsInteractionMatrix&lt; NumType &gt;", "structtfel_1_1material_1_1_metallic_c_f_c_generic_sliding_systems_interaction_matrix.html", null ],
@@ -3011,7 +3020,7 @@ var hierarchy =
     [ "RelativeComparison", "class_relative_comparison.html", null ],
     [ "mfront::BehaviourData::Relocation", "structmfront_1_1_behaviour_data_1_1_relocation.html", null ],
     [ "tfel::math::ResultOfEvaluation&lt; ObjectType &gt;", "structtfel_1_1math_1_1_result_of_evaluation.html", null ],
-    [ "tfel::math::ResultOfEvaluation&lt; CoalescedViewBase&lt; MappedType, IndexingPolicyType, CoalescedAccessPolicy &gt; &gt;", "structtfel_1_1math_1_1_result_of_evaluation_3_01_coalesced_view_base_3_01_mapped_type_00_01_indecc1bb3974e915d5a3c0795a3cf2fa599.html", null ],
+    [ "tfel::math::ResultOfEvaluation&lt; AccessPolicyBasedView&lt; MappedType, IndexingPolicyType, AccessPolicy &gt; &gt;", "structtfel_1_1math_1_1_result_of_evaluation_3_01_access_policy_based_view_3_01_mapped_type_00_016951c4dee947745746c51559800fa1bd.html", null ],
     [ "tfel::math::ResultOfEvaluation&lt; Expr&lt; ResultType, Operation &gt; &gt;", "structtfel_1_1math_1_1_result_of_evaluation_3_01_expr_3_01_result_type_00_01_operation_01_4_01_4.html", null ],
     [ "tfel::math::ResultOfEvaluation&lt; View&lt; MappedType, ArrayPolicy &gt; &gt;", "structtfel_1_1math_1_1_result_of_evaluation_3_01_view_3_01_mapped_type_00_01_array_policy_01_4_01_4.html", null ],
     [ "tfel::math::ResultType&lt; A, B, Op &gt;", "structtfel_1_1math_1_1_result_type.html", null ],
@@ -3145,6 +3154,9 @@ var hierarchy =
     ] ],
     [ "tfel::math::internals::ScalarViewImplementation&lt; ScalarType, isQt &gt;", "structtfel_1_1math_1_1internals_1_1_scalar_view_implementation.html", null ],
     [ "tfel::math::internals::ScalarViewImplementation&lt; ScalarType, true &gt;", "structtfel_1_1math_1_1internals_1_1_scalar_view_implementation_3_01_scalar_type_00_01true_01_4.html", null ],
+    [ "tfel::math::ScatteredAccessPolicy&lt; MappedType, IndexingPolicyType &gt;", "structtfel_1_1math_1_1_scattered_access_policy.html", [
+      [ "tfel::math::AccessPolicyBasedView< MappedType, IndexingPolicyType, ScatteredAccessPolicy< MappedType, IndexingPolicyType > >", "structtfel_1_1math_1_1_access_policy_based_view.html", null ]
+    ] ],
     [ "mfront::SearchPathsHandler", "structmfront_1_1_search_paths_handler.html", null ],
     [ "selectViewArrayBase", null, [
       [ "tfel::math::View< MappedType, IndexingPolicyType >", "structtfel_1_1math_1_1_view.html", null ]
@@ -3634,22 +3646,22 @@ var hierarchy =
       ] ]
     ] ],
     [ "mfront::bbrick::StressPotentialFactory", "structmfront_1_1bbrick_1_1_stress_potential_factory.html", null ],
+    [ "tfel::math::StridedAccessPolicy&lt; MappedType, IndexingPolicyType &gt;", "structtfel_1_1math_1_1_strided_access_policy.html", [
+      [ "tfel::math::AccessPolicyBasedView< MappedType, IndexingPolicyType, StridedAccessPolicy< MappedType, IndexingPolicyType > >", "structtfel_1_1math_1_1_access_policy_based_view.html", null ]
+    ] ],
     [ "mfront::generic_parallel::sycl::StridedArray&lt; ValueType &gt;", "structmfront_1_1generic__parallel_1_1sycl_1_1_strided_array.html", null ],
-    [ "tfel::math::StridedCoalescedAccessPolicy&lt; MappedType, IndexingPolicyType &gt;", "structtfel_1_1math_1_1_strided_coalesced_access_policy.html", [
-      [ "tfel::math::CoalescedViewBase< MappedType, IndexingPolicyType, StridedCoalescedAccessPolicy< MappedType, IndexingPolicyType > >", "structtfel_1_1math_1_1_coalesced_view_base.html", null ]
-    ] ],
-    [ "tfel::math::internals::StridedCoalescedViewsArrayBase&lt; is_scalar, MappedType, ViewIndexingPolicyType &gt;", "structtfel_1_1math_1_1internals_1_1_strided_coalesced_views_array_base.html", [
-      [ "tfel::math::StridedCoalescedViewsArray< MappedType, StridedCoalescedViewsFixedSizeVectorIndexingPolicy< MappedType, SizeType, N > >", "structtfel_1_1math_1_1_strided_coalesced_views_array.html", null ],
-      [ "tfel::math::StridedCoalescedViewsArray< MappedType, MemoryIndexingPolicyType, ViewIndexingPolicyType >", "structtfel_1_1math_1_1_strided_coalesced_views_array.html", null ]
-    ] ],
-    [ "tfel::math::internals::StridedCoalescedViewsArrayBase&lt; true, MappedType, ViewIndexingPolicyType &gt;", "structtfel_1_1math_1_1internals_1_1_strided_coalesced_views_array_base_3_01true_00_01_mapped_typa6ea68aee97b0071904a85abcaaa5f10.html", null ],
-    [ "tfel::math::internals::StridedCoalescedViewsArrayDefaultViewIndexingPolicy&lt; is_scalar, MappedType &gt;", "structtfel_1_1math_1_1internals_1_1_strided_coalesced_views_array_default_view_indexing_policy.html", null ],
-    [ "tfel::math::internals::StridedCoalescedViewsArrayDefaultViewIndexingPolicy&lt; true, MappedType &gt;", "structtfel_1_1math_1_1internals_1_1_strided_coalesced_views_array_default_view_indexing_policy_3_01true_00_01_mapped_type_01_4.html", null ],
     [ "tfel::math::StridedRandomAccessIteratorBase", "structtfel_1_1math_1_1_strided_random_access_iterator_base.html", [
       [ "tfel::math::StridedRandomAccessIterator< T * >", "structtfel_1_1math_1_1_strided_random_access_iterator.html", null ],
       [ "tfel::math::StridedRandomAccessIterator< const T * >", "structtfel_1_1math_1_1_strided_random_access_iterator.html", null ],
       [ "tfel::math::StridedRandomAccessIterator< iterator_base >", "structtfel_1_1math_1_1_strided_random_access_iterator.html", null ]
     ] ],
+    [ "tfel::math::internals::StridedViewsArrayBase&lt; is_scalar, MappedType, ViewIndexingPolicyType &gt;", "structtfel_1_1math_1_1internals_1_1_strided_views_array_base.html", [
+      [ "tfel::math::StridedViewsArray< MappedType, StridedViewsFixedSizeVectorIndexingPolicy< MappedType, SizeType, N > >", "structtfel_1_1math_1_1_strided_views_array.html", null ],
+      [ "tfel::math::StridedViewsArray< MappedType, MemoryIndexingPolicyType, ViewIndexingPolicyType >", "structtfel_1_1math_1_1_strided_views_array.html", null ]
+    ] ],
+    [ "tfel::math::internals::StridedViewsArrayBase&lt; true, MappedType, ViewIndexingPolicyType &gt;", "structtfel_1_1math_1_1internals_1_1_strided_views_array_base_3_01true_00_01_mapped_type_00_01_view_indexing_policy_type_01_4.html", null ],
+    [ "tfel::math::internals::StridedViewsArrayDefaultViewIndexingPolicy&lt; is_scalar, MappedType &gt;", "structtfel_1_1math_1_1internals_1_1_strided_views_array_default_view_indexing_policy.html", null ],
+    [ "tfel::math::internals::StridedViewsArrayDefaultViewIndexingPolicy&lt; true, MappedType &gt;", "structtfel_1_1math_1_1internals_1_1_strided_views_array_default_view_indexing_policy_3_01true_00_01_mapped_type_01_4.html", null ],
     [ "mtest::StructureCurrentState", "structmtest_1_1_structure_current_state.html", null ],
     [ "mtest::Study", "structmtest_1_1_study.html", [
       [ "mtest::SchemeBase", "structmtest_1_1_scheme_base.html", [
@@ -4090,8 +4102,8 @@ var hierarchy =
       [ "tfel::math::Expr< ResultType, UnaryOperation< T1, Op > >", "structtfel_1_1math_1_1_expr_3_01_result_type_00_01_unary_operation_3_01_t1_00_01_op_01_4_01_4.html", null ]
     ] ],
     [ "ConceptRebind::type", null, [
-      [ "tfel::math::CoalescedViewBase< MappedType, IndexingPolicyType, DefaultCoalescedAccessPolicy< MappedType, IndexingPolicyType > >", "structtfel_1_1math_1_1_coalesced_view_base.html", null ],
-      [ "tfel::math::CoalescedViewBase< MappedType, IndexingPolicyType, StridedCoalescedAccessPolicy< MappedType, IndexingPolicyType > >", "structtfel_1_1math_1_1_coalesced_view_base.html", null ],
+      [ "tfel::math::AccessPolicyBasedView< MappedType, IndexingPolicyType, ScatteredAccessPolicy< MappedType, IndexingPolicyType > >", "structtfel_1_1math_1_1_access_policy_based_view.html", null ],
+      [ "tfel::math::AccessPolicyBasedView< MappedType, IndexingPolicyType, StridedAccessPolicy< MappedType, IndexingPolicyType > >", "structtfel_1_1math_1_1_access_policy_based_view.html", null ],
       [ "tfel::math::Expr< result_type< tmatrix< N, M, T >, tvector< M, T2 >, OpMult >, TMatrixTVectorExpr< N, M, A, B > >", "structtfel_1_1math_1_1_expr.html", null ],
       [ "tfel::math::Expr< result_type< tvector< N, T >, tmatrix< N, M, T2 >, OpMult >, TVectorTMatrixExpr< N, M, A, B > >", "structtfel_1_1math_1_1_expr.html", null ],
       [ "tfel::math::Expr< result_type< tmatrix< N, K, T >, tmatrix< K, M, T2 >, OpMult >, TMatrixTMatrixExpr< N, M, K, A, B > >", "structtfel_1_1math_1_1_expr.html", null ],
@@ -4182,7 +4194,7 @@ var hierarchy =
       [ "tfel::math::View< tfel::math::derivative_type< FunctionType, VariableType >, DerivativeViewIndexingPolicy >", "structtfel_1_1math_1_1_view.html", null ],
       [ "tfel::math::View< tmatrix< N, M, T > >", "structtfel_1_1math_1_1_view.html", null ],
       [ "tfel::math::View< tvector< N, T > >", "structtfel_1_1math_1_1_view.html", null ],
-      [ "tfel::math::CoalescedViewBase< MappedType, IndexingPolicyType, CoalescedAccessPolicy >", "structtfel_1_1math_1_1_coalesced_view_base.html", null ],
+      [ "tfel::math::AccessPolicyBasedView< MappedType, IndexingPolicyType, AccessPolicy >", "structtfel_1_1math_1_1_access_policy_based_view.html", null ],
       [ "tfel::math::Expr< ResultType, Operation >", "structtfel_1_1math_1_1_expr.html", null ],
       [ "tfel::math::Expr< ResultType, BinaryOperation< T1, T2, Op > >", "structtfel_1_1math_1_1_expr_3_01_result_type_00_01_binary_operation_3_01_t1_00_01_t2_00_01_op_01_4_01_4.html", null ],
       [ "tfel::math::Expr< ResultType, DiadicProductOperation< T1, T2 > >", "structtfel_1_1math_1_1_expr_3_01_result_type_00_01_diadic_product_operation_3_01_t1_00_01_t2_01_4_01_4.html", null ],

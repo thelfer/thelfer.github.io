@@ -99,40 +99,13 @@ $(function(){initNavTree('_strided_coalesced_view_8hxx.html','',''); });
   <div class="headertitle"><div class="title">StridedCoalescedView.hxx File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;utility&gt;</code><br />
-<code>#include &quot;<a class="el" href="_coalesced_view_8hxx.html">TFEL/Math/Array/CoalescedView.hxx</a>&quot;</code><br />
-</div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:tfel_3A_3Amath_3A_3AStridedCoalescedAccessPolicy_3C_20MappedType_2C_20IndexingPolicyType_20_3E" id="r_tfel_3A_3Amath_3A_3AStridedCoalescedAccessPolicy_3C_20MappedType_2C_20IndexingPolicyType_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtfel_1_1math_1_1_strided_coalesced_access_policy.html">tfel::math::StridedCoalescedAccessPolicy&lt; MappedType, IndexingPolicyType &gt;</a></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:tfel" id="r_tfel"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetfel.html">tfel</a></td></tr>
-<tr class="memdesc:namespacetfel"><td class="mdescLeft">&#160;</td><td class="mdescRight">the namespace tfel encloses all the TFEL project. This namespace is empty. <br /></td></tr>
-<tr class="memitem:tfel_3A_3Amath" id="r_tfel_3A_3Amath"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetfel_1_1math.html">tfel::math</a></td></tr>
-<tr class="memdesc:namespacetfel_1_1math"><td class="mdescLeft">&#160;</td><td class="mdescRight">This namespace contains various classes and functions défining mathematical objects and numerical algorithms. <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:a973273369eca24299276a125f30a97a9" id="r_a973273369eca24299276a125f30a97a9"><td class="memTemplParams" colspan="2">template&lt;MappableMathObjectUsingCoalescedViewConcept MappedType, typename IndexingPolicyType = typename MappedType::indexing_policy&gt; </td></tr>
-<tr class="memitem:a973273369eca24299276a125f30a97a9 template"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetfel_1_1math.html#a973273369eca24299276a125f30a97a9">tfel::math::StridedCoalescedView</a></td></tr>
-<tr class="memitem:a758e25b58ce4f7dab7cd917841679c55" id="r_a758e25b58ce4f7dab7cd917841679c55"><td class="memTemplParams" colspan="2">template&lt;MappableMathObjectUsingCoalescedViewConcept MappedType, typename IndexingPolicyType = typename std::remove_cv_t&lt;MappedType&gt;::indexing_policy&gt; </td></tr>
-<tr class="memitem:a758e25b58ce4f7dab7cd917841679c55 template"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetfel_1_1math.html#a758e25b58ce4f7dab7cd917841679c55">tfel::math::ConstStridedCoalescedView</a></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ac12b8b26ab3829d6113bdbda05a40c2f" id="r_ac12b8b26ab3829d6113bdbda05a40c2f"><td class="memTemplParams" colspan="2">template&lt;MappableMutableMathObjectUsingCoalescedViewConcept MappedType, typename IndexingPolicyType = typename MappedType::indexing_policy&gt; <br />
-requires ((!std::is_const_v&lt;MappedType&gt;)&amp;&amp;( std::remove_cv_t&lt;MappedType&gt;::hasFixedSizes))</td></tr>
-<tr class="memitem:ac12b8b26ab3829d6113bdbda05a40c2f template"><td class="memItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr StridedCoalescedView&lt; MappedType, IndexingPolicyType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetfel_1_1math.html#ac12b8b26ab3829d6113bdbda05a40c2f">tfel::math::map_strided</a> (const ViewDataPointerType&lt; MappedType &gt; p, const typename IndexingPolicyType::size_type s)</td></tr>
-<tr class="memdesc:ac12b8b26ab3829d6113bdbda05a40c2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">return a strided coalesced view from a base pointer and a stride  <br /></td></tr>
-<tr class="memitem:a91b7404ce5b905e52247a8237d435769" id="r_a91b7404ce5b905e52247a8237d435769"><td class="memTemplParams" colspan="2"><a id="a91b7404ce5b905e52247a8237d435769" name="a91b7404ce5b905e52247a8237d435769"></a>
-template&lt;MappableImmutableMathObjectUsingCoalescedViewConcept MappedType, typename IndexingPolicyType = typename std::remove_cv_t&lt;MappedType&gt;::indexing_policy&gt; <br />
-requires ((std::remove_cv_t&lt;MappedType&gt;::indexing_policy::hasFixedSizes))</td></tr>
-<tr class="memitem:a91b7404ce5b905e52247a8237d435769 template"><td class="memItemLeft" align="right" valign="top">TFEL_HOST_DEVICE constexpr StridedCoalescedView&lt; MappedType, IndexingPolicyType &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>tfel::math::map_strided</b> (const ViewConstDataPointerType&lt; std::remove_cv_t&lt; MappedType &gt; &gt; p, const typename IndexingPolicyType::size_type s)</td></tr>
-</table>
-<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section author"><dt>Author</dt><dd>Tristan Chenaille </dd></dl>
+
+<p>deprecated header, kept for backward compatibility  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="_strided_view_8hxx.html">TFEL/Math/Array/StridedView.hxx</a>&quot;</code><br />
+</div><a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>deprecated header, kept for backward compatibility </p>
+<dl class="section author"><dt>Author</dt><dd>Tristan Chenaille </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>15/01/2026 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (C) 2006-2025 CEA/DEN, EDF R&amp;D. All rights reserved. This project is publicly released under either the GNU GPL Licence with linking exception or the CECILL-A licence. A copy of thoses licences are delivered with the sources of TFEL. CEA or EDF may also distribute this project under specific licensing conditions. </dd></dl>
 </div></div><!-- contents -->

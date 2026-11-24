@@ -40,8 +40,8 @@ var searchData=
   ['props_37',['PROPS',['../structansys_1_1_ansys_data.html#a24228d742c80cbc8b77f117243201cc5',1,'ansys::AnsysData::PROPS'],['../structdianafea_1_1_diana_f_e_a_data.html#ac261e0467f970968ea6e3bdcb3ded3fe',1,'dianafea::DianaFEAData::PROPS']]],
   ['props_38',['props',['../structabaqus_1_1_abaqus_explicit_data.html#a6d1d737e197bab5c91e620368a3e2a71',1,'abaqus::AbaqusExplicitData::props'],['../structlsdyna_1_1_l_s_d_y_n_a_explicit_data.html#ae6842ebd910d8a27cd6ed38a40ffb5a8',1,'lsdyna::LSDYNAExplicitData::props']]],
   ['pss_39',['pss',['../structmfront_1_1bbrick_1_1_hooke_stress_potential_base.html#af420843d62b8d99955463c437cb6d579',1,'mfront::bbrick::HookeStressPotentialBase']]],
-  ['ptr_40',['ptr',['../structtfel_1_1math_1_1_strided_coalesced_access_policy.html#a2f9b6093946a0500fca8e4c037e3d68a',1,'tfel::math::StridedCoalescedAccessPolicy']]],
-  ['ptrs_41',['ptrs',['../structtfel_1_1math_1_1_default_coalesced_access_policy.html#a95d5334d14e894a5b8c65db0a378cf9a',1,'tfel::math::DefaultCoalescedAccessPolicy']]],
+  ['ptr_40',['ptr',['../structtfel_1_1math_1_1_strided_access_policy.html#a920c01ded8423a60cf9d713828f1e2bd',1,'tfel::math::StridedAccessPolicy']]],
+  ['ptrs_41',['ptrs',['../structtfel_1_1math_1_1_scattered_access_policy.html#a782b4682b661ac5c295ba6d86521828d',1,'tfel::math::ScatteredAccessPolicy']]],
   ['purple_42',['Purple',['../structtfel_1_1utilities_1_1_terminal_colors.html#ab3d63674248f0fa1180b9d1b8efeb0e7',1,'tfel::utilities::TerminalColors']]],
   ['pv_43',['pv',['../structmtest_1_1_m_test.html#ac84eab81c06342f10985030e1cfc2dbe',1,'mtest::MTest']]]
 ];

@@ -10,6 +10,9 @@ var concepts =
           [ "areUnitsEqual", "concepttfel_1_1math_1_1unit_1_1are_units_equal.html", null ]
         ] ],
         [ "ArrayConcept", "concepttfel_1_1math_1_1_array_concept.html", null ],
+        [ "MappableMutableMathObjectUsingScatteredViewConcept", "concepttfel_1_1math_1_1_mappable_mutable_math_object_using_scattered_view_concept.html", null ],
+        [ "MappableImmutableMathObjectUsingScatteredViewConcept", "concepttfel_1_1math_1_1_mappable_immutable_math_object_using_scattered_view_concept.html", null ],
+        [ "MappableMathObjectUsingScatteredViewConcept", "concepttfel_1_1math_1_1_mappable_math_object_using_scattered_view_concept.html", null ],
         [ "MappableMutableMathObjectUsingCoalescedViewConcept", "concepttfel_1_1math_1_1_mappable_mutable_math_object_using_coalesced_view_concept.html", null ],
         [ "MappableImmutableMathObjectUsingCoalescedViewConcept", "concepttfel_1_1math_1_1_mappable_immutable_math_object_using_coalesced_view_concept.html", null ],
         [ "MappableMathObjectUsingCoalescedViewConcept", "concepttfel_1_1math_1_1_mappable_math_object_using_coalesced_view_concept.html", null ],

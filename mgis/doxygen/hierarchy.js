@@ -42,10 +42,6 @@ var hierarchy =
     ] ],
     [ "mgis::function::internals::BinaryOperatorCurrying&lt; CallableType, SecondEvaluatorType &gt;", "structmgis_1_1function_1_1internals_1_1_binary_operator_currying.html", null ],
     [ "mgis::function::internals::BinaryOperatorCurrying2&lt; CallableType, SecondEvaluatorType &gt;", "structmgis_1_1function_1_1internals_1_1_binary_operator_currying2.html", null ],
-    [ "mgis::function::CoalescedMemoryAccessCompositeTensorsViewConstValue&lt; ValueType &gt;", "structmgis_1_1function_1_1_coalesced_memory_access_composite_tensors_view_const_value.html", null ],
-    [ "mgis::function::CoalescedMemoryAccessCompositeTensorsViewConstValue&lt; real &gt;", "structmgis_1_1function_1_1_coalesced_memory_access_composite_tensors_view_const_value_3_01real_01_4.html", null ],
-    [ "mgis::function::CoalescedMemoryAccessCompositeTensorsViewMutableValue&lt; ValueType &gt;", "structmgis_1_1function_1_1_coalesced_memory_access_composite_tensors_view_mutable_value.html", null ],
-    [ "mgis::function::CoalescedMemoryAccessCompositeTensorsViewMutableValue&lt; real &gt;", "structmgis_1_1function_1_1_coalesced_memory_access_composite_tensors_view_mutable_value_3_01real_01_4.html", null ],
     [ "mgis::function::internals::CompileTimeSize&lt; T &gt;", "structmgis_1_1function_1_1internals_1_1_compile_time_size.html", null ],
     [ "mgis::function::internals::CompileTimeSize&lt; real &gt;", "structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01real_01_4.html", null ],
     [ "mgis::function::internals::CompileTimeSize&lt; std::array&lt; const real, N &gt; &gt;", "structmgis_1_1function_1_1internals_1_1_compile_time_size_3_01std_1_1array_3_01const_01real_00_01_n_01_4_01_4.html", null ],
@@ -105,15 +101,15 @@ var hierarchy =
     [ "mgis::function::internals::EvaluatorResultQueryImplementation&lt; true, EvaluatorType &gt;", "structmgis_1_1function_1_1internals_1_1_evaluator_result_query_implementation_3_01true_00_01_evaluator_type_01_4.html", null ],
     [ "mgis::Context::FailureHandler&lt; policy &gt;", "structmgis_1_1_context_1_1_failure_handler.html", null ],
     [ "std::false_type", null, [
-      [ "mgis::function::LightweightViewTraits< CoalescedMemoryAccessTensorView< Space, TensorType, is_mutable > >", "structmgis_1_1function_1_1_lightweight_view_traits_3_01_coalesced_memory_access_tensor_view_3_0110c3e7ce120a1765ba7d069f95231b62.html", null ],
       [ "mgis::function::LightweightViewTraits< FixedSizeView< FunctionType, N > >", "structmgis_1_1function_1_1_lightweight_view_traits_3_01_fixed_size_view_3_01_function_type_00_01_n_01_4_01_4.html", null ],
       [ "mgis::function::LightweightViewTraits< FunctionView< Space, layout, is_mutable > >", "structmgis_1_1function_1_1_lightweight_view_traits_3_01_function_view_3_01_space_00_01layout_00_01is__mutable_01_4_01_4.html", null ],
       [ "mgis::function::LightweightViewTraits< QuantityView< FunctionType, UnitType > >", "structmgis_1_1function_1_1_lightweight_view_traits_3_01_quantity_view_3_01_function_type_00_01_unit_type_01_4_01_4.html", null ],
-      [ "mgis::function::LightweightViewTraits< StridedCoalescedMemoryAccessTensorView< Space, TensorType, is_mutable > >", "structmgis_1_1function_1_1_lightweight_view_traits_3_01_strided_coalesced_memory_access_tensor_v174ce053a692a4b503537b4d3c31183a.html", null ],
+      [ "mgis::function::LightweightViewTraits< ScatteredMemoryAccessTensorView< Space, TensorType, is_mutable > >", "structmgis_1_1function_1_1_lightweight_view_traits_3_01_scattered_memory_access_tensor_view_3_010637360591be808dcffce826c925c23d.html", null ],
+      [ "mgis::function::LightweightViewTraits< StridedMemoryAccessTensorView< Space, TensorType, is_mutable > >", "structmgis_1_1function_1_1_lightweight_view_traits_3_01_strided_memory_access_tensor_view_3_01_s3a71528062c9cfdfccb5eeda08c8e0c9.html", null ],
       [ "mgis::function::LightweightViewTraits< TensorView< FunctionType, TensorType > >", "structmgis_1_1function_1_1_lightweight_view_traits_3_01_tensor_view_3_01_function_type_00_01_tensor_type_01_4_01_4.html", null ],
       [ "mgis::function::internals::IsDataView< T & >", "structmgis_1_1function_1_1internals_1_1_is_data_view_3_01_t_01_6_01_4.html", null ],
       [ "mgis::function::internals::IsDataView<::std::span< T, Extent > >", "structmgis_1_1function_1_1internals_1_1_is_data_view_3_1_1std_1_1span_3_01_t_00_01_extent_01_4_01_4.html", null ],
-      [ "mgis::function::internals::IsDataView<::tfel::math::CoalescedView< MappedType, IndexingPolicyType > >", "structmgis_1_1function_1_1internals_1_1_is_data_view_3_1_1tfel_1_1math_1_1_coalesced_view_3_01_m7d1e1045fe0b15857b0f97b624ef238e.html", null ],
+      [ "mgis::function::internals::IsDataView<::tfel::math::ScatteredView< MappedType, IndexingPolicyType > >", "structmgis_1_1function_1_1internals_1_1_is_data_view_3_1_1tfel_1_1math_1_1_scattered_view_3_01_m92a26196bcdd75a37683a6333a226a81.html", null ],
       [ "mgis::function::internals::IsDataView<::tfel::math::View< MappedType, IndexingPolicyType > >", "structmgis_1_1function_1_1internals_1_1_is_data_view_3_1_1tfel_1_1math_1_1_view_3_01_mapped_typeeec4aaae2f34ecd81aad33dcb7186bd3.html", null ],
       [ "mgis::function::internals::IsDataView<::tfel::math::const_qt_ref< UnitType, ValueType > >", "structmgis_1_1function_1_1internals_1_1_is_data_view_3_1_1tfel_1_1math_1_1const__qt__ref_3_01_unba4c35334c7635d89f5d0db2a141397a.html", null ],
       [ "mgis::function::internals::IsDataView<::tfel::math::qt_ref< UnitType, ValueType > >", "structmgis_1_1function_1_1internals_1_1_is_data_view_3_1_1tfel_1_1math_1_1qt__ref_3_01_unit_type_00_01_value_type_01_4_01_4.html", null ],
@@ -143,7 +139,6 @@ var hierarchy =
         [ "mgis::function::FunctionView< Space, layout, is_mutable >", "structmgis_1_1function_1_1_function_view.html", null ]
       ] ],
       [ "mgis::function::FunctionDataLayout< layout >", "structmgis_1_1function_1_1_function_data_layout.html", [
-        [ "mgis::function::FunctionView< Space, FunctionDataLayoutDescription{.data_size=1,.data_stride=1}, is_mutable >", "structmgis_1_1function_1_1_function_view.html", null ],
         [ "mgis::function::FunctionView< Space, layout, false >", "structmgis_1_1function_1_1_function_view.html", null ],
         [ "mgis::function::FunctionView< Space, simple_data_layout_description< N >, true >", "structmgis_1_1function_1_1_function_view.html", [
           [ "mgis::function::Function< Space, tfel::math::getUnderlyingArrayMinimalSize< typename TensorType::indexing_policy >()>", "structmgis_1_1function_1_1_function.html", null ],
@@ -158,6 +153,7 @@ var hierarchy =
           ] ],
           [ "mgis::function::Function< Space, N >", "structmgis_1_1function_1_1_function.html", null ]
         ] ],
+        [ "mgis::function::FunctionView< Space, FunctionDataLayoutDescription{.data_size=1,.data_stride=1}, is_mutable >", "structmgis_1_1function_1_1_function_view.html", null ],
         [ "mgis::function::FunctionView< BasicLinearSpace, FunctionDataLayoutDescription{}, false >", "structmgis_1_1function_1_1_function_view.html", null ]
       ] ]
     ] ],
@@ -181,14 +177,14 @@ var hierarchy =
     ] ],
     [ "mgis::function::internals::FunctionResultQueryImplementation&lt; true, FunctionType &gt;", "structmgis_1_1function_1_1internals_1_1_function_result_query_implementation_3_01true_00_01_function_type_01_4.html", null ],
     [ "mgis::function::internals::FunctionResultTypeTraits&lt; T &gt;", "structmgis_1_1function_1_1internals_1_1_function_result_type_traits.html", null ],
-    [ "mgis::function::internals::FunctionResultTypeTraits&lt; ::tfel::math::StridedCoalescedView&lt; TensorType &gt; &gt;", "structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01_1_1tfel_1_1math_1_1_str93c92d421cf817f2a1333cddf8d34271.html", null ],
     [ "mgis::function::internals::FunctionResultTypeTraits&lt; real &amp; &gt;", "structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01real_01_6_01_4.html", null ],
     [ "mgis::function::internals::FunctionResultTypeTraits&lt; std::array&lt; real, N &gt; &amp; &gt;", "structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01std_1_1array_3_01real_00_01_n_01_4_01_6_01_4.html", null ],
     [ "mgis::function::internals::FunctionResultTypeTraits&lt; std::span&lt; real, N &gt; &gt;", "structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01std_1_1span_3_01real_00_01_n_01_4_01_4.html", null ],
     [ "mgis::function::internals::FunctionResultTypeTraits&lt; TensorType &amp; &gt;", "structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01_tensor_type_01_6_01_4.html", null ],
     [ "mgis::function::internals::FunctionResultTypeTraits&lt; tfel::math::View&lt; TensorType &gt; &gt;", "structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_01tfel_1_1math_1_1_view_3_01_tensor_type_01_4_01_4.html", null ],
-    [ "mgis::function::internals::FunctionResultTypeTraits&lt;::tfel::math::CoalescedView&lt; TensorType &gt; &gt;", "structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_1_1tfel_1_1math_1_1_coales902cf9d4566749073ec70296b9a03eab.html", null ],
     [ "mgis::function::internals::FunctionResultTypeTraits&lt;::tfel::math::qt_ref&lt; UnitType, real &gt; &gt;", "structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_1_1tfel_1_1math_1_1qt__ref2a8c22112dabdecf7b1bd05d8b4801db.html", null ],
+    [ "mgis::function::internals::FunctionResultTypeTraits&lt;::tfel::math::ScatteredView&lt; TensorType &gt; &gt;", "structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_1_1tfel_1_1math_1_1_scatte1869f3612915837a93b308f89acba3da.html", null ],
+    [ "mgis::function::internals::FunctionResultTypeTraits&lt;::tfel::math::StridedView&lt; TensorType &gt; &gt;", "structmgis_1_1function_1_1internals_1_1_function_result_type_traits_3_1_1tfel_1_1math_1_1_stridea7c915e0a1b42735ab88ed35e0b49cfc.html", null ],
     [ "mgis::function::FunctionStorage&lt; Space, N &gt;", "structmgis_1_1function_1_1_function_storage.html", [
       [ "mgis::function::Function< Space, tfel::math::getUnderlyingArrayMinimalSize< typename TensorType::indexing_policy >()>", "structmgis_1_1function_1_1_function.html", null ],
       [ "mgis::function::Function< Space, tfel::math::getUnderlyingArrayMinimalSize< TensorType::indexing_policy >()>", "structmgis_1_1function_1_1_function.html", null ]
@@ -263,19 +259,10 @@ var hierarchy =
     [ "mgis::internal::OptionalTraits&lt; std::optional&lt; T &gt; &gt;", "structmgis_1_1internal_1_1_optional_traits_3_01std_1_1optional_3_01_t_01_4_01_4.html", null ],
     [ "mgis::PreconditionsCheck&lt; bool &gt;", "structmgis_1_1_preconditions_check.html", null ],
     [ "mgis::PreconditionsChecker&lt; Child &gt;", "structmgis_1_1_preconditions_checker.html", [
-      [ "mgis::function::FunctionView< Space, FunctionDataLayoutDescription{.data_size=1,.data_stride=1}, is_mutable >", "structmgis_1_1function_1_1_function_view.html", null ],
       [ "mgis::function::FunctionView< Space, layout, false >", "structmgis_1_1function_1_1_function_view.html", null ],
       [ "mgis::function::FunctionView< Space, simple_data_layout_description< N >, true >", "structmgis_1_1function_1_1_function_view.html", null ],
+      [ "mgis::function::FunctionView< Space, FunctionDataLayoutDescription{.data_size=1,.data_stride=1}, is_mutable >", "structmgis_1_1function_1_1_function_view.html", null ],
       [ "mgis::function::FunctionView< BasicLinearSpace, FunctionDataLayoutDescription{}, false >", "structmgis_1_1function_1_1_function_view.html", null ]
-    ] ],
-    [ "mgis::PreconditionsChecker&lt; CoalescedMemoryAccessFunctionViewBase&lt; Space, N, is_mutable &gt; &gt;", "structmgis_1_1_preconditions_checker.html", [
-      [ "mgis::function::CoalescedMemoryAccessFunctionViewBase< Space, N, true >", "structmgis_1_1function_1_1_coalesced_memory_access_function_view_base.html", [
-        [ "mgis::function::CoalescedMemoryAccessCompositeTensorsView< Space, N, is_mutable >", "structmgis_1_1function_1_1_coalesced_memory_access_composite_tensors_view.html", null ]
-      ] ],
-      [ "mgis::function::CoalescedMemoryAccessFunctionViewBase< Space, internals::CompileTimeSize< TensorType >::value, true >", "structmgis_1_1function_1_1_coalesced_memory_access_function_view_base.html", [
-        [ "mgis::function::CoalescedMemoryAccessTensorView< Space, TensorType, is_mutable >", "structmgis_1_1function_1_1_coalesced_memory_access_tensor_view.html", null ]
-      ] ],
-      [ "mgis::function::CoalescedMemoryAccessFunctionViewBase< Space, N, is_mutable >", "structmgis_1_1function_1_1_coalesced_memory_access_function_view_base.html", null ]
     ] ],
     [ "mgis::PreconditionsChecker&lt; FixedSizeModifier&lt; EvaluatorType, N &gt; &gt;", "structmgis_1_1_preconditions_checker.html", [
       [ "mgis::function::FixedSizeModifier< EvaluatorType, N >", "structmgis_1_1function_1_1_fixed_size_modifier.html", null ]
@@ -302,17 +289,26 @@ var hierarchy =
     [ "mgis::PreconditionsChecker&lt; QuantityView&lt; FunctionType, UnitType &gt; &gt;", "structmgis_1_1_preconditions_checker.html", [
       [ "mgis::function::QuantityView< FunctionType, UnitType >", "structmgis_1_1function_1_1_quantity_view.html", null ]
     ] ],
+    [ "mgis::PreconditionsChecker&lt; ScatteredMemoryAccessFunctionViewBase&lt; Space, N, is_mutable &gt; &gt;", "structmgis_1_1_preconditions_checker.html", [
+      [ "mgis::function::ScatteredMemoryAccessFunctionViewBase< Space, N, true >", "structmgis_1_1function_1_1_scattered_memory_access_function_view_base.html", [
+        [ "mgis::function::ScatteredMemoryAccessCompositeTensorsView< Space, N, is_mutable >", "structmgis_1_1function_1_1_scattered_memory_access_composite_tensors_view.html", null ]
+      ] ],
+      [ "mgis::function::ScatteredMemoryAccessFunctionViewBase< Space, internals::CompileTimeSize< TensorType >::value, true >", "structmgis_1_1function_1_1_scattered_memory_access_function_view_base.html", [
+        [ "mgis::function::ScatteredMemoryAccessTensorView< Space, TensorType, is_mutable >", "structmgis_1_1function_1_1_scattered_memory_access_tensor_view.html", null ]
+      ] ],
+      [ "mgis::function::ScatteredMemoryAccessFunctionViewBase< Space, N, is_mutable >", "structmgis_1_1function_1_1_scattered_memory_access_function_view_base.html", null ]
+    ] ],
     [ "mgis::PreconditionsChecker&lt; SharedSpace&lt; SpaceType &gt; &gt;", "structmgis_1_1_preconditions_checker.html", [
       [ "mgis::function::SharedSpace< SpaceType >", "structmgis_1_1function_1_1_shared_space.html", null ]
     ] ],
-    [ "mgis::PreconditionsChecker&lt; StridedCoalescedMemoryAccessFunctionViewBase&lt; Space, N, is_mutable &gt; &gt;", "structmgis_1_1_preconditions_checker.html", [
-      [ "mgis::function::StridedCoalescedMemoryAccessFunctionViewBase< Space, N, true >", "structmgis_1_1function_1_1_strided_coalesced_memory_access_function_view_base.html", [
-        [ "mgis::function::StridedCoalescedMemoryAccessCompositeTensorsView< Space, N, is_mutable >", "structmgis_1_1function_1_1_strided_coalesced_memory_access_composite_tensors_view.html", null ]
+    [ "mgis::PreconditionsChecker&lt; StridedMemoryAccessFunctionViewBase&lt; Space, N, is_mutable &gt; &gt;", "structmgis_1_1_preconditions_checker.html", [
+      [ "mgis::function::StridedMemoryAccessFunctionViewBase< Space, N, true >", "structmgis_1_1function_1_1_strided_memory_access_function_view_base.html", [
+        [ "mgis::function::StridedMemoryAccessCompositeTensorsView< Space, N, is_mutable >", "structmgis_1_1function_1_1_strided_memory_access_composite_tensors_view.html", null ]
       ] ],
-      [ "mgis::function::StridedCoalescedMemoryAccessFunctionViewBase< Space, internals::CompileTimeSize< TensorType >::value, true >", "structmgis_1_1function_1_1_strided_coalesced_memory_access_function_view_base.html", [
-        [ "mgis::function::StridedCoalescedMemoryAccessTensorView< Space, TensorType, is_mutable >", "structmgis_1_1function_1_1_strided_coalesced_memory_access_tensor_view.html", null ]
+      [ "mgis::function::StridedMemoryAccessFunctionViewBase< Space, internals::CompileTimeSize< TensorType >::value, true >", "structmgis_1_1function_1_1_strided_memory_access_function_view_base.html", [
+        [ "mgis::function::StridedMemoryAccessTensorView< Space, TensorType, is_mutable >", "structmgis_1_1function_1_1_strided_memory_access_tensor_view.html", null ]
       ] ],
-      [ "mgis::function::StridedCoalescedMemoryAccessFunctionViewBase< Space, N, is_mutable >", "structmgis_1_1function_1_1_strided_coalesced_memory_access_function_view_base.html", null ]
+      [ "mgis::function::StridedMemoryAccessFunctionViewBase< Space, N, is_mutable >", "structmgis_1_1function_1_1_strided_memory_access_function_view_base.html", null ]
     ] ],
     [ "mgis::PreconditionsChecker&lt; TensorialFunction&lt; Space, TensorType &gt; &gt;", "structmgis_1_1_preconditions_checker.html", [
       [ "mgis::function::TensorialFunction< Space, tfel::math::stensor< N, real > >", "structmgis_1_1function_1_1_tensorial_function.html", null ],
@@ -345,6 +341,10 @@ var hierarchy =
     [ "mgis::behaviour::RotationMatrix3D", "structmgis_1_1behaviour_1_1_rotation_matrix3_d.html", null ],
     [ "mgis::function::internals::ScalarModifier&lt; T &gt;", "structmgis_1_1function_1_1internals_1_1_scalar_modifier.html", null ],
     [ "mgis::function::internals::ScalarModifier&lt; real &gt;", "structmgis_1_1function_1_1internals_1_1_scalar_modifier_3_01real_01_4.html", null ],
+    [ "mgis::function::ScatteredMemoryAccessCompositeTensorsViewConstValue&lt; ValueType &gt;", "structmgis_1_1function_1_1_scattered_memory_access_composite_tensors_view_const_value.html", null ],
+    [ "mgis::function::ScatteredMemoryAccessCompositeTensorsViewConstValue&lt; real &gt;", "structmgis_1_1function_1_1_scattered_memory_access_composite_tensors_view_const_value_3_01real_01_4.html", null ],
+    [ "mgis::function::ScatteredMemoryAccessCompositeTensorsViewMutableValue&lt; ValueType &gt;", "structmgis_1_1function_1_1_scattered_memory_access_composite_tensors_view_mutable_value.html", null ],
+    [ "mgis::function::ScatteredMemoryAccessCompositeTensorsViewMutableValue&lt; real &gt;", "structmgis_1_1function_1_1_scattered_memory_access_composite_tensors_view_mutable_value_3_01real_01_4.html", null ],
     [ "mgis::julia::SharedBehaviour", "structmgis_1_1julia_1_1_shared_behaviour.html", null ],
     [ "mgis::function::internals::SharedElementSpaceAddElementWorkspace&lt; bool, ElementSpaceConcept &gt;", "structmgis_1_1function_1_1internals_1_1_shared_element_space_add_element_workspace.html", null ],
     [ "mgis::function::internals::SharedElementSpaceAddElementWorkspace&lt; hasElementWorkspace&lt; SpaceType &gt;, SpaceType &gt;", "structmgis_1_1function_1_1internals_1_1_shared_element_space_add_element_workspace.html", [
@@ -375,10 +375,10 @@ var hierarchy =
     [ "mgis::function::SpaceTraits&lt; BasicLinearSpace &gt;", "structmgis_1_1function_1_1_space_traits_3_01_basic_linear_space_01_4.html", null ],
     [ "mgis::behaviour::State", "structmgis_1_1behaviour_1_1_state.html", null ],
     [ "jlcxx::static_type_mapping&lt; mgis::julia::ArrayView&lt; T, N &gt; &gt;", "structjlcxx_1_1static__type__mapping_3_01mgis_1_1julia_1_1_array_view_3_01_t_00_01_n_01_4_01_4.html", null ],
-    [ "mgis::function::StridedCoalescedMemoryAccessCompositeTensorsViewConstValue&lt; ValueType &gt;", "structmgis_1_1function_1_1_strided_coalesced_memory_access_composite_tensors_view_const_value.html", null ],
-    [ "mgis::function::StridedCoalescedMemoryAccessCompositeTensorsViewConstValue&lt; real &gt;", "structmgis_1_1function_1_1_strided_coalesced_memory_access_composite_tensors_view_const_value_3_01real_01_4.html", null ],
-    [ "mgis::function::StridedCoalescedMemoryAccessCompositeTensorsViewMutableValue&lt; ValueType &gt;", "structmgis_1_1function_1_1_strided_coalesced_memory_access_composite_tensors_view_mutable_value.html", null ],
-    [ "mgis::function::StridedCoalescedMemoryAccessCompositeTensorsViewMutableValue&lt; real &gt;", "structmgis_1_1function_1_1_strided_coalesced_memory_access_composite_tensors_view_mutable_value_3_01real_01_4.html", null ],
+    [ "mgis::function::StridedMemoryAccessCompositeTensorsViewConstValue&lt; ValueType &gt;", "structmgis_1_1function_1_1_strided_memory_access_composite_tensors_view_const_value.html", null ],
+    [ "mgis::function::StridedMemoryAccessCompositeTensorsViewConstValue&lt; real &gt;", "structmgis_1_1function_1_1_strided_memory_access_composite_tensors_view_const_value_3_01real_01_4.html", null ],
+    [ "mgis::function::StridedMemoryAccessCompositeTensorsViewMutableValue&lt; ValueType &gt;", "structmgis_1_1function_1_1_strided_memory_access_composite_tensors_view_mutable_value.html", null ],
+    [ "mgis::function::StridedMemoryAccessCompositeTensorsViewMutableValue&lt; real &gt;", "structmgis_1_1function_1_1_strided_memory_access_composite_tensors_view_mutable_value_3_01real_01_4.html", null ],
     [ "jlcxx::SuperType&lt; mgis::julia::SharedBehaviour &gt;", "structjlcxx_1_1_super_type_3_01mgis_1_1julia_1_1_shared_behaviour_01_4.html", null ],
     [ "jlcxx::SuperType&lt; mgis::julia::Wrapper&lt; T &gt; &gt;", "structjlcxx_1_1_super_type_3_01mgis_1_1julia_1_1_wrapper_3_01_t_01_4_01_4.html", null ],
     [ "mgis::function::internals::tensor_modifier&lt; TensorType &gt;", "structmgis_1_1function_1_1internals_1_1tensor__modifier.html", null ],
@@ -399,15 +399,15 @@ var hierarchy =
       [ "jlcxx::IsMirroredType< mgis::behaviour::Hypothesis >", "structjlcxx_1_1_is_mirrored_type_3_01mgis_1_1behaviour_1_1_hypothesis_01_4.html", null ],
       [ "jlcxx::IsMirroredType< mgis::behaviour::IntegrationType >", "structjlcxx_1_1_is_mirrored_type_3_01mgis_1_1behaviour_1_1_integration_type_01_4.html", null ],
       [ "jlcxx::IsMirroredType< mgis::behaviour::Variable::Type >", "structjlcxx_1_1_is_mirrored_type_3_01mgis_1_1behaviour_1_1_variable_1_1_type_01_4.html", null ],
-      [ "mgis::function::LightweightViewTraits< CoalescedMemoryAccessTensorView< Space, TensorType, is_mutable > >", "structmgis_1_1function_1_1_lightweight_view_traits_3_01_coalesced_memory_access_tensor_view_3_0110c3e7ce120a1765ba7d069f95231b62.html", null ],
       [ "mgis::function::LightweightViewTraits< FixedSizeView< FunctionType, N > >", "structmgis_1_1function_1_1_lightweight_view_traits_3_01_fixed_size_view_3_01_function_type_00_01_n_01_4_01_4.html", null ],
       [ "mgis::function::LightweightViewTraits< FunctionView< Space, layout, is_mutable > >", "structmgis_1_1function_1_1_lightweight_view_traits_3_01_function_view_3_01_space_00_01layout_00_01is__mutable_01_4_01_4.html", null ],
       [ "mgis::function::LightweightViewTraits< QuantityView< FunctionType, UnitType > >", "structmgis_1_1function_1_1_lightweight_view_traits_3_01_quantity_view_3_01_function_type_00_01_unit_type_01_4_01_4.html", null ],
-      [ "mgis::function::LightweightViewTraits< StridedCoalescedMemoryAccessTensorView< Space, TensorType, is_mutable > >", "structmgis_1_1function_1_1_lightweight_view_traits_3_01_strided_coalesced_memory_access_tensor_v174ce053a692a4b503537b4d3c31183a.html", null ],
+      [ "mgis::function::LightweightViewTraits< ScatteredMemoryAccessTensorView< Space, TensorType, is_mutable > >", "structmgis_1_1function_1_1_lightweight_view_traits_3_01_scattered_memory_access_tensor_view_3_010637360591be808dcffce826c925c23d.html", null ],
+      [ "mgis::function::LightweightViewTraits< StridedMemoryAccessTensorView< Space, TensorType, is_mutable > >", "structmgis_1_1function_1_1_lightweight_view_traits_3_01_strided_memory_access_tensor_view_3_01_s3a71528062c9cfdfccb5eeda08c8e0c9.html", null ],
       [ "mgis::function::LightweightViewTraits< TensorView< FunctionType, TensorType > >", "structmgis_1_1function_1_1_lightweight_view_traits_3_01_tensor_view_3_01_function_type_00_01_tensor_type_01_4_01_4.html", null ],
       [ "mgis::function::internals::IsDataView< T & >", "structmgis_1_1function_1_1internals_1_1_is_data_view_3_01_t_01_6_01_4.html", null ],
       [ "mgis::function::internals::IsDataView<::std::span< T, Extent > >", "structmgis_1_1function_1_1internals_1_1_is_data_view_3_1_1std_1_1span_3_01_t_00_01_extent_01_4_01_4.html", null ],
-      [ "mgis::function::internals::IsDataView<::tfel::math::CoalescedView< MappedType, IndexingPolicyType > >", "structmgis_1_1function_1_1internals_1_1_is_data_view_3_1_1tfel_1_1math_1_1_coalesced_view_3_01_m7d1e1045fe0b15857b0f97b624ef238e.html", null ],
+      [ "mgis::function::internals::IsDataView<::tfel::math::ScatteredView< MappedType, IndexingPolicyType > >", "structmgis_1_1function_1_1internals_1_1_is_data_view_3_1_1tfel_1_1math_1_1_scattered_view_3_01_m92a26196bcdd75a37683a6333a226a81.html", null ],
       [ "mgis::function::internals::IsDataView<::tfel::math::View< MappedType, IndexingPolicyType > >", "structmgis_1_1function_1_1internals_1_1_is_data_view_3_1_1tfel_1_1math_1_1_view_3_01_mapped_typeeec4aaae2f34ecd81aad33dcb7186bd3.html", null ],
       [ "mgis::function::internals::IsDataView<::tfel::math::const_qt_ref< UnitType, ValueType > >", "structmgis_1_1function_1_1internals_1_1_is_data_view_3_1_1tfel_1_1math_1_1const__qt__ref_3_01_unba4c35334c7635d89f5d0db2a141397a.html", null ],
       [ "mgis::function::internals::IsDataView<::tfel::math::qt_ref< UnitType, ValueType > >", "structmgis_1_1function_1_1internals_1_1_is_data_view_3_1_1tfel_1_1math_1_1qt__ref_3_01_unit_type_00_01_value_type_01_4_01_4.html", null ],

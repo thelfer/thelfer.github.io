@@ -1,7 +1,7 @@
 var searchData=
 [
   ['data_0',['data',['../structmgis_1_1function_1_1_function_view.html#a6952309045f5a789f16723c9d82e2034',1,'mgis::function::FunctionView::data(mgis::attributes::UnsafeAttribute, const size_type)'],['../structmgis_1_1function_1_1_function_view.html#ab36b185dc7ca71b010ff84bada07b463',1,'mgis::function::FunctionView::data(mgis::attributes::UnsafeAttribute, const size_type, const size_type)'],['../structmgis_1_1function_1_1_function_view.html#a7ea11563cdb5789c1f0accdf918aaf62',1,'mgis::function::FunctionView::data(mgis::attributes::UnsafeAttribute, const size_type) const'],['../structmgis_1_1function_1_1_function_view.html#a7107c3fdb133afedfb7f9440f2f93399',1,'mgis::function::FunctionView::data(mgis::attributes::UnsafeAttribute, const size_type, const size_type) const'],['../structmgis_1_1function_1_1_function_view.html#a6639cfe60d59d4a6f68580c397d12774',1,'mgis::function::FunctionView::data()'],['../structmgis_1_1function_1_1_function_view.html#ab95c31dd4e7e83bfda41e972941c212a',1,'mgis::function::FunctionView::data() const']]],
-  ['data_5fpointer_1',['data_pointer',['../structmgis_1_1function_1_1_strided_coalesced_memory_access_function_view_base.html#ab7c65ae7aa81701803b9d7940a8ac2e1',1,'mgis::function::StridedCoalescedMemoryAccessFunctionViewBase']]],
+  ['data_5fpointer_1',['data_pointer',['../structmgis_1_1function_1_1_strided_memory_access_function_view_base.html#a2404d90c4502eb6c98e29c961835a97a',1,'mgis::function::StridedMemoryAccessFunctionViewBase']]],
   ['data_5fsize_2',['data_size',['../structmgis_1_1function_1_1_function_data_size_3_01dynamic__extent_01_4.html#a1d7de8d131f4a62d03cce76269107fd2',1,'mgis::function::FunctionDataSize&lt; dynamic_extent &gt;::data_size'],['../structmgis_1_1function_1_1_function_data_layout_description.html#a9c6dc65582fa1177e0d592219af987d6',1,'mgis::function::FunctionDataLayoutDescription::data_size']]],
   ['data_5fstride_3',['data_stride',['../structmgis_1_1function_1_1_function_data_stride_3_01dynamic__extent_01_4.html#a692e0682532b2ced4deeb0c381e06c95',1,'mgis::function::FunctionDataStride&lt; dynamic_extent &gt;::data_stride'],['../structmgis_1_1function_1_1_function_data_layout_description.html#a3b561c18388b888f6d75f293fe1feb1b',1,'mgis::function::FunctionDataLayoutDescription::data_stride']]],
   ['dataview_2ehxx_4',['DataView.hxx',['../_data_view_8hxx.html',1,'']]],
@@ -10,7 +10,7 @@ var searchData=
   ['date_7',['date',['../structmgis_1_1behaviour_1_1_behaviour_description.html#a9977c1e23ff7df0d1baaa1844c2f9a0f',1,'mgis::behaviour::BehaviourDescription']]],
   ['debug_8',['debug',['../structmgis_1_1_context.html#ac1ec736ea093e1fe398b4fb921b19c00',1,'mgis::Context::debug()'],['../namespacemgis.html#ade4915e9cbed616086d1201e70711551',1,'mgis::debug()']]],
   ['default_5ferror_5freport_5fpolicy_9',['default_error_report_policy',['../_config_8hxx.html#a7e07631d8c78c74705d4d62ca6698f05',1,'mgis::config']]],
-  ['det_10',['det',['../_tensors_8hxx.html#a7eeaa89f9e0f17720bbdeca01603d1f5',1,'mgis::function']]],
+  ['det_10',['det',['../_t_f_e_l_2_tensors_8hxx.html#a7eeaa89f9e0f17720bbdeca01603d1f5',1,'mgis::function']]],
   ['disabledefaultlogstream_11',['disableDefaultLogStream',['../namespacemgis.html#a78d746a8b47c76e132fcb66b0c19498b',1,'mgis']]],
   ['disablelogstream_12',['disableLogStream',['../structmgis_1_1_context.html#ade559a6a1d81a8a3fd91ec5595da5c6d',1,'mgis::Context']]],
   ['disambiguatecheck_13',['disambiguateCheck',['../_evaluator_concept_8hxx.html#a2ea3f7cd9d7674b72f570fa8cc5107b3',1,'mgis::function::internals']]],

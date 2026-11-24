@@ -1,5 +1,15 @@
 var NAVTREEINDEX2 =
 {
+"structmgis_1_1_contract_violation_handler.html#aca134ed5dfb7aca393119e6e8c0f9aa9":[1,0,0,3,0],
+"structmgis_1_1_contract_violation_handler.html#aca134ed5dfb7aca393119e6e8c0f9aa9":[3,0,1,10,0],
+"structmgis_1_1_cste.html":[1,0,0,6],
+"structmgis_1_1_cste.html":[3,0,1,13],
+"structmgis_1_1_error_backtrace.html":[1,0,0,7],
+"structmgis_1_1_error_backtrace.html":[3,0,1,14],
+"structmgis_1_1_error_backtrace.html#a012d15532827a6c816b8e947185d6096":[1,0,0,7,1],
+"structmgis_1_1_error_backtrace.html#a012d15532827a6c816b8e947185d6096":[3,0,1,14,1],
+"structmgis_1_1_error_backtrace.html#a10902e7c6c3b783acb04476bfe70c319":[1,0,0,7,4],
+"structmgis_1_1_error_backtrace.html#a10902e7c6c3b783acb04476bfe70c319":[3,0,1,14,4],
 "structmgis_1_1_error_backtrace.html#a279835bce2b3e669bf243a97301e144a":[1,0,0,7,7],
 "structmgis_1_1_error_backtrace.html#a279835bce2b3e669bf243a97301e144a":[3,0,1,14,7],
 "structmgis_1_1_error_backtrace.html#a58f40f388c4e5366b6ca448be00cc89f":[1,0,0,7,12],
@@ -239,15 +249,5 @@ var NAVTREEINDEX2 =
 "structmgis_1_1_threaded_task_result.html#abb3eb373ca75a97c22d489f9658324fa":[1,0,0,13,5],
 "structmgis_1_1_threaded_task_result.html#abb3eb373ca75a97c22d489f9658324fa":[3,0,1,20,5],
 "structmgis_1_1_threaded_task_result.html#abf61df72307fde3e8610200fdbdf7f43":[1,0,0,13,1],
-"structmgis_1_1_threaded_task_result.html#abf61df72307fde3e8610200fdbdf7f43":[3,0,1,20,1],
-"structmgis_1_1_threaded_task_result.html#ac91d854bea94272d334262e16c87069e":[1,0,0,13,16],
-"structmgis_1_1_threaded_task_result.html#ac91d854bea94272d334262e16c87069e":[3,0,1,20,16],
-"structmgis_1_1_threaded_task_result.html#acdb900726b5cd7ecabf7b37e6a691e08":[1,0,0,13,6],
-"structmgis_1_1_threaded_task_result.html#acdb900726b5cd7ecabf7b37e6a691e08":[3,0,1,20,6],
-"structmgis_1_1_threaded_task_result.html#af2e37623475d8b87297d2fc22dbc6c2a":[1,0,0,13,11],
-"structmgis_1_1_threaded_task_result.html#af2e37623475d8b87297d2fc22dbc6c2a":[3,0,1,20,11],
-"structmgis_1_1_threaded_task_result_3_01void_01_4.html":[1,0,0,14],
-"structmgis_1_1_threaded_task_result_3_01void_01_4.html":[3,0,1,21],
-"structmgis_1_1_threaded_task_result_3_01void_01_4.html#a05cd3f529454af6ca3bc73878682d1bd":[1,0,0,14,4],
-"structmgis_1_1_threaded_task_result_3_01void_01_4.html#a05cd3f529454af6ca3bc73878682d1bd":[3,0,1,21,4]
+"structmgis_1_1_threaded_task_result.html#abf61df72307fde3e8610200fdbdf7f43":[3,0,1,20,1]
 };

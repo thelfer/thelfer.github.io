@@ -12,10 +12,13 @@ var searchData=
   ['state_2eixx_9',['State.ixx',['../_state_8ixx.html',1,'']]],
   ['stateview_2ehxx_10',['StateView.hxx',['../_state_view_8hxx.html',1,'']]],
   ['storagemode_2ehxx_11',['StorageMode.hxx',['../_storage_mode_8hxx.html',1,'']]],
-  ['stridedmemoryaccesscompositetensorsview_2ehxx_12',['StridedMemoryAccessCompositeTensorsView.hxx',['../_strided_memory_access_composite_tensors_view_8hxx.html',1,'']]],
-  ['stridedmemoryaccesscompositetensorsview_2eixx_13',['StridedMemoryAccessCompositeTensorsView.ixx',['../_strided_memory_access_composite_tensors_view_8ixx.html',1,'']]],
-  ['stridedmemoryaccessfunctionviewbase_2ehxx_14',['StridedMemoryAccessFunctionViewBase.hxx',['../_strided_memory_access_function_view_base_8hxx.html',1,'']]],
-  ['stridedmemoryaccessfunctionviewbase_2eixx_15',['StridedMemoryAccessFunctionViewBase.ixx',['../_strided_memory_access_function_view_base_8ixx.html',1,'']]],
-  ['stridedmemoryaccesstensorview_2ehxx_16',['StridedMemoryAccessTensorView.hxx',['../_strided_memory_access_tensor_view_8hxx.html',1,'']]],
-  ['stridedmemoryaccesstensorview_2eixx_17',['StridedMemoryAccessTensorView.ixx',['../_strided_memory_access_tensor_view_8ixx.html',1,'']]]
+  ['stridedcoalescedmemoryaccesscompositetensorsview_2ehxx_12',['StridedCoalescedMemoryAccessCompositeTensorsView.hxx',['../_strided_coalesced_memory_access_composite_tensors_view_8hxx.html',1,'']]],
+  ['stridedcoalescedmemoryaccessfunctionviewbase_2ehxx_13',['StridedCoalescedMemoryAccessFunctionViewBase.hxx',['../_strided_coalesced_memory_access_function_view_base_8hxx.html',1,'']]],
+  ['stridedcoalescedmemoryaccesstensorview_2ehxx_14',['StridedCoalescedMemoryAccessTensorView.hxx',['../_strided_coalesced_memory_access_tensor_view_8hxx.html',1,'']]],
+  ['stridedmemoryaccesscompositetensorsview_2ehxx_15',['StridedMemoryAccessCompositeTensorsView.hxx',['../_strided_memory_access_composite_tensors_view_8hxx.html',1,'']]],
+  ['stridedmemoryaccesscompositetensorsview_2eixx_16',['StridedMemoryAccessCompositeTensorsView.ixx',['../_strided_memory_access_composite_tensors_view_8ixx.html',1,'']]],
+  ['stridedmemoryaccessfunctionviewbase_2ehxx_17',['StridedMemoryAccessFunctionViewBase.hxx',['../_strided_memory_access_function_view_base_8hxx.html',1,'']]],
+  ['stridedmemoryaccessfunctionviewbase_2eixx_18',['StridedMemoryAccessFunctionViewBase.ixx',['../_strided_memory_access_function_view_base_8ixx.html',1,'']]],
+  ['stridedmemoryaccesstensorview_2ehxx_19',['StridedMemoryAccessTensorView.hxx',['../_strided_memory_access_tensor_view_8hxx.html',1,'']]],
+  ['stridedmemoryaccesstensorview_2eixx_20',['StridedMemoryAccessTensorView.ixx',['../_strided_memory_access_tensor_view_8ixx.html',1,'']]]
 ];

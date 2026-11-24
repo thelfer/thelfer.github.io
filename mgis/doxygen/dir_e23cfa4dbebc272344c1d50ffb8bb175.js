@@ -1,5 +1,7 @@
 var dir_e23cfa4dbebc272344c1d50ffb8bb175 =
 [
+    [ "CoalescedMemoryAccessCompositeTensorsView.hxx", "_t_f_e_l_2_coalesced_memory_access_composite_tensors_view_8hxx.html", null ],
+    [ "CoalescedMemoryAccessTensorView.hxx", "_t_f_e_l_2_coalesced_memory_access_tensor_view_8hxx.html", null ],
     [ "DataView.hxx", "_data_view_8hxx.html", "_data_view_8hxx" ],
     [ "General.hxx", "_general_8hxx.html", null ],
     [ "MechanicalOperations.hxx", "_mechanical_operations_8hxx.html", "_mechanical_operations_8hxx" ],
@@ -14,6 +16,8 @@ var dir_e23cfa4dbebc272344c1d50ffb8bb175 =
     [ "ScatteredMemoryAccessCompositeTensorsView.ixx", "_scattered_memory_access_composite_tensors_view_8ixx.html", null ],
     [ "ScatteredMemoryAccessTensorView.hxx", "_scattered_memory_access_tensor_view_8hxx.html", "_scattered_memory_access_tensor_view_8hxx" ],
     [ "ScatteredMemoryAccessTensorView.ixx", "_scattered_memory_access_tensor_view_8ixx.html", "_scattered_memory_access_tensor_view_8ixx" ],
+    [ "StridedCoalescedMemoryAccessCompositeTensorsView.hxx", "_strided_coalesced_memory_access_composite_tensors_view_8hxx.html", null ],
+    [ "StridedCoalescedMemoryAccessTensorView.hxx", "_strided_coalesced_memory_access_tensor_view_8hxx.html", null ],
     [ "StridedMemoryAccessCompositeTensorsView.hxx", "_strided_memory_access_composite_tensors_view_8hxx.html", "_strided_memory_access_composite_tensors_view_8hxx" ],
     [ "StridedMemoryAccessCompositeTensorsView.ixx", "_strided_memory_access_composite_tensors_view_8ixx.html", null ],
     [ "StridedMemoryAccessTensorView.hxx", "_strided_memory_access_tensor_view_8hxx.html", "_strided_memory_access_tensor_view_8hxx" ],

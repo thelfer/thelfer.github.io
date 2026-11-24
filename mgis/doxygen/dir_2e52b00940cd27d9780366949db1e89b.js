@@ -38,6 +38,7 @@ var dir_2e52b00940cd27d9780366949db1e89b =
     [ "ScatteredMemoryAccessFunctionViewBase.ixx", "_scattered_memory_access_function_view_base_8ixx.html", "_scattered_memory_access_function_view_base_8ixx" ],
     [ "SharedSpace.hxx", "_shared_space_8hxx.html", "_shared_space_8hxx" ],
     [ "SpaceConcept.hxx", "_space_concept_8hxx.html", "_space_concept_8hxx" ],
+    [ "StridedCoalescedMemoryAccessFunctionViewBase.hxx", "_strided_coalesced_memory_access_function_view_base_8hxx.html", null ],
     [ "StridedMemoryAccessFunctionViewBase.hxx", "_strided_memory_access_function_view_base_8hxx.html", "_strided_memory_access_function_view_base_8hxx" ],
     [ "StridedMemoryAccessFunctionViewBase.ixx", "_strided_memory_access_function_view_base_8ixx.html", null ],
     [ "TensorialFunction.hxx", "_tensorial_function_8hxx.html", null ],

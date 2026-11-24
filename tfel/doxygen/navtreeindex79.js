@@ -1,5 +1,7 @@
 var NAVTREEINDEX79 =
 {
+"structtfel_1_1math_1_1_tensor_view_from_stensor_expr.html":[7,0,14,5,597],
+"structtfel_1_1math_1_1_tiny_broyden2_solver.html":[5,0,9,1,598],
 "structtfel_1_1math_1_1_tiny_broyden2_solver.html":[7,0,14,5,601],
 "structtfel_1_1math_1_1_tiny_broyden2_solver.html#a322a8d8024809c309d7e11a5d7d154bb":[5,0,9,1,598,5],
 "structtfel_1_1math_1_1_tiny_broyden2_solver.html#a322a8d8024809c309d7e11a5d7d154bb":[7,0,14,5,601,5],
@@ -247,7 +249,5 @@ var NAVTREEINDEX79 =
 "structtfel_1_1math_1_1_view_array_policy.html#a5da7d1bdd8cf531b17e3540362fc760d":[7,0,14,5,77,3],
 "structtfel_1_1math_1_1_view_array_policy.html#a6805bee38b2f9216fdf739c1b9838d88":[5,0,9,1,74,5],
 "structtfel_1_1math_1_1_view_array_policy.html#a6805bee38b2f9216fdf739c1b9838d88":[7,0,14,5,77,5],
-"structtfel_1_1math_1_1_view_array_policy.html#ac4d596a8a76cc57ed5a73fb86be127bb":[5,0,9,1,74,2],
-"structtfel_1_1math_1_1_view_array_policy.html#ac4d596a8a76cc57ed5a73fb86be127bb":[7,0,14,5,77,2],
-"structtfel_1_1math_1_1_view_array_policy.html#ae8546825cf85131550393a458397cfc1":[5,0,9,1,74,0]
+"structtfel_1_1math_1_1_view_array_policy.html#ac4d596a8a76cc57ed5a73fb86be127bb":[5,0,9,1,74,2]
 };

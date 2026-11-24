@@ -1,5 +1,7 @@
 var NAVTREEINDEX41 =
 {
+"structmfront_1_1_symbols_generator.html#ac489ea132d0de3152b61630bd1afa9a1":[5,0,7,188,15],
+"structmfront_1_1_symbols_generator.html#ac489ea132d0de3152b61630bd1afa9a1":[7,0,10,191,15],
 "structmfront_1_1_symbols_generator.html#ac84be4b44f7bc95889f96a1b46127679":[5,0,7,188,5],
 "structmfront_1_1_symbols_generator.html#ac84be4b44f7bc95889f96a1b46127679":[7,0,10,191,5],
 "structmfront_1_1_symbols_generator.html#ac8fb69756deead90e46f99ee793f933e":[5,0,7,188,42],
@@ -247,7 +249,5 @@ var NAVTREEINDEX41 =
 "structmfront_1_1_variable_bounds_description.html#a79b544f66172979b81dbc53603fff66f":[5,0,7,196,1],
 "structmfront_1_1_variable_bounds_description.html#a79b544f66172979b81dbc53603fff66f":[7,0,10,199,1],
 "structmfront_1_1_variable_bounds_description.html#a79f3f74ee830c443fdb02504e86a85af":[5,0,7,196,5],
-"structmfront_1_1_variable_bounds_description.html#a79f3f74ee830c443fdb02504e86a85af":[7,0,10,199,5],
-"structmfront_1_1_variable_bounds_description.html#a80939ff1fe9873734e47409b77ba08e3":[5,0,7,196,7],
-"structmfront_1_1_variable_bounds_description.html#a80939ff1fe9873734e47409b77ba08e3":[7,0,10,199,7]
+"structmfront_1_1_variable_bounds_description.html#a79f3f74ee830c443fdb02504e86a85af":[7,0,10,199,5]
 };

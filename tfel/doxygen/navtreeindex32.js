@@ -1,5 +1,7 @@
 var NAVTREEINDEX32 =
 {
+"structmfront_1_1_generic_material_property_interface_base_1_1_types_description.html":[5,0,7,101,2],
+"structmfront_1_1_generic_material_property_interface_base_1_1_types_description.html":[7,0,10,104,2],
 "structmfront_1_1_generic_model_interface.html":[5,0,7,102],
 "structmfront_1_1_generic_model_interface.html":[7,0,10,105],
 "structmfront_1_1_generic_model_interface.html#a0a1e6fa26ab43c5252e7dd49d63f7789":[5,0,7,102,4],
@@ -247,7 +249,5 @@ var NAVTREEINDEX32 =
 "structmfront_1_1_implicit_d_s_l_base.html#af12628036ba9275ab7131b63d5235d16":[5,0,7,110,19],
 "structmfront_1_1_implicit_d_s_l_base.html#af12628036ba9275ab7131b63d5235d16":[7,0,10,113,19],
 "structmfront_1_1_implicit_d_s_l_base.html#af2c9f60f4e0e1ad3b9bf6bd701544d28":[5,0,7,110,33],
-"structmfront_1_1_implicit_d_s_l_base.html#af2c9f60f4e0e1ad3b9bf6bd701544d28":[7,0,10,113,33],
-"structmfront_1_1_implicit_d_s_l_base.html#af2f905a08050e7722fa75aa96bde5fd0":[5,0,7,110,31],
-"structmfront_1_1_implicit_d_s_l_base.html#af2f905a08050e7722fa75aa96bde5fd0":[7,0,10,113,31]
+"structmfront_1_1_implicit_d_s_l_base.html#af2c9f60f4e0e1ad3b9bf6bd701544d28":[7,0,10,113,33]
 };

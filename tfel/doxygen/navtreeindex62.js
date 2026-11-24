@@ -1,5 +1,7 @@
 var NAVTREEINDEX62 =
 {
+"structtfel_1_1material_1_1_modelling_hypothesis.html":[7,0,14,4,62],
+"structtfel_1_1material_1_1_modelling_hypothesis.html#a9a637e1af46e51842514a724c47da119":[5,0,9,0,63,0],
 "structtfel_1_1material_1_1_modelling_hypothesis.html#a9a637e1af46e51842514a724c47da119":[7,0,14,4,62,0],
 "structtfel_1_1material_1_1_modelling_hypothesis_to_space_dimension.html":[5,0,9,0,64],
 "structtfel_1_1material_1_1_modelling_hypothesis_to_space_dimension.html":[7,0,14,4,63],
@@ -247,7 +249,5 @@ var NAVTREEINDEX62 =
 "structtfel_1_1material_1_1_tangent_operator_traits_3_01_mechanical_behaviour_base_1_1_s_t_a_n_d_e4079c363cc9cc01d207ee5f8c9ad98d.html#a3279eaf452f59d7aac8713b599b1773b":[7,0,14,4,56,0],
 "structtfel_1_1material_1_1_young_nu_moduli.html":[5,0,9,0,36],
 "structtfel_1_1material_1_1_young_nu_moduli.html":[7,0,14,4,35],
-"structtfel_1_1material_1_1compute_altered_elastic_stiffness.html":[5,0,9,0,46],
-"structtfel_1_1material_1_1compute_altered_elastic_stiffness.html":[7,0,14,4,45],
-"structtfel_1_1material_1_1compute_elastic_stiffness.html":[5,0,9,0,41]
+"structtfel_1_1material_1_1compute_altered_elastic_stiffness.html":[5,0,9,0,46]
 };

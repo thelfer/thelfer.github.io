@@ -1,5 +1,7 @@
 var NAVTREEINDEX77 =
 {
+"structtfel_1_1math_1_1_result_type.html#ad52644350a45ae83e73d1595a044b748":[7,0,14,5,283,1],
+"structtfel_1_1math_1_1_result_type.html#ad52644350a45ae83e73d1595a044b748":[7,0,14,5,284,1],
 "structtfel_1_1math_1_1_result_type.html#ad52644350a45ae83e73d1595a044b748":[7,0,14,5,285,1],
 "structtfel_1_1math_1_1_result_type.html#ad52644350a45ae83e73d1595a044b748":[7,0,14,5,286,1],
 "structtfel_1_1math_1_1_result_type.html#ad52644350a45ae83e73d1595a044b748":[7,0,14,5,287,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX77 =
 "structtfel_1_1math_1_1_stack_allocated_tiny_powell_dog_leg_broyden_solver_workspace.html":[7,0,14,5,614],
 "structtfel_1_1math_1_1_stack_allocated_tiny_powell_dog_leg_broyden_solver_workspace.html#a3f265fedfc61a9426f2f2720b7a424c5":[5,0,9,1,611,0],
 "structtfel_1_1math_1_1_stack_allocated_tiny_powell_dog_leg_broyden_solver_workspace.html#a3f265fedfc61a9426f2f2720b7a424c5":[7,0,14,5,614,0],
-"structtfel_1_1math_1_1_stack_allocated_tiny_powell_dog_leg_broyden_solver_workspace.html#ad0974357e899c0957c038d358c819a2f":[5,0,9,1,611,1],
-"structtfel_1_1math_1_1_stack_allocated_tiny_powell_dog_leg_broyden_solver_workspace.html#ad0974357e899c0957c038d358c819a2f":[7,0,14,5,614,1],
-"structtfel_1_1math_1_1_stack_allocated_tiny_powell_dog_leg_newton_raphson_solver_workspace.html":[5,0,9,1,613]
+"structtfel_1_1math_1_1_stack_allocated_tiny_powell_dog_leg_broyden_solver_workspace.html#ad0974357e899c0957c038d358c819a2f":[5,0,9,1,611,1]
 };

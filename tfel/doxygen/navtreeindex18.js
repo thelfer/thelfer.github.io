@@ -1,5 +1,7 @@
 var NAVTREEINDEX18 =
 {
+"structmfront_1_1_abstract_behaviour_brick.html#acaf970aff8e91d6cb2856ca639f6ebe4":[5,0,7,13,9],
+"structmfront_1_1_abstract_behaviour_brick.html#acaf970aff8e91d6cb2856ca639f6ebe4":[7,0,10,16,9],
 "structmfront_1_1_abstract_behaviour_brick.html#acfed24627041e0659dd09bb6fbdc2af4":[5,0,7,13,7],
 "structmfront_1_1_abstract_behaviour_brick.html#acfed24627041e0659dd09bb6fbdc2af4":[7,0,10,16,7],
 "structmfront_1_1_abstract_behaviour_brick.html#ae3c8c7df5ecb046d1770f4300678f8c9":[5,0,7,13,11],
@@ -247,7 +249,5 @@ var NAVTREEINDEX18 =
 "structmfront_1_1_abstract_non_linear_system_solver.html":[5,0,7,21],
 "structmfront_1_1_abstract_non_linear_system_solver.html":[7,0,10,24],
 "structmfront_1_1_abstract_non_linear_system_solver.html#a038b79dfcfe459c4984922f897886560":[5,0,7,21,5],
-"structmfront_1_1_abstract_non_linear_system_solver.html#a038b79dfcfe459c4984922f897886560":[7,0,10,24,5],
-"structmfront_1_1_abstract_non_linear_system_solver.html#a1605d2b9ccb7eac5dbedff285e52882b":[5,0,7,21,1],
-"structmfront_1_1_abstract_non_linear_system_solver.html#a1605d2b9ccb7eac5dbedff285e52882b":[7,0,10,24,1]
+"structmfront_1_1_abstract_non_linear_system_solver.html#a038b79dfcfe459c4984922f897886560":[7,0,10,24,5]
 };

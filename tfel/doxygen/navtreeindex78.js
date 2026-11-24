@@ -1,5 +1,7 @@
 var NAVTREEINDEX78 =
 {
+"structtfel_1_1math_1_1_stack_allocated_tiny_powell_dog_leg_broyden_solver_workspace.html#ad0974357e899c0957c038d358c819a2f":[7,0,14,5,614,1],
+"structtfel_1_1math_1_1_stack_allocated_tiny_powell_dog_leg_newton_raphson_solver_workspace.html":[5,0,9,1,613],
 "structtfel_1_1math_1_1_stack_allocated_tiny_powell_dog_leg_newton_raphson_solver_workspace.html":[7,0,14,5,616],
 "structtfel_1_1math_1_1_stack_allocated_tiny_powell_dog_leg_newton_raphson_solver_workspace.html#a77e315cbce00cfcfade4fc760c6a8966":[5,0,9,1,613,0],
 "structtfel_1_1math_1_1_stack_allocated_tiny_powell_dog_leg_newton_raphson_solver_workspace.html#a77e315cbce00cfcfade4fc760c6a8966":[7,0,14,5,616,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX78 =
 "structtfel_1_1math_1_1_tensor_transpose_expr_base.html":[7,0,14,5,596],
 "structtfel_1_1math_1_1_tensor_view_from_stensor.html":[5,0,9,1,596],
 "structtfel_1_1math_1_1_tensor_view_from_stensor.html":[7,0,14,5,599],
-"structtfel_1_1math_1_1_tensor_view_from_stensor_expr.html":[5,0,9,1,594],
-"structtfel_1_1math_1_1_tensor_view_from_stensor_expr.html":[7,0,14,5,597],
-"structtfel_1_1math_1_1_tiny_broyden2_solver.html":[5,0,9,1,598]
+"structtfel_1_1math_1_1_tensor_view_from_stensor_expr.html":[5,0,9,1,594]
 };

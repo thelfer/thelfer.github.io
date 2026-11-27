@@ -1,5 +1,10 @@
 var NAVTREEINDEX44 =
 {
+"structmfront_1_1bbrick_1_1_inelastic_flow.html#aa10b6f3b1b37050e395cc9adb14dc4a7":[7,0,10,0,23,11],
+"structmfront_1_1bbrick_1_1_inelastic_flow.html#aa7ef8100ec1b9f85bb61e0e8118ea536":[7,0,10,0,23,0],
+"structmfront_1_1bbrick_1_1_inelastic_flow.html#abdb804462ec489590a4a6b020d3e93b8":[7,0,10,0,23,3],
+"structmfront_1_1bbrick_1_1_inelastic_flow.html#ad551a41c7edfce515a443b33dbd9bf5d":[7,0,10,0,23,2],
+"structmfront_1_1bbrick_1_1_inelastic_flow.html#ad58e81ab4d945bf1beb1ff74af998adf":[7,0,10,0,23,8],
 "structmfront_1_1bbrick_1_1_inelastic_flow.html#afe764e77f95ccc495394706df95f7b8b":[7,0,10,0,23,13],
 "structmfront_1_1bbrick_1_1_inelastic_flow_base.html":[7,0,10,0,24],
 "structmfront_1_1bbrick_1_1_inelastic_flow_base.html#a0e1e55991752aaea3456a72c5f430231":[7,0,10,0,24,15],
@@ -244,10 +249,5 @@ var NAVTREEINDEX44 =
 "structmfront_1_1bbrick_1_1_power_law_stress_based_porosity_nucleation_model.html":[7,0,10,0,45],
 "structmfront_1_1bbrick_1_1_power_law_stress_based_porosity_nucleation_model.html#a1d03164397bde5da5d2d79841e2fc7e8":[7,0,10,0,45,1],
 "structmfront_1_1bbrick_1_1_power_law_stress_based_porosity_nucleation_model.html#a4bc712e5f313ae89e2dc3f3abb9bee20":[7,0,10,0,45,0],
-"structmfront_1_1bbrick_1_1_power_law_stress_based_porosity_nucleation_model.html#ad46ad8083ef326c27e44733cf51585cc":[7,0,10,0,45,2],
-"structmfront_1_1bbrick_1_1_prager_kinematic_hardening_rule.html":[7,0,10,0,46],
-"structmfront_1_1bbrick_1_1_prager_kinematic_hardening_rule.html#a22fed542da3aaa35f420a19021996be2":[7,0,10,0,46,1],
-"structmfront_1_1bbrick_1_1_prager_kinematic_hardening_rule.html#aed62f52365e4522497c03b158d090965":[7,0,10,0,46,0],
-"structmfront_1_1bbrick_1_1_rousselier_tanguy_besson2002_stress_criterion.html":[7,0,10,0,47],
-"structmfront_1_1bbrick_1_1_rousselier_tanguy_besson2002_stress_criterion.html#a103b627ce9658559ba3740d9e7fd2aa2":[7,0,10,0,47,1]
+"structmfront_1_1bbrick_1_1_power_law_stress_based_porosity_nucleation_model.html#ad46ad8083ef326c27e44733cf51585cc":[7,0,10,0,45,2]
 };

@@ -1,5 +1,10 @@
 var NAVTREEINDEX77 =
 {
+"structtfel_1_1math_1_1_result_type.html#ad52644350a45ae83e73d1595a044b748":[5,0,9,1,646,1],
+"structtfel_1_1math_1_1_result_type.html#ad52644350a45ae83e73d1595a044b748":[5,0,9,1,647,1],
+"structtfel_1_1math_1_1_result_type.html#ad52644350a45ae83e73d1595a044b748":[5,0,9,1,648,1],
+"structtfel_1_1math_1_1_result_type.html#ad52644350a45ae83e73d1595a044b748":[5,0,9,1,649,1],
+"structtfel_1_1math_1_1_result_type.html#ad52644350a45ae83e73d1595a044b748":[7,0,14,5,82,1],
 "structtfel_1_1math_1_1_result_type.html#ad52644350a45ae83e73d1595a044b748":[7,0,14,5,83,1],
 "structtfel_1_1math_1_1_result_type.html#ad52644350a45ae83e73d1595a044b748":[7,0,14,5,84,1],
 "structtfel_1_1math_1_1_result_type.html#ad52644350a45ae83e73d1595a044b748":[7,0,14,5,162,1],
@@ -244,10 +249,5 @@ var NAVTREEINDEX77 =
 "structtfel_1_1math_1_1_stack_allocated_tiny_broyden_solver_workspace.html":[7,0,14,5,602],
 "structtfel_1_1math_1_1_stack_allocated_tiny_broyden_solver_workspace.html#a5b0532cb7f79597b290e7e8d63b9e8eb":[5,0,9,1,599,0],
 "structtfel_1_1math_1_1_stack_allocated_tiny_broyden_solver_workspace.html#a5b0532cb7f79597b290e7e8d63b9e8eb":[7,0,14,5,602,0],
-"structtfel_1_1math_1_1_stack_allocated_tiny_broyden_solver_workspace.html#af1abfb138be9c9f80eec2dcfefd85b9d":[5,0,9,1,599,1],
-"structtfel_1_1math_1_1_stack_allocated_tiny_broyden_solver_workspace.html#af1abfb138be9c9f80eec2dcfefd85b9d":[7,0,14,5,602,1],
-"structtfel_1_1math_1_1_stack_allocated_tiny_levenberg_marquardt_solver_workspace.html":[5,0,9,1,601],
-"structtfel_1_1math_1_1_stack_allocated_tiny_levenberg_marquardt_solver_workspace.html":[7,0,14,5,604],
-"structtfel_1_1math_1_1_stack_allocated_tiny_levenberg_marquardt_solver_workspace.html#a87295389aa417eef09137b27889da8de":[5,0,9,1,601,0],
-"structtfel_1_1math_1_1_stack_allocated_tiny_levenberg_marquardt_solver_workspace.html#a87295389aa417eef09137b27889da8de":[7,0,14,5,604,0]
+"structtfel_1_1math_1_1_stack_allocated_tiny_broyden_solver_workspace.html#af1abfb138be9c9f80eec2dcfefd85b9d":[5,0,9,1,599,1]
 };

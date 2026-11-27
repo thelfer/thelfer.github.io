@@ -1,5 +1,10 @@
 var NAVTREEINDEX78 =
 {
+"structtfel_1_1math_1_1_stack_allocated_tiny_broyden_solver_workspace.html#af1abfb138be9c9f80eec2dcfefd85b9d":[7,0,14,5,602,1],
+"structtfel_1_1math_1_1_stack_allocated_tiny_levenberg_marquardt_solver_workspace.html":[5,0,9,1,601],
+"structtfel_1_1math_1_1_stack_allocated_tiny_levenberg_marquardt_solver_workspace.html":[7,0,14,5,604],
+"structtfel_1_1math_1_1_stack_allocated_tiny_levenberg_marquardt_solver_workspace.html#a87295389aa417eef09137b27889da8de":[5,0,9,1,601,0],
+"structtfel_1_1math_1_1_stack_allocated_tiny_levenberg_marquardt_solver_workspace.html#a87295389aa417eef09137b27889da8de":[7,0,14,5,604,0],
 "structtfel_1_1math_1_1_stack_allocated_tiny_newton_raphson_solver_workspace.html":[5,0,9,1,609],
 "structtfel_1_1math_1_1_stack_allocated_tiny_newton_raphson_solver_workspace.html":[7,0,14,5,612],
 "structtfel_1_1math_1_1_stack_allocated_tiny_newton_raphson_solver_workspace.html#a60121fb01cda0f458d00ef87814b90f0":[5,0,9,1,609,0],
@@ -244,10 +249,5 @@ var NAVTREEINDEX78 =
 "structtfel_1_1math_1_1_tensor_product_expr3_d.html":[7,0,14,5,580],
 "structtfel_1_1math_1_1_tensor_product_expr_base.html":[5,0,9,1,574],
 "structtfel_1_1math_1_1_tensor_product_expr_base.html":[7,0,14,5,577],
-"structtfel_1_1math_1_1_tensor_product_left_derivative_expr.html":[5,0,9,1,514],
-"structtfel_1_1math_1_1_tensor_product_left_derivative_expr.html":[7,0,14,5,517],
-"structtfel_1_1math_1_1_tensor_product_right_derivative_expr.html":[5,0,9,1,515],
-"structtfel_1_1math_1_1_tensor_product_right_derivative_expr.html":[7,0,14,5,518],
-"structtfel_1_1math_1_1_tensor_s_t2to_t2_product_expr.html":[5,0,9,1,436],
-"structtfel_1_1math_1_1_tensor_s_t2to_t2_product_expr.html":[7,0,14,5,439]
+"structtfel_1_1math_1_1_tensor_product_left_derivative_expr.html":[5,0,9,1,514]
 };

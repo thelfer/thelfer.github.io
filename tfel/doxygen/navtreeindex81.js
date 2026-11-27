@@ -1,5 +1,10 @@
 var NAVTREEINDEX81 =
 {
+"structtfel_1_1math_1_1internals_1_1_f_s_e_s_analytical_symmetric_eigensolver2x2.html":[7,0,14,5,1,62],
+"structtfel_1_1math_1_1internals_1_1_f_s_e_s_analytical_symmetric_eigensolver3x3.html":[5,0,9,1,0,63],
+"structtfel_1_1math_1_1internals_1_1_f_s_e_s_analytical_symmetric_eigensolver3x3.html":[7,0,14,5,1,63],
+"structtfel_1_1math_1_1internals_1_1_gte_symmetric_eigensolver3x3.html":[5,0,9,1,0,64],
+"structtfel_1_1math_1_1internals_1_1_gte_symmetric_eigensolver3x3.html":[7,0,14,5,1,64],
 "structtfel_1_1math_1_1internals_1_1_harari_eigensolver3x3.html":[5,0,9,1,0,65],
 "structtfel_1_1math_1_1internals_1_1_harari_eigensolver3x3.html":[7,0,14,5,1,65],
 "structtfel_1_1math_1_1internals_1_1_has_concept_tag.html":[5,0,9,1,0,38],
@@ -244,10 +249,5 @@ var NAVTREEINDEX81 =
 "structtfel_1_1math_1_1matrix.html#a100ee43d8f70a79af2905b1e643f59ab":[7,0,14,5,122,2],
 "structtfel_1_1math_1_1matrix.html#a359bbde5b69380ff614c4484db231750":[5,0,9,1,119,6],
 "structtfel_1_1math_1_1matrix.html#a359bbde5b69380ff614c4484db231750":[7,0,14,5,122,6],
-"structtfel_1_1math_1_1matrix.html#a7967543545559fc2fec6919269b791b9":[5,0,9,1,119,5],
-"structtfel_1_1math_1_1matrix.html#a7967543545559fc2fec6919269b791b9":[7,0,14,5,122,5],
-"structtfel_1_1math_1_1matrix.html#ac5d1e17ccf6e13686ac29af194e97717":[5,0,9,1,119,0],
-"structtfel_1_1math_1_1matrix.html#ac5d1e17ccf6e13686ac29af194e97717":[7,0,14,5,122,0],
-"structtfel_1_1math_1_1matrix.html#ade38d905367f1ba30aa33402e7892a42":[5,0,9,1,119,3],
-"structtfel_1_1math_1_1matrix.html#ade38d905367f1ba30aa33402e7892a42":[7,0,14,5,122,3]
+"structtfel_1_1math_1_1matrix.html#a7967543545559fc2fec6919269b791b9":[5,0,9,1,119,5]
 };

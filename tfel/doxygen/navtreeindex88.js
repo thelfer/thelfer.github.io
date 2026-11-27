@@ -1,5 +1,10 @@
 var NAVTREEINDEX88 =
 {
+"syevj3_8hxx.html":[8,0,0,1,12],
+"syevj3_8ixx.html":[8,0,0,1,13],
+"syevq3_8hxx.html":[8,0,0,1,14],
+"syevq3_8ixx.html":[8,0,0,1,15],
+"syevv3_8hxx.html":[8,0,0,1,16],
 "syevv3_8ixx.html":[8,0,0,1,17],
 "symbols_8hxx.html":[8,0,6,0,0,2],
 "symbols_8hxx.html#abfd80557b4e1865a3d6cc6eade3c2bf4":[8,0,6,0,0,2,0],

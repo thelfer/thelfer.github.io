@@ -1,5 +1,10 @@
 var NAVTREEINDEX74 =
 {
+"structtfel_1_1math_1_1_matrix_tag.html":[7,0,14,5,269],
+"structtfel_1_1math_1_1_matrix_view_from_tensor_expr.html":[5,0,9,1,555],
+"structtfel_1_1math_1_1_matrix_view_from_tensor_expr.html":[7,0,14,5,558],
+"structtfel_1_1math_1_1_maximum_number_of_iterations_reached_exception.html":[5,0,9,1,264],
+"structtfel_1_1math_1_1_maximum_number_of_iterations_reached_exception.html":[7,0,14,5,267],
 "structtfel_1_1math_1_1_multi_indices_binary_operator_functor.html":[5,0,9,1,52],
 "structtfel_1_1math_1_1_multi_indices_binary_operator_functor.html":[7,0,14,5,55],
 "structtfel_1_1math_1_1_multi_indices_random_access_interator_wrapper.html":[5,0,9,1,53],
@@ -244,10 +249,5 @@ var NAVTREEINDEX74 =
 "structtfel_1_1math_1_1_result_type.html#a01447e55f2d3b74af0ebdc896f05e89f":[5,0,9,1,404,3],
 "structtfel_1_1math_1_1_result_type.html#a01447e55f2d3b74af0ebdc896f05e89f":[5,0,9,1,405,3],
 "structtfel_1_1math_1_1_result_type.html#a01447e55f2d3b74af0ebdc896f05e89f":[5,0,9,1,406,3],
-"structtfel_1_1math_1_1_result_type.html#a01447e55f2d3b74af0ebdc896f05e89f":[5,0,9,1,407,3],
-"structtfel_1_1math_1_1_result_type.html#a01447e55f2d3b74af0ebdc896f05e89f":[5,0,9,1,408,3],
-"structtfel_1_1math_1_1_result_type.html#a01447e55f2d3b74af0ebdc896f05e89f":[5,0,9,1,409,3],
-"structtfel_1_1math_1_1_result_type.html#a01447e55f2d3b74af0ebdc896f05e89f":[5,0,9,1,458,3],
-"structtfel_1_1math_1_1_result_type.html#a01447e55f2d3b74af0ebdc896f05e89f":[5,0,9,1,459,3],
-"structtfel_1_1math_1_1_result_type.html#a01447e55f2d3b74af0ebdc896f05e89f":[5,0,9,1,460,3]
+"structtfel_1_1math_1_1_result_type.html#a01447e55f2d3b74af0ebdc896f05e89f":[5,0,9,1,407,3]
 };

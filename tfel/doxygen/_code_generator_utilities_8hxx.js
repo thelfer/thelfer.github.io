@@ -18,6 +18,7 @@ var _code_generator_utilities_8hxx =
     [ "mfront::writeExportDirectives", "namespacemfront.html#afbce7f75c4853c9b172bf22390a09d85", null ],
     [ "mfront::writeF77FUNCMacros", "namespacemfront.html#ae51c8df3da487cf59581619b7c0a3742", null ],
     [ "mfront::writeFileDescriptionSymbols", "namespacemfront.html#a9ef9ecb628be0b4f4095731f76d7b5bd", null ],
+    [ "mfront::writeIfDifferentFromExistingFileContent", "namespacemfront.html#a81b7f9b3d69aef140cbc4551f129cf45", null ],
     [ "mfront::writeInterfaceSymbol", "namespacemfront.html#a1385c857d93c840fe94edebff87f1d19", null ],
     [ "mfront::writeLawSymbol", "namespacemfront.html#afbbaf50ae0b78171cf4dfb2cfeadc5f7", null ],
     [ "mfront::writeMaterialKnowledgeTypeSymbol", "namespacemfront.html#aaedd12547bbf3d39230f2b94fd5ffdd9", null ],

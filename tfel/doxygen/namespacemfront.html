@@ -629,6 +629,8 @@ MFRONT_VISIBILITY_EXPORT <a class="el" href="include_2_cyrano_2_behaviour_8hxx.h
 <tr class="memdesc:a2881b222fcc9a44ff6f12125c039d869"><td class="mdescLeft">&#160;</td><td class="mdescRight">print a <span class="tt">#line</span> pragma indicating a line number and a file name  <br /></td></tr>
 <tr class="memitem:ae6d4579c0c213430f0136e0d845cccc1" id="r_ae6d4579c0c213430f0136e0d845cccc1"><td class="memItemLeft" align="right" valign="top">MFRONT_VISIBILITY_EXPORT <a class="el" href="include_2_cyrano_2_behaviour_8hxx.html#a1f775cf4fa3cbc5f015abdd0796e276c">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae6d4579c0c213430f0136e0d845cccc1">writePhysicalConstantsAlias</a> (std::ostream &amp;, const <a class="el" href="structmfront_1_1_material_knowledge_description.html">MaterialKnowledgeDescription</a> &amp;, std::string_view, const bool)</td></tr>
 <tr class="memdesc:ae6d4579c0c213430f0136e0d845cccc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">declare an alias to the PhysicalConstant class  <br /></td></tr>
+<tr class="memitem:a81b7f9b3d69aef140cbc4551f129cf45" id="r_a81b7f9b3d69aef140cbc4551f129cf45"><td class="memItemLeft" align="right" valign="top">MFRONT_VISIBILITY_EXPORT bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a81b7f9b3d69aef140cbc4551f129cf45">writeIfDifferentFromExistingFileContent</a> (const std::string &amp;f, const std::string &amp;contents)</td></tr>
+<tr class="memdesc:a81b7f9b3d69aef140cbc4551f129cf45"><td class="mdescLeft">&#160;</td><td class="mdescRight">write the contents of a generated file only if the file does not exist or if its contents differ from the given contents.  <br /></td></tr>
 <tr class="memitem:a1b621098dc31391449a3efc0d7084ed5" id="r_a1b621098dc31391449a3efc0d7084ed5"><td class="memItemLeft" align="right" valign="top">MFRONT_VISIBILITY_EXPORT <a class="el" href="include_2_cyrano_2_behaviour_8hxx.html#a1f775cf4fa3cbc5f015abdd0796e276c">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b621098dc31391449a3efc0d7084ed5">setDefaultCompatibilityMode</a> (const <a class="el" href="structmfront_1_1_compatibility_mode_1_1_version.html">CompatibilityMode::Version</a> &amp;)</td></tr>
 <tr class="memdesc:a1b621098dc31391449a3efc0d7084ed5"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the default compatibility mode, stored in a global static variable.  <br /></td></tr>
 <tr class="memitem:add32bcd97a258966f4d0ff353c4e9cf0" id="r_add32bcd97a258966f4d0ff353c4e9cf0"><td class="memItemLeft" align="right" valign="top">MFRONT_VISIBILITY_EXPORT <a class="el" href="include_2_cyrano_2_behaviour_8hxx.html#a1f775cf4fa3cbc5f015abdd0796e276c">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add32bcd97a258966f4d0ff353c4e9cf0">setDefaultCompatibilityMode</a> (std::string_view)</td></tr>
@@ -6384,6 +6386,38 @@ template&lt;&gt; </div>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a81b7f9b3d69aef140cbc4551f129cf45" name="a81b7f9b3d69aef140cbc4551f129cf45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81b7f9b3d69aef140cbc4551f129cf45">&#9670;&#160;</a></span>writeIfDifferentFromExistingFileContent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MFRONT_VISIBILITY_EXPORT bool mfront::writeIfDifferentFromExistingFileContent </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>f</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>contents</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>write the contents of a generated file only if the file does not exist or if its contents differ from the given contents. </p>
+<p>Several mfront processes may generate the files associated with an external mfront file in the same directory (for instance when several behaviours use the same external mfront file and are compiled in parallel). Rewriting such a file which may be concurrently opened by another process or by the compiler can lead to spurious failures, in particular on Windows, and triggers useless rebuilds. This function avoids both by only writing the file when its contents actually change.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">f</td><td>file name </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">contents</td><td>contents of the file </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the file has been written, false if it was up-to-date. </dd></dl>
 
 </div>
 </div>

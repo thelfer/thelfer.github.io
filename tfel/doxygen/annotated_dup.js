@@ -704,7 +704,7 @@ var annotated_dup =
       [ "MFrontBehaviourInterface", "structmfront_1_1_m_front_behaviour_interface.html", "structmfront_1_1_m_front_behaviour_interface" ],
       [ "MFrontDatabase", "structmfront_1_1_m_front_database.html", "structmfront_1_1_m_front_database" ],
       [ "MFrontHeader", "structmfront_1_1_m_front_header.html", null ],
-      [ "MFrontLock", "structmfront_1_1_m_front_lock.html", null ],
+      [ "MFrontLock", "structmfront_1_1_m_front_lock.html", "structmfront_1_1_m_front_lock" ],
       [ "MFrontLockGuard", "structmfront_1_1_m_front_lock_guard.html", "structmfront_1_1_m_front_lock_guard" ],
       [ "MFrontMaterialPropertyInterface", "structmfront_1_1_m_front_material_property_interface.html", "structmfront_1_1_m_front_material_property_interface" ],
       [ "MFrontModelInterface", "structmfront_1_1_m_front_model_interface.html", "structmfront_1_1_m_front_model_interface" ],

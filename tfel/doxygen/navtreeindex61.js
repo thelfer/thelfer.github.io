@@ -1,5 +1,10 @@
 var NAVTREEINDEX61 =
 {
+"structtfel_1_1material_1_1_gurson_tvergaard_needleman1982_stress_criterion_parameters.html":[7,0,14,4,31],
+"structtfel_1_1material_1_1_gurson_tvergaard_needleman1982_stress_criterion_parameters.html#a169d1825466ec29de26a28371e8975f9":[5,0,9,0,32,5],
+"structtfel_1_1material_1_1_gurson_tvergaard_needleman1982_stress_criterion_parameters.html#a169d1825466ec29de26a28371e8975f9":[7,0,14,4,31,5],
+"structtfel_1_1material_1_1_gurson_tvergaard_needleman1982_stress_criterion_parameters.html#a31764032298fca5fdf6d44b49360345c":[5,0,9,0,32,0],
+"structtfel_1_1material_1_1_gurson_tvergaard_needleman1982_stress_criterion_parameters.html#a31764032298fca5fdf6d44b49360345c":[7,0,14,4,31,0],
 "structtfel_1_1material_1_1_gurson_tvergaard_needleman1982_stress_criterion_parameters.html#a3ba5c982114e3ad1fe5771ec482c6430":[5,0,9,0,32,1],
 "structtfel_1_1material_1_1_gurson_tvergaard_needleman1982_stress_criterion_parameters.html#a3ba5c982114e3ad1fe5771ec482c6430":[7,0,14,4,31,1],
 "structtfel_1_1material_1_1_gurson_tvergaard_needleman1982_stress_criterion_parameters.html#a60b7f18715022a7af9c3799965250de3":[5,0,9,0,32,3],
@@ -244,10 +249,5 @@ var NAVTREEINDEX61 =
 "structtfel_1_1material_1_1_mechanical_behaviour_traits.html":[7,0,14,4,58],
 "structtfel_1_1material_1_1_metallic_c_f_c_generic_sliding_systems_interaction_matrix.html":[5,0,9,0,60],
 "structtfel_1_1material_1_1_metallic_c_f_c_generic_sliding_systems_interaction_matrix.html":[7,0,14,4,59],
-"structtfel_1_1material_1_1_metallic_c_f_c_generic_sliding_systems_interaction_matrix.html#aa7015f47a488c5753bcfb57dfc590b7b":[5,0,9,0,60,0],
-"structtfel_1_1material_1_1_metallic_c_f_c_generic_sliding_systems_interaction_matrix.html#aa7015f47a488c5753bcfb57dfc590b7b":[7,0,14,4,59,0],
-"structtfel_1_1material_1_1_metallic_c_f_c_sliding_systems.html":[5,0,9,0,61],
-"structtfel_1_1material_1_1_metallic_c_f_c_sliding_systems.html":[7,0,14,4,60],
-"structtfel_1_1material_1_1_metallic_c_f_c_sliding_systems.html#a00cb8e1909414019c38558e87d6492d9":[5,0,9,0,61,0],
-"structtfel_1_1material_1_1_metallic_c_f_c_sliding_systems.html#a00cb8e1909414019c38558e87d6492d9":[7,0,14,4,60,0]
+"structtfel_1_1material_1_1_metallic_c_f_c_generic_sliding_systems_interaction_matrix.html#aa7015f47a488c5753bcfb57dfc590b7b":[5,0,9,0,60,0]
 };

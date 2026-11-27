@@ -1,5 +1,10 @@
 var NAVTREEINDEX60 =
 {
+"structtfel_1_1fsalgo_1_1fill.html":[7,0,14,2,15],
+"structtfel_1_1fsalgo_1_1for__each.html":[7,0,14,2,16],
+"structtfel_1_1fsalgo_1_1generate.html":[7,0,14,2,17],
+"structtfel_1_1fsalgo_1_1inner__product.html":[7,0,14,2,18],
+"structtfel_1_1fsalgo_1_1internals_1_1do__loop.html":[7,0,14,2,0,0],
 "structtfel_1_1fsalgo_1_1internals_1_1do__loop_3_01_n_00_01_n_01_4.html":[7,0,14,2,0,1],
 "structtfel_1_1fsalgo_1_1iota.html":[7,0,14,2,19],
 "structtfel_1_1fsalgo_1_1iota_3_010u_01_4.html":[7,0,14,2,20],
@@ -244,10 +249,5 @@ var NAVTREEINDEX60 =
 "structtfel_1_1material_1_1_get_default_stiffness_tensor_alteration_characteristic_3_01_modellingc93a157759639c2ff240bdee7dd34105.html":[7,0,14,4,95],
 "structtfel_1_1material_1_1_get_default_stiffness_tensor_alteration_characteristic_3_01_modellingd276170b62645a82c325df209c188abb.html":[5,0,9,0,97],
 "structtfel_1_1material_1_1_get_default_stiffness_tensor_alteration_characteristic_3_01_modellingd276170b62645a82c325df209c188abb.html":[7,0,14,4,96],
-"structtfel_1_1material_1_1_gurson_tvergaard_needleman1982_stress_criterion_parameters.html":[5,0,9,0,32],
-"structtfel_1_1material_1_1_gurson_tvergaard_needleman1982_stress_criterion_parameters.html":[7,0,14,4,31],
-"structtfel_1_1material_1_1_gurson_tvergaard_needleman1982_stress_criterion_parameters.html#a169d1825466ec29de26a28371e8975f9":[5,0,9,0,32,5],
-"structtfel_1_1material_1_1_gurson_tvergaard_needleman1982_stress_criterion_parameters.html#a169d1825466ec29de26a28371e8975f9":[7,0,14,4,31,5],
-"structtfel_1_1material_1_1_gurson_tvergaard_needleman1982_stress_criterion_parameters.html#a31764032298fca5fdf6d44b49360345c":[5,0,9,0,32,0],
-"structtfel_1_1material_1_1_gurson_tvergaard_needleman1982_stress_criterion_parameters.html#a31764032298fca5fdf6d44b49360345c":[7,0,14,4,31,0]
+"structtfel_1_1material_1_1_gurson_tvergaard_needleman1982_stress_criterion_parameters.html":[5,0,9,0,32]
 };

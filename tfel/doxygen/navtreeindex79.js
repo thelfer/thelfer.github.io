@@ -1,5 +1,10 @@
 var NAVTREEINDEX79 =
 {
+"structtfel_1_1math_1_1_tensor_product_left_derivative_expr.html":[7,0,14,5,517],
+"structtfel_1_1math_1_1_tensor_product_right_derivative_expr.html":[5,0,9,1,515],
+"structtfel_1_1math_1_1_tensor_product_right_derivative_expr.html":[7,0,14,5,518],
+"structtfel_1_1math_1_1_tensor_s_t2to_t2_product_expr.html":[5,0,9,1,436],
+"structtfel_1_1math_1_1_tensor_s_t2to_t2_product_expr.html":[7,0,14,5,439],
 "structtfel_1_1math_1_1_tensor_size_to_dime.html":[5,0,9,1,146],
 "structtfel_1_1math_1_1_tensor_size_to_dime.html":[7,0,14,5,149],
 "structtfel_1_1math_1_1_tensor_t2to_t2_product_expr.html":[5,0,9,1,549],
@@ -244,10 +249,5 @@ var NAVTREEINDEX79 =
 "structtfel_1_1math_1_1_view.html#a365ef8fc9dff051dd7bdad17b572e973":[7,0,14,5,76,8],
 "structtfel_1_1math_1_1_view.html#a7100f400fb10210844bbcf4111fd1e09":[5,0,9,1,73,3],
 "structtfel_1_1math_1_1_view.html#a7100f400fb10210844bbcf4111fd1e09":[7,0,14,5,76,3],
-"structtfel_1_1math_1_1_view.html#a8643d2764bcd8fa54d7e3c2c151cb12f":[5,0,9,1,73,11],
-"structtfel_1_1math_1_1_view.html#a8643d2764bcd8fa54d7e3c2c151cb12f":[7,0,14,5,76,11],
-"structtfel_1_1math_1_1_view.html#a891db766b3ccfe35681425da6474eb88":[5,0,9,1,73,5],
-"structtfel_1_1math_1_1_view.html#a891db766b3ccfe35681425da6474eb88":[7,0,14,5,76,5],
-"structtfel_1_1math_1_1_view.html#a8ca7190d03c02e24f32ddd7366d05700":[5,0,9,1,73,7],
-"structtfel_1_1math_1_1_view.html#a8ca7190d03c02e24f32ddd7366d05700":[7,0,14,5,76,7]
+"structtfel_1_1math_1_1_view.html#a8643d2764bcd8fa54d7e3c2c151cb12f":[5,0,9,1,73,11]
 };

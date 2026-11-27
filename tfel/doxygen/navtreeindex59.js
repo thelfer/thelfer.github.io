@@ -1,5 +1,10 @@
 var NAVTREEINDEX59 =
 {
+"structtfel_01_1_1math_1_1_op_diadic_product.html":[7,0,15,0,6],
+"structtfel_01_1_1math_1_1_op_div.html":[7,0,15,0,3],
+"structtfel_01_1_1math_1_1_op_dot_product.html":[7,0,15,0,5],
+"structtfel_01_1_1math_1_1_op_minus.html":[7,0,15,0,1],
+"structtfel_01_1_1math_1_1_op_mult.html":[7,0,15,0,2],
 "structtfel_01_1_1math_1_1_op_neg.html":[7,0,15,0,4],
 "structtfel_01_1_1math_1_1_op_plus.html":[7,0,15,0,0],
 "structtfel_1_1_physical_constants.html":[5,0,9,2],
@@ -244,10 +249,5 @@ var NAVTREEINDEX59 =
 "structtfel_1_1fsalgo_1_1copy_3_017u_01_4.html":[7,0,14,2,10],
 "structtfel_1_1fsalgo_1_1copy_3_018u_01_4.html":[7,0,14,2,11],
 "structtfel_1_1fsalgo_1_1copy_3_019u_01_4.html":[7,0,14,2,12],
-"structtfel_1_1fsalgo_1_1equal.html":[7,0,14,2,14],
-"structtfel_1_1fsalgo_1_1fill.html":[7,0,14,2,15],
-"structtfel_1_1fsalgo_1_1for__each.html":[7,0,14,2,16],
-"structtfel_1_1fsalgo_1_1generate.html":[7,0,14,2,17],
-"structtfel_1_1fsalgo_1_1inner__product.html":[7,0,14,2,18],
-"structtfel_1_1fsalgo_1_1internals_1_1do__loop.html":[7,0,14,2,0,0]
+"structtfel_1_1fsalgo_1_1equal.html":[7,0,14,2,14]
 };

@@ -1,5 +1,6 @@
 var NAVTREEINDEX17 =
 {
+"structlsdyna_1_1_stress_free_expansion_handler_type.html":[7,0,8,0],
 "structlsdyna_1_1_stress_free_expansion_handler_type.html#a564cf69133e6ccc3155b982ffa8d66ba":[7,0,8,0,0],
 "structlsdyna_1_1_u_m_a_t_export_thermodynamic_forces.html":[7,0,8,33],
 "structlsdyna_1_1_u_m_a_t_export_thermodynamic_forces_3_01tfel_1_1material_1_1_modelling_hypothes6f32e092d7ac11f25b84bd8843e78318.html":[7,0,8,34],
@@ -248,6 +249,5 @@ var NAVTREEINDEX17 =
 "structmfront_1_1_abstract_behaviour_brick.html#a2719d82e63c8f825a7d32e606f98f488":[5,0,7,13,5],
 "structmfront_1_1_abstract_behaviour_brick.html#a2719d82e63c8f825a7d32e606f98f488":[7,0,10,16,5],
 "structmfront_1_1_abstract_behaviour_brick.html#a2943bd5ecc5831a87446d53adbec9581":[5,0,7,13,14],
-"structmfront_1_1_abstract_behaviour_brick.html#a2943bd5ecc5831a87446d53adbec9581":[7,0,10,16,14],
-"structmfront_1_1_abstract_behaviour_brick.html#a2c464aadee510a3084ad608be990fdb7":[5,0,7,13,6]
+"structmfront_1_1_abstract_behaviour_brick.html#a2943bd5ecc5831a87446d53adbec9581":[7,0,10,16,14]
 };

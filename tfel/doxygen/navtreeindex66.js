@@ -1,5 +1,10 @@
 var NAVTREEINDEX66 =
 {
+"structtfel_1_1math_1_1_derivative_type_dispatcher_3_01_s_t2to_t2_tag_00_01_scalar_tag_00_01_s_t26b1adfc3d7be39b73bf7090f41b3f787.html#a41479fb3db4538a8c40a7e793410137c":[7,0,14,5,386,1],
+"structtfel_1_1math_1_1_derivative_type_dispatcher_3_01_scalar_tag_00_01_matrix_tag_00_01_scalar_55980c9d9faf234cad9c9d1d524ba52e.html":[5,0,9,1,616],
+"structtfel_1_1math_1_1_derivative_type_dispatcher_3_01_scalar_tag_00_01_matrix_tag_00_01_scalar_55980c9d9faf234cad9c9d1d524ba52e.html":[7,0,14,5,619],
+"structtfel_1_1math_1_1_derivative_type_dispatcher_3_01_scalar_tag_00_01_matrix_tag_00_01_scalar_55980c9d9faf234cad9c9d1d524ba52e.html#af71c6a29de4958460868ca39392a04cf":[5,0,9,1,616,1],
+"structtfel_1_1math_1_1_derivative_type_dispatcher_3_01_scalar_tag_00_01_matrix_tag_00_01_scalar_55980c9d9faf234cad9c9d1d524ba52e.html#af71c6a29de4958460868ca39392a04cf":[7,0,14,5,619,1],
 "structtfel_1_1math_1_1_derivative_type_dispatcher_3_01_scalar_tag_00_01_s_t2to_s_t2_tag_00_01_sc46506b47b278b886b4424c3100012372.html":[5,0,9,1,337],
 "structtfel_1_1math_1_1_derivative_type_dispatcher_3_01_scalar_tag_00_01_s_t2to_s_t2_tag_00_01_sc46506b47b278b886b4424c3100012372.html":[7,0,14,5,340],
 "structtfel_1_1math_1_1_derivative_type_dispatcher_3_01_scalar_tag_00_01_s_t2to_s_t2_tag_00_01_sc46506b47b278b886b4424c3100012372.html#acb06c4593b292af8c03b8cd3ba2bc481":[5,0,9,1,337,1],
@@ -244,10 +249,5 @@ var NAVTREEINDEX66 =
 "structtfel_1_1math_1_1_expr.html#a61a4d4c416bfffd39595081fb097c93b":[5,0,9,1,368,1],
 "structtfel_1_1math_1_1_expr.html#a61a4d4c416bfffd39595081fb097c93b":[5,0,9,1,370,1],
 "structtfel_1_1math_1_1_expr.html#a61a4d4c416bfffd39595081fb097c93b":[5,0,9,1,371,1],
-"structtfel_1_1math_1_1_expr.html#a61a4d4c416bfffd39595081fb097c93b":[5,0,9,1,372,1],
-"structtfel_1_1math_1_1_expr.html#a61a4d4c416bfffd39595081fb097c93b":[5,0,9,1,374,1],
-"structtfel_1_1math_1_1_expr.html#a61a4d4c416bfffd39595081fb097c93b":[5,0,9,1,375,1],
-"structtfel_1_1math_1_1_expr.html#a61a4d4c416bfffd39595081fb097c93b":[5,0,9,1,376,1],
-"structtfel_1_1math_1_1_expr.html#a61a4d4c416bfffd39595081fb097c93b":[5,0,9,1,411,1],
-"structtfel_1_1math_1_1_expr.html#a61a4d4c416bfffd39595081fb097c93b":[5,0,9,1,412,1]
+"structtfel_1_1math_1_1_expr.html#a61a4d4c416bfffd39595081fb097c93b":[5,0,9,1,372,1]
 };
